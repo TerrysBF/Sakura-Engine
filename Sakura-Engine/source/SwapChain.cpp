@@ -1,15 +1,29 @@
+/**
+ * @file SwapChain.cpp
+ * @brief Implementación del swap chain: crear, conseguir back buffer, presentar y liberar.
+ */
+
 #include "SwapChain.h"
 #include "Device.h"
 #include "DeviceContext.h"
 #include "Texture.h"
 #include "Window.h"
 
+ /**
+  * @brief Crea el swap chain y obtiene el back buffer.
+  * @param device Dispositivo D3D11.
+  * @param deviceContext Contexto inmediato.
+  * @param backBuffer Textura que representará el back buffer.
+  * @param window Ventana destino.
+  * @return S_OK si sale bien HRESULT si sale error.
+  * @note Usa 4x MSAA si está disponible.
+  */
 HRESULT
 SwapChain::init(Device& device,
   DeviceContext& deviceContext,
   Texture& backBuffer,
   Window window) {
-  // Check if Window is valid
+  // Validar ventana
   if (!window.m_hWnd) {
     ERROR("SwapChain", "init", "Invalid window handle. (m_hWnd is nullptr)");
     return E_POINTER;
@@ -17,12 +31,13 @@ SwapChain::init(Device& device,
 
   HRESULT hr = S_OK;
 
-  // Create the swap chain device and context
+  // Flags del device
   unsigned int createDeviceFlags = 0;
 #ifdef _DEBUG
   createDeviceFlags |= D3D11_CREATE_DEVICE_DEBUG;
 #endif
 
+  // Tipos de driver a intentar
   D3D_DRIVER_TYPE driverTypes[] = {
       D3D_DRIVER_TYPE_HARDWARE,
       D3D_DRIVER_TYPE_WARP,
@@ -30,6 +45,7 @@ SwapChain::init(Device& device,
   };
   unsigned int numDriverTypes = ARRAYSIZE(driverTypes);
 
+  // Feature levels aceptados
   D3D_FEATURE_LEVEL featureLevels[] = {
       D3D_FEATURE_LEVEL_11_0,
       D3D_FEATURE_LEVEL_10_1,
@@ -37,7 +53,7 @@ SwapChain::init(Device& device,
   };
   unsigned int numFeatureLevels = ARRAYSIZE(featureLevels);
 
-  // Create the device
+  // Crear el device/context
   for (unsigned int driverTypeIndex = 0; driverTypeIndex < numDriverTypes; driverTypeIndex++) {
     D3D_DRIVER_TYPE driverType = driverTypes[driverTypeIndex];
     hr = D3D11CreateDevice(nullptr,
@@ -63,7 +79,7 @@ SwapChain::init(Device& device,
     return hr;
   }
 
-  // Config the MSAA settings
+  // Configurar MSAA (4x si está disponible)
   m_sampleCount = 4;
   hr = device.m_device->CheckMultisampleQualityLevels(DXGI_FORMAT_R8G8B8A8_UNORM,
     m_sampleCount,
@@ -74,7 +90,7 @@ SwapChain::init(Device& device,
     return hr;
   }
 
-  // Config the swap chain description
+  // Descripción del swap chain
   DXGI_SWAP_CHAIN_DESC sd;
   memset(&sd, 0, sizeof(sd));
   sd.BufferCount = 1;
@@ -90,7 +106,7 @@ SwapChain::init(Device& device,
   sd.SampleDesc.Count = m_sampleCount;
   sd.SampleDesc.Quality = m_qualityLevels - 1;
 
-  // Get the DXGI factory
+  // Obtener factory de DXGI (device -> adapter -> factory)
   hr = device.m_device->QueryInterface(__uuidof(IDXGIDevice), (void**)&m_dxgiDevice);
   if (FAILED(hr)) {
     ERROR("SwapChain", "init",
@@ -113,7 +129,7 @@ SwapChain::init(Device& device,
     return hr;
   }
 
-  // Create the swap chain
+  // Crear el swap chain
   hr = m_dxgiFactory->CreateSwapChain(device.m_device, &sd, &m_swapChain);
 
   if (FAILED(hr)) {
@@ -122,7 +138,7 @@ SwapChain::init(Device& device,
     return hr;
   }
 
-  // Get the backbuffer
+  // Obtener el back buffer (textura)
   hr = m_swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D),
     reinterpret_cast<void**>(&backBuffer));
   if (FAILED(hr)) {
@@ -134,6 +150,9 @@ SwapChain::init(Device& device,
   return S_OK;
 }
 
+/**
+ * @brief Libera swap chain y las interfaces DXGI usadas (device/adapter/factory).
+ */
 void
 SwapChain::destroy() {
   if (m_swapChain) {
@@ -150,6 +169,10 @@ SwapChain::destroy() {
   }
 }
 
+/**
+ * @brief Presenta el back buffer en la ventana.
+ * @note Present(0,0) es sin VSync; cambia los flags si quieres VSync.
+ */
 void
 SwapChain::present() {
   if (m_swapChain) {
@@ -163,4 +186,3 @@ SwapChain::present() {
     ERROR("SwapChain", "present", "Swap chain is not initialized.");
   }
 }
-

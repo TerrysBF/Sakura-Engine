@@ -1,9 +1,21 @@
+/**
+ * @file RenderTargetView.cpp
+ * @brief Implementación sencilla del RTV: crear, limpiar/bind y liberar.
+ */
+
 #include "RenderTargetView.h"
 #include "Device.h"
 #include "Texture.h"
 #include "DeviceContext.h"
 #include "DepthStencilView.h"
 
+ /**
+	* @brief Crea la RTV desde el back buffer (multisample 2D).
+	* @param device Device ya creado.
+	* @param backBuffer Textura del swap chain.
+	* @param Format Formato del RTV.
+	* @return S_OK HRESULT en error.
+	*/
 HRESULT
 RenderTargetView::init(Device& device, Texture& backBuffer, DXGI_FORMAT Format) {
 	if (!device.m_device) {
@@ -19,14 +31,15 @@ RenderTargetView::init(Device& device, Texture& backBuffer, DXGI_FORMAT Format) 
 		return E_INVALIDARG;
 	}
 
-	// Config the description for the render target view
+	// Desc básico para RTV (TEXTURE2DMS)
 	D3D11_RENDER_TARGET_VIEW_DESC desc;
 	memset(&desc, 0, sizeof(desc));
 	desc.Format = Format;
 	desc.ViewDimension = D3D11_RTV_DIMENSION_TEXTURE2DMS;
 
-	// Create the render target view
-	HRESULT hr = device.m_device->CreateRenderTargetView(backBuffer.m_texture,
+	// Crear RTV
+	HRESULT hr = device.m_device->CreateRenderTargetView(
+		backBuffer.m_texture,
 		&desc,
 		&m_renderTargetView);
 	if (FAILED(hr)) {
@@ -38,6 +51,14 @@ RenderTargetView::init(Device& device, Texture& backBuffer, DXGI_FORMAT Format) 
 	return S_OK;
 }
 
+/**
+ * @brief Crea la RTV desde una textura cualquiera.
+ * @param device Device ya creado.
+ * @param inTex Textura base.
+ * @param ViewDimension Dimensión (ej. TEXTURE2D / TEXTURE2DMS).
+ * @param Format Formato de la view.
+ * @return S_OK HRESULT en error.
+ */
 HRESULT
 RenderTargetView::init(Device& device,
 	Texture& inTex,
@@ -56,14 +77,15 @@ RenderTargetView::init(Device& device,
 		return E_INVALIDARG;
 	}
 
-	// Config the description for the render target view
+	// Desc de RTV según la dimensión pedida
 	D3D11_RENDER_TARGET_VIEW_DESC desc;
 	memset(&desc, 0, sizeof(desc));
 	desc.Format = Format;
 	desc.ViewDimension = ViewDimension;
 
-	// Create the render target view
-	HRESULT hr = device.m_device->CreateRenderTargetView(inTex.m_texture,
+	// Crear RTV
+	HRESULT hr = device.m_device->CreateRenderTargetView(
+		inTex.m_texture,
 		&desc,
 		&m_renderTargetView);
 
@@ -76,6 +98,13 @@ RenderTargetView::init(Device& device,
 	return S_OK;
 }
 
+/**
+ * @brief Limpia la RTV con color y bindea RTV+DSV al OM.
+ * @param deviceContext Contexto D3D11.
+ * @param depthStencilView DSV a usar.
+ * @param numViews Número de RTVs (normalmente 1).
+ * @param ClearColor Color RGBA para el clear.
+ */
 void
 RenderTargetView::render(DeviceContext& deviceContext,
 	DepthStencilView& depthStencilView,
@@ -90,15 +119,19 @@ RenderTargetView::render(DeviceContext& deviceContext,
 		return;
 	}
 
-	// Clear the render target view
+	// Clear y bind de RTV + DSV
 	deviceContext.m_deviceContext->ClearRenderTargetView(m_renderTargetView, ClearColor);
-
-	// Config render target view and depth stencil view
-	deviceContext.m_deviceContext->OMSetRenderTargets(numViews,
+	deviceContext.m_deviceContext->OMSetRenderTargets(
+		numViews,
 		&m_renderTargetView,
 		depthStencilView.m_depthStencilView);
 }
 
+/**
+ * @brief Solo bindea la RTV (sin limpiar y sin DSV).
+ * @param deviceContext Contexto D3D11.
+ * @param numViews Número de RTVs (normalmente 1).
+ */
 void
 RenderTargetView::render(DeviceContext& deviceContext, unsigned int numViews) {
 	if (!deviceContext.m_deviceContext) {
@@ -109,12 +142,17 @@ RenderTargetView::render(DeviceContext& deviceContext, unsigned int numViews) {
 		ERROR("RenderTargetView", "render", "RenderTargetView is nullptr.");
 		return;
 	}
-	// Config render target view
-	deviceContext.m_deviceContext->OMSetRenderTargets(numViews,
+
+	deviceContext.m_deviceContext->OMSetRenderTargets(
+		numViews,
 		&m_renderTargetView,
 		nullptr);
 }
 
+/**
+ * @brief Libera la RTV.
+ * @note Se puede llamar varias veces sin problema.
+ */
 void RenderTargetView::destroy() {
 	SAFE_RELEASE(m_renderTargetView);
 }

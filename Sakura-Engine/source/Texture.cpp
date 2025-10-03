@@ -1,7 +1,16 @@
+/**
+ * @file Texture.cpp
+ * @brief Implementación básica de Texture: crear, bind y liberar.
+ */
+
 #include "Texture.h"
 #include "Device.h"
 #include "DeviceContext.h"
 
+ /**
+  * @brief Carga desde archivo (aún no implementado).
+  * @note @todo Implementar lectura según la extensión (PNG/JPG/DDS).
+  */
 HRESULT
 Texture::init(Device& device,
   const std::string& textureName,
@@ -9,6 +18,14 @@ Texture::init(Device& device,
   return E_NOTIMPL;
 }
 
+/**
+ * @brief Crea una textura 2D vacía en GPU.
+ * @param width, height Tamaño en píxeles.
+ * @param Format Formato DXGI.
+ * @param sampleCount/qualityLevels MSAA (1 = sin MSAA).
+ * @return S_OK si sale bien HRESULT si sale error.
+ * @note Si width/height son 0, se considera argumento inválido.
+ */
 HRESULT
 Texture::init(Device& device,
   unsigned int width,
@@ -23,10 +40,11 @@ Texture::init(Device& device,
   }
   if (width == 0 || height == 0) {
     ERROR("Texture", "init", "Width and height must be greater than 0");
+    /* @note Falta un `return E_INVALIDARG;` aquí si se desea cortar la ejecución. */
     E_INVALIDARG;
   }
 
-  // Config the texture
+  // Descripción mínima de la textura
   D3D11_TEXTURE2D_DESC desc;
   memset(&desc, 0, sizeof(desc));
   desc.Width = width;
@@ -52,6 +70,13 @@ Texture::init(Device& device,
   return S_OK;
 }
 
+/**
+ * @brief Crea una SRV tomando otra textura como base (cambia el formato de la view).
+ * @param textureRef Textura ya existente.
+ * @param format Formato de la SRV.
+ * @return S_OK si sale bien HRESULT si sale error.
+ * @note Útil para exponer una textura a los shaders.
+ */
 HRESULT
 Texture::init(Device& device, Texture& textureRef, DXGI_FORMAT format) {
   if (!device.m_device) {
@@ -62,14 +87,16 @@ Texture::init(Device& device, Texture& textureRef, DXGI_FORMAT format) {
     ERROR("Texture", "init", "Texture is null.");
     return E_POINTER;
   }
-  // Create Shader Resource View
+
+  // Descripción simple de la SRV (Texture2D, un mip)
   D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
   srvDesc.Format = format;
   srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
   srvDesc.Texture2D.MipLevels = 1;
   srvDesc.Texture2D.MostDetailedMip = 0;
 
-  HRESULT hr = device.m_device->CreateShaderResourceView(textureRef.m_texture,
+  HRESULT hr = device.m_device->CreateShaderResourceView(
+    textureRef.m_texture,
     &srvDesc,
     &m_textureFromImg);
 
@@ -82,11 +109,19 @@ Texture::init(Device& device, Texture& textureRef, DXGI_FORMAT format) {
   return S_OK;
 }
 
+/**
+ * @brief Placeholder de actualización (sin uso por ahora).
+ */
 void
 Texture::update() {
 
 }
 
+/**
+ * @brief Enlaza la SRV al Pixel Shader.
+ * @param StartSlot Slot inicial.
+ * @param NumViews Cuántas vistas (normalmente 1).
+ */
 void
 Texture::render(DeviceContext& deviceContext,
   unsigned int StartSlot,
@@ -101,6 +136,9 @@ Texture::render(DeviceContext& deviceContext,
   }
 }
 
+/**
+ * @brief Libera la textura y/o su SRV.
+ */
 void
 Texture::destroy() {
   if (m_texture != nullptr) {
@@ -110,4 +148,3 @@ Texture::destroy() {
     SAFE_RELEASE(m_textureFromImg);
   }
 }
-
