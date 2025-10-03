@@ -1,4 +1,5 @@
 #include "Window.h"
+#include "Device.h"
 
 HRESULT
 Window::init(HINSTANCE hInstance, int nCmdShow, WNDPROC wndproc) {
