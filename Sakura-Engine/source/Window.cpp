@@ -5,6 +5,7 @@
 
 #include "Window.h"
 #include "Device.h"
+#include "BaseApp.h"
 
  /**
   * @brief Crea y muestra la ventana.
