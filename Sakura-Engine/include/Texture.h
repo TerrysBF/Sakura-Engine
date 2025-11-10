@@ -4,106 +4,62 @@
 class Device;
 class DeviceContext;
 
-/**
- * @class Texture
- * @brief Envoltura de una textura 2D y su SRV en D3D11.
- *
- * Puede venir de archivo o crearse en memoria (RTV/DSV/UAV).
- * Sirve para cargar, usar en shaders y liberar la textura.
- */
-class
-  Texture {
+// Clase que envuelve una textura 2D y su SRV en D3D11.
+// Puede venir de archivo o crearse en memoria (para render target, depth, etc.).
+class Texture {
 public:
-  /**
-   * @brief Constructor por defecto.
-   */
+  // Constructor por defecto.
   Texture() = default;
 
-  /**
-   * @brief Destructor por defecto.
-   * @details No libera solo; usa destroy().
-   */
+  // Destructor por defecto. La textura real se libera con destroy().
   ~Texture() = default;
 
-  /**
-   * @brief Carga una textura desde archivo y crea su SRV.
-   * @param device Dispositivo D3D11.
-   * @param textureName Ruta/nombre del archivo.
-   * @param extensionType Tipo (PNG, JPG, DDS).
-   * @return S_OK si ok; HRESULT en error.
-   * @post m_texture y m_textureFromImg válidos en éxito.
-   */
-  HRESULT
-    init(Device& device,
-      const std::string& textureName,
-      ExtensionType extensionType);
+  // Carga una textura desde archivo y crea su Shader Resource View.
+  // - device: device de D3D11.
+  // - textureName: nombre base del archivo (sin extensión o como la uses).
+  // - extensionType: tipo de archivo (PNG, JPG, DDS).
+  // Devuelve S_OK si todo salió bien.
+  HRESULT init(Device& device,
+    const std::string& textureName,
+    ExtensionType extensionType);
 
-  /**
-   * @brief Crea una textura 2D vacía en memoria.
-   * @param device Dispositivo D3D11.
-   * @param width Ancho en píxeles.
-   * @param height Alto en píxeles.
-   * @param Format Formato DXGI.
-   * @param BindFlags Binds (ej. SHADER_RESOURCE, RENDER_TARGET).
-   * @param sampleCount MSAA (1 = sin MSAA).
-   * @param qualityLevels Calidad de MSAA.
-   * @return S_OK si ok; HRESULT en error.
-   */
-  HRESULT
-    init(Device& device,
-      unsigned int width,
-      unsigned int height,
-      DXGI_FORMAT Format,
-      unsigned int BindFlags,
-      unsigned int sampleCount = 1,
-      unsigned int qualityLevels = 0);
+  // Crea una textura 2D vacía en memoria (por ejemplo para depth o render target).
+  // - width / height: tamaño en píxeles.
+  // - Format: formato DXGI.
+  // - BindFlags: para qué se va a usar (SHADER_RESOURCE, RENDER_TARGET, etc.).
+  // - sampleCount / qualityLevels: configuración de MSAA.
+  HRESULT init(Device& device,
+    unsigned int width,
+    unsigned int height,
+    DXGI_FORMAT Format,
+    unsigned int BindFlags,
+    unsigned int sampleCount = 1,
+    unsigned int qualityLevels = 0);
 
-  /**
-   * @brief Crea una textura tomando otra como referencia (cambia formato).
-   * @param device Dispositivo D3D11.
-   * @param textureRef Textura base.
-   * @param format Nuevo formato DXGI.
-   * @return S_OK si ok; HRESULT en error.
-   */
-  HRESULT
-    init(Device& device, Texture& textureRef, DXGI_FORMAT format);
+  // Crea una SRV a partir de otra textura ya existente, cambiando el formato de la vista.
+  // Muy útil cuando quieres exponer una textura creada antes al shader.
+  HRESULT init(Device& device, Texture& textureRef, DXGI_FORMAT format);
 
-  /**
-   * @brief Placeholder para actualizar datos (sin uso por ahora).
-   */
-  void
-    update();
+  // Update vacío por ahora (para futuras cosas si se quiere animar/modificar la textura).
+  void update();
 
-  /**
-   * @brief Enlaza la SRV al Pixel Shader.
-   * @param deviceContext Contexto D3D11.
-   * @param StartSlot Slot inicial.
-   * @param NumViews Cuántas vistas (normalmente 1).
-   * @pre Debe haberse llamado init() antes.
-   */
-  void
-    render(DeviceContext& deviceContext, unsigned int StartSlot, unsigned int NumViews);
+  // Enlaza la SRV al Pixel Shader.
+  // - StartSlot: primer slot donde va la textura (normalmente 0).
+  // - NumViews: cuántas SRVs vas a poner (aquí casi siempre 1).
+  void render(DeviceContext& deviceContext,
+    unsigned int StartSlot,
+    unsigned int NumViews);
 
-  /**
-   * @brief Libera la textura y su SRV.
-   * @post m_texture == nullptr y m_textureFromImg == nullptr.
-   */
-  void
-    destroy();
+  // Libera la textura y la SRV de forma segura.
+  void destroy();
 
 public:
-  /**
-   * @brief Textura 2D en GPU.
-   */
+  // Textura 2D en la GPU.
   ID3D11Texture2D* m_texture = nullptr;
 
-  /**
-   * @brief Shader Resource View para usar la textura en shaders.
-   */
+  // Shader Resource View para poder usar la textura en los shaders.
   ID3D11ShaderResourceView* m_textureFromImg = nullptr;
 
-  /**
-   * @brief Nombre o ruta del archivo (si aplica).
-   */
+  // Nombre o ruta de la textura (por si se necesita para debug).
   std::string m_textureName;
 };

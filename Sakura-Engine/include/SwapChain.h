@@ -6,113 +6,67 @@ class DeviceContext;
 class Window;
 class Texture;
 
-/**
- * @class SwapChain
- * @brief Envoltura simple de IDXGISwapChain.
- *
- * Administra los buffers que se muestran en pantalla (front/back).
- * Aquí lo creamos, lo usamos para presentar y luego lo liberamos.
- * Soporta MSAA (antialiasing por multisample).
- */
-class
-  SwapChain {
+// Clase que envuelve el IDXGISwapChain.
+// El swap chain maneja los buffers que se dibujan y luego se muestran en la ventana.
+class SwapChain {
 public:
-  /**
-   * @brief Constructor por defecto.
-   */
+  // Constructor vacío (no hace nada todavía).
   SwapChain() = default;
 
-  /**
-   * @brief Destructor por defecto.
-   * @details No libera solo; usa destroy().
-   */
+  // Destructor por defecto. Los recursos se liberan con destroy().
   ~SwapChain() = default;
 
-  /**
-   * @brief Crea el swap chain y obtiene el back buffer.
-   *
-   * @param device Dispositivo D3D11.
-   * @param deviceContext Contexto asociado.
-   * @param backBuffer Textura que usaremos como back buffer.
-   * @param window Ventana donde se presentará.
-   * @return S_OK si ok; HRESULT en error.
-   * @post m_swapChain != nullptr en éxito.
-   */
-  HRESULT
-    init(Device& device,
-      DeviceContext& deviceContext,
-      Texture& backBuffer,
-      Window window);
+  // Crea el swap chain y obtiene el back buffer.
+  // - device y deviceContext: se usan para crear D3D y el contexto.
+  // - backBuffer: aquí guardamos la textura del back buffer.
+  // - window: ventana donde se va a presentar.
+  HRESULT init(Device& device,
+    DeviceContext& deviceContext,
+    Texture& backBuffer,
+    Window window);
 
-  /**
-   * @brief Placeholder de actualización.
-   */
-  void
-    update();
+  // Update vacío por ahora (no lo usamos).
+  void update();
 
-  /**
-   * @brief Placeholder de render.
-   */
-  void
-    render();
+  // Render vacío por ahora (solo está para futura lógica).
+  void render();
 
-  /**
-   * @brief Libera recursos del swap chain y DXGI.
-   * @post m_swapChain == nullptr
-   */
-  void
-    destroy();
+  // Libera el swap chain y las interfaces DXGI relacionadas.
+  void destroy();
 
-  /**
-   * @brief Presenta el back buffer en pantalla.
-   * @note Aquí puedes controlar VSync (según implementación).
-   */
-  void
-    present();
+  // Presenta el back buffer en la ventana (llama a Present).
+  // Aquí se podría activar VSync cambiando los parámetros.
+  void present();
 
-  /// Getters para MSAA (útiles al crear depth buffer)
+  // Devuelve cuántas muestras usa el MSAA (para que coincida con depth buffer).
   unsigned int getSampleCount()   const { return m_sampleCount; }
+
+  // Devuelve los niveles de calidad de MSAA soportados.
   unsigned int getQualityLevels() const { return m_qualityLevels; }
 
 public:
-  /**
-   * @brief Swap chain de D3D11.
-   */
+  // Puntero al swap chain de D3D11.
   IDXGISwapChain* m_swapChain = nullptr;
 
-  /**
-   * @brief Tipo de driver (hardware, referencia, etc.).
-   */
+  // Tipo de driver que se usó (HARDWARE, WARP, etc.).
   D3D_DRIVER_TYPE m_driverType = D3D_DRIVER_TYPE_NULL;
 
 private:
-  /**
-   * @brief Nivel de características de D3D alcanzado.
-   */
+  // Nivel de características de D3D que se consiguió (11.0, 10.1, etc.).
   D3D_FEATURE_LEVEL m_featureLevel = D3D_FEATURE_LEVEL_11_0;
 
-  /**
-   * @brief Cantidad de muestras para MSAA (ej. 4 = 4x).
-   */
+  // Número de samples para MSAA (1 = sin MSAA).
   unsigned int m_sampleCount = 1;
 
-  /**
-   * @brief Niveles de calidad admitidos para MSAA.
-   */
+  // Niveles de calidad disponibles para ese MSAA.
   unsigned int m_qualityLevels = 0;
 
-  /**
-   * @brief Interfaz DXGI del device.
-   */
+  // Interfaz DXGI del device (para llegar al adapter/factory).
   IDXGIDevice* m_dxgiDevice = nullptr;
 
-  /**
-   * @brief Interfaz DXGI del adaptador (GPU).
-   */
+  // Interfaz DXGI del adaptador (GPU).
   IDXGIAdapter* m_dxgiAdapter = nullptr;
 
-  /**
-   * @brief Interfaz DXGI de la factory (crea swap chains).
-   */
+  // Interfaz DXGI de la factory (crea el swap chain).
   IDXGIFactory* m_dxgiFactory = nullptr;
 };

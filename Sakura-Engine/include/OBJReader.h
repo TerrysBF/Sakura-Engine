@@ -5,34 +5,74 @@
 #include <unordered_map>
 
 /*
-  ObjReader: lector simple de archivos .obj para llenar un MeshComponent.
-  - Lee: v (pos), vt (uv), vn (normal), f (caras)
-  - Convierte polígonos a triángulos con “fan” -> (0, i, i+1)
-  - Usa un cache para no repetir vértices ("v/vt/vn")
-  - flipV: opcional para invertir la coordenada V de la UV
-*/
+ * Clase ObjReader
+ *
+ * Sirve para leer archivos .obj y llenar un MeshComponent
+ * con vértices e índices.
+ *
+ * Lee:
+ *  - v  -> posiciones
+ *  - vt -> coordenadas de textura (uv)
+ *  - vn -> normales
+ *  - f  -> caras (polígonos)
+ *
+ * Las caras se convierten a triángulos usando un “fan”:
+ *  (0, i, i+1)
+ *
+ * Usa un mapa (cache) para no repetir vértices cuando la
+ * misma combinación v/vt/vn se repite.
+ *
+ * El parámetro flipV permite invertir la componente V de la UV
+ * por si la textura está al revés verticalmente.
+ */
 class ObjReader {
 public:
-  ObjReader() = default;   // ctor vacío
-  ~ObjReader() = default;  // dtor por defecto
+  // Constructor vacío
+  ObjReader() = default;
 
-  // Carga el .obj desde 'path' y mete vértices/índices en outMesh.
-  // Si 'path' ya termina en .obj, lo respeta.
-  // flipV = true para invertir la V de la UV (útil según motor/textura).
+  // Destructor por defecto
+  ~ObjReader() = default;
+
+  /*
+   * Carga un archivo .obj desde 'path' y llena outMesh.
+   *
+   * Si 'path' ya termina en ".obj", se usa tal cual.
+   * Si no, se le agrega ".obj" al final.
+   *
+   * flipV = true invierte la V de las coordenadas de textura.
+   * Devuelve true si se cargó algo válido (tiene vértices e índices).
+   */
   bool load(const std::string& path, MeshComponent& outMesh, bool flipV = true);
 
 private:
-  // Checa si el string termina con ".obj" (o ".OBJ").
+  /*
+   * Revisa si la cadena termina en ".obj" o ".OBJ".
+   */
   static bool endsWithObj_(const std::string& s);
 
-  // Parsea una tupla tipo "v/vt/vn", "v/vt", "v//vn" o "v".
-  // Devuelve índices base-0 en vi/ti/ni (o -1 si no hay).
+  /*
+   * Parsea una tupla de índice del .obj:
+   *  - "v/vt/vn"
+   *  - "v/vt"
+   *  - "v//vn"
+   *  - "v"
+   *
+   * Rellena:
+   *  vi = índice de posición
+   *  ti = índice de texcoord
+   *  ni = índice de normal
+   *
+   * Todos son base 0, o -1 si no existe esa parte.
+   */
   static void parseTuple_(const std::string& key, int& vi, int& ti, int& ni);
 
-  // Log simple para avisos/errores (por consola).
+  /*
+   * Imprime un mensaje de advertencia en consola.
+   * Útil para avisar cuando hay líneas raras en el .obj.
+   */
   static void logWarn_(const std::string& msg);
 
-  // Evita copias por accidente (no necesitamos duplicar lectores).
+  // Se deshabilita la copia del objeto para evitar duplicados
   ObjReader(const ObjReader&) = delete;
   ObjReader& operator=(const ObjReader&) = delete;
 };
