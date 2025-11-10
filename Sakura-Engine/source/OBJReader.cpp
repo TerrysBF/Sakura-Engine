@@ -5,56 +5,62 @@
 #include <iostream>
 #include <cctype>
 
+// Reserva espacio "a ojo" para no estar realocando tanto
 static inline void reserveAprox_(std::vector<XMFLOAT3>& a,
   std::vector<XMFLOAT2>& b,
   std::vector<XMFLOAT3>& c)
 {
-  // TODO: si el .obj trae conteos a tope, usar esos en lugar de estos “a ojo”.
+  // Si el .obj trae los conteos, sería mejor usarlos en vez de 1024
   a.reserve(1024);
   b.reserve(1024);
   c.reserve(1024);
 }
 
+// Revisa si el string termina con .obj (mayúsculas o minúsculas)
 bool ObjReader::endsWithObj_(const std::string& s) {
   return s.size() >= 4 &&
     (s.compare(s.size() - 4, 4, ".obj") == 0 ||
       s.compare(s.size() - 4, 4, ".OBJ") == 0);
 }
 
+// Imprime un warning simple a la consola
 void ObjReader::logWarn_(const std::string& msg) {
-  // Si estás en Win32, cámbialo por OutputDebugStringA si te acomoda.
+  // En Windows se puede usar OutputDebugStringA si quieres
   std::cerr << "[OBJ] " << msg << "\n";
 }
 
+// Parsea una tupla tipo "v/vt/vn", "v/vt", "v//vn" o "v"
 void ObjReader::parseTuple_(const std::string& key, int& vi, int& ti, int& ni) {
-  // key: "v/vt/vn" | "v//vn" | "v/vt" | "v"
+  // vi = pos, ti = texcoord, ni = normal (aquí normal casi no se usa)
   vi = ti = ni = -1;
   std::istringstream ss(key);
   std::string part;
-  if (std::getline(ss, part, '/') && !part.empty()) vi = std::stoi(part) - 1;
+  if (std::getline(ss, part, '/') && !part.empty()) vi = std::stoi(part) - 1; // índice empieza en 0
   if (std::getline(ss, part, '/') && !part.empty()) ti = std::stoi(part) - 1;
   if (std::getline(ss, part, '/') && !part.empty()) ni = std::stoi(part) - 1;
 }
 
+// Carga un .obj básico (posiciones + uvs) y lo mete a MeshComponent
 bool ObjReader::load(const std::string& path, MeshComponent& outMesh, bool flipV) {
+  // Limpiamos lo que tenga la malla de antes
   outMesh.m_vertex.clear();
   outMesh.m_index.clear();
 
-  // Acumuladores temporales del .obj
+  // Vectores temporales para leer el archivo
   std::vector<XMFLOAT3> positions;
   std::vector<XMFLOAT2> texcoords;
-  std::vector<XMFLOAT3> normals; // seguimos reservando por si luego activas normales
+  std::vector<XMFLOAT3> normals; // por si después activas normales
   reserveAprox_(positions, texcoords, normals);
 
-  // Resultado final (lo que va a MeshComponent)
+  // Resultado final (va a MeshComponent)
   std::vector<SimpleVertex>   verts;   verts.reserve(2048);
   std::vector<unsigned int>   indices; indices.reserve(4096);
 
-  // Cache textual: "v/vt/vn" -> índice final
+  // Cache para no repetir vértices: "v/vt/vn" -> índice en verts
   std::unordered_map<std::string, unsigned int> vcache;
   vcache.reserve(4096);
 
-  // Respeta si ya viene .obj
+  // Si no viene con .obj al final, se lo agregamos
   const std::string filePath = endsWithObj_(path) ? path : (path + ".obj");
   std::ifstream ifs(filePath);
   if (!ifs.is_open()) {
@@ -65,8 +71,9 @@ bool ObjReader::load(const std::string& path, MeshComponent& outMesh, bool flipV
   std::string line;
   line.reserve(256);
 
+  // Leemos línea por línea
   while (std::getline(ifs, line)) {
-    // Saltar espacios y comentarios rápidos
+    // Saltar espacios y comentarios (líneas con #)
     size_t p = 0;
     while (p < line.size() && std::isspace(static_cast<unsigned char>(line[p]))) ++p;
     if (p >= line.size() || line[p] == '#') continue;
@@ -76,15 +83,18 @@ bool ObjReader::load(const std::string& path, MeshComponent& outMesh, bool flipV
     ss >> tag;
 
     if (tag == "v") {
+      // Posición de un vértice
       XMFLOAT3 v{};
       ss >> v.x >> v.y >> v.z;
       if (!ss.fail()) positions.push_back(v);
       else logWarn_("v mal formada: " + line);
     }
     else if (tag == "vt") {
+      // Coordenada de textura (u, v)
       XMFLOAT2 t{};
       ss >> t.x >> t.y;
       if (!ss.fail()) {
+        // Algunas texturas vienen invertidas en V
         if (flipV) t.y = 1.0f - t.y;
         texcoords.push_back(t);
       }
@@ -93,13 +103,15 @@ bool ObjReader::load(const std::string& path, MeshComponent& outMesh, bool flipV
       }
     }
     else if (tag == "vn") {
-      // SimpleVertex no tiene 'Normal', así que solo consumimos los valores y seguimos.
+      // Normal (de momento no la guardamos en SimpleVertex)
       float nx = 0.f, ny = 0.f, nz = 0.f;
-      ss >> nx >> ny >> nz; // opcional: podrías almacenar en 'normals' si luego agregas normales
-      // if (!ss.fail()) normals.push_back({nx, ny, nz}); // activar cuando uses normales
+      ss >> nx >> ny >> nz;
+      // Si luego agregas normales al vertex, aquí puedes guardarlas:
+      // if (!ss.fail()) normals.push_back({nx, ny, nz});
     }
     else if (tag == "f") {
-      // Leer N tuplas y triangulizar en fan
+      // Cara/polígono. Puede traer 3+ vértices.
+      // Vamos a leer todas las tuplas y triangulizar tipo “fan”
       std::vector<std::string> tuples;
       tuples.reserve(8);
       std::string tuple;
@@ -111,62 +123,67 @@ bool ObjReader::load(const std::string& path, MeshComponent& outMesh, bool flipV
         continue;
       }
 
-      std::vector<unsigned int> local; local.reserve(N);
+      std::vector<unsigned int> local;
+      local.reserve(N);
 
-      // Mapear/crear cada vértice de la cara
+      // Para cada tupla "v/vt/vn", buscamos en cache o creamos el vértice
       for (unsigned int i = 0; i < N; ++i) {
         const std::string& key = tuples[i];
 
-        // cache hit
+        // Si ya existe en el cache, lo usamos
         auto it = vcache.find(key);
         if (it != vcache.end()) {
           local.push_back(it->second);
           continue;
         }
 
-        // cache miss ? parsear y construir SimpleVertex
+        // No está en cache: parseamos y creamos SimpleVertex
         int vi, ti, ni;
         parseTuple_(key, vi, ti, ni);
 
+        // Checamos que la posición exista
         if (vi < 0 || vi >= static_cast<int>(positions.size())) {
           logWarn_("índice v fuera de rango: " + key + "   << " + line);
-          continue; // saltamos este vértice
+          continue; // nos saltamos este vértice
         }
 
         SimpleVertex sv{};
         sv.Pos = positions[vi];
 
+        // Si trae uv válido lo asignamos, si no, 0,0
         if (ti >= 0 && ti < static_cast<int>(texcoords.size()))
           sv.Tex = texcoords[ti];
         else
-          sv.Tex = XMFLOAT2(0.f, 0.f); // default simple
+          sv.Tex = XMFLOAT2(0.f, 0.f);
 
+        // Metemos el vértice nuevo y guardamos su índice
         verts.push_back(sv);
         const unsigned int newIdx = static_cast<unsigned int>(verts.size() - 1);
         vcache.emplace(key, newIdx);
         local.push_back(newIdx);
       }
 
-      // Si por rangos descartamos alguno, puede quedar <3
+      // Si por errores quedó menos de 3, no triangulamos
       if (local.size() < 3) continue;
 
-      // Triangulación fan: (0, i, i+1)
+      // Triangulación tipo “fan”: (0, i, i+1)
       for (unsigned int i = 1; i + 1 < local.size(); ++i) {
         indices.push_back(local[0]);
         indices.push_back(local[i]);
         indices.push_back(local[i + 1]);
       }
     }
-    // Nota: por ahora ignoro g/o/usemtl/mtllib. Si lo necesitas, lo sumamos luego.
+    // Por ahora ignoramos otros tags: g/o/usemtl/mtllib (se pueden agregar después)
   }
 
   ifs.close();
 
+  // Pasamos el resultado al MeshComponent
   outMesh.m_vertex = std::move(verts);
   outMesh.m_index = std::move(indices);
   outMesh.m_numVertex = static_cast<int>(outMesh.m_vertex.size());
   outMesh.m_numIndex = static_cast<int>(outMesh.m_index.size());
 
-  // “Sanity check” mínimo
+  // Regresamos true si sí cargó algo
   return (outMesh.m_numVertex > 0 && outMesh.m_numIndex > 0);
 }

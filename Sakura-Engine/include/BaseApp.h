@@ -12,58 +12,57 @@
 #include "MeshComponent.h"
 #include "Buffer.h"
 #include "SamplerState.h"
+#include "ObjReader.h"
 
-class
-	BaseApp {
+class BaseApp {
 public:
-	BaseApp(HINSTANCE hInst, int nCmdShow);
-	~BaseApp() { destroy(); }
+  BaseApp(HINSTANCE hInst, int nCmdShow);
+  ~BaseApp() { destroy(); }
 
-	int
-		run(HINSTANCE hInst, int nCmdShow);
-
-	HRESULT
-		init();
-
-	void
-		update(float deltaTime);
-
-	void
-		render();
-
-	void
-		destroy();
+  int     run(HINSTANCE hInst, int nCmdShow);
+  HRESULT init();
+  void    update(float deltaTime);
+  void    render();
+  void    destroy();
 
 private:
-	static LRESULT CALLBACK
-		WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
+  static LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 private:
-	Window                              m_window;
-	Device															m_device;
-	DeviceContext												m_deviceContext;
-	SwapChain                           m_swapChain;
-	Texture                             m_backBuffer;
-	RenderTargetView									  m_renderTargetView;
-	Texture                             m_depthStencil;
-	DepthStencilView									  m_depthStencilView;
-	Viewport                            m_viewport;
-	ShaderProgram												m_shaderProgram;
-	MeshComponent												m_mesh;
-	Buffer															m_vertexBuffer;
-	Buffer															m_indexBuffer;
-	Buffer															m_cbNeverChanges;
-	Buffer															m_cbChangeOnResize;
-	Buffer															m_cbChangesEveryFrame;
-	Texture 														m_textureCube;
-	SamplerState												m_samplerState;
+  // D3D
+  Window          m_window;
+  Device          m_device;
+  DeviceContext   m_deviceContext;
+  SwapChain       m_swapChain;
+  Texture         m_backBuffer;
+  RenderTargetView m_renderTargetView;
+  Texture         m_depthStencil;
+  DepthStencilView m_depthStencilView;
+  Viewport        m_viewport;
 
-	XMMATRIX                            m_World;
-	XMMATRIX                            m_View;
-	XMMATRIX                            m_Projection;
-	XMFLOAT4                            m_vMeshColor;// (0.7f, 0.7f, 0.7f, 1.0f);
+  ShaderProgram   m_shaderProgram;
 
-	CBChangeOnResize										cbChangesOnResize;
-	CBNeverChanges											cbNeverChanges;
-	CBChangesEveryFrame									cb;
+  // Modelo
+  ObjReader       m_modelLoader;     // <— loader correcto
+  MeshComponent   m_mesh;
+  Buffer          m_vertexBuffer;
+  Buffer          m_indexBuffer;
+
+  // Const buffers
+  Buffer          m_cbNeverChanges;
+  Buffer          m_cbChangeOnResize;
+  Buffer          m_cbChangesEveryFrame;
+
+  // Textura del modelo
+  Texture         m_textureModel;    // (antes “m_textureCube”)
+  SamplerState    m_samplerState;
+
+  // Matrices
+  XMMATRIX        m_World, m_View, m_Projection;
+  XMFLOAT4        m_vMeshColor;
+
+  // Copias CPU de CBs
+  CBChangeOnResize    cbChangesOnResize;
+  CBNeverChanges      cbNeverChanges;
+  CBChangesEveryFrame cb;
 };

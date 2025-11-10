@@ -70,6 +70,10 @@ public:
   void
     present();
 
+  /// Getters para MSAA (útiles al crear depth buffer)
+  unsigned int getSampleCount()   const { return m_sampleCount; }
+  unsigned int getQualityLevels() const { return m_qualityLevels; }
+
 public:
   /**
    * @brief Swap chain de D3D11.
@@ -90,12 +94,12 @@ private:
   /**
    * @brief Cantidad de muestras para MSAA (ej. 4 = 4x).
    */
-  unsigned int m_sampleCount;
+  unsigned int m_sampleCount = 1;
 
   /**
    * @brief Niveles de calidad admitidos para MSAA.
    */
-  unsigned int m_qualityLevels;
+  unsigned int m_qualityLevels = 0;
 
   /**
    * @brief Interfaz DXGI del device.

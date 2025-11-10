@@ -10,14 +10,14 @@
 #include "Window.h"
 
  /**
-  * @brief Crea el swap chain y obtiene el back buffer.
-  * @param device Dispositivo D3D11.
-  * @param deviceContext Contexto inmediato.
-  * @param backBuffer Textura que representará el back buffer.
-  * @param window Ventana destino.
-  * @return S_OK si sale bien HRESULT si sale error.
-  * @note Usa 4x MSAA si está disponible.
-  */
+   * @brief Crea el swap chain y obtiene el back buffer.
+   * @param device Dispositivo D3D11.
+   * @param deviceContext Contexto inmediato.
+   * @param backBuffer Textura que representará el back buffer.
+   * @param window Ventana destino.
+   * @return S_OK si sale bien HRESULT si sale error.
+   * @note Usa 4x MSAA si está disponible.
+   */
 HRESULT
 SwapChain::init(Device& device,
   DeviceContext& deviceContext,
@@ -69,6 +69,7 @@ SwapChain::init(Device& device,
 
     if (SUCCEEDED(hr)) {
       MESSAGE("SwapChain", "init", "Device created successfully.");
+      m_driverType = driverType;
       break;
     }
   }
@@ -139,13 +140,17 @@ SwapChain::init(Device& device,
   }
 
   // Obtener el back buffer (textura)
+  ID3D11Texture2D* pBackBuffer = nullptr;
   hr = m_swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D),
-    reinterpret_cast<void**>(&backBuffer));
+    reinterpret_cast<void**>(&pBackBuffer));
   if (FAILED(hr)) {
     ERROR("SwapChain", "init",
       ("Failed to get back buffer. HRESULT: " + std::to_string(hr)).c_str());
     return hr;
   }
+
+  // Guardar el puntero en nuestra clase Texture
+  backBuffer.m_texture = pBackBuffer;
 
   return S_OK;
 }
@@ -186,3 +191,6 @@ SwapChain::present() {
     ERROR("SwapChain", "present", "Swap chain is not initialized.");
   }
 }
+
+void SwapChain::update() {}
+void SwapChain::render() {}

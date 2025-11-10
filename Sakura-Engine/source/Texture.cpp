@@ -8,8 +8,7 @@
 #include "DeviceContext.h"
 
  /**
-  * @brief Carga desde archivo (aún no implementado).
-  * @note @todo Implementar lectura según la extensión (PNG/JPG/DDS).
+  * @brief Carga una textura desde archivo (DDS/PNG/JPG) y crea su SRV.
   */
 HRESULT
 Texture::init(Device& device,
@@ -26,41 +25,39 @@ Texture::init(Device& device,
 
   HRESULT hr = S_OK;
 
+  // Elegir nombre de archivo según extensión
   switch (extensionType) {
-  case DDS: {
+  case DDS:
     m_textureName = textureName + ".dds";
-    // Cargar textura DDS
-    hr = D3DX11CreateShaderResourceViewFromFile(
-      device.m_device,
-      m_textureName.c_str(),
-      nullptr,
-      nullptr,
-      &m_textureFromImg,
-      nullptr
-    );
-
-    if (FAILED(hr)) {
-      ERROR("Texture", "init",
-        ("Failed to load DDS texture. Verify filepath: " + m_textureName).c_str());
-      return hr;
-    }
     break;
-  }
-
-  case PNG: {
-
+  case PNG:
+    m_textureName = textureName + ".png";
     break;
-  }
-  case JPG: {
-
+  case JPG:
+    m_textureName = textureName + ".jpg";
     break;
-  }
   default:
     ERROR("Texture", "init", "Unsupported extension type");
     return E_INVALIDARG;
   }
 
-  return hr;
+  // Cargar textura desde archivo y crear SRV
+  hr = D3DX11CreateShaderResourceViewFromFile(
+    device.m_device,
+    m_textureName.c_str(),
+    nullptr,
+    nullptr,
+    &m_textureFromImg,
+    nullptr
+  );
+
+  if (FAILED(hr)) {
+    ERROR("Texture", "init",
+      ("Failed to load texture. Verify filepath: " + m_textureName).c_str());
+    return hr;
+  }
+
+  return S_OK;
 }
 
 /**
@@ -85,8 +82,7 @@ Texture::init(Device& device,
   }
   if (width == 0 || height == 0) {
     ERROR("Texture", "init", "Width and height must be greater than 0");
-    /* @note Falta un `return E_INVALIDARG;` aquí si se desea cortar la ejecución. */
-    E_INVALIDARG;
+    return E_INVALIDARG;
   }
 
   // Descripción mínima de la textura
@@ -147,7 +143,7 @@ Texture::init(Device& device, Texture& textureRef, DXGI_FORMAT format) {
 
   if (FAILED(hr)) {
     ERROR("Texture", "init",
-      ("Failed to create shader resource view for PNG textures. HRESULT: " + std::to_string(hr)).c_str());
+      ("Failed to create shader resource view. HRESULT: " + std::to_string(hr)).c_str());
     return hr;
   }
 
@@ -159,7 +155,6 @@ Texture::init(Device& device, Texture& textureRef, DXGI_FORMAT format) {
  */
 void
 Texture::update() {
-
 }
 
 /**
@@ -186,10 +181,6 @@ Texture::render(DeviceContext& deviceContext,
  */
 void
 Texture::destroy() {
-  if (m_texture != nullptr) {
-    SAFE_RELEASE(m_texture);
-  }
-  else if (m_textureFromImg != nullptr) {
-    SAFE_RELEASE(m_textureFromImg);
-  }
+  SAFE_RELEASE(m_texture);
+  SAFE_RELEASE(m_textureFromImg);
 }
