@@ -64,7 +64,8 @@ int BaseApp::run(HINSTANCE hInst, int nCmdShow) {
 // Esta función crea e inicializa todos los recursos de Direct3D.
 // Aquí se prepara el swap chain, el render target, el depth buffer,
 // los shaders, buffers de vértices, texturas y constantes.
-HRESULT BaseApp::init() {
+HRESULT 
+BaseApp::init() {
   HRESULT hr = S_OK;
 
   // Crear el swap chain y obtener el backbuffer como textura.
