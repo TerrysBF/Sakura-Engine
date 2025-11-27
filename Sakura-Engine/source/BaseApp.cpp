@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 #include <windows.h>
-#include "ObjReader.h"
 
 // Variables globales para guardar los nombres de los archivos que se usan.
 // Aquí se indican el fx, el obj, el mtl y la textura base.
@@ -21,10 +20,11 @@ static bool FileExistsW(const wchar_t* path) {
   return (attr != INVALID_FILE_ATTRIBUTES) && !(attr & FILE_ATTRIBUTE_DIRECTORY);
 }
 
-// Constructor vacío, por ahora no hace nada especial.
-// El trabajo de inicialización se hace en init().
+// Constructor.
+// Ahora inicializamos también el recurso Model3D con nombre y tipo (OBJ).
 BaseApp::BaseApp(HINSTANCE, int)
-{}
+  : m_model("Alien", ModelType::OBJ) {
+}
 
 // Función principal del ciclo de la aplicación.
 // Aquí se procesa la ventana, se actualiza y se dibuja cada frame.
@@ -64,7 +64,7 @@ int BaseApp::run(HINSTANCE hInst, int nCmdShow) {
 // Esta función crea e inicializa todos los recursos de Direct3D.
 // Aquí se prepara el swap chain, el render target, el depth buffer,
 // los shaders, buffers de vértices, texturas y constantes.
-HRESULT 
+HRESULT
 BaseApp::init() {
   HRESULT hr = S_OK;
 
@@ -130,8 +130,8 @@ BaseApp::init() {
     D3D11_RASTERIZER_DESC rd{};
     rd.FillMode = D3D11_FILL_SOLID;   // Se dibujan triángulos sólidos.
     rd.CullMode = D3D11_CULL_NONE;    // No se descarta ninguna cara.
-    rd.FrontCounterClockwise = FALSE; // Front face por defecto (clockwise).
-    rd.DepthClipEnable = TRUE;        // Se respeta el rango de profundidad.
+    rd.FrontCounterClockwise = FALSE;              // Front face por defecto (clockwise).
+    rd.DepthClipEnable = TRUE;               // Se respeta el rango de profundidad.
 
     ID3D11RasterizerState* rs = nullptr;
     HRESULT hrRS = m_device.m_device->CreateRasterizerState(&rd, &rs);
@@ -186,16 +186,28 @@ BaseApp::init() {
     return hr;
   }
 
-  // Cargar el archivo OBJ usando ObjReader para llenar m_mesh en CPU.
-  if (!m_modelLoader.load("Alien", m_mesh)) {
-    MessageBoxW(nullptr, L"Falló la carga de Alien.obj", L"WildvineEngine", MB_ICONERROR);
+  // -------------------------------------------------------------------
+  // Cargar el modelo usando el sistema de recursos (Model3D)
+  // -------------------------------------------------------------------
+  if (!m_model.load("Alien")) { // ObjReader le agregará ".obj" si hace falta
+    MessageBoxW(nullptr, L"Falló la carga de Alien.obj (Model3D)", L"WildvineEngine", MB_ICONERROR);
     return E_FAIL;
   }
+
+  const auto& meshes = m_model.GetMeshes();
+  if (meshes.empty()) {
+    MessageBoxW(nullptr, L"Model3D no tiene mallas cargadas", L"WildvineEngine", MB_ICONERROR);
+    return E_FAIL;
+  }
+
+  // Por ahora usamos solo la primera malla (igual que antes con un solo MeshComponent).
+  m_mesh = meshes[0];
 
   // Mensaje de depuración con el número de vértices e índices cargados.
   {
     char buf[256];
-    sprintf_s(buf, "[Wildvine] verts=%d idx=%d\n", (int)m_mesh.m_numVertex, (int)m_mesh.m_numIndex);
+    sprintf_s(buf, "[Wildvine] verts=%d idx=%d\n",
+      (int)m_mesh.m_numVertex, (int)m_mesh.m_numIndex);
     OutputDebugStringA(buf);
   }
 
@@ -236,8 +248,8 @@ BaseApp::init() {
   // Projection: perspectiva.
   m_World = XMMatrixIdentity();
   XMVECTOR Eye = XMVectorSet(0.0f, 1.5f, -4.0f, 0.0f);  // Posición de la cámara.
-  XMVECTOR At = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);  // Punto al que mira la cámara.
-  XMVECTOR Up = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);  // Vector arriba.
+  XMVECTOR At = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);   // Punto al que mira la cámara.
+  XMVECTOR Up = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);   // Vector arriba.
   m_View = XMMatrixLookAtLH(Eye, At, Up);
   m_Projection = XMMatrixPerspectiveFovLH(
     XM_PIDIV4,
@@ -253,9 +265,9 @@ BaseApp::init() {
   cb.vMeshColor = XMFLOAT4(1, 1, 1, 1); // Color blanco para el mesh.
 
   // Crear los constant buffers en GPU.
-  if (FAILED(m_cbNeverChanges.init(m_device, sizeof(CBNeverChanges))))      return E_FAIL;
-  if (FAILED(m_cbChangeOnResize.init(m_device, sizeof(CBChangeOnResize))))  return E_FAIL;
-  if (FAILED(m_cbChangesEveryFrame.init(m_device, sizeof(CBChangesEveryFrame)))) return E_FAIL;
+  if (FAILED(m_cbNeverChanges.init(m_device, sizeof(CBNeverChanges))))          return E_FAIL;
+  if (FAILED(m_cbChangeOnResize.init(m_device, sizeof(CBChangeOnResize))))      return E_FAIL;
+  if (FAILED(m_cbChangesEveryFrame.init(m_device, sizeof(CBChangesEveryFrame))))return E_FAIL;
 
   // Subir el contenido inicial de los constant buffers a la GPU.
   m_cbNeverChanges.update(m_deviceContext, nullptr, 0, nullptr, &cbNeverChanges, 0, 0);

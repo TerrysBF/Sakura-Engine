@@ -12,7 +12,7 @@
 #include "MeshComponent.h"
 #include "Buffer.h"
 #include "SamplerState.h"
-#include "ObjReader.h"
+#include "Model3D.h"
 
 /**
  * Clase principal de la aplicación.
@@ -85,10 +85,10 @@ private:
   ShaderProgram   m_shaderProgram;   // programa de shaders (VS+PS+input layout)
 
   // Modelo
-  ObjReader       m_modelLoader;     // cargador de archivos .obj
-  MeshComponent   m_mesh;            // datos de la malla (vértices e índices)
+  Model3D         m_model;           // recurso de modelo 3D (OBJ / FBX)
   Buffer          m_vertexBuffer;    // vertex buffer en GPU
   Buffer          m_indexBuffer;     // index buffer en GPU
+  MeshComponent   m_mesh;            // copia CPU de la malla usada (para DrawIndexed)
 
   // Constant buffers
   Buffer          m_cbNeverChanges;      // CB para datos que casi no cambian (por ejemplo view)
