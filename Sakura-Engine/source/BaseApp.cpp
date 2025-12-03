@@ -1,4 +1,4 @@
-// Comentarios b·sicos estilo estudiante :)
+Ôªø// Comentarios b√°sicos estilo estudiante :)
 
 #include "BaseApp.h"
 #include <string>
@@ -6,28 +6,28 @@
 #include <windows.h>
 
 // Variables globales para guardar los nombres de los archivos que se usan.
-// AquÌ se indican el fx, el obj, el mtl y la textura base.
+// Aqu√≠ se indican el fx, el modelo (FBX) y la textura base.
 static const wchar_t* PROJECT_TAG = L"[WildvineEngine] ";
 static const char* FX_NAME = "Sakura-Engine.fx";
-static const wchar_t* OBJ_NAME = L"Alien.obj";
-static const wchar_t* MTL_NAME = L"Alien.mtl";
-static const char* TEX_BASE = "Alien_Texture"; // nombre sin extensiÛn
+static const wchar_t* OBJ_NAME = L"Alien.fbx";
+// static const wchar_t* MTL_NAME = L"Alien.mtl";
+static const char* TEX_BASE = "Alien_Texture"; // nombre sin extensi√≥n
 
-// FunciÛn auxiliar para revisar si un archivo existe en disco.
-// Recibe una ruta en wchar_t y regresa true si el archivo est· presente.
+// Funci√≥n auxiliar para revisar si un archivo existe en disco.
+// Recibe una ruta en wchar_t y regresa true si el archivo est√° presente.
 static bool FileExistsW(const wchar_t* path) {
   DWORD attr = GetFileAttributesW(path);
   return (attr != INVALID_FILE_ATTRIBUTES) && !(attr & FILE_ATTRIBUTE_DIRECTORY);
 }
 
 // Constructor.
-// Ahora inicializamos tambiÈn el recurso Model3D con nombre y tipo (OBJ).
+// Inicializamos tambi√©n el recurso Model3D con nombre y tipo FBX.
 BaseApp::BaseApp(HINSTANCE, int)
-  : m_model("Alien", ModelType::OBJ) {
+  : m_model("Alien", ModelType::FBX) {
 }
 
-// FunciÛn principal del ciclo de la aplicaciÛn.
-// AquÌ se procesa la ventana, se actualiza y se dibuja cada frame.
+// Funci√≥n principal del ciclo de la aplicaci√≥n.
+// Aqu√≠ se procesa la ventana, se actualiza y se dibuja cada frame.
 int BaseApp::run(HINSTANCE hInst, int nCmdShow) {
   // Crear la ventana con el WndProc de esta clase.
   if (FAILED(m_window.init(hInst, nCmdShow, WndProc))) return 0;
@@ -61,11 +61,10 @@ int BaseApp::run(HINSTANCE hInst, int nCmdShow) {
   return (int)msg.wParam;
 }
 
-// Esta funciÛn crea e inicializa todos los recursos de Direct3D.
-// AquÌ se prepara el swap chain, el render target, el depth buffer,
-// los shaders, buffers de vÈrtices, texturas y constantes.
-HRESULT
-BaseApp::init() {
+// Esta funci√≥n crea e inicializa todos los recursos de Direct3D.
+// Aqu√≠ se prepara el swap chain, el render target, el depth buffer,
+// los shaders, buffers de v√©rtices, texturas y constantes.
+HRESULT BaseApp::init() {
   HRESULT hr = S_OK;
 
   // Crear el swap chain y obtener el backbuffer como textura.
@@ -82,7 +81,7 @@ BaseApp::init() {
     return hr;
   }
 
-  // Crear la textura de profundidad usando la misma configuraciÛn de MSAA
+  // Crear la textura de profundidad usando la misma configuraci√≥n de MSAA
   // que el swap chain, para que ambas coincidan.
   {
     unsigned int sampleCount = m_swapChain.getSampleCount();
@@ -117,7 +116,7 @@ BaseApp::init() {
     return hr;
   }
 
-  // Crear el viewport usando el tamaÒo de la ventana.
+  // Crear el viewport usando el tama√±o de la ventana.
   hr = m_viewport.init(m_window);
   if (FAILED(hr)) {
     ERROR("Main", "InitDevice", ("Failed Viewport. HR:" + std::to_string(hr)).c_str());
@@ -125,13 +124,13 @@ BaseApp::init() {
   }
 
   // Configurar un rasterizer state sin culling para poder ver las caras
-  // aunque el orden de los vÈrtices estÈ al revÈs.
+  // aunque el orden de los v√©rtices est√© al rev√©s.
   {
     D3D11_RASTERIZER_DESC rd{};
-    rd.FillMode = D3D11_FILL_SOLID;   // Se dibujan tri·ngulos sÛlidos.
+    rd.FillMode = D3D11_FILL_SOLID;   // Se dibujan tri√°ngulos s√≥lidos.
     rd.CullMode = D3D11_CULL_NONE;    // No se descarta ninguna cara.
-    rd.FrontCounterClockwise = FALSE;              // Front face por defecto (clockwise).
-    rd.DepthClipEnable = TRUE;               // Se respeta el rango de profundidad.
+    rd.FrontCounterClockwise = FALSE; // Front face por defecto (clockwise).
+    rd.DepthClipEnable = TRUE;        // Se respeta el rango de profundidad.
 
     ID3D11RasterizerState* rs = nullptr;
     HRESULT hrRS = m_device.m_device->CreateRasterizerState(&rd, &rs);
@@ -145,24 +144,19 @@ BaseApp::init() {
     rs->Release();
   }
 
-  // Mostrar en el output la ruta actual de trabajo, para saber desde dÛnde se cargan los archivos.
+  // Mostrar en el output la ruta actual de trabajo, para saber desde d√≥nde se cargan los archivos.
   wchar_t cwd[MAX_PATH];
   GetCurrentDirectoryW(MAX_PATH, cwd);
   OutputDebugStringW((std::wstring(PROJECT_TAG) + L"CWD = " + cwd + L"\n").c_str());
 
-  // Comprobar que el archivo OBJ existe.
+  // Comprobar que el archivo FBX existe.
   if (!FileExistsW(OBJ_NAME)) {
     MessageBoxW(nullptr, (std::wstring(L"No existe ") + OBJ_NAME).c_str(), PROJECT_TAG, MB_ICONERROR);
     return E_FAIL;
   }
-  // Comprobar que el MTL existe. AquÌ se toma como opcional.
-  if (!FileExistsW(MTL_NAME)) {
-    MessageBoxW(nullptr, (std::wstring(L"No existe ") + MTL_NAME).c_str(), PROJECT_TAG, MB_ICONWARNING);
-    // Se sigue aunque no haya MTL.
-  }
 
-  // Crear el input layout que describe cÛmo est·n formados los vÈrtices.
-  // En este caso cada vÈrtice tiene posiciÛn (POSITION) y coordenadas de textura (TEXCOORD).
+  // Crear el input layout que describe c√≥mo est√°n formados los v√©rtices.
+  // En este caso cada v√©rtice tiene posici√≥n (POSITION) y coordenadas de textura (TEXCOORD).
   std::vector<D3D11_INPUT_ELEMENT_DESC> layout;
   D3D11_INPUT_ELEMENT_DESC e{};
   e.SemanticIndex = 0;
@@ -189,21 +183,21 @@ BaseApp::init() {
   // -------------------------------------------------------------------
   // Cargar el modelo usando el sistema de recursos (Model3D)
   // -------------------------------------------------------------------
-  if (!m_model.load("Alien")) { // ObjReader le agregar· ".obj" si hace falta
-    MessageBoxW(nullptr, L"FallÛ la carga de Alien.obj (Model3D)", L"WildvineEngine", MB_ICONERROR);
+  if (!m_model.load("Alien")) {
+    MessageBoxW(nullptr, L"Fall√≥ la carga de Alien.fbx (Model3D)", PROJECT_TAG, MB_ICONERROR);
     return E_FAIL;
   }
 
   const auto& meshes = m_model.GetMeshes();
   if (meshes.empty()) {
-    MessageBoxW(nullptr, L"Model3D no tiene mallas cargadas", L"WildvineEngine", MB_ICONERROR);
+    MessageBoxW(nullptr, L"Model3D no tiene mallas cargadas", PROJECT_TAG, MB_ICONERROR);
     return E_FAIL;
   }
 
   // Por ahora usamos solo la primera malla (igual que antes con un solo MeshComponent).
   m_mesh = meshes[0];
 
-  // Mensaje de depuraciÛn con el n˙mero de vÈrtices e Ìndices cargados.
+  // Mensaje de depuraci√≥n con el n√∫mero de v√©rtices e √≠ndices cargados.
   {
     char buf[256];
     sprintf_s(buf, "[Wildvine] verts=%d idx=%d\n",
@@ -218,14 +212,14 @@ BaseApp::init() {
     return hr;
   }
 
-  // Crear el index buffer en GPU usando los Ìndices de m_mesh.
+  // Crear el index buffer en GPU usando los √≠ndices de m_mesh.
   hr = m_indexBuffer.init(m_device, m_mesh, D3D11_BIND_INDEX_BUFFER);
   if (FAILED(hr)) {
     ERROR("Main", "InitDevice", ("Failed IndexBuffer. HR:" + std::to_string(hr)).c_str());
     return hr;
   }
 
-  // Configurar la topologÌa de dibujo como lista de tri·ngulos.
+  // Configurar la topolog√≠a de dibujo como lista de tri√°ngulos.
   m_deviceContext.IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
   // Cargar la textura del modelo y crear el shader resource view.
@@ -235,22 +229,27 @@ BaseApp::init() {
     return hr;
   }
 
-  // Crear el sampler state que se usar· en el pixel shader.
+  // Crear el sampler state que se usar√° en el pixel shader.
   hr = m_samplerState.init(m_device);
   if (FAILED(hr)) {
     ERROR("Main", "InitDevice", ("Failed SamplerState. HR:" + std::to_string(hr)).c_str());
     return hr;
   }
 
-  // Configurar las matrices b·sicas:
-  // World: posiciÛn/orientaciÛn del modelo.
-  // View: c·mara.
-  // Projection: perspectiva.
+  // -------------------------------------------------------------------
+  // Matrices base
+  // -------------------------------------------------------------------
+
+  // World: posici√≥n/orientaci√≥n del modelo. Por ahora identidad; en update la animamos.
   m_World = XMMatrixIdentity();
-  XMVECTOR Eye = XMVectorSet(0.0f, 1.5f, -4.0f, 0.0f);  // PosiciÛn de la c·mara.
-  XMVECTOR At = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);   // Punto al que mira la c·mara.
-  XMVECTOR Up = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);   // Vector arriba.
+
+  // C√°mara un poco m√°s lejos y arriba para ver mejor el modelo FBX.
+  XMVECTOR Eye = XMVectorSet(0.0f, 2.5f, -8.0f, 0.0f);
+  XMVECTOR At = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
+  XMVECTOR Up = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
+
   m_View = XMMatrixLookAtLH(Eye, At, Up);
+
   m_Projection = XMMatrixPerspectiveFovLH(
     XM_PIDIV4,
     m_window.m_width / (FLOAT)m_window.m_height,
@@ -277,19 +276,38 @@ BaseApp::init() {
   return S_OK;
 }
 
-// En update se actualiza la lÛgica por frame.
-// AquÌ se rota el modelo y se actualizan de nuevo las matrices en los constant buffers.
+// En update se actualiza la l√≥gica por frame.
+// Aqu√≠ se rota el modelo y se actualizan de nuevo las matrices en los constant buffers.
 void BaseApp::update(float dt) {
-  // t acumula el tiempo para animar la rotaciÛn.
+  // t acumula el tiempo para animar la rotaci√≥n.
   static float t = 0.f;
   t += dt;
 
-  // RotaciÛn simple en el eje Y.
-  m_World = XMMatrixRotationY(t * 0.5f);
+  // --- Transform del modelo FBX ---
+
+  // Escala global del modelo (ajusta este valor si se ve muy grande/peque√±o).
+  const float s = 2.0f; // t√∫ ya lo ten√≠as as√≠
+  XMMATRIX S = XMMatrixScaling(s, s, s);
+
+  // Correcci√≥n de orientaci√≥n del FBX:
+  // Blender/FBX suele exportar Z-up, y DirectX es Y-up.
+  // Esto rota -90¬∞ en X para "pararlo".
+  XMMATRIX Rfix = XMMatrixRotationX(-XM_PIDIV2);
+
+  // Rotaci√≥n suave en el eje Y para que gire.
+  XMMATRIX Rspin = XMMatrixRotationY(t * 0.5f);
+
+  // Levantar un poco el modelo si queda muy abajo en pantalla.
+  XMMATRIX T = XMMatrixTranslation(0.0f, 0.0f, 0.0f);
+
+  // Orden t√≠pico: escala -> correcci√≥n eje -> rotaci√≥n animada -> traslaci√≥n.
+  m_World = S * Rfix * Rspin * T;
+
+  // Actualizar el constant buffer de per-frame.
   cb.mWorld = XMMatrixTranspose(m_World);
   m_cbChangesEveryFrame.update(m_deviceContext, nullptr, 0, nullptr, &cb, 0, 0);
 
-  // Se recalcula la vista y proyecciÛn por si el tamaÒo de la ventana cambia.
+  // View/Projection se recalculan por si cambia el tama√±o de la ventana.
   cbNeverChanges.mView = XMMatrixTranspose(m_View);
   m_Projection = XMMatrixPerspectiveFovLH(
     XM_PIDIV4,
@@ -301,6 +319,7 @@ void BaseApp::update(float dt) {
   m_cbNeverChanges.update(m_deviceContext, nullptr, 0, nullptr, &cbNeverChanges, 0, 0);
   m_cbChangeOnResize.update(m_deviceContext, nullptr, 0, nullptr, &cbChangesOnResize, 0, 0);
 }
+
 
 // En render se limpia la pantalla, se configura el pipeline y se dibuja el modelo.
 void BaseApp::render() {
@@ -325,20 +344,20 @@ void BaseApp::render() {
   m_cbNeverChanges.render(m_deviceContext, 0, 1);
   m_cbChangeOnResize.render(m_deviceContext, 1, 1);
   m_cbChangesEveryFrame.render(m_deviceContext, 2, 1);
-  m_cbChangesEveryFrame.render(m_deviceContext, 2, 1, true); // tambiÈn para el pixel shader.
+  m_cbChangesEveryFrame.render(m_deviceContext, 2, 1, true); // tambi√©n para el pixel shader.
 
   // Enlazar la textura del modelo y el sampler al pixel shader.
   m_textureModel.render(m_deviceContext, 0, 1);
   m_samplerState.render(m_deviceContext, 0, 1);
 
-  // Dibujar el modelo usando Ìndices.
+  // Dibujar el modelo usando √≠ndices.
   m_deviceContext.DrawIndexed(m_mesh.m_numIndex, 0, 0);
 
   // Presentar el backbuffer en pantalla.
   m_swapChain.present();
 }
 
-// Esta funciÛn se encarga de liberar los recursos al cerrar la aplicaciÛn.
+// Esta funci√≥n se encarga de liberar los recursos al cerrar la aplicaci√≥n.
 void BaseApp::destroy() {
   // Limpiar el estado del pipeline antes de destruir.
   if (m_deviceContext.m_deviceContext)
@@ -363,18 +382,18 @@ void BaseApp::destroy() {
   m_device.destroy();
 }
 
-// Procedimiento de ventana b·sico.
-// AquÌ se manejan los mensajes principales de la ventana (crear, pintar y cerrar).
+// Procedimiento de ventana b√°sico.
+// Aqu√≠ se manejan los mensajes principales de la ventana (crear, pintar y cerrar).
 LRESULT BaseApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
   switch (message) {
   case WM_CREATE: {
-    // Guardar un puntero a la app en la ventana si se quisiera usar despuÈs.
+    // Guardar un puntero a la app en la ventana si se quisiera usar despu√©s.
     CREATESTRUCT* pCreate = reinterpret_cast<CREATESTRUCT*>(lParam);
     SetWindowLongPtr(hWnd, GWLP_USERDATA, (LONG_PTR)pCreate->lpCreateParams);
   } return 0;
 
   case WM_PAINT: {
-    // Manejo b·sico de repintado, aquÌ no se dibuja nada extra.
+    // Manejo b√°sico de repintado, aqu√≠ no se dibuja nada extra.
     PAINTSTRUCT ps;
     BeginPaint(hWnd, &ps);
     EndPaint(hWnd, &ps);
@@ -386,6 +405,6 @@ LRESULT BaseApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
     return 0;
   }
 
-  // Si no se manejÛ el mensaje, se pasa al procedimiento por defecto.
+  // Si no se manej√≥ el mensaje, se pasa al procedimiento por defecto.
   return DefWindowProc(hWnd, message, wParam, lParam);
 }
