@@ -1,7 +1,6 @@
 #pragma once
 #include "Prerequisites.h"
 #include "Component.h"
-
 #include <vector>
 #include <type_traits>
 
@@ -9,64 +8,56 @@ class DeviceContext;
 
 /**
  * @class Entity
- * @brief Base abstracta para cualquier entidad del juego.
- *
- * No se instancia directamente; usaremos derivadas como Actor.
+ * @brief Entidad base del ECS: contiene y administra componentes.
  */
-class Entity {
+class
+  Entity {
 public:
-  Entity()
-    : m_isActive(true)
-    , m_id(-1)
-  {}
-
+  Entity() : m_isActive(true), m_id(0) {}
   virtual ~Entity() = default;
 
-  /// Inicialización de la entidad y sus componentes
+  /// Inicializar entidad
   virtual void init() = 0;
 
-  /// Actualización lógica
+  /// Actualizar lógica de la entidad
   virtual void update(float deltaTime, DeviceContext& deviceContext) = 0;
 
-  /// Render de la entidad
+  /// Renderizar entidad
   virtual void render(DeviceContext& deviceContext) = 0;
 
-  /// Destrucción / liberación de recursos
+  /// Liberar recursos de la entidad
   virtual void destroy() = 0;
 
-  /// Agrega un componente (T tiene que heredar de Component)
-  template <typename T>
-  void addComponent(EU::TSharedPointer<T> component) {
-    static_assert(std::is_base_of<Component, T>::value,
-      "T must be derived from Component");
-
-    // Conversión TSharedPointer<T> -> TSharedPointer<Component>
-    EU::TSharedPointer<Component> basePtr = component;
-    m_components.push_back(basePtr);
+  /**
+   * @brief Agrega un componente a la entidad (puntero crudo).
+   * @tparam T Tipo del componente (debe heredar de Component).
+   * @param component Puntero al componente ya creado con `new`.
+   */
+  template<typename T>
+  T* addComponent(T* component) {
+    static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
+    m_components.push_back(component);
+    return component;
   }
 
-  /// Busca el primer componente del tipo T
-  template <typename T>
-  EU::TSharedPointer<T> getComponent() {
-    for (auto& component : m_components) {
-      // Si tu TSharedPointer tiene dynamic_pointer_cast, esto debería compilar;
-      // si no, se puede cambiar por constructor EU::TSharedPointer<T>(component).
-      auto specificComponent = component.template dynamic_pointer_cast<T>();
-      if (specificComponent) {
-        return specificComponent;
+  /**
+   * @brief Obtiene el primer componente de tipo T.
+   * @tparam T Tipo de componente a buscar.
+   * @return Puntero a T si existe, nullptr si no.
+   */
+  template<typename T>
+  T* getComponent() {
+    static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
+    for (Component* c : m_components) {
+      if (auto* asT = dynamic_cast<T*>(c)) {
+        return asT;
       }
     }
-    return EU::TSharedPointer<T>(); // nulo
+    return nullptr;
   }
-
-  bool isActive() const { return m_isActive; }
-  void setActive(bool active) { m_isActive = active; }
-
-  int  getId() const { return m_id; }
-  void setId(int id) { m_id = id; }
 
 protected:
   bool m_isActive;
   int  m_id;
-  std::vector<EU::TSharedPointer<Component>> m_components;
+  std::vector<Component*> m_components;  ///< No-owning / owning según destroy()
 };
