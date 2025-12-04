@@ -219,8 +219,7 @@ HRESULT BaseApp::init() {
     return hr;
   }
 
-  // Configurar la topología de dibujo como lista de triángulos.
-  m_deviceContext.IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+  // (Ya NO fijamos la topología aquí; se hace cada frame en render())
 
   // Cargar la textura del modelo y crear el shader resource view.
   hr = m_textureModel.init(m_device, TEX_BASE, ExtensionType::PNG);
@@ -264,9 +263,9 @@ HRESULT BaseApp::init() {
   cb.vMeshColor = XMFLOAT4(1, 1, 1, 1); // Color blanco para el mesh.
 
   // Crear los constant buffers en GPU.
-  if (FAILED(m_cbNeverChanges.init(m_device, sizeof(CBNeverChanges))))          return E_FAIL;
-  if (FAILED(m_cbChangeOnResize.init(m_device, sizeof(CBChangeOnResize))))      return E_FAIL;
-  if (FAILED(m_cbChangesEveryFrame.init(m_device, sizeof(CBChangesEveryFrame))))return E_FAIL;
+  if (FAILED(m_cbNeverChanges.init(m_device, sizeof(CBNeverChanges))))           return E_FAIL;
+  if (FAILED(m_cbChangeOnResize.init(m_device, sizeof(CBChangeOnResize))))       return E_FAIL;
+  if (FAILED(m_cbChangesEveryFrame.init(m_device, sizeof(CBChangesEveryFrame)))) return E_FAIL;
 
   // Subir el contenido inicial de los constant buffers a la GPU.
   m_cbNeverChanges.update(m_deviceContext, nullptr, 0, nullptr, &cbNeverChanges, 0, 0);
@@ -286,21 +285,19 @@ void BaseApp::update(float dt) {
   // --- Transform del modelo FBX ---
 
   // Escala global del modelo (ajusta este valor si se ve muy grande/pequeño).
-  const float s = 2.0f; // tú ya lo tenías así
+  const float s = 2.0f;
   XMMATRIX S = XMMatrixScaling(s, s, s);
 
-  // Corrección de orientación del FBX:
-  // Blender/FBX suele exportar Z-up, y DirectX es Y-up.
-  // Esto rota -90° en X para "pararlo".
+  // Corrección de orientación del FBX (Z-up -> Y-up).
   XMMATRIX Rfix = XMMatrixRotationX(-XM_PIDIV2);
 
   // Rotación suave en el eje Y para que gire.
   XMMATRIX Rspin = XMMatrixRotationY(t * 0.5f);
 
-  // Levantar un poco el modelo si queda muy abajo en pantalla.
+  // Traslación (por ahora en el origen).
   XMMATRIX T = XMMatrixTranslation(0.0f, 0.0f, 0.0f);
 
-  // Orden típico: escala -> corrección eje -> rotación animada -> traslación.
+  // Orden: escala -> corrección eje -> rotación animada -> traslación.
   m_World = S * Rfix * Rspin * T;
 
   // Actualizar el constant buffer de per-frame.
@@ -320,7 +317,6 @@ void BaseApp::update(float dt) {
   m_cbChangeOnResize.update(m_deviceContext, nullptr, 0, nullptr, &cbChangesOnResize, 0, 0);
 }
 
-
 // En render se limpia la pantalla, se configura el pipeline y se dibuja el modelo.
 void BaseApp::render() {
   // Color con el que se limpia el render target.
@@ -339,6 +335,9 @@ void BaseApp::render() {
   // Enlazar el vertex buffer y el index buffer.
   m_vertexBuffer.render(m_deviceContext, 0, 1);
   m_indexBuffer.render(m_deviceContext, 0, 1, false, DXGI_FORMAT_R32_UINT);
+
+  // *** Aquí fijamos la topología cada frame ***
+  m_deviceContext.IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
   // Enlazar los constant buffers necesarios en VS y PS.
   m_cbNeverChanges.render(m_deviceContext, 0, 1);
@@ -383,28 +382,23 @@ void BaseApp::destroy() {
 }
 
 // Procedimiento de ventana básico.
-// Aquí se manejan los mensajes principales de la ventana (crear, pintar y cerrar).
 LRESULT BaseApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
   switch (message) {
   case WM_CREATE: {
-    // Guardar un puntero a la app en la ventana si se quisiera usar después.
     CREATESTRUCT* pCreate = reinterpret_cast<CREATESTRUCT*>(lParam);
     SetWindowLongPtr(hWnd, GWLP_USERDATA, (LONG_PTR)pCreate->lpCreateParams);
   } return 0;
 
   case WM_PAINT: {
-    // Manejo básico de repintado, aquí no se dibuja nada extra.
     PAINTSTRUCT ps;
     BeginPaint(hWnd, &ps);
     EndPaint(hWnd, &ps);
   } return 0;
 
   case WM_DESTROY:
-    // Cuando la ventana se cierra se manda WM_QUIT para salir del bucle.
     PostQuitMessage(0);
     return 0;
   }
 
-  // Si no se manejó el mensaje, se pasa al procedimiento por defecto.
   return DefWindowProc(hWnd, message, wParam, lParam);
 }

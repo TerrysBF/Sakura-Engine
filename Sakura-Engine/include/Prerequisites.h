@@ -15,7 +15,28 @@
 #include "Resource.h"
 #include "resource.h"
 
+// Third Party Libraries
+#include "EngineUtilities/Vectors/Vector2.h"
+#include "EngineUtilities/Vectors/Vector3.h"
+
+#include "EngineUtilities/Memory/TSharedPointer.h"
+#include "EngineUtilities/Memory/TWeakPointer.h"
+#include "EngineUtilities/Memory/TStaticPtr.h"
+#include "EngineUtilities/Memory/TUniquePtr.h"
+
+
 // Aquí podrían ir librerías de terceros (por ahora nada)
+
+/**
+ * @enum ComponentType
+ * @brief Tipos de componentes disponibles en el juego.
+ */
+enum ComponentType {
+  NONE = 0,  ///< Tipo no especificado
+  TRANSFORM = 1,  ///< TransformComponent
+  MESH = 2,  ///< Mesh / MeshRenderer
+  MATERIAL = 3   ///< Material / textura, etc.
+};
 
 /*
  * Macro para liberar un recurso COM de forma segura.
