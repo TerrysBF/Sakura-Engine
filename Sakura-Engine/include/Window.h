@@ -9,7 +9,7 @@ public:
   // Constructor por defecto: NO crea la ventana.
   Window() = default;
 
-    // 🔒 Prohibir copias (evitamos DestroyWindow doble / prematuro)
+    // Evitamos creacion de copias de Windows
     Window(const Window&) = delete;
     Window& operator=(const Window&) = delete;
 

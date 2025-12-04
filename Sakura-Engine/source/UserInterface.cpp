@@ -4,8 +4,15 @@
 #include "imgui_impl_win32.h"
 #include "imgui_impl_dx11.h"
 
-// Si necesitas más includes del motor, agrégalos aquí.
+// Si se requiere más funcionalidad del motor, sus includes pueden agregarse aquí.
 
+/// <summary>
+/// Inicializa ImGui para trabajar con Win32 y DirectX 11.
+/// Crea el contexto de ImGui, configura flags básicos y enlaza con la ventana y el device.
+/// </summary>
+/// <param name="hwnd">Handle de la ventana Win32.</param>
+/// <param name="device">Dispositivo de Direct3D 11.</param>
+/// <param name="context">Contexto de dispositivo de Direct3D 11.</param>
 void UserInterface::init(void* hwnd, ID3D11Device* device, ID3D11DeviceContext* context)
 {
   IMGUI_CHECKVERSION();
@@ -13,7 +20,7 @@ void UserInterface::init(void* hwnd, ID3D11Device* device, ID3D11DeviceContext* 
 
   ImGuiIO& io = ImGui::GetIO();
   io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Navegación con teclado
-  // io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;  // Si luego quieres docking
+  // io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;  // Docking opcional
 
   ImGui::StyleColorsDark();
 
@@ -21,6 +28,11 @@ void UserInterface::init(void* hwnd, ID3D11Device* device, ID3D11DeviceContext* 
   ImGui_ImplDX11_Init(device, context);
 }
 
+/// <summary>
+/// Asigna la lista de actores de la escena para que la UI pueda mostrarlos en la jerarquía.
+/// También resetea el actor seleccionado y la caché de Transform.
+/// </summary>
+/// <param name="actors">Puntero a un vector con actores compartidos.</param>
 void UserInterface::setSceneActors(const std::vector<EU::TSharedPointer<Actor>>* actors)
 {
   m_actors = actors;
@@ -34,6 +46,10 @@ void UserInterface::setSceneActors(const std::vector<EU::TSharedPointer<Actor>>*
   }
 }
 
+/// <summary>
+/// Actualiza el frame de la interfaz de usuario.
+/// Prepara un nuevo frame de ImGui y dibuja las ventanas principales (menú, jerarquía, inspector).
+/// </summary>
 void UserInterface::update()
 {
   // Comenzar nuevo frame de ImGui
@@ -41,7 +57,7 @@ void UserInterface::update()
   ImGui_ImplWin32_NewFrame();
   ImGui::NewFrame();
 
-  // Docking opcional (lo dejamos apagado para evitar problemas de versión)
+  // Docking opcional (apagado para evitar problemas de versión)
   // ImGuiViewport* vp = ImGui::GetMainViewport();
   // ImGui::DockSpaceOverViewport(vp);
 
@@ -50,12 +66,18 @@ void UserInterface::update()
   drawInspector_();
 }
 
+/// <summary>
+/// Renderiza la interfaz de usuario de ImGui sobre el back buffer actual.
+/// </summary>
 void UserInterface::render()
 {
   ImGui::Render();
   ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 }
 
+/// <summary>
+/// Libera los recursos asociados a ImGui (contexto y backends Win32/DX11).
+/// </summary>
 void UserInterface::destroy()
 {
   ImGui_ImplDX11_Shutdown();
@@ -63,10 +85,12 @@ void UserInterface::destroy()
   ImGui::DestroyContext();
 }
 
-// -----------------------------------------------------------------------------
 // Ventanas internas
-// -----------------------------------------------------------------------------
 
+/// <summary>
+/// Dibuja la barra de menú principal en la parte superior de la ventana.
+/// Incluye menús de ejemplo como File y View.
+/// </summary>
 void UserInterface::drawMainMenuBar_()
 {
   if (ImGui::BeginMainMenuBar())
@@ -88,6 +112,10 @@ void UserInterface::drawMainMenuBar_()
   }
 }
 
+/// <summary>
+/// Dibuja la ventana "Hierarchy", donde se listan todos los actores de la escena.
+/// Permite seleccionar un actor para verlo en el inspector.
+/// </summary>
 void UserInterface::drawHierarchy_()
 {
   ImGui::Begin("Hierarchy");
@@ -105,10 +133,10 @@ void UserInterface::drawHierarchy_()
     if (!actor) continue;
 
     const std::string& nameStr = actor->getName();
-    // Label visible: si no tiene nombre, mostramos "Actor"
+    // Label visible: si no tiene nombre, se muestra "Actor"
     const char* visibleLabel = nameStr.empty() ? "Actor" : nameStr.c_str();
 
-    // ID único basado en el puntero del actor (evita problemas de IDs vacíos)
+    // ID único basado en el puntero del actor (evita conflictos de ID en ImGui)
     ImGui::PushID(actor);
 
     bool selected = (m_selectedActor == actor);
@@ -124,6 +152,10 @@ void UserInterface::drawHierarchy_()
   ImGui::End();
 }
 
+/// <summary>
+/// Dibuja la ventana "Inspector", mostrando la información del actor seleccionado.
+/// Actualmente permite editar la Transform (posición, rotación y escala) del actor.
+/// </summary>
 void UserInterface::drawInspector_()
 {
   ImGui::Begin("Inspector");
@@ -138,20 +170,17 @@ void UserInterface::drawInspector_()
   ImGui::Text("Actor: %s", m_selectedActor->getName().c_str());
   ImGui::Separator();
 
-  // ---------------------------------------------------------------------
-  // Transform (edición en tiempo real)
-  // ---------------------------------------------------------------------
+  // Transform
   auto transform = m_selectedActor->getComponent<Transform>();
 
   if (!transform.isNull())
   {
     ImGui::Text("Transform");
 
-    // Inicializar cache la primera vez que mostramos este actor
+    // Inicializar caché la primera vez que se muestra este actor
     if (!m_hasCachedTransform)
     {
-      // Si tu Transform tiene getters, puedes usarlos aquí.
-      // Por ahora reutilizamos valores iniciales del Alien.
+      // Valores iniciales por defecto (por ahora, del Alien de prueba).
       m_cachedPos = EU::Vector3(0.0f, -1.0f, 6.0f);
       m_cachedRot = EU::Vector3(-1.0f, 3.0f, -0.10f);
       m_cachedScale = EU::Vector3(2.0f, 2.0f, 2.0f);
@@ -163,6 +192,7 @@ void UserInterface::drawInspector_()
     changed |= ImGui::DragFloat3("Rotation", &m_cachedRot.x, 0.1f);
     changed |= ImGui::DragFloat3("Scale", &m_cachedScale.x, 0.1f);
 
+    // Si hay cambios, se actualiza el componente Transform del actor
     if (changed)
     {
       transform->setTransform(m_cachedPos, m_cachedRot, m_cachedScale);

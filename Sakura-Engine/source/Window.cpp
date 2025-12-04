@@ -1,6 +1,18 @@
 #include "Window.h"
 #include "Prerequisites.h"
 
+/// <summary>
+/// Inicializa y crea la ventana principal de Win32.
+/// Registra la clase de ventana, ajusta el tamaño del rectángulo de cliente
+/// y muestra la ventana en pantalla.
+/// </summary>
+/// <param name="hInstance">Instancia de la aplicación.</param>
+/// <param name="nCmdShow">Modo de visualización para ShowWindow.</param>
+/// <param name="wndProc">Procedimiento de ventana que manejará los mensajes.</param>
+/// <param name="width">Ancho deseado del área cliente.</param>
+/// <param name="height">Alto deseado del área cliente.</param>
+/// <param name="title">Título de la ventana.</param>
+/// <returns>S_OK si la ventana se crea correctamente; E_FAIL en caso de error.</returns>
 HRESULT Window::init(HINSTANCE hInstance,
   int nCmdShow,
   WNDPROC wndProc,
@@ -17,7 +29,7 @@ HRESULT Window::init(HINSTANCE hInstance,
   WNDCLASSEXW wc = {};
   wc.cbSize = sizeof(WNDCLASSEXW);
   wc.style = CS_HREDRAW | CS_VREDRAW;
-  wc.lpfnWndProc = wndProc;                // <-- Usamos el WndProc que pasa BaseApp
+  wc.lpfnWndProc = wndProc;                // <-- Se usa el WndProc que pasa BaseApp
   wc.cbClsExtra = 0;
   wc.cbWndExtra = 0;
   wc.hInstance = m_hInstance;
@@ -67,6 +79,10 @@ HRESULT Window::init(HINSTANCE hInstance,
   return S_OK;
 }
 
+/// <summary>
+/// Destructor de Window.
+/// Destruye la ventana si existe y desregistra la clase de ventana.
+/// </summary>
 Window::~Window()
 {
   if (m_hWnd)
@@ -82,6 +98,14 @@ Window::~Window()
   }
 }
 
+/// <summary>
+/// Procesa los mensajes de la cola de Windows.
+/// Debe llamarse periódicamente dentro del bucle principal.
+/// </summary>
+/// <returns>
+/// false si se recibe WM_QUIT (indica que debe terminar el loop principal);
+/// true en caso contrario.
+/// </returns>
 bool Window::processMessages()
 {
   MSG msg = {};
