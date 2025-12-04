@@ -21,6 +21,7 @@ En Sakura-Engine las entidades se representan con la clase:
 ```cpp
 auto transform = actor->getComponent<Transform>();
 auto mesh      = actor->getComponent<MeshComponent>();
+```
 
 Las entidades activas se guardan en un contenedor:
 std::vector<EU::TSharedPointer<Actor>> m_actors;
