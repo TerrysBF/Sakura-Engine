@@ -43,5 +43,5 @@ private:
   RECT m_rect;
 
   // Título de la ventana.
-  std::string m_windowName = "Wildvine Engine";
+  std::string m_windowName = "Sakura-Engine";
 };

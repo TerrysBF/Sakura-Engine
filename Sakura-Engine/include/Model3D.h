@@ -2,46 +2,63 @@
 #include "Prerequisites.h"
 #include "IResource.h"
 #include "MeshComponent.h"
+#include "fbxsdk.h"
 
-#include <string>
-#include <vector>
-
-// Tipo de modelo: OBJ o FBX.
-enum ModelType {
-  OBJ,
-  FBX
+enum
+	ModelType {
+	OBJ,
+	FBX
 };
 
-/**
- * @brief Recurso de modelo 3D basado en MeshComponent.
- *
- * Envuelve uno o varios MeshComponent cargados desde disco.
- * No crea buffers de GPU; eso lo haces desde fuera (por ejemplo en BaseApp).
- */
-class Model3D : public IResource
-{
+class
+	Model3D : public IResource {
 public:
-  Model3D(const std::string& name, ModelType modelType);
-  ~Model3D() override = default;
+	Model3D(const std::string& name, ModelType modelType)
+		: IResource(name), m_modelType(modelType), lSdkManager(nullptr), lScene(nullptr) {
+		SetType(ResourceType::Model3D);
+		load(name);
+	}
 
-  // Carga el modelo desde disco
-  bool load(const std::string& path) override;
+	~Model3D() = default;
 
-  // Inicialización en GPU (por ahora no hace nada especial)
-  bool init() override;
+	bool
+		load(const std::string& path) override;
 
-  // Libera los datos en CPU
-  void unload() override;
+	bool
+		init() override;
 
-  // Tamaño aproximado en bytes
-  size_t getSizeInBytes() const override;
+	void
+		unload() override;
 
-  // Acceso a las mallas cargadas
-  const std::vector<MeshComponent>& GetMeshes() const { return m_meshes; }
+	size_t
+		getSizeInBytes() const override;
 
-  ModelType GetModelType() const { return m_modelType; }
+	const std::vector<MeshComponent>&
+		GetMeshes() const { return m_meshes; }
 
+	/* FBX MODEL LOADER*/
+	bool
+		InitializeFBXManager();
+
+	std::vector<MeshComponent>
+		LoadFBXModel(const std::string& filePath);
+
+	void
+		ProcessFBXNode(FbxNode* node);
+
+	void
+		ProcessFBXMesh(FbxNode* node);
+
+	void
+		ProcessFBXMaterials(FbxSurfaceMaterial* material);
+
+	std::vector<std::string>
+		GetTextureFileNames() const { return textureFileNames; }
 private:
-  ModelType m_modelType;
-  std::vector<MeshComponent> m_meshes;
+	FbxManager* lSdkManager;
+	FbxScene* lScene;
+	std::vector<std::string> textureFileNames;
+public:
+	ModelType m_modelType;
+	std::vector<MeshComponent> m_meshes;
 };

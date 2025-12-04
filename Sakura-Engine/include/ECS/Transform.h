@@ -1,88 +1,96 @@
 #pragma once
 #include "Prerequisites.h"
 #include "EngineUtilities/Vectors/Vector3.h"
-#include "ECS/Component.h"
+#include "Component.h"
 
-class DeviceContext;
-
-/**
- * @class Transform
- * @brief Componente de transformación (posición, rotación, escala + matriz).
- */
-class Transform : public Component
-{
+class
+  Transform : public Component {
 public:
-  /// Constructor: inicializa en origen y escala 1, y marca tipo TRANSFORM.
-  Transform()
-    : position()
-    , rotation()
-    , scale()
-    , matrix()
-    , Component(ComponentType::TRANSFORM)
-  {
-  }
+  // Constructor que inicializa posición, rotación y escala por defecto
+  Transform() : position(),
+    rotation(),
+    scale(),
+    matrix(),
+    Component(ComponentType::TRANSFORM) {}
 
-  /// Inicializa el componente (escala 1 y matriz identidad).
-  void init() override {
-    // Escala (1,1,1)
-    scale.x = 1.0f;
-    scale.y = 1.0f;
-    scale.z = 1.0f;
-
+  // Métodos para inicialización, actualización, renderizado y destrucción
+  // Inicializa el objeto Transform
+  void
+    init() {
+    scale.one();
     matrix = XMMatrixIdentity();
   }
 
-  /// Actualiza la matriz a partir de position/rotation/scale.
-  void update(float /*deltaTime*/) override
-  {
-    XMMATRIX S = XMMatrixScaling(scale.x, scale.y, scale.z);
-    XMMATRIX R = XMMatrixRotationRollPitchYaw(rotation.x, rotation.y, rotation.z);
-    XMMATRIX T = XMMatrixTranslation(position.x, position.y, position.z);
+  // Actualiza el estado del objeto Transform basado en el tiempo transcurrido
+  // @param deltaTime: Tiempo transcurrido desde la última actualización
+  void
+    update(float deltaTime) override {
+    // Aplicar escala
+    XMMATRIX scaleMatrix = XMMatrixScaling(scale.x, scale.y, scale.z);
+    // Aplicar rotacion
+    XMMATRIX rotationMatrix = XMMatrixRotationRollPitchYaw(rotation.x, rotation.y, rotation.z);
+    // Aplicar traslacion
+    XMMATRIX translationMatrix = XMMatrixTranslation(position.x, position.y, position.z);
 
-    // Orden típico: S * R * T
-    matrix = S * R * T;
+    // Componer la matriz final en el orden: scale -> rotation -> translation
+    matrix = scaleMatrix * rotationMatrix * translationMatrix;
   }
 
-  /// No hace nada por ahora; el transform se usa desde otros sistemas.
-  void render(DeviceContext& /*deviceContext*/) override {}
+  // Renderiza el objeto Transform
+  // @param deviceContext: Contexto del dispositivo de renderizado
+  void
+    render(DeviceContext& deviceContext) override {}
 
-  /// No hay recursos GPU, así que no hay nada que liberar.
-  void destroy() override {}
+  // Destruye el objeto Transform y libera recursos
+  void
+    destroy() {}
 
-  // --------- Get / Set ---------
+  // Métodos de acceso a los datos de posición
+  // Retorna la posición actual
+  const EU::Vector3&
+    getPosition() const { return position; }
 
-  const EU::Vector3& getPosition() const { return position; }
-  void setPosition(const EU::Vector3& newPos) { position = newPos; }
+  // Establece una nueva posición
+  void
+    setPosition(const EU::Vector3& newPos) { position = newPos; }
 
-  const EU::Vector3& getRotation() const { return rotation; }
-  void setRotation(const EU::Vector3& newRot) { rotation = newRot; }
+  // Métodos de acceso a los datos de rotación
+  // Retorna la rotación actual
+  const EU::Vector3&
+    getRotation() const { return rotation; }
 
-  const EU::Vector3& getScale() const { return scale; }
-  void setScale(const EU::Vector3& newScale) { scale = newScale; }
+  // Establece una nueva rotación
+  void
+    setRotation(const EU::Vector3& newRot) { rotation = newRot; }
 
-  /// Set de todo el transform de golpe.
-  void setTransform(const EU::Vector3& newPos,
-    const EU::Vector3& newRot,
-    const EU::Vector3& newSca)
-  {
+  // Métodos de acceso a los datos de escala
+  // Retorna la escala actual
+  const EU::Vector3&
+    getScale() const { return scale; }
+
+  // Establece una nueva escala
+  void
+    setScale(const EU::Vector3& newScale) { scale = newScale; }
+
+  void
+    setTransform(const EU::Vector3& newPos,
+      const EU::Vector3& newRot,
+      const EU::Vector3& newSca) {
     position = newPos;
     rotation = newRot;
     scale = newSca;
   }
 
-  /// Traslada la posición en los tres ejes.
-  void translate(const EU::Vector3& translation)
-  {
-    position.x += translation.x;
-    position.y += translation.y;
-    position.z += translation.z;
-  }
-
-public:
-  XMMATRIX matrix;   ///< Matriz compuesta S*R*T (pública para usarla rápido).
+  // Método para trasladar la posición del objeto
+  // @param translation: Vector que representa la cantidad de traslado en cada eje
+  void
+    translate(const EU::Vector3& translation);
 
 private:
-  EU::Vector3 position;  ///< Posición (x,y,z)
-  EU::Vector3 rotation;  ///< Rotación (pitch,yaw,roll) en radianes
-  EU::Vector3 scale;     ///< Escala (x,y,z)
+  EU::Vector3 position;  // Posición del objeto
+  EU::Vector3 rotation;  // Rotación del objeto
+  EU::Vector3 scale;     // Escala del objeto
+
+public:
+  XMMATRIX matrix;    // Matriz de transformación
 };

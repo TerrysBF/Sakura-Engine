@@ -1,14 +1,16 @@
 #pragma once
-
-// Librerías de la STL
+// Librerias STD
 #include <string>
 #include <sstream>
 #include <vector>
 #include <windows.h>
 #include <xnamath.h>
 #include <thread>
+#include <memory>
+#include <unordered_map>
+#include <type_traits>
 
-// Librerías de DirectX
+// Librerias DirectX
 #include <d3d11.h>
 #include <d3dx11.h>
 #include <d3dcompiler.h>
@@ -18,56 +20,21 @@
 // Third Party Libraries
 #include "EngineUtilities/Vectors/Vector2.h"
 #include "EngineUtilities/Vectors/Vector3.h"
+#include "EngineUtilities\Memory\TSharedPointer.h"
+#include "EngineUtilities\Memory\TWeakPointer.h"
+#include "EngineUtilities\Memory\TStaticPtr.h"
+#include "EngineUtilities\Memory\TUniquePtr.h"
 
-#include "EngineUtilities/Memory/TSharedPointer.h"
-#include "EngineUtilities/Memory/TWeakPointer.h"
-#include "EngineUtilities/Memory/TStaticPtr.h"
-#include "EngineUtilities/Memory/TUniquePtr.h"
-
-
-// Aquí podrían ir librerías de terceros (por ahora nada)
-
-/**
- * @enum ComponentType
- * @brief Tipos de componentes disponibles en el juego.
- */
-enum ComponentType {
-  NONE = 0,  ///< Tipo no especificado
-  TRANSFORM = 1,  ///< TransformComponent
-  MESH = 2,  ///< Mesh / MeshRenderer
-  MATERIAL = 3   ///< Material / textura, etc.
-};
-
-/*
- * Macro para liberar un recurso COM de forma segura.
- * Si el puntero no es nullptr, llama a Release() y luego lo pone en nullptr.
- */
+// MACROS
 #define SAFE_RELEASE(x) if(x != nullptr) x->Release(); x = nullptr;
 
- /*
-  * Macro para escribir mensajes en el debug output.
-  * Sirve para avisar cuando se crea algún recurso (texturas, buffers, etc.).
-  *
-  * classObj -> nombre de la clase (texto)
-  * method   -> nombre del método (texto)
-  * state    -> mensaje que queremos mostrar
-  */
 #define MESSAGE( classObj, method, state )   \
 {                                            \
    std::wostringstream os_;                  \
-   os_ << classObj << "::" << method << " : " \
-       << "[CREATION OF RESOURCE : " << state << "] \n"; \
+   os_ << classObj << "::" << method << " : " << "[CREATION OF RESOURCE " << ": " << state << "] \n"; \
    OutputDebugStringW( os_.str().c_str() );  \
 }
 
-  /*
-   * Macro para escribir errores en el debug output.
-   * Se usa cuando algo falla (por ejemplo, al crear un buffer o textura).
-   *
-   * classObj -> nombre de la clase (texto)
-   * method   -> nombre del método (texto)
-   * errorMSG -> texto del error
-   */
 #define ERROR(classObj, method, errorMSG)                     \
 {                                                             \
     try {                                                     \
@@ -80,41 +47,50 @@ enum ComponentType {
     }                                                         \
 }
 
-   // Estructura de vértice simple: posición y UV
+//--------------------------------------------------------------------------------------
+// Structures
+//--------------------------------------------------------------------------------------
 struct SimpleVertex
 {
-  XMFLOAT3 Pos; // posición 3D del vértice (x, y, z)
-  XMFLOAT2 Tex; // coordenadas de textura (u, v)
+  XMFLOAT3 Pos;
+  XMFLOAT2 Tex;
 };
 
-// Constant buffer para la matriz de vista (normalmente no cambia mucho)
 struct CBNeverChanges
 {
-  XMMATRIX mView; // matriz de vista (cámara)
+  XMMATRIX mView;
 };
 
-// Constant buffer para la matriz de proyección (se actualiza al cambiar el tamaño de la ventana)
 struct CBChangeOnResize
 {
-  XMMATRIX mProjection; // matriz de proyección (perspectiva)
+  XMMATRIX mProjection;
 };
 
-// Constant buffer para datos que cambian cada frame
 struct CBChangesEveryFrame
 {
-  XMMATRIX mWorld;    // matriz mundo (transformación del objeto)
-  XMFLOAT4 vMeshColor; // color del mesh (RGBA)
+  XMMATRIX mWorld;
+  XMFLOAT4 vMeshColor;
 };
 
-// Tipo de extensión de textura soportada por el sistema
 enum ExtensionType {
-  DDS = 0, // texturas .dds
-  PNG = 1, // texturas .png
-  JPG = 2  // texturas .jpg
+  DDS = 0,
+  PNG = 1,
+  JPG = 2
 };
 
-// Tipo de shader que se quiere crear/usar
 enum ShaderType {
-  VERTEX_SHADER = 0, // shader de vértices
-  PIXEL_SHADER = 1  // shader de píxeles
+  VERTEX_SHADER = 0,
+  PIXEL_SHADER = 1
+};
+
+/**
+ * @enum ComponentType
+ * @brief Tipos de componentes disponibles en el juego.
+ */
+enum
+  ComponentType {
+  NONE = 0,     ///< Tipo de componente no especificado.
+  TRANSFORM = 1,///< Componente de transformación.
+  MESH = 2,     ///< Componente de malla.
+  MATERIAL = 3  ///< Componente de material.
 };

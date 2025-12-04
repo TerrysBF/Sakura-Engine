@@ -1,63 +1,79 @@
 #pragma once
 #include "Prerequisites.h"
 #include "Component.h"
-#include <vector>
-#include <type_traits>
 
 class DeviceContext;
 
-/**
- * @class Entity
- * @brief Entidad base del ECS: contiene y administra componentes.
- */
 class
   Entity {
 public:
-  Entity() : m_isActive(true), m_id(0) {}
-  virtual ~Entity() = default;
-
-  /// Inicializar entidad
-  virtual void init() = 0;
-
-  /// Actualizar lógica de la entidad
-  virtual void update(float deltaTime, DeviceContext& deviceContext) = 0;
-
-  /// Renderizar entidad
-  virtual void render(DeviceContext& deviceContext) = 0;
-
-  /// Liberar recursos de la entidad
-  virtual void destroy() = 0;
+  Entity() = default;
 
   /**
-   * @brief Agrega un componente a la entidad (puntero crudo).
-   * @tparam T Tipo del componente (debe heredar de Component).
-   * @param component Puntero al componente ya creado con `new`.
+   * @brief Destructor virtual.
    */
-  template<typename T>
-  T* addComponent(T* component) {
+  virtual
+    ~Entity() = default;
+
+  /**
+   * @brief Initialize the entity with a device context.
+   * @param deviceContext The device context to initialize with.
+   * @return True if initialization is successful, false otherwise.
+   */
+  virtual void
+    init() = 0;
+
+  /**
+   * @brief Método virtual puro para actualizar el componente.
+   * @param deltaTime El tiempo transcurrido desde la última actualización.
+   */
+  virtual void
+    update(float deltaTime, DeviceContext& deviceContext) = 0;
+
+  /**
+   * @brief Método virtual puro para renderizar el componente.
+   * @param deviceContext Contexto del dispositivo para operaciones gráficas.
+   */
+  virtual void
+    render(DeviceContext& deviceContext) = 0;
+
+  /**
+   * @brief Método virtual puro para destruir el componente.
+   * Libera los recursos asociados al componente.
+   */
+  virtual void
+    destroy() = 0;
+
+  /**
+   * @brief Agrega un componente a la entidad.
+   * @tparam T Tipo del componente, debe derivar de Component.
+   * @param component Puntero compartido al componente que se va a agregar.
+   */
+  template <typename T> void
+    addComponent(EU::TSharedPointer<T> component) {
     static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
-    m_components.push_back(component);
-    return component;
+    m_components.push_back(component.template dynamic_pointer_cast<Component>());
   }
 
   /**
-   * @brief Obtiene el primer componente de tipo T.
-   * @tparam T Tipo de componente a buscar.
-   * @return Puntero a T si existe, nullptr si no.
+   * @brief Obtiene un componente de la entidad por su tipo.
+   * @tparam T Tipo del componente a obtener.
+   * @return Puntero compartido al componente si se encuentra, nullptr en caso contrario.
    */
   template<typename T>
-  T* getComponent() {
-    static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
-    for (Component* c : m_components) {
-      if (auto* asT = dynamic_cast<T*>(c)) {
-        return asT;
+  EU::TSharedPointer<T>
+    getComponent() {
+    for (auto& component : m_components) {
+      EU::TSharedPointer<T> specificComponent = component.template dynamic_pointer_cast<T>();
+      if (specificComponent) {
+        return specificComponent;
       }
     }
-    return nullptr;
+    return EU::TSharedPointer<T>();
   }
-
+private:
 protected:
   bool m_isActive;
-  int  m_id;
-  std::vector<Component*> m_components;  ///< No-owning / owning según destroy()
+  int m_id;
+  std::vector<EU::TSharedPointer<Component>> m_components;
 };

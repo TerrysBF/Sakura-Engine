@@ -1,39 +1,60 @@
 #pragma once
 #include "Prerequisites.h"
-#include <type_traits>   // por si luego lo usas en templates
-
 class DeviceContext;
 
 /**
  * @class Component
  * @brief Clase base abstracta para todos los componentes del juego.
+ *
+ * La clase Component define la interfaz básica que todos los componentes deben implementar,
+ * permitiendo actualizar y renderizar el componente, así como obtener su tipo.
  */
-class Component {
+class
+  Component {
 public:
-  /// Constructor por defecto: componente “sin tipo”
-  Component() : m_type(ComponentType::NONE) {}
+  /**
+   * @brief Constructor por defecto.
+   */
+  Component() = default;
 
-  /// Constructor con tipo
-  explicit Component(ComponentType type) : m_type(type) {}
+  /**
+   * @brief Constructor con tipo de componente.
+   * @param type Tipo del componente.
+   */
+  Component(const ComponentType type) : m_type(type) {}
 
-  /// Destructor virtual
-  virtual ~Component() = default;
+  /**
+   * @brief Destructor virtual.
+   */
+  virtual
+    ~Component() = default;
 
-  /// Inicializar datos del componente (carga de recursos, etc.)
-  virtual void init() = 0;
+  virtual void
+    init() = 0;
 
-  /// Lógica por frame
-  virtual void update(float deltaTime) = 0;
+  /**
+   * @brief Método virtual puro para actualizar el componente.
+   * @param deltaTime El tiempo transcurrido desde la última actualización.
+   */
+  virtual void
+    update(float deltaTime) = 0;
 
-  /// Dibujado
-  virtual void render(DeviceContext& deviceContext) = 0;
+  /**
+   * @brief Método virtual puro para renderizar el componente.
+   * @param deviceContext Contexto del dispositivo para operaciones gráficas.
+   */
+  virtual void
+    render(DeviceContext& deviceContext) = 0;
 
-  /// Liberar recursos
-  virtual void destroy() = 0;
+  virtual void
+    destroy() = 0;
 
-  /// Tipo de componente
-  ComponentType getType() const { return m_type; }
-
+  /**
+   * @brief Obtiene el tipo del componente.
+   * @return El tipo del componente.
+   */
+  ComponentType
+    getType() const { return m_type; }
 protected:
-  ComponentType m_type;
+  ComponentType m_type; ///< Tipo del componente.
 };

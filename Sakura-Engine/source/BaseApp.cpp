@@ -1,404 +1,386 @@
-﻿// Comentarios básicos estilo estudiante :)
-
+﻿
 #include "BaseApp.h"
-#include <string>
-#include <vector>
-#include <windows.h>
-
-// Variables globales para guardar los nombres de los archivos que se usan.
-// Aquí se indican el fx, el modelo (FBX) y la textura base.
-static const wchar_t* PROJECT_TAG = L"[WildvineEngine] ";
-static const char* FX_NAME = "Sakura-Engine.fx";
-static const wchar_t* OBJ_NAME = L"Alien.fbx";
-// static const wchar_t* MTL_NAME = L"Alien.mtl";
-static const char* TEX_BASE = "Alien_Texture"; // nombre sin extensión
-
-// Función auxiliar para revisar si un archivo existe en disco.
-// Recibe una ruta en wchar_t y regresa true si el archivo está presente.
-static bool FileExistsW(const wchar_t* path) {
-  DWORD attr = GetFileAttributesW(path);
-  return (attr != INVALID_FILE_ATTRIBUTES) && !(attr & FILE_ATTRIBUTE_DIRECTORY);
+#include "ResourceManager.h"
+int
+BaseApp::run(HINSTANCE hInst, int nCmdShow) {
+	if (FAILED(m_window.init(hInst, nCmdShow, WndProc))) {
+		return 0;
+	}
+	if (FAILED(init()))
+		return 0;
+	// Main message loop
+	MSG msg = {};
+	LARGE_INTEGER freq, prev;
+	QueryPerformanceFrequency(&freq);
+	QueryPerformanceCounter(&prev);
+	while (WM_QUIT != msg.message)
+	{
+		if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+		{
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+		else
+		{
+			LARGE_INTEGER curr;
+			QueryPerformanceCounter(&curr);
+			float deltaTime = static_cast<float>(curr.QuadPart - prev.QuadPart) / freq.QuadPart;
+			prev = curr;
+			update(deltaTime);
+			render();
+		}
+	}
+	return (int)msg.wParam;
 }
 
-// Constructor.
-// Inicializamos también el recurso Model3D con nombre y tipo FBX.
-BaseApp::BaseApp(HINSTANCE, int)
-  : m_model("Alien", ModelType::FBX) {
+HRESULT
+BaseApp::init() {
+	HRESULT hr = S_OK;
+
+	// Crear swapchain
+	hr = m_swapChain.init(m_device, m_deviceContext, m_backBuffer, m_window);
+
+	if (FAILED(hr)) {
+		ERROR("Main", "InitDevice",
+			("Failed to initialize SwpaChian. HRESULT: " + std::to_string(hr)).c_str());
+		return hr;
+	}
+
+	// Crear render target view
+	hr = m_renderTargetView.init(m_device, m_backBuffer, DXGI_FORMAT_R8G8B8A8_UNORM);
+
+	if (FAILED(hr)) {
+		ERROR("Main", "InitDevice",
+			("Failed to initialize RenderTargetView. HRESULT: " + std::to_string(hr)).c_str());
+		return hr;
+	}
+
+	// Crear textura de depth stencil
+	hr = m_depthStencil.init(m_device,
+		m_window.m_width,
+		m_window.m_height,
+		DXGI_FORMAT_D24_UNORM_S8_UINT,
+		D3D11_BIND_DEPTH_STENCIL,
+		4,
+		0);
+
+	if (FAILED(hr)) {
+		ERROR("Main", "InitDevice",
+			("Failed to initialize DepthStencil. HRESULT: " + std::to_string(hr)).c_str());
+		return hr;
+	}
+
+	// Crear el depth stencil view
+	hr = m_depthStencilView.init(m_device,
+		m_depthStencil,
+		DXGI_FORMAT_D24_UNORM_S8_UINT);
+
+	if (FAILED(hr)) {
+		ERROR("Main", "InitDevice",
+			("Failed to initialize DepthStencilView. HRESULT: " + std::to_string(hr)).c_str());
+		return hr;
+	}
+
+
+	// Crear el m_viewport
+	hr = m_viewport.init(m_window);
+
+	if (FAILED(hr)) {
+		ERROR("Main", "InitDevice",
+			("Failed to initialize Viewport. HRESULT: " + std::to_string(hr)).c_str());
+		return hr;
+	}
+
+	// Load Resources -> Modelos, Texturas e Interfaz de usuario
+
+	// Set Alien  Actor
+	m_alien = EU::MakeShared<Actor>(m_device);
+
+	if (!m_alien.isNull()) {
+		// Crear vertex buffer y index buffer para el pistol
+		std::vector<MeshComponent> alienMeshes;
+		m_model = new Model3D("Alien.fbx", ModelType::FBX);
+		alienMeshes = m_model->GetMeshes();
+
+		std::vector<Texture> alienTextures;
+		hr = m_Alien_Texture.init(m_device, "Alien_Texture", ExtensionType::PNG);
+		// Load the Texture
+		if (FAILED(hr)) {
+			ERROR("Main", "InitDevice",
+				("Failed to initialize Alien_Texture. HRESULT: " + std::to_string(hr)).c_str());
+			return hr;
+		}
+		alienTextures.push_back(m_Alien_Texture);
+
+		m_alien->setMesh(m_device, alienMeshes);
+		m_alien->setTextures(alienTextures);
+		m_alien->setName("Alien");
+		m_actors.push_back(m_alien);
+
+		m_alien->getComponent<Transform>()->setTransform(
+			// Posición: un poco abajo y al fondo
+			EU::Vector3(0.0f, -1.0f, 6.0f),
+			// Rotación: la misma que tenías antes, que ya funcionaba
+			EU::Vector3(-1.0f, 3.0f, -0.10f),
+			// Escala: más razonable para que no llene toda la pantalla
+			EU::Vector3(2.0f, 2.0f, 2.0f)
+		);
+
+
+	}
+	else {
+		ERROR("Main", "InitDevice", "Failed to create alien  Actor.");
+		return E_FAIL;
+	}
+
+	// Define the input layout
+	std::vector<D3D11_INPUT_ELEMENT_DESC> Layout;
+	D3D11_INPUT_ELEMENT_DESC position;
+	position.SemanticName = "POSITION";
+	position.SemanticIndex = 0;
+	position.Format = DXGI_FORMAT_R32G32B32_FLOAT;
+	position.InputSlot = 0;
+	position.AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT /*0*/;
+	position.InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+	position.InstanceDataStepRate = 0;
+	Layout.push_back(position);
+
+	D3D11_INPUT_ELEMENT_DESC texcoord;
+	texcoord.SemanticName = "TEXCOORD";
+	texcoord.SemanticIndex = 0;
+	texcoord.Format = DXGI_FORMAT_R32G32_FLOAT;
+	texcoord.InputSlot = 0;
+	texcoord.AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT /*0*/;
+	texcoord.InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+	texcoord.InstanceDataStepRate = 0;
+	Layout.push_back(texcoord);
+
+	// Create the Shader Program
+	hr = m_shaderProgram.init(m_device, "Sakura-Engine.fx", Layout);
+	if (FAILED(hr)) {
+		ERROR("Main", "InitDevice",
+			("Failed to initialize ShaderProgram. HRESULT: " + std::to_string(hr)).c_str());
+		return hr;
+	}
+
+	//// Create vertex buffer
+	//hr = m_vertexBuffer.init(m_device, TRex[0], D3D11_BIND_VERTEX_BUFFER);
+	//
+	//if (FAILED(hr)) {
+	//	ERROR("Main", "InitDevice",
+	//		("Failed to initialize VertexBuffer. HRESULT: " + std::to_string(hr)).c_str());
+	//	return hr;
+	//}
+	//
+	//// Create index buffer
+	//hr = m_indexBuffer.init(m_device, TRex[0], D3D11_BIND_INDEX_BUFFER);
+	//
+	//if (FAILED(hr)) {
+	//	ERROR("Main", "InitDevice",
+	//		("Failed to initialize IndexBuffer. HRESULT: " + std::to_string(hr)).c_str());
+	//	return hr;
+	//}
+
+	//auto& resourceMan = ResourceManager::getInstance();
+	//std::shared_ptr<Model3D> model = resourceMan.GetOrLoad<Model3D>("CubeModel", "Alien.fbx", ModelType::FBX);
+
+
+	// Create the constant buffers
+	hr = m_cbNeverChanges.init(m_device, sizeof(CBNeverChanges));
+	if (FAILED(hr)) {
+		ERROR("Main", "InitDevice",
+			("Failed to initialize NeverChanges Buffer. HRESULT: " + std::to_string(hr)).c_str());
+		return hr;
+	}
+
+	hr = m_cbChangeOnResize.init(m_device, sizeof(CBChangeOnResize));
+	if (FAILED(hr)) {
+		ERROR("Main", "InitDevice",
+			("Failed to initialize ChangeOnResize Buffer. HRESULT: " + std::to_string(hr)).c_str());
+		return hr;
+	}
+
+	//hr = m_cbChangesEveryFrame.init(m_device, sizeof(CBChangesEveryFrame));
+	//if (FAILED(hr)) {
+	//	ERROR("Main", "InitDevice",
+	//		("Failed to initialize ChangesEveryFrame Buffer. HRESULT: " + std::to_string(hr)).c_str());
+	//	return hr;
+	//}	
+
+	// Create the sample state
+	//hr = m_samplerState.init(m_device);
+	//if (FAILED(hr)) {
+	//	ERROR("Main", "InitDevice",
+	//		("Failed to initialize SamplerState. HRESULT: " + std::to_string(hr)).c_str());
+	//	return hr;
+	//}
+
+	// Initialize the world matrices
+	//m_World = XMMatrixIdentity();
+
+	// Initialize the view matrix
+	// Cámara más cerca y mirando al centro del alien
+	XMVECTOR Eye = XMVectorSet(0.0f, 1.5f, -4.0f, 0.0f);
+	XMVECTOR At = XMVectorSet(0.0f, 0.7f, 0.0f, 0.0f);
+	XMVECTOR Up = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
+
+	m_View = XMMatrixLookAtLH(Eye, At, Up);
+
+	m_Projection = XMMatrixPerspectiveFovLH(
+		XM_PIDIV4,
+		m_window.m_width / (FLOAT)m_window.m_height,
+		0.01f,
+		100.0f
+	);
+
+
+
+	// Initialize the projection matrix
+	cbNeverChanges.mView = XMMatrixTranspose(m_View);
+	m_Projection = XMMatrixPerspectiveFovLH(XM_PIDIV4, m_window.m_width / (FLOAT)m_window.m_height, 0.01f, 100.0f);
+	cbChangesOnResize.mProjection = XMMatrixTranspose(m_Projection);
+
+	return S_OK;
 }
 
-// Función principal del ciclo de la aplicación.
-// Aquí se procesa la ventana, se actualiza y se dibuja cada frame.
-int BaseApp::run(HINSTANCE hInst, int nCmdShow) {
-  // Crear la ventana con el WndProc de esta clase.
-  if (FAILED(m_window.init(hInst, nCmdShow, WndProc))) return 0;
-  // Inicializar Direct3D y todos los recursos.
-  if (FAILED(init())) return 0;
+void BaseApp::update(float deltaTime)
+{
+	// Update our time
+	static float t = 0.0f;
+	if (m_swapChain.m_driverType == D3D_DRIVER_TYPE_REFERENCE)
+	{
+		t += (float)XM_PI * 0.0125f;
+	}
+	else
+	{
+		static DWORD dwTimeStart = 0;
+		DWORD dwTimeCur = GetTickCount();
+		if (dwTimeStart == 0)
+			dwTimeStart = dwTimeCur;
+		t = (dwTimeCur - dwTimeStart) / 1000.0f;
+	}
+	// Update User Interface
 
-  MSG msg = {};
-  LARGE_INTEGER freq, prev;
-  // Se usa el contador de alto rendimiento para medir deltaTime.
-  QueryPerformanceFrequency(&freq);
-  QueryPerformanceCounter(&prev);
+	// Actualizar la matriz de proyección y vista
+	cbNeverChanges.mView = XMMatrixTranspose(m_View);
+	m_cbNeverChanges.update(m_deviceContext, nullptr, 0, nullptr, &cbNeverChanges, 0, 0);
+	m_Projection = XMMatrixPerspectiveFovLH(XM_PIDIV4, m_window.m_width / (FLOAT)m_window.m_height, 0.01f, 100.0f);
+	cbChangesOnResize.mProjection = XMMatrixTranspose(m_Projection);
+	m_cbChangeOnResize.update(m_deviceContext, nullptr, 0, nullptr, &cbChangesOnResize, 0, 0);
 
-  // Bucle principal: sale cuando llega el mensaje WM_QUIT.
-  while (WM_QUIT != msg.message) {
-    // Si hay mensajes de Windows pendientes, se procesan.
-    if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
-      TranslateMessage(&msg);
-      DispatchMessage(&msg);
-    }
-    else {
-      // Si no hay mensajes, se actualiza y se renderiza la escena.
-      LARGE_INTEGER curr;
-      QueryPerformanceCounter(&curr);
-      float dt = float(curr.QuadPart - prev.QuadPart) / float(freq.QuadPart);
-      prev = curr;
 
-      update(dt);
-      render();
-    }
-  }
-  return (int)msg.wParam;
+	// Update Actors
+	for (auto& actor : m_actors) {
+		actor->update(deltaTime, m_deviceContext);
+	}
+
+	// Modify the color
+	//m_vMeshColor.x = 1.0f;
+	//m_vMeshColor.y = 1.0f;
+	//m_vMeshColor.z = 1.0f;
+
+	// Rotate cube around the origin
+	// Aplicar escala
+	//XMMATRIX scaleMatrix = XMMatrixScaling(1.0f, 1.0f, 1.0f);
+	// Aplicar rotacion
+	//XMMATRIX rotationMatrix = XMMatrixRotationRollPitchYaw(-0.60f, 3.0f, -0.20f);
+	// Aplicar traslacion
+	//XMMATRIX translationMatrix = XMMatrixTranslation(2.0f, -4.9f, 11.0f);
+
+	// Componer la matriz final en el orden: scale -> rotation -> translation
+	//m_World = scaleMatrix * rotationMatrix * translationMatrix;
+	//cb.mWorld = XMMatrixTranspose(m_World);
+	//cb.vMeshColor = m_vMeshColor;
+	//m_cbChangesEveryFrame.update(m_deviceContext, nullptr, 0, nullptr, &cb, 0, 0);
 }
 
-// Esta función crea e inicializa todos los recursos de Direct3D.
-// Aquí se prepara el swap chain, el render target, el depth buffer,
-// los shaders, buffers de vértices, texturas y constantes.
-HRESULT BaseApp::init() {
-  HRESULT hr = S_OK;
+void
+BaseApp::render() {
+	// Set Render Target View
+	float ClearColor[4] = { 0.1f, 0.1f, 0.1f, 1.0f };
+	m_renderTargetView.render(m_deviceContext, m_depthStencilView, 1, ClearColor);
 
-  // Crear el swap chain y obtener el backbuffer como textura.
-  hr = m_swapChain.init(m_device, m_deviceContext, m_backBuffer, m_window);
-  if (FAILED(hr)) {
-    ERROR("Main", "InitDevice", ("Failed SwapChain. HR:" + std::to_string(hr)).c_str());
-    return hr;
-  }
+	// Set Viewport
+	m_viewport.render(m_deviceContext);
 
-  // Crear la Render Target View a partir del backbuffer.
-  hr = m_renderTargetView.init(m_device, m_backBuffer, DXGI_FORMAT_R8G8B8A8_UNORM);
-  if (FAILED(hr)) {
-    ERROR("Main", "InitDevice", ("Failed RTV. HR:" + std::to_string(hr)).c_str());
-    return hr;
-  }
+	// Set depth stencil view
+	m_depthStencilView.render(m_deviceContext);
 
-  // Crear la textura de profundidad usando la misma configuración de MSAA
-  // que el swap chain, para que ambas coincidan.
-  {
-    unsigned int sampleCount = m_swapChain.getSampleCount();
-    unsigned int qualityLevels = m_swapChain.getQualityLevels();
+	// Set shader program
+	m_shaderProgram.render(m_deviceContext);
 
-    // Ajuste del nivel de calidad para que sea igual que el usado en el swap chain.
-    if (sampleCount > 1 && qualityLevels > 0)
-      qualityLevels -= 1;
-    else
-      qualityLevels = 0;
+	// Asignar buffers constantes
+	m_cbNeverChanges.render(m_deviceContext, 0, 1);
+	m_cbChangeOnResize.render(m_deviceContext, 1, 1);
 
-    hr = m_depthStencil.init(
-      m_device,
-      m_window.m_width,
-      m_window.m_height,
-      DXGI_FORMAT_D24_UNORM_S8_UINT,
-      D3D11_BIND_DEPTH_STENCIL,
-      sampleCount,
-      qualityLevels
-    );
-  }
+	// Render all actors
+	for (auto& actor : m_actors) {
+		actor->render(m_deviceContext);
+	}
 
-  if (FAILED(hr)) {
-    ERROR("Main", "InitDevice", ("Failed Depth. HR:" + std::to_string(hr)).c_str());
-    return hr;
-  }
+	// Render UI
 
-  // Crear la vista de depth/stencil a partir de la textura creada arriba.
-  hr = m_depthStencilView.init(m_device, m_depthStencil, DXGI_FORMAT_D24_UNORM_S8_UINT);
-  if (FAILED(hr)) {
-    ERROR("Main", "InitDevice", ("Failed DSV. HR:" + std::to_string(hr)).c_str());
-    return hr;
-  }
+	// Render the cube
+	 // Asignar buffers Vertex e Index
+	//m_vertexBuffer.render(m_deviceContext, 0, 1);
+	//m_indexBuffer.render(m_deviceContext, 0, 1, false, DXGI_FORMAT_R32_UINT);
+	//m_cbChangesEveryFrame.render(m_deviceContext, 2, 1);
+	//m_cbChangesEveryFrame.render(m_deviceContext, 2, 1, true);
+	// Asignar textura y sampler
+	//m_textureCube.render(m_deviceContext, 0, 1);
+	//m_samplerState.render(m_deviceContext, 0, 1);
+	//m_deviceContext.DrawIndexed(TRex[0].m_numIndex, 0, 0);
+	// Set primitive topology
+	//m_deviceContext.IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
-  // Crear el viewport usando el tamaño de la ventana.
-  hr = m_viewport.init(m_window);
-  if (FAILED(hr)) {
-    ERROR("Main", "InitDevice", ("Failed Viewport. HR:" + std::to_string(hr)).c_str());
-    return hr;
-  }
-
-  // Configurar un rasterizer state sin culling para poder ver las caras
-  // aunque el orden de los vértices esté al revés.
-  {
-    D3D11_RASTERIZER_DESC rd{};
-    rd.FillMode = D3D11_FILL_SOLID;   // Se dibujan triángulos sólidos.
-    rd.CullMode = D3D11_CULL_NONE;    // No se descarta ninguna cara.
-    rd.FrontCounterClockwise = FALSE; // Front face por defecto (clockwise).
-    rd.DepthClipEnable = TRUE;        // Se respeta el rango de profundidad.
-
-    ID3D11RasterizerState* rs = nullptr;
-    HRESULT hrRS = m_device.m_device->CreateRasterizerState(&rd, &rs);
-    if (FAILED(hrRS)) {
-      ERROR("Main", "InitDevice", ("Failed RasterizerState. HR:" + std::to_string(hrRS)).c_str());
-      return hrRS;
-    }
-    // Se aplica el estado al pipeline.
-    m_deviceContext.m_deviceContext->RSSetState(rs);
-    // Se libera la referencia local, el contexto ya lo mantiene internamente.
-    rs->Release();
-  }
-
-  // Mostrar en el output la ruta actual de trabajo, para saber desde dónde se cargan los archivos.
-  wchar_t cwd[MAX_PATH];
-  GetCurrentDirectoryW(MAX_PATH, cwd);
-  OutputDebugStringW((std::wstring(PROJECT_TAG) + L"CWD = " + cwd + L"\n").c_str());
-
-  // Comprobar que el archivo FBX existe.
-  if (!FileExistsW(OBJ_NAME)) {
-    MessageBoxW(nullptr, (std::wstring(L"No existe ") + OBJ_NAME).c_str(), PROJECT_TAG, MB_ICONERROR);
-    return E_FAIL;
-  }
-
-  // Crear el input layout que describe cómo están formados los vértices.
-  // En este caso cada vértice tiene posición (POSITION) y coordenadas de textura (TEXCOORD).
-  std::vector<D3D11_INPUT_ELEMENT_DESC> layout;
-  D3D11_INPUT_ELEMENT_DESC e{};
-  e.SemanticIndex = 0;
-  e.InputSlot = 0;
-  e.AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
-  e.InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
-  e.InstanceDataStepRate = 0;
-
-  e.SemanticName = "POSITION";
-  e.Format = DXGI_FORMAT_R32G32B32_FLOAT;
-  layout.push_back(e);
-
-  e.SemanticName = "TEXCOORD";
-  e.Format = DXGI_FORMAT_R32G32_FLOAT;
-  layout.push_back(e);
-
-  // Inicializar el programa de shaders (vertex shader, pixel shader e input layout).
-  hr = m_shaderProgram.init(m_device, FX_NAME, layout);
-  if (FAILED(hr)) {
-    ERROR("Main", "InitDevice", ("Failed ShaderProgram. HR:" + std::to_string(hr)).c_str());
-    return hr;
-  }
-
-  // -------------------------------------------------------------------
-  // Cargar el modelo usando el sistema de recursos (Model3D)
-  // -------------------------------------------------------------------
-  if (!m_model.load("Alien")) {
-    MessageBoxW(nullptr, L"Falló la carga de Alien.fbx (Model3D)", PROJECT_TAG, MB_ICONERROR);
-    return E_FAIL;
-  }
-
-  const auto& meshes = m_model.GetMeshes();
-  if (meshes.empty()) {
-    MessageBoxW(nullptr, L"Model3D no tiene mallas cargadas", PROJECT_TAG, MB_ICONERROR);
-    return E_FAIL;
-  }
-
-  // Por ahora usamos solo la primera malla (igual que antes con un solo MeshComponent).
-  m_mesh = meshes[0];
-
-  // Mensaje de depuración con el número de vértices e índices cargados.
-  {
-    char buf[256];
-    sprintf_s(buf, "[Wildvine] verts=%d idx=%d\n",
-      (int)m_mesh.m_numVertex, (int)m_mesh.m_numIndex);
-    OutputDebugStringA(buf);
-  }
-
-  // Crear el vertex buffer en GPU usando los datos de m_mesh.
-  hr = m_vertexBuffer.init(m_device, m_mesh, D3D11_BIND_VERTEX_BUFFER);
-  if (FAILED(hr)) {
-    ERROR("Main", "InitDevice", ("Failed VertexBuffer. HR:" + std::to_string(hr)).c_str());
-    return hr;
-  }
-
-  // Crear el index buffer en GPU usando los índices de m_mesh.
-  hr = m_indexBuffer.init(m_device, m_mesh, D3D11_BIND_INDEX_BUFFER);
-  if (FAILED(hr)) {
-    ERROR("Main", "InitDevice", ("Failed IndexBuffer. HR:" + std::to_string(hr)).c_str());
-    return hr;
-  }
-
-  // (Ya NO fijamos la topología aquí; se hace cada frame en render())
-
-  // Cargar la textura del modelo y crear el shader resource view.
-  hr = m_textureModel.init(m_device, TEX_BASE, ExtensionType::PNG);
-  if (FAILED(hr)) {
-    ERROR("Main", "InitDevice", ("Failed Texture PNG (Alien_Texture). HR:" + std::to_string(hr)).c_str());
-    return hr;
-  }
-
-  // Crear el sampler state que se usará en el pixel shader.
-  hr = m_samplerState.init(m_device);
-  if (FAILED(hr)) {
-    ERROR("Main", "InitDevice", ("Failed SamplerState. HR:" + std::to_string(hr)).c_str());
-    return hr;
-  }
-
-  // -------------------------------------------------------------------
-  // Matrices base
-  // -------------------------------------------------------------------
-
-  // World: posición/orientación del modelo. Por ahora identidad; en update la animamos.
-  m_World = XMMatrixIdentity();
-
-  // Cámara un poco más lejos y arriba para ver mejor el modelo FBX.
-  XMVECTOR Eye = XMVectorSet(0.0f, 2.5f, -8.0f, 0.0f);
-  XMVECTOR At = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
-  XMVECTOR Up = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
-
-  m_View = XMMatrixLookAtLH(Eye, At, Up);
-
-  m_Projection = XMMatrixPerspectiveFovLH(
-    XM_PIDIV4,
-    m_window.m_width / (FLOAT)m_window.m_height,
-    0.01f,
-    100.0f
-  );
-
-  // Se llenan las estructuras de los constant buffers con las matrices transpuestas.
-  cbNeverChanges.mView = XMMatrixTranspose(m_View);
-  cbChangesOnResize.mProjection = XMMatrixTranspose(m_Projection);
-  cb.mWorld = XMMatrixTranspose(m_World);
-  cb.vMeshColor = XMFLOAT4(1, 1, 1, 1); // Color blanco para el mesh.
-
-  // Crear los constant buffers en GPU.
-  if (FAILED(m_cbNeverChanges.init(m_device, sizeof(CBNeverChanges))))           return E_FAIL;
-  if (FAILED(m_cbChangeOnResize.init(m_device, sizeof(CBChangeOnResize))))       return E_FAIL;
-  if (FAILED(m_cbChangesEveryFrame.init(m_device, sizeof(CBChangesEveryFrame)))) return E_FAIL;
-
-  // Subir el contenido inicial de los constant buffers a la GPU.
-  m_cbNeverChanges.update(m_deviceContext, nullptr, 0, nullptr, &cbNeverChanges, 0, 0);
-  m_cbChangeOnResize.update(m_deviceContext, nullptr, 0, nullptr, &cbChangesOnResize, 0, 0);
-  m_cbChangesEveryFrame.update(m_deviceContext, nullptr, 0, nullptr, &cb, 0, 0);
-
-  return S_OK;
+	// Present our back buffer to our front buffer
+	m_swapChain.present();
 }
 
-// En update se actualiza la lógica por frame.
-// Aquí se rota el modelo y se actualizan de nuevo las matrices en los constant buffers.
-void BaseApp::update(float dt) {
-  // t acumula el tiempo para animar la rotación.
-  static float t = 0.f;
-  t += dt;
+void
+BaseApp::destroy() {
+	if (m_deviceContext.m_deviceContext) m_deviceContext.m_deviceContext->ClearState();
 
-  // --- Transform del modelo FBX ---
+	//m_samplerState.destroy();
+	//m_textureCube.destroy();
 
-  // Escala global del modelo (ajusta este valor si se ve muy grande/pequeño).
-  const float s = 2.0f;
-  XMMATRIX S = XMMatrixScaling(s, s, s);
-
-  // Corrección de orientación del FBX (Z-up -> Y-up).
-  XMMATRIX Rfix = XMMatrixRotationX(-XM_PIDIV2);
-
-  // Rotación suave en el eje Y para que gire.
-  XMMATRIX Rspin = XMMatrixRotationY(t * 0.5f);
-
-  // Traslación (por ahora en el origen).
-  XMMATRIX T = XMMatrixTranslation(0.0f, 0.0f, 0.0f);
-
-  // Orden: escala -> corrección eje -> rotación animada -> traslación.
-  m_World = S * Rfix * Rspin * T;
-
-  // Actualizar el constant buffer de per-frame.
-  cb.mWorld = XMMatrixTranspose(m_World);
-  m_cbChangesEveryFrame.update(m_deviceContext, nullptr, 0, nullptr, &cb, 0, 0);
-
-  // View/Projection se recalculan por si cambia el tamaño de la ventana.
-  cbNeverChanges.mView = XMMatrixTranspose(m_View);
-  m_Projection = XMMatrixPerspectiveFovLH(
-    XM_PIDIV4,
-    m_window.m_width / (FLOAT)m_window.m_height,
-    0.01f,
-    100.0f
-  );
-  cbChangesOnResize.mProjection = XMMatrixTranspose(m_Projection);
-  m_cbNeverChanges.update(m_deviceContext, nullptr, 0, nullptr, &cbNeverChanges, 0, 0);
-  m_cbChangeOnResize.update(m_deviceContext, nullptr, 0, nullptr, &cbChangesOnResize, 0, 0);
+	m_cbNeverChanges.destroy();
+	m_cbChangeOnResize.destroy();
+	//m_cbChangesEveryFrame.destroy();
+	//m_vertexBuffer.destroy();
+	//m_indexBuffer.destroy();
+	m_shaderProgram.destroy();
+	m_depthStencil.destroy();
+	m_depthStencilView.destroy();
+	m_renderTargetView.destroy();
+	m_swapChain.destroy();
+	m_backBuffer.destroy();
+	m_deviceContext.destroy();
+	m_device.destroy();
 }
 
-// En render se limpia la pantalla, se configura el pipeline y se dibuja el modelo.
-void BaseApp::render() {
-  // Color con el que se limpia el render target.
-  float ClearColor[4] = { 0.10f, 0.10f, 0.12f, 1.0f };
-
-  // Limpiar y hacer bind de RTV y DSV.
-  m_renderTargetView.render(m_deviceContext, m_depthStencilView, 1, ClearColor);
-  // Aplicar el viewport al contexto.
-  m_viewport.render(m_deviceContext);
-  // Limpiar el depth buffer.
-  m_depthStencilView.render(m_deviceContext);
-
-  // Activar vertex shader, pixel shader e input layout.
-  m_shaderProgram.render(m_deviceContext);
-
-  // Enlazar el vertex buffer y el index buffer.
-  m_vertexBuffer.render(m_deviceContext, 0, 1);
-  m_indexBuffer.render(m_deviceContext, 0, 1, false, DXGI_FORMAT_R32_UINT);
-
-  // *** Aquí fijamos la topología cada frame ***
-  m_deviceContext.IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-
-  // Enlazar los constant buffers necesarios en VS y PS.
-  m_cbNeverChanges.render(m_deviceContext, 0, 1);
-  m_cbChangeOnResize.render(m_deviceContext, 1, 1);
-  m_cbChangesEveryFrame.render(m_deviceContext, 2, 1);
-  m_cbChangesEveryFrame.render(m_deviceContext, 2, 1, true); // también para el pixel shader.
-
-  // Enlazar la textura del modelo y el sampler al pixel shader.
-  m_textureModel.render(m_deviceContext, 0, 1);
-  m_samplerState.render(m_deviceContext, 0, 1);
-
-  // Dibujar el modelo usando índices.
-  m_deviceContext.DrawIndexed(m_mesh.m_numIndex, 0, 0);
-
-  // Presentar el backbuffer en pantalla.
-  m_swapChain.present();
-}
-
-// Esta función se encarga de liberar los recursos al cerrar la aplicación.
-void BaseApp::destroy() {
-  // Limpiar el estado del pipeline antes de destruir.
-  if (m_deviceContext.m_deviceContext)
-    m_deviceContext.m_deviceContext->ClearState();
-
-  m_samplerState.destroy();
-  m_textureModel.destroy();
-
-  m_cbNeverChanges.destroy();
-  m_cbChangeOnResize.destroy();
-  m_cbChangesEveryFrame.destroy();
-  m_vertexBuffer.destroy();
-  m_indexBuffer.destroy();
-  m_shaderProgram.destroy();
-
-  m_depthStencilView.destroy();
-  m_depthStencil.destroy();
-  m_renderTargetView.destroy();
-  m_backBuffer.destroy();
-  m_swapChain.destroy();
-  m_deviceContext.destroy();
-  m_device.destroy();
-}
-
-// Procedimiento de ventana básico.
-LRESULT BaseApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
-  switch (message) {
-  case WM_CREATE: {
-    CREATESTRUCT* pCreate = reinterpret_cast<CREATESTRUCT*>(lParam);
-    SetWindowLongPtr(hWnd, GWLP_USERDATA, (LONG_PTR)pCreate->lpCreateParams);
-  } return 0;
-
-  case WM_PAINT: {
-    PAINTSTRUCT ps;
-    BeginPaint(hWnd, &ps);
-    EndPaint(hWnd, &ps);
-  } return 0;
-
-  case WM_DESTROY:
-    PostQuitMessage(0);
-    return 0;
-  }
-
-  return DefWindowProc(hWnd, message, wParam, lParam);
+LRESULT
+BaseApp::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+	//if (ImGui_ImplWin32_WndProcHandler(hWnd, message, wParam, lParam))
+	//  return true;
+	switch (message)
+	{
+	case WM_CREATE:
+	{
+		CREATESTRUCT* pCreate = reinterpret_cast<CREATESTRUCT*>(lParam);
+		SetWindowLongPtr(hWnd, GWLP_USERDATA, (LONG_PTR)pCreate->lpCreateParams);
+	}
+	return 0;
+	case WM_PAINT:
+	{
+		PAINTSTRUCT ps;
+		BeginPaint(hWnd, &ps);
+		EndPaint(hWnd, &ps);
+	}
+	return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	}
+	return DefWindowProc(hWnd, message, wParam, lParam);
 }

@@ -1,151 +1,165 @@
 #include "ECS/Actor.h"
-#include "ECS/Transform.h"
 #include "MeshComponent.h"
 #include "Device.h"
 #include "DeviceContext.h"
 
 Actor::Actor(Device& device) {
-  // --- Componentes por defecto: Transform + (opcionalmente MeshComponent) ---
+	// Setup Default Components
+	EU::TSharedPointer<Transform> transform = EU::MakeShared<Transform>();
+	addComponent(transform);
+	EU::TSharedPointer<MeshComponent> meshComponent = EU::MakeShared<MeshComponent>();
+	addComponent(meshComponent);
 
-  // Transform como componente principal de transformación
-  Transform* transform = new Transform();
-  addComponent(transform);
+	HRESULT hr;
+	std::string classNameType = "Actor -> " + m_name;
+	hr = m_modelBuffer.init(device, sizeof(CBChangesEveryFrame));
+	if (FAILED(hr)) {
+		ERROR("Actor", classNameType.c_str(), "Failed to create new CBChangesEveryFrame");
+	}
 
-  // Si en el futuro quieres un MeshComponent como componente ECS,
-  // puedes descomentar esto y usarlo:
-  // MeshComponent* meshComponent = new MeshComponent();
-  // addComponent(meshComponent);
+	hr = m_sampler.init(device);
+	if (FAILED(hr)) {
+		ERROR("Actor", classNameType.c_str(), "Failed to create new SamplerState");
+	}
 
-  HRESULT hr;
-  std::string classNameType = "Actor -> " + m_name;
+	//hr = m_rasterizer.init(device);
+	//if (FAILED(hr)) {
+	//	ERROR("Actor", classNameType.c_str(), "Failed to create new Rasterizer");
+	//}
 
-  // Constant buffer del modelo (igual tamaño que CBChangesEveryFrame)
-  hr = m_modelBuffer.init(device, sizeof(CBChangesEveryFrame));
-  if (FAILED(hr)) {
-    ERROR("Actor", classNameType.c_str(),
-      "Failed to create new CBChangesEveryFrame");
-  }
+	//hr = m_blendstate.init(device);
+	//if (FAILED(hr)) {
+	//	ERROR("Actor", classNameType.c_str(), "Failed to create new BlendState");
+	//}
 
-  // Sampler para las texturas
-  hr = m_sampler.init(device);
-  if (FAILED(hr)) {
-    ERROR("Actor", classNameType.c_str(),
-      "Failed to create new SamplerState");
-  }
+	//hr = m_shaderShadow.CreateShader(device, PIXEL_SHADER, "HybridEngine.fx");
+	//
+	//if (FAILED(hr)) {
+	//	ERROR("Main", "InitDevice",
+	//		("Failed to initialize Shadow Shader. HRESULT: " + std::to_string(hr)).c_str());
+	//}
+	//
+	//hr = m_shaderBuffer.init(device, sizeof(CBChangesEveryFrame));
+	//if (FAILED(hr)) {
+	//	ERROR("Main", "InitDevice",
+	//		("Failed to initialize Shadow Buffer. HRESULT: " + std::to_string(hr)).c_str());
+	//
+	//}
+	//
+	//hr = m_shadowBlendState.init(device);
+	//if (FAILED(hr)) {
+	//	ERROR("Main", "InitDevice",
+	//		("Failed to initialize Shadow Blend State. HRESULT: " + std::to_string(hr)).c_str());
+	//
+	//}
 
-  // Posición de luz (por si después usas sombras)
-  m_LightPos = XMFLOAT4(2.0f, 4.0f, -2.0f, 1.0f);
+	//hr = m_shadowDepthStencilState.init(device, true, false);
+	//
+	//if (FAILED(hr)) {
+	//	ERROR("Main", "InitDevice",
+	//		("Failed to initialize Depth Stencil State. HRESULT: " + std::to_string(hr)).c_str());
+	//
+	//}
+	//
+	//m_LightPos = XMFLOAT4(2.0f, 4.0f, -2.0f, 1.0f);
 }
 
 void
 Actor::update(float deltaTime, DeviceContext& deviceContext) {
-  // Actualizar todos los componentes (Transform, etc.)
-  for (Component* component : m_components) {
-    if (component) {
-      component->update(deltaTime);
-    }
-  }
+	// Update all components
+	for (auto& component : m_components) {
+		if (component) {
+			component->update(deltaTime);
+		}
+	}
 
-  // Obtener el Transform del actor (si existe)
-  Transform* transform = getComponent<Transform>();
-  if (transform) {
-    // Subimos la world matrix al constant buffer del modelo
-    m_model.mWorld = XMMatrixTranspose(transform->matrix);
-    m_model.vMeshColor = XMFLOAT4(1, 1, 1, 1); // color blanco por defecto
-
-    m_modelBuffer.update(deviceContext, nullptr, 0, nullptr, &m_model, 0, 0);
-  }
+	// Update the model buffer
+	m_model.mWorld = XMMatrixTranspose(getComponent<Transform>()->matrix);
+	m_model.vMeshColor = XMFLOAT4(1.0f, 1.0f, 1.0f, 1.0f);
+	// Update the constant buffer
+	m_modelBuffer.update(deviceContext, nullptr, 0, nullptr, &m_model, 0, 0);
 }
 
 void
 Actor::render(DeviceContext& deviceContext) {
-  // Sampler para el pixel shader
-  m_sampler.render(deviceContext, 0, 1);
+	// 1) Proyectar sombra primero (sobre el suelo)
+	//if (canCastShadow()) {
+	//	renderShadow(deviceContext);
+	//}
+	//
+	// 2) Estados de raster, blend y sampler para el modelo
+	//m_blendstate.render(deviceContext);
+	//m_rasterizer.render(deviceContext);
+	m_sampler.render(deviceContext, 0, 1);
 
-  deviceContext.IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	deviceContext.IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	// Update buffer and render all components
+	for (unsigned int i = 0; i < m_meshes.size(); i++) {
+		m_vertexBuffers[i].render(deviceContext, 0, 1);
+		m_indexBuffers[i].render(deviceContext, 0, 1, false, DXGI_FORMAT_R32_UINT);
+		// Bind del CB “normal” (world + color)
+		m_modelBuffer.render(deviceContext, 2, 1, true);
 
-  // Dibujar todas las mallas asociadas al actor
-  for (size_t i = 0; i < m_meshes.size(); ++i) {
-    // Vertex / Index buffers
-    m_vertexBuffers[i].render(deviceContext, 0, 1);
-    m_indexBuffers[i].render(deviceContext, 0, 1, false, DXGI_FORMAT_R32_UINT);
-
-    // Constant buffer del modelo (VS + PS)
-    m_modelBuffer.render(deviceContext, 1, 1, true);
-
-    // Texturas (por ahora usamos solo la 0 como albedo)
-    if (!m_textures.empty()) {
-      size_t texIndex = (i < m_textures.size()) ? i : 0;
-      m_textures[texIndex].render(deviceContext, 0, 1);
-    }
-
-    deviceContext.DrawIndexed(m_meshes[i].m_numIndex, 0, 0);
-  }
+		// Render mesh texture
+		if (m_textures.size() > 0) {
+			if (i < m_textures.size()) {
+				if (m_textures.size() >= 1) {
+					m_textures[0].render(deviceContext, 0, 1); // Albedo -> t0
+					//m_textures[1].render(deviceContext, 1, 1); // Normal -> t1
+					//m_textures[2].render(deviceContext, 2, 1); // Metallic -> t2
+					//m_textures[3].render(deviceContext, 3, 1); // Roughness -> t3
+					//m_textures[4].render(deviceContext, 4, 1); // AO -> t4
+				}
+			}
+		}
+		deviceContext.DrawIndexed(m_meshes[i].m_numIndex, 0, 0);
+	}
 }
+
 
 void
 Actor::destroy() {
-  // Buffers de malla
-  for (auto& vb : m_vertexBuffers) {
-    vb.destroy();
-  }
+	for (auto& vertexBuffer : m_vertexBuffers) {
+		vertexBuffer.destroy();
+	}
 
-  for (auto& ib : m_indexBuffers) {
-    ib.destroy();
-  }
+	for (auto& indexBuffer : m_indexBuffers) {
+		indexBuffer.destroy();
+	}
 
-  // Texturas
-  for (auto& tex : m_textures) {
-    tex.destroy();
-  }
+	for (auto& tex : m_textures) {
+		tex.destroy();
+	}
+	m_modelBuffer.destroy();
 
-  // Constant buffer y sampler
-  m_modelBuffer.destroy();
-  m_sampler.destroy();
-
-  // Destruir componentes del ECS
-  for (Component* c : m_components) {
-    if (c) {
-      c->destroy();   // por si el componente reserva recursos internos
-      delete c;
-    }
-  }
-  m_components.clear();
+	//m_rasterizer.destroy();
+	//m_blendstate.destroy();
+	m_sampler.destroy();
 }
 
 void
 Actor::setMesh(Device& device, std::vector<MeshComponent> meshes) {
-  m_meshes = std::move(meshes);
+	m_meshes = meshes;
+	HRESULT hr;
+	for (auto& mesh : m_meshes) {
+		// Crear vertex buffer
+		Buffer vertexBuffer;
+		hr = vertexBuffer.init(device, mesh, D3D11_BIND_VERTEX_BUFFER);
+		if (FAILED(hr)) {
+			ERROR("Actor", "setMesh", "Failed to create new vertexBuffer");
+		}
+		else {
+			m_vertexBuffers.push_back(vertexBuffer);
+		}
 
-  m_vertexBuffers.clear();
-  m_indexBuffers.clear();
-
-  m_vertexBuffers.resize(m_meshes.size());
-  m_indexBuffers.resize(m_meshes.size());
-
-  HRESULT hr;
-
-  for (size_t i = 0; i < m_meshes.size(); ++i) {
-    const MeshComponent& mc = m_meshes[i];
-
-    // Vertex buffer
-    hr = m_vertexBuffers[i].init(device, mc, D3D11_BIND_VERTEX_BUFFER);
-    if (FAILED(hr)) {
-      ERROR("Actor", "setMesh",
-        ("Failed to create VertexBuffer for mesh " + std::to_string(i)).c_str());
-    }
-
-    // Index buffer
-    hr = m_indexBuffers[i].init(device, mc, D3D11_BIND_INDEX_BUFFER);
-    if (FAILED(hr)) {
-      ERROR("Actor", "setMesh",
-        ("Failed to create IndexBuffer for mesh " + std::to_string(i)).c_str());
-    }
-  }
-}
-
-void
-Actor::renderShadow(DeviceContext& /*deviceContext*/) {
-  // Stub vacío por ahora.
-  // Aquí iría el pipeline de shadow mapping si lo implementas después.
+		// Crear index buffer
+		Buffer indexBuffer;
+		hr = indexBuffer.init(device, mesh, D3D11_BIND_INDEX_BUFFER);
+		if (FAILED(hr)) {
+			ERROR("Actor", "setMesh", "Failed to create new indexBuffer");
+		}
+		else {
+			m_indexBuffers.push_back(indexBuffer);
+		}
+	}
 }
