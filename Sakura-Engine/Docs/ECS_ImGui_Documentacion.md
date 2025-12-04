@@ -26,7 +26,7 @@ auto mesh      = actor->getComponent<MeshComponent>();
 Las entidades activas se guardan en un contenedor:
 std::vector<EU::TSharedPointer<Actor>> m_actors;
 
-2.2. Componentes
+## 2.2. Componentes
 
 Los componentes encapsulan datos específicos de cada aspecto de la entidad.
 
@@ -42,30 +42,35 @@ Diagrama simple:
 
 Ejemplo de uso de Transform en el código:
 
+```cpp
 m_alien->getComponent<Transform>()->setTransform(
     EU::Vector3(0.0f, -1.0f, 6.0f),
     EU::Vector3(-1.0f, 3.0f, -0.10f),
     EU::Vector3(2.0f, 2.0f, 2.0f)
 );
+```
 
-2.3. Sistemas
+## 2.3. Sistemas
 
 En este proyecto, los sistemas se implementan de forma sencilla dentro de BaseApp y clases auxiliares.
 
-Sistema	Responsable	Función principal
-Render System	BaseApp::render	Recorre m_actors y dibuja los que tienen MeshComponent.
-Camera System	BaseApp	Configura matrices de vista/proyección antes del render.
-UI System	UserInterface	Dibujar jerarquía, inspector y permitir edición en tiempo real via ImGui.
+| Sistema       | Responsable       | Función principal                                                       |
+| ------------- | ----------------- | ----------------------------------------------------------------------- |
+| Render System | `BaseApp::render` | Recorre `m_actors` y dibuja los que tienen `MeshComponent`.             |
+| Camera System | `BaseApp`         | Configura matrices de vista/proyección antes del render.                |
+| UI System     | `UserInterface`   | Dibuja jerarquía, inspector y permite edición en tiempo real vía ImGui. |
 
 Ejemplo simplificado de sistema de render:
 
+```cpp
 for (auto& actor : m_actors)
 {
     if (!actor.isNull())
         actor->render(m_deviceContext);
 }
+```
 
-3. Integración con ImGui
+## 3. Integración con ImGui
 
 La clase UserInterface encapsula la lógica de Dear ImGui usando los backends:
 
@@ -73,7 +78,9 @@ imgui_impl_win32.h
 
 imgui_impl_dx11.h
 
-3.1. Inicialización
+## 3.1. Inicialización
+
+```cpp
 void UserInterface::init(void* hwnd,
                          ID3D11Device* device,
                          ID3D11DeviceContext* context)
@@ -89,44 +96,48 @@ void UserInterface::init(void* hwnd,
     ImGui_ImplWin32_Init((HWND)hwnd);
     ImGui_ImplDX11_Init(device, context);
 }
-
+```
 
 BaseApp pasa el vector de actores a la UI:
 
 m_ui.setSceneActors(&m_actors);
 
-3.2. Panel de jerarquía (Hierarchy)
+
+## 3.2. Panel de jerarquía (Hierarchy)
 
 El panel de jerarquía muestra la lista de entidades activas:
 
-for (auto& actorPtr : *m_actors)
+```cpp
+for (auto& actorPtr : m_actors)
 {
     Actor* actor = actorPtr.get();
     if (!actor) continue;
 
-    const std::string& nameStr = actor->getName();
-    const char* visibleLabel = nameStr.empty() ? "Actor" : nameStr.c_str();
+    const std::string& nameStr   = actor->getName();
+    const char*        labelText = nameStr.empty() ? "Actor" : nameStr.c_str();
 
-    ImGui::PushID(actor); // ID único
+    ImGui::PushID(actor); // ID único basado en el puntero
+
     bool selected = (m_selectedActor == actor);
-
-    if (ImGui::Selectable(visibleLabel, selected))
+    if (ImGui::Selectable(labelText, selected))
     {
-        m_selectedActor = actor;
+        m_selectedActor      = actor;
         m_hasCachedTransform = false;
     }
 
     ImGui::PopID();
 }
+```
 
 
 Al hacer clic en un actor, éste pasa a ser el actor seleccionado para el inspector.
 
-3.3. Panel de inspector (Inspector)
+## 3.3. Panel de inspector (Inspector)
 
 El inspector muestra los componentes del actor seleccionado.
 En esta versión, se edita principalmente el Transform:
 
+```cpp
 auto transform = m_selectedActor->getComponent<Transform>();
 
 if (!transform.isNull())
@@ -141,45 +152,46 @@ if (!transform.isNull())
         transform->setTransform(m_cachedPos, m_cachedRot, m_cachedScale);
     }
 }
+```
 
 Esto permite edición en tiempo real del modelo Alien directamente desde la interfaz.
 
-4. Flujo de ejecución (runtime)
+## 4. Flujo de ejecución (runtime)
 
-Inicialización (BaseApp::init)
+## 4.1. Inicialización (BaseApp::init)
 
-Crear ventana (Window).
+1. Crear ventana (Window).
 
-Inicializar DirectX 11 (Device, DeviceContext, SwapChain, Viewport).
+2. Inicializar DirectX 11 (Device, DeviceContext, SwapChain, Viewport).
 
-Cargar modelo y texturas (Model3D, MeshComponent, Texture).
+3. Cargar modelo y texturas (Model3D, MeshComponent, Texture).
 
-Crear entidad Actor para el Alien y configurar su Transform.
+4. Crear entidad Actor para el Alien y configurar su Transform.
 
-Inicializar UserInterface y asociar m_actors.
+5. Inicializar UserInterface y asociar m_actors.
 
-Ciclo principal (BaseApp::run)
+## 4.2. Ciclo principal (BaseApp::run)
 
 Mientras no se reciba WM_QUIT:
 
-Procesar mensajes de Windows.
+1. Procesar mensajes de Windows.
 
-Llamar a update(deltaTime) y render().
+2. Llamar a update(deltaTime) y render().
 
-Por frame
+## 4.3. Por frame
 
-BaseApp::update:
+- **`BaseApp::update`** 
 
-Lógica de escena (si se añade).
+    Lógica de escena (si se añade).
 
-m_ui.update() para construir la UI de ImGui.
+    m_ui.update() para construir la UI de ImGui.
 
-BaseApp::render:
+- **`BaseApp::render`** 
 
-Limpiar backbuffer y depth buffer.
+    Limpiar backbuffer y depth buffer.
 
-Dibujar escena 3D (Alien).
+    Dibujar escena 3D (Alien).
 
-m_ui.render() para dibujar la interfaz.
+    m_ui.render() para dibujar la interfaz.
 
-Presentar el swapchain.
+    Presentar el SwapChain.
