@@ -2,13 +2,27 @@
 #include "Prerequisites.h"
 #include "IResource.h"
 
+/// <summary>
+/// Administrador global de recursos (modelos, texturas, shaders, etc.).
+/// Implementa un caché tipo singleton para reutilizar instancias cargadas.
+/// </summary>
 class
 	ResourceManager {
 public:
+	/// <summary>
+	/// Constructor por defecto.
+	/// </summary>
 	ResourceManager() = default;
+
+	/// <summary>
+	/// Destructor por defecto.
+	/// </summary>
 	~ResourceManager() = default;
 
-	// Singleton
+	/// <summary>
+	/// Acceso al singleton de ResourceManager.
+	/// </summary>
+	/// <returns>Referencia única al administrador de recursos.</returns>
 	static ResourceManager& getInstance() {
 		static ResourceManager instance;
 		return instance;
@@ -17,7 +31,16 @@ public:
 	ResourceManager(const ResourceManager&) = delete;
 	ResourceManager& operator=(const ResourceManager&) = delete;
 
-	/// Obtener o cargar un recurso de tipo T (T debe heredar de IResource).
+	/// <summary>
+	/// Obtiene un recurso de tipo T o lo carga si aún no existe en caché.
+	/// T debe heredar de IResource.
+	/// </summary>
+	/// <typeparam name="T">Tipo de recurso (derivado de IResource).</typeparam>
+	/// <typeparam name="Args">Parámetros adicionales para el constructor de T.</typeparam>
+	/// <param name="key">Clave con la que se identifica el recurso en el caché.</param>
+	/// <param name="filename">Archivo desde el cual se carga el recurso.</param>
+	/// <param name="args">Argumentos adicionales para construir el recurso.</param>
+	/// <returns>Puntero compartido al recurso cargado o existente; nullptr si falla.</returns>
 	template<typename T, typename... Args>
 	std::shared_ptr<T> GetOrLoad(const std::string& key,
 		const std::string& filename,
@@ -30,7 +53,7 @@ public:
 			// Intentar castear al tipo correcto
 			auto existing = std::dynamic_pointer_cast<T>(it->second);
 			if (existing && existing->GetState() == ResourceState::Loaded) {
-				return existing; // Flyweight: reutilizamos la instancia
+				return existing; // Flyweight: reutiliza la instancia ya cargada
 			}
 		}
 
@@ -38,11 +61,12 @@ public:
 		std::shared_ptr<T> resource = std::make_shared<T>(key, std::forward<Args>(args)...);
 
 		if (!resource->load(filename)) {
-			// Puedes manejar errores más fino aquí
+			// Manejo básico de error de carga
 			return nullptr;
 		}
 
 		if (!resource->init()) {
+			// Manejo básico de error de inicialización
 			return nullptr;
 		}
 
@@ -51,7 +75,12 @@ public:
 		return resource;
 	}
 
-	/// Obtener un recurso ya cargado, sin cargarlo si no existe.
+	/// <summary>
+	/// Obtiene un recurso ya cargado sin intentar cargarlo si no existe.
+	/// </summary>
+	/// <typeparam name="T">Tipo de recurso esperado.</typeparam>
+	/// <param name="key">Clave del recurso en el caché.</param>
+	/// <returns>Puntero compartido al recurso o nullptr si no se encuentra.</returns>
 	template<typename T>
 	std::shared_ptr<T> Get(const std::string& key) const
 	{
@@ -61,7 +90,10 @@ public:
 		return std::dynamic_pointer_cast<T>(it->second);
 	}
 
-	/// Liberar un recurso específico
+	/// <summary>
+	/// Libera un recurso específico del caché y llama a unload().
+	/// </summary>
+	/// <param name="key">Clave del recurso a liberar.</param>
 	void Unload(const std::string& key)
 	{
 		auto it = m_resources.find(key);
@@ -71,7 +103,9 @@ public:
 		}
 	}
 
-	/// Liberar todos los recursos
+	/// <summary>
+	/// Libera todos los recursos almacenados en el caché.
+	/// </summary>
 	void UnloadAll()
 	{
 		for (auto& [key, res] : m_resources) {
@@ -83,5 +117,6 @@ public:
 	}
 
 private:
+	// Caché de recursos, indexados por una clave de texto.
 	std::unordered_map<std::string, std::shared_ptr<IResource>> m_resources;
 };

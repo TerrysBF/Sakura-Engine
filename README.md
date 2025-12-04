@@ -23,6 +23,33 @@ Incluye un parser sencillo de OBJ (`ObjReader`) y una mini “engine” con clas
 
 ---
 
+## Características principales
+
+- **Ventana Win32 + D3D11**
+  - Clase `Window` para crear y gestionar la ventana.
+  - Clases `Device`, `DeviceContext`, `SwapChain`, `RenderTargetView`, `DepthStencilView`, `Viewport`.
+
+- **Modelo 3D**
+  - Carga de un modelo 3D (Alien) mediante `Model3D` y Autodesk FBX SDK.
+  - `MeshComponent` almacena vértices, índices y se encarga de pasar la geometría a la GPU.
+  - `Texture` + `SamplerState` para texturizar el modelo.
+
+- **ECS (Entity Component System) sencillo**
+  - Entidad: `Actor`
+  - Componentes:
+    - `Transform` – posición, rotación y escala.
+    - `MeshComponent` – malla y datos de render.
+    - (Opcional / conceptual) `CameraComponent` – parámetros de cámara.
+  - Sistema de render: recorre la lista de actores y dibuja los que tienen malla.
+  - Sistema de cámara: configura vista/proyección antes del render.
+
+- **Herramientas con ImGui**
+  - Ventana **Hierarchy**: lista de entidades (`Actor`) en la escena.
+  - Ventana **Inspector**: muestra el actor seleccionado y permite editar su `Transform`.
+  - Edición en tiempo real: mover `Position`, `Rotation` y `Scale` actualiza el modelo 3D al instante.
+
+---
+
 ## Estructura general del proyecto
 
 Componentes principales:
@@ -98,3 +125,15 @@ static const wchar_t* OBJ_NAME  = L"Alien.obj";
 static const wchar_t* MTL_NAME  = L"Alien.mtl";
 static const char*   TEX_BASE   = "Alien_Texture"; // sin extensión
 static const char*   FX_NAME    = "Sakura-Engine.fx";
+
+---
+
+## Diseño del ECS
+
+### Diagrama sencillo
+
+```text
+[Actor] (Entidad)
+ ├── Transform        (Componente de transformación)
+ ├── MeshComponent    (Componente de malla / render)
+ └── CameraComponent* (solo si el actor actúa como cámara)

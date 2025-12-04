@@ -1,5 +1,10 @@
 #include "Model3D.h"
 
+/// <summary>
+/// Carga el modelo desde la ruta indicada y actualiza el estado del recurso.
+/// </summary>
+/// <param name="path">Ruta del archivo del modelo.</param>
+/// <returns>true si la carga fue exitosa; false en caso contrario.</returns>
 bool
 Model3D::load(const std::string& path) {
   SetPath(path);
@@ -13,6 +18,10 @@ Model3D::load(const std::string& path) {
   return success;
 }
 
+/// <summary>
+/// Inicializa el modelo 3D y desencadena la carga del modelo FBX.
+/// </summary>
+/// <returns>true si la inicialización fue exitosa; false en caso contrario.</returns>
 bool Model3D::init()
 {
   // Inicializar recursos GPU, buffers, etc.
@@ -20,17 +29,28 @@ bool Model3D::init()
   return false;
 }
 
+/// <summary>
+/// Libera los datos asociados al modelo y marca el recurso como descargado.
+/// </summary>
 void Model3D::unload()
 {
   // Liberar buffers, memoria en CPU/GPU, etc.
   SetState(ResourceState::Unloaded);
 }
 
+/// <summary>
+/// Devuelve el tamaño estimado del modelo en memoria.
+/// </summary>
+/// <returns>Tamaño en bytes (por ahora 0, pendiente de implementar).</returns>
 size_t Model3D::getSizeInBytes() const
 {
   return 0;
 }
 
+/// <summary>
+/// Inicializa el administrador y la escena del FBX SDK.
+/// </summary>
+/// <returns>true si la inicialización fue correcta; false en caso de error.</returns>
 bool
 Model3D::InitializeFBXManager() {
   // Initialize the FBX SDK manager
@@ -59,6 +79,11 @@ Model3D::InitializeFBXManager() {
   return true;
 }
 
+/// <summary>
+/// Carga un modelo FBX desde disco, procesa la escena y construye las mallas.
+/// </summary>
+/// <param name="filePath">Ruta del archivo FBX.</param>
+/// <returns>Vector de MeshComponent generados a partir del modelo.</returns>
 std::vector<MeshComponent>
 Model3D::LoadFBXModel(const std::string& filePath) {
   // 01. Initialize the SDK from FBX Manager
@@ -124,6 +149,11 @@ Model3D::LoadFBXModel(const std::string& filePath) {
   return m_meshes;
 }
 
+/// <summary>
+/// Recorre un nodo del árbol FBX y procesa sus mallas,
+/// además de llamar recursivamente a sus hijos.
+/// </summary>
+/// <param name="node">Nodo FBX a procesar.</param>
 void
 Model3D::ProcessFBXNode(FbxNode* node) {
   // 01. Process all the node's meshes
@@ -139,6 +169,11 @@ Model3D::ProcessFBXNode(FbxNode* node) {
   }
 }
 
+/// <summary>
+/// Convierte una malla FBX en datos de vértices e índices,
+/// construyendo un MeshComponent y agregándolo a la lista de mallas.
+/// </summary>
+/// <param name="node">Nodo FBX que contiene la malla.</param>
 void
 Model3D::ProcessFBXMesh(FbxNode* node) {
   FbxMesh* mesh = node->GetMesh();
@@ -205,7 +240,7 @@ Model3D::ProcessFBXMesh(FbxNode* node) {
       FbxVector4 P = mesh->GetControlPointAt(cpIndex);
       out.Pos = { (float)P[0], (float)P[1], (float)P[2] };
 
-      // Normal por esquina
+      // Normal por esquina (comentado actualmente)
       //FbxVector4 N(0, 1, 0, 0);
       //mesh->GetPolygonVertexNormal(p, v, N);
       //N.Normalize();
@@ -222,7 +257,7 @@ Model3D::ProcessFBXMesh(FbxNode* node) {
         out.Tex = { 0.0f, 0.0f };
       }
 
-      // Tangente / Bitangente si existen
+      // Tangente / Bitangente si existen (comentado actualmente)
       //if (tanElem) {
       //  FbxVector4 T = readV4(tanElem, cpIndex, pvIndex);
       //  out.Tangent = { (float)T[0], (float)T[1], (float)T[2] };
@@ -247,41 +282,8 @@ Model3D::ProcessFBXMesh(FbxNode* node) {
     }
   }
 
-  // --- Fallback: calcula T/B si faltan ---
-  //if (mesh->GetElementTangentCount() == 0 || mesh->GetElementBinormalCount() == 0)
-  //{
-  //  auto add = [](EU::Vector3 a, const EU::Vector3& b) { a.x += b.x; a.y += b.y; a.z += b.z; return a; };
-  //  auto sub = [](const EU::Vector3& a, const EU::Vector3& b) { return EU::Vector3(a.x - b.x, a.y - b.y, a.z - b.z); };
-  //  auto mul = [](const EU::Vector3& a, float s) { return EU::Vector3(a.x * s, a.y * s, a.z * s); };
-  //
-  //  for (size_t i = 0; i + 2 < indices.size(); i += 3)
-  //  {
-  //    Vertex& v0 = vertices[indices[i + 0]];
-  //    Vertex& v1 = vertices[indices[i + 1]];
-  //    Vertex& v2 = vertices[indices[i + 2]];
-  //
-  //    EU::Vector3 e1 = sub(v1.Position, v0.Position);
-  //    EU::Vector3 e2 = sub(v2.Position, v0.Position);
-  //
-  //    float du1 = v1.TextureCoordinate.x - v0.TextureCoordinate.x;
-  //    float dv1 = v1.TextureCoordinate.y - v0.TextureCoordinate.y;
-  //    float du2 = v2.TextureCoordinate.x - v0.TextureCoordinate.x;
-  //    float dv2 = v2.TextureCoordinate.y - v0.TextureCoordinate.y;
-  //
-  //    float denom = du1 * dv2 - du2 * dv1;
-  //    float r = (std::fabs(denom) < 1e-8f) ? 0.0f : 1.0f / denom;
-  //
-  //    EU::Vector3 T = mul(EU::Vector3(e1.x * dv2 - e2.x * dv1, e1.y * dv2 - e2.y * dv1, e1.z * dv2 - e2.z * dv1), r);
-  //    EU::Vector3 B = mul(EU::Vector3(e2.x * du1 - e1.x * du2, e2.y * du1 - e1.y * du2, e2.z * du1 - e1.z * du2), r);
-  //
-  //    v0.Tangent = add(v0.Tangent, T);
-  //    v1.Tangent = add(v1.Tangent, T);
-  //    v2.Tangent = add(v2.Tangent, T);
-  //    v0.Bitangent = add(v0.Bitangent, B);
-  //    v1.Bitangent = add(v1.Bitangent, B);
-  //    v2.Bitangent = add(v2.Bitangent, B);
-  //  }
-  //}
+  // --- Fallback: cálculo de T/B comentado por ahora ---
+  // ...
 
   // --- Autodetecta espejo global del nodo y corrige de forma CONSISTENTE ---
   bool autoDetectMirror = true;
@@ -307,36 +309,13 @@ Model3D::ProcessFBXMesh(FbxNode* node) {
     for (size_t i = 0; i + 2 < indices.size(); i += 3)
       std::swap(indices[i + 1], indices[i + 2]);
 
-    // 2) Invierte TODAS las normales/tangentes/bitangentes (consistencia total)
-    //for (auto& v : vertices) {
-    //  v.Normal = { v.Normal.x,    v.Normal.y,    v.Normal.z };
-    //  v.Tangent = { v.Tangent.x,   v.Tangent.y,   v.Tangent.z };
-    //  v.Bitangent = { v.Bitangent.x, v.Bitangent.y, v.Bitangent.z };
-    //}
+    // 2) Invertir normales/tangentes/bitangentes si se usan (comentado)
   }
 
-  // --- Ortonormaliza TBN por vértice ---
-  //auto dot3 = [](const EU::Vector3& a, const EU::Vector3& b) { return a.x * b.x + a.y * b.y + a.z * b.z; };
-  //auto norm3 = [](EU::Vector3& v) { float l = std::sqrt(EU::EMax(1e-20f, v.x * v.x + v.y * v.y + v.z * v.z)); v.x /= l; v.y /= l; v.z /= l; };
-  //auto sub3 = [](const EU::Vector3& a, const EU::Vector3& b) { return EU::Vector3(a.x - b.x, a.y - b.y, a.z - b.z); };
-  //auto cross3 = [](const EU::Vector3& a, const EU::Vector3& b) {
-  //  return EU::Vector3(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
-  //  };
-  //
-  //for (auto& v : vertices)
-  //{
-  //  norm3(v.Normal);
-  //  float dTN = dot3(v.Tangent, v.Normal);
-  //  v.Tangent = sub3(v.Tangent, EU::Vector3(v.Normal.x * dTN, v.Normal.y * dTN, v.Normal.z * dTN));
-  //  norm3(v.Tangent);
-  //
-  //  EU::Vector3 Bcalc = cross3(v.Normal, v.Tangent);
-  //  float hand = (dot3(Bcalc, v.Bitangent) < 0.0f) ? -1.0f : 1.0f;
-  //  v.Bitangent = { Bcalc.x * hand, Bcalc.y * hand, Bcalc.z * hand };
-  //  norm3(v.Bitangent);
-  //}
+  // --- Ortonormalización de TBN comentada por ahora ---
+  // ...
 
-  // --- Empaqueta ---
+  // --- Empaqueta en un MeshComponent y lo agrega al modelo ---
   MeshComponent mc;
   mc.m_name = node->GetName();
   mc.m_vertex = std::move(vertices);
@@ -346,6 +325,10 @@ Model3D::ProcessFBXMesh(FbxNode* node) {
   m_meshes.push_back(std::move(mc));
 }
 
+/// <summary>
+/// Procesa el material de una malla FBX para obtener los nombres de texturas difusas.
+/// </summary>
+/// <param name="material">Material de superficie FBX a inspeccionar.</param>
 void Model3D::ProcessFBXMaterials(FbxSurfaceMaterial* material)
 {
   if (material) {

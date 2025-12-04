@@ -23,7 +23,7 @@ public:
   HRESULT init(Device& device,
     DeviceContext& deviceContext,
     Texture& backBuffer,
-    Window window);
+    Window& window);
 
   // Update vacío por ahora (no lo usamos).
   void update();

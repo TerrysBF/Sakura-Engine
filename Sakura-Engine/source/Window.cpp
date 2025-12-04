@@ -1,97 +1,100 @@
-/**
- * @file Window.cpp
- * @brief Implementación básica de la ventana Win32 (crear/mostrar y tamaño).
- */
-
 #include "Window.h"
-#include "Device.h"
-#include "BaseApp.h"
+#include "Prerequisites.h"
 
- /**
-  * Inicializa la ventana de Windows y la muestra en pantalla.
-  * Registra la clase de ventana, crea el HWND y guarda el tamaño del área de cliente.
-  */
-HRESULT
-Window::init(HINSTANCE hInstance, int nCmdShow, WNDPROC wndproc) {
-  // Guardar el HINSTANCE que viene del sistema
-  m_hInst = hInstance;
+HRESULT Window::init(HINSTANCE hInstance,
+  int nCmdShow,
+  WNDPROC wndProc,
+  unsigned int width,
+  unsigned int height,
+  const std::wstring& title)
+{
+  m_hInstance = hInstance;
+  m_width = width;
+  m_height = height;
+  m_title = title;
 
-  // Datos de la clase de ventana (icono, cursor, callback, etc.)
-  WNDCLASSEX wcex;
-  wcex.cbSize = sizeof(WNDCLASSEX);
-  wcex.style = CS_HREDRAW | CS_VREDRAW;     // se repinta si cambia ancho o alto
-  wcex.lpfnWndProc = wndproc;               // función que manejará los mensajes (WndProc)
-  wcex.cbClsExtra = 0;
-  wcex.cbWndExtra = 0;
-  wcex.hInstance = m_hInst;                 // instancia de la app
-  wcex.hIcon = LoadIcon(m_hInst, (LPCTSTR)IDI_TUTORIAL1); // icono grande
-  wcex.hCursor = LoadCursor(NULL, IDC_ARROW);             // cursor por defecto
-  wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);        // color de fondo
-  wcex.lpszMenuName = NULL;                // sin menú
-  wcex.lpszClassName = "TutorialWindowClass"; // nombre de la clase
-  wcex.hIconSm = LoadIcon(wcex.hInstance, (LPCTSTR)IDI_TUTORIAL1); // icono pequeño
+  // Registrar clase de ventana
+  WNDCLASSEXW wc = {};
+  wc.cbSize = sizeof(WNDCLASSEXW);
+  wc.style = CS_HREDRAW | CS_VREDRAW;
+  wc.lpfnWndProc = wndProc;                // <-- Usamos el WndProc que pasa BaseApp
+  wc.cbClsExtra = 0;
+  wc.cbWndExtra = 0;
+  wc.hInstance = m_hInstance;
+  wc.hIcon = LoadIcon(nullptr, IDI_APPLICATION);
+  wc.hCursor = LoadCursor(nullptr, IDC_ARROW);
+  wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+  wc.lpszMenuName = nullptr;
+  wc.lpszClassName = L"SakuraWindowClass";
+  wc.hIconSm = LoadIcon(nullptr, IDI_APPLICATION);
 
-  // Registrar la clase de ventana en el sistema
-  if (!RegisterClassEx(&wcex))
+  if (!RegisterClassExW(&wc))
     return E_FAIL;
 
-  // Tamaño inicial deseado del área de cliente (ancho x alto)
-  RECT rc = { 0, 0, 1200, 950 };
-  m_rect = rc;
-
-  // Ajustar el RECT para que el área de cliente quede del tamaño que queremos
+  // Ajustar rectángulo para que el área cliente sea width x height
+  RECT rc = { 0, 0, (LONG)m_width, (LONG)m_height };
   AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE);
 
-  // Crear la ventana real
-  m_hWnd = CreateWindow(
-    "TutorialWindowClass",        // clase registrada arriba
-    m_windowName.c_str(),         // título de la ventana (string de la clase)
-    WS_OVERLAPPEDWINDOW,          // estilo típico de ventana
-    CW_USEDEFAULT,                // posición X por defecto
-    CW_USEDEFAULT,                // posición Y por defecto
-    rc.right - rc.left,           // ancho total (con bordes)
-    rc.bottom - rc.top,           // alto total (con bordes)
-    NULL,                         // sin ventana padre
-    NULL,                         // sin menú
-    hInstance,                    // instancia
-    NULL);                        // parámetros extra para WM_CREATE
+  const int winWidth = rc.right - rc.left;
+  const int winHeight = rc.bottom - rc.top;
 
-  // Si algo salió mal, avisar y regresar error
-  if (!m_hWnd) {
-    MessageBox(nullptr, "CreateWindow failed!", "Error", MB_OK);
-    ERROR("Window", "init", "CHECK FOR CreateWindow()");
+  // Crear la ventana
+  m_hWnd = CreateWindowExW(
+    0,
+    L"SakuraWindowClass",
+    m_title.c_str(),
+    WS_OVERLAPPEDWINDOW,
+    CW_USEDEFAULT, CW_USEDEFAULT,
+    winWidth, winHeight,
+    nullptr,
+    nullptr,
+    m_hInstance,
+    nullptr
+  );
+
+  if (!m_hWnd)
+  {
+    MessageBoxW(nullptr,
+      L"Error al crear la ventana principal.",
+      L"Sakura-Engine",
+      MB_ICONERROR | MB_OK);
     return E_FAIL;
   }
 
-  // Mostrar la ventana en pantalla
   ShowWindow(m_hWnd, nCmdShow);
   UpdateWindow(m_hWnd);
-
-  // Obtener el tamaño del área de cliente (donde se dibuja DirectX)
-  GetClientRect(m_hWnd, &m_rect);
-  m_width = m_rect.right - m_rect.left;   // ancho del cliente
-  m_height = m_rect.bottom - m_rect.top;  // alto del cliente
 
   return S_OK;
 }
 
-/**
- * Función de actualización de la ventana.
- * Por ahora no hace nada, pero se podría usar para manejar lógica propia.
- */
-void
-Window::update() {}
+Window::~Window()
+{
+  if (m_hWnd)
+  {
+    DestroyWindow(m_hWnd);
+    m_hWnd = nullptr;
+  }
 
-/**
- * Función de render relacionada a la ventana.
- * Aquí no se dibuja nada directamente; DirectX se usa en otra parte.
- */
-void
-Window::render() {}
+  if (m_hInstance)
+  {
+    UnregisterClassW(L"SakuraWindowClass", m_hInstance);
+    m_hInstance = nullptr;
+  }
+}
 
-/**
- * Limpieza de la ventana.
- * Aquí se podría destruir recursos propios si se agregan después.
- */
-void
-Window::destroy() {}
+bool Window::processMessages()
+{
+  MSG msg = {};
+  while (PeekMessage(&msg, nullptr, 0u, 0u, PM_REMOVE))
+  {
+    if (msg.message == WM_QUIT)
+    {
+      return false; // terminar loop principal
+    }
+
+    TranslateMessage(&msg);
+    DispatchMessage(&msg);
+  }
+
+  return true;
+}

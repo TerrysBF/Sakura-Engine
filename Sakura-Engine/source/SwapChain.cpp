@@ -17,7 +17,10 @@ HRESULT
 SwapChain::init(Device& device,
   DeviceContext& deviceContext,
   Texture& backBuffer,
-  Window window) {
+  Window& window) {
+  HWND hWnd = window.m_hWnd;
+  UINT width = window.m_width;
+  UINT height = window.m_height;
   // Primero se revisa que la ventana tenga un handle válido
   if (!window.m_hWnd) {
     ERROR("SwapChain", "init", "Invalid window handle. (m_hWnd is nullptr)");
