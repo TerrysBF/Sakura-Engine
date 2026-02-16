@@ -2,7 +2,7 @@
 
 Este es un compendio de las clases vistas en las materia de Graficas Computacionales 3D, Generación 2026 -01
 
-# Wildvine Engine – Carga de modelo OBJ con DirectX 11
+# Sakura Engine – Carga de modelo OBJ con DirectX 11
 
 Proyecto de DirectX 11 en C++ que muestra un modelo 3D (`Alien.obj`) cargado desde un archivo OBJ, texturizado y renderizado en una ventana Win32.  
 Incluye un parser sencillo de OBJ (`ObjReader`) y una mini “engine” con clases como `Device`, `SwapChain`, `ShaderProgram`, `MeshComponent`, etc.
@@ -137,3 +137,45 @@ static const char*   FX_NAME    = "Sakura-Engine.fx";
  ├── Transform        (Componente de transformación)
  ├── MeshComponent    (Componente de malla / render)
  └── CameraComponent* (solo si el actor actúa como cámara)
+
+---
+
+# Sakura Engine – Arquitectura de motores gráficos
+
+# GUI
+
+## Función
+
+- Manipular objetos en viewport
+- Modos Translate / Rotate / Scale
+- Espacio World o Local
+
+---
+
+# Camera
+
+## Descripción General
+
+Se implementó una clase Camera que representa una cámara 3D con soporte para:
+
+- Proyección perspectiva
+- Movimiento tipo FPS (walk / strafe)
+- Rotaciones yaw y pitch
+- Cálculo automático de matriz de vista
+- Soporte para Skybox (vista sin traslación)
+
+---
+
+## Componentes Internos
+
+- m_position → posición en mundo
+- m_right → eje local X
+- m_up → eje local Y
+- m_forward → dirección de vista
+- m_view → matriz de vista
+- m_proj → matriz de proyección
+- m_viewDirty → flag para actualizar la vista solo cuando sea necesario
+
+---
+
+
