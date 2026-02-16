@@ -1,5 +1,5 @@
 #pragma once
-#include "Prerequisites.h"
+/*#include "Prerequisites.h"
 #include "ECS/Component.h"
 
 class DeviceContext;
@@ -67,4 +67,4 @@ public:
 public:
 	Entity* m_parent = nullptr;
 	std::vector<Entity*> m_children;
-};
+};*/
