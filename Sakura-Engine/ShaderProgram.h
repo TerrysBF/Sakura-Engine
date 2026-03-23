@@ -8,11 +8,9 @@ class LayoutBuilder;
 
 /**
  * @class ShaderProgram
- * @brief Encapsula la creación, compilación y uso de Vertex Shader y Pixel Shader en Direct3D 11.
- *
- * Esta clase administra el ciclo de vida de un conjunto de shaders (VS y PS),
- * incluyendo su compilación desde archivo, creación en el dispositivo y vinculación
- * al pipeline. Además, maneja el Input Layout asociado al Vertex Shader.
+ * @brief Es la "pareja" de programas (Vertex y Pixel Shader) que le dicen a la tarjeta de video cómo dibujar.
+ * * Vertex Shader mueve los puntos (vértices) y el Pixel Shader elige el color.
+ * Esta clase se encarga de cargarlos, compilarlos y activarlos cuando vamos a dibujar algo.
  */
 class
   ShaderProgram {
@@ -29,63 +27,23 @@ public:
   ~ShaderProgram() = default;
 
   /**
-   * @brief Inicializa el programa de shaders desde un archivo HLSL.
-   *
-   * Compila y crea los shaders (VS y PS) definidos en el archivo indicado,
-   * además de crear el Input Layout con la descripción proporcionada.
-   *
-   * @param device   Dispositivo con el que se crearán los recursos.
-   * @param fileName Nombre del archivo HLSL que contiene los shaders.
-   * @param Layout   Vector con la descripción de los elementos de entrada (para VS).
-   * @return @c S_OK si fue exitoso; código @c HRESULT en caso de error.
-   *
-   * @post Si retorna @c S_OK, los punteros a shaders y el input layout serán válidos.
+   * @brief Carga y prepara los Shaders .
+   * @param device El "creador" de recursos de la tarjeta de video.
+   * @param layoutBuilder El plano que explica cómo están organizados los datos de cada punto.
+   * @return S_OK si todo salió bien.
    */
   HRESULT
     init(Device& device, const std::string& fileName, LayoutBuilder layoutBuilder);
 
-  /**
-   * @brief Actualiza parámetros internos de los shaders.
-   *
-   * Método de marcador para futuras extensiones (por ejemplo,
-   * recompilar shaders en caliente).
-   *
-   * @note Actualmente no realiza ninguna operación.
-   */
   void
     update();
 
-  /**
-   * @brief Aplica el Vertex Shader, Pixel Shader e Input Layout al pipeline.
-   *
-   * Llama a @c VSSetShader, @c PSSetShader y asigna el input layout
-   * al contexto.
-   *
-   * @param deviceContext Contexto donde se aplicará el programa de shaders.
-   *
-   * @pre Los shaders deben haberse creado con init() o CreateShader().
-   */
   void
     render(DeviceContext& deviceContext);
 
-  /**
-   * @brief Aplica únicamente un shader específico al pipeline.
-   *
-   * Permite vincular solo el Vertex Shader o solo el Pixel Shader,
-   * según el parámetro @p type.
-   *
-   * @param deviceContext Contexto donde se aplicará el shader.
-   * @param type          Tipo de shader a establecer (VS o PS).
-   */
   void
     render(DeviceContext& deviceContext, ShaderType type);
 
-  /**
-   * @brief Libera todos los recursos asociados (shaders, blobs e input layout).
-   *
-   * @post @c m_VertexShader == nullptr, @c m_PixelShader == nullptr,
-   *       @c m_vertexShaderData == nullptr, @c m_pixelShaderData == nullptr.
-   */
   void
     destroy();
 
@@ -121,16 +79,11 @@ public:
     CreateShader(Device& device, ShaderType type, const std::string& fileName);
 
   /**
-   * @brief Compila un shader desde archivo.
-   *
-   * Llama internamente a @c D3DCompileFromFile para obtener el bytecode
-   * de un shader en función de su punto de entrada y modelo.
-   *
-   * @param szFileName   Ruta del archivo HLSL.
-   * @param szEntryPoint Punto de entrada de la función shader (ej. "VSMain").
-   * @param szShaderModel Modelo de shader (ej. "vs_5_0", "ps_5_0").
-   * @param ppBlobOut    Salida con el bytecode compilado.
-   * @return @c S_OK si fue exitoso; código @c HRESULT en caso de error.
+   * @brief Traduce el código HLSL (que entendemos nosotros) a lenguaje de máquina.
+   * @param szFileName Ruta del archivo.
+   * @param szEntryPoint El nombre de la función principal en el código HLSL.
+   * @param szShaderModel La versión de DirectX10.
+   * @param ppBlobOut Aquí se guarda el código binario resultante.
    */
   HRESULT
     CompileShaderFromFile(char* szFileName,

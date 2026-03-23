@@ -1,6 +1,7 @@
 #pragma once
 #include "Prerequisites.h"
 
+// Inclusión de librerías para la interfaz gráfica (ImGui)
 #include "imgui.h"
 #include <imgui_internal.h>
 #include "imgui_impl_win32.h"
@@ -14,6 +15,12 @@ class DeviceContext;
 class Actor;
 class Camera;
 
+/**
+ * @class GUI
+ * @brief Clase encargada de dibujar los menús, botones e interfaces del motor.
+ * * Esta clase usa ImGui para crear ventanas interactivas como el Inspector
+ * o el Outliner (lista de objetos) que vemos en pantalla.
+ */
 class
   GUI {
 public:
@@ -38,7 +45,6 @@ public:
   void
     ToolBar();
 
-
   void
     closeApp();
 
@@ -48,6 +54,11 @@ public:
   void
     appleLiquidStyle(float opacity /*0..1f*/, ImVec4 accent /*=#0A84FF*/);
 
+  /**
+   * @brief Crea controles deslizantes para mover objetos en X, Y y Z.
+   * @param label Nombre que aparecerá al lado del control.
+   * @param values Puntero a los 3 números (X, Y, Z) que queremos modificar.
+   */
   void
     vec3Control(const std::string& label,
       float* values,
