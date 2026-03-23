@@ -1,44 +1,32 @@
 ﻿#pragma once
 #include "Prerequisites.h"
 
-// Clase sencilla que envuelve una ventana Win32.
-// Se encarga de crear la ventana, guardar el handle y el tamaño.
-class Window
-{
+
+class BaseApp;
+class
+	Window {
 public:
-  // Constructor por defecto: NO crea la ventana.
-  Window() = default;
+	Window() = default;
+	~Window() = default;
 
-    // Evitamos creacion de copias de Windows
-    Window(const Window&) = delete;
-    Window& operator=(const Window&) = delete;
+	HRESULT
+		init(HINSTANCE hInstance, int nCmdShow, WNDPROC wndproc, BaseApp* app);
 
-  // Destructor: destruye la ventana y desregistra la clase.
-  ~Window();
+	void
+		update();
 
-  // Crea y muestra la ventana.
-  // Devuelve S_OK si todo salió bien, E_FAIL en caso contrario.
-  HRESULT init(HINSTANCE hInstance,
-    int nCmdShow,
-    WNDPROC wndProc,
-    unsigned int width = 1280,
-    unsigned int height = 720,
-    const std::wstring& title = L"Sakura-Engine");
+	void
+		render();
 
-  // Procesa los mensajes de Windows.
-  // Devuelve false cuando se recibe WM_QUIT.
-  bool processMessages();
+	void
+		destroy();
 
-  HWND     getHWND()   const { return m_hWnd; }
-  unsigned getWidth()  const { return m_width; }
-  unsigned getHeight() const { return m_height; }
-
-  // Para no romper el código que ya usa m_width / m_height / m_hWnd
-  // los dejamos públicos.
 public:
-  HWND        m_hWnd = nullptr;
-  HINSTANCE   m_hInstance = nullptr;
-  unsigned    m_width = 0;
-  unsigned    m_height = 0;
-  std::wstring m_title;
+	HWND m_hWnd = nullptr;
+	unsigned int m_width;
+	unsigned int m_height;
+private:
+	HINSTANCE m_hInst = nullptr;
+	RECT m_rect;
+	std::string m_windowName = "Wildvine Engine";
 };

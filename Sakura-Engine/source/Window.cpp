@@ -1,124 +1,73 @@
 #include "Window.h"
-#include "Prerequisites.h"
+#include "Device.h"
+#include "BaseApp.h"
 
-/// <summary>
-/// Inicializa y crea la ventana principal de Win32.
-/// Registra la clase de ventana, ajusta el tamaño del rectángulo de cliente
-/// y muestra la ventana en pantalla.
-/// </summary>
-/// <param name="hInstance">Instancia de la aplicación.</param>
-/// <param name="nCmdShow">Modo de visualización para ShowWindow.</param>
-/// <param name="wndProc">Procedimiento de ventana que manejará los mensajes.</param>
-/// <param name="width">Ancho deseado del área cliente.</param>
-/// <param name="height">Alto deseado del área cliente.</param>
-/// <param name="title">Título de la ventana.</param>
-/// <returns>S_OK si la ventana se crea correctamente; E_FAIL en caso de error.</returns>
-HRESULT Window::init(HINSTANCE hInstance,
-  int nCmdShow,
-  WNDPROC wndProc,
-  unsigned int width,
-  unsigned int height,
-  const std::wstring& title)
-{
-  m_hInstance = hInstance;
-  m_width = width;
-  m_height = height;
-  m_title = title;
+HRESULT
+Window::init(HINSTANCE hInstance, int nCmdShow, WNDPROC wndproc, BaseApp* app) {
+  // Store  instance of the class
+  m_hInst = hInstance;
 
-  // Registrar clase de ventana
-  WNDCLASSEXW wc = {};
-  wc.cbSize = sizeof(WNDCLASSEXW);
-  wc.style = CS_HREDRAW | CS_VREDRAW;
-  wc.lpfnWndProc = wndProc;                // <-- Se usa el WndProc que pasa BaseApp
-  wc.cbClsExtra = 0;
-  wc.cbWndExtra = 0;
-  wc.hInstance = m_hInstance;
-  wc.hIcon = LoadIcon(nullptr, IDI_APPLICATION);
-  wc.hCursor = LoadCursor(nullptr, IDC_ARROW);
-  wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
-  wc.lpszMenuName = nullptr;
-  wc.lpszClassName = L"SakuraWindowClass";
-  wc.hIconSm = LoadIcon(nullptr, IDI_APPLICATION);
-
-  if (!RegisterClassExW(&wc))
+  // Register class
+  WNDCLASSEX wcex;
+  wcex.cbSize = sizeof(WNDCLASSEX);
+  wcex.style = CS_HREDRAW | CS_VREDRAW;
+  wcex.lpfnWndProc = wndproc;
+  wcex.cbClsExtra = 0;
+  wcex.cbWndExtra = 0;
+  wcex.hInstance = m_hInst;
+  wcex.hIcon = LoadIcon(m_hInst, (LPCTSTR)IDI_TUTORIAL1);
+  wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
+  wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+  wcex.lpszMenuName = NULL;
+  wcex.lpszClassName = "TutorialWindowClass";
+  wcex.hIconSm = LoadIcon(wcex.hInstance, (LPCTSTR)IDI_TUTORIAL1);
+  if (!RegisterClassEx(&wcex))
     return E_FAIL;
 
-  // Ajustar rectángulo para que el área cliente sea width x height
-  RECT rc = { 0, 0, (LONG)m_width, (LONG)m_height };
+  // Create window
+  RECT rc = { 0, 0, 1200, 950 };
+  m_rect = rc;
+
   AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE);
 
-  const int winWidth = rc.right - rc.left;
-  const int winHeight = rc.bottom - rc.top;
-
-  // Crear la ventana
-  m_hWnd = CreateWindowExW(
-    0,
-    L"SakuraWindowClass",
-    m_title.c_str(),
+  m_hWnd = CreateWindow("TutorialWindowClass",
+    m_windowName.c_str(),
     WS_OVERLAPPEDWINDOW,
-    CW_USEDEFAULT, CW_USEDEFAULT,
-    winWidth, winHeight,
-    nullptr,
-    nullptr,
-    m_hInstance,
-    nullptr
-  );
+    CW_USEDEFAULT,
+    CW_USEDEFAULT,
+    rc.right - rc.left,
+    rc.bottom - rc.top,
+    NULL,
+    NULL,
+    hInstance,
+    app);
 
-  if (!m_hWnd)
-  {
-    MessageBoxW(nullptr,
-      L"Error al crear la ventana principal.",
-      L"Sakura-Engine",
-      MB_ICONERROR | MB_OK);
+  if (!m_hWnd) {
+    MessageBox(nullptr, "CreateWindow failed!", "Error", MB_OK);
+    ERROR("Window", "init", "CHECK FOR CreateWindow()");
     return E_FAIL;
   }
 
   ShowWindow(m_hWnd, nCmdShow);
+
   UpdateWindow(m_hWnd);
+
+  // Setup Viewport Dimensions
+  GetClientRect(m_hWnd, &m_rect);
+  m_width = m_rect.right - m_rect.left;
+  m_height = m_rect.bottom - m_rect.top;
 
   return S_OK;
 }
 
-/// <summary>
-/// Destructor de Window.
-/// Destruye la ventana si existe y desregistra la clase de ventana.
-/// </summary>
-Window::~Window()
-{
-  if (m_hWnd)
-  {
-    DestroyWindow(m_hWnd);
-    m_hWnd = nullptr;
-  }
-
-  if (m_hInstance)
-  {
-    UnregisterClassW(L"SakuraWindowClass", m_hInstance);
-    m_hInstance = nullptr;
-  }
+void
+Window::update() {
 }
 
-/// <summary>
-/// Procesa los mensajes de la cola de Windows.
-/// Debe llamarse periódicamente dentro del bucle principal.
-/// </summary>
-/// <returns>
-/// false si se recibe WM_QUIT (indica que debe terminar el loop principal);
-/// true en caso contrario.
-/// </returns>
-bool Window::processMessages()
-{
-  MSG msg = {};
-  while (PeekMessage(&msg, nullptr, 0u, 0u, PM_REMOVE))
-  {
-    if (msg.message == WM_QUIT)
-    {
-      return false; // terminar loop principal
-    }
+void
+Window::render() {
+}
 
-    TranslateMessage(&msg);
-    DispatchMessage(&msg);
-  }
-
-  return true;
+void
+Window::destroy() {
 }

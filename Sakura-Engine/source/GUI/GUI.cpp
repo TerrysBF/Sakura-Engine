@@ -1,12 +1,14 @@
-/*#include "EngineUtilities\GUI\GUI.h"
+#include "EngineUtilities\GUI\GUI.h"
+#include "Viewport.h"
 #include "Window.h"
 #include "Device.h"
 #include "DeviceContext.h"
 #include "MeshComponent.h"
 #include "ECS\Actor.h"
+#include "EngineUtilities\Utilities\Camera.h"
 //#include "imgui_internal.h"
 static ImGuizmo::OPERATION mCurrentGizmoOperation(ImGuizmo::TRANSLATE);
-void 
+void
 GUI::init(Window& window, Device& device, DeviceContext& deviceContext) {
 	// Setup Dear ImGui context
 	IMGUI_CHECKVERSION();
@@ -38,16 +40,16 @@ GUI::init(Window& window, Device& device, DeviceContext& deviceContext) {
 }
 
 void
-GUI::update(Window& window) {
+GUI::update(Viewport& viewport, Window& window) {
 	// Start the Dear ImGui frame
 	ImGui_ImplDX11_NewFrame();
 	ImGui_ImplWin32_NewFrame();
 	ImGui::NewFrame();
 
 	ImGuizmo::BeginFrame();
-	ImGuizmo::SetOrthographic(false);
 	ImGuiIO& io = ImGui::GetIO();
-	ImGuizmo::SetRect(0, 0, window.m_width, window.m_height);
+	ImGuizmo::SetOrthographic(false);
+	//ImGuizmo::SetRect(0, 0, (float)window.m_width, (float)window.m_height);
 
 	// In Program always
 	ToolBar();
@@ -76,7 +78,7 @@ GUI::destroy() {
 	ImGui::DestroyContext();
 }
 
-void 
+void
 GUI::vec3Control(const std::string& label, float* values, float resetValue, float columnWidth) {
 	ImGuiIO& io = ImGui::GetIO();
 	auto boldFont = io.Fonts->Fonts[0];
@@ -138,7 +140,7 @@ GUI::vec3Control(const std::string& label, float* values, float resetValue, floa
 	ImGui::PopID();
 }
 
-void 
+void
 GUI::toolTipData() {
 }
 
@@ -368,7 +370,7 @@ GUI::inspectorContainer(EU::TSharedPointer<Actor> actor) {
 	//ImGui::End();
 }
 
-void 
+void
 GUI::outliner(const std::vector<EU::TSharedPointer<Actor>>& actors) {
 	ImGui::Begin("Hierarchy");
 
@@ -406,9 +408,9 @@ GUI::outliner(const std::vector<EU::TSharedPointer<Actor>>& actors) {
 
 		// Mostrar nodos hijos si el nodo está abierto
 		if (nodeOpen) {
-			ImGui::Text("Position: %.2f, %.2f, %.2f", 
-				actor->getComponent<Transform>().get()->getPosition().x, 
-				actor->getComponent<Transform>().get()->getPosition().y, 
+			ImGui::Text("Position: %.2f, %.2f, %.2f",
+				actor->getComponent<Transform>().get()->getPosition().x,
+				actor->getComponent<Transform>().get()->getPosition().y,
 				actor->getComponent<Transform>().get()->getPosition().z);
 			ImGui::TreePop();
 		}
@@ -417,74 +419,73 @@ GUI::outliner(const std::vector<EU::TSharedPointer<Actor>>& actors) {
 	ImGui::End();
 }
 
-void
-GUI::editTransform(const XMMATRIX& view, const XMMATRIX& projection, EU::TSharedPointer<Actor> actor)
+void GUI::editTransform(Camera& cam, Window& window, EU::TSharedPointer<Actor> actor)
 {
 	static ImGuizmo::MODE mCurrentGizmoMode(ImGuizmo::WORLD);
 	auto transform = actor->getComponent<Transform>();
 
-	// 1) OBTENER COMPONENTES (Asegúrate de que sean float[3])
 	float* pos = const_cast<float*>(transform->getPosition().data());
 	float* rot = const_cast<float*>(transform->getRotation().data());
 	float* sca = const_cast<float*>(transform->getScale().data());
 
-	// 2) CREAR MATRIZ PARA IMGUIZMO 
-	// Importante: No uses la matriz de DirectX aquí. 
-	// Deja que ImGuizmo cree su propia matriz temporal en su formato preferido.
 	float mArr[16];
 	ImGuizmo::RecomposeMatrixFromComponents(pos, rot, sca, mArr);
 
-	// 3) PREPARAR MATRICES DE CÁMARA (Transponer para que ImGuizmo las entienda)
 	float vArr[16], pArr[16];
-	// Probar SIN transponer primero
-	XMStoreFloat4x4((XMFLOAT4X4*)vArr, view);
-	XMStoreFloat4x4((XMFLOAT4X4*)pArr, projection);
+	ToFloatArray(cam.getView(), vArr);
+	ToFloatArray(cam.getProj(), pArr);
 
-	// 4) CONFIGURAR RECT (Asegúrate de que esto se llame)
-	ImGuiIO& io = ImGui::GetIO();
-	ImGuizmo::SetRect(0, 0, io.DisplaySize.x, io.DisplaySize.y);
-
-	// 5) DIBUJAR GIZMO
+	// --- Config gizmo ---
 	ImGuizmo::SetID(0);
 	ImGuizmo::SetGizmoSizeClipSpace(0.15f);
-	// Define cuánto quieres que "salte" la rotación (ejemplo: 15 grados)
+	ImGuizmo::AllowAxisFlip(false);
+
+	// IMPORTANTE: dibujar encima de todo (aplicación, no ventana ImGui)
+	ImGuizmo::SetDrawlist(ImGui::GetForegroundDrawList());
+
+	// IMPORTANTE: rect = área real de render/backbuffer
+	// Si tu D3D11_VIEWPORT es el real, usa ese tama?o (recomendado).
+	// Si no lo tienes aquí, usa ImGuiIO.DisplaySize como fallback.
+	ImGuiIO& io = ImGui::GetIO();
+
+	float rectX = 0.0f;
+	float rectY = 0.0f;
+	float rectW = io.DisplaySize.x;
+	float rectH = io.DisplaySize.y;
+
+	// Si tienes DPI raro, prueba con framebuffer scale:
+	// rectW *= io.DisplayFramebufferScale.x;
+	// rectH *= io.DisplayFramebufferScale.y;
+
+	ImGuizmo::SetRect(rectX, rectY, rectW, rectH);
+
+	// --- Snap ---
 	float snapValue = 25.0f;
-	if (mCurrentGizmoOperation == ImGuizmo::ROTATE) snapValue = 5.0f;
+	if (mCurrentGizmoOperation == ImGuizmo::ROTATE)    snapValue = 5.0f;
 	if (mCurrentGizmoOperation == ImGuizmo::TRANSLATE) snapValue = 0.5f;
 
-	// Crea un array de snap
 	float snap[3] = { snapValue, snapValue, snapValue };
-
-	// Usa la versión de Manipulate que acepta snap (es el último parámetro)
-	// Si mantienes presionada una tecla (ej. CTRL), aplicas el snap
 	bool useSnap = ImGui::GetIO().KeyCtrl;
 
+	// --- Manipulate ---
 	ImGuizmo::Manipulate(
 		vArr, pArr,
 		mCurrentGizmoOperation,
 		mCurrentGizmoMode,
 		mArr,
-		NULL,
-		useSnap ? snap : NULL // Aquí pasas el snap si se desea
+		nullptr,
+		useSnap ? snap : nullptr
 	);
 
-	// mCurrentGizmoOperation debe venir de tu Toolbar (TRANSLATE, ROTATE o SCALE)
-	ImGuizmo::Manipulate(vArr, pArr, mCurrentGizmoOperation, mCurrentGizmoMode, mArr);
-
-	// 6) SI SE ESTÁ USANDO, ACTUALIZAR ACTOR
-	if (ImGuizmo::IsUsing()) {
+	if (ImGuizmo::IsUsing())
+	{
 		float newPos[3], newRot[3], newSca[3];
-
-		// Sacamos los datos de la matriz de ImGuizmo
 		ImGuizmo::DecomposeMatrixToComponents(mArr, newPos, newRot, newSca);
 
-		// Aplicamos a los componentes del actor
 		transform->setPosition(EU::Vector3(newPos[0], newPos[1], newPos[2]));
 		transform->setRotation(EU::Vector3(newRot[0], newRot[1], newRot[2]));
 		transform->setScale(EU::Vector3(newSca[0], newSca[1], newSca[2]));
 
-		// Sincronizamos la matriz final de DirectX para el renderizado
-		// Nota: SR T (Scale * Rotation * Translation)
 		XMMATRIX matScale = XMMatrixScaling(newSca[0], newSca[1], newSca[2]);
 		XMMATRIX matRot = XMMatrixRotationRollPitchYaw(
 			XMConvertToRadians(newRot[0]),
@@ -493,67 +494,52 @@ GUI::editTransform(const XMMATRIX& view, const XMMATRIX& projection, EU::TShared
 		);
 		XMMATRIX matTrans = XMMatrixTranslation(newPos[0], newPos[1], newPos[2]);
 
-		// Esta es la matriz que usará tu Vertex Shader
 		transform->matrix = matScale * matRot * matTrans;
 	}
 }
 
-void GUI::drawGizmoToolbar() {
-	// 1. Configurar la posición y estilo de la mini ventana
-	ImGuiIO& io = ImGui::GetIO();
-	float windowWidth = 120.0f; // Ajusta según necesites
+void GUI::drawGizmoToolbar()
+{
+	ImGui::SetNextWindowPos(ImVec2(10, 25), ImGuiCond_Always);
+	ImGui::SetNextWindowBgAlpha(0.0f); // 0 = transparente total
 
-	// Ubicarla a 10px de la esquina superior izquierda
-	ImGui::SetNextWindowPos(ImVec2(10, 10), ImGuiCond_FirstUseEver);
-	ImGui::SetNextWindowBgAlpha(0.35f); // Semi-transparente como en motores reales
-
-	// Flags para que no parezca una ventana común
-	ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoTitleBar |
-		ImGuiWindowFlags_NoResize |
+	ImGuiWindowFlags window_flags =
+		ImGuiWindowFlags_NoDecoration |
 		ImGuiWindowFlags_AlwaysAutoResize |
+		ImGuiWindowFlags_NoMove |
 		ImGuiWindowFlags_NoSavedSettings |
 		ImGuiWindowFlags_NoFocusOnAppearing |
 		ImGuiWindowFlags_NoNav;
 
-	if (ImGui::Begin("GizmoToolBar", nullptr, window_flags)) {
+	ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
 
-		// Estilo de los botones (más profesional)
-		auto buttonMode = [&](const char* label, ImGuizmo::OPERATION op, const char* shortcut) {
-			bool isActive = (mCurrentGizmoOperation == op);
-			if (isActive) {
-				ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.4f, 0.8f, 1.0f)); // Azul si está activo
-			}
+	if (ImGui::Begin("GizmoToolBar", nullptr, window_flags))
+	{
+		auto buttonMode = [&](const char* label, ImGuizmo::OPERATION op, const char* shortcut)
+			{
+				bool isActive = (mCurrentGizmoOperation == op);
+				if (isActive)
+					ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.4f, 0.8f, 1.0f));
 
-			if (ImGui::Button(label)) {
-				mCurrentGizmoOperation = op;
-			}
+				if (ImGui::Button(label))
+					mCurrentGizmoOperation = op;
 
-			// Tooltip para que el usuario vea el acceso rápido
-			if (ImGui::IsItemHovered()) {
-				ImGui::SetTooltip("%s (%s)", label, shortcut);
-			}
+				if (ImGui::IsItemHovered())
+					ImGui::SetTooltip("%s (%s)", label, shortcut);
 
-			if (isActive) ImGui::PopStyleColor();
-			ImGui::SameLine();
+				if (isActive) ImGui::PopStyleColor();
+				ImGui::SameLine();
 			};
 
-		// Botones de la barra
 		buttonMode("T", ImGuizmo::TRANSLATE, "W");
 		buttonMode("R", ImGuizmo::ROTATE, "E");
 		buttonMode("S", ImGuizmo::SCALE, "R");
 
-		// Opcional: Selector de modo Local/Mundo
 		static ImGuizmo::MODE mCurrentGizmoMode = ImGuizmo::WORLD;
-		if (ImGui::Button(mCurrentGizmoMode == ImGuizmo::WORLD ? "Global" : "Local")) {
+		if (ImGui::Button(mCurrentGizmoMode == ImGuizmo::WORLD ? "Global" : "Local"))
 			mCurrentGizmoMode = (mCurrentGizmoMode == ImGuizmo::WORLD) ? ImGuizmo::LOCAL : ImGuizmo::WORLD;
-		}
 	}
 	ImGui::End();
 
-	// Acceso rápido por teclado
-	if (!ImGui::IsAnyItemActive()) {
-		//if (ImGui::IsKeyPressed(ImGuiKey_W)) mCurrentGizmoOperation = ImGuizmo::TRANSLATE;
-		//if (ImGui::IsKeyPressed(ImGuiKey_E)) mCurrentGizmoOperation = ImGuizmo::ROTATE;
-		//if (ImGui::IsKeyPressed(ImGuiKey_R)) mCurrentGizmoOperation = ImGuizmo::SCALE;
-	}
-}*/
+	ImGui::PopStyleVar();
+}
