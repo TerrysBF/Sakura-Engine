@@ -23,6 +23,14 @@
 extern IMGUI_IMPL_API
 LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
+/**
+ * @class BaseApp
+ * @brief Es la clase Maestra  del motor.
+ * * Su trabajo es crear todos los sistemas,
+ * mantener el ciclo de juego (Game Loop) y 
+ * asegurarse de que todo se destruya
+ * correctamente al salir.
+ */
 class
 	BaseApp {
 public:
@@ -35,9 +43,16 @@ public:
 	int
 		run(HINSTANCE hInst, int nCmdShow);
 
+	/**
+	 * @brief Crea físicamente todos los objetos de DirectX (Device, SwapChain, Shaders, etc).
+	 */
 	HRESULT
 		init();
 
+	/**
+	 * @brief Actualiza la lógica: movimiento de cámara, animaciones y cálculos.
+	 * @param deltaTime El tiempo que pasó desde el último dibujo.
+	 */
 	void
 		update(float deltaTime);
 
