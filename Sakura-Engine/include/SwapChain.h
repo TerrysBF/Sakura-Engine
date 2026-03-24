@@ -8,41 +8,31 @@ class Texture;
 
 /**
  * @class SwapChain
- * @brief Encapsula un @c IDXGISwapChain en Direct3D 11 para administrar buffers de presentación.
- *
- * Un Swap Chain es responsable de la gestión de los buffers de renderizado que se presentan
- * en pantalla (front y back buffer).
- * Esta clase maneja su creación, actualización, renderizado y presentación final.
- *
- * También soporta configuración de **MSAA (Multisample Anti-Aliasing)** para suavizado de bordes.
+ * @brief El sistema de "doble buffer" que evita que la imagen parpadee.
+ * * Su trabajo es manejar dos imágenes: una que se está dibujando en secreto (Back Buffer)
+ * y otra que el usuario está viendo (Front Buffer). Cuando la nueva está lista,
+ * las intercambia (Swap) instantáneamente.
  */
 class
   SwapChain {
 public:
   /**
-   * @brief Constructor por defecto.
+   * @brief Constructor: Prepara el objeto pero aún no crea la conexión con la GPU.
    */
   SwapChain() = default;
 
   /**
-   * @brief Destructor por defecto.
-   * @details No libera automáticamente los recursos COM; llamar a destroy().
+   * @brief Destructor: Se asegura de limpiar, aunque recuerda usar destroy().
    */
   ~SwapChain() = default;
 
   /**
-   * @brief Inicializa el Swap Chain y obtiene el back buffer.
-   *
-   * Crea el objeto @c IDXGISwapChain asociado a una ventana específica,
-   * obteniendo además la textura del back buffer para el renderizado.
-   *
-   * @param device       Dispositivo con el que se crea el recurso.
-   * @param deviceContext Contexto de dispositivo asociado.
-   * @param backBuffer   Textura que representará el back buffer.
-   * @param window       Ventana de la aplicación donde se presentará la imagen.
-   * @return @c S_OK si fue exitoso; código @c HRESULT en caso contrario.
-   *
-   * @post Si retorna @c S_OK, @c m_swapChain != nullptr.
+   * @brief Crea el sistema de intercambio de imágenes para una ventana específica.
+   * @param device El creador de recursos de la GPU.
+   * @param deviceContext El ejecutor de órdenes.
+   * @param backBuffer La textura donde vamos a pintar "detrás de cámaras".
+   * @param window La ventana donde queremos que aparezca el dibujo.
+   * @return S_OK si la tarjeta de video pudo crear el sistema de intercambio.
    */
   HRESULT
     init(Device& device,
@@ -51,95 +41,61 @@ public:
       Window window);
 
   /**
-   * @brief Actualiza parámetros internos del Swap Chain.
-   *
-   * Método de marcador para soportar cambios dinámicos, como resize de ventana,
-   * reconfiguración de MSAA u otros ajustes.
-   *
-   * @note Actualmente no realiza ninguna operación.
+   * @brief Espacio para actualizaciones (actualmente no hace nada).
    */
   void
     update();
 
   /**
-   * @brief Ejecuta operaciones de renderizado relacionadas con el Swap Chain.
-   *
-   * Usualmente se utilizaría para depuración o para sincronizar buffers
-   * antes de la presentación.
-   *
-   * @note Actualmente no realiza ninguna operación.
+   * @brief Espacio para operaciones de renderizado especiales del SwapChain.
    */
   void
     render();
 
   /**
-   * @brief Libera todos los recursos asociados al Swap Chain.
-   *
-   * También libera las interfaces relacionadas de DXGI (device, adapter, factory).
-   *
-   * @post @c m_swapChain == nullptr.
+   * @brief Apaga el sistema y libera la memoria de la tarjeta de video.
    */
   void
     destroy();
 
   /**
-   * @brief Presenta el back buffer en pantalla.
-   *
-   * Llama a @c IDXGISwapChain::Present para mostrar el contenido renderizado
-   * en la ventana asociada.
-   *
-   * @note Si se utiliza V-Sync, puede configurarse en la implementación de este método.
+   * @brief ¡El momento de la verdad! Intercambia los buffers para mostrar
+   * lo que acabamos de pintar en la pantalla del usuario.
    */
   void
     present();
 
+  /**
+   * @brief Ajusta el tamaño de las imágenes internas cuando el usuario estira la ventana.
+   */
   HRESULT
     resizeBuffers(UINT width, UINT height);
 
+  /**
+   * @brief Obtiene el acceso a la textura de dibujo (Back Buffer).
+   */
   HRESULT
     getBackBuffer(Texture& backBuffer);
 
 public:
-  /**
-   * @brief Objeto principal del Swap Chain en Direct3D 11.
-   */
+  /** @brief El objeto real de DirectX 11 que controla el intercambio. */
   IDXGISwapChain* m_swapChain = nullptr;
 
-  /**
-   * @brief Tipo de driver utilizado (hardware, referencia, software, etc.).
-   */
+  /** @brief Indica si estamos usando la tarjeta de video real o un simulador. */
   D3D_DRIVER_TYPE m_driverType = D3D_DRIVER_TYPE_NULL;
 
 private:
-  /**
-   * @brief Nivel de características de Direct3D soportado por el dispositivo.
-   */
+  /** @brief La versión de DirectX que soporta tu tarjeta (ej: 11.0). */
   D3D_FEATURE_LEVEL m_featureLevel = D3D_FEATURE_LEVEL_11_0;
 
-  /**
-   * @brief Número de muestras para MSAA.
-   *
-   * Ejemplo: 4 = 4x MSAA (4 muestras por píxel).
-   */
+  /** @brief Cuántas muestras usamos para suavizar los bordes "serrucho" (Anti-Aliasing). */
   unsigned int m_sampleCount;
 
-  /**
-   * @brief Niveles de calidad soportados para la configuración de MSAA.
-   */
+  /** @brief Calidad del suavizado de bordes. */
   unsigned int m_qualityLevels;
 
-  /**
-   * @brief Interfaz DXGI para el dispositivo.
-   */
-  IDXGIDevice* m_dxgiDevice = nullptr;
-
-  /**
-   * @brief Interfaz DXGI para el adaptador (GPU).
-   */
-  IDXGIAdapter* m_dxgiAdapter = nullptr;
-
-  /**
-   * @brief Interfaz DXGI para la fábrica (creación de swap chains).
-   */
-  IDXGIFactory* m_dxgiFactory = nullptr;
+  // Estas son herramientas internas de Windows (DXGI) para hablar con la tarjeta de video:
+  IDXGIDevice* m_dxgiDevice = nullptr;   ///< El dispositivo gráfico base.
+  IDXGIAdapter* m_dxgiAdapter = nullptr; ///< Representa tu tarjeta de video física.
+  IDXGIFactory* m_dxgiFactory = nullptr; ///< La "fábrica" que crea el SwapChain.
 };

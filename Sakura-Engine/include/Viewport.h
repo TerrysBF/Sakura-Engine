@@ -1,39 +1,63 @@
 #pragma once
 #include "Prerequisites.h"
 
+// Declaraciones adelantadas
 class Window;
 class DeviceContext;
 
-// Clase sencilla que envuelve un D3D11_VIEWPORT.
-// Un viewport define en qué parte del render target se dibuja (tamaño y posición).
+/**
+ * @class Viewport
+ * @brief Define el área de dibujo dentro de la ventana.
+ * * Imagina que la ventana es el marco de un cuadro y el Viewport es el lienzo.
+ * Puedes hacer que el juego se dibuje en toda la ventana o solo en una esquina
+ * (como cuando juegas en pantalla dividida).
+ */
 class Viewport {
 public:
-  // Constructor por defecto.
+  /**
+   * @brief Constructor: Crea un viewport vacío.
+   */
   Viewport() = default;
 
-  // Destructor por defecto.
+  /**
+   * @brief Destructor: No necesita liberar memoria especial.
+   */
   ~Viewport() = default;
 
-  // Inicializa el viewport usando el tamaño de la ventana.
-  // Usa el ancho y alto del área cliente de la ventana.
+  /**
+   * @brief Configura el área de dibujo para que ocupe toda la ventana actual.
+   * @param window Referencia a la ventana para obtener su ancho y alto.
+   * @return S_OK si se configuró correctamente.
+   */
   HRESULT init(const Window& window);
 
-  // Inicializa el viewport con un ancho y alto específicos.
-  // La profundidad va de 0.0f a 1.0f por defecto.
+  /**
+   * @brief Configura el área de dibujo con un tamaño personalizado.
+   * @param width Ancho en píxeles.
+   * @param height Alto en píxeles.
+   * @return S_OK si el tamaño es válido.
+   */
   HRESULT init(unsigned int width, unsigned int height);
 
-  // Update vacío por ahora (se podría usar si hay resize dinámico).
+  /**
+   * @brief Espacio para actualizaciones futuras (como cambios de tamaño).
+   */
   void update();
 
-  // Aplica el viewport al contexto de D3D11.
-  // Llama a RSSetViewports con m_viewport.
+  /**
+   * @brief Le dice a la tarjeta de video qué área de la pantalla debe usar para pintar.
+   * @param deviceContext El encargado de enviar esta configuración a la GPU.
+   */
   void render(DeviceContext& deviceContext);
 
-  // No hay recursos COM que liberar, así que destroy está vacío.
+  /**
+   * @brief No requiere liberar recursos de DirectX, pero se mantiene por consistencia.
+   */
   void destroy() {}
 
 public:
-  // Estructura de Direct3D que guarda los datos del viewport
-  // (X, Y, Width, Height, MinDepth, MaxDepth).
+  /** * @brief Estructura interna de DirectX 11.
+   * Guarda: Posición (X, Y), Tamaño (Width, Height) y Profundidad (Min/Max Depth).
+   */
   D3D11_VIEWPORT m_viewport;
 };

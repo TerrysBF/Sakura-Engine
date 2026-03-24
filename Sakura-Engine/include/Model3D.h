@@ -4,128 +4,104 @@
 #include "MeshComponent.h"
 #include "fbxsdk.h"
 
-/// <summary>
-/// Tipos de modelo soportados por el cargador 3D.
-/// </summary>
-enum
-	ModelType {
-	OBJ,  ///< Modelo en formato .obj.
-	FBX   ///< Modelo en formato .fbx (usando FBX SDK).
+/**
+ * @brief Tipos de modelos que nuestro motor sabe leer.
+ */
+enum ModelType {
+	OBJ,  ///< Formato simple (solo geometría).
+	FBX   ///< Formato avanzado (puede incluir animaciones, luces y materiales).
 };
 
-/// <summary>
-/// Recurso que representa un modelo 3D compuesto por una o varias mallas.
-/// Puede cargar modelos en formato OBJ o FBX y almacenarlos como MeshComponent.
-/// </summary>
-class
-	Model3D : public IResource {
+/**
+ * @class Model3D
+ * @brief Representa un objeto 3D completo en el juego.
+ * * Un "Model3D" es como una caja que contiene una o varias "Mallas" (Meshes).
+ * Por ejemplo, un modelo de un coche puede tener una malla para el chasis y cuatro para las ruedas.
+ * Esta clase se encarga de cargar esos archivos desde el disco duro a la memoria.
+ */
+class Model3D : public IResource {
 public:
-	/// <summary>
-	/// Construye un modelo 3D a partir de un nombre de archivo y un tipo de modelo.
-	/// </summary>
-	/// <param name="name">Ruta o nombre del archivo del modelo.</param>
-	/// <param name="modelType">Tipo de modelo (OBJ o FBX).</param>
+	/**
+	 * @brief Crea un modelo dándole un nombre y diciendo qué tipo de archivo es.
+	 * @param name Ruta del archivo (ej: "Assets/Models/Espada.fbx").
+	 * @param modelType Si es un archivo OBJ o FBX.
+	 */
 	Model3D(const std::string& name, ModelType modelType)
 		: IResource(name), m_modelType(modelType), lSdkManager(nullptr), lScene(nullptr) {
 		SetType(ResourceType::Model3D);
-		load(name);
+		load(name); // Intenta cargarlo en cuanto se crea
 	}
 
-	/// <summary>
-	/// Destructor por defecto.
-	/// </summary>
 	~Model3D() = default;
 
-	/// <summary>
-	/// Carga el modelo desde disco según el tipo especificado (OBJ/FBX).
-	/// </summary>
-	/// <param name="path">Ruta del archivo de modelo.</param>
-	/// <returns>true si la carga fue exitosa; false en caso contrario.</returns>
-	bool
-		load(const std::string& path) override;
+	/**
+	 * @brief Abre el archivo y extrae la información 3D.
+	 * @param path Ruta donde está guardado el modelo.
+	 * @return true si el archivo se leyó correctamente.
+	 */
+	bool load(const std::string& path) override;
 
-	/// <summary>
-	/// Inicializa el recurso de modelo 3D.
-	/// </summary>
-	/// <returns>true si la inicialización fue exitosa; false en caso contrario.</returns>
-	bool
-		init() override;
+	/**
+	 * @brief Prepara el modelo para ser usado en el motor.
+	 */
+	bool init() override;
 
-	/// <summary>
-	/// Libera los datos asociados al modelo (mallas, texturas, etc.).
-	/// </summary>
-	void
-		unload() override;
+	/**
+	 * @brief Borra los datos del modelo cuando ya no lo necesitamos para liberar RAM.
+	 */
+	void unload() override;
 
-	/// <summary>
-	/// Devuelve el tamaño estimado del modelo en memoria, en bytes.
-	/// </summary>
-	/// <returns>Tamaño en bytes.</returns>
-	size_t
-		getSizeInBytes() const override;
+	/**
+	 * @brief Calcula cuánto espacio ocupa este modelo en la memoria (en bytes).
+	 */
+	size_t getSizeInBytes() const override;
 
-	/// <summary>
-	/// Obtiene el arreglo de mallas cargadas para este modelo.
-	/// </summary>
-	/// <returns>Referencia constante al vector de MeshComponent.</returns>
-	const std::vector<MeshComponent>&
-		GetMeshes() const { return m_meshes; }
+	/**
+	 * @brief Nos da la lista de todas las mallas (partes) que forman este modelo.
+	 */
+	const std::vector<MeshComponent>& GetMeshes() const { return m_meshes; }
 
-	/* FBX MODEL LOADER*/
+	/* --- FUNCIONES PARA CARGAR FBX --- */
 
-	/// <summary>
-	/// Inicializa el administrador de FBX (lSdkManager) y la escena (lScene).
-	/// </summary>
-	/// <returns>true si la inicialización del FBX SDK fue correcta.</returns>
-	bool
-		InitializeFBXManager();
+	/**
+	 * @brief Enciende el "motor de lectura" de FBX (el SDK de Autodesk).
+	 */
+	bool InitializeFBXManager();
 
-	/// <summary>
-	/// Carga un modelo FBX desde archivo y devuelve sus mallas procesadas.
-	/// </summary>
-	/// <param name="filePath">Ruta del archivo FBX.</param>
-	/// <returns>Vector de MeshComponent construidos a partir del modelo FBX.</returns>
-	std::vector<MeshComponent>
-		LoadFBXModel(const std::string& filePath);
+	/**
+	 * @brief Función maestra que lee un archivo FBX y lo convierte en mallas de nuestro motor.
+	 */
+	std::vector<MeshComponent> LoadFBXModel(const std::string& filePath);
 
-	/// <summary>
-	/// Procesa recursivamente un nodo FBX y sus hijos para extraer mallas.
-	/// </summary>
-	/// <param name="node">Nodo raíz o actual dentro de la escena FBX.</param>
-	void
-		ProcessFBXNode(FbxNode* node);
+	/**
+	 * @brief Recorre el "árbol" del archivo FBX buscando piezas (nodos).
+	 * * Los archivos FBX son como carpetas dentro de carpetas; esta función busca en todas.
+	 */
+	void ProcessFBXNode(FbxNode* node);
 
-	/// <summary>
-	/// Procesa un nodo que contiene una malla FBX y la convierte en MeshComponent.
-	/// </summary>
-	/// <param name="node">Nodo que contiene la malla FBX.</param>
-	void
-		ProcessFBXMesh(FbxNode* node);
+	/**
+	 * @brief Extrae los puntos (vértices) y caras de una malla FBX.
+	 */
+	void ProcessFBXMesh(FbxNode* node);
 
-	/// <summary>
-	/// Procesa el material de una malla FBX para extraer información relevante
-	/// (por ejemplo, nombres de texturas).
-	/// </summary>
-	/// <param name="material">Puntero al material de la malla FBX.</param>
-	void
-		ProcessFBXMaterials(FbxSurfaceMaterial* material);
+	/**
+	 * @brief Busca qué texturas o colores usa el modelo FBX.
+	 */
+	void ProcessFBXMaterials(FbxSurfaceMaterial* material);
 
-	/// <summary>
-	/// Devuelve la lista de nombres de archivos de textura encontrados en el modelo FBX.
-	/// </summary>
-	/// <returns>Vector con nombres de archivo de texturas.</returns>
-	std::vector<std::string>
-		GetTextureFileNames() const { return textureFileNames; }
+	/**
+	 * @brief Devuelve una lista con los nombres de las imágenes (texturas) que necesita este modelo.
+	 */
+	std::vector<std::string> GetTextureFileNames() const { return textureFileNames; }
 
 private:
-	// Punteros principales del FBX SDK (administrador y escena).
-	FbxManager* lSdkManager;
-	FbxScene* lScene;
+	// Herramientas internas del lector de FBX (SDK de Autodesk)
+	FbxManager* lSdkManager; ///< El jefe que administra la lectura.
+	FbxScene* lScene;       ///< El contenedor de toda la escena del archivo.
 
-	// Nombres de archivos de textura encontrados al procesar el FBX.
-	std::vector<std::string> textureFileNames;
+	std::vector<std::string> textureFileNames; ///< Lista de rutas de texturas encontradas.
 
 public:
-	ModelType m_modelType;                  // Tipo de modelo (OBJ o FBX).
-	std::vector<MeshComponent> m_meshes;    // Mallas resultantes después de cargar el modelo.
+	ModelType m_modelType;                ///< ¿Es OBJ o FBX?
+	std::vector<MeshComponent> m_meshes;  ///< Las partes reales del objeto que se dibujarán.
 };

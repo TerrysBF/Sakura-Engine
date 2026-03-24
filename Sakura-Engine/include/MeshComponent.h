@@ -4,67 +4,65 @@
 
 class DeviceContext;
 
-/// <summary>
-/// Componente ECS que almacena la información de geometría (malla) de un actor.
-/// Contiene vértices, índices y contadores básicos de la malla.
-/// </summary>
+/**
+ * @class MeshComponent
+ * @brief Guarda la "forma" física (geometría) de un objeto en el juego.
+ * * Es un componente que le das a un Actor para que tenga una apariencia 3D.
+ * Contiene la lista de puntos (vértices) y el orden en que se conectan (índices).
+ */
 class
   MeshComponent : public Component {
 public:
-  /// <summary>
-  /// Constructor por defecto.
-  /// Inicializa la malla con cero vértices e índices y la marca como tipo MESH.
-  /// </summary>
+  /**
+   * @brief Constructor: Crea una malla vacía y le asigna el tipo MESH.
+   */
   MeshComponent() : m_numVertex(0), m_numIndex(0), Component(ComponentType::MESH) {}
 
-  /// <summary>
-  /// Destructor virtual por defecto.
-  /// </summary>
+  /**
+   * @brief Destructor: Se asegura de limpiar el componente al destruirlo.
+   */
   virtual
     ~MeshComponent() = default;
 
-  /// <summary>
-  /// Inicializa el componente de malla.
-  /// Se puede extender en derivadas para reservar memoria o cargar datos.
-  /// </summary>
+  /**
+   * @brief Configuración inicial de la malla.
+   */
   void
     init() override {};
 
-  /// <summary>
-  /// Actualiza la malla.
-  /// Útil para animación de vértices o deformaciones en implementaciones futuras.
-  /// </summary>
-  /// <param name="deltaTime">Tiempo transcurrido desde la última actualización.</param>
+  /**
+   * @brief Actualiza la malla (por si los puntos se mueven o cambian).
+   * @param deltaTime Tiempo entre frames.
+   */
   void
     update(float deltaTime) override {};
 
-  /// <summary>
-  /// Renderiza la malla.
-  /// Normalmente se usaría para dibujar buffers asociados a la geometría.
-  /// </summary>
-  /// <param name="deviceContext">Contexto del dispositivo para operaciones gráficas.</param>
+  /**
+   * @brief Envía la geometría a la tarjeta de video para que sea dibujada.
+   * @param deviceContext El encargado de dar las órdenes de dibujo.
+   */
   void
     render(DeviceContext& deviceContext) override {};
 
-  /// <summary>
-  /// Libera recursos asociados al componente de malla.
-  /// </summary>
+  /**
+   * @brief Borra los datos de la malla para liberar memoria.
+   */
   void
     destroy() override {};
 
 public:
-  // Nombre de la malla.
+  /** @brief Nombre descriptivo de esta parte del modelo (ej: "Rueda_Delantera"). */
   std::string m_name;
 
-  // Lista de vértices de la malla.
+  /** @brief Lista de todos los puntos (punteros) que forman la figura. */
   std::vector<SimpleVertex> m_vertex;
 
-  // Lista de índices que definen las primitivas de la malla.
+  /** @brief Lista de números que dicen cómo conectar los vértices para formar triángulos. */
   std::vector<unsigned int> m_index;
 
-  // Número total de vértices en la malla.
+  /** @brief Cantidad total de puntos que tiene esta malla. */
   int m_numVertex;
 
-  // Número total de índices en la malla.
+  /** @brief Cantidad total de conexiones (índices) que tiene esta malla. */
   int m_numIndex;
 };
