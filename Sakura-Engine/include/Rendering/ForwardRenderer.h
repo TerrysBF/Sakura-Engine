@@ -17,40 +17,26 @@ class Material;
 
 /**
  * @class ForwardRenderer
- * @brief Renderer basado en forward rendering que gestiona múltiples passes de render.
+ * @brief Renderer tipo forward que se encarga de dibujar la escena por etapas.
  *
- * Esta clase se encarga de:
- * - Generar sombras (shadow pass)
- * - Renderizar objetos opacos y transparentes
- * - Renderizar skybox
- * - Manejar buffers y estados gráficos necesarios
+ * Maneja distintos passes como sombras, objetos opacos,
+ * transparentes y skybox, además de preparar buffers y estados.
  */
 class
   ForwardRenderer {
 public:
   /**
-   * @brief Inicializa el renderer y sus recursos.
-   * @param device Referencia al dispositivo gráfico.
-   * @return HRESULT indicando éxito o fallo.
+   * @brief Inicializa el renderer.
+   *
+   * Crea buffers, estados y recursos necesarios para renderizar.
    */
   HRESULT init(Device& device);
 
   /**
-   * @brief Ajusta el tamaño del render target.
-   * @param device Dispositivo gráfico.
-   * @param width Nuevo ancho.
-   * @param height Nuevo alto.
-   */
-  /*void
-    resize(Device& device,
-      unsigned int width,
-      unsigned int height);*/
-
-  /**
-   * @brief Actualiza los datos por frame (buffers constantes).
-   * @param camera Cámara activa.
-   * @param scene Escena a renderizar.
-   * @param deviceContext Contexto del dispositivo.
+   * @brief Actualiza datos que cambian cada frame.
+   *
+   * Se encarga de actualizar los constant buffers con la información
+   * de la cámara y la escena.
    */
   void
     updatePerFrame(const Camera& camera,
@@ -58,11 +44,10 @@ public:
       DeviceContext& deviceContext);
 
   /**
-   * @brief Ejecuta el pipeline completo de render.
-   * @param deviceContext Contexto del dispositivo.
-   * @param camera Cámara activa.
-   * @param scene Escena a renderizar.
-   * @param viewportPass Pass de viewport del editor.
+   * @brief Ejecuta todo el proceso de render.
+   *
+   * Llama a los distintos passes como sombras, opacos,
+   * transparentes y skybox.
    */
   void
     render(DeviceContext& deviceContext,
@@ -71,166 +56,122 @@ public:
       EditorViewportPass& viewportPass);
 
   /**
-   * @brief Libera todos los recursos del renderer.
-   */
-  /*void
-    destroy();*/
-
-  /**
-   * @brief Obtiene el Shader Resource View del shadow map.
-   * @return Puntero a ID3D11ShaderResourceView.
+   * @brief Obtiene la textura de sombras.
    */
   ID3D11ShaderResourceView* getShadowMapSRV() const { return m_shadowDepthSRV.m_textureFromImg; }
 
   /**
-   * @brief Obtiene el SRV del pre-shadow debug pass.
-   * @return Puntero a ID3D11ShaderResourceView.
+   * @brief Obtiene la textura del debug previo a sombras.
    */
   ID3D11ShaderResourceView* getPreShadowSRV() const { return m_preShadowDebugPass.getSRV(); }
 
 private:
   /**
-   * @brief Construye las colas de render (opacos y transparentes).
-   * @param scene Escena a procesar.
-   * @param camera Cámara activa.
+   * @brief Separa los objetos en opacos y transparentes.
    */
   void
     buildQueues(RenderScene& scene, const Camera& camera);
 
   /**
-   * @brief Renderiza el pass de debug previo a sombras.
-   * @param deviceContext Contexto del dispositivo.
-   * @param scene Escena.
+   * @brief Render de debug antes del pass de sombras.
    */
   void
     renderPreShadowDebugPass(DeviceContext& deviceContext, RenderScene& scene);
 
-  /** @brief Renderiza el pass de sombras. */
+  /// Renderiza el pass de sombras
   void
     renderShadowPass(DeviceContext& deviceContext);
 
-  /** @brief Renderiza objetos opacos. */
+  /// Renderiza objetos opacos
   void
     renderOpaquePass(DeviceContext& deviceContext);
 
-  /** @brief Renderiza objetos transparentes. */
+  /// Renderiza objetos transparentes
   void
     renderTransparentPass(DeviceContext& deviceContext);
 
   /**
-   * @brief Renderiza el skybox.
-   * @param deviceContext Contexto del dispositivo.
-   * @param scene Escena.
+   * @brief Renderiza el skybox de la escena.
    */
   void
     renderSkyboxPass(DeviceContext& deviceContext, RenderScene& scene);
 
   /**
-   * @brief Renderiza un objeto según el tipo de pass.
-   * @param deviceContext Contexto del dispositivo.
-   * @param object Objeto a renderizar.
-   * @param passType Tipo de pass.
+   * @brief Renderiza un objeto dependiendo del pass.
    */
   void
     renderObject(DeviceContext& deviceContext, const RenderObject& object, RenderPassType passType);
 
   /**
    * @brief Renderiza un objeto en el pass de sombras.
-   * @param deviceContext Contexto del dispositivo.
-   * @param object Objeto a renderizar.
    */
   void
     renderShadowObject(DeviceContext& deviceContext, const RenderObject& object);
 
   /**
    * @brief Crea los recursos necesarios para sombras.
-   * @param device Dispositivo gráfico.
-   * @return HRESULT indicando éxito o fallo.
    */
   HRESULT createShadowResources(Device& device);
 
   /**
-   * @brief Actualiza las matrices de iluminación para sombras.
-   * @param camera Cámara activa.
-   * @param scene Escena.
+   * @brief Actualiza matrices usadas para iluminación y sombras.
    */
   void
     updateLightMatrices(const Camera& camera, const RenderScene& scene);
 
   /**
    * @brief Crea estados de blending.
-   * @param device Dispositivo gráfico.
-   * @return HRESULT indicando éxito o fallo.
    */
   HRESULT createBlendStates(Device& device);
 
   /**
-   * @brief Resuelve el estado de blending según el material.
-   * @param material Material del objeto.
-   * @return Puntero a ID3D11BlendState.
+   * @brief Selecciona el estado de blending según el material.
    */
   ID3D11BlendState* resolveBlendState(const Material* material) const;
 
 private:
-  /** @brief Buffer constante por frame. */
-  Buffer m_perFrameBuffer;
+  // Buffers principales
+  Buffer m_perFrameBuffer;     // Datos generales por frame
+  Buffer m_perObjectBuffer;    // Datos por objeto
+  Buffer m_perMaterialBuffer;  // Datos por material
 
-  /** @brief Buffer constante por objeto. */
-  Buffer m_perObjectBuffer;
+  // Estados de profundidad
+  DepthStencilState m_transparentDepthStencil; // Para transparencias
+  DepthStencilState m_shadowDepthStencil;      // Para sombras
 
-  /** @brief Buffer constante por material. */
-  Buffer m_perMaterialBuffer;
-
-  /** @brief Estado de profundidad para transparencia. */
-  DepthStencilState m_transparentDepthStencil;
-
-  /** @brief Estado de profundidad para sombras. */
-  DepthStencilState m_shadowDepthStencil;
-
-  /** @brief Estados de blending. */
+  // Estados de blending
   ID3D11BlendState* m_alphaBlendState = nullptr;
   ID3D11BlendState* m_opaqueBlendState = nullptr;
   ID3D11BlendState* m_additiveBlendState = nullptr;
   ID3D11BlendState* m_premultipliedBlendState = nullptr;
 
-  /** @brief Factor de mezcla. */
+  // Factor de mezcla
   float
     m_blendFactor[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
 
-  /** @brief Textura de profundidad para sombras. */
-  Texture m_shadowDepthTexture;
+  // Recursos de sombras
+  Texture m_shadowDepthTexture;   // Textura de profundidad
+  Texture m_shadowDepthSRV;       // Vista para shader
+  DepthStencilView m_shadowDSV;   // Vista de depth
+  ShaderProgram m_shadowShader;   // Shader de sombras
+  RasterizerState m_shadowRasterizer; // Rasterizer para sombras
 
-  /** @brief Shader Resource View del shadow map. */
-  Texture m_shadowDepthSRV;
-
-  /** @brief Depth Stencil View para sombras. */
-  DepthStencilView m_shadowDSV;
-
-  /** @brief Shader para el pass de sombras. */
-  ShaderProgram m_shadowShader;
-
-  /** @brief Rasterizer para sombras. */
-  RasterizerState m_shadowRasterizer;
-
-  /** @brief Tamaño del shadow map. */
   unsigned
-    int m_shadowMapSize = 2048;
+    int m_shadowMapSize = 2048; // Tamaño del shadow map
 
-  /** @brief Pass de debug previo a sombras. */
+  // Debug
   EditorViewportPass m_preShadowDebugPass;
 
-  /** @brief Indica si se aplican sombras. */
+ 
   bool
-    m_applyShadows = true;
+    m_applyShadows = true; 
 
-  /** @brief Constant buffers CPU-side. */
+  // Buffers CPU
   CBPerFrame m_cbPerFrame{};
   CBPerObject m_cbPerObject{};
   CBPerMaterial m_cbPerMaterial{};
 
-  /** @brief Cola de objetos opacos. */
-  std::vector<const RenderObject*> m_opaqueQueue;
-
-  /** @brief Cola de objetos transparentes. */
-  std::vector<const RenderObject*> m_transparentQueue;
+  // Listas de render
+  std::vector<const RenderObject*> m_opaqueQueue;      
+  std::vector<const RenderObject*> m_transparentQueue; 
 };

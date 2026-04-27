@@ -46,3 +46,7 @@ void EditorViewportPass::setViewport(DeviceContext& deviceContext)
 	deviceContext.m_deviceContext->RSSetViewports(1, &vp);
 }
 
+long EditorViewportPass::createResources(Device& device, unsigned int width, unsigned int height)
+{
+	return S_OK; // stub
+}

@@ -1,3 +1,8 @@
+/**
+ * @file Transform.h
+ * @brief Declara la API de Transform dentro del subsistema ECS.
+ * @ingroup ecs
+ */
 #pragma once
 #include "Prerequisites.h"
 #include "EngineUtilities/Vectors/Vector3.h"
@@ -6,23 +11,25 @@
 class
   Transform : public Component {
 public:
-  // Constructor que inicializa posición, rotación y escala por defecto
+  // Constructor que inicializa posici?n, rotaci?n y escala por defecto
   Transform() : position(),
     rotation(),
     scale(),
     matrix(),
+    worldMatrix(),
     Component(ComponentType::TRANSFORM) {}
 
-  // Métodos para inicialización, actualización, renderizado y destrucción
+  // M?todos para inicializaci?n, actualizaci?n, renderizado y destrucci?n
   // Inicializa el objeto Transform
   void
     init() {
     scale.one();
     matrix = XMMatrixIdentity();
+    worldMatrix = XMMatrixIdentity();
   }
 
   // Actualiza el estado del objeto Transform basado en el tiempo transcurrido
-  // @param deltaTime: Tiempo transcurrido desde la última actualización
+  // @param deltaTime: Tiempo transcurrido desde la ?ltima actualizaci?n
   void
     update(float deltaTime) override {
     // Aplicar escala
@@ -34,6 +41,7 @@ public:
 
     // Componer la matriz final en el orden: scale -> rotation -> translation
     matrix = scaleMatrix * rotationMatrix * translationMatrix;
+    worldMatrix = matrix;
   }
 
   // Renderiza el objeto Transform
@@ -45,25 +53,25 @@ public:
   void
     destroy() {}
 
-  // Métodos de acceso a los datos de posición
-  // Retorna la posición actual
+  // M?todos de acceso a los datos de posici?n
+  // Retorna la posici?n actual
   const EU::Vector3&
     getPosition() const { return position; }
 
-  // Establece una nueva posición
+  // Establece una nueva posici?n
   void
     setPosition(const EU::Vector3& newPos) { position = newPos; }
 
-  // Métodos de acceso a los datos de rotación
-  // Retorna la rotación actual
+  // M?todos de acceso a los datos de rotaci?n
+  // Retorna la rotaci?n actual
   const EU::Vector3&
     getRotation() const { return rotation; }
 
-  // Establece una nueva rotación
+  // Establece una nueva rotaci?n
   void
     setRotation(const EU::Vector3& newRot) { rotation = newRot; }
 
-  // Métodos de acceso a los datos de escala
+  // M?todos de acceso a los datos de escala
   // Retorna la escala actual
   const EU::Vector3&
     getScale() const { return scale; }
@@ -81,16 +89,18 @@ public:
     scale = newSca;
   }
 
-  // Método para trasladar la posición del objeto
+  // M?todo para trasladar la posici?n del objeto
   // @param translation: Vector que representa la cantidad de traslado en cada eje
   void
     translate(const EU::Vector3& translation);
 
 private:
-  EU::Vector3 position;  // Posición del objeto
-  EU::Vector3 rotation;  // Rotación del objeto
+  EU::Vector3 position;  // Posici?n del objeto
+  EU::Vector3 rotation;  // Rotaci?n del objeto
   EU::Vector3 scale;     // Escala del objeto
 
 public:
-  XMMATRIX matrix;    // Matriz de transformación
+  XMMATRIX matrix;    // Matriz de transformaci?n local
+  XMMATRIX worldMatrix; // Matriz de transformaci?n world
 };
+

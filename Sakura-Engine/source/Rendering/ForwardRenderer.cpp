@@ -369,3 +369,8 @@ ForwardRenderer::createBlendStates(Device& device) {
 
   return device.m_device->CreateBlendState(&blendDesc, &m_premultipliedBlendState);
 }
+
+ID3D11BlendState* ForwardRenderer::resolveBlendState(const Material* material) const
+{
+  return nullptr; // stub
+}
