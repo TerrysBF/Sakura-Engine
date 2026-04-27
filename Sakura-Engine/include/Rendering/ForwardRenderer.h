@@ -131,13 +131,13 @@ private:
 
 private:
   // Buffers principales
-  Buffer m_perFrameBuffer;     // Datos generales por frame
-  Buffer m_perObjectBuffer;    // Datos por objeto
-  Buffer m_perMaterialBuffer;  // Datos por material
+  Buffer m_perFrameBuffer;     
+  Buffer m_perObjectBuffer;    
+  Buffer m_perMaterialBuffer;  
 
   // Estados de profundidad
-  DepthStencilState m_transparentDepthStencil; // Para transparencias
-  DepthStencilState m_shadowDepthStencil;      // Para sombras
+  DepthStencilState m_transparentDepthStencil;
+  DepthStencilState m_shadowDepthStencil;      
 
   // Estados de blending
   ID3D11BlendState* m_alphaBlendState = nullptr;
@@ -145,33 +145,33 @@ private:
   ID3D11BlendState* m_additiveBlendState = nullptr;
   ID3D11BlendState* m_premultipliedBlendState = nullptr;
 
-  // Factor de mezcla
+ 
   float
     m_blendFactor[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
 
   // Recursos de sombras
-  Texture m_shadowDepthTexture;   // Textura de profundidad
-  Texture m_shadowDepthSRV;       // Vista para shader
-  DepthStencilView m_shadowDSV;   // Vista de depth
-  ShaderProgram m_shadowShader;   // Shader de sombras
-  RasterizerState m_shadowRasterizer; // Rasterizer para sombras
+  Texture m_shadowDepthTexture;   
+  Texture m_shadowDepthSRV;     
+  DepthStencilView m_shadowDSV;  
+  ShaderProgram m_shadowShader;   
+  RasterizerState m_shadowRasterizer; 
 
   unsigned
-    int m_shadowMapSize = 2048; // Tamaño del shadow map
+    int m_shadowMapSize = 2048; 
 
-  // Debug
+
   EditorViewportPass m_preShadowDebugPass;
 
  
   bool
     m_applyShadows = true; 
 
-  // Buffers CPU
+
   CBPerFrame m_cbPerFrame{};
   CBPerObject m_cbPerObject{};
   CBPerMaterial m_cbPerMaterial{};
 
-  // Listas de render
+
   std::vector<const RenderObject*> m_opaqueQueue;      
   std::vector<const RenderObject*> m_transparentQueue; 
 };

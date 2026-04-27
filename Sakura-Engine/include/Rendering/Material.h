@@ -58,10 +58,10 @@ public:
 	BlendMode getBlendMode() const { return m_blendMode; }
 
 private:
-	ShaderProgram* m_shader = nullptr;                // Shader principal
-	RasterizerState* m_rasterizerState = nullptr;     // Estado de rasterización
-	DepthStencilState* m_depthStencilState = nullptr; // Estado de profundidad
-	SamplerState* m_samplerState = nullptr;           // Sampler de texturas
-	MaterialDomain m_domain = MaterialDomain::Opaque; // Tipo de material
-	BlendMode m_blendMode = BlendMode::Opaque;        // Modo de mezcla
+	ShaderProgram* m_shader = nullptr;                
+	RasterizerState* m_rasterizerState = nullptr;     
+	DepthStencilState* m_depthStencilState = nullptr; 
+	SamplerState* m_samplerState = nullptr;           
+	MaterialDomain m_domain = MaterialDomain::Opaque; 
+	BlendMode m_blendMode = BlendMode::Opaque;        
 };
