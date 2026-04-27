@@ -205,7 +205,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FloatingPointModel>Fast</FloatingPointModel>
       <ExceptionHandling>Sync</ExceptionHandling>
-      <AdditionalIncludeDirectories>./include/;DXUT\Core;DXUT\Optional;./include/fbx/;C:\Users\Julio\7MO\Graficas 3D\Sakura-Engine\Sakura-Engine\imgui-docking\backends;C:\Users\Julio\7MO\Graficas 3D\Sakura-Engine\Sakura-Engine\imgui-docking;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./include/;DXUT\Core;DXUT\Optional;./include/fbx/;C:\Users\Julio\7MO\Graficas 3D\Sakura-Engine\Sakura-Engine\imgui-docking\backends;C:\Users\Julio\7MO\Graficas 3D\Sakura-Engine\Sakura-Engine\imgui-docking;$(ProjectDir)Imgui;$(ProjectDir)Imgui\include;$(ProjectDir)Imgui\ImGuizmo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
       <PreprocessorDefinitions>WIN32;FBXSDK_SHARED;_DEBUG;DEBUG;PROFILE;_WINDOWS;D3DXFX_LARGEADDRESS_HANDLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -295,7 +295,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FloatingPointModel>Fast</FloatingPointModel>
       <ExceptionHandling>Sync</ExceptionHandling>
-      <AdditionalIncludeDirectories>./include/;DXUT\Core;DXUT\Optional;./include/fbx/;C:\Users\Julio\7MO\Graficas 3D\Sakura-Engine\Sakura-Engine\imgui-docking\backends;C:\Users\Julio\7MO\Graficas 3D\Sakura-Engine\Sakura-Engine\imgui-docking;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./include/;DXUT\Core;DXUT\Optional;./include/fbx/;C:\Users\Julio\7MO\Graficas 3D\Sakura-Engine\Sakura-Engine\imgui-docking\backends;C:\Users\Julio\7MO\Graficas 3D\Sakura-Engine\Sakura-Engine\imgui-docking;$(ProjectDir)Imgui;$(ProjectDir)Imgui\include;$(ProjectDir)Imgui\ImGuizmo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
       <PreprocessorDefinitions>WIN32;FBXSDK_SHARED;NDEBUG;_WINDOWS;D3DXFX_LARGEADDRESS_HANDLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -386,7 +386,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FloatingPointModel>Fast</FloatingPointModel>
       <ExceptionHandling>Sync</ExceptionHandling>
-      <AdditionalIncludeDirectories>./include/;DXUT\Core;DXUT\Optional;./include/fbx/;C:\Users\Julio\7MO\Graficas 3D\Sakura-Engine\Sakura-Engine\imgui-docking\backends;C:\Users\Julio\7MO\Graficas 3D\Sakura-Engine\Sakura-Engine\imgui-docking;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>./include/;DXUT\Core;DXUT\Optional;./include/fbx/;C:\Users\Julio\7MO\Graficas 3D\Sakura-Engine\Sakura-Engine\imgui-docking\backends;C:\Users\Julio\7MO\Graficas 3D\Sakura-Engine\Sakura-Engine\imgui-docking;$(ProjectDir)Imgui;$(ProjectDir)Imgui\include;$(ProjectDir)Imgui\ImGuizmo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions> %(AdditionalOptions)</AdditionalOptions>
       <PreprocessorDefinitions>WIN32;FBXSDK_SHARED;NDEBUG;PROFILE;_WINDOWS;D3DXFX_LARGEADDRESS_HANDLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -430,21 +430,27 @@
     <ClCompile Include="imgui-docking\imgui_draw.cpp" />
     <ClCompile Include="imgui-docking\imgui_tables.cpp" />
     <ClCompile Include="imgui-docking\imgui_widgets.cpp" />
+    <ClCompile Include="Imgui\ImGuizmo\ImGuizmo.cpp" />
     <ClCompile Include="Sakura-Engine.cpp" />
     <ClCompile Include="source\BaseApp.cpp" />
     <ClCompile Include="source\Buffer.cpp" />
+    <ClCompile Include="source\Camera.cpp" />
+    <ClCompile Include="source\DepthStencilState.cpp" />
     <ClCompile Include="source\DepthStencilView.cpp" />
     <ClCompile Include="source\Device.cpp" />
     <ClCompile Include="source\DeviceContext.cpp" />
     <ClCompile Include="source\ECS\Actorcpp.cpp" />
+    <ClCompile Include="source\EditorViewportPass.cpp" />
     <ClCompile Include="source\GUI\GUI.cpp" />
     <ClCompile Include="source\InputLayout.cpp" />
     <ClCompile Include="source\Model3D.cpp" />
     <ClCompile Include="source\OBJReader.cpp" />
+    <ClCompile Include="source\RasterizerState.cpp" />
     <ClCompile Include="source\Rendering\ForwardRenderer.cpp" />
     <ClCompile Include="source\RenderTargetView.cpp" />
     <ClCompile Include="source\SamplerState.cpp" />
     <ClCompile Include="source\ShaderProgram.cpp" />
+    <ClCompile Include="source\Skybox.cpp" />
     <ClCompile Include="source\SwapChain.cpp" />
     <ClCompile Include="source\Texture.cpp" />
     <ClCompile Include="source\UserInterface.cpp" />
@@ -471,20 +477,29 @@
     <ClInclude Include="imgui-docking\imstb_rectpack.h" />
     <ClInclude Include="imgui-docking\imstb_textedit.h" />
     <ClInclude Include="imgui-docking\imstb_truetype.h" />
+    <ClInclude Include="Imgui\ImGuizmo\ImGuizmo.h" />
     <ClInclude Include="include\BaseApp.h" />
     <ClInclude Include="include\Buffer.h" />
+    <ClInclude Include="include\DepthStencilState.h" />
     <ClInclude Include="include\DepthStencilView.h" />
     <ClInclude Include="include\Device.h" />
     <ClInclude Include="include\DeviceContext.h" />
     <ClInclude Include="include\ECS\Actor.h" />
     <ClInclude Include="include\ECS\Component.h" />
     <ClInclude Include="include\ECS\Entity.h" />
+    <ClInclude Include="include\ECS\LightComponent.h" />
+    <ClInclude Include="include\ECS\MeshRendererComponent.h" />
     <ClInclude Include="include\ECS\Transform.h" />
+    <ClInclude Include="include\EngineUtilities\GUI\GUI.h" />
     <ClInclude Include="include\EngineUtilities\Memory\TSharedPointer.h" />
     <ClInclude Include="include\EngineUtilities\Memory\TStaticPtr.h" />
     <ClInclude Include="include\EngineUtilities\Memory\TUniquePtr.h" />
     <ClInclude Include="include\EngineUtilities\Memory\TWeakPointer.h" />
+    <ClInclude Include="include\EngineUtilities\Utilities\Camera.h" />
+    <ClInclude Include="include\EngineUtilities\Utilities\EditorViewportPass.h" />
     <ClInclude Include="include\EngineUtilities\Utilities\EngineMath.h" />
+    <ClInclude Include="include\EngineUtilities\Utilities\LayoutBuilder.h" />
+    <ClInclude Include="include\EngineUtilities\Utilities\Skybox.h" />
     <ClInclude Include="include\EngineUtilities\Vectors\Vector2.h" />
     <ClInclude Include="include\EngineUtilities\Vectors\Vector3.h" />
     <ClInclude Include="include\EngineUtilities\Vectors\Vector4.h" />
@@ -494,6 +509,7 @@
     <ClInclude Include="include\Model3D.h" />
     <ClInclude Include="include\OBJReader.h" />
     <ClInclude Include="include\Prerequisites.h" />
+    <ClInclude Include="include\RasterizerState.h" />
     <ClInclude Include="include\Rendering\ForwardRenderer.h" />
     <ClInclude Include="include\Rendering\Material.h" />
     <ClInclude Include="include\Rendering\MaterialInstance.h" />
@@ -503,6 +519,8 @@
     <ClInclude Include="include\RenderTargetView.h" />
     <ClInclude Include="include\ResourceManager.h" />
     <ClInclude Include="include\SamplerState.h" />
+    <ClInclude Include="include\SceneGraph\HierarchyComponent.h" />
+    <ClInclude Include="include\SceneGraph\SceneGraph.h" />
     <ClInclude Include="include\stb_image.h" />
     <ClInclude Include="include\SwapChain.h" />
     <ClInclude Include="include\Texture.h" />

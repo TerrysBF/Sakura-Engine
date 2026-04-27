@@ -1,4 +1,4 @@
-/**
+ï»¿/**
  * @file GUI.cpp
  * @brief Implementa la logica de GUI dentro del subsistema GUI.
  * @ingroup gui
@@ -16,180 +16,180 @@
 #include "Rendering\Material.h"
 #include "Rendering\MaterialInstance.h"
 #include "EngineUtilities\Utilities\Camera.h"
-//#include "imgui_internal.h"
+ //#include "imgui_internal.h"
 static ImGuizmo::OPERATION mCurrentGizmoOperation(ImGuizmo::TRANSLATE);
 static ImGuizmo::MODE mCurrentGizmoMode(ImGuizmo::LOCAL);
 
 namespace {
-const char* GetLightTypeLabel(LightType type);
+	const char* GetLightTypeLabel(LightType type);
 
-ImU32 AccentU32(const ImVec4& color) {
-	return ImGui::ColorConvertFloat4ToU32(color);
-}
-
-float RadToDeg(float radians) {
-	return XMConvertToDegrees(radians);
-}
-
-float DegToRad(float degrees) {
-	return XMConvertToRadians(degrees);
-}
-
-void DrawInspectorPill(const char* text, const ImVec4& color) {
-	ImGui::PushStyleColor(ImGuiCol_Button, color);
-	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, color);
-	ImGui::PushStyleColor(ImGuiCol_ButtonActive, color);
-	ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 12.0f);
-	ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(10.0f, 4.0f));
-	ImGui::Button(text);
-	ImGui::PopStyleVar(2);
-	ImGui::PopStyleColor(3);
-}
-
-bool BeginInspectorSection(const char* label, bool defaultOpen = true) {
-	ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_SpanAvailWidth;
-	if (defaultOpen) {
-		flags |= ImGuiTreeNodeFlags_DefaultOpen;
+	ImU32 AccentU32(const ImVec4& color) {
+		return ImGui::ColorConvertFloat4ToU32(color);
 	}
 
-	ImGui::PushStyleColor(ImGuiCol_Header, ImVec4(0.16f, 0.18f, 0.22f, 0.95f));
-	ImGui::PushStyleColor(ImGuiCol_HeaderHovered, ImVec4(0.20f, 0.23f, 0.28f, 1.0f));
-	ImGui::PushStyleColor(ImGuiCol_HeaderActive, ImVec4(0.22f, 0.26f, 0.32f, 1.0f));
-	ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(10.0f, 8.0f));
-	const bool open = ImGui::CollapsingHeader(label, flags);
-	ImGui::PopStyleVar();
-	ImGui::PopStyleColor(3);
-	return open;
-}
-
-bool BeginInspectorPropertyTable(const char* id, float firstColumnWidth = 132.0f) {
-	if (!ImGui::BeginTable(id, 2, ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_BordersInnerV)) {
-		return false;
+	float RadToDeg(float radians) {
+		return XMConvertToDegrees(radians);
 	}
 
-	ImGui::TableSetupColumn("Label", ImGuiTableColumnFlags_WidthFixed, firstColumnWidth);
-	ImGui::TableSetupColumn("Value", ImGuiTableColumnFlags_WidthStretch);
-	return true;
-}
+	float DegToRad(float degrees) {
+		return XMConvertToRadians(degrees);
+	}
 
-void DrawPropertyLabel(const char* label) {
-	ImGui::TableNextRow();
-	ImGui::TableSetColumnIndex(0);
-	ImGui::AlignTextToFramePadding();
-	ImGui::TextDisabled("%s", label);
-	ImGui::TableSetColumnIndex(1);
-	ImGui::SetNextItemWidth(-FLT_MIN);
-}
+	void DrawInspectorPill(const char* text, const ImVec4& color) {
+		ImGui::PushStyleColor(ImGuiCol_Button, color);
+		ImGui::PushStyleColor(ImGuiCol_ButtonHovered, color);
+		ImGui::PushStyleColor(ImGuiCol_ButtonActive, color);
+		ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 12.0f);
+		ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(10.0f, 4.0f));
+		ImGui::Button(text);
+		ImGui::PopStyleVar(2);
+		ImGui::PopStyleColor(3);
+	}
 
-void DrawPropertyValueText(const char* label, const char* value) {
-	ImGui::TableNextRow();
-	ImGui::TableSetColumnIndex(0);
-	ImGui::AlignTextToFramePadding();
-	ImGui::TextDisabled("%s", label);
-	ImGui::TableSetColumnIndex(1);
-	ImGui::TextUnformatted(value);
-}
+	bool BeginInspectorSection(const char* label, bool defaultOpen = true) {
+		ImGuiTreeNodeFlags flags = ImGuiTreeNodeFlags_SpanAvailWidth;
+		if (defaultOpen) {
+			flags |= ImGuiTreeNodeFlags_DefaultOpen;
+		}
 
-void DrawPropertyValueBool(const char* label, bool value) {
-	DrawPropertyValueText(label, value ? "Yes" : "No");
-}
+		ImGui::PushStyleColor(ImGuiCol_Header, ImVec4(0.16f, 0.18f, 0.22f, 0.95f));
+		ImGui::PushStyleColor(ImGuiCol_HeaderHovered, ImVec4(0.20f, 0.23f, 0.28f, 1.0f));
+		ImGui::PushStyleColor(ImGuiCol_HeaderActive, ImVec4(0.22f, 0.26f, 0.32f, 1.0f));
+		ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(10.0f, 8.0f));
+		const bool open = ImGui::CollapsingHeader(label, flags);
+		ImGui::PopStyleVar();
+		ImGui::PopStyleColor(3);
+		return open;
+	}
 
-void DrawPropertyToggle(const char* label, const char* id, bool* value) {
-	ImGui::TableNextRow();
-	ImGui::TableSetColumnIndex(0);
-	ImGui::AlignTextToFramePadding();
-	ImGui::TextDisabled("%s", label);
-	ImGui::TableSetColumnIndex(1);
-	ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 6.0f);
-	ImGui::Checkbox(id, value);
-	ImGui::PopStyleVar();
-}
+	bool BeginInspectorPropertyTable(const char* id, float firstColumnWidth = 132.0f) {
+		if (!ImGui::BeginTable(id, 2, ImGuiTableFlags_SizingStretchProp | ImGuiTableFlags_BordersInnerV)) {
+			return false;
+		}
 
-const char* GetActorTypeLabel(EU::TSharedPointer<Actor> actor) {
-	if (actor.isNull()) {
+		ImGui::TableSetupColumn("Label", ImGuiTableColumnFlags_WidthFixed, firstColumnWidth);
+		ImGui::TableSetupColumn("Value", ImGuiTableColumnFlags_WidthStretch);
+		return true;
+	}
+
+	void DrawPropertyLabel(const char* label) {
+		ImGui::TableNextRow();
+		ImGui::TableSetColumnIndex(0);
+		ImGui::AlignTextToFramePadding();
+		ImGui::TextDisabled("%s", label);
+		ImGui::TableSetColumnIndex(1);
+		ImGui::SetNextItemWidth(-FLT_MIN);
+	}
+
+	void DrawPropertyValueText(const char* label, const char* value) {
+		ImGui::TableNextRow();
+		ImGui::TableSetColumnIndex(0);
+		ImGui::AlignTextToFramePadding();
+		ImGui::TextDisabled("%s", label);
+		ImGui::TableSetColumnIndex(1);
+		ImGui::TextUnformatted(value);
+	}
+
+	void DrawPropertyValueBool(const char* label, bool value) {
+		DrawPropertyValueText(label, value ? "Yes" : "No");
+	}
+
+	void DrawPropertyToggle(const char* label, const char* id, bool* value) {
+		ImGui::TableNextRow();
+		ImGui::TableSetColumnIndex(0);
+		ImGui::AlignTextToFramePadding();
+		ImGui::TextDisabled("%s", label);
+		ImGui::TableSetColumnIndex(1);
+		ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 6.0f);
+		ImGui::Checkbox(id, value);
+		ImGui::PopStyleVar();
+	}
+
+	const char* GetActorTypeLabel(EU::TSharedPointer<Actor> actor) {
+		if (actor.isNull()) {
+			return "Actor";
+		}
+
+		auto lightComponent = actor->getComponent<LightComponent>();
+		if (!lightComponent.isNull()) {
+			return GetLightTypeLabel(lightComponent->getLightData().type);
+		}
+
+		if (!actor->getComponent<MeshRendererComponent>().isNull()) {
+			return "Static Mesh Actor";
+		}
+
+		if (!actor->getComponent<Transform>().isNull()) {
+			return "Empty Actor";
+		}
+
 		return "Actor";
 	}
 
-	auto lightComponent = actor->getComponent<LightComponent>();
-	if (!lightComponent.isNull()) {
-		return GetLightTypeLabel(lightComponent->getLightData().type);
+	ImVec4 GetActorTypeColor(EU::TSharedPointer<Actor> actor) {
+		if (actor.isNull()) {
+			return ImVec4(0.45f, 0.47f, 0.52f, 1.0f);
+		}
+
+		auto lightComponent = actor->getComponent<LightComponent>();
+		if (!lightComponent.isNull()) {
+			return ImVec4(0.92f, 0.68f, 0.22f, 1.0f);
+		}
+
+		if (!actor->getComponent<MeshRendererComponent>().isNull()) {
+			return ImVec4(0.24f, 0.50f, 0.92f, 1.0f);
+		}
+
+		return ImVec4(0.36f, 0.72f, 0.46f, 1.0f);
 	}
 
-	if (!actor->getComponent<MeshRendererComponent>().isNull()) {
-		return "Static Mesh Actor";
-	}
-
-	if (!actor->getComponent<Transform>().isNull()) {
-		return "Empty Actor";
-	}
-
-	return "Actor";
-}
-
-ImVec4 GetActorTypeColor(EU::TSharedPointer<Actor> actor) {
-	if (actor.isNull()) {
-		return ImVec4(0.45f, 0.47f, 0.52f, 1.0f);
-	}
-
-	auto lightComponent = actor->getComponent<LightComponent>();
-	if (!lightComponent.isNull()) {
-		return ImVec4(0.92f, 0.68f, 0.22f, 1.0f);
-	}
-
-	if (!actor->getComponent<MeshRendererComponent>().isNull()) {
-		return ImVec4(0.24f, 0.50f, 0.92f, 1.0f);
-	}
-
-	return ImVec4(0.36f, 0.72f, 0.46f, 1.0f);
-}
-
-void DrawInspectorComponentChips(bool hasTransform, bool hasMeshRenderer, bool hasLight) {
-	if (hasTransform) {
-		DrawInspectorPill("Transform", ImVec4(0.18f, 0.50f, 0.28f, 1.0f));
-	}
-	if (hasMeshRenderer) {
+	void DrawInspectorComponentChips(bool hasTransform, bool hasMeshRenderer, bool hasLight) {
 		if (hasTransform) {
-			ImGui::SameLine();
+			DrawInspectorPill("Transform", ImVec4(0.18f, 0.50f, 0.28f, 1.0f));
 		}
-		DrawInspectorPill("Renderer", ImVec4(0.22f, 0.42f, 0.76f, 1.0f));
-	}
-	if (hasLight) {
-		if (hasTransform || hasMeshRenderer) {
-			ImGui::SameLine();
+		if (hasMeshRenderer) {
+			if (hasTransform) {
+				ImGui::SameLine();
+			}
+			DrawInspectorPill("Renderer", ImVec4(0.22f, 0.42f, 0.76f, 1.0f));
 		}
-		DrawInspectorPill("Light", ImVec4(0.62f, 0.46f, 0.14f, 1.0f));
+		if (hasLight) {
+			if (hasTransform || hasMeshRenderer) {
+				ImGui::SameLine();
+			}
+			DrawInspectorPill("Light", ImVec4(0.62f, 0.46f, 0.14f, 1.0f));
+		}
 	}
-}
 
-const char* GetLightTypeLabel(LightType type) {
-	switch (type) {
-	case LightType::Directional: return "Directional";
-	case LightType::Point: return "Point";
-	case LightType::Spot: return "Spot";
-	default: return "Unknown";
+	const char* GetLightTypeLabel(LightType type) {
+		switch (type) {
+		case LightType::Directional: return "Directional";
+		case LightType::Point: return "Point";
+		case LightType::Spot: return "Spot";
+		default: return "Unknown";
+		}
 	}
-}
 
-const char* GetMaterialDomainLabel(MaterialDomain domain) {
-	switch (domain) {
-	case MaterialDomain::Opaque: return "Opaque";
-	case MaterialDomain::Masked: return "Masked";
-	case MaterialDomain::Transparent: return "Transparent";
-	default: return "Unknown";
+	const char* GetMaterialDomainLabel(MaterialDomain domain) {
+		switch (domain) {
+		case MaterialDomain::Opaque: return "Opaque";
+		case MaterialDomain::Masked: return "Masked";
+		case MaterialDomain::Transparent: return "Transparent";
+		default: return "Unknown";
+		}
 	}
-}
 
-const char* GetBlendModeLabel(BlendMode blendMode) {
-	switch (blendMode) {
-	case BlendMode::Opaque: return "Opaque";
-	case BlendMode::Alpha: return "Alpha";
-	case BlendMode::Additive: return "Additive";
-	case BlendMode::PremultipliedAlpha: return "Premultiplied";
-	default: return "Unknown";
+	const char* GetBlendModeLabel(BlendMode blendMode) {
+		switch (blendMode) {
+		case BlendMode::Opaque: return "Opaque";
+		case BlendMode::Alpha: return "Alpha";
+		case BlendMode::Additive: return "Additive";
+		case BlendMode::PremultipliedAlpha: return "Premultiplied";
+		default: return "Unknown";
+		}
 	}
 }
-}
-void 
+void
 GUI::init(Window& window, Device& device, DeviceContext& deviceContext) {
 	// Setup Dear ImGui context
 	IMGUI_CHECKVERSION();
@@ -229,7 +229,7 @@ GUI::update(Viewport& viewport, Window& window) {
 
 	ImGuizmo::BeginFrame();
 	ImGuiIO& io = ImGui::GetIO();
-	if (io.KeyCtrl && ImGui::IsKeyPressed('S', false)) {
+	if (io.KeyCtrl && ImGui::IsKeyPressed(ImGuiKey_S)) {
 		m_requestSaveScene = true;
 	}
 	ImGuizmo::SetOrthographic(false);
@@ -263,7 +263,7 @@ GUI::destroy() {
 	ImGui::DestroyContext();
 }
 
-void 
+void
 GUI::vec3Control(const std::string& label, float* values, float resetValue, float columnWidth, bool displayAsDegrees) {
 	ImGuiIO& io = ImGui::GetIO();
 	auto boldFont = io.Fonts->Fonts[0];
@@ -291,7 +291,7 @@ GUI::vec3Control(const std::string& label, float* values, float resetValue, floa
 
 	ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2{ 3.0f, 4.0f });
 	ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 4.0f);
-	float lineHeight = GImGui->Font->FontSize + GImGui->Style.FramePadding.y * 2.0f;
+	float lineHeight = ImGui::GetFontSize() + ImGui::GetStyle().FramePadding.y * 2.0f;
 	ImVec2 buttonSize = { lineHeight, lineHeight };
 	const float spacing = ImGui::GetStyle().ItemSpacing.x;
 	const float availableWidth = ImGui::GetContentRegionAvail().x;
@@ -360,7 +360,7 @@ GUI::vec3Control(const std::string& label, float* values, float resetValue, floa
 	ImGui::PopID();
 }
 
-void 
+void
 GUI::toolTipData() {
 }
 
@@ -369,7 +369,7 @@ GUI::appleLiquidStyle(float opacity, ImVec4 accent) {
 	ImGuiStyle& style = ImGui::GetStyle();
 	ImVec4* colors = style.Colors;
 
-	// Geometría suave tipo macOS
+	// Geometrï¿½a suave tipo macOS
 	style.WindowRounding = 14.0f;
 	style.ChildRounding = 14.0f;
 	style.PopupRounding = 14.0f;
@@ -388,13 +388,13 @@ GUI::appleLiquidStyle(float opacity, ImVec4 accent) {
 	style.ItemSpacing = ImVec2(8, 8);
 	style.ItemInnerSpacing = ImVec2(8, 6);
 
-	const float o = opacity;                 // opacidad del “cristal”
+	const float o = opacity;                 // opacidad del ï¿½cristalï¿½
 	const ImVec4 txt = ImVec4(1, 1, 1, 0.95f);     // texto claro
-	const ImVec4 pane = ImVec4(0.16f, 0.16f, 0.18f, o); // panel “vidrioso” oscuro
+	const ImVec4 pane = ImVec4(0.16f, 0.16f, 0.18f, o); // panel ï¿½vidriosoï¿½ oscuro
 	const ImVec4 paneHi = ImVec4(0.20f, 0.20f, 0.22f, o);
 	const ImVec4 paneLo = ImVec4(0.13f, 0.13f, 0.15f, o * 0.85f);
 
-	// Colores base “glass”
+	// Colores base ï¿½glassï¿½
 	colors[ImGuiCol_Text] = txt;
 	colors[ImGuiCol_TextDisabled] = ImVec4(1, 1, 1, 0.45f);
 	colors[ImGuiCol_WindowBg] = pane;     // importante: con alpha
@@ -463,16 +463,16 @@ GUI::ToolBar() {
 	if (ImGui::BeginMainMenuBar()) {
 		if (ImGui::BeginMenu("File")) {
 			if (ImGui::MenuItem("New")) {
-				// Acción para "New"
+				// Acciï¿½n para "New"
 			}
 			if (ImGui::MenuItem("Open")) {
-				// Acción para "Open"
+				// Acciï¿½n para "Open"
 			}
 			if (ImGui::MenuItem("Save")) {
-				// Acción para "Save"
+				// Acciï¿½n para "Save"
 			}
 			if (ImGui::MenuItem("Exit")) {
-				// Acción para "Exit"
+				// Acciï¿½n para "Exit"
 				show_exit_popup = true;
 				ImGui::OpenPopup("Exit?");
 				//closeApp();
@@ -481,28 +481,28 @@ GUI::ToolBar() {
 		}
 		if (ImGui::BeginMenu("Edit")) {
 			if (ImGui::MenuItem("Undo")) {
-				// Acción para "Undo"
+				// Acciï¿½n para "Undo"
 			}
 			if (ImGui::MenuItem("Redo")) {
-				// Acción para "Redo"
+				// Acciï¿½n para "Redo"
 			}
 			if (ImGui::MenuItem("Cut")) {
-				// Acción para "Cut"
+				// Acciï¿½n para "Cut"
 			}
 			if (ImGui::MenuItem("Copy")) {
-				// Acción para "Copy"
+				// Acciï¿½n para "Copy"
 			}
 			if (ImGui::MenuItem("Paste")) {
-				// Acción para "Paste"
+				// Acciï¿½n para "Paste"
 			}
 			ImGui::EndMenu();
 		}
 		if (ImGui::BeginMenu("Tools")) {
 			if (ImGui::MenuItem("Options")) {
-				// Acción para "Options"
+				// Acciï¿½n para "Options"
 			}
 			if (ImGui::MenuItem("Settings")) {
-				// Acción para "Settings"
+				// Acciï¿½n para "Settings"
 			}
 			ImGui::EndMenu();
 		}
@@ -525,7 +525,7 @@ GUI::closeApp() {
 		ImGui::Separator();
 
 		if (ImGui::Button("OK", ImVec2(120, 0))) {
-			exit(0); // Salir de la aplicación
+			exit(0); // Salir de la aplicaciï¿½n
 			ImGui::CloseCurrentPopup();
 		}
 		ImGui::SetItemDefaultFocus();
@@ -729,7 +729,7 @@ GUI::inspectorContainer(EU::TSharedPointer<Actor> actor) {
 	//ImGui::End();
 }
 
-void 
+void
 GUI::outliner(const std::vector<EU::TSharedPointer<Actor>>& actors) {
 	ImGui::Begin("Hierarchy");
 
@@ -1204,7 +1204,7 @@ void GUI::drawViewportPanel(ID3D11ShaderResourceView* viewportSRV)
 {
 	ImGuiWindowFlags flags =
 		ImGuiWindowFlags_NoScrollbar |
-		ImGuiWindowFlags_NoScrollWithMouse | 
+		ImGuiWindowFlags_NoScrollWithMouse |
 
 		ImGuiWindowFlags_NoCollapse;
 
@@ -1358,4 +1358,3 @@ void GUI::drawEditorDockspace()
 
 	ImGui::PopStyleVar(3);
 }
-

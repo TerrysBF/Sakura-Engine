@@ -1,70 +1,107 @@
+/**
+ * @file MeshComponent.h
+ * @brief Declara la API de MeshComponent dentro del subsistema Core.
+ * @ingroup core
+ */
 #pragma once
 #include "Prerequisites.h"
 #include "ECS\Component.h"
-
 class DeviceContext;
-
-/// <summary>
-/// Componente ECS que almacena la información de geometría (malla) de un actor.
-/// Contiene vértices, índices y contadores básicos de la malla.
-/// </summary>
+/**
+ * @class MeshComponent
+ * @brief Componente ECS que almacena la informaci?n de geometr?a (malla) de un actor.
+ *
+ * Un @c MeshComponent contiene los v?rtices e ?ndices que describen la geometr?a de un objeto.
+ * Forma parte del sistema ECS y se asocia a entidades como @c Actor.
+ *
+ * La malla incluye:
+ * - Lista de v?rtices (posici?n, normal, UV, etc.).
+ * - Lista de ?ndices que definen las primitivas (tri?ngulos, l?neas).
+ * - Contadores de v?rtices e ?ndices.
+ */
 class
   MeshComponent : public Component {
 public:
-  /// <summary>
-  /// Constructor por defecto.
-  /// Inicializa la malla con cero vértices e índices y la marca como tipo MESH.
-  /// </summary>
+  /**
+   * @brief Constructor por defecto.
+   *
+   * Inicializa el componente de malla con cero v?rtices e ?ndices
+   * y lo registra como tipo @c MESH en el sistema ECS.
+   */
   MeshComponent() : m_numVertex(0), m_numIndex(0), Component(ComponentType::MESH) {}
 
-  /// <summary>
-  /// Destructor virtual por defecto.
-  /// </summary>
+  /**
+   * @brief Destructor virtual por defecto.
+   */
   virtual
     ~MeshComponent() = default;
 
-  /// <summary>
-  /// Inicializa el componente de malla.
-  /// Se puede extender en derivadas para reservar memoria o cargar datos.
-  /// </summary>
+  /**
+   * @brief Inicializa el componente de malla.
+   *
+   * M?todo heredado de @c Component.
+   * Puede usarse para reservar memoria o cargar datos en mallas derivadas.
+   */
   void
     init() override {};
 
-  /// <summary>
-  /// Actualiza la malla.
-  /// Útil para animación de vértices o deformaciones en implementaciones futuras.
-  /// </summary>
-  /// <param name="deltaTime">Tiempo transcurrido desde la última actualización.</param>
+  /**
+   * @brief Actualiza la malla.
+   *
+   * M?todo heredado de @c Component.
+   * ?til para actualizar animaciones de v?rtices, morphing u otros procesos relacionados.
+   *
+   * @param deltaTime Tiempo transcurrido desde la ?ltima actualizaci?n.
+   */
   void
     update(float deltaTime) override {};
 
-  /// <summary>
-  /// Renderiza la malla.
-  /// Normalmente se usaría para dibujar buffers asociados a la geometría.
-  /// </summary>
-  /// <param name="deviceContext">Contexto del dispositivo para operaciones gráficas.</param>
+  /**
+   * @brief Renderiza la malla.
+   *
+   * M?todo heredado de @c Component.
+   * Normalmente se usar?a junto con @c DeviceContext para dibujar buffers
+   * asociados a la malla.
+   *
+   * @param deviceContext Contexto del dispositivo para operaciones gr?ficas.
+   */
   void
     render(DeviceContext& deviceContext) override {};
 
-  /// <summary>
-  /// Libera recursos asociados al componente de malla.
-  /// </summary>
+  /**
+   * @brief Libera los recursos asociados al componente de malla.
+   *
+   * M?todo heredado de @c Component.
+   * En implementaciones m?s complejas, puede liberar buffers de GPU.
+   */
   void
     destroy() override {};
 
 public:
-  // Nombre de la malla.
+  /**
+   * @brief Nombre de la malla.
+   */
   std::string m_name;
 
-  // Lista de vértices de la malla.
+  /**
+   * @brief Lista de v?rtices de la malla.
+   */
   std::vector<SimpleVertex> m_vertex;
+  std::vector<SkyboxVertex> m_skyVertex;
 
-  // Lista de índices que definen las primitivas de la malla.
+  /**
+   * @brief Lista de ?ndices que definen las primitivas de la malla.
+   */
   std::vector<unsigned int> m_index;
 
-  // Número total de vértices en la malla.
+  /**
+   * @brief N?mero total de v?rtices en la malla.
+   */
   int m_numVertex;
 
-  // Número total de índices en la malla.
+  /**
+   * @brief N?mero total de ?ndices en la malla.
+   */
   int m_numIndex;
 };
+

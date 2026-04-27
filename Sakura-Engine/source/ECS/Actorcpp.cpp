@@ -206,4 +206,5 @@ Actor::setMesh(Device& device, std::vector<MeshComponent> meshes) {
 			m_indexBuffers.push_back(indexBuffer);
 		}
 	}
+
 }

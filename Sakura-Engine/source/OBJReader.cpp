@@ -1,4 +1,4 @@
-#include "ObjReader.h"
+/*#include "ObjReader.h"
 
 #include <fstream>
 #include <sstream>
@@ -229,3 +229,4 @@ bool ObjReader::load(const std::string& path, MeshComponent& outMesh, bool flipV
   // Regreso true si se cargó al menos un vértice y un índice.
   return (outMesh.m_numVertex > 0 && outMesh.m_numIndex > 0);
 }
+*/
