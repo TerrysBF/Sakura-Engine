@@ -1,0 +1,87 @@
+\doxysection{include/fbx/fbxsdk/scene/geometry/fbxnode.h File Reference}
+\hypertarget{fbxnode_8h}{}\label{fbxnode_8h}\index{include/fbx/fbxsdk/scene/geometry/fbxnode.h@{include/fbx/fbxsdk/scene/geometry/fbxnode.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxobject.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/math/fbxtransforms.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_fbx_node}{Fbx\+Node}}
+\item 
+class \mbox{\hyperlink{class_fbx_node_1_1_pivot}{Fbx\+Node\+::\+Pivot}}
+\item 
+class \mbox{\hyperlink{class_fbx_node_1_1_pivots}{Fbx\+Node\+::\+Pivots}}
+\item 
+class \mbox{\hyperlink{class_fbx_node_1_1_link_to_character}{Fbx\+Node\+::\+Link\+To\+Character}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fbxnode_8h_a003c2759b6f69b24a88f8c6636a8b107}{MACRO\+\_\+\+PIVOT\+\_\+\+VECTOR\+\_\+\+FCTS}}(name,  def\+Vect)
+\item 
+\#define \mbox{\hyperlink{fbxnode_8h_a16dbd142057c8c5a64692ef4cb49b615}{MACRO\+\_\+\+PIVOT\+\_\+\+BOOL\+\_\+\+FCTS}}(name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxnode_8h_ae6ddf03364086840c33681f73d730215}\label{fbxnode_8h_ae6ddf03364086840c33681f73d730215} 
+\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} {\bfseries Fbx\+Type\+Of} (const \mbox{\hyperlink{fbxmath_8h_ae46778666b56bb0abe5992b855fe9332}{EFbx\+Rotation\+Order}} \&)
+\item 
+\Hypertarget{fbxnode_8h_ac66833897ee6be5424c1a03183270b21}\label{fbxnode_8h_ac66833897ee6be5424c1a03183270b21} 
+\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} {\bfseries Fbx\+Type\+Of} (const Fbx\+Transform\+::\+EInherit\+Type \&)
+\item 
+\Hypertarget{fbxnode_8h_a45f6393d073f294a1d59952e8358c8f4}\label{fbxnode_8h_a45f6393d073f294a1d59952e8358c8f4} 
+\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} {\bfseries Fbx\+Type\+Of} (const \mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72a}{EFbx\+Quat\+Interp\+Mode}} \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fbxnode_8h_a16dbd142057c8c5a64692ef4cb49b615}\index{fbxnode.h@{fbxnode.h}!MACRO\_PIVOT\_BOOL\_FCTS@{MACRO\_PIVOT\_BOOL\_FCTS}}
+\index{MACRO\_PIVOT\_BOOL\_FCTS@{MACRO\_PIVOT\_BOOL\_FCTS}!fbxnode.h@{fbxnode.h}}
+\doxysubsubsection{\texorpdfstring{MACRO\_PIVOT\_BOOL\_FCTS}{MACRO\_PIVOT\_BOOL\_FCTS}}
+{\footnotesize\ttfamily \label{fbxnode_8h_a16dbd142057c8c5a64692ef4cb49b615} 
+\#define MACRO\+\_\+\+PIVOT\+\_\+\+BOOL\+\_\+\+FCTS(\begin{DoxyParamCaption}\item[{}]{name}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ Get\#\#name(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\ \textcolor{keyword}{const}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(\textcolor{keywordtype}{id}\ ==\ 0\ ||\ \textcolor{keywordtype}{id}\ ==\ 1);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pivot*\ p\ =\ mPivot[id];\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (p\ ==\ NULL)\ p\ =\ \&smDefaultPivot;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p-\/>Get\#\#name();\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Set\#\#name(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{bool}\ pV)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(\textcolor{keywordtype}{id}\ ==\ 0\ ||\ \textcolor{keywordtype}{id}\ ==\ 1);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mIsDefault[id]\ =\ \textcolor{keyword}{false};\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Get(\textcolor{keywordtype}{id}).Set\#\#name(pV);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{fbxnode_8h_a003c2759b6f69b24a88f8c6636a8b107}\index{fbxnode.h@{fbxnode.h}!MACRO\_PIVOT\_VECTOR\_FCTS@{MACRO\_PIVOT\_VECTOR\_FCTS}}
+\index{MACRO\_PIVOT\_VECTOR\_FCTS@{MACRO\_PIVOT\_VECTOR\_FCTS}!fbxnode.h@{fbxnode.h}}
+\doxysubsubsection{\texorpdfstring{MACRO\_PIVOT\_VECTOR\_FCTS}{MACRO\_PIVOT\_VECTOR\_FCTS}}
+{\footnotesize\ttfamily \label{fbxnode_8h_a003c2759b6f69b24a88f8c6636a8b107} 
+\#define MACRO\+\_\+\+PIVOT\+\_\+\+VECTOR\+\_\+\+FCTS(\begin{DoxyParamCaption}\item[{}]{name}{, }\item[{}]{def\+Vect}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ Get\#\#name(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})\ \textcolor{keyword}{const}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(\textcolor{keywordtype}{id}\ ==\ 0\ ||\ \textcolor{keywordtype}{id}\ ==\ 1);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pivot*\ p\ =\ mPivot[id];\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (p\ ==\ NULL)\ p\ =\ \&smDefaultPivot;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p-\/>Get\#\#name();\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Set\#\#name(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pV)\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(\textcolor{keywordtype}{id}\ ==\ 0\ ||\ \textcolor{keywordtype}{id}\ ==\ 1);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (mIsDefault[\textcolor{keywordtype}{id}]\ \&\&\ pV[0]\ ==\ defVect[0]\ \&\&\ pV[1]\ ==\ defVect[1]\ \&\&\ pV[2]\ ==\ defVect[2])\ \textcolor{keywordflow}{return};\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mIsDefault[id]\ =\ \textcolor{keyword}{false};\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Get(\textcolor{keywordtype}{id}).Set\#\#name(pV);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}

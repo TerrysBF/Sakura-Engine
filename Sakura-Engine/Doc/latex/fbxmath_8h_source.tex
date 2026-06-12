@@ -1,0 +1,497 @@
+\doxysection{fbxmath.\+h}
+\hypertarget{fbxmath_8h_source}{}\label{fbxmath_8h_source}\index{include/fbx/fbxsdk/core/math/fbxmath.h@{include/fbx/fbxsdk/core/math/fbxmath.h}}
+\mbox{\hyperlink{fbxmath_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_MATH\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_MATH\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxvector2_8h}{fbxsdk/core/math/fbxvector2.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxvector4_8h}{fbxsdk/core/math/fbxvector4.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmatrix_8h}{fbxsdk/core/math/fbxmatrix.h}}>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxaffinematrix_8h}{fbxsdk/core/math/fbxaffinematrix.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//Common\ Constants}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ FBXSDK\_PI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3.1415926535897932384626433832795028841971693993751\ \ \ \ \ }}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ FBXSDK\_PI\_DIV\_2\ \ \ \ \ \ \ \ \ 1.5707963267948966192313216916397514420985846996875\ \ \ \ \ }}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ FBXSDK\_PI\_DIV\_180\ \ \ \ \ \ \ 0.017453292519943295769236907684886127134428718885417\ \ \ }}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ FBXSDK\_180\_DIV\_PI\ \ \ \ \ \ \ 57.295779513082320876798154814105170332405472466565\ \ \ \ \ }}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ FBXSDK\_1\_DIV\_LN2\ \ \ \ \ \ \ \ 1.4426950408889634073599246810018921374266459541530\ \ \ \ \ }}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//Unit\ Convertion\ Ratio}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ FBXSDK\_DEG\_TO\_RAD\ \ \ \ \ \ \ FBXSDK\_PI\_DIV\_180\ \ \ }}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ FBXSDK\_RAD\_TO\_DEG\ \ \ \ \ \ \ FBXSDK\_180\_DIV\_PI\ \ \ }}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ FBXSDK\_IN\_TO\_CM\ \ \ \ \ \ \ \ \ 2.54\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ FBXSDK\_MM\_TO\_CM\ \ \ \ \ \ \ \ \ 0.1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ FBXSDK\_CM\_TO\_IN\ \ \ \ \ \ \ \ \ 0.393700787\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ FBXSDK\_IN\_TO\_MM\ \ \ \ \ \ \ \ \ 25.4\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ FBXSDK\_MM\_TO\_IN\ \ \ \ \ \ \ \ \ 0.0393700787\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ FBXSDK\_FT\_TO\_M\ \ \ \ \ \ \ \ \ \ 0.3048\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ FBXSDK\_M\_TO\_FT\ \ \ \ \ \ \ \ \ \ 3.2808399\ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ FBXSDK\_YD\_TO\_FT\ \ \ \ \ \ \ \ \ 3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ FBXSDK\_FT\_TO\_YD\ \ \ \ \ \ \ \ \ 0.333333333\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ FBXSDK\_KM\_TO\_MILE\ \ \ \ \ \ \ 0.621371192\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ FBXSDK\_MILE\_TO\_KM\ \ \ \ \ \ \ 1.609344\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ FBXSDK\_YD\_TO\_M\ \ \ \ \ \ \ \ \ \ 0.9144\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ FBXSDK\_M\_TO\_YD\ \ \ \ \ \ \ \ \ \ 1.0936133\ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00052\ \textcolor{comment}{//Euler\ Definition}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ FBXSDK\_EULER\_DEGENERATE\ \ FbxEuler::DegenerateThreshold()\ }}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_euler}{FbxEuler}}}
+\DoxyCodeLine{00056\ \{}
+\DoxyCodeLine{00057\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{enum}\ EAxis\ \{eAxisX=0,\ eAxisY=1,\ eAxisZ=2\};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{enum}\ EOrder}
+\DoxyCodeLine{00061\ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ eOrderXYZ,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ eOrderXZY,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ eOrderYZX,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ eOrderYXZ,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ eOrderZXY,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ eOrderZYX,}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ eOrderSphericXYZ}
+\DoxyCodeLine{00069\ \ \ \ \ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ IsParityOdd(EOrder\ pOrder);}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ IsRepeat(EOrder\ pOrder);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ AxisTableSize;}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ AxisTable[][3];}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ Used\ to\ detect\ Euler\ gimbal\ locks\ when\ extracting\ the\ rotation\ vector\ from\ }}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ the\ FbxAMatrix.\ This\ value\ should\ only\ be\ changed\ when\ the\ user\ system\ stores}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{//\ single\ floating\ point\ values\ into\ the\ FbxAMatrix\ with\ a\ very\ low\ precision.}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ In\ this\ case,\ the\ default\ threshold\ value\ would\ be\ too\ small\ for\ a\ proper\ detection}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ and\ the\ extracted\ values\ can\ quickly\ become\ off\ target\ by\ a\ huge\ amount.}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ SetDegenerateThreshold(\textcolor{keywordtype}{double}\ pThreshold=16.0*FBXSDK\_FLOAT\_EPSILON);}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ DegenerateThreshold()\ \{\ \textcolor{keywordflow}{return}\ FbxEuler::mDegenerateThreshold;\ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ mDegenerateThreshold;}
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ EFbxRotationOrder\ \ \ FbxEuler::EOrder}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ eEulerXYZ\ \ \ \ \ \ \ \ \ \ \ FbxEuler::eOrderXYZ}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ eEulerXZY\ \ \ \ \ \ \ \ \ \ \ FbxEuler::eOrderXZY}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ eEulerYZX\ \ \ \ \ \ \ \ \ \ \ FbxEuler::eOrderYZX}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ eEulerYXZ\ \ \ \ \ \ \ \ \ \ \ FbxEuler::eOrderYXZ}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ eEulerZXY\ \ \ \ \ \ \ \ \ \ \ FbxEuler::eOrderZXY}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ eEulerZYX\ \ \ \ \ \ \ \ \ \ \ FbxEuler::eOrderZYX}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ eSphericXYZ\ \ \ \ \ \ \ \ \ FbxEuler::eOrderSphericXYZ}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00106\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72a}{EFbxQuatInterpMode}}}
+\DoxyCodeLine{00107\ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa55bbc54e865199dcbc30634ddf6270e8}{eQuatInterpOff}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa90dbbc34a189dc0211be8db52c915823}{eQuatInterpClassic}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa61674fbd8ccf6b4506e574c6dc7f72c5}{eQuatInterpSlerp}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aaea452ac37d0608cbe84dfc65dca78312}{eQuatInterpCubic}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa03bc2b5a4ec3c532740e5d069c7d5f09}{eQuatInterpTangentDependent}},\ }
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aad2d5b53287625e236ff9edb45f306994}{eQuatInterpCount}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00114\ \};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \textcolor{keyword}{const}\ FbxDouble\ FbxIdentityMatrix[4][4];}
+\DoxyCodeLine{00117\ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ FbxZeroVector4;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ FbxFloor(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x)}
+\DoxyCodeLine{00120\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{return}\ float(floor(x));}
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ FbxFloor(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{00125\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{return}\ floor(x);}
+\DoxyCodeLine{00127\ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ FbxCeil(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x)}
+\DoxyCodeLine{00130\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{return}\ float(ceil(x));}
+\DoxyCodeLine{00132\ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ FbxCeil(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{00135\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{return}\ ceil(x);}
+\DoxyCodeLine{00137\ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxSign(\textcolor{keyword}{const}\ T\ x)}
+\DoxyCodeLine{00140\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordflow}{return}\ (x\ <\ 0)\ ?\ T(-\/1)\ :\ T(1);}
+\DoxyCodeLine{00142\ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxRound(\textcolor{keyword}{const}\ T\ x)}
+\DoxyCodeLine{00145\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ T\ y\ =\ FbxFloor(x);}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{return}\ (x\ -\/\ y\ <\ T(0.5))\ ?\ y\ :\ y\ +\ T(1);}
+\DoxyCodeLine{00148\ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{keyword}{inline}\ FbxUChar\ FbxAbs(\textcolor{keyword}{const}\ FbxUChar\ x)}
+\DoxyCodeLine{00151\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00153\ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{keyword}{inline}\ FbxUShort\ FbxAbs(\textcolor{keyword}{const}\ FbxUShort\ x)}
+\DoxyCodeLine{00156\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00158\ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{keyword}{inline}\ FbxUInt\ FbxAbs(\textcolor{keyword}{const}\ FbxUInt\ x)}
+\DoxyCodeLine{00161\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00163\ \}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#ifndef\ FBXSDK\_SYSTEM\_IS\_LP64}}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keyword}{inline}\ FbxULong\ FbxAbs(\textcolor{keyword}{const}\ FbxULong\ x)}
+\DoxyCodeLine{00167\ \ \ \ \ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00169\ \ \ \ \ \}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{keyword}{inline}\ FbxULongLong\ FbxAbs(\textcolor{keyword}{const}\ FbxULongLong\ x)}
+\DoxyCodeLine{00173\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00175\ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{keyword}{inline}\ FbxFloat\ FbxAbs(\textcolor{keyword}{const}\ FbxFloat\ x)}
+\DoxyCodeLine{00178\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{return}\ (FbxFloat)fabs(x);}
+\DoxyCodeLine{00180\ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{keyword}{inline}\ FbxDouble\ FbxAbs(\textcolor{keyword}{const}\ FbxDouble\ x)}
+\DoxyCodeLine{00183\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{return}\ fabs(x);}
+\DoxyCodeLine{00185\ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxAbs(\textcolor{keyword}{const}\ T\ x)}
+\DoxyCodeLine{00188\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordflow}{return}\ (x\ >=\ 0)\ ?\ x\ :\ ((x\ >\ FbxMin(x))\ ?\ -\/x\ :\ FbxMax(x));}
+\DoxyCodeLine{00190\ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxClamp(\textcolor{keyword}{const}\ T\ value,\ \textcolor{keyword}{const}\ T\ min,\ \textcolor{keyword}{const}\ T\ max)}
+\DoxyCodeLine{00193\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordflow}{return}\ (value\ <\ min)\ ?\ min\ :\ ((value\ >\ max)\ ?\ max\ :\ value);}
+\DoxyCodeLine{00195\ \}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ FbxEqual(\textcolor{keyword}{const}\ T\ x,\ \textcolor{keyword}{const}\ T\ y,\ \textcolor{keyword}{const}\ T\ e=(T)FBXSDK\_TOLERANCE)}
+\DoxyCodeLine{00198\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordflow}{return}\ FbxAbs(x\ -\/\ y)\ <=\ e;}
+\DoxyCodeLine{00200\ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ FbxEqual(\textcolor{keyword}{const}\ FbxDouble2\&\ x,\ \textcolor{keyword}{const}\ FbxDouble2\&\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ e=FBXSDK\_TOLERANCE)}
+\DoxyCodeLine{00203\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordflow}{return}\ (\ FbxEqual(x.mData[0],\ y.mData[0],\ e)\ \&\&\ FbxEqual(x.mData[1],\ y.mData[1],\ e)\ );}
+\DoxyCodeLine{00205\ \}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ FbxEqual(\textcolor{keyword}{const}\ FbxDouble3\&\ x,\ \textcolor{keyword}{const}\ FbxDouble3\&\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ e=FBXSDK\_TOLERANCE)}
+\DoxyCodeLine{00208\ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordflow}{return}\ (\ FbxEqual(x.mData[0],\ y.mData[0],\ e)\ \&\&\ FbxEqual(x.mData[1],\ y.mData[1],\ e)\ \&\&\ FbxEqual(x.mData[2],\ y.mData[2],\ e)\ );}
+\DoxyCodeLine{00210\ \}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ FbxEqual(\textcolor{keyword}{const}\ FbxDouble4\&\ x,\ \textcolor{keyword}{const}\ FbxDouble4\&\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ e=FBXSDK\_TOLERANCE)}
+\DoxyCodeLine{00213\ \{}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordflow}{return}\ (\ FbxEqual(x.mData[0],\ y.mData[0],\ e)\ \&\&\ FbxEqual(x.mData[1],\ y.mData[1],\ e)\ \&\&\ FbxEqual(x.mData[2],\ y.mData[2],\ e)\ \&\&\ FbxEqual(x.mData[3],\ y.mData[3],\ e)\ );}
+\DoxyCodeLine{00215\ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ FbxEqual(\textcolor{keyword}{const}\ FbxDouble4x4\&\ x,\ \textcolor{keyword}{const}\ FbxDouble4x4\&\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ e=FBXSDK\_TOLERANCE)}
+\DoxyCodeLine{00218\ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordflow}{return}\ (\ FbxEqual(x[0],\ y[0],\ e)\ \&\&\ FbxEqual(x[1],\ y[1],\ e)\ \&\&\ FbxEqual(x[2],\ y[2],\ e)\ \&\&\ FbxEqual(x[3],\ y[3],\ e)\ );}
+\DoxyCodeLine{00220\ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ FbxEqual(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector2}{FbxVector2}}\&\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector2}{FbxVector2}}\&\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ e=FBXSDK\_TOLERANCE)}
+\DoxyCodeLine{00223\ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordflow}{return}\ (\ FbxEqual(x.mData[0],\ y.mData[0],\ e)\ \&\&\ FbxEqual(x.mData[1],\ y.mData[1],\ e)\ );}
+\DoxyCodeLine{00225\ \}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ FbxEqual(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ e=FBXSDK\_TOLERANCE)}
+\DoxyCodeLine{00228\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordflow}{return}\ (\ FbxEqual(x.mData[0],\ y.mData[0],\ e)\ \&\&\ FbxEqual(x.mData[1],\ y.mData[1],\ e)\ \&\&\ FbxEqual(x.mData[2],\ y.mData[2],\ e)\ \&\&\ FbxEqual(x.mData[3],\ y.mData[3],\ e)\ );}
+\DoxyCodeLine{00230\ \}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ FbxEqual(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ e=FBXSDK\_TOLERANCE)}
+\DoxyCodeLine{00233\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordflow}{return}\ (\ FbxEqual(x[0],\ y[0],\ e)\ \&\&\ FbxEqual(x[1],\ y[1],\ e)\ \&\&\ FbxEqual(x[2],\ y[2],\ e)\ \&\&\ FbxEqual(x[3],\ y[3],\ e)\ );}
+\DoxyCodeLine{00235\ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ FbxEqual(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\&\ x,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\&\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ e=FBXSDK\_TOLERANCE)}
+\DoxyCodeLine{00238\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordflow}{return}\ (\ FbxEqual(x[0],\ y[0],\ e)\ \&\&\ FbxEqual(x[1],\ y[1],\ e)\ \&\&\ FbxEqual(x[2],\ y[2],\ e)\ \&\&\ FbxEqual(x[3],\ y[3],\ e)\ );}
+\DoxyCodeLine{00240\ \}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \textcolor{keyword}{inline}\ FbxDouble\ FbxMod(\textcolor{keyword}{const}\ FbxFloat\ x,\ FbxFloat\&\ i)}
+\DoxyCodeLine{00243\ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordflow}{return}\ modff(x,\ \&i);}
+\DoxyCodeLine{00245\ \}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \textcolor{keyword}{inline}\ FbxDouble\ FbxMod(\textcolor{keyword}{const}\ FbxDouble\ x,\ FbxDouble\&\ i)}
+\DoxyCodeLine{00248\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordflow}{return}\ modf(x,\ \&i);}
+\DoxyCodeLine{00250\ \}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \textcolor{keyword}{inline}\ FbxDouble\ FbxMod(\textcolor{keyword}{const}\ FbxFloat\ x)}
+\DoxyCodeLine{00253\ \{}
+\DoxyCodeLine{00254\ \ \ \ \ FbxFloat\ i;}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordflow}{return}\ modff(x,\ \&i);}
+\DoxyCodeLine{00256\ \}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \textcolor{keyword}{inline}\ FbxDouble\ FbxMod(\textcolor{keyword}{const}\ FbxDouble\ x)}
+\DoxyCodeLine{00259\ \{}
+\DoxyCodeLine{00260\ \ \ \ \ FbxDouble\ i;}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordflow}{return}\ modf(x,\ \&i);}
+\DoxyCodeLine{00262\ \}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxReciprocal(\textcolor{keyword}{const}\ T\ x)}
+\DoxyCodeLine{00265\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordflow}{return}\ T(1)\ /\ x;}
+\DoxyCodeLine{00267\ \}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ FbxSqrt(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{00270\ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordflow}{return}\ sqrt(x);}
+\DoxyCodeLine{00272\ \}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ FbxSqrt(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x)}
+\DoxyCodeLine{00275\ \{}
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordflow}{return}\ sqrtf(x);}
+\DoxyCodeLine{00277\ \}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxSqrt(\textcolor{keyword}{const}\ T\ x)}
+\DoxyCodeLine{00280\ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordflow}{if}(\ x\ >\ 1\ )}
+\DoxyCodeLine{00282\ \ \ \ \ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ T\ z,\ y\ =\ x\ >>\ 1;\ }
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ }
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ z\ =\ y;\ }
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ y\ =\ (y\ +\ (x\ /\ y))\ >>\ 1;\ }
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(y\ <\ z);\ }
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ z;}
+\DoxyCodeLine{00292\ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00294\ \ \ \ \ \{}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00296\ \ \ \ \ \}}
+\DoxyCodeLine{00297\ \}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ FbxExp(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x)}
+\DoxyCodeLine{00300\ \{}
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{keywordflow}{return}\ expf(x);}
+\DoxyCodeLine{00302\ \}}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ FbxExp(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{00305\ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keywordflow}{return}\ exp(x);}
+\DoxyCodeLine{00307\ \}}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ FbxLog(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x)}
+\DoxyCodeLine{00310\ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{keywordflow}{return}\ float(log(x));}
+\DoxyCodeLine{00312\ \}}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00314\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ FbxLog(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{00315\ \{}
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keywordflow}{return}\ log(x);}
+\DoxyCodeLine{00317\ \}}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxPow(\textcolor{keyword}{const}\ T\ x,\ \textcolor{keyword}{const}\ T\ y)}
+\DoxyCodeLine{00320\ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordflow}{return}\ (T)FbxExp(y\ *\ FbxLog((\textcolor{keywordtype}{double})x));}
+\DoxyCodeLine{00322\ \}}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxLog2(\textcolor{keyword}{const}\ T\ x)}
+\DoxyCodeLine{00325\ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keywordflow}{return}\ (T)(FbxLog(x)\ *\ \mbox{\hyperlink{fbxmath_8h_a503ca7ffa2847804e740cd014d189ed6}{FBXSDK\_1\_DIV\_LN2}});}
+\DoxyCodeLine{00327\ \}}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ FbxSin(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x)}
+\DoxyCodeLine{00330\ \{}
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keywordflow}{return}\ sinf(x);}
+\DoxyCodeLine{00332\ \}}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ FbxSin(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{00335\ \{}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keywordflow}{return}\ sin(x);}
+\DoxyCodeLine{00337\ \}}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ FbxCos(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x)}
+\DoxyCodeLine{00340\ \{}
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keywordflow}{return}\ cosf(x);}
+\DoxyCodeLine{00342\ \}}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ FbxCos(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{00345\ \{}
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordflow}{return}\ cos(x);}
+\DoxyCodeLine{00347\ \}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ FbxTan(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x)}
+\DoxyCodeLine{00350\ \{}
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keywordflow}{return}\ tanf(x);}
+\DoxyCodeLine{00352\ \}}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ FbxTan(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{00355\ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordflow}{return}\ tan(x);}
+\DoxyCodeLine{00357\ \}}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \textcolor{comment}{//\ *y\ =\ cos(x),\ sin(x)}}
+\DoxyCodeLine{00360\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxSinCos(\textcolor{keyword}{const}\ T\ x,\ T*\ y)}
+\DoxyCodeLine{00361\ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordflow}{return}\ *y\ =\ FbxCos(x),\ FbxSin(x);}
+\DoxyCodeLine{00363\ \}}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \textcolor{comment}{//\ *y\ =\ cos(x\ *\ pi/180),\ sin(x\ *\ pi/180)}}
+\DoxyCodeLine{00366\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxSinCosd(\textcolor{keyword}{const}\ T\ x,\ T*\ y)}
+\DoxyCodeLine{00367\ \{}
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keywordflow}{return}\ FbxSinCos(T(x\ *\ \mbox{\hyperlink{fbxmath_8h_adce4c270d8f28a023ed1778b83c385e9}{FBXSDK\_PI\_DIV\_180}}),\ y);}
+\DoxyCodeLine{00369\ \}}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ FbxASin(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x)}
+\DoxyCodeLine{00372\ \{}
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keywordflow}{return}\ asinf(x);}
+\DoxyCodeLine{00374\ \}}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00376\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ FbxASin(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{00377\ \{}
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordflow}{return}\ asin(x);}
+\DoxyCodeLine{00379\ \}}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxASind(\textcolor{keyword}{const}\ T\ x)}
+\DoxyCodeLine{00382\ \{}
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordflow}{return}\ (T)(FbxASin((\textcolor{keywordtype}{double})x)\ *\ \mbox{\hyperlink{fbxmath_8h_acc8670337937abf164e3e650b573f615}{FBXSDK\_180\_DIV\_PI}});}
+\DoxyCodeLine{00384\ \}}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ FbxACos(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x)}
+\DoxyCodeLine{00387\ \{}
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keywordflow}{return}\ acosf(x);}
+\DoxyCodeLine{00389\ \}}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ FbxACos(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{00392\ \{}
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordflow}{return}\ acos(x);}
+\DoxyCodeLine{00394\ \}}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxACosd(\textcolor{keyword}{const}\ T\ x)}
+\DoxyCodeLine{00397\ \{}
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordflow}{return}\ (T)(FbxACos(x)\ *\ \mbox{\hyperlink{fbxmath_8h_acc8670337937abf164e3e650b573f615}{FBXSDK\_180\_DIV\_PI}});}
+\DoxyCodeLine{00399\ \}}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ FbxATan(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x)}
+\DoxyCodeLine{00402\ \{}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordflow}{return}\ atanf(x);}
+\DoxyCodeLine{00404\ \}}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ FbxATan(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{00407\ \{}
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordflow}{return}\ atan(x);}
+\DoxyCodeLine{00409\ \}}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxATand(\textcolor{keyword}{const}\ T\ x)}
+\DoxyCodeLine{00412\ \{}
+\DoxyCodeLine{00413\ \ \ \ \ \textcolor{keywordflow}{return}\ (T)(FbxATan(x)\ *\ \mbox{\hyperlink{fbxmath_8h_acc8670337937abf164e3e650b573f615}{FBXSDK\_180\_DIV\_PI}});}
+\DoxyCodeLine{00414\ \}}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ FbxATan(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ x)}
+\DoxyCodeLine{00417\ \{}
+\DoxyCodeLine{00418\ \ \ \ \ \textcolor{keywordflow}{return}\ atan2f(y,\ x);}
+\DoxyCodeLine{00419\ \}}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00421\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ FbxATan(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x)}
+\DoxyCodeLine{00422\ \{}
+\DoxyCodeLine{00423\ \ \ \ \ \textcolor{keywordflow}{return}\ atan2(y,\ x);}
+\DoxyCodeLine{00424\ \}}
+\DoxyCodeLine{00425\ }
+\DoxyCodeLine{00426\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxATand(\textcolor{keyword}{const}\ T\ y,\ \textcolor{keyword}{const}\ T\ x)}
+\DoxyCodeLine{00427\ \{}
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keywordflow}{return}\ (T)(FbxATan(y,\ x)\ *\ \mbox{\hyperlink{fbxmath_8h_acc8670337937abf164e3e650b573f615}{FBXSDK\_180\_DIV\_PI}});}
+\DoxyCodeLine{00429\ \}}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxNorm(\textcolor{keyword}{const}\ T\ x,\ \textcolor{keyword}{const}\ T\ y)}
+\DoxyCodeLine{00432\ \{}
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keywordflow}{return}\ FbxSqrt(x\ *\ x\ +\ y\ *\ y);}
+\DoxyCodeLine{00434\ \}}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxNorm(\textcolor{keyword}{const}\ T\ x,\ \textcolor{keyword}{const}\ T\ y,\ \textcolor{keyword}{const}\ T\ z)}
+\DoxyCodeLine{00437\ \{}
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{keywordflow}{return}\ FbxSqrt(x\ *\ x\ +\ y\ *\ y\ +\ z\ *\ z);}
+\DoxyCodeLine{00439\ \}}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxNorm(\textcolor{keyword}{const}\ T\ w,\ \textcolor{keyword}{const}\ T\ x,\ \textcolor{keyword}{const}\ T\ y,\ \textcolor{keyword}{const}\ T\ z)}
+\DoxyCodeLine{00442\ \{}
+\DoxyCodeLine{00443\ \ \ \ \ \textcolor{keywordflow}{return}\ FbxSqrt(w\ *\ w\ +\ x\ *\ x\ +\ y\ *\ y\ +\ z\ *\ z);}
+\DoxyCodeLine{00444\ \}}
+\DoxyCodeLine{00445\ }
+\DoxyCodeLine{00446\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxHypot(\textcolor{keyword}{const}\ T\ x,\ \textcolor{keyword}{const}\ T\ y)}
+\DoxyCodeLine{00447\ \{}
+\DoxyCodeLine{00448\ \ \ \ \ \textcolor{keywordflow}{return}\ FbxSqrt(x\ *\ x\ +\ y\ *\ y);}
+\DoxyCodeLine{00449\ \}}
+\DoxyCodeLine{00450\ }
+\DoxyCodeLine{00451\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxHypot(\textcolor{keyword}{const}\ T\ x,\ \textcolor{keyword}{const}\ T\ y,\ \textcolor{keyword}{const}\ T\ z)}
+\DoxyCodeLine{00452\ \{}
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keywordflow}{return}\ FbxSqrt(x\ *\ x\ +\ y\ *\ y\ +\ z\ *\ z);}
+\DoxyCodeLine{00454\ \}}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00456\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxHypot(\textcolor{keyword}{const}\ T\ w,\ \textcolor{keyword}{const}\ T\ x,\ \textcolor{keyword}{const}\ T\ y,\ \textcolor{keyword}{const}\ T\ z)}
+\DoxyCodeLine{00457\ \{}
+\DoxyCodeLine{00458\ \ \ \ \ \textcolor{keywordflow}{return}\ FbxSqrt(w\ *\ w\ +\ x\ *\ x\ +\ y\ *\ y\ +\ z\ *\ z);}
+\DoxyCodeLine{00459\ \}}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ FbxRejection(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ b)}
+\DoxyCodeLine{00462\ \{}
+\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keywordflow}{return}\ a\ -\/\ b\ *\ (a.\mbox{\hyperlink{class_fbx_vector4_adef4af04dc2011fb6553fad79d445ed0}{DotProduct}}(b)\ /\ b.\mbox{\hyperlink{class_fbx_vector4_adef4af04dc2011fb6553fad79d445ed0}{DotProduct}}(b));}
+\DoxyCodeLine{00464\ \}}
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00466\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ FbxBitCount(\textcolor{keyword}{const}\ T\ x)}
+\DoxyCodeLine{00467\ \{}
+\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ 0;}
+\DoxyCodeLine{00469\ \ \ \ \ T\ c\ =\ x;}
+\DoxyCodeLine{00470\ \ \ \ \ \textcolor{keywordflow}{while}(\ c\ )}
+\DoxyCodeLine{00471\ \ \ \ \ \{}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ n\ +=\ int(c\ \&\ 1);}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ c\ =\ (c\ >>\ 1);}
+\DoxyCodeLine{00474\ \ \ \ \ \}}
+\DoxyCodeLine{00475\ \ \ \ \ \textcolor{keywordflow}{return}\ n;}
+\DoxyCodeLine{00476\ \}}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ FbxFixInfinite(T\&\ x)}
+\DoxyCodeLine{00479\ \{}
+\DoxyCodeLine{00480\ \ \ \ \ \textcolor{keywordflow}{if}(\ x\ !=\ x\ ||\ x\ >\ FbxMax(x)\ ||\ x\ <\ -\/FbxMax(x)\ )}
+\DoxyCodeLine{00481\ \ \ \ \ \{}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ x\ =\ T(0);}
+\DoxyCodeLine{00483\ \ \ \ \ \}}
+\DoxyCodeLine{00484\ \}}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00486\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxExp(\textcolor{keyword}{const}\ T\ x);}
+\DoxyCodeLine{00487\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxLog(\textcolor{keyword}{const}\ T\ x);}
+\DoxyCodeLine{00488\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxSin(\textcolor{keyword}{const}\ T\ x);}
+\DoxyCodeLine{00489\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxCos(\textcolor{keyword}{const}\ T\ x);}
+\DoxyCodeLine{00490\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxASin(\textcolor{keyword}{const}\ T\ x);}
+\DoxyCodeLine{00491\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxACos(\textcolor{keyword}{const}\ T\ x);}
+\DoxyCodeLine{00492\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxATan(\textcolor{keyword}{const}\ T\ x);}
+\DoxyCodeLine{00493\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ FbxATan(\textcolor{keyword}{const}\ T\ y,\ \textcolor{keyword}{const}\ T\ x);}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00496\ }
+\DoxyCodeLine{00497\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_MATH\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

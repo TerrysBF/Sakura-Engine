@@ -1,0 +1,73 @@
+\doxysection{include/fbx/fbxsdk/core/fbxmodule.h File Reference}
+\hypertarget{fbxmodule_8h}{}\label{fbxmodule_8h}\index{include/fbx/fbxsdk/core/fbxmodule.h@{include/fbx/fbxsdk/core/fbxmodule.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxmodule_8h_a1d2ed3e9ccb8075d585f7cb7bdf40420}\label{fbxmodule_8h_a1d2ed3e9ccb8075d585f7cb7bdf40420} 
+typedef void \texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Module}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+FBXSDK\+\_\+\+DLL Fbx\+Module \mbox{\hyperlink{fbxmodule_8h_a5d3fef57146f76b0d4049730dc9918ae}{Fbx\+Module\+Load}} (const char \texorpdfstring{$\ast$}{*}p\+File\+Path)
+\item 
+FBXSDK\+\_\+\+DLL void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fbxmodule_8h_af3d34a6142710efff70a848c507645ac}{Fbx\+Module\+Get\+Proc}} (Fbx\+Module p\+Module\+Handle, const char \texorpdfstring{$\ast$}{*}p\+Proc\+Name)
+\item 
+FBXSDK\+\_\+\+DLL bool \mbox{\hyperlink{fbxmodule_8h_a8f1d9816706d1a47669a5a411e9570f6}{Fbx\+Module\+Free}} (Fbx\+Module p\+Module\+Handle)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fbxmodule_8h_a8f1d9816706d1a47669a5a411e9570f6}\index{fbxmodule.h@{fbxmodule.h}!FbxModuleFree@{FbxModuleFree}}
+\index{FbxModuleFree@{FbxModuleFree}!fbxmodule.h@{fbxmodule.h}}
+\doxysubsubsection{\texorpdfstring{FbxModuleFree()}{FbxModuleFree()}}
+{\footnotesize\ttfamily \label{fbxmodule_8h_a8f1d9816706d1a47669a5a411e9570f6} 
+FBXSDK\+\_\+\+DLL bool Fbx\+Module\+Free (\begin{DoxyParamCaption}\item[{Fbx\+Module}]{p\+Module\+Handle}{}\end{DoxyParamCaption})}
+
+Frees the loaded module and, if necessary, decrements its reference count. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Module\+Handle} & A valid module handle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+When the reference count reaches zero, the module is unloaded from the address space of the calling process and the handle is no longer valid. 
+\end{DoxyRemark}
+\Hypertarget{fbxmodule_8h_af3d34a6142710efff70a848c507645ac}\index{fbxmodule.h@{fbxmodule.h}!FbxModuleGetProc@{FbxModuleGetProc}}
+\index{FbxModuleGetProc@{FbxModuleGetProc}!fbxmodule.h@{fbxmodule.h}}
+\doxysubsubsection{\texorpdfstring{FbxModuleGetProc()}{FbxModuleGetProc()}}
+{\footnotesize\ttfamily \label{fbxmodule_8h_af3d34a6142710efff70a848c507645ac} 
+FBXSDK\+\_\+\+DLL void \texorpdfstring{$\ast$}{*} Fbx\+Module\+Get\+Proc (\begin{DoxyParamCaption}\item[{Fbx\+Module}]{p\+Module\+Handle}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Proc\+Name}{}\end{DoxyParamCaption})}
+
+Retrieves the address of an exported function or variable from the specified module. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Module\+Handle} & A valid module handle. \\
+\hline
+{\em p\+Proc\+Name} & The procedure name to search. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The procedure handle if valid, otherwise NULL. 
+\end{DoxyReturn}
+\Hypertarget{fbxmodule_8h_a5d3fef57146f76b0d4049730dc9918ae}\index{fbxmodule.h@{fbxmodule.h}!FbxModuleLoad@{FbxModuleLoad}}
+\index{FbxModuleLoad@{FbxModuleLoad}!fbxmodule.h@{fbxmodule.h}}
+\doxysubsubsection{\texorpdfstring{FbxModuleLoad()}{FbxModuleLoad()}}
+{\footnotesize\ttfamily \label{fbxmodule_8h_a5d3fef57146f76b0d4049730dc9918ae} 
+FBXSDK\+\_\+\+DLL Fbx\+Module Fbx\+Module\+Load (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+File\+Path}{}\end{DoxyParamCaption})}
+
+Loads the specified module into the address space of the calling process. 
+\begin{DoxyParams}{Parameters}
+{\em p\+File\+Path} & The full file path name of the module to load. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The module handle if it successfully loaded, otherwise NULL. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The specified module may cause other modules to be loaded. 
+\end{DoxyRemark}

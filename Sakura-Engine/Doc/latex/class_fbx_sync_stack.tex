@@ -1,0 +1,52 @@
+\doxysection{Fbx\+Sync\+Stack Class Reference}
+\hypertarget{class_fbx_sync_stack}{}\label{class_fbx_sync_stack}\index{FbxSyncStack@{FbxSyncStack}}
+
+
+{\ttfamily \#include $<$fbxsync.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_fbx_sync_stack_1_1_item}{Item}}
+\begin{DoxyCompactList}\small\item\em A single link item to be used to construct the stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_sync_stack_a39058f505817e4a4739323b3daa8fafe}\label{class_fbx_sync_stack_a39058f505817e4a4739323b3daa8fafe} 
+{\bfseries Fbx\+Sync\+Stack} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fbx_sync_stack_a1412ced243b15737a27bb4a3b30bd40b}{Push}} (\mbox{\hyperlink{struct_fbx_sync_stack_1_1_item}{Item}} \texorpdfstring{$\ast$}{*}p\+Item)
+\item 
+\mbox{\hyperlink{struct_fbx_sync_stack_1_1_item}{Item}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_sync_stack_a5155ec896e05088276b6a18f9203dc6f}{Pop}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple stack of linked items that is multi-\/thread safe, protected by a spinlock. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_sync_stack_a5155ec896e05088276b6a18f9203dc6f}\index{FbxSyncStack@{FbxSyncStack}!Pop@{Pop}}
+\index{Pop@{Pop}!FbxSyncStack@{FbxSyncStack}}
+\doxysubsubsection{\texorpdfstring{Pop()}{Pop()}}
+{\footnotesize\ttfamily \label{class_fbx_sync_stack_a5155ec896e05088276b6a18f9203dc6f} 
+\mbox{\hyperlink{struct_fbx_sync_stack_1_1_item}{Item}} \texorpdfstring{$\ast$}{*} Fbx\+Sync\+Stack\+::\+Pop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Remove the item on the top of the stack. \begin{DoxyReturn}{Returns}
+Returns the item on top of the stack, otherwise NULL if stack empty. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_sync_stack_a1412ced243b15737a27bb4a3b30bd40b}\index{FbxSyncStack@{FbxSyncStack}!Push@{Push}}
+\index{Push@{Push}!FbxSyncStack@{FbxSyncStack}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}}
+{\footnotesize\ttfamily \label{class_fbx_sync_stack_a1412ced243b15737a27bb4a3b30bd40b} 
+void Fbx\+Sync\+Stack\+::\+Push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_fbx_sync_stack_1_1_item}{Item}} \texorpdfstring{$\ast$}{*}}]{p\+Item}{}\end{DoxyParamCaption})}
+
+Add an item on the top of the stack. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & The item to add on top of the stack. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/sync/\mbox{\hyperlink{fbxsync_8h}{fbxsync.\+h}}\end{DoxyCompactItemize}

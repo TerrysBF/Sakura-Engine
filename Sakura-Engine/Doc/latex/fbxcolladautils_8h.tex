@@ -1,0 +1,598 @@
+\doxysection{include/fbx/fbxsdk/fileio/collada/fbxcolladautils.h File Reference}
+\hypertarget{fbxcolladautils_8h}{}\label{fbxcolladautils_8h}\index{include/fbx/fbxsdk/fileio/collada/fbxcolladautils.h@{include/fbx/fbxsdk/fileio/collada/fbxcolladautils.h}}
+{\ttfamily \#include $<$fbxsdk.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fileio/collada/fbxcolladatokens.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fileio/collada/fbxcolladaiostream.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/scene/fbxscene.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/utils/fbxrenamingstrategybase.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/utils/fbxnamehandler.\+h$>$}\newline
+{\ttfamily \#include $<$libxml/globals.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_fbx_renaming_strategy_collada}{Fbx\+Renaming\+Strategy\+Collada}}
+\item 
+class \mbox{\hyperlink{class_xml_node_deletion_policy}{Xml\+Node\+Deletion\+Policy}}
+\item 
+struct \mbox{\hyperlink{struct_collada_layer_traits}{Collada\+Layer\+Traits}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxcolladautils_8h_a9ec306f36d50c7375e74f0d1c55a3a67}\label{fbxcolladautils_8h_a9ec306f36d50c7375e74f0d1c55a3a67} 
+\#define {\bfseries INT\+\_\+\+MAX}~0x7\+FFFFFFF
+\item 
+\Hypertarget{fbxcolladautils_8h_a4ed4f0456a44db1ac2eb6869bfa05b40}\label{fbxcolladautils_8h_a4ed4f0456a44db1ac2eb6869bfa05b40} 
+\#define {\bfseries CENTIMETERS\+\_\+\+TO\+\_\+\+INCHES}~2.\+54f
+\item 
+\Hypertarget{fbxcolladautils_8h_a5b541253554905891d06cf62dbec1a41}\label{fbxcolladautils_8h_a5b541253554905891d06cf62dbec1a41} 
+\#define {\bfseries RADIANS\+\_\+\+TO\+\_\+\+DEGREES}~57.\+295799f
+\item 
+\Hypertarget{fbxcolladautils_8h_aea4f3662e371510e23cf90821d35f3cd}\label{fbxcolladautils_8h_aea4f3662e371510e23cf90821d35f3cd} 
+\#define {\bfseries COLLADA\+\_\+\+ID\+\_\+\+PROPERTY\+\_\+\+NAME}~"{}COLLADA\+\_\+\+ID"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxcolladautils_8h_aa3da04a9df039b94266647bf3be1ef4e}\label{fbxcolladautils_8h_aa3da04a9df039b94266647bf3be1ef4e} 
+typedef \mbox{\hyperlink{class_fbx_auto_ptr}{Fbx\+Auto\+Ptr}}$<$ \mbox{\hyperlink{struct__xml_node}{xml\+Node}}, \mbox{\hyperlink{class_xml_node_deletion_policy}{Xml\+Node\+Deletion\+Policy}} $>$ {\bfseries Xml\+Node\+Ptr}
+\item 
+\Hypertarget{fbxcolladautils_8h_a43e0f8079e4c5df7b8b0496de1f120c3}\label{fbxcolladautils_8h_a43e0f8079e4c5df7b8b0496de1f120c3} 
+typedef \mbox{\hyperlink{class_fbx_map}{Fbx\+Map}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}}, \mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries Source\+Element\+Map\+Type}
+\item 
+\Hypertarget{fbxcolladautils_8h_a326fd3e57617d1a7fea1b93a791e9fa9}\label{fbxcolladautils_8h_a326fd3e57617d1a7fea1b93a791e9fa9} 
+typedef \mbox{\hyperlink{class_fbx_map}{Fbx\+Map}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}}, \mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries Skin\+Map\+Type}
+\item 
+\Hypertarget{fbxcolladautils_8h_ac0b8b95b72d4aa9e22c27dbd5e729a62}\label{fbxcolladautils_8h_ac0b8b95b72d4aa9e22c27dbd5e729a62} 
+typedef \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries CNode\+List}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxcolladautils_8h_a827109d350bbc346ed747395ad742954}\label{fbxcolladautils_8h_a827109d350bbc346ed747395ad742954} 
+enum {\bfseries DAE\+\_\+\+Flow} \{ {\bfseries k\+COLLADAFlow\+In}
+, {\bfseries k\+COLLADAFlow\+Out}
+, {\bfseries k\+COLLADAFlow\+In\+Out}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fbxcolladautils_8h_a9d6769de96a79448db342865e5997a06}{DAE\+\_\+\+Add\+Notification\+Error}} (const \mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \texorpdfstring{$\ast$}{*}p\+Sdk\+Manger, const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Error\+Message)
+\item 
+void \mbox{\hyperlink{fbxcolladautils_8h_aba34b77b00a61f944d6732db57690ed7}{DAE\+\_\+\+Add\+Notification\+Warning}} (const \mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \texorpdfstring{$\ast$}{*}p\+Sdk\+Manger, const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Warning\+Message)
+\item 
+\Hypertarget{fbxcolladautils_8h_abf675c242a0dc6fdaf4d3edf2c67598c}\label{fbxcolladautils_8h_abf675c242a0dc6fdaf4d3edf2c67598c} 
+void {\bfseries DAE\+\_\+\+Export\+Array} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}id, \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} $>$ \&arr)
+\item 
+\Hypertarget{fbxcolladautils_8h_ad0cd39da3d65a79f62d7150d648c72c1}\label{fbxcolladautils_8h_ad0cd39da3d65a79f62d7150d648c72c1} 
+void {\bfseries DAE\+\_\+\+Export\+Array} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}id, \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_vector2}{Fbx\+Vector2}} $>$ \&arr)
+\item 
+\Hypertarget{fbxcolladautils_8h_a7869436a9d9f1609ce9ff850f6c1eb80}\label{fbxcolladautils_8h_a7869436a9d9f1609ce9ff850f6c1eb80} 
+void {\bfseries DAE\+\_\+\+Export\+Array} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}id, \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_color}{Fbx\+Color}} $>$ \&arr)
+\item 
+\Hypertarget{fbxcolladautils_8h_a25f10a7ba6ba75ca7dceb04b35e77f2b}\label{fbxcolladautils_8h_a25f10a7ba6ba75ca7dceb04b35e77f2b} 
+void {\bfseries DAE\+\_\+\+Export\+Array} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}id, \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ double $>$ \&arr)
+\item 
+\Hypertarget{fbxcolladautils_8h_ae3df96c3af20c989741c452d58b3fa1e}\label{fbxcolladautils_8h_ae3df96c3af20c989741c452d58b3fa1e} 
+void {\bfseries DAE\+\_\+\+Export\+Array} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}id, \mbox{\hyperlink{class_fbx_string_list}{Fbx\+String\+List}} \&arr)
+\item 
+\Hypertarget{fbxcolladautils_8h_a12a3240caf6c3947a8ca31e6ab16e709}\label{fbxcolladautils_8h_a12a3240caf6c3947a8ca31e6ab16e709} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Export\+Source14} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}id, \mbox{\hyperlink{class_fbx_string_list}{Fbx\+String\+List}} \&accessor\+Params, \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ double $>$ \&arr, bool is\+Common\+Profile=true)
+\item 
+\Hypertarget{fbxcolladautils_8h_a751a52d649b529e70eabb1773f9c3d26}\label{fbxcolladautils_8h_a751a52d649b529e70eabb1773f9c3d26} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Export\+Source14} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}id, \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} $>$ \&arr)
+\item 
+\Hypertarget{fbxcolladautils_8h_a3f231066854d9ba0e38ec1a975edd78d}\label{fbxcolladautils_8h_a3f231066854d9ba0e38ec1a975edd78d} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Export\+Source14} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}id, \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_vector2}{Fbx\+Vector2}} $>$ \&arr)
+\item 
+\Hypertarget{fbxcolladautils_8h_a0c3770c962ea618d5e034cbd156720a9}\label{fbxcolladautils_8h_a0c3770c962ea618d5e034cbd156720a9} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Export\+Source14} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}id, \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_color}{Fbx\+Color}} $>$ \&arr)
+\item 
+\Hypertarget{fbxcolladautils_8h_ad068b867b4490831ba6fcf281d1e2c4a}\label{fbxcolladautils_8h_ad068b867b4490831ba6fcf281d1e2c4a} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Export\+Source14} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}id, \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_a_matrix}{Fbx\+AMatrix}} $>$ \&arr)
+\item 
+\Hypertarget{fbxcolladautils_8h_a92c1e2973bc64dbef7d24590e4496a88}\label{fbxcolladautils_8h_a92c1e2973bc64dbef7d24590e4496a88} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Export\+Source14} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}id, \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_matrix}{Fbx\+Matrix}} $>$ \&arr)
+\item 
+\Hypertarget{fbxcolladautils_8h_ac35d43217615d3f78c39f3010f5a462d}\label{fbxcolladautils_8h_ac35d43217615d3f78c39f3010f5a462d} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Export\+Source14} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}id, \mbox{\hyperlink{class_fbx_string_list}{Fbx\+String\+List}} \&arr, const char \texorpdfstring{$\ast$}{*}type, bool is\+Common\+Profile=true)
+\item 
+\Hypertarget{fbxcolladautils_8h_a233e04ceda3f31b89b20ecc986c43543}\label{fbxcolladautils_8h_a233e04ceda3f31b89b20ecc986c43543} 
+void {\bfseries DAE\+\_\+\+Export\+Source\+Array} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}source\+Node, const char \texorpdfstring{$\ast$}{*}id, \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_color}{Fbx\+Color}} $>$ \&arr)
+\item 
+\Hypertarget{fbxcolladautils_8h_ab57d845aa42e86a41188ce0f3720a438}\label{fbxcolladautils_8h_ab57d845aa42e86a41188ce0f3720a438} 
+void {\bfseries DAE\+\_\+\+Export\+Source\+Array14} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}source\+Node, const char \texorpdfstring{$\ast$}{*}id, \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_color}{Fbx\+Color}} $>$ \&arr)
+\item 
+\Hypertarget{fbxcolladautils_8h_a236601a06c24452185c886da206e7e88}\label{fbxcolladautils_8h_a236601a06c24452185c886da206e7e88} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Export\+Accessor} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}id, const char \texorpdfstring{$\ast$}{*}array\+Ref, int count, int stride, const char \texorpdfstring{$\ast$}{*}name, const char \texorpdfstring{$\ast$}{*}type)
+\item 
+\Hypertarget{fbxcolladautils_8h_a00a68566e045a77c29029387fa7cc41c}\label{fbxcolladautils_8h_a00a68566e045a77c29029387fa7cc41c} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Export\+Accessor14} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}id, const char \texorpdfstring{$\ast$}{*}array\+Ref, int count, int stride, const char \texorpdfstring{$\ast$}{*}name, const char \texorpdfstring{$\ast$}{*}type)
+\item 
+\Hypertarget{fbxcolladautils_8h_a2180b302e8d72900293f220a259792c5}\label{fbxcolladautils_8h_a2180b302e8d72900293f220a259792c5} 
+void {\bfseries DAE\+\_\+\+Add\+XYZAccessor} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}profile, const char \texorpdfstring{$\ast$}{*}array\+Name, const char \texorpdfstring{$\ast$}{*}array\+Ref, int count)
+\item 
+\Hypertarget{fbxcolladautils_8h_ace6c73f05217c20fd7b507dd37221b21}\label{fbxcolladautils_8h_ace6c73f05217c20fd7b507dd37221b21} 
+void {\bfseries DAE\+\_\+\+Add\+STAccessor} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}profile, const char \texorpdfstring{$\ast$}{*}array\+Name, const char \texorpdfstring{$\ast$}{*}array\+Ref, int count)
+\item 
+\Hypertarget{fbxcolladautils_8h_ab6f366ee352dcad5dd1c49e93620d9e8}\label{fbxcolladautils_8h_ab6f366ee352dcad5dd1c49e93620d9e8} 
+void {\bfseries DAE\+\_\+\+Add\+Flow} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}node, DAE\+\_\+\+Flow flow)
+\item 
+\Hypertarget{fbxcolladautils_8h_a7eb20286c631c4639e609bf58b24e9f2}\label{fbxcolladautils_8h_a7eb20286c631c4639e609bf58b24e9f2} 
+void {\bfseries DAE\+\_\+\+Add\+XYZAccessor14} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}profile, const char \texorpdfstring{$\ast$}{*}array\+Name, const char \texorpdfstring{$\ast$}{*}array\+Ref, int count)
+\item 
+\Hypertarget{fbxcolladautils_8h_a810be7de47cba637902466085cf49181}\label{fbxcolladautils_8h_a810be7de47cba637902466085cf49181} 
+void {\bfseries DAE\+\_\+\+Add\+STAccessor14} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}profile, const char \texorpdfstring{$\ast$}{*}array\+Name, const char \texorpdfstring{$\ast$}{*}array\+Ref, int count)
+\item 
+\Hypertarget{fbxcolladautils_8h_a946e7fe2000b4c1538e6e72ed1d6f9a1}\label{fbxcolladautils_8h_a946e7fe2000b4c1538e6e72ed1d6f9a1} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Add\+Parameter} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}name, const \mbox{\hyperlink{class_fbx_color}{Fbx\+Color}} \&color, DAE\+\_\+\+Flow flow)
+\item 
+\Hypertarget{fbxcolladautils_8h_a9624bb8c8a1eedeae30ca458a0a3ebf2}\label{fbxcolladautils_8h_a9624bb8c8a1eedeae30ca458a0a3ebf2} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Add\+Parameter} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}name, const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&vector, DAE\+\_\+\+Flow flow)
+\item 
+\Hypertarget{fbxcolladautils_8h_a4deaf299ec2d7408875a167f16bd286f}\label{fbxcolladautils_8h_a4deaf299ec2d7408875a167f16bd286f} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Add\+Parameter} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}name, double value, DAE\+\_\+\+Flow flow)
+\item 
+\Hypertarget{fbxcolladautils_8h_a310d43ba7fd1486e82739e4034b08848}\label{fbxcolladautils_8h_a310d43ba7fd1486e82739e4034b08848} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Add\+Parameter} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}name, bool value, DAE\+\_\+\+Flow flow)
+\item 
+\Hypertarget{fbxcolladautils_8h_a4cd56f8ddca4f61743921ae9184a4ccf}\label{fbxcolladautils_8h_a4cd56f8ddca4f61743921ae9184a4ccf} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Add\+Parameter} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}name, const char \texorpdfstring{$\ast$}{*}type, const char \texorpdfstring{$\ast$}{*}value, DAE\+\_\+\+Flow flow)
+\item 
+\Hypertarget{fbxcolladautils_8h_aa7660216fab57d65df399891f1fe6670}\label{fbxcolladautils_8h_aa7660216fab57d65df399891f1fe6670} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Add\+Parameter} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}name, const \mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}} \&color)
+\item 
+\Hypertarget{fbxcolladautils_8h_a083f346d756ac53cf704777a9f4bc9d0}\label{fbxcolladautils_8h_a083f346d756ac53cf704777a9f4bc9d0} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Add\+Parameter} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}name, const \mbox{\hyperlink{class_fbx_color}{Fbx\+Color}} \&color)
+\item 
+\Hypertarget{fbxcolladautils_8h_a88cf48e2284673debbf1ac823e66d62e}\label{fbxcolladautils_8h_a88cf48e2284673debbf1ac823e66d62e} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Add\+Parameter} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}name, const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&vector)
+\item 
+\Hypertarget{fbxcolladautils_8h_a07df318272713d2f0015271ad09c916b}\label{fbxcolladautils_8h_a07df318272713d2f0015271ad09c916b} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Add\+Parameter} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}name, double value)
+\item 
+\Hypertarget{fbxcolladautils_8h_a8af6761aabe4bf235f75618d7250640c}\label{fbxcolladautils_8h_a8af6761aabe4bf235f75618d7250640c} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Add\+Parameter} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}name, bool value)
+\item 
+\Hypertarget{fbxcolladautils_8h_a87478ba55b88f58c016c79e051a813e4}\label{fbxcolladautils_8h_a87478ba55b88f58c016c79e051a813e4} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Add\+Parameter} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}name, const char \texorpdfstring{$\ast$}{*}type, const char \texorpdfstring{$\ast$}{*}value)
+\item 
+\Hypertarget{fbxcolladautils_8h_a4b0ff1da15ab95a1804da05bbaa5d898}\label{fbxcolladautils_8h_a4b0ff1da15ab95a1804da05bbaa5d898} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Add\+Technique} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}technique)
+\item 
+\Hypertarget{fbxcolladautils_8h_a8b3c63b70752de28e67bd294ea675c32}\label{fbxcolladautils_8h_a8b3c63b70752de28e67bd294ea675c32} 
+void {\bfseries DAE\+\_\+\+Add\+Input} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}semantic, const char \texorpdfstring{$\ast$}{*}source, int idx=-\/1)
+\item 
+\Hypertarget{fbxcolladautils_8h_a2ea12d447ad1b5d2776e8a0d01c26b9b}\label{fbxcolladautils_8h_a2ea12d447ad1b5d2776e8a0d01c26b9b} 
+void {\bfseries DAE\+\_\+\+Add\+Input14} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent\+Xml\+Node, const char \texorpdfstring{$\ast$}{*}semantic, const char \texorpdfstring{$\ast$}{*}source, int offset=-\/1, int set=-\/1)
+\item 
+\Hypertarget{fbxcolladautils_8h_ace301e5e02ca96e62ab7a442b91a0b59}\label{fbxcolladautils_8h_ace301e5e02ca96e62ab7a442b91a0b59} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} {\bfseries matrix\+To\+String} (const \mbox{\hyperlink{class_fbx_a_matrix}{Fbx\+AMatrix}} \&mx)
+\item 
+void \mbox{\hyperlink{fbxcolladautils_8h_a58f717df95d4eacd55f710ddb7d9942a}{find\+Children\+By\+Type}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Parent\+Element, const \mbox{\hyperlink{class_fbx_set}{Fbx\+Set}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} $>$ \&p\+Types, \mbox{\hyperlink{class_fbx_array}{CNode\+List}} \&p\+Children\+Elements)
+\item 
+void \mbox{\hyperlink{fbxcolladautils_8h_a165451626c0309e0da977ba75a384574}{find\+Children\+By\+Type}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Parent\+Element, const char \texorpdfstring{$\ast$}{*}p\+Type, \mbox{\hyperlink{class_fbx_array}{CNode\+List}} \&p\+Children\+Elements)
+\item 
+\Hypertarget{fbxcolladautils_8h_acd2507a2c6926cf7f1cf2b69fd127664}\label{fbxcolladautils_8h_acd2507a2c6926cf7f1cf2b69fd127664} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Source\+Accessor} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}source\+Node)
+\item 
+\Hypertarget{fbxcolladautils_8h_a22f9759fcc6382e1db0214c4ea7b58e1}\label{fbxcolladautils_8h_a22f9759fcc6382e1db0214c4ea7b58e1} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Technique\+Node} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}parent, const char \texorpdfstring{$\ast$}{*}profile)
+\item 
+\Hypertarget{fbxcolladautils_8h_ab3ef43937880c171062b861ef6439763}\label{fbxcolladautils_8h_ab3ef43937880c171062b861ef6439763} 
+double {\bfseries inches\+To\+Centimeters} (double val)
+\item 
+\Hypertarget{fbxcolladautils_8h_ae7b3b043689cadbf1dfd2381848b8f9e}\label{fbxcolladautils_8h_ae7b3b043689cadbf1dfd2381848b8f9e} 
+double {\bfseries centimeters\+To\+Inches} (double val)
+\item 
+\Hypertarget{fbxcolladautils_8h_ae21c26b3531d7faed72acdccf83744ec}\label{fbxcolladautils_8h_ae21c26b3531d7faed72acdccf83744ec} 
+double {\bfseries degrees\+To\+Radians} (double val)
+\item 
+\Hypertarget{fbxcolladautils_8h_a86df93411b8fee393d4e101943a74e7f}\label{fbxcolladautils_8h_a86df93411b8fee393d4e101943a74e7f} 
+double {\bfseries radians\+To\+Degrees} (double val)
+\item 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fbxcolladautils_8h_af86399e0da5cc7b6b0db481176e0ad0d}{DAE\+\_\+\+Find\+Child\+Element\+By\+Attribute}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Parent\+Element, const char \texorpdfstring{$\ast$}{*}p\+Attribute\+Name, const char \texorpdfstring{$\ast$}{*}p\+Attribute\+Value, const char \texorpdfstring{$\ast$}{*}p\+Default\+Attribute\+Value="{}"{})
+\item 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fbxcolladautils_8h_a7d779670e1e0e9b41f70bc15d5488ae7}{DAE\+\_\+\+Find\+Child\+Element\+By\+Tag}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Parent\+Element, const char \texorpdfstring{$\ast$}{*}p\+Tag, \mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Find\+From=NULL)
+\item 
+{\footnotesize template$<$typename TYPE$>$ }\\void \mbox{\hyperlink{fbxcolladautils_8h_a8ad56792aad4343fc12428f8235f7d38}{DAE\+\_\+\+Get\+Element\+Content}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Element, TYPE \&p\+Data)
+\item 
+bool \mbox{\hyperlink{fbxcolladautils_8h_a1208dad3ee25bec7b87087897e18891a}{DAE\+\_\+\+Check\+Compatibility}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Node\+Element)
+\item 
+void \mbox{\hyperlink{fbxcolladautils_8h_a6274be764ec506f0082ba8f6e51e6d0a}{DAE\+\_\+\+Get\+Element\+Tag}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Element, \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Tag)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{fbxcolladautils_8h_a0e3205c1636dc88c39dfc8bbd59fc81d}{DAE\+\_\+\+Get\+Element\+Attribute\+Value}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Element, const char \texorpdfstring{$\ast$}{*}p\+Attribute\+Name)
+\item 
+{\footnotesize template$<$typename TYPE$>$ }\\bool \mbox{\hyperlink{fbxcolladautils_8h_a52e8874df13e15c866984f7b19a6d634}{DAE\+\_\+\+Get\+Element\+Attribute\+Value}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Element, const char \texorpdfstring{$\ast$}{*}p\+Attribute\+Name, TYPE \&p\+Data)
+\item 
+\Hypertarget{fbxcolladautils_8h_a05ecabb79a6d8b0d8c9abca135ef157b}\label{fbxcolladautils_8h_a05ecabb79a6d8b0d8c9abca135ef157b} 
+template$<$$>$ bool {\bfseries DAE\+\_\+\+Get\+Element\+Attribute\+Value} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Element, const char \texorpdfstring{$\ast$}{*}p\+Attribute\+Name, \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Data)
+\item 
+bool \mbox{\hyperlink{fbxcolladautils_8h_ad3c04a67830c3f6283b914a5c046eb25}{DAE\+\_\+\+Compare\+Attribute\+Value}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Element, const char \texorpdfstring{$\ast$}{*}p\+Attribute\+Name, const char \texorpdfstring{$\ast$}{*}p\+Value)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{fbxcolladautils_8h_a8f072503ad1b1bf7b2f0bf83916e4d8b}{DAE\+\_\+\+Get\+IDFrom\+Url\+Attribute}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Element, \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+External\+Ref)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{fbxcolladautils_8h_a7ec6c4cf8ec207b59e40a8caccc3f5b4}{DAE\+\_\+\+Get\+IDFrom\+Source\+Attribute}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Element)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{fbxcolladautils_8h_af8be8a842f6e0c186a68db3195cd848d}{DAE\+\_\+\+Get\+IDFrom\+Target\+Attribute}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Element)
+\item 
+void \mbox{\hyperlink{fbxcolladautils_8h_ac84072ce5185ddeac9317de415615294}{DAE\+\_\+\+Set\+Name}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object, const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Name, const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+ID)
+\item 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fbxcolladautils_8h_ab2fa4844ea52fcf41b4defe8c0d963fb}{DAE\+\_\+\+Get\+Source\+With\+Semantic}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Consumer\+Element, const char \texorpdfstring{$\ast$}{*}p\+Semantic, const \mbox{\hyperlink{class_fbx_map}{Source\+Element\+Map\+Type}} \&p\+Source\+Elements)
+\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fbxcolladautils_8h_a10902760f20d61e537b4565a2f63fd33}{DAE\+\_\+\+Add\+Child\+Element}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Parent\+Element, const char \texorpdfstring{$\ast$}{*}p\+Tag, const T \&p\+Content)
+\item 
+\Hypertarget{fbxcolladautils_8h_a7af0f471d037188cd39ea6e548e1ddb5}\label{fbxcolladautils_8h_a7af0f471d037188cd39ea6e548e1ddb5} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+Add\+Child\+Element} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Parent\+Element, const char \texorpdfstring{$\ast$}{*}p\+Tag)
+\item 
+\Hypertarget{fbxcolladautils_8h_a2c2e84eea39ca4632cf8ef32e74a4ee5}\label{fbxcolladautils_8h_a2c2e84eea39ca4632cf8ef32e74a4ee5} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries DAE\+\_\+\+New\+Element} (const char \texorpdfstring{$\ast$}{*}p\+Tag)
+\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{struct__xml_attr}{xml\+Attr}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fbxcolladautils_8h_a4da81de7f522825299e7a97c0d98edd9}{DAE\+\_\+\+Add\+Attribute}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Element, const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Attribute\+Name, const T \&p\+Attribute\+Value)
+\item 
+const \mbox{\hyperlink{class_fbx_system_unit}{Fbx\+System\+Unit}} \mbox{\hyperlink{fbxcolladautils_8h_a8cd972719879976b871915665316af0e}{DAE\+\_\+\+Import\+Unit}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Unit\+Element)
+\item 
+void \mbox{\hyperlink{fbxcolladautils_8h_a1e5d454ded1f039b5cb232bcb85eaf9b}{Increase\+Lcl\+Translation\+Animation}} (\mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*}p\+Node, \mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}} \&p\+Offset)
+\item 
+void \mbox{\hyperlink{fbxcolladautils_8h_afac02fba97bbe60df48f7a0377e3b161}{Recursive\+Search\+Element}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Base\+Element, const char \texorpdfstring{$\ast$}{*}p\+Tag, \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} $>$ \&p\+Result)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxcolladautils_8h_a5c0ec177c8505759098839a81946bbac}\label{fbxcolladautils_8h_a5c0ec177c8505759098839a81946bbac} 
+const int {\bfseries MATRIX\+\_\+\+STRIDE} = 16
+\item 
+\Hypertarget{fbxcolladautils_8h_a56e03108dc10bdb7b097a52104db0edc}\label{fbxcolladautils_8h_a56e03108dc10bdb7b097a52104db0edc} 
+const int {\bfseries VECTOR\+\_\+\+STRIDE} = 3
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fbxcolladautils_8h_a4da81de7f522825299e7a97c0d98edd9}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_AddAttribute@{DAE\_AddAttribute}}
+\index{DAE\_AddAttribute@{DAE\_AddAttribute}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_AddAttribute()}{DAE\_AddAttribute()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_a4da81de7f522825299e7a97c0d98edd9} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{struct__xml_attr}{xml\+Attr}} \texorpdfstring{$\ast$}{*} DAE\+\_\+\+Add\+Attribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Element}{, }\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+Attribute\+Name}{, }\item[{const T \&}]{p\+Attribute\+Value}{}\end{DoxyParamCaption})}
+
+Add an attribute for a element. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & The element where the attribute is added. \\
+\hline
+{\em p\+Attribute\+Name} & The name of the attribute. \\
+\hline
+{\em p\+Attribute\+Value} & The value of the attribute. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The created attribute. 
+\end{DoxyReturn}
+\Hypertarget{fbxcolladautils_8h_a10902760f20d61e537b4565a2f63fd33}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_AddChildElement@{DAE\_AddChildElement}}
+\index{DAE\_AddChildElement@{DAE\_AddChildElement}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_AddChildElement()}{DAE\_AddChildElement()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_a10902760f20d61e537b4565a2f63fd33} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} DAE\+\_\+\+Add\+Child\+Element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Parent\+Element}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Tag}{, }\item[{const T \&}]{p\+Content}{}\end{DoxyParamCaption})}
+
+Add a child element with specific content. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Parent\+Element} & The parent element. \\
+\hline
+{\em p\+Tag} & The tag string of the new child element. \\
+\hline
+{\em p\+Content} & The content of the child element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The created child element. 
+\end{DoxyReturn}
+\Hypertarget{fbxcolladautils_8h_a9d6769de96a79448db342865e5997a06}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_AddNotificationError@{DAE\_AddNotificationError}}
+\index{DAE\_AddNotificationError@{DAE\_AddNotificationError}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_AddNotificationError()}{DAE\_AddNotificationError()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_a9d6769de96a79448db342865e5997a06} 
+void DAE\+\_\+\+Add\+Notification\+Error (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \texorpdfstring{$\ast$}{*}}]{p\+Sdk\+Manger}{, }\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+Error\+Message}{}\end{DoxyParamCaption})}
+
+Emit error message. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Sdk\+Manger} & The SDK manager used to access user notification object. \\
+\hline
+{\em p\+Error\+Message} & The message to be presented. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fbxcolladautils_8h_aba34b77b00a61f944d6732db57690ed7}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_AddNotificationWarning@{DAE\_AddNotificationWarning}}
+\index{DAE\_AddNotificationWarning@{DAE\_AddNotificationWarning}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_AddNotificationWarning()}{DAE\_AddNotificationWarning()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_aba34b77b00a61f944d6732db57690ed7} 
+void DAE\+\_\+\+Add\+Notification\+Warning (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \texorpdfstring{$\ast$}{*}}]{p\+Sdk\+Manger}{, }\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+Warning\+Message}{}\end{DoxyParamCaption})}
+
+Emit warning message. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Sdk\+Manger} & The SDK manager used to access user notification object. \\
+\hline
+{\em p\+Warning\+Message} & The message to be presented. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fbxcolladautils_8h_a1208dad3ee25bec7b87087897e18891a}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_CheckCompatibility@{DAE\_CheckCompatibility}}
+\index{DAE\_CheckCompatibility@{DAE\_CheckCompatibility}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_CheckCompatibility()}{DAE\_CheckCompatibility()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_a1208dad3ee25bec7b87087897e18891a} 
+bool DAE\+\_\+\+Check\+Compatibility (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Node\+Element}{}\end{DoxyParamCaption})}
+
+Check whether this node is compatible to FBX transform structure. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Node\+Element} & The specific node element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if it is compatible. 
+\end{DoxyReturn}
+\Hypertarget{fbxcolladautils_8h_ad3c04a67830c3f6283b914a5c046eb25}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_CompareAttributeValue@{DAE\_CompareAttributeValue}}
+\index{DAE\_CompareAttributeValue@{DAE\_CompareAttributeValue}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_CompareAttributeValue()}{DAE\_CompareAttributeValue()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_ad3c04a67830c3f6283b914a5c046eb25} 
+bool DAE\+\_\+\+Compare\+Attribute\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Element}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Attribute\+Name}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Value}{}\end{DoxyParamCaption})}
+
+Compare the value of specific attribute of specific element with given value. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & The specific element. \\
+\hline
+{\em p\+Attribute\+Name} & The name of the specific attribute. \\
+\hline
+{\em p\+Value} & The value to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if values equal. 
+\end{DoxyReturn}
+\Hypertarget{fbxcolladautils_8h_af86399e0da5cc7b6b0db481176e0ad0d}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_FindChildElementByAttribute@{DAE\_FindChildElementByAttribute}}
+\index{DAE\_FindChildElementByAttribute@{DAE\_FindChildElementByAttribute}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_FindChildElementByAttribute()}{DAE\_FindChildElementByAttribute()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_af86399e0da5cc7b6b0db481176e0ad0d} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} DAE\+\_\+\+Find\+Child\+Element\+By\+Attribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Parent\+Element}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Attribute\+Name}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Attribute\+Value}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Default\+Attribute\+Value}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})}
+
+Find a child element with a given attribute value. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Parent\+Element} & The parent element. \\
+\hline
+{\em p\+Attribute\+Name} & The name of the attribute. \\
+\hline
+{\em p\+Attribute\+Value} & The value of the attribute. \\
+\hline
+{\em p\+Default\+Attribute\+Value} & The default value of the attribute used when the attribute is not found explicitly. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return NULL if no child element has the given attribute value. 
+\end{DoxyReturn}
+\Hypertarget{fbxcolladautils_8h_a7d779670e1e0e9b41f70bc15d5488ae7}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_FindChildElementByTag@{DAE\_FindChildElementByTag}}
+\index{DAE\_FindChildElementByTag@{DAE\_FindChildElementByTag}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_FindChildElementByTag()}{DAE\_FindChildElementByTag()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_a7d779670e1e0e9b41f70bc15d5488ae7} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} DAE\+\_\+\+Find\+Child\+Element\+By\+Tag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Parent\+Element}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Tag}{, }\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Find\+From}{ = {\ttfamily NULL}}\end{DoxyParamCaption})}
+
+Find a child element with a given tag. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Parent\+Element} & The parent element. \\
+\hline
+{\em p\+Tag} & The value of the tag. \\
+\hline
+{\em p\+Find\+From} & Find from the next child after p\+Find\+From if p\+Find\+From is not NULL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return NULL if no child element has the given tag. 
+\end{DoxyReturn}
+\Hypertarget{fbxcolladautils_8h_a0e3205c1636dc88c39dfc8bbd59fc81d}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_GetElementAttributeValue@{DAE\_GetElementAttributeValue}}
+\index{DAE\_GetElementAttributeValue@{DAE\_GetElementAttributeValue}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_GetElementAttributeValue()}{DAE\_GetElementAttributeValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_a0e3205c1636dc88c39dfc8bbd59fc81d} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} DAE\+\_\+\+Get\+Element\+Attribute\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Element}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Attribute\+Name}{}\end{DoxyParamCaption})}
+
+Get the value of an attribute of an element. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & The specific XML element. \\
+\hline
+{\em p\+Attribute\+Name} & The name of the specific attribute. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the attribute in the form of a string. If the attribute is not available, an empty string is returned. 
+\end{DoxyReturn}
+\Hypertarget{fbxcolladautils_8h_a52e8874df13e15c866984f7b19a6d634}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_GetElementAttributeValue@{DAE\_GetElementAttributeValue}}
+\index{DAE\_GetElementAttributeValue@{DAE\_GetElementAttributeValue}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_GetElementAttributeValue()}{DAE\_GetElementAttributeValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_a52e8874df13e15c866984f7b19a6d634} 
+template$<$typename TYPE$>$ \\
+bool DAE\+\_\+\+Get\+Element\+Attribute\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Element}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Attribute\+Name}{, }\item[{TYPE \&}]{p\+Data}{}\end{DoxyParamCaption})}
+
+Get the value of an attribute of an element. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & The specific XML element. \\
+\hline
+{\em p\+Attribute\+Name} & The name of the specific attribute. \\
+\hline
+{\em p\+Data} & The returned data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return {\ttfamily true} on success and {\ttfamily false} if no attribute has the given name. 
+\end{DoxyReturn}
+\Hypertarget{fbxcolladautils_8h_a8ad56792aad4343fc12428f8235f7d38}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_GetElementContent@{DAE\_GetElementContent}}
+\index{DAE\_GetElementContent@{DAE\_GetElementContent}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_GetElementContent()}{DAE\_GetElementContent()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_a8ad56792aad4343fc12428f8235f7d38} 
+template$<$typename TYPE$>$ \\
+void DAE\+\_\+\+Get\+Element\+Content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Element}{, }\item[{TYPE \&}]{p\+Data}{}\end{DoxyParamCaption})}
+
+Get the content of a XML element. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & The element whose content is returned. \\
+\hline
+{\em p\+Data} & The returned data. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fbxcolladautils_8h_a6274be764ec506f0082ba8f6e51e6d0a}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_GetElementTag@{DAE\_GetElementTag}}
+\index{DAE\_GetElementTag@{DAE\_GetElementTag}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_GetElementTag()}{DAE\_GetElementTag()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_a6274be764ec506f0082ba8f6e51e6d0a} 
+void DAE\+\_\+\+Get\+Element\+Tag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Element}{, }\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+Tag}{}\end{DoxyParamCaption})}
+
+Get the tag of the specific element. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & The specific element. \\
+\hline
+{\em p\+Tag} & Return the tag of the element. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fbxcolladautils_8h_a7ec6c4cf8ec207b59e40a8caccc3f5b4}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_GetIDFromSourceAttribute@{DAE\_GetIDFromSourceAttribute}}
+\index{DAE\_GetIDFromSourceAttribute@{DAE\_GetIDFromSourceAttribute}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_GetIDFromSourceAttribute()}{DAE\_GetIDFromSourceAttribute()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_a7ec6c4cf8ec207b59e40a8caccc3f5b4} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} DAE\+\_\+\+Get\+IDFrom\+Source\+Attribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Element}{}\end{DoxyParamCaption})}
+
+Get the ID of another element from the source attribute of the given element. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & The specific XML element in which the ID is looked for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ID of another element if success, or an empty string if no source attributes are found. 
+\end{DoxyReturn}
+\Hypertarget{fbxcolladautils_8h_af8be8a842f6e0c186a68db3195cd848d}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_GetIDFromTargetAttribute@{DAE\_GetIDFromTargetAttribute}}
+\index{DAE\_GetIDFromTargetAttribute@{DAE\_GetIDFromTargetAttribute}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_GetIDFromTargetAttribute()}{DAE\_GetIDFromTargetAttribute()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_af8be8a842f6e0c186a68db3195cd848d} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} DAE\+\_\+\+Get\+IDFrom\+Target\+Attribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Element}{}\end{DoxyParamCaption})}
+
+Get the ID of another element from the target attribute of the given element. Note that in target attribute, the URI identifier may or may not preceded with the pound sign. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & The specific XML element in which the ID is looked for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ID of another element if success, or an empty string if no target attributes are found. 
+\end{DoxyReturn}
+\Hypertarget{fbxcolladautils_8h_a8f072503ad1b1bf7b2f0bf83916e4d8b}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_GetIDFromUrlAttribute@{DAE\_GetIDFromUrlAttribute}}
+\index{DAE\_GetIDFromUrlAttribute@{DAE\_GetIDFromUrlAttribute}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_GetIDFromUrlAttribute()}{DAE\_GetIDFromUrlAttribute()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_a8f072503ad1b1bf7b2f0bf83916e4d8b} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} DAE\+\_\+\+Get\+IDFrom\+Url\+Attribute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Element}{, }\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+External\+Ref}{}\end{DoxyParamCaption})}
+
+Get the ID of another element from the url attribute of the given element. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & The specific XML element in which the ID is looked for. \\
+\hline
+{\em p\+External\+Ref} & The external reference part of the url (before the \#) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ID of another element if success, or an empty string if no url attributes are found. 
+\end{DoxyReturn}
+\Hypertarget{fbxcolladautils_8h_ab2fa4844ea52fcf41b4defe8c0d963fb}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_GetSourceWithSemantic@{DAE\_GetSourceWithSemantic}}
+\index{DAE\_GetSourceWithSemantic@{DAE\_GetSourceWithSemantic}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_GetSourceWithSemantic()}{DAE\_GetSourceWithSemantic()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_ab2fa4844ea52fcf41b4defe8c0d963fb} 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} DAE\+\_\+\+Get\+Source\+With\+Semantic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Consumer\+Element}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Semantic}{, }\item[{const \mbox{\hyperlink{class_fbx_map}{Source\+Element\+Map\+Type}} \&}]{p\+Source\+Elements}{}\end{DoxyParamCaption})}
+
+Get the COLLADA source element with a semantic meaning and a consumer element; The COLLADA input element declares the input connections to a data source that a consumer requires. A data source is a container of raw data that lacks semantic meaning so that the data can be reused within the document. To use the data, a consumer declares a connection to it with the desired semantic information. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Consumer\+Element} & A consumer element, like sampler element in animation system or joints element in controller system. \\
+\hline
+{\em p\+Semantic} & A semantic meaning, like "{}\+INPUT"{}, "{}\+OUTPUT"{} or "{}\+INTERPOLATION"{} in animation system. \\
+\hline
+{\em p\+Source\+Elements} & The container of raw data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return {\ttfamily NULL} is failed. 
+\end{DoxyReturn}
+\Hypertarget{fbxcolladautils_8h_a8cd972719879976b871915665316af0e}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_ImportUnit@{DAE\_ImportUnit}}
+\index{DAE\_ImportUnit@{DAE\_ImportUnit}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_ImportUnit()}{DAE\_ImportUnit()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_a8cd972719879976b871915665316af0e} 
+const \mbox{\hyperlink{class_fbx_system_unit}{Fbx\+System\+Unit}} DAE\+\_\+\+Import\+Unit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Unit\+Element}{}\end{DoxyParamCaption})}
+
+Import a COLLADA unit element into a FBX system unit. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Unit\+Element} & The COLLADA unit element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The created FBX system unit. 
+\end{DoxyReturn}
+\Hypertarget{fbxcolladautils_8h_ac84072ce5185ddeac9317de415615294}\index{fbxcolladautils.h@{fbxcolladautils.h}!DAE\_SetName@{DAE\_SetName}}
+\index{DAE\_SetName@{DAE\_SetName}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{DAE\_SetName()}{DAE\_SetName()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_ac84072ce5185ddeac9317de415615294} 
+void DAE\+\_\+\+Set\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{, }\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+Name}{, }\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+ID}{}\end{DoxyParamCaption})}
+
+Set the name of the object with a given name. If the name is empty, use the ID. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The object whose name is to be set. \\
+\hline
+{\em p\+Name} & The name string. \\
+\hline
+{\em p\+ID} & The ID string. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fbxcolladautils_8h_a165451626c0309e0da977ba75a384574}\index{fbxcolladautils.h@{fbxcolladautils.h}!findChildrenByType@{findChildrenByType}}
+\index{findChildrenByType@{findChildrenByType}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{findChildrenByType()}{findChildrenByType()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_a165451626c0309e0da977ba75a384574} 
+void find\+Children\+By\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Parent\+Element}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Type}{, }\item[{\mbox{\hyperlink{class_fbx_array}{CNode\+List}} \&}]{p\+Children\+Elements}{}\end{DoxyParamCaption})}
+
+Find children elements of a specific type. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Parent\+Element} & The parent element. \\
+\hline
+{\em p\+Type} & The type. \\
+\hline
+{\em p\+Children\+Elements} & The found children elements. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fbxcolladautils_8h_a58f717df95d4eacd55f710ddb7d9942a}\index{fbxcolladautils.h@{fbxcolladautils.h}!findChildrenByType@{findChildrenByType}}
+\index{findChildrenByType@{findChildrenByType}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{findChildrenByType()}{findChildrenByType()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_a58f717df95d4eacd55f710ddb7d9942a} 
+void find\+Children\+By\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Parent\+Element}{, }\item[{const \mbox{\hyperlink{class_fbx_set}{Fbx\+Set}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} $>$ \&}]{p\+Types}{, }\item[{\mbox{\hyperlink{class_fbx_array}{CNode\+List}} \&}]{p\+Children\+Elements}{}\end{DoxyParamCaption})}
+
+Find children elements whose type is included in a list of type. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Parent\+Element} & The parent element. \\
+\hline
+{\em p\+Types} & The list of types. \\
+\hline
+{\em p\+Children\+Elements} & The found children elements. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fbxcolladautils_8h_a1e5d454ded1f039b5cb232bcb85eaf9b}\index{fbxcolladautils.h@{fbxcolladautils.h}!IncreaseLclTranslationAnimation@{IncreaseLclTranslationAnimation}}
+\index{IncreaseLclTranslationAnimation@{IncreaseLclTranslationAnimation}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{IncreaseLclTranslationAnimation()}{IncreaseLclTranslationAnimation()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_a1e5d454ded1f039b5cb232bcb85eaf9b} 
+void Increase\+Lcl\+Translation\+Animation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Node}{, }\item[{\mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}} \&}]{p\+Offset}{}\end{DoxyParamCaption})}
+
+If the specific node has animation on its local translation, increase every key by the offset. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Node} & The specific node. \\
+\hline
+{\em p\+Offset} & The specific offset value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fbxcolladautils_8h_afac02fba97bbe60df48f7a0377e3b161}\index{fbxcolladautils.h@{fbxcolladautils.h}!RecursiveSearchElement@{RecursiveSearchElement}}
+\index{RecursiveSearchElement@{RecursiveSearchElement}!fbxcolladautils.h@{fbxcolladautils.h}}
+\doxysubsubsection{\texorpdfstring{RecursiveSearchElement()}{RecursiveSearchElement()}}
+{\footnotesize\ttfamily \label{fbxcolladautils_8h_afac02fba97bbe60df48f7a0377e3b161} 
+void Recursive\+Search\+Element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Base\+Element}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Tag}{, }\item[{\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} $>$ \&}]{p\+Result}{}\end{DoxyParamCaption})}
+
+Search the elements with given tag, push the found results to the end of the given array. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Base\+Element} & Search from this element. \\
+\hline
+{\em p\+Tag} & The given tag. \\
+\hline
+{\em p\+Result} & The array to return the found results. \\
+\hline
+\end{DoxyParams}

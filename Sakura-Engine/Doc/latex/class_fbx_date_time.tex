@@ -1,0 +1,187 @@
+\doxysection{Fbx\+Date\+Time Class Reference}
+\hypertarget{class_fbx_date_time}{}\label{class_fbx_date_time}\index{FbxDateTime@{FbxDateTime}}
+
+
+{\ttfamily \#include $<$fbxpropertytypes.\+h$>$}
+
+\doxysubsubsection*{Operation with string}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_date_time_a283a6c2397087698e188e421a4dc665d}{to\+String}} () const
+\item 
+bool \mbox{\hyperlink{class_fbx_date_time_ad1139b0ea8be739b38956076c5bfd367}{from\+String}} (const char \texorpdfstring{$\ast$}{*})
+\item 
+static \mbox{\hyperlink{class_fbx_date_time}{Fbx\+Date\+Time}} \mbox{\hyperlink{class_fbx_date_time_aa5ad0089f7a32226d003c1785250a274}{current\+Date\+Time\+GMT}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Constructors}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_date_time_a52200472ed4fb706c9c1e376e92732ce}\label{class_fbx_date_time_a52200472ed4fb706c9c1e376e92732ce} 
+{\bfseries Fbx\+Date\+Time} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. Set attributes to 0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_fbx_date_time_a78faa8aca65f60e3238cdbf2d1fa5034}{Fbx\+Date\+Time}} (int p\+Day, int p\+Month, int p\+Year, int p\+Hour, int p\+Min, int p\+Sec, int p\+Millisecond=0)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Boolean operation}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_date_time_a881645b54b976cf8021a716b3046da96}{operator==}} (const \mbox{\hyperlink{class_fbx_date_time}{Fbx\+Date\+Time}} \&p\+RHS) const
+\item 
+bool \mbox{\hyperlink{class_fbx_date_time_a525927fe563bd071b4d4a1a45e1eb251}{operator!=}} (const \mbox{\hyperlink{class_fbx_date_time}{Fbx\+Date\+Time}} \&p\+RHS) const
+\item 
+\Hypertarget{class_fbx_date_time_a56d994c06a311b0cb0007afea1ed24c4}\label{class_fbx_date_time_a56d994c06a311b0cb0007afea1ed24c4} 
+void {\bfseries Clear} ()
+\begin{DoxyCompactList}\small\item\em Set the attributes to 0. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_fbx_date_time_aa48abe1aea0780b94d0db51de1d3fcde}{is\+Valid}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Access}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_date_time_a9ba087e7990d6cf6b3d004bfa2130f01}{set\+Date}} (int p\+Day, int p\+Month, int p\+Year)
+\item 
+void \mbox{\hyperlink{class_fbx_date_time_a6c5353f99f32b23cdf9b9823b476c423}{set\+Time}} (int p\+Hour, int p\+Min, int p\+Sec, int p\+Millisecond=0)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+FBX SDK date\&time class. Property used to store date and time information; not related to a \doxylink{class_fbx_time}{Fbx\+Time}, which is used for film-\/related operations. The date and time property does not make any provisions for UTC, GMT or local zones; this is entirely up to client code to know what they are dealing with. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_date_time_a78faa8aca65f60e3238cdbf2d1fa5034}\index{FbxDateTime@{FbxDateTime}!FbxDateTime@{FbxDateTime}}
+\index{FbxDateTime@{FbxDateTime}!FbxDateTime@{FbxDateTime}}
+\doxysubsubsection{\texorpdfstring{FbxDateTime()}{FbxDateTime()}}
+{\footnotesize\ttfamily \label{class_fbx_date_time_a78faa8aca65f60e3238cdbf2d1fa5034} 
+Fbx\+Date\+Time\+::\+Fbx\+Date\+Time (\begin{DoxyParamCaption}\item[{int}]{p\+Day}{, }\item[{int}]{p\+Month}{, }\item[{int}]{p\+Year}{, }\item[{int}]{p\+Hour}{, }\item[{int}]{p\+Min}{, }\item[{int}]{p\+Sec}{, }\item[{int}]{p\+Millisecond}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+Constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Day} & Day \\
+\hline
+{\em p\+Month} & Month \\
+\hline
+{\em p\+Year} & Year \\
+\hline
+{\em p\+Hour} & Hour \\
+\hline
+{\em p\+Min} & Minute \\
+\hline
+{\em p\+Sec} & Second \\
+\hline
+{\em p\+Millisecond} & Millisecond \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+If one or more argument is invalid, the object is reset to 0. 
+\end{DoxyRemark}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_date_time_aa5ad0089f7a32226d003c1785250a274}\index{FbxDateTime@{FbxDateTime}!currentDateTimeGMT@{currentDateTimeGMT}}
+\index{currentDateTimeGMT@{currentDateTimeGMT}!FbxDateTime@{FbxDateTime}}
+\doxysubsubsection{\texorpdfstring{currentDateTimeGMT()}{currentDateTimeGMT()}}
+{\footnotesize\ttfamily \label{class_fbx_date_time_aa5ad0089f7a32226d003c1785250a274} 
+static \mbox{\hyperlink{class_fbx_date_time}{Fbx\+Date\+Time}} Fbx\+Date\+Time\+::current\+Date\+Time\+GMT (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get date\&time from current date\&time of GMT. \begin{DoxyReturn}{Returns}
+The date\&time equal to current date\&time of GMT. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_date_time_ad1139b0ea8be739b38956076c5bfd367}\index{FbxDateTime@{FbxDateTime}!fromString@{fromString}}
+\index{fromString@{fromString}!FbxDateTime@{FbxDateTime}}
+\doxysubsubsection{\texorpdfstring{fromString()}{fromString()}}
+{\footnotesize\ttfamily \label{class_fbx_date_time_ad1139b0ea8be739b38956076c5bfd367} 
+bool Fbx\+Date\+Time\+::from\+String (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})}
+
+Get date\&time from the string format. \begin{DoxyReturn}{Returns}
+{\ttfamily True}, if get date\&time from the string format successfully, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+! This will only work with the format returned by \doxylink{class_fbx_date_time_a283a6c2397087698e188e421a4dc665d}{to\+String()}; if the format is not the same will return \textquotesingle{}false\textquotesingle{} and the content of this object will remain unchanged. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_date_time_aa48abe1aea0780b94d0db51de1d3fcde}\index{FbxDateTime@{FbxDateTime}!isValid@{isValid}}
+\index{isValid@{isValid}!FbxDateTime@{FbxDateTime}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily \label{class_fbx_date_time_aa48abe1aea0780b94d0db51de1d3fcde} 
+bool Fbx\+Date\+Time\+::is\+Valid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Validates each field is within a normal range (month is 1-\/12, etc). \begin{DoxyReturn}{Returns}
+{\ttfamily True}, if each field is within a normal range, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_date_time_a525927fe563bd071b4d4a1a45e1eb251}\index{FbxDateTime@{FbxDateTime}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!FbxDateTime@{FbxDateTime}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily \label{class_fbx_date_time_a525927fe563bd071b4d4a1a45e1eb251} 
+bool Fbx\+Date\+Time\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_date_time}{Fbx\+Date\+Time}} \&}]{p\+RHS}{}\end{DoxyParamCaption}) const}
+
+Non-\/equivalence operator 
+\begin{DoxyParams}{Parameters}
+{\em p\+RHS} & The date\&time to be compared with this date\&time. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True}, if the two date\&time are not equal, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_date_time_a881645b54b976cf8021a716b3046da96}\index{FbxDateTime@{FbxDateTime}!operator==@{operator==}}
+\index{operator==@{operator==}!FbxDateTime@{FbxDateTime}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_fbx_date_time_a881645b54b976cf8021a716b3046da96} 
+bool Fbx\+Date\+Time\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_date_time}{Fbx\+Date\+Time}} \&}]{p\+RHS}{}\end{DoxyParamCaption}) const}
+
+Equivalence operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+RHS} & The date\&time to be compared with this date\&time. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True}, if the two date\&time are equal, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_date_time_a9ba087e7990d6cf6b3d004bfa2130f01}\index{FbxDateTime@{FbxDateTime}!setDate@{setDate}}
+\index{setDate@{setDate}!FbxDateTime@{FbxDateTime}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}}
+{\footnotesize\ttfamily \label{class_fbx_date_time_a9ba087e7990d6cf6b3d004bfa2130f01} 
+void Fbx\+Date\+Time\+::set\+Date (\begin{DoxyParamCaption}\item[{int}]{p\+Day}{, }\item[{int}]{p\+Month}{, }\item[{int}]{p\+Year}{}\end{DoxyParamCaption})}
+
+Set the date. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Day} & Day to be set. \\
+\hline
+{\em p\+Month} & Month to be set. \\
+\hline
+{\em p\+Year} & Year to be set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+If one or more argument is invalid, the object is reset to 0. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_date_time_a6c5353f99f32b23cdf9b9823b476c423}\index{FbxDateTime@{FbxDateTime}!setTime@{setTime}}
+\index{setTime@{setTime}!FbxDateTime@{FbxDateTime}}
+\doxysubsubsection{\texorpdfstring{setTime()}{setTime()}}
+{\footnotesize\ttfamily \label{class_fbx_date_time_a6c5353f99f32b23cdf9b9823b476c423} 
+void Fbx\+Date\+Time\+::set\+Time (\begin{DoxyParamCaption}\item[{int}]{p\+Hour}{, }\item[{int}]{p\+Min}{, }\item[{int}]{p\+Sec}{, }\item[{int}]{p\+Millisecond}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+Set the time. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Hour} & Hour to be set. \\
+\hline
+{\em p\+Min} & Minute to be set. \\
+\hline
+{\em p\+Sec} & Second to be set. \\
+\hline
+{\em p\+Millisecond} & Millisecond to be set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+If one or more argument is invalid, the object is reset to 0. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_date_time_a283a6c2397087698e188e421a4dc665d}\index{FbxDateTime@{FbxDateTime}!toString@{toString}}
+\index{toString@{toString}!FbxDateTime@{FbxDateTime}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{class_fbx_date_time_a283a6c2397087698e188e421a4dc665d} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+Date\+Time\+::to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the string format from this date\&time. \begin{DoxyReturn}{Returns}
+The string format got from this date\&time. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/\mbox{\hyperlink{fbxpropertytypes_8h}{fbxpropertytypes.\+h}}\end{DoxyCompactItemize}

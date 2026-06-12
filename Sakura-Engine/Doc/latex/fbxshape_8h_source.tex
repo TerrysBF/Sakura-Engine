@@ -1,0 +1,85 @@
+\doxysection{fbxshape.\+h}
+\hypertarget{fbxshape_8h_source}{}\label{fbxshape_8h_source}\index{include/fbx/fbxsdk/scene/geometry/fbxshape.h@{include/fbx/fbxsdk/scene/geometry/fbxshape.h}}
+\mbox{\hyperlink{fbxshape_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_GEOMETRY\_SHAPE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_GEOMETRY\_SHAPE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxgeometrybase_8h}{fbxsdk/scene/geometry/fbxgeometrybase.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_blend_shape_channel}{FbxBlendShapeChannel}};}
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_shape}{FbxShape}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_geometry_base}{FbxGeometryBase}}}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_shape}{FbxShape}},\ \mbox{\hyperlink{class_fbx_geometry_base}{FbxGeometryBase}});}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_shape_a94d153c9cc7e9e116a3b2211dd5fe84a}{SetLegacyStyle}}(\textcolor{keywordtype}{bool}\ pState);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_shape_a94743b0df28b986725d6857a8213f0bd}{IsLegacyStyle}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_shape_a3c43d0beb4b09756dc4f3c809e074f30}{SetAbsoluteMode}}(\textcolor{keywordtype}{bool}\ pAbsolute);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_shape_a3a657cdf685b2e86c479666cf4d9c823}{IsAbsoluteMode}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_shape_ae3e784d16a332f9c874f745846a2980e}{SetBlendShapeChannel}}(\mbox{\hyperlink{class_fbx_blend_shape_channel}{FbxBlendShapeChannel}}*\ pBlendShapeChannel);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{class_fbx_blend_shape_channel}{FbxBlendShapeChannel}}*\ \mbox{\hyperlink{class_fbx_shape_a4be328f87655ba9313f091084d296794}{GetBlendShapeChannel}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ \mbox{\hyperlink{class_fbx_shape_aef5f2b99f712d1f417c1bb8d67a507f1}{GetBaseGeometry}}();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_shape_afd2216f7ace9be5b39f2d5d6dcc8447f}{GetControlPointIndicesCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{class_fbx_shape_afbe4c2916b54981c6321795046d4d28b}{GetControlPointIndices}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_shape_a6c62c9590c9634305a65f50916eaded3}{SetControlPointIndicesCount}}(\textcolor{keywordtype}{int}\ pCount);}
+\DoxyCodeLine{00115\ \ \ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_shape_ac64fb6d8fc185a698a7c982805538e47}{AddControlPointIndex}}(\textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_shape_afe25ad1148c4165f9821cc7bc7b50c94}{Reset}}();}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_shape_abb12c7712c0d76d18c0bd0b2af4dec90}{LegacyStyle}};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_shape_a76e88a31bc5bb0b33bbfea1b81bea65b}{AbsoluteMode}};}
+\DoxyCodeLine{00136\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00137\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00138\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00139\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_shape_a03eccef9ad8709ed65635363e5de17b1}{Compact}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{class_fbx_object}{FbxObject}}\&\ \mbox{\hyperlink{class_fbx_shape_a6b6c8edf8ddad3554aa7b1f3783c1707}{Copy}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ \mbox{\hyperlink{class_fbx_shape_a781ecbbcd95fd427ab5face6220f45ef}{Clone}}(\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}{FbxObject::ECloneType}}\ pCloneType=\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{eDeepClone}},\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pContainer=NULL,\ \textcolor{keywordtype}{void}*\ pSet\ =\ NULL)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00144\ \ \ \ \ }
+\DoxyCodeLine{00145\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_shape_a5de84314ae2261ef814bd7842d8e4b83}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{class_fbx_node_attribute_a08e1669d3d1a696910756ab17de56d6a}{FbxNodeAttribute::EType}}\ \mbox{\hyperlink{class_fbx_shape_a020693e950ffdc92eb804591d251906e}{GetAttributeType}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00148\ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list}{FbxStringList}}\ GetTypeFlags()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\ mControlPointIndices;}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00152\ \};}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_GEOMETRY\_SHAPE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

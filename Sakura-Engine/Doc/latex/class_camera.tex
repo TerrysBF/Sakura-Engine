@@ -1,0 +1,171 @@
+\doxysection{Camera Class Reference}
+\hypertarget{class_camera}{}\label{class_camera}\index{Camera@{Camera}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_camera_af4853696c83a33afe00887b5bc9917d4}{set\+Lens}} (float fov\+YRadians, float aspect\+Ratio, float near\+Plane, float far\+Plane)
+\begin{DoxyCompactList}\small\item\em Configura la proyección en perspectiva (LH). \end{DoxyCompactList}\item 
+\Hypertarget{class_camera_a5c7766c666e9a4997ccb68abda54c6dc}\label{class_camera_a5c7766c666e9a4997ccb68abda54c6dc} 
+void {\bfseries set\+Position} (float x, float y, float z)
+\begin{DoxyCompactList}\small\item\em Define posición en mundo. \end{DoxyCompactList}\item 
+\Hypertarget{class_camera_a1130d29e27fa25b4a2d30189c8ff28e0}\label{class_camera_a1130d29e27fa25b4a2d30189c8ff28e0} 
+void {\bfseries set\+Position} (const \mbox{\hyperlink{class_e_u_1_1_vector3}{EU\+::\+Vector3}} \&pos)
+\begin{DoxyCompactList}\small\item\em Define posición en mundo. \end{DoxyCompactList}\item 
+\Hypertarget{class_camera_a1e671f5b17c948584f8f96900d6d0a36}\label{class_camera_a1e671f5b17c948584f8f96900d6d0a36} 
+\mbox{\hyperlink{class_e_u_1_1_vector3}{EU\+::\+Vector3}} {\bfseries get\+Position} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la posición en mundo. \end{DoxyCompactList}\item 
+\Hypertarget{class_camera_ace19a9d60efcc15d8f146a441287e72a}\label{class_camera_ace19a9d60efcc15d8f146a441287e72a} 
+\mbox{\hyperlink{class_e_u_1_1_vector3}{EU\+::\+Vector3}} \& {\bfseries get\+Position} ()
+\item 
+void \mbox{\hyperlink{class_camera_a858c942714de3a10df6f315d7bc09eee}{look\+At}} (const \mbox{\hyperlink{class_e_u_1_1_vector3}{EU\+::\+Vector3}} \&pos, const \mbox{\hyperlink{class_e_u_1_1_vector3}{EU\+::\+Vector3}} \&target, const \mbox{\hyperlink{class_e_u_1_1_vector3}{EU\+::\+Vector3}} \&up=\mbox{\hyperlink{class_e_u_1_1_vector3}{EU\+::\+Vector3}}(0, 1, 0))
+\begin{DoxyCompactList}\small\item\em Fuerza la cámara a mirar a un objetivo (LH). \end{DoxyCompactList}\item 
+\Hypertarget{class_camera_acd78745566072ab2a2cc859c538ea319}\label{class_camera_acd78745566072ab2a2cc859c538ea319} 
+void {\bfseries walk} (float d)
+\begin{DoxyCompactList}\small\item\em Movimiento relativo a la cámara (adelante/atrás). \end{DoxyCompactList}\item 
+\Hypertarget{class_camera_a6b6687be260b7a95cb74d5d9b76cfca0}\label{class_camera_a6b6687be260b7a95cb74d5d9b76cfca0} 
+void {\bfseries strafe} (float d)
+\begin{DoxyCompactList}\small\item\em Movimiento relativo a la cámara (izquierda/derecha). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_ac70edb013174eedad8717d58bcb14cb9}{yaw}} (float radians)
+\begin{DoxyCompactList}\small\item\em Rotación sobre el eje Y global (yaw). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a06621e3ed9d7ed7599f36a9fe5d51148}{pitch}} (float radians)
+\begin{DoxyCompactList}\small\item\em Rotación sobre el eje Right local (pitch). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a8fe5c71a390571a861ad8afd99dfdea3}{update\+View\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em Recalcula la matriz View si es necesario. \end{DoxyCompactList}\item 
+\Hypertarget{class_camera_a03d847434719699646faaddd10c2be10}\label{class_camera_a03d847434719699646faaddd10c2be10} 
+XMMATRIX {\bfseries get\+View} () const
+\begin{DoxyCompactList}\small\item\em Matriz View (mundo-\/\texorpdfstring{$>$}{>}vista). \end{DoxyCompactList}\item 
+\Hypertarget{class_camera_a4f3e342007ed86297a8059680311b931}\label{class_camera_a4f3e342007ed86297a8059680311b931} 
+XMMATRIX {\bfseries get\+Proj} () const
+\begin{DoxyCompactList}\small\item\em Matriz Projection (vista-\/\texorpdfstring{$>$}{>}clip). \end{DoxyCompactList}\item 
+XMMATRIX \mbox{\hyperlink{class_camera_acda6c9f6ba001f44287e7cf82a91ce1d}{Get\+View\+No\+Translation}} () const
+\begin{DoxyCompactList}\small\item\em View sin traslación (solo rotación). Ideal para \doxylink{class_skybox}{Skybox}. \end{DoxyCompactList}\item 
+\Hypertarget{class_camera_a805e0c1497f238b14134fb374a0fee7a}\label{class_camera_a805e0c1497f238b14134fb374a0fee7a} 
+float {\bfseries get\+FovY} () const
+\begin{DoxyCompactList}\small\item\em Devuelve parámetros de proyección (útil para UI/debug). \end{DoxyCompactList}\item 
+\Hypertarget{class_camera_afefa21a6da1e9b1ff1a39c6eaf01c428}\label{class_camera_afefa21a6da1e9b1ff1a39c6eaf01c428} 
+float {\bfseries get\+Aspect} () const
+\item 
+\Hypertarget{class_camera_a57d4851982072dc82dfe70a9e3078565}\label{class_camera_a57d4851982072dc82dfe70a9e3078565} 
+float {\bfseries get\+NearZ} () const
+\item 
+\Hypertarget{class_camera_a038b1264c546680d80f7292422872327}\label{class_camera_a038b1264c546680d80f7292422872327} 
+float {\bfseries get\+FarZ} () const
+\item 
+\Hypertarget{class_camera_ae2ad1eda8e7727a6abd690fc986cbdbf}\label{class_camera_ae2ad1eda8e7727a6abd690fc986cbdbf} 
+\mbox{\hyperlink{class_e_u_1_1_vector3}{EU\+::\+Vector3}} {\bfseries Get\+Right} () const
+\begin{DoxyCompactList}\small\item\em Vectores base (mundo) de la cámara. \end{DoxyCompactList}\item 
+\Hypertarget{class_camera_ab533c9adf3dd3cb15f83bd30f99a528d}\label{class_camera_ab533c9adf3dd3cb15f83bd30f99a528d} 
+\mbox{\hyperlink{class_e_u_1_1_vector3}{EU\+::\+Vector3}} {\bfseries Get\+Up} () const
+\item 
+\Hypertarget{class_camera_a8a3d6925a41ec6d9fc372b2ae329f688}\label{class_camera_a8a3d6925a41ec6d9fc372b2ae329f688} 
+\mbox{\hyperlink{class_e_u_1_1_vector3}{EU\+::\+Vector3}} {\bfseries Get\+Forward} () const
+\item 
+\Hypertarget{class_camera_a54b6972e36d43024150694e82f1a1d49}\label{class_camera_a54b6972e36d43024150694e82f1a1d49} 
+\mbox{\hyperlink{class_e_u_1_1_vector3}{EU\+::\+Vector3}} {\bfseries From\+XM} (FXMVECTOR v)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_camera_acda6c9f6ba001f44287e7cf82a91ce1d}\index{Camera@{Camera}!GetViewNoTranslation@{GetViewNoTranslation}}
+\index{GetViewNoTranslation@{GetViewNoTranslation}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{GetViewNoTranslation()}{GetViewNoTranslation()}}
+{\footnotesize\ttfamily \label{class_camera_acda6c9f6ba001f44287e7cf82a91ce1d} 
+XMMATRIX Camera\+::\+Get\+View\+No\+Translation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+View sin traslación (solo rotación). Ideal para \doxylink{class_skybox}{Skybox}. 
+
+{\bfseries{Aplicación práctica}}
+\begin{DoxyItemize}
+\item \doxylink{class_skybox}{Skybox}\+: View\+No\+Translation \texorpdfstring{$\ast$}{*} Proj 
+\end{DoxyItemize}\Hypertarget{class_camera_a858c942714de3a10df6f315d7bc09eee}\index{Camera@{Camera}!lookAt@{lookAt}}
+\index{lookAt@{lookAt}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{lookAt()}{lookAt()}}
+{\footnotesize\ttfamily \label{class_camera_a858c942714de3a10df6f315d7bc09eee} 
+void Camera\+::look\+At (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_e_u_1_1_vector3}{EU\+::\+Vector3}} \&}]{pos}{, }\item[{const \mbox{\hyperlink{class_e_u_1_1_vector3}{EU\+::\+Vector3}} \&}]{target}{, }\item[{const \mbox{\hyperlink{class_e_u_1_1_vector3}{EU\+::\+Vector3}} \&}]{up}{ = {\ttfamily \mbox{\hyperlink{class_e_u_1_1_vector3}{EU\+::\+Vector3}}(0,~1,~0)}}\end{DoxyParamCaption})}
+
+
+
+Fuerza la cámara a mirar a un objetivo (LH). 
+
+{\bfseries{Pasos}}
+\begin{DoxyItemize}
+\item Calcula basis a partir de (target -\/ pos).
+\item Normaliza Forward, Right y Up.
+\item Marca dirty para recalcular View.
+\end{DoxyItemize}
+
+{\bfseries{Aplicación práctica}}
+\begin{DoxyItemize}
+\item Cinemáticas simples o cámaras orbit. 
+\end{DoxyItemize}\Hypertarget{class_camera_a06621e3ed9d7ed7599f36a9fe5d51148}\index{Camera@{Camera}!pitch@{pitch}}
+\index{pitch@{pitch}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{pitch()}{pitch()}}
+{\footnotesize\ttfamily \label{class_camera_a06621e3ed9d7ed7599f36a9fe5d51148} 
+void Camera\+::pitch (\begin{DoxyParamCaption}\item[{float}]{radians}{}\end{DoxyParamCaption})}
+
+
+
+Rotación sobre el eje Right local (pitch). 
+
+{\bfseries{Aplicación práctica}}
+\begin{DoxyItemize}
+\item Mouse Y para FPS. 
+\end{DoxyItemize}\Hypertarget{class_camera_af4853696c83a33afe00887b5bc9917d4}\index{Camera@{Camera}!setLens@{setLens}}
+\index{setLens@{setLens}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{setLens()}{setLens()}}
+{\footnotesize\ttfamily \label{class_camera_af4853696c83a33afe00887b5bc9917d4} 
+void Camera\+::set\+Lens (\begin{DoxyParamCaption}\item[{float}]{fov\+YRadians}{, }\item[{float}]{aspect\+Ratio}{, }\item[{float}]{near\+Plane}{, }\item[{float}]{far\+Plane}{}\end{DoxyParamCaption})}
+
+
+
+Configura la proyección en perspectiva (LH). 
+
+{\bfseries{Pasos}}
+\begin{DoxyItemize}
+\item Calcula la matriz de proyección con XMMatrix\+Perspective\+Fov\+LH.
+\item Guarda FOV, aspect, near y far para debug/inspección.
+\end{DoxyItemize}
+
+{\bfseries{Aplicación práctica}}
+\begin{DoxyItemize}
+\item Llamar al inicializar ventana y al cambiar resolución. 
+\end{DoxyItemize}\Hypertarget{class_camera_a8fe5c71a390571a861ad8afd99dfdea3}\index{Camera@{Camera}!updateViewMatrix@{updateViewMatrix}}
+\index{updateViewMatrix@{updateViewMatrix}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{updateViewMatrix()}{updateViewMatrix()}}
+{\footnotesize\ttfamily \label{class_camera_a8fe5c71a390571a861ad8afd99dfdea3} 
+void Camera\+::update\+View\+Matrix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Recalcula la matriz View si es necesario. 
+
+{\bfseries{Pasos}}
+\begin{DoxyItemize}
+\item Reconstruye basis ortonormal (Right/\+Up/\+Forward).
+\item Calcula View con XMMatrix\+Look\+To\+LH.
+\end{DoxyItemize}
+
+{\bfseries{Aplicación práctica}}
+\begin{DoxyItemize}
+\item Llamar una vez por frame antes de render. 
+\end{DoxyItemize}\Hypertarget{class_camera_ac70edb013174eedad8717d58bcb14cb9}\index{Camera@{Camera}!yaw@{yaw}}
+\index{yaw@{yaw}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{yaw()}{yaw()}}
+{\footnotesize\ttfamily \label{class_camera_ac70edb013174eedad8717d58bcb14cb9} 
+void Camera\+::yaw (\begin{DoxyParamCaption}\item[{float}]{radians}{}\end{DoxyParamCaption})}
+
+
+
+Rotación sobre el eje Y global (yaw). 
+
+{\bfseries{Aplicación práctica}}
+\begin{DoxyItemize}
+\item Mouse X para FPS. 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Engine\+Utilities/\+Utilities/\mbox{\hyperlink{_camera_8h}{Camera.\+h}}\item 
+source/\mbox{\hyperlink{_camera_8cpp}{Camera.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,251 @@
+\doxysection{fbxpropertyhandle.\+h}
+\hypertarget{fbxpropertyhandle_8h_source}{}\label{fbxpropertyhandle_8h_source}\index{include/fbx/fbxsdk/core/fbxpropertyhandle.h@{include/fbx/fbxsdk/core/fbxpropertyhandle.h}}
+\mbox{\hyperlink{fbxpropertyhandle_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_PROPERTY\_HANDLE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_PROPERTY\_HANDLE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxconnectionpoint_8h}{fbxsdk/core/fbxconnectionpoint.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpropertytypes_8h}{fbxsdk/core/fbxpropertytypes.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpropertydef_8h}{fbxsdk/core/fbxpropertydef.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_property_page}{FbxPropertyPage}};}
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_property_handle}{FbxPropertyHandle}};}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_connection_point_filter}{FbxConnectionPointFilter}};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_a347190a2078177d88598a7cd898eb811}{Create}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_a0bd5893a117b68102c6ce852c6910859}{Create}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pInstanceOf);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_abaec4c3b07728510a42c9205fcdb2f53}{Create}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pType=\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a150b400dddd0f8b5c7e22a1bba0721d8}{eFbxUndefined}});}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_a4f3c6191091b367a05d58984a49e8229}{Create}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ pTypeInfo);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_ae7c07b84a008fbf8395375856a2b303a}{Destroy}}();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_ad95e794ff4c44aed3b73c6dabd4475da}{FbxPropertyHandle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pAddress);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_aaec3772d479b172d41c4b7585393fb14}{\string~FbxPropertyHandle}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_adabd811d9e65f311dbbd5852abac7062}{FbxPropertyHandle}}(\mbox{\hyperlink{class_fbx_property_page}{FbxPropertyPage}}*\ pPage,\ FbxInt\ pId=FBXSDK\_PROPERTY\_ID\_ROOT);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ \mbox{\hyperlink{class_fbx_property_handle_ab9fcfce2cc1b1187621b3f1dac0120bb}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pHandle);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_aee6f973f1c78f4dbd6f98fd4f3766016}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pHandle)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a551b2ce6d554279f23f11a1a1bbdc935}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pHandle)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator<\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pHandle)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator>\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pHandle)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_ab709acfb7bc25ce784c4453b3004a730}{Is}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pHandle)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_ae9e85fda97a40a94361ed91c6127f5a1}{Valid}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_property_handle_a3eb89fe9678ae7fc4da06a12ebe37116}{GetName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_property_handle_a9ddb8f21732606a0dfb5bccb15794d79}{GetLabel}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a501ee2ee91a27619728afeb7d69b5936}{SetLabel}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pLabel);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ \mbox{\hyperlink{class_fbx_property_handle_a4f2ce11ebf2828418cb1d3d65feb341f}{GetType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_a84818af34da6e4d496e2d7e787c5a758}{GetTypeInfo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a3283a9c3b0cca5cdb058751a90d794c2}{GetFlags}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00128\ \ \ \ \ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8}{FbxPropertyFlags::EInheritType}}\ \mbox{\hyperlink{class_fbx_property_handle_a90978a4383e1fc31bca8944dc35e39cd}{GetFlagsInheritType}}(\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlags,\ \textcolor{keywordtype}{bool}\ pCheckReferences)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_aa5f4add93321ecbb6afb016bbf9ecc21}{ModifyFlags}}(\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlags,\ \textcolor{keywordtype}{bool}\ pValue);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_af26f5ca742328a6894bd89ae80ef9c86}{SetFlagsInheritType}}(\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlags,\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8}{FbxPropertyFlags::EInheritType}}\ pType);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_fbx_property_handle_a3a16276cbe22d1fd1e1360147c82bf5f}{GetUserData}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_ac8ae1291fa5e34f1eb1373a42e8245c8}{SetUserData}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pUserData);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_handle_a9ce046fde2818e1e90782fea7b3294c9}{GetUserTag}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a41eff619689a61cf283d9913429a6221}{SetUserTag}}(\textcolor{keywordtype}{int}\ pUserData);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_handle_acae1f5d8ca9ae53a6a926179913bea07}{AddEnumValue}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pStringValue);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_handle_ab7e634de872eec9ff5fa59e88a000f79}{InsertEnumValue}}(\textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pStringValue);}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_handle_a2402b4e7a56046ebb4f1b941a447b197}{GetEnumCount}}();}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_handle_aa558ce3c342afbf4331fa941dc4fcd32}{SetEnumValue}}(\textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pStringValue);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_handle_ad57e9833aa4c0815954b0a87d1c83fae}{RemoveEnumValue}}(\textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_property_handle_af62d06979556fb02d8b654821844d093}{GetEnumValue}}(\textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_handle_a1845e4c188e4557e44a1052c5d03d08f}{BeginCreateOrFindProperty}}();}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_handle_a05f9bc5dcbb93bbde02ffc6c7b640632}{EndCreateOrFindProperty}}();}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_ab1da9089aefb10740cdb3aad0754d200}{IsRoot}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (\ mPage\ \&\&\ mId\ ==\ 0\ )\ ?\ true\ :\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a8181cf2b414e45cb3fd0cdef8d60fb33}{IsChildOf}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pParent)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_af6d512f55181fbaf2f973aa33ebd1a34}{IsDescendentOf}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pParent)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a4ce451166cd44ea838b4e4f1b5a8e8ad}{SetParent}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pOther\ );}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_afcbe2140bff2342bc216f392d6132bb6}{Add}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pTypeInfo);}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_a10599909c3fc0a5bdfba5b7dc05f8ec6}{GetParent}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_a6160671cde8bff49fe5552ea9bdde1cd}{GetChild}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_a216afaae427671182799347b99a1eb12}{GetSibling}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_a89892765ba818c194c4615bb84ea0c8c}{GetFirstDescendent}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_a9285a1cf6dbf3854335a0a05eaf1d95f}{GetNextDescendent}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pHandle)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_a51b81ef0ee996b87dd832c6f99122437}{Find}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keywordtype}{bool}\ pCaseSensitive)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_acda982c21cb2db55366500ff9da43322}{Find}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pTypeInfo,\ \textcolor{keywordtype}{bool}\ pCaseSensitive)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_aa5206f41665802f16347ba4907e16519}{Find}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pChildrenSeparator,\ \textcolor{keywordtype}{bool}\ pCaseSensitive)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_a9607ca887e5b2f7b369770fab746b7e0}{Find}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pChildrenSeparator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pTypeInfo,\ \textcolor{keywordtype}{bool}\ pCaseSensitive)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a9682cef8ffadfe43c594a9cf787879b1}{ConnectSrc}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pSrc,\ \textcolor{keyword}{const}\ FbxConnection::EType\ pType=FbxConnection::eDefault);\ }
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_handle_a10398afdaf865adc314f65ed0e689638}{GetSrcCount}}(\mbox{\hyperlink{class_fbx_connection_point_filter}{FbxConnectionPointFilter}}*\ pFilter=0)\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_a989f15be760ea7608b8db6f9090f1235}{GetSrc}}(\mbox{\hyperlink{class_fbx_connection_point_filter}{FbxConnectionPointFilter}}*\ pFilter=0,\ \textcolor{keywordtype}{int}\ pIndex=0)\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a1e7e6be842dac23fce8708f182e9e8c3}{DisconnectSrc}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pSrc);}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_acf4c1984ce8574d2cb6e1300d4d3d1d6}{IsConnectedSrc}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pSrc);}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_aae1fece6b331a3d0550df3258a89ac82}{ConnectDst}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pDst,\ \textcolor{keyword}{const}\ FbxConnection::EType\ pType=FbxConnection::eDefault);\ }
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_handle_a68e17d22df7c1a31bf4314ecef210b8b}{GetDstCount}}(\mbox{\hyperlink{class_fbx_connection_point_filter}{FbxConnectionPointFilter}}*\ pFilter=0)\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\ \mbox{\hyperlink{class_fbx_property_handle_a2e08af666df12d6e0a9e246fd67724b4}{GetDst}}(\mbox{\hyperlink{class_fbx_connection_point_filter}{FbxConnectionPointFilter}}*\ pFilter=0,\ \textcolor{keywordtype}{int}\ pIndex=0)\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a896af2c51a9e9b1c9cc45c20b0c17801}{DisconnectDst}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pDst);}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_adf42d55aa7e6ce3f4389c73fe45f4adc}{IsConnectedDst}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle_a6353ed814add637287bf3a86a4d097be}{FbxPropertyHandle}}\&\ pDst);}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_handle_a7c7d33409675381ba019ac3a2d67c372}{ClearConnectCache}}();}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_handle_abac85431f7a869fe1cf8a8cb1e8097ec}{WipeAllConnections}}();}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a08cf85e6eda102f161bcb3c578e6c17b}{HasMin}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a722440b0f9ee5b206e38fe06c375ec4d}{GetMin}}(\textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a699f3d09a345e575b75ebe97c089b82c}{SetMin}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType);}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_ab37a7e2831a4ca20879d4b8b57877361}{SetMin}}(\textcolor{keyword}{const}\ T\&\ pValue)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_handle_ab37a7e2831a4ca20879d4b8b57877361}{SetMin}}(\&pValue,\ FbxTypeOf(pValue));\ \}}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{class_fbx_property_handle_a82ce751c67e19e87294a0083f09133c6}{GetMin}}(\textcolor{keyword}{const}\ T*\ pFBX\_TYPE)\textcolor{keyword}{\ const\ }\{\ T\ lValue;\ \mbox{\hyperlink{class_fbx_property_handle_a82ce751c67e19e87294a0083f09133c6}{GetMin}}(\&lValue,\ FbxTypeOf(lValue));\ \textcolor{keywordflow}{return}\ lValue;\ \}}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a487afcc8d481a7a64b0087e2bf313c94}{HasSoftMin}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a879e886ad129d780a9343def15bead82}{GetSoftMin}}(\textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_af70fa8b28c77e394928d4e1e7cabe50d}{SetSoftMin}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType);}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a636d40ff360385c71587813842f6d004}{SetSoftMin}}(\textcolor{keyword}{const}\ T\&\ pValue)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_handle_a636d40ff360385c71587813842f6d004}{SetSoftMin}}(\&pValue,\ FbxTypeOf(pValue));\ \}}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{class_fbx_property_handle_a1f2a64b0088928db88a25dccb7c7d190}{GetSoftMin}}(\textcolor{keyword}{const}\ T*\ pFBX\_TYPE)\textcolor{keyword}{\ const\ }\{\ T\ lValue;\ \mbox{\hyperlink{class_fbx_property_handle_a1f2a64b0088928db88a25dccb7c7d190}{GetSoftMin}}(\&lValue,\ FbxTypeOf(lValue));\ \textcolor{keywordflow}{return}\ lValue;\ \}}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_ac14373e76b24b0b6ba5d99f9fef10a5f}{HasMax}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a4752eebe7303b15577355b8fbecd4c6b}{GetMax}}(\textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a5e41a6d59cd7a1b1c0325b7cf4476285}{SetMax}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType);}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_abda2411b3b6fb98963c1009b3c2e1425}{SetMax}}(\textcolor{keyword}{const}\ T\&\ pValue)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_handle_abda2411b3b6fb98963c1009b3c2e1425}{SetMax}}(\&pValue,\ FbxTypeOf(pValue));\ \}}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{class_fbx_property_handle_a170bbeb8c9dc5a4a1a1de93a9328f897}{GetMax}}(\textcolor{keyword}{const}\ T*\ pFBX\_TYPE)\textcolor{keyword}{\ const\ }\{\ T\ lValue;\ \mbox{\hyperlink{class_fbx_property_handle_a170bbeb8c9dc5a4a1a1de93a9328f897}{GetMax}}(\&lValue,\ FbxTypeOf(lValue));\ \textcolor{keywordflow}{return}\ lValue;\ \}}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_ad89e57bd3b7cfe2758d8b95f252b8b9f}{HasSoftMax}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a2cc9715f192ec19f46f4baaef4baf075}{GetSoftMax}}(\textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_ad4303ec2be34fb9d619fc98e68486784}{SetSoftMax}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType);}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a2581fff85d3c2e73c99d16f2b9c1a66e}{SetSoftMax}}(\textcolor{keyword}{const}\ T\&\ pValue)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_handle_a2581fff85d3c2e73c99d16f2b9c1a66e}{SetSoftMax}}(\&pValue,\ FbxTypeOf(pValue));\ \}}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{class_fbx_property_handle_a302beaa7745f9f5f3cd92e7b4f42d576}{GetSoftMax}}(\textcolor{keyword}{const}\ T*\ pFBX\_TYPE)\textcolor{keyword}{\ const\ }\{\ T\ lValue;\ \mbox{\hyperlink{class_fbx_property_handle_a302beaa7745f9f5f3cd92e7b4f42d576}{GetSoftMax}}(\&lValue,\ FbxTypeOf(lValue));\ \textcolor{keywordflow}{return}\ lValue;\ \}}
+\DoxyCodeLine{00475\ }
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8}{FbxPropertyFlags::EInheritType}}\ \mbox{\hyperlink{class_fbx_property_handle_a899c4594086890878626f4755da6c690}{GetValueInheritType}}(\textcolor{keywordtype}{bool}\ pCheckReferences)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a3f03d6a87ab11bffdd30923485272f4a}{SetValueInheritType}}(\mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8}{FbxPropertyFlags::EInheritType}}\ pType);}
+\DoxyCodeLine{00489\ }
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a921ee7d24d875d04ae00037b7e9fb4dc}{GetDefaultValue}}(\textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a0fe268c3bc03617fda8f7ab33830f5c4}{Get}}(\textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a9beb20c6080c4f51fb01a547cc53807f}{Set}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType,\ \textcolor{keywordtype}{bool}\ pCheckValueEquality);}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_adb42ced01547310727f58275d2a9463c}{Set}}(\textcolor{keyword}{const}\ T\&\ pValue)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_handle_adb42ced01547310727f58275d2a9463c}{Set}}(\&pValue,\ FbxTypeOf(pValue));\ \}}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{class_fbx_property_handle_af67a0926e9905c19cc7b2a60b4d89adb}{Get}}(\textcolor{keyword}{const}\ T*\ pFBX\_TYPE)\textcolor{keyword}{\ const\ }\{\ T\ lValue;\ \mbox{\hyperlink{class_fbx_property_handle_af67a0926e9905c19cc7b2a60b4d89adb}{Get}}(\&lValue,\ FbxTypeOf(lValue));\ \textcolor{keywordflow}{return}\ lValue;\ \}}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00525\ }
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_handle_ac980bb1090ea5fd32c9587e3f0b9ac9b}{SetPageDataPtr}}(\textcolor{keywordtype}{void}*\ pData);}
+\DoxyCodeLine{00528\ }
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_fbx_property_handle_a5b1a49f08687f8020c2bbfb9ae55d005}{GetPageDataPtr}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00533\ }
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a94d8590ac684a0a0895e399396b79c52}{PushPropertiesToParentInstance}}();}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00547\ }
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_ae33624da8a0ccfd5bb44a5f12f6f0a81}{IsAReferenceTo}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00550\ }
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_fbx_property_handle_a7c55f6820007d1c9d336b938f55f9d3e}{GetReferenceTo}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00554\ }
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_handle_a832e6f2916497d538658f6eddc56dbc7}{IsReferencedBy}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00558\ }
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_handle_ac5fb2c38abc682f2151960ed4286f3ca}{GetReferencedByCount}}(\textcolor{keywordtype}{void})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00562\ }
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ FBX\_DEPRECATED\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_fbx_property_handle_a109bf50e19824ad1be7646bd9002ce41}{GetReferencedBy}}(\textcolor{keywordtype}{int}\ pIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00567\ }
+\DoxyCodeLine{00571\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_handle_a638e652e1ec877fa3b3a73b2ec66b62e}{GetReferencedBy}}(\mbox{\hyperlink{class_fbx_array}{FbxArray<void*>}}\&\ pReferencedBy)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00573\ }
+\DoxyCodeLine{00574\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00575\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_page}{FbxPropertyPage}}*\ mPage;}
+\DoxyCodeLine{00576\ \ \ \ \ FbxInt\ \ \ \ \ \ \ \ \ \ \ \ \ \ mId;}
+\DoxyCodeLine{00577\ \};}
+\DoxyCodeLine{00578\ }
+\DoxyCodeLine{00579\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00580\ }
+\DoxyCodeLine{00581\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_PROPERTY\_HANDLE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

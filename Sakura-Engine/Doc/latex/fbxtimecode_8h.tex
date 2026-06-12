@@ -1,0 +1,235 @@
+\doxysection{include/fbx/fbxsdk/core/base/fbxtimecode.h File Reference}
+\hypertarget{fbxtimecode_8h}{}\label{fbxtimecode_8h}\index{include/fbx/fbxsdk/core/base/fbxtimecode.h@{include/fbx/fbxsdk/core/base/fbxtimecode.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxtimecode_8h_a9fae804d52d18c40a0ecac9a603d5403}\label{fbxtimecode_8h_a9fae804d52d18c40a0ecac9a603d5403} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+ZERO}~FBXSDK\+\_\+\+LONGLONG(0)
+\item 
+\Hypertarget{fbxtimecode_8h_afc4f630fd3603ad9150a9734cbb715ea}\label{fbxtimecode_8h_afc4f630fd3603ad9150a9734cbb715ea} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+EPSILON}~FBXSDK\+\_\+\+LONGLONG(1)
+\item 
+\Hypertarget{fbxtimecode_8h_a9a0f605afb2cca1afcbf75e9c75adae9}\label{fbxtimecode_8h_a9a0f605afb2cca1afcbf75e9c75adae9} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MINFINITY}~FBXSDK\+\_\+\+LONGLONG(-\/0x7fffffffffffffff)
+\item 
+\Hypertarget{fbxtimecode_8h_a870252df1314c84b2fa2dd559491d16f}\label{fbxtimecode_8h_a870252df1314c84b2fa2dd559491d16f} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+INFINITY}~FBXSDK\+\_\+\+LONGLONG(0x7fffffffffffffff)
+\item 
+\Hypertarget{fbxtimecode_8h_a2f19e3072a4e995666abdd7acf6757b7}\label{fbxtimecode_8h_a2f19e3072a4e995666abdd7acf6757b7} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+FIX\+\_\+\+DEN}~FBXSDK\+\_\+\+LONGLONG(100000000)
+\item 
+\Hypertarget{fbxtimecode_8h_acf3a144c26418dd9a8f7afd9e7ec0150}\label{fbxtimecode_8h_acf3a144c26418dd9a8f7afd9e7ec0150} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+LEGACY\+\_\+\+MILLISECOND}~FBXSDK\+\_\+\+LONGLONG(46186158)
+\item 
+\Hypertarget{fbxtimecode_8h_a080147dc6ba66033eaacc631be94c9e2}\label{fbxtimecode_8h_a080147dc6ba66033eaacc631be94c9e2} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+LEGACY\+\_\+\+SECOND}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+LEGACY\+\_\+\+MILLISECOND\texorpdfstring{$\ast$}{*}1000)
+\item 
+\Hypertarget{fbxtimecode_8h_a31017790fa923bf604549234066a2656}\label{fbxtimecode_8h_a31017790fa923bf604549234066a2656} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MILLISECOND}~FBXSDK\+\_\+\+LONGLONG(141120)
+\item 
+\Hypertarget{fbxtimecode_8h_aa1f34b73128e2c45d659f094661c8e10}\label{fbxtimecode_8h_aa1f34b73128e2c45d659f094661c8e10} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+SECOND}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MILLISECOND\texorpdfstring{$\ast$}{*}1000)
+\item 
+\Hypertarget{fbxtimecode_8h_a4cd8a1f8c95bafb8813a4a73962ba471}\label{fbxtimecode_8h_a4cd8a1f8c95bafb8813a4a73962ba471} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MINUTE}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+SECOND\texorpdfstring{$\ast$}{*}60)
+\item 
+\Hypertarget{fbxtimecode_8h_a8b2ae758402e61ddb3282eb98df33e4d}\label{fbxtimecode_8h_a8b2ae758402e61ddb3282eb98df33e4d} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+HOUR}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MINUTE\texorpdfstring{$\ast$}{*}60)
+\item 
+\Hypertarget{fbxtimecode_8h_a1579251c7281655aa65dde8ccb010755}\label{fbxtimecode_8h_a1579251c7281655aa65dde8ccb010755} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+DAY}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+HOUR\texorpdfstring{$\ast$}{*}24)
+\item 
+\Hypertarget{fbxtimecode_8h_a072d9c5ee4abcf93180b5e9860827f82}\label{fbxtimecode_8h_a072d9c5ee4abcf93180b5e9860827f82} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+NTSC\+\_\+\+FIELD}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+SECOND/30/2)
+\item 
+\Hypertarget{fbxtimecode_8h_af1908fd70136690b32da01abe3a9b0c7}\label{fbxtimecode_8h_af1908fd70136690b32da01abe3a9b0c7} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+NTSC\+\_\+\+FRAME}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+SECOND/30)
+\item 
+\Hypertarget{fbxtimecode_8h_aa7e7f3312f708fc001ddbe06759abcbd}\label{fbxtimecode_8h_aa7e7f3312f708fc001ddbe06759abcbd} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+\+FIELD}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+\+FRAME/2)
+\item 
+\Hypertarget{fbxtimecode_8h_ad076d59c071b852e052a25a9e1399a25}\label{fbxtimecode_8h_ad076d59c071b852e052a25a9e1399a25} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+\+FRAME}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+SECOND/30\texorpdfstring{$\ast$}{*}1001/1000)
+\item 
+\Hypertarget{fbxtimecode_8h_ae861f5ccc0675b33d5b1ee627f215671}\label{fbxtimecode_8h_ae861f5ccc0675b33d5b1ee627f215671} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+2\+\_\+\+FRAMES}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+\+FRAME\texorpdfstring{$\ast$}{*}2)
+\item 
+\Hypertarget{fbxtimecode_8h_a73393e5f400930cbe4ba99318e70e2dc}\label{fbxtimecode_8h_a73393e5f400930cbe4ba99318e70e2dc} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+30\+\_\+\+FRAMES}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+\+FRAME\texorpdfstring{$\ast$}{*}30)
+\item 
+\Hypertarget{fbxtimecode_8h_a058c2cce5db842a2781438bf7d0a29d3}\label{fbxtimecode_8h_a058c2cce5db842a2781438bf7d0a29d3} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+1798\+\_\+\+FRAMES}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+\+FRAME\texorpdfstring{$\ast$}{*}1798)
+\item 
+\Hypertarget{fbxtimecode_8h_ae55a3c3677ed99558954e8a1ce367e36}\label{fbxtimecode_8h_ae55a3c3677ed99558954e8a1ce367e36} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+1800\+\_\+\+FRAMES}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+\+FRAME\texorpdfstring{$\ast$}{*}1800)
+\item 
+\Hypertarget{fbxtimecode_8h_aeb4e4dabcf35670f866b7e2a9c7eb3d8}\label{fbxtimecode_8h_aeb4e4dabcf35670f866b7e2a9c7eb3d8} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+17982\+\_\+\+FRAMES}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+\+FRAME\texorpdfstring{$\ast$}{*}17982)
+\item 
+\Hypertarget{fbxtimecode_8h_a972bf1877791608b1c39c15c1656288e}\label{fbxtimecode_8h_a972bf1877791608b1c39c15c1656288e} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+107892\+\_\+\+FRAMES}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+\+FRAME\texorpdfstring{$\ast$}{*}107892)
+\item 
+\Hypertarget{fbxtimecode_8h_a948ab3598fc26113d42f3dc352db5bda}\label{fbxtimecode_8h_a948ab3598fc26113d42f3dc352db5bda} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+108000\+\_\+\+FRAMES}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+\+FRAME\texorpdfstring{$\ast$}{*}108000)
+\item 
+\Hypertarget{fbxtimecode_8h_a11b5c6ce3f626707bca9b8ec20c42994}\label{fbxtimecode_8h_a11b5c6ce3f626707bca9b8ec20c42994} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+1\+\_\+\+SECOND}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+\+FRAME\texorpdfstring{$\ast$}{*}30)
+\item 
+\Hypertarget{fbxtimecode_8h_a8159ca6121228ae794e3c61c351313e8}\label{fbxtimecode_8h_a8159ca6121228ae794e3c61c351313e8} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+1\+\_\+\+MINUTE}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+1\+\_\+\+SECOND\texorpdfstring{$\ast$}{*}60)
+\item 
+\Hypertarget{fbxtimecode_8h_a8f3deecadf77db5e03bdfa35eba93dcc}\label{fbxtimecode_8h_a8f3deecadf77db5e03bdfa35eba93dcc} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+1\+\_\+\+HOUR}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+1\+\_\+\+SECOND\texorpdfstring{$\ast$}{*}3600)
+\item 
+\Hypertarget{fbxtimecode_8h_a54faa4c1ead3d18e867ef0537bdaa6eb}\label{fbxtimecode_8h_a54faa4c1ead3d18e867ef0537bdaa6eb} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+\+NUM}~Fbx\+ULong(FBXSDK\+\_\+\+TC\+\_\+\+FIX\+\_\+\+DEN\texorpdfstring{$\ast$}{*}1000\texorpdfstring{$\ast$}{*}30/1001)
+\item 
+\Hypertarget{fbxtimecode_8h_af10fbbf09946257dfb2ca4ecf60fba0c}\label{fbxtimecode_8h_af10fbbf09946257dfb2ca4ecf60fba0c} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MNTSC\+\_\+\+DEN}~FBXSDK\+\_\+\+TC\+\_\+\+FIX\+\_\+\+DEN
+\item 
+\Hypertarget{fbxtimecode_8h_a77102a168301141ac9c05a91cf0392fb}\label{fbxtimecode_8h_a77102a168301141ac9c05a91cf0392fb} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+PAL\+\_\+\+FIELD}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+SECOND/25/2)
+\item 
+\Hypertarget{fbxtimecode_8h_a8d66913087d2a1a40ad699d5a2616bf3}\label{fbxtimecode_8h_a8d66913087d2a1a40ad699d5a2616bf3} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+PAL\+\_\+\+FRAME}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+SECOND/25)
+\item 
+\Hypertarget{fbxtimecode_8h_ae4155aef5bd2af831fbc4dddc52e9d3d}\label{fbxtimecode_8h_ae4155aef5bd2af831fbc4dddc52e9d3d} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+FILM\+\_\+\+FRAME}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+SECOND/24)
+\item 
+\Hypertarget{fbxtimecode_8h_ac9529a41e984133a04fa1ea33dab16f9}\label{fbxtimecode_8h_ac9529a41e984133a04fa1ea33dab16f9} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MFILM\+\_\+\+FIELD}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MFILM\+\_\+\+FRAME/2)
+\item 
+\Hypertarget{fbxtimecode_8h_a1ba46096042372b3b154719090effaa5}\label{fbxtimecode_8h_a1ba46096042372b3b154719090effaa5} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MFILM\+\_\+\+FRAME}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+SECOND/24\texorpdfstring{$\ast$}{*}1001/1000)
+\item 
+\Hypertarget{fbxtimecode_8h_a5dbb4164111a627b4d0c47a4451e191f}\label{fbxtimecode_8h_a5dbb4164111a627b4d0c47a4451e191f} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MFILM\+\_\+1\+\_\+\+SECOND}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MFILM\+\_\+\+FRAME\texorpdfstring{$\ast$}{*}24)
+\item 
+\Hypertarget{fbxtimecode_8h_a8339497de5b37f5995855d93a0104b41}\label{fbxtimecode_8h_a8339497de5b37f5995855d93a0104b41} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MFILM\+\_\+1\+\_\+\+MINUTE}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MFILM\+\_\+1\+\_\+\+SECOND\texorpdfstring{$\ast$}{*}60)
+\item 
+\Hypertarget{fbxtimecode_8h_a6cfbd6c342a81f2054f04fdb20b09cec}\label{fbxtimecode_8h_a6cfbd6c342a81f2054f04fdb20b09cec} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MFILM\+\_\+1\+\_\+\+HOUR}~Fbx\+Long\+Long(FBXSDK\+\_\+\+TC\+\_\+\+MFILM\+\_\+1\+\_\+\+SECOND\texorpdfstring{$\ast$}{*}3600)
+\item 
+\Hypertarget{fbxtimecode_8h_a34882691463a05bc9ee1f0197320ebca}\label{fbxtimecode_8h_a34882691463a05bc9ee1f0197320ebca} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MFILM\+\_\+\+NUM}~Fbx\+ULong(FBXSDK\+\_\+\+TC\+\_\+\+FIX\+\_\+\+DEN\texorpdfstring{$\ast$}{*}1000\texorpdfstring{$\ast$}{*}24/1001)
+\item 
+\Hypertarget{fbxtimecode_8h_a6df1568e9233f7ca91decb48e626ba5f}\label{fbxtimecode_8h_a6df1568e9233f7ca91decb48e626ba5f} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+MFILM\+\_\+\+DEN}~FBXSDK\+\_\+\+TC\+\_\+\+FIX\+\_\+\+DEN
+\item 
+\#define \mbox{\hyperlink{fbxtimecode_8h_af2a360896dc91cb770db7283cc808f3a}{FBXSDK\+\_\+\+TC\+\_\+\+REM}}(quot,  num,  den)
+\item 
+\#define \mbox{\hyperlink{fbxtimecode_8h_adc3a1667f4a7f337bfd14c96d3ea64dd}{FBXSDK\+\_\+\+TC\+\_\+\+HOUR\+\_\+\+REM}}(quot,  num,  den)
+\item 
+\Hypertarget{fbxtimecode_8h_afa1a29d2cdab582d2016a829d9e7d8b8}\label{fbxtimecode_8h_afa1a29d2cdab582d2016a829d9e7d8b8} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+LEGACY\+\_\+\+DEFINITION}~127
+\item 
+\Hypertarget{fbxtimecode_8h_a8cd9adf8381a1f9da04e648270e3ca26}\label{fbxtimecode_8h_a8cd9adf8381a1f9da04e648270e3ca26} 
+\#define {\bfseries FBXSDK\+\_\+\+TC\+\_\+\+STANDARD\+\_\+\+DEFINITION}~0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxtimecode_8h_a9819ff4c30faa7887d38b69d5e87f1df}\label{fbxtimecode_8h_a9819ff4c30faa7887d38b69d5e87f1df} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCSeconds} (Fbx\+Long\+Long p\+Time)
+\item 
+\Hypertarget{fbxtimecode_8h_a0b0846382d519e4155f765f80eaeb4f7}\label{fbxtimecode_8h_a0b0846382d519e4155f765f80eaeb4f7} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCMinutes} (Fbx\+Long\+Long p\+Time)
+\item 
+\Hypertarget{fbxtimecode_8h_a3cceee4d1c7598b069236e6c960479d6}\label{fbxtimecode_8h_a3cceee4d1c7598b069236e6c960479d6} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCHours} (Fbx\+Long\+Long p\+Time)
+\item 
+\Hypertarget{fbxtimecode_8h_ab7b07f8ccc1cdcaff0f6fb8c9344be9d}\label{fbxtimecode_8h_ab7b07f8ccc1cdcaff0f6fb8c9344be9d} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCSet\+Rate} (int p\+Hour, int p\+Minute, int p\+Second, Fbx\+Long\+Long p\+Frame, Fbx\+Long\+Long p\+Period)
+\item 
+\Hypertarget{fbxtimecode_8h_a8c52cd357e5e5300f54bbd573d170fe0}\label{fbxtimecode_8h_a8c52cd357e5e5300f54bbd573d170fe0} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCGet\+Rate} (Fbx\+Long\+Long p\+Time, int \&p\+Hour, int \&p\+Minute, int \&p\+Second, int \&p\+Frame, Fbx\+Long\+Long p\+Period)
+\item 
+\Hypertarget{fbxtimecode_8h_a53746fa7297d647f09a93c9ae608963c}\label{fbxtimecode_8h_a53746fa7297d647f09a93c9ae608963c} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCSet\+NTSC} (int p\+Hour, int p\+Minute, int p\+Second, Fbx\+Long\+Long p\+Frame, int p\+Field)
+\item 
+\Hypertarget{fbxtimecode_8h_acc6b21630d54e99e4208a8a3d1e589f8}\label{fbxtimecode_8h_acc6b21630d54e99e4208a8a3d1e589f8} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCGet\+NTSC} (Fbx\+Long\+Long p\+Time, int \&p\+Hour, int \&p\+Minute, int \&p\+Second, int \&p\+Frame, int \&p\+Field)
+\item 
+\Hypertarget{fbxtimecode_8h_a840a2e2026d420fd53fbfbdf985ed848}\label{fbxtimecode_8h_a840a2e2026d420fd53fbfbdf985ed848} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCSet\+MNTSCnd} (int p\+Hour, int p\+Minute, int p\+Second, Fbx\+Long\+Long p\+Frame, int p\+Field)
+\item 
+\Hypertarget{fbxtimecode_8h_a329f7bb453ca77fdc92ba439f06da01a}\label{fbxtimecode_8h_a329f7bb453ca77fdc92ba439f06da01a} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCGet\+MNTSCnd} (Fbx\+Long\+Long p\+Time, int \&p\+Hour, int \&p\+Minute, int \&p\+Second, int \&p\+Frame, int \&p\+Field)
+\item 
+\Hypertarget{fbxtimecode_8h_ab656133a6bb3262b94d5cc3646944dce}\label{fbxtimecode_8h_ab656133a6bb3262b94d5cc3646944dce} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCSet\+MNTSC\+\_\+2\+Xnd} (int p\+Hour, int p\+Minute, int p\+Second, Fbx\+Long\+Long p\+Frame, int p\+Field)
+\item 
+\Hypertarget{fbxtimecode_8h_af49cfca1880b412ee3cfb5d096e2b403}\label{fbxtimecode_8h_af49cfca1880b412ee3cfb5d096e2b403} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCGet\+MNTSC\+\_\+2\+Xnd} (Fbx\+Long\+Long p\+Time, int \&p\+Hour, int \&p\+Minute, int \&p\+Second, int \&p\+Frame, int \&p\+Field)
+\item 
+\Hypertarget{fbxtimecode_8h_ac62ec274e03a902a4d2cc416e7a38acc}\label{fbxtimecode_8h_ac62ec274e03a902a4d2cc416e7a38acc} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCSet\+MNTSC\+\_\+4\+Xnd} (int p\+Hour, int p\+Minute, int p\+Second, Fbx\+Long\+Long p\+Frame, int p\+Field)
+\item 
+\Hypertarget{fbxtimecode_8h_a87d18357affcf11979f2f84b67b7c69a}\label{fbxtimecode_8h_a87d18357affcf11979f2f84b67b7c69a} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCGet\+MNTSC\+\_\+4\+Xnd} (Fbx\+Long\+Long p\+Time, int \&p\+Hour, int \&p\+Minute, int \&p\+Second, int \&p\+Frame, int \&p\+Field)
+\item 
+\Hypertarget{fbxtimecode_8h_a4884e02fbc443e9825b298ef980073d7}\label{fbxtimecode_8h_a4884e02fbc443e9825b298ef980073d7} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCSet\+MNTSC} (int p\+Hour, int p\+Minute, int p\+Second, Fbx\+Long\+Long p\+Frame, int p\+Field)
+\item 
+\Hypertarget{fbxtimecode_8h_a5e86af8b1194c421c3a8f74375a205dc}\label{fbxtimecode_8h_a5e86af8b1194c421c3a8f74375a205dc} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCGet\+MNTSC} (Fbx\+Long\+Long p\+Time, int \&p\+Hour, int \&p\+Minute, int \&p\+Second, int \&p\+Frame, int \&p\+Field)
+\item 
+\Hypertarget{fbxtimecode_8h_a9f06d3ae864071f4c9bedaa5df0b56af}\label{fbxtimecode_8h_a9f06d3ae864071f4c9bedaa5df0b56af} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCSet\+PAL} (int p\+Hour, int p\+Minute, int p\+Second, Fbx\+Long\+Long p\+Frame, int p\+Field)
+\item 
+\Hypertarget{fbxtimecode_8h_a30a4a8083c3d4b519a3865ee146308a0}\label{fbxtimecode_8h_a30a4a8083c3d4b519a3865ee146308a0} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCGet\+PAL} (Fbx\+Long\+Long p\+Time, int \&p\+Hour, int \&p\+Minute, int \&p\+Second, int \&p\+Frame, int \&p\+Field)
+\item 
+\Hypertarget{fbxtimecode_8h_af656547cfa2e3b0ef35b031680a4428f}\label{fbxtimecode_8h_af656547cfa2e3b0ef35b031680a4428f} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCSet\+FILM} (int p\+Hour, int p\+Minute, int p\+Second, Fbx\+Long\+Long p\+Frame)
+\item 
+\Hypertarget{fbxtimecode_8h_a0d435b867bb5a921744ae63e12fc3096}\label{fbxtimecode_8h_a0d435b867bb5a921744ae63e12fc3096} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCGet\+FILM} (Fbx\+Long\+Long p\+Time, int \&p\+Hour, int \&p\+Minute, int \&p\+Second, int \&p\+Frame)
+\item 
+\Hypertarget{fbxtimecode_8h_aa4683d1beeded64cd03c02eafd771321}\label{fbxtimecode_8h_aa4683d1beeded64cd03c02eafd771321} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCSet\+FILMND} (int p\+Hour, int p\+Minute, int p\+Second, Fbx\+Long\+Long p\+Frame, int p\+Field)
+\item 
+\Hypertarget{fbxtimecode_8h_ab89b05b42cb3d818a97dd02b5ae9e6f9}\label{fbxtimecode_8h_ab89b05b42cb3d818a97dd02b5ae9e6f9} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCGet\+FILMND} (Fbx\+Long\+Long p\+Time, int \&p\+Hour, int \&p\+Minute, int \&p\+Second, int \&p\+Frame, int \&p\+Field)
+\item 
+\Hypertarget{fbxtimecode_8h_ab5753dd76673265a6c87ec446fae6690}\label{fbxtimecode_8h_ab5753dd76673265a6c87ec446fae6690} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCFrom\+Legacy} (Fbx\+Long\+Long p\+Time)
+\item 
+\Hypertarget{fbxtimecode_8h_aa0270c6f46ce17d12495c5c52a0e35a8}\label{fbxtimecode_8h_aa0270c6f46ce17d12495c5c52a0e35a8} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long {\bfseries Fbx\+TCTo\+Legacy} (Fbx\+Long\+Long p\+Time)
+\item 
+\Hypertarget{fbxtimecode_8h_ad898e4b7b23c7867a5c5c3c6a183ff8b}\label{fbxtimecode_8h_ad898e4b7b23c7867a5c5c3c6a183ff8b} 
+FBXSDK\+\_\+\+DLL void {\bfseries Fbx\+TCSet\+Definition} (int p\+Type)
+\item 
+\Hypertarget{fbxtimecode_8h_a23800978c80211284bc6d81afb94c04c}\label{fbxtimecode_8h_a23800978c80211284bc6d81afb94c04c} 
+FBXSDK\+\_\+\+DLL int {\bfseries Fbx\+TCGet\+Definition} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fbxtimecode_8h_adc3a1667f4a7f337bfd14c96d3ea64dd}\index{fbxtimecode.h@{fbxtimecode.h}!FBXSDK\_TC\_HOUR\_REM@{FBXSDK\_TC\_HOUR\_REM}}
+\index{FBXSDK\_TC\_HOUR\_REM@{FBXSDK\_TC\_HOUR\_REM}!fbxtimecode.h@{fbxtimecode.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_TC\_HOUR\_REM}{FBXSDK\_TC\_HOUR\_REM}}
+{\footnotesize\ttfamily \label{fbxtimecode_8h_adc3a1667f4a7f337bfd14c96d3ea64dd} 
+\#define FBXSDK\+\_\+\+TC\+\_\+\+HOUR\+\_\+\+REM(\begin{DoxyParamCaption}\item[{}]{quot}{, }\item[{}]{num}{, }\item[{}]{den}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((quot)\ =\ ((num\ -\/\ (-\/FbxLongLong(num\ <\ 0)\ \&\ (den\ -\/\ 1)))\ /\ (den)),\ (quot)\ *\ (den))}
+
+\end{DoxyCode}
+\Hypertarget{fbxtimecode_8h_af2a360896dc91cb770db7283cc808f3a}\index{fbxtimecode.h@{fbxtimecode.h}!FBXSDK\_TC\_REM@{FBXSDK\_TC\_REM}}
+\index{FBXSDK\_TC\_REM@{FBXSDK\_TC\_REM}!fbxtimecode.h@{fbxtimecode.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_TC\_REM}{FBXSDK\_TC\_REM}}
+{\footnotesize\ttfamily \label{fbxtimecode_8h_af2a360896dc91cb770db7283cc808f3a} 
+\#define FBXSDK\+\_\+\+TC\+\_\+\+REM(\begin{DoxyParamCaption}\item[{}]{quot}{, }\item[{}]{num}{, }\item[{}]{den}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((quot)\ =\ (num)\ /\ (den),\ (quot)\ *\ (den))}
+
+\end{DoxyCode}

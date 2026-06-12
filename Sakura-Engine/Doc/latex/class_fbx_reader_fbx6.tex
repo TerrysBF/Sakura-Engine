@@ -1,0 +1,529 @@
+\doxysection{Fbx\+Reader\+Fbx6 Class Reference}
+\hypertarget{class_fbx_reader_fbx6}{}\label{class_fbx_reader_fbx6}\index{FbxReaderFbx6@{FbxReaderFbx6}}
+
+
+This class is the FBX v6 reader. The reader provide you the ability to read the global settings, objects and animation information from file.  
+
+
+
+
+{\ttfamily \#include $<$fbxreaderfbx6.\+h$>$}
+
+Inheritance diagram for Fbx\+Reader\+Fbx6\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_fbx_reader_fbx6}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495}{EImport\+Mode}} \{ \mbox{\hyperlink{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495a2cd7b49f48411efc36b3b9d095334ced}{e\+ASCII}}
+, \mbox{\hyperlink{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495ae23324d34805f8659977df8340743af1}{e\+BINARY}}
+, \mbox{\hyperlink{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495af8fb0ae704cf55ad6d0df690c7242b2a}{e\+ENCRYPTED}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_fbx_reader}{Fbx\+Reader}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_reader_a33badbb2641958ab0772ec2c06a71e11}{EInfo\+Request}} \{ \mbox{\hyperlink{class_fbx_reader_a33badbb2641958ab0772ec2c06a71e11a03189cefb5f6d784e3af3760f4c89ebd}{e\+Info\+Extension}}
+, \mbox{\hyperlink{class_fbx_reader_a33badbb2641958ab0772ec2c06a71e11a6bc70d273a72ac7b0ac1ff679da40192}{e\+Info\+Descriptions}}
+, {\bfseries e\+Reserved1} = 0x\+FBFB
+ \}
+\item 
+enum \mbox{\hyperlink{class_fbx_reader_a1a14bd907bcda7dd48ba9b0a6236b7b8}{EFile\+Open\+Special\+Flags}} \{ \mbox{\hyperlink{class_fbx_reader_a1a14bd907bcda7dd48ba9b0a6236b7b8a916239cfabb05bb13e64fab696226011}{e\+Parse\+For\+Global\+Settings}} = 1
+, \mbox{\hyperlink{class_fbx_reader_a1a14bd907bcda7dd48ba9b0a6236b7b8a31ba0d93719d2c2670ef2323447a8041}{e\+Parse\+For\+Statistics}} = 2
+ \}
+\item 
+typedef \mbox{\hyperlink{class_fbx_reader}{Fbx\+Reader}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} {\bfseries Create\+Func\+Type}) (\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \&p\+Manager, \mbox{\hyperlink{class_fbx_importer}{Fbx\+Importer}} \&p\+Importer, int p\+Sub\+ID, int p\+Plugin\+ID)
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries IOSettings\+Filler\+Func\+Type}) (\mbox{\hyperlink{class_fbx_i_o_settings}{Fbx\+IOSettings}} \&p\+IOS)
+\item 
+typedef void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} {\bfseries Get\+Info\+Func\+Type}) (\mbox{\hyperlink{class_fbx_reader_a33badbb2641958ab0772ec2c06a71e11}{EInfo\+Request}} p\+Request, int p\+Reader\+Type\+Id)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_reader_fbx6_a0b5ae464b6a242ca8f06781f13e41787}{Fbx\+Reader\+Fbx6}} (\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \&p\+Manager, \mbox{\hyperlink{class_fbx_importer}{Fbx\+Importer}} \&p\+Importer, int p\+ID, \mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \&p\+Status)
+\item 
+virtual \mbox{\hyperlink{class_fbx_reader_fbx6_a08f5cd1b6db11492ff0363a649a1ae7b}{\texorpdfstring{$\sim$}{\string~}\+Fbx\+Reader\+Fbx6}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_reader_fbx6_a37c1789fa766b318d08d09878b41e0be}{File\+Open}} (char \texorpdfstring{$\ast$}{*}p\+File\+Name, \mbox{\hyperlink{class_fbx_reader_a1a14bd907bcda7dd48ba9b0a6236b7b8}{EFile\+Open\+Special\+Flags}} p\+Flags) override
+\item 
+bool \mbox{\hyperlink{class_fbx_reader_fbx6_a790f21b61e87bd2c6cee55bcf92b4a53}{File\+Open}} (char \texorpdfstring{$\ast$}{*}p\+File\+Name) override
+\item 
+bool \mbox{\hyperlink{class_fbx_reader_fbx6_aa19d6673d2ac039aa5b14350c94b63e6}{File\+Open}} (\mbox{\hyperlink{class_fbx_file}{Fbx\+File}} \texorpdfstring{$\ast$}{*}p\+File) override
+\item 
+bool \mbox{\hyperlink{class_fbx_reader_fbx6_a0d53df1b8ae508250eb5a05e1fc48849}{File\+Open}} (\mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \texorpdfstring{$\ast$}{*}p\+Stream, void \texorpdfstring{$\ast$}{*}p\+Stream\+Data) override
+\item 
+bool \mbox{\hyperlink{class_fbx_reader_fbx6_a57eb5f4571fc7e3e5ed8fd4ca43225db}{File\+Close}} () override
+\item 
+bool \mbox{\hyperlink{class_fbx_reader_fbx6_a1d34fe860876245adc282578837900c6}{Is\+File\+Open}} () override
+\item 
+\mbox{\hyperlink{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495}{EImport\+Mode}} \mbox{\hyperlink{class_fbx_reader_fbx6_aeafb8a0b4017c0d20630bc06ed4c08c4}{Get\+Import\+Mode}} ()
+\item 
+void \mbox{\hyperlink{class_fbx_reader_fbx6_aeb94d7371ed21b9d33d268717ac214c6}{Get\+Version}} (int \&p\+Major, int \&p\+Minor, int \&p\+Revision) override
+\item 
+bool \mbox{\hyperlink{class_fbx_reader_fbx6_aaf338a2264b46bb2bc26a0c9447981bd}{Get\+Axis\+Info}} (\mbox{\hyperlink{class_fbx_axis_system}{Fbx\+Axis\+System}} \texorpdfstring{$\ast$}{*}p\+Axis\+System, \mbox{\hyperlink{class_fbx_system_unit}{Fbx\+System\+Unit}} \texorpdfstring{$\ast$}{*}p\+System\+Units) override
+\item 
+bool \mbox{\hyperlink{class_fbx_reader_fbx6_a0cc98260c920fba72fac93d4a8b1ed82}{Get\+Frame\+Rate}} (\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{Fbx\+Time\+::\+EMode}} \&p\+Time\+Mode) override
+\item 
+bool \mbox{\hyperlink{class_fbx_reader_fbx6_af20b253c9a877bda387595a85ad5b7fd}{Get\+Statistics}} (\mbox{\hyperlink{class_fbx_statistics}{Fbx\+Statistics}} \texorpdfstring{$\ast$}{*}p\+Stats) override
+\item 
+bool \mbox{\hyperlink{class_fbx_reader_fbx6_a843b4e3af8f28768470b3831b0ee9071}{Get\+Read\+Options}} (bool p\+Parse\+File\+As\+Needed=true) override
+\item 
+bool \mbox{\hyperlink{class_fbx_reader_fbx6_aee9e0b093b2403e31d1e28c136c01d31}{Read}} (\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}p\+Document) override
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_reader_fbx6_aad5666cba24ae32ea43085227e8497fc}{Get\+Read\+Options}} (\mbox{\hyperlink{class_fbx_i_o}{Fbx\+IO}} \texorpdfstring{$\ast$}{*}p\+Fbx, bool p\+Parse\+File\+As\+Needed=true)
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_reader_fbx6_aaf4d83d83558463da215d522cb1c4503}{Read}} (\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}p\+Document, \mbox{\hyperlink{class_fbx_i_o}{Fbx\+IO}} \texorpdfstring{$\ast$}{*}p\+Fbx)
+\item 
+void \mbox{\hyperlink{class_fbx_reader_fbx6_ad9c1d5905977fa9edf09a8e3e033a2d7}{Plugin\+Read\+Parameters}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Params) override
+\item 
+\mbox{\hyperlink{class_fbx_document_info}{Fbx\+Document\+Info}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_reader_fbx6_a737f6a3063ec64e219bf6cbed889e971}{Get\+Scene\+Info}} () override
+\item 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_take_info}{Fbx\+Take\+Info}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_reader_fbx6_a1b252955da6d22d370144ce4d33fbcb5}{Get\+Take\+Info}} () override
+\item 
+void \mbox{\hyperlink{class_fbx_reader_fbx6_a8e9819270c2f4370408a96490f95e012}{Set\+Progress\+Handler}} (\mbox{\hyperlink{class_fbx_progress}{Fbx\+Progress}} \texorpdfstring{$\ast$}{*}p\+Progress) override
+\item 
+void \mbox{\hyperlink{class_fbx_reader_fbx6_a1f48cc4dff045a170721c7a26e3d0ea8}{Set\+Embedding\+Extraction\+Folder}} (const char \texorpdfstring{$\ast$}{*}p\+Extract\+Folder) override
+\item 
+void \mbox{\hyperlink{class_fbx_reader_fbx6_a6b3b915ed420964b5190de8fa16f2b61}{Set\+Embedded\+File\+Callback}} (\mbox{\hyperlink{class_fbx_embedded_file_callback}{Fbx\+Embedded\+File\+Callback}} \texorpdfstring{$\ast$}{*}p\+Callback) override
+\item 
+bool \mbox{\hyperlink{class_fbx_reader_fbx6_a09a93317c689a31cd77145283e471794}{Supports\+Streams}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_fbx_reader}{Fbx\+Reader}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_reader_a00f91923ea112d953f3317dbe80eb816}{Fbx\+Reader}} (\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \&p\+Manager, int p\+ID, \mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \&p\+Status)
+\item 
+virtual \mbox{\hyperlink{class_fbx_reader_a2d63581951ac31fa4130badd8df96f1a}{\texorpdfstring{$\sim$}{\string~}\+Fbx\+Reader}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_reader_ab3fb0fb0e0c311cb58e15092c82637ee}{Get\+Default\+Render\+Resolution}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Cam\+Name, \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Resolution\+Mode, double \&pW, double \&pH)
+\item 
+bool \mbox{\hyperlink{class_fbx_reader_a7c9dad350ae8255c7346b279b5cf14bf}{Is\+Genuine}} ()
+\item 
+virtual \mbox{\hyperlink{class_fbx_i_o_settings}{Fbx\+IOSettings}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_reader_a6a5c6c5a5b4a89c16d2d8140e545a224}{Get\+IOSettings}} ()
+\item 
+virtual void \mbox{\hyperlink{class_fbx_reader_af39e468081c3ebe63565409ef36f833a}{Set\+IOSettings}} (\mbox{\hyperlink{class_fbx_i_o_settings}{Fbx\+IOSettings}} \texorpdfstring{$\ast$}{*}p\+IOSettings)
+\item 
+\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \& {\bfseries Get\+Status} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_fbx_reader}{Fbx\+Reader}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Set\+Default\+Render\+Resolution} (const char \texorpdfstring{$\ast$}{*}p\+Cam\+Name, const char \texorpdfstring{$\ast$}{*}p\+Resolution\+Mode, double pW, double pH)
+\item 
+void {\bfseries Plugins\+Read\+Begin} (\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \&p\+Scene)
+\item 
+void {\bfseries Plugins\+Read} (const char \texorpdfstring{$\ast$}{*}p\+Name, const char \texorpdfstring{$\ast$}{*}p\+Version)
+\item 
+void {\bfseries Plugins\+Read\+End} (\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \&p\+Scene)
+\item 
+\mbox{\hyperlink{class_fbx_reader}{Fbx\+Reader}} \& {\bfseries operator=} (\mbox{\hyperlink{class_fbx_reader}{Fbx\+Reader}} const \&)
+\item 
+virtual bool {\bfseries Check\+Duplicate\+Node\+Names} (\mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*}p\+Root\+Node, \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Duplicate\+Node\+Name\+List)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_fbx_reader}{Fbx\+Reader}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \& {\bfseries m\+Status}
+\item 
+\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \& {\bfseries m\+Manager}
+\item 
+\mbox{\hyperlink{class_fbx_i_o_default_render_resolution}{Fbx\+IODefault\+Render\+Resolution}} \texorpdfstring{$\ast$}{*} {\bfseries m\+Data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is the FBX v6 reader. The reader provide you the ability to read the global settings, objects and animation information from file. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495}\index{FbxReaderFbx6@{FbxReaderFbx6}!EImportMode@{EImportMode}}
+\index{EImportMode@{EImportMode}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{EImportMode}{EImportMode}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495} 
+enum \mbox{\hyperlink{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495}{Fbx\+Reader\+Fbx6\+::\+EImport\+Mode}}}
+
+File import mode. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eASCII@{eASCII}!FbxReaderFbx6@{FbxReaderFbx6}}\index{FbxReaderFbx6@{FbxReaderFbx6}!eASCII@{eASCII}}}\Hypertarget{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495a2cd7b49f48411efc36b3b9d095334ced}\label{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495a2cd7b49f48411efc36b3b9d095334ced} 
+e\+ASCII&Plain text mode \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eBINARY@{eBINARY}!FbxReaderFbx6@{FbxReaderFbx6}}\index{FbxReaderFbx6@{FbxReaderFbx6}!eBINARY@{eBINARY}}}\Hypertarget{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495ae23324d34805f8659977df8340743af1}\label{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495ae23324d34805f8659977df8340743af1} 
+e\+BINARY&Binary mode \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eENCRYPTED@{eENCRYPTED}!FbxReaderFbx6@{FbxReaderFbx6}}\index{FbxReaderFbx6@{FbxReaderFbx6}!eENCRYPTED@{eENCRYPTED}}}\Hypertarget{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495af8fb0ae704cf55ad6d0df690c7242b2a}\label{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495af8fb0ae704cf55ad6d0df690c7242b2a} 
+e\+ENCRYPTED&Encrypted mode \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_reader_fbx6_a0b5ae464b6a242ca8f06781f13e41787}\index{FbxReaderFbx6@{FbxReaderFbx6}!FbxReaderFbx6@{FbxReaderFbx6}}
+\index{FbxReaderFbx6@{FbxReaderFbx6}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{FbxReaderFbx6()}{FbxReaderFbx6()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_a0b5ae464b6a242ca8f06781f13e41787} 
+Fbx\+Reader\+Fbx6\+::\+Fbx\+Reader\+Fbx6 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \&}]{p\+Manager}{, }\item[{\mbox{\hyperlink{class_fbx_importer}{Fbx\+Importer}} \&}]{p\+Importer}{, }\item[{int}]{p\+ID}{, }\item[{\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \&}]{p\+Status}{}\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em p\+Manager} & the \doxylink{class_fbx_manager}{Fbx\+Manager} Object \\
+\hline
+{\em p\+Importer} & the \doxylink{class_fbx_importer}{Fbx\+Importer} to import the SDK objects \\
+\hline
+{\em p\+ID} & id for current reader \\
+\hline
+{\em p\+Status} & the \doxylink{class_fbx_status}{Fbx\+Status} object to hold error codes \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_reader_fbx6_a08f5cd1b6db11492ff0363a649a1ae7b}\index{FbxReaderFbx6@{FbxReaderFbx6}!````~FbxReaderFbx6@{\texorpdfstring{$\sim$}{\string~}FbxReaderFbx6}}
+\index{````~FbxReaderFbx6@{\texorpdfstring{$\sim$}{\string~}FbxReaderFbx6}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FbxReaderFbx6()}{\string~FbxReaderFbx6()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_a08f5cd1b6db11492ff0363a649a1ae7b} 
+virtual Fbx\+Reader\+Fbx6\+::\texorpdfstring{$\sim$}{\string~}\+Fbx\+Reader\+Fbx6 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_reader_fbx6_a57eb5f4571fc7e3e5ed8fd4ca43225db}\index{FbxReaderFbx6@{FbxReaderFbx6}!FileClose@{FileClose}}
+\index{FileClose@{FileClose}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{FileClose()}{FileClose()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_a57eb5f4571fc7e3e5ed8fd4ca43225db} 
+bool Fbx\+Reader\+Fbx6\+::\+File\+Close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Close the file stream \begin{DoxyReturn}{Returns}
+if the file is closed successfully return {\ttfamily true}, otherwise return {\ttfamily false} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_fbx_reader_a327df94e5c24315fc5cbcedf0e7bb615}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_a790f21b61e87bd2c6cee55bcf92b4a53}\index{FbxReaderFbx6@{FbxReaderFbx6}!FileOpen@{FileOpen}}
+\index{FileOpen@{FileOpen}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{FileOpen()}{FileOpen()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_a790f21b61e87bd2c6cee55bcf92b4a53} 
+bool Fbx\+Reader\+Fbx6\+::\+File\+Open (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{p\+File\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Open file with default flag 
+\begin{DoxyParams}{Parameters}
+{\em p\+File\+Name} & name of the File to open \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the file is open successfully return {\ttfamily true}, otherwise return {\ttfamily false} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_fbx_reader_a6105bd37ae86c03f35aee6f62901856d}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_a37c1789fa766b318d08d09878b41e0be}\index{FbxReaderFbx6@{FbxReaderFbx6}!FileOpen@{FileOpen}}
+\index{FileOpen@{FileOpen}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{FileOpen()}{FileOpen()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_a37c1789fa766b318d08d09878b41e0be} 
+bool Fbx\+Reader\+Fbx6\+::\+File\+Open (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{p\+File\+Name}{, }\item[{\mbox{\hyperlink{class_fbx_reader_a1a14bd907bcda7dd48ba9b0a6236b7b8}{EFile\+Open\+Special\+Flags}}}]{p\+Flags}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Open file with certain \doxylink{class_fbx_reader_a1a14bd907bcda7dd48ba9b0a6236b7b8}{EFile\+Open\+Special\+Flags} 
+\begin{DoxyParams}{Parameters}
+{\em p\+File\+Name} & name of the File to open \\
+\hline
+{\em p\+Flags} & the \doxylink{class_fbx_reader_a1a14bd907bcda7dd48ba9b0a6236b7b8}{EFile\+Open\+Special\+Flags} to open with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the file is open successfully return true, otherwise return false 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_reader_a345b292805ea8799a9d962714e1ad9a5}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_aa19d6673d2ac039aa5b14350c94b63e6}\index{FbxReaderFbx6@{FbxReaderFbx6}!FileOpen@{FileOpen}}
+\index{FileOpen@{FileOpen}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{FileOpen()}{FileOpen()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_aa19d6673d2ac039aa5b14350c94b63e6} 
+bool Fbx\+Reader\+Fbx6\+::\+File\+Open (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_file}{Fbx\+File}} \texorpdfstring{$\ast$}{*}}]{p\+File}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Open file with \doxylink{class_fbx_file}{Fbx\+File} handle 
+\begin{DoxyParams}{Parameters}
+{\em p\+File} & the \doxylink{class_fbx_file}{Fbx\+File} handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the file is open successfully return {\ttfamily true}, otherwise return {\ttfamily false} 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_reader}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_a0d53df1b8ae508250eb5a05e1fc48849}\index{FbxReaderFbx6@{FbxReaderFbx6}!FileOpen@{FileOpen}}
+\index{FileOpen@{FileOpen}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{FileOpen()}{FileOpen()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_a0d53df1b8ae508250eb5a05e1fc48849} 
+bool Fbx\+Reader\+Fbx6\+::\+File\+Open (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \texorpdfstring{$\ast$}{*}}]{p\+Stream}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Stream\+Data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Open file from stream 
+
+Reimplemented from \mbox{\hyperlink{class_fbx_reader_a819487a39b5e25f69a8dccf187ab4ab9}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_aaf338a2264b46bb2bc26a0c9447981bd}\index{FbxReaderFbx6@{FbxReaderFbx6}!GetAxisInfo@{GetAxisInfo}}
+\index{GetAxisInfo@{GetAxisInfo}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{GetAxisInfo()}{GetAxisInfo()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_aaf338a2264b46bb2bc26a0c9447981bd} 
+bool Fbx\+Reader\+Fbx6\+::\+Get\+Axis\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_axis_system}{Fbx\+Axis\+System}} \texorpdfstring{$\ast$}{*}}]{p\+Axis\+System}{, }\item[{\mbox{\hyperlink{class_fbx_system_unit}{Fbx\+System\+Unit}} \texorpdfstring{$\ast$}{*}}]{p\+System\+Units}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get axis system information from file 
+\begin{DoxyParams}{Parameters}
+{\em p\+Axis\+System} & axis system in file \\
+\hline
+{\em p\+System\+Units} & system unit in file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if either p\+Axis\+System or p\+System\+Units is {\ttfamily NULL} return {\ttfamily false}, otherwise return {\ttfamily true}. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_reader_a73e58c3f7734250f0f8ffaef96b2df3f}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_a0cc98260c920fba72fac93d4a8b1ed82}\index{FbxReaderFbx6@{FbxReaderFbx6}!GetFrameRate@{GetFrameRate}}
+\index{GetFrameRate@{GetFrameRate}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{GetFrameRate()}{GetFrameRate()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_a0cc98260c920fba72fac93d4a8b1ed82} 
+bool Fbx\+Reader\+Fbx6\+::\+Get\+Frame\+Rate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{Fbx\+Time\+::\+EMode}} \&}]{p\+Time\+Mode}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get FBX file time mode read from Global\+Settings in FBX 6.\+n and FBX 7.\+n 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time\+Mode} & ref to a \doxylink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{Fbx\+Time\+::\+EMode} enum \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+This function must be called after \doxylink{class_fbx_importer_a7d3c99b31975895900a0a99a9883890c}{Fbx\+Importer\+::\+Initialize()}. Can be used for statistics (via Global\+Settings) before loading the whole scene from the file. 
+\end{DoxyRemark}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_reader_a3b218671126e70a29f644407a7f307e9}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_aeafb8a0b4017c0d20630bc06ed4c08c4}\index{FbxReaderFbx6@{FbxReaderFbx6}!GetImportMode@{GetImportMode}}
+\index{GetImportMode@{GetImportMode}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{GetImportMode()}{GetImportMode()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_aeafb8a0b4017c0d20630bc06ed4c08c4} 
+\mbox{\hyperlink{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495}{EImport\+Mode}} Fbx\+Reader\+Fbx6\+::\+Get\+Import\+Mode (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get current Import mode \begin{DoxyReturn}{Returns}
+return the \doxylink{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495}{EImport\+Mode} value 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_reader_fbx6_a843b4e3af8f28768470b3831b0ee9071}\index{FbxReaderFbx6@{FbxReaderFbx6}!GetReadOptions@{GetReadOptions}}
+\index{GetReadOptions@{GetReadOptions}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{GetReadOptions()}{GetReadOptions()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_a843b4e3af8f28768470b3831b0ee9071} 
+bool Fbx\+Reader\+Fbx6\+::\+Get\+Read\+Options (\begin{DoxyParamCaption}\item[{bool}]{p\+Parse\+File\+As\+Needed}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the file stream options 
+\begin{DoxyParams}{Parameters}
+{\em p\+Parse\+File\+As\+Needed} & Whether to parse file as read options \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, otherwise return false. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_fbx_reader_acea3c118db490378c9aed17512396932}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_aad5666cba24ae32ea43085227e8497fc}\index{FbxReaderFbx6@{FbxReaderFbx6}!GetReadOptions@{GetReadOptions}}
+\index{GetReadOptions@{GetReadOptions}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{GetReadOptions()}{GetReadOptions()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_aad5666cba24ae32ea43085227e8497fc} 
+virtual bool Fbx\+Reader\+Fbx6\+::\+Get\+Read\+Options (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_i_o}{Fbx\+IO}} \texorpdfstring{$\ast$}{*}}]{p\+Fbx}{, }\item[{bool}]{p\+Parse\+File\+As\+Needed}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Get the file options 
+\begin{DoxyParams}{Parameters}
+{\em p\+Fbx} & file object to read options \\
+\hline
+{\em p\+Parse\+File\+As\+Needed} & Whether to parse file as read options \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success, otherwise return false. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_reader_fbx6_a737f6a3063ec64e219bf6cbed889e971}\index{FbxReaderFbx6@{FbxReaderFbx6}!GetSceneInfo@{GetSceneInfo}}
+\index{GetSceneInfo@{GetSceneInfo}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{GetSceneInfo()}{GetSceneInfo()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_a737f6a3063ec64e219bf6cbed889e971} 
+\mbox{\hyperlink{class_fbx_document_info}{Fbx\+Document\+Info}} \texorpdfstring{$\ast$}{*} Fbx\+Reader\+Fbx6\+::\+Get\+Scene\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Returns the scene info from the file. \begin{DoxyReturn}{Returns}
+The pointer to file scene info defined by this reader. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_reader_add1016103e60f6dd388f3422a424390a}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_af20b253c9a877bda387595a85ad5b7fd}\index{FbxReaderFbx6@{FbxReaderFbx6}!GetStatistics@{GetStatistics}}
+\index{GetStatistics@{GetStatistics}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{GetStatistics()}{GetStatistics()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_af20b253c9a877bda387595a85ad5b7fd} 
+bool Fbx\+Reader\+Fbx6\+::\+Get\+Statistics (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_statistics}{Fbx\+Statistics}} \texorpdfstring{$\ast$}{*}}]{p\+Stats}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the statistics from file 
+\begin{DoxyParams}{Parameters}
+{\em p\+Stats} & statistics in file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if fetching statistics is successfully return {\ttfamily true}, otherwise return {\ttfamily false}. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_reader_ae14762357b4a8ecce10a266b06cc3117}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_a1b252955da6d22d370144ce4d33fbcb5}\index{FbxReaderFbx6@{FbxReaderFbx6}!GetTakeInfo@{GetTakeInfo}}
+\index{GetTakeInfo@{GetTakeInfo}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{GetTakeInfo()}{GetTakeInfo()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_a1b252955da6d22d370144ce4d33fbcb5} 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_take_info}{Fbx\+Take\+Info}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*} Fbx\+Reader\+Fbx6\+::\+Get\+Take\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Returns the pointer to the list of Take\+Info from the file. \begin{DoxyReturn}{Returns}
+NULL 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_reader_a57e787b474be0a5ea5a6b3ca3bef20bd}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_aeb94d7371ed21b9d33d268717ac214c6}\index{FbxReaderFbx6@{FbxReaderFbx6}!GetVersion@{GetVersion}}
+\index{GetVersion@{GetVersion}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{GetVersion()}{GetVersion()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_aeb94d7371ed21b9d33d268717ac214c6} 
+void Fbx\+Reader\+Fbx6\+::\+Get\+Version (\begin{DoxyParamCaption}\item[{int \&}]{p\+Major}{, }\item[{int \&}]{p\+Minor}{, }\item[{int \&}]{p\+Revision}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get file version 
+\begin{DoxyParams}{Parameters}
+{\em p\+Major} & Major version \\
+\hline
+{\em p\+Minor} & Minor version \\
+\hline
+{\em p\+Revision} & Revision version \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_reader_aa16aacbaa1c1e16fc208624b55dd6767}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_a1d34fe860876245adc282578837900c6}\index{FbxReaderFbx6@{FbxReaderFbx6}!IsFileOpen@{IsFileOpen}}
+\index{IsFileOpen@{IsFileOpen}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{IsFileOpen()}{IsFileOpen()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_a1d34fe860876245adc282578837900c6} 
+bool Fbx\+Reader\+Fbx6\+::\+Is\+File\+Open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Check whether the file stream is open. \begin{DoxyReturn}{Returns}
+if the file stream is open return {\ttfamily true}, otherwise return {\ttfamily false}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_fbx_reader_af86b437702ffc840cfab52185cbc7232}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_ad9c1d5905977fa9edf09a8e3e033a2d7}\index{FbxReaderFbx6@{FbxReaderFbx6}!PluginReadParameters@{PluginReadParameters}}
+\index{PluginReadParameters@{PluginReadParameters}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{PluginReadParameters()}{PluginReadParameters()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_ad9c1d5905977fa9edf09a8e3e033a2d7} 
+void Fbx\+Reader\+Fbx6\+::\+Plugin\+Read\+Parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&}]{p\+Params}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Read all the properties and flags 
+\begin{DoxyParams}{Parameters}
+{\em p\+Params} & settings to assign properties and flags \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_reader_aa026634b699bea0df1b43850c08bb63a}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_aee9e0b093b2403e31d1e28c136c01d31}\index{FbxReaderFbx6@{FbxReaderFbx6}!Read@{Read}}
+\index{Read@{Read}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{Read()}{Read()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_aee9e0b093b2403e31d1e28c136c01d31} 
+bool Fbx\+Reader\+Fbx6\+::\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}}]{p\+Document}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Read file with stream options 
+\begin{DoxyParams}{Parameters}
+{\em p\+Document} & \doxylink{class_fbx_document}{Fbx\+Document} to store the file data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if fetching statistics is successful return {\ttfamily true}, otherwise return {\ttfamily false}. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_fbx_reader_a29941746acc73d7ffd2411a9be9d2525}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_aaf4d83d83558463da215d522cb1c4503}\index{FbxReaderFbx6@{FbxReaderFbx6}!Read@{Read}}
+\index{Read@{Read}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{Read()}{Read()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_aaf4d83d83558463da215d522cb1c4503} 
+virtual bool Fbx\+Reader\+Fbx6\+::\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}}]{p\+Document}{, }\item[{\mbox{\hyperlink{class_fbx_i_o}{Fbx\+IO}} \texorpdfstring{$\ast$}{*}}]{p\+Fbx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Read file with stream options 
+\begin{DoxyParams}{Parameters}
+{\em p\+Document} & \doxylink{class_fbx_document}{Fbx\+Document} to store the file data \\
+\hline
+{\em p\+Fbx} & file object to read from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if reading the file is successful return {\ttfamily true}, otherwise return {\ttfamily false}. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_reader_fbx6_a6b3b915ed420964b5190de8fa16f2b61}\index{FbxReaderFbx6@{FbxReaderFbx6}!SetEmbeddedFileCallback@{SetEmbeddedFileCallback}}
+\index{SetEmbeddedFileCallback@{SetEmbeddedFileCallback}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{SetEmbeddedFileCallback()}{SetEmbeddedFileCallback()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_a6b3b915ed420964b5190de8fa16f2b61} 
+void Fbx\+Reader\+Fbx6\+::\+Set\+Embedded\+File\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_embedded_file_callback}{Fbx\+Embedded\+File\+Callback}} \texorpdfstring{$\ast$}{*}}]{p\+Callback}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_reader}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_a1f48cc4dff045a170721c7a26e3d0ea8}\index{FbxReaderFbx6@{FbxReaderFbx6}!SetEmbeddingExtractionFolder@{SetEmbeddingExtractionFolder}}
+\index{SetEmbeddingExtractionFolder@{SetEmbeddingExtractionFolder}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{SetEmbeddingExtractionFolder()}{SetEmbeddingExtractionFolder()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_a1f48cc4dff045a170721c7a26e3d0ea8} 
+void Fbx\+Reader\+Fbx6\+::\+Set\+Embedding\+Extraction\+Folder (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Extract\+Folder}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_reader}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_a8e9819270c2f4370408a96490f95e012}\index{FbxReaderFbx6@{FbxReaderFbx6}!SetProgressHandler@{SetProgressHandler}}
+\index{SetProgressHandler@{SetProgressHandler}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{SetProgressHandler()}{SetProgressHandler()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_a8e9819270c2f4370408a96490f95e012} 
+void Fbx\+Reader\+Fbx6\+::\+Set\+Progress\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_progress}{Fbx\+Progress}} \texorpdfstring{$\ast$}{*}}]{p\+Progress}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Pass a progress handler to the reader 
+\begin{DoxyParams}{Parameters}
+{\em p\+Progress} & \doxylink{class_fbx_progress}{Fbx\+Progress} to store the progress information. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_reader_aeba190e276718b1abfa6c26a83d2c363}{Fbx\+Reader}}.
+
+\Hypertarget{class_fbx_reader_fbx6_a09a93317c689a31cd77145283e471794}\index{FbxReaderFbx6@{FbxReaderFbx6}!SupportsStreams@{SupportsStreams}}
+\index{SupportsStreams@{SupportsStreams}!FbxReaderFbx6@{FbxReaderFbx6}}
+\doxysubsubsection{\texorpdfstring{SupportsStreams()}{SupportsStreams()}}
+{\footnotesize\ttfamily \label{class_fbx_reader_fbx6_a09a93317c689a31cd77145283e471794} 
+bool Fbx\+Reader\+Fbx6\+::\+Supports\+Streams (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Returns true if this reader supports \doxylink{class_fbx_stream}{Fbx\+Stream} I/O. Default value is false. 
+
+Reimplemented from \mbox{\hyperlink{class_fbx_reader_ab08a9e71a059ef6052e7fe2d8ba6c35d}{Fbx\+Reader}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/fileio/fbx/\mbox{\hyperlink{fbxreaderfbx6_8h}{fbxreaderfbx6.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,250 @@
+\doxysection{xmlversion.\+h}
+\hypertarget{xmlversion_8h_source}{}\label{xmlversion_8h_source}\index{include/fbx/libxml2/libxml/xmlversion.h@{include/fbx/libxml2/libxml/xmlversion.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Summary:\ compile-\/time\ version\ information}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Description:\ compile-\/time\ version\ information\ for\ the\ XML\ library}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Copy:\ See\ Copyright\ for\ the\ status\ of\ this\ software.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Author:\ Daniel\ Veillard}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_VERSION\_H\_\_}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ \_\_XML\_VERSION\_H\_\_}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <libxml/xmlexports.h>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ use\ those\ to\ be\ sure\ nothing\ nasty\ will\ happen\ if}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ your\ library\ and\ includes\ mismatch}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifndef\ LIBXML2\_COMPILING\_MSCCDEF}}
+\DoxyCodeLine{00024\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlCheckVersion(\textcolor{keywordtype}{int}\ version);}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML2\_COMPILING\_MSCCDEF\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ LIBXML\_DOTTED\_VERSION\ "{}2.10.4"{}}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ LIBXML\_VERSION\ 201004}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ LIBXML\_VERSION\_STRING\ "{}201004"{}}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ LIBXML\_VERSION\_EXTRA\ "{}"{}}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ LIBXML\_TEST\_VERSION\ xmlCheckVersion(201004);}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#ifndef\ VMS}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#if\ 0}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ WITH\_TRIO}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#else}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ WITHOUT\_TRIO}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{/*\ VMS\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ WITH\_TRIO\ 1}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ VMS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ LIBXML\_THREAD\_ALLOC\_ENABLED}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ LIBXML\_TREE\_ENABLED}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ LIBXML\_OUTPUT\_ENABLED}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ LIBXML\_PUSH\_ENABLED}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#define\ LIBXML\_READER\_ENABLED}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ LIBXML\_PATTERN\_ENABLED}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#define\ LIBXML\_WRITER\_ENABLED}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#define\ LIBXML\_SAX1\_ENABLED}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#define\ LIBXML\_FTP\_ENABLED}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#define\ LIBXML\_HTTP\_ENABLED}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\#define\ LIBXML\_VALID\_ENABLED}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#define\ LIBXML\_HTML\_ENABLED}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#define\ LIBXML\_LEGACY\_ENABLED}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#define\ LIBXML\_C14N\_ENABLED}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\#define\ LIBXML\_CATALOG\_ENABLED}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#define\ LIBXML\_XPATH\_ENABLED}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#define\ LIBXML\_XPTR\_ENABLED}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#define\ LIBXML\_XPTR\_LOCS\_ENABLED}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#define\ LIBXML\_XINCLUDE\_ENABLED}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\#define\ LIBXML\_ICONV\_ENABLED}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#define\ LIBXML\_ICU\_ENABLED}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\#define\ LIBXML\_ISO8859X\_ENABLED}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\#define\ LIBXML\_DEBUG\_ENABLED}}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\#define\ DEBUG\_MEMORY\_LOCATION}}
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\#define\ LIBXML\_DEBUG\_RUNTIME}}
+\DoxyCodeLine{00320\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00327\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00328\ \textcolor{preprocessor}{\#define\ LIBXML\_UNICODE\_ENABLED}}
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00336\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00337\ \textcolor{preprocessor}{\#define\ LIBXML\_REGEXP\_ENABLED}}
+\DoxyCodeLine{00338\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\#define\ LIBXML\_AUTOMATA\_ENABLED}}
+\DoxyCodeLine{00347\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00356\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00357\ \textcolor{preprocessor}{\#define\ LIBXML\_EXPR\_ENABLED}}
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00365\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00366\ \textcolor{preprocessor}{\#define\ LIBXML\_SCHEMAS\_ENABLED}}
+\DoxyCodeLine{00367\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00374\ \textcolor{preprocessor}{\#if\ 1}}
+\DoxyCodeLine{00375\ \textcolor{preprocessor}{\#define\ LIBXML\_SCHEMATRON\_ENABLED}}
+\DoxyCodeLine{00376\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00383\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00384\ \textcolor{preprocessor}{\#define\ LIBXML\_MODULES\_ENABLED}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00390\ \textcolor{preprocessor}{\#define\ LIBXML\_MODULE\_EXTENSION\ "{}.dll"{}\ }}
+\DoxyCodeLine{00391\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00398\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00399\ \textcolor{preprocessor}{\#define\ LIBXML\_ZLIB\_ENABLED}}
+\DoxyCodeLine{00400\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00407\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00408\ \textcolor{preprocessor}{\#define\ LIBXML\_LZMA\_ENABLED}}
+\DoxyCodeLine{00409\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \textcolor{preprocessor}{\#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \textcolor{preprocessor}{\#ifndef\ ATTRIBUTE\_UNUSED}}
+\DoxyCodeLine{00420\ \textcolor{preprocessor}{\#\ if\ ((\_\_GNUC\_\_\ >\ 2)\ ||\ ((\_\_GNUC\_\_\ ==\ 2)\ \&\&\ (\_\_GNUC\_MINOR\_\_\ >=\ 7)))}}
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\#\ \ define\ ATTRIBUTE\_UNUSED\ \_\_attribute\_\_((unused))}}
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\#\ else}}
+\DoxyCodeLine{00423\ \textcolor{preprocessor}{\#\ \ define\ ATTRIBUTE\_UNUSED}}
+\DoxyCodeLine{00424\ \textcolor{preprocessor}{\#\ endif}}
+\DoxyCodeLine{00425\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \textcolor{preprocessor}{\#ifndef\ LIBXML\_ATTR\_ALLOC\_SIZE}}
+\DoxyCodeLine{00434\ \textcolor{preprocessor}{\#\ if\ (!defined(\_\_clang\_\_)\ \&\&\ ((\_\_GNUC\_\_\ >\ 4)\ ||\ ((\_\_GNUC\_\_\ ==\ 4)\ \&\&\ (\_\_GNUC\_MINOR\_\_\ >=\ 3))))}}
+\DoxyCodeLine{00435\ \textcolor{preprocessor}{\#\ \ define\ LIBXML\_ATTR\_ALLOC\_SIZE(x)\ \_\_attribute\_\_((alloc\_size(x)))}}
+\DoxyCodeLine{00436\ \textcolor{preprocessor}{\#\ else}}
+\DoxyCodeLine{00437\ \textcolor{preprocessor}{\#\ \ define\ LIBXML\_ATTR\_ALLOC\_SIZE(x)}}
+\DoxyCodeLine{00438\ \textcolor{preprocessor}{\#\ endif}}
+\DoxyCodeLine{00439\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00440\ \textcolor{preprocessor}{\#\ define\ LIBXML\_ATTR\_ALLOC\_SIZE(x)}}
+\DoxyCodeLine{00441\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00449\ \textcolor{preprocessor}{\#ifndef\ LIBXML\_ATTR\_FORMAT}}
+\DoxyCodeLine{00450\ \textcolor{preprocessor}{\#\ if\ ((\_\_GNUC\_\_\ >\ 3)\ ||\ ((\_\_GNUC\_\_\ ==\ 3)\ \&\&\ (\_\_GNUC\_MINOR\_\_\ >=\ 3)))}}
+\DoxyCodeLine{00451\ \textcolor{preprocessor}{\#\ \ define\ LIBXML\_ATTR\_FORMAT(fmt,args)\ \_\_attribute\_\_((\_\_format\_\_(\_\_printf\_\_,fmt,args)))}}
+\DoxyCodeLine{00452\ \textcolor{preprocessor}{\#\ else}}
+\DoxyCodeLine{00453\ \textcolor{preprocessor}{\#\ \ define\ LIBXML\_ATTR\_FORMAT(fmt,args)}}
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\#\ endif}}
+\DoxyCodeLine{00455\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00456\ \textcolor{preprocessor}{\#\ define\ LIBXML\_ATTR\_FORMAT(fmt,args)}}
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\#ifndef\ XML\_DEPRECATED}}
+\DoxyCodeLine{00460\ \textcolor{preprocessor}{\#\ \ ifdef\ IN\_LIBXML}}
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\#\ \ \ \ define\ XML\_DEPRECATED}}
+\DoxyCodeLine{00462\ \textcolor{preprocessor}{\#\ \ else}}
+\DoxyCodeLine{00463\ \textcolor{comment}{/*\ Available\ since\ at\ least\ GCC\ 3.1\ */}}
+\DoxyCodeLine{00464\ \textcolor{preprocessor}{\#\ \ \ \ define\ XML\_DEPRECATED\ \_\_attribute\_\_((deprecated))}}
+\DoxyCodeLine{00465\ \textcolor{preprocessor}{\#\ \ endif}}
+\DoxyCodeLine{00466\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00468\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{/*\ !\ \_\_GNUC\_\_\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00474\ \textcolor{preprocessor}{\#define\ ATTRIBUTE\_UNUSED}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00480\ \textcolor{preprocessor}{\#define\ LIBXML\_ATTR\_ALLOC\_SIZE(x)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00486\ \textcolor{preprocessor}{\#define\ LIBXML\_ATTR\_FORMAT(fmt,args)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00493\ \textcolor{preprocessor}{\#ifndef\ XML\_DEPRECATED}}
+\DoxyCodeLine{00494\ \textcolor{preprocessor}{\#define\ XML\_DEPRECATED}}
+\DoxyCodeLine{00495\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00496\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_GNUC\_\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00497\ }
+\DoxyCodeLine{00498\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00499\ \}}
+\DoxyCodeLine{00500\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00501\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00502\ }
+\DoxyCodeLine{00503\ }
+
+\end{DoxyCode}

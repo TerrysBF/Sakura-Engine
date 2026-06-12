@@ -1,0 +1,52 @@
+\doxysection{include/fbx/fbxsdk/core/fbxproperty.h File Reference}
+\hypertarget{fbxproperty_8h}{}\label{fbxproperty_8h}\index{include/fbx/fbxsdk/core/fbxproperty.h@{include/fbx/fbxsdk/core/fbxproperty.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxquery.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxpropertydef.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxpropertytypes.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxdatatypes.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/base/fbxmap.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/base/fbxset.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}}
+\begin{DoxyCompactList}\small\item\em Class to hold user properties. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_property_1_1_fbx_property_name_cache}{Fbx\+Property\+::\+Fbx\+Property\+Name\+Cache}}
+\begin{DoxyCompactList}\small\item\em This is an internal class that you can use to build and clear the name map of properties. You can use the name map to speed up searching for property names. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_property_t}{Fbx\+Property\+T$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em This template class is used to contain user properties of specific data types. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_property_t_3_01_fbx_reference_01_4}{Fbx\+Property\+T$<$ Fbx\+Reference $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T$>$ }\\T \mbox{\hyperlink{fbxproperty_8h_aad47f017660621019bda1aa0efc1b7ae}{Evaluate\+Property\+Value}} (\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property, const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time, bool p\+Force\+Eval=false)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fbxproperty_8h_aad47f017660621019bda1aa0efc1b7ae}\index{fbxproperty.h@{fbxproperty.h}!EvaluatePropertyValue@{EvaluatePropertyValue}}
+\index{EvaluatePropertyValue@{EvaluatePropertyValue}!fbxproperty.h@{fbxproperty.h}}
+\doxysubsubsection{\texorpdfstring{EvaluatePropertyValue()}{EvaluatePropertyValue()}}
+{\footnotesize\ttfamily \label{fbxproperty_8h_aad47f017660621019bda1aa0efc1b7ae} 
+template$<$class T$>$ \\
+T Evaluate\+Property\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&}]{p\+Property}{, }\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{, }\item[{bool}]{p\+Force\+Eval}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evaluate the property at the specified time using the template type provided. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Property} & The property to evaluate. \\
+\hline
+{\em p\+Time} & The time used for evaluate. \\
+\hline
+{\em p\+Force\+Eval} & Force the evaluator to refresh the evaluation state cache even if its already up-\/to-\/date. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The property value at the specified time converted to the template type provided, if possible. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+If the property type versus the template cannot be converted, the result is unknown. 
+\end{DoxyRemark}

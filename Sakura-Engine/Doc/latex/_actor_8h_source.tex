@@ -1,0 +1,96 @@
+\doxysection{Actor.\+h}
+\hypertarget{_actor_8h_source}{}\label{_actor_8h_source}\index{include/ECS/Actor.h@{include/ECS/Actor.h}}
+\mbox{\hyperlink{_actor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_buffer_8h}{Buffer.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_texture_8h}{Texture.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_transform_8h}{Transform.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_sampler_state_8h}{SamplerState.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_rasterizer_state_8h}{RasterizerState.h}}"{}}}
+\DoxyCodeLine{00014\ \ \textcolor{comment}{//\#include\ "{}BlendState.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}ShaderProgram.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_depth_stencil_state_8h}{DepthStencilState.h}}"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device}{Device}};}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mesh_component}{MeshComponent}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{class_actor_af1a502eb04e2295a15a2857fa2126c9b}{Actor}}\ :\ \textcolor{keyword}{public}\ Entity\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{class_actor_af1a502eb04e2295a15a2857fa2126c9b}{Actor}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{class_actor_af1a502eb04e2295a15a2857fa2126c9b}{Actor}}(\mbox{\hyperlink{class_device}{Device}}\&\ device);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{virtual}}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_actor_a4e8d9d909ec2c3d3205682e83bf8ff18}{\string~Actor}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00052\ \ \ \ \ awake()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_actor_ae789334128df3f9899d00d0e0c2dad12}{init}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{class_mesh_component_a44977ec0336d6ef668413bf75fbe5a1f}{update}}(\textcolor{keywordtype}{float}\ deltaTime,\ \mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{class_mesh_component_af5d5a041d6ef199ca11b0e33db262a86}{render}}(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00085\ \ \ \ \ renderForSkybox(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00092\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{class_mesh_component_add21471ffcfcfc3b00b4d1bad9ed79d4}{destroy}}();}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00104\ \ \ \ \ setMesh(\mbox{\hyperlink{class_device}{Device}}\&\ device,\ std::vector<MeshComponent>\ meshes);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00110\ \ \ std::string}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{class_actor_a3774c7733aab5ad0d447db5e32dc9a6c}{getName}}()\ \{\ \textcolor{keywordflow}{return}\ m\_name;\ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00117\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{class_actor_a13ce4fba3bb646cc03d409c1ea3cf753}{setName}}(\textcolor{keyword}{const}\ std::string\&\ name)\ \{\ m\_name\ =\ name;\ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00124\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00125\ \ \ \ \ \mbox{\hyperlink{class_actor_abbacf6f347fa05ace133b45f1343a9cc}{setTextures}}(std::vector<Texture>\ textures)\ \{\ m\_textures\ =\ textures;\ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00131\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{class_actor_a2e272052b63928c34e8e293b261a5c74}{setCastShadow}}(\textcolor{keywordtype}{bool}\ v)\ \{\ castShadow\ =\ v;\ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00138\ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00139\ \ \ \ \ \mbox{\hyperlink{class_actor_a25dbcfb159157c984ef7c2cc9354494e}{canCastShadow}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ castShadow;\ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00148\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00149\ \ \ \ \ \mbox{\hyperlink{class_actor_a7df63570cf61c0046828b4f4e00d10ad}{renderShadow}}(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00152\ \ \ std::vector<MeshComponent>\ m\_meshes;\ \ \ }
+\DoxyCodeLine{00153\ \ \ std::vector<Texture>\ m\_textures;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00154\ \ \ std::vector<Buffer>\ m\_vertexBuffers;\ \ \ }
+\DoxyCodeLine{00155\ \ \ std::vector<Buffer>\ m\_indexBuffers;\ \ \ \ }
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \textcolor{comment}{//BlendState\ m\_blendstate;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///<\ Estado\ de\ blending\ usado\ por\ el\ actor.}}
+\DoxyCodeLine{00158\ \ \ \textcolor{comment}{//RasterizerState\ m\_rasterizer;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ///<\ Estado\ de\ rasterizaci{\ucr}n\ usado\ por\ el\ actor.}}
+\DoxyCodeLine{00159\ \ \ \mbox{\hyperlink{class_sampler_state}{SamplerState}}\ m\_sampler;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00160\ \ \ \mbox{\hyperlink{struct_c_b_changes_every_frame}{CBChangesEveryFrame}}\ m\_model;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00161\ \ \ \mbox{\hyperlink{class_buffer}{Buffer}}\ m\_modelBuffer;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \textcolor{comment}{//\ Recursos\ para\ sombras}}
+\DoxyCodeLine{00164\ \ \ \mbox{\hyperlink{class_shader_program}{ShaderProgram}}\ m\_shaderShadow;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00165\ \ \ \mbox{\hyperlink{class_buffer}{Buffer}}\ m\_shaderBuffer;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00166\ \ \ \textcolor{comment}{//BlendState\ m\_shadowBlendState;\ \ \ \ \ \ \ \ \ ///<\ Estado\ de\ blending\ espec{\ucr}fico\ para\ sombras.}}
+\DoxyCodeLine{00167\ \ \ \mbox{\hyperlink{class_depth_stencil_state}{DepthStencilState}}\ m\_shadowDepthStencilState;\ }
+\DoxyCodeLine{00168\ \ \ \mbox{\hyperlink{struct_c_b_changes_every_frame}{CBChangesEveryFrame}}\ m\_cbShadow;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ XMFLOAT4\ m\_LightPos;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00171\ \ \ std::string\ m\_name\ =\ \textcolor{stringliteral}{"{}Actor"{}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00172\ \ \ \textcolor{keywordtype}{bool}\ castShadow\ =\ \textcolor{keyword}{true};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00173\ \};}
+\DoxyCodeLine{00174\ }
+
+\end{DoxyCode}

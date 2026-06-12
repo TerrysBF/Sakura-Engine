@@ -1,0 +1,106 @@
+\doxysection{fbxconstraintsinglechainik.\+h}
+\hypertarget{fbxconstraintsinglechainik_8h_source}{}\label{fbxconstraintsinglechainik_8h_source}\index{include/fbx/fbxsdk/scene/constraint/fbxconstraintsinglechainik.h@{include/fbx/fbxsdk/scene/constraint/fbxconstraintsinglechainik.h}}
+\mbox{\hyperlink{fbxconstraintsinglechainik_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_CONSTRAINT\_SINGLE\_CHAIN\_IK\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_CONSTRAINT\_SINGLE\_CHAIN\_IK\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxconstraint_8h}{fbxsdk/scene/constraint/fbxconstraint.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k}{FbxConstraintSingleChainIK}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_constraint}{FbxConstraint}}}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_constraint_single_chain_i_k}{FbxConstraintSingleChainIK}},\ \mbox{\hyperlink{class_fbx_constraint}{FbxConstraint}});}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_aac22215f25edcd32ca36e0e4ec0c1d9a}{ESolverMode}}}
+\DoxyCodeLine{00033\ \ \ \ \ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ eRotatePlane,\ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_aac22215f25edcd32ca36e0e4ec0c1d9aa1fa1389075eefdd86c267eab6880a7ca}{eSingleChain}}\ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a853dee195ab92c878a805ed7206a93bb}{EPoleVectorMode}}}
+\DoxyCodeLine{00041\ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ eVector,\ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a853dee195ab92c878a805ed7206a93bbac0d1970fc811997b6248e11efbdf31bc}{eObject}}\ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_aa730475e0c3f9f1ecc04e61f39369fc1}{EEvaluationMode}}}
+\DoxyCodeLine{00049\ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ eNeverTS,\ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_aa730475e0c3f9f1ecc04e61f39369fc1a2d85bdf9a9c48132894a0b3d35b6c1b2}{eAutoDetect}},\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_aa730475e0c3f9f1ecc04e61f39369fc1ab6a348da5218082487a30df63cee3c5d}{eAlwaysTS}}\ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxEnum>}}\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a5005bf5aa9d33200a228ad9723c519b0}{PoleVectorType}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxEnum>}}\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a2ed14960ba042a0c7f447306560bbe11}{SolverType}};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxEnum>}}\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_ae2f5d57a658c12c748ceeccd31809a3f}{EvaluateTSAnim}};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxReference>}}\ \ \ \ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a20b0f346f5d104fd63a69e3b560cfaba}{PoleVectorObjects}};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble3>}}\ \ \ \ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a0fb576e54a64caab8e6609060e020ae2}{PoleVector}};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a3756b61ba9a55d15c00229fc9a670e4e}{Twist}};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxReference>}}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_ad33341677c0cf0689bcbc1f4e4eda23a}{FirstJointObject}};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxReference>}}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_acb671de7c974cc53fba45d34dcdf9db4}{EndJointObject}};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxReference>}}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_ab7b3721f2b7f267b6dd35ce38ffa7bbe}{EffectorObject}};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_ae212fc88bd99906d8aadcc160dc0c1b8}{GetPoleVectorObjectWeight}}(\textcolor{keyword}{const}\ FbxObject*\ pObject)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a26abc95e8442f40ec86f38ef9e4748b8}{AddPoleVectorObject}}(FbxObject*\ pObject,\ \textcolor{keywordtype}{double}\ pWeight\ =\ 100);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_afeb5c6ab6342ec4aa81e69d3c9888bac}{GetConstraintPoleVectorCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00121\ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a0eb8aa485866c6545ef0352a839580ed}{GetPoleVectorObject}}(\textcolor{keywordtype}{int}\ pIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a3c4bb5735bed369b73eeb42757a6aa1f}{SetFirstJointObject}}(FbxObject*\ pObject);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00131\ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a421638dc863985e365c56a582349a5bf}{GetFirstJointObject}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a17923d89b6f7795c5322b1f9241845c1}{SetEndJointObject}}(FbxObject*\ pObject);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00141\ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a9ac6765ec9007e56245b06915e64fcf7}{GetEndJointObject}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_af7dbd878134a3b9255e7ab11830d3206}{SetEffectorObject}}(FbxObject*\ pObject);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00151\ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a27ce85c2664d17dca4f68c02aff93b88}{GetEffectorObject}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00154\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00155\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00157\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a2d5e5e11ee0fa7317e2ae8cc5fef24dd}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00159\ \ \ \ \ \mbox{\hyperlink{class_fbx_constraint_a49c1634663395eab7c28856df233ec66}{EType}}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a900f31310cf761a60ffdea94603547e1}{GetConstraintType}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00161\ \};}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a853dee195ab92c878a805ed7206a93bb}{FbxConstraintSingleChainIK::EPoleVectorMode}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00164\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_aac22215f25edcd32ca36e0e4ec0c1d9a}{FbxConstraintSingleChainIK::ESolverMode}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00165\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_aa730475e0c3f9f1ecc04e61f39369fc1}{FbxConstraintSingleChainIK::EEvaluationMode}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_CONSTRAINT\_SINGLE\_CHAIN\_IK\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

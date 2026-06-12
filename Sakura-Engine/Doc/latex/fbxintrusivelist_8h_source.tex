@@ -1,0 +1,267 @@
+\doxysection{fbxintrusivelist.\+h}
+\hypertarget{fbxintrusivelist_8h_source}{}\label{fbxintrusivelist_8h_source}\index{include/fbx/fbxsdk/core/base/fbxintrusivelist.h@{include/fbx/fbxsdk/core/base/fbxintrusivelist.h}}
+\mbox{\hyperlink{fbxintrusivelist_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_BASE\_INTRUSIVE\_LIST\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_BASE\_INTRUSIVE\_LIST\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00022\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ FBXSDK\_INTRUSIVE\_LIST\_NODE(Class,\ NodeCount)\(\backslash\)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ public:\ inline\ FbxListNode<Class>\&\ GetListNode(int\ index\ =\ 0)\{\ return\ this-\/>mNode[index];\ \}\(\backslash\)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \ \ private:\ FbxListNode<Class>\ mNode[NodeCount];}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{class\ }FbxListNode}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxListNode<T>\ NodeT;\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{explicit}\ FbxListNode(T*\ pData\ =\ 0):mNext(0),mPrev(0),mData(pData)\{\}}
+\DoxyCodeLine{00035\ \ \ \ \ \string~FbxListNode()\{\ Disconnect();\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ Disconnect()}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ mPrev\ !=\ 0\ )}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ mPrev-\/>mNext\ =\ mNext;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ mNext\ !=\ 0\ )}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ mNext-\/>mPrev\ =\ mPrev;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ mPrev\ =\ mNext\ =\ 0;}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ NodeT*\ \ mNext;}
+\DoxyCodeLine{00049\ \ \ \ \ NodeT*\ \ mPrev;}
+\DoxyCodeLine{00050\ \ \ \ \ T*\ \ \ \ \ \ mData;}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00054\ \textcolor{comment}{//\ template\ arg\ T:\ Type\ listed}}
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ arg\ NodeIndex:\ If\ an\ object\ listed\ has\ \ multiple\ list\ node,\ which}}
+\DoxyCodeLine{00056\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index\ corresponds\ to\ the\ right\ node}}
+\DoxyCodeLine{00057\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{int}\ NodeIndex=0>\ \textcolor{keyword}{class\ }FbxIntrusiveList}
+\DoxyCodeLine{00058\ \{}
+\DoxyCodeLine{00059\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \ \ \ \ \ \ \ \ allocator\_type;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \ \ \ \ \ \ \ \ value\_type;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{typedef}\ T\&\ \ \ \ \ \ \ \ reference;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ T\&\ \ const\_reference;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{typedef}\ T*\ \ \ \ \ \ \ \ pointer;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ T*\ \ const\_pointer;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_list_node}{FbxListNode<T>}}\ NodeT;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ Construction\ /\ Destruction}}
+\DoxyCodeLine{00070\ \ \ \ \ FbxIntrusiveList():mHead(0)}
+\DoxyCodeLine{00071\ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ mHead.mNext\ =\ mHead.mPrev\ =\ \&mHead;}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \string~FbxIntrusiveList()}
+\DoxyCodeLine{00075\ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(!Empty())}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ Begin().Get()-\/>Disconnect();\ \ \textcolor{comment}{//\ LINUXNote:\ \ should\ be\ Erase(Begin());\ but\ there's\ an\ issue\ with\ gcc\ 4.2}}
+\DoxyCodeLine{00078\ \ \ \ \ \};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ true\ if\ the\ list's\ size\ is\ 0.}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ Empty()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00082\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((mHead.mNext==\&mHead)\&\&(mHead.mPrev==\&mHead));}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ Back\ Insertion\ Sequence\ \ Inserts\ a\ new\ element\ at\ the\ end.\ \ }}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ PushBack(T\&\ pElement)}
+\DoxyCodeLine{00088\ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ NodeT*\ pNode\ =\ \&pElement.GetListNode(NodeIndex);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ pNode-\/>mData\ =\ \&pElement;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Empty())}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mNext\ =\ \&mHead;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mPrev\ =\ \&mHead;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ mHead.mNext\ =\ pNode;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ mHead.mPrev\ =\ pNode;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mNext\ =\ \&mHead;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mPrev\ =\ mHead.mPrev;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mPrev-\/>mNext\ =\ pNode;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ mHead.mPrev\ =\ pNode;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ PushFront(T\&\ pElement)}
+\DoxyCodeLine{00110\ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ NodeT*\ pNode\ =\ \&pElement.GetListNode(NodeIndex);}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ pNode-\/>mData\ =\ \&pElement;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Empty())}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mNext\ =\ \&mHead;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mPrev\ =\ \&mHead;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ mHead.mNext\ =\ pNode;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ mHead.mPrev\ =\ pNode;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mNext\ =\ mHead.mNext;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mPrev\ =\ \&mHead;}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mNext-\/>mPrev\ =\ pNode;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ mHead.mNext\ =\ pNode;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ PopFront()}
+\DoxyCodeLine{00132\ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ iterator\ begin\ =\ Begin();}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ Erase(begin);}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{void}\ PopBack()}
+\DoxyCodeLine{00138\ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ Erase(-\/-\/(End()));}
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{class\ }IntrusiveListIterator}
+\DoxyCodeLine{00144\ \ \ \ \ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ IntrusiveListIterator(NodeT*\ ptr=0):mPtr(ptr)\{\}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pre-\/increment}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ IntrusiveListIterator\&\ operator++()}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ mPtr\ =\ mPtr-\/>mNext;\textcolor{keywordflow}{return}\ (*\textcolor{keyword}{this});}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ post-\/increment}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ IntrusiveListIterator\ operator++(\textcolor{keywordtype}{int})}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ IntrusiveListIterator\ temp\ =\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ ++*\textcolor{keyword}{this};}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (temp);}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pre-\/decrement}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ IntrusiveListIterator\&\ operator-\/-\/()}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ mPtr\ =\ mPtr-\/>mPrev;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ post-\/decrement}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ IntrusiveListIterator\ operator-\/-\/(\textcolor{keywordtype}{int})}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ IntrusiveListIterator\ temp\ =\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/*\textcolor{keyword}{this};}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (temp);}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ IntrusiveListIterator\&\ operator=(\textcolor{keyword}{const}\ IntrusiveListIterator\ \&other)\{mPtr\ =\ other.mPtr;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ reference\ operator*()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ *(mPtr-\/>mData);\ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ pointer\ operator-\/>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (\&**\textcolor{keyword}{this});\ \}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ IntrusiveListIterator\&\ other)\textcolor{keyword}{const}\{\ \textcolor{keywordflow}{return}\ mPtr==other.mPtr;\ \}\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ IntrusiveListIterator\&\ other)\textcolor{keyword}{const}\{\ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ other);\ \}\ }
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ NodeT*\ Get()\textcolor{keyword}{const\ }\{\ \textcolor{keywordflow}{return}\ mPtr;\ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ NodeT*\ mPtr;}
+\DoxyCodeLine{00183\ \ \ \ \ \};}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keyword}{class\ \ }IntrusiveListConstIterator}
+\DoxyCodeLine{00186\ \ \ \ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ IntrusiveListConstIterator(\textcolor{keyword}{const}\ NodeT*\ ptr=0):mPtr(ptr)\{\}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \textcolor{comment}{//\ pre-\/increment}}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ IntrusiveListConstIterator\&\ operator++()}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ mPtr\ =\ mPtr-\/>mNext;\textcolor{keywordflow}{return}\ (*\textcolor{keyword}{this});}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ post-\/increment}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ IntrusiveListConstIterator\ operator++(\textcolor{keywordtype}{int})}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ IntrusiveListConstIterator\ temp\ =\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ ++*\textcolor{keyword}{this};}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (temp);}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pre-\/decrement}}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ IntrusiveListConstIterator\&\ operator-\/-\/()}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ mPtr\ =\ mPtr-\/>mPrev;\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ post-\/decrement}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ IntrusiveListConstIterator\ operator-\/-\/(\textcolor{keywordtype}{int})}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ IntrusiveListConstIterator\ temp\ =\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/*\textcolor{keyword}{this};}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (temp);}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ IntrusiveListConstIterator\&\ operator=(\textcolor{keyword}{const}\ IntrusiveListConstIterator\ \&other)\{mPtr\ =\ other.mPtr;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ const\_reference\ operator*()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ *(mPtr-\/>mData);\ \}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ const\_pointer\ operator-\/>()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (\&**\textcolor{keyword}{this});\ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ IntrusiveListConstIterator\&\ other)\textcolor{keyword}{const}\{\ \textcolor{keywordflow}{return}\ mPtr==other.mPtr;\ \}\ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ IntrusiveListConstIterator\&\ other)\textcolor{keyword}{const}\{\ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ other);\ \}\ }
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ NodeT*\ Get()\textcolor{keyword}{const\ }\{\ \textcolor{keywordflow}{return}\ mPtr;\ \}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ \textcolor{keyword}{const}\ NodeT*\ mPtr;}
+\DoxyCodeLine{00225\ \ \ \ \ \};}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Iterator\ definitions\ -\/-\/-\/}}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_intrusive_list_1_1_intrusive_list_iterator}{IntrusiveListIterator}}\ iterator;}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_intrusive_list_1_1_intrusive_list_const_iterator}{IntrusiveListConstIterator}}\ const\_iterator;}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{comment}{//\ iterator\ support}}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keyword}{inline}\ iterator\ Begin()\ \{\ \textcolor{keywordflow}{return}\ iterator(mHead.mNext);\ \}}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keyword}{inline}\ const\_iterator\ Begin()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ const\_iterator(mHead.mNext);\ \}}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keyword}{inline}\ iterator\ End()\ \{\ \textcolor{keywordflow}{return}\ iterator(\&mHead);\ \}}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{inline}\ const\_iterator\ End()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ const\_iterator(\&mHead);\ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{comment}{//\ Because\ there\ is\ no\ real\ use,\ for\ the\ reverse\ iterators,\ }}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{comment}{//\ they\ have\ not\ been\ implemented.\ }}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ reference\ Front()\{\textcolor{keywordflow}{return}\ (*Begin());\}}
+\DoxyCodeLine{00241\ \ \ \ \ const\_reference\ Front()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (*Begin());\ \}}
+\DoxyCodeLine{00242\ \ \ \ \ reference\ Back()\{\ \textcolor{keywordflow}{return}\ (*(-\/-\/End()));\ \}}
+\DoxyCodeLine{00243\ \ \ \ \ const\_reference\ Back()\textcolor{keyword}{\ const}\{\ \textcolor{keywordflow}{return}\ (*(-\/-\/End()));\ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ iterator\&\ Erase(iterator\&\ it)}
+\DoxyCodeLine{00246\ \ \ \ \ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ it.Get()-\/>Disconnect();}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (++it);}
+\DoxyCodeLine{00249\ \ \ \ \ \}}
+\DoxyCodeLine{00250\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00251\ \ \ \ \ NodeT\ mHead;}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{comment}{//\ Not\ copyable}}
+\DoxyCodeLine{00254\ \ \ \ \ FbxIntrusiveList(\textcolor{keyword}{const}\ FbxIntrusiveList\&);}
+\DoxyCodeLine{00255\ \ \ \ \ FbxIntrusiveList\&\ operator=(\textcolor{keyword}{const}\ FbxIntrusiveList\&\ Right)\{\textcolor{keywordflow}{return}\ (*\textcolor{keyword}{this});\}}
+\DoxyCodeLine{00256\ \};}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_BASE\_INTRUSIVE\_LIST\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

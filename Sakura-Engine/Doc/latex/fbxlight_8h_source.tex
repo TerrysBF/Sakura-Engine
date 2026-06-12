@@ -1,0 +1,135 @@
+\doxysection{fbxlight.\+h}
+\hypertarget{fbxlight_8h_source}{}\label{fbxlight_8h_source}\index{include/fbx/fbxsdk/scene/geometry/fbxlight.h@{include/fbx/fbxsdk/scene/geometry/fbxlight.h}}
+\mbox{\hyperlink{fbxlight_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_GEOMETRY\_LIGHT\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_GEOMETRY\_LIGHT\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxnodeattribute_8h}{fbxsdk/scene/geometry/fbxnodeattribute.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_texture}{FbxTexture}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_light}{FbxLight}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_node_attribute}{FbxNodeAttribute}}}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_light}{FbxLight}},\ \mbox{\hyperlink{class_fbx_node_attribute}{FbxNodeAttribute}});}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_light_ace4ba495501bddf1341600bea7ed8daf}{EType}}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ ePoint,\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ eDirectional,\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ eSpot,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ eArea,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ eVolume}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_light_a940254a9a826ab44a4cde044db1b3875}{EDecayType}}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ eNone,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ eLinear,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ eQuadratic,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ eCubic}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_light_a9bc60eabc41255f46f35d1f6acd274cd}{EAreaLightShape}}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ eRectangle,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ eSphere}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_light_af6ea79f113aa9ba55bcbfa98e36d9bfe}{SetShadowTexture}}(\mbox{\hyperlink{class_fbx_texture}{FbxTexture}}*\ pTexture);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_texture}{FbxTexture}}*\ \mbox{\hyperlink{class_fbx_light_a48e774aca5109afef3c41bc6110aa5e4}{GetShadowTexture}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EType>}}\ \mbox{\hyperlink{class_fbx_light_a2ce6e644dd2f9d7140c192d27d70ff93}{LightType}};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_light_aab7e8386257e02ef8e3873f15d5fc690}{CastLight}};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_light_a80eac74312e16415e3bfc8923a2ae98b}{DrawVolumetricLight}};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_light_a924e57f289e13900b4579d8e8ffdbc93}{DrawGroundProjection}};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_light_aac35b91a53647b958436f966ce65d7f7}{DrawFrontFacingVolumetricLight}};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble3>}}\ \mbox{\hyperlink{class_fbx_light_abd8989416ecbe6a33adcb6bc09b2401b}{Color}};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \mbox{\hyperlink{class_fbx_light_a3fc7a2684e3ab3cbd944825afd263433}{Intensity}};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \mbox{\hyperlink{class_fbx_light_aced336586b1b3a1b8d685bf11ef21216}{InnerAngle}};}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \mbox{\hyperlink{class_fbx_light_ae4343cc9ecd82f2fde13d095b067fe68}{OuterAngle}};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \mbox{\hyperlink{class_fbx_light_a85b9565571e88a5899fa7683ff77643c}{Fog}};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EDecayType>}}\ \mbox{\hyperlink{class_fbx_light_aef58f45dfa9e83866792ed63b3e8ba21}{DecayType}};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \mbox{\hyperlink{class_fbx_light_a33459f3a22c886508580c8879ee6cb54}{DecayStart}};}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxString>}}\ \mbox{\hyperlink{class_fbx_light_aeb6d0d316710f03e0f4aeb0376e1e376}{FileName}};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_light_ae9bf8b3fa56b50962615f78e999f3371}{EnableNearAttenuation}};}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \mbox{\hyperlink{class_fbx_light_aaad5d9617b23e08933e5360c948b3d26}{NearAttenuationStart}};}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \mbox{\hyperlink{class_fbx_light_adb8b8187ea6c10eca1c82d1a2b769d53}{NearAttenuationEnd}};}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_light_a65848a9a9d7afb4c576efa5376138a06}{EnableFarAttenuation}};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \mbox{\hyperlink{class_fbx_light_ac28fb5441eded0c0cf73d1e3efcf92bc}{FarAttenuationStart}};}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \mbox{\hyperlink{class_fbx_light_a2bb8f1a2eaba27196db363efe4cae050}{FarAttenuationEnd}};}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_light_a9ab7648e8c96d34f4feb5c76c52987ce}{CastShadows}};}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble3>}}\ \mbox{\hyperlink{class_fbx_light_aeb8d7f6d6fa57f4dc86ff8e47ff61dbf}{ShadowColor}};}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EAreaLightShape>}}\ \mbox{\hyperlink{class_fbx_light_a2d2ad2128f1ae61151c15d7de259d2e8}{AreaLightShape}};}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxFloat>}}\ \mbox{\hyperlink{class_fbx_light_afcf3b7db2cad32e11bb6fa016a402bc7}{LeftBarnDoor}};}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxFloat>}}\ \mbox{\hyperlink{class_fbx_light_aea237e743f2b2e2d5a2e3cdf28a78290}{RightBarnDoor}};}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxFloat>}}\ \mbox{\hyperlink{class_fbx_light_a22b02c12b00c38da4d38a21876ec5340}{TopBarnDoor}};}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxFloat>}}\ \mbox{\hyperlink{class_fbx_light_aef1e933e3a3baea5ad804868750cbd04}{BottomBarnDoor}};}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_light_add61baef63184934eeb71ede6328354c}{EnableBarnDoor}};}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00256\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00257\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00259\ \ \ \ \ \mbox{\hyperlink{class_fbx_node_attribute_a08e1669d3d1a696910756ab17de56d6a}{FbxNodeAttribute::EType}}\ \mbox{\hyperlink{class_fbx_light_a1430ee50185c2ae8e3462ad29530468f}{GetAttributeType}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_light_a8c5433eadb3ccab7064a9147937f751b}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00263\ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list}{FbxStringList}}\ \ GetTypeFlags()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00265\ \};}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_light_ace4ba495501bddf1341600bea7ed8daf}{FbxLight::EType}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00268\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_light_a940254a9a826ab44a4cde044db1b3875}{FbxLight::EDecayType}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00269\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_light_a9bc60eabc41255f46f35d1f6acd274cd}{FbxLight::EAreaLightShape}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_GEOMETRY\_LIGHT\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

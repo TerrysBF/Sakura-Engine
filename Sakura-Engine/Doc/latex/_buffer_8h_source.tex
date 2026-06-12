@@ -1,0 +1,62 @@
+\doxysection{Buffer.\+h}
+\hypertarget{_buffer_8h_source}{}\label{_buffer_8h_source}\index{include/Buffer.h@{include/Buffer.h}}
+\mbox{\hyperlink{_buffer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_mesh_component_8h}{MeshComponent.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device}{Device}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{class_buffer_a92fd371409790ee64d2ca9bdaec2dd1a}{Buffer}}\ \{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{class_buffer_a92fd371409790ee64d2ca9bdaec2dd1a}{Buffer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{class_buffer_ae2f3fc08c4a74c7f3b4437af4dd03ed5}{\string~Buffer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00055\ \ \ HRESULT}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_device_context_a9bbeaf8534205198a8e2c36568a6f81f}{init}}(\mbox{\hyperlink{class_device}{Device}}\&\ device,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_mesh_component}{MeshComponent}}\&\ mesh,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ bindFlag);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00070\ \ \ HRESULT}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{class_device_context_a9bbeaf8534205198a8e2c36568a6f81f}{init}}(\mbox{\hyperlink{class_device}{Device}}\&\ device,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ ByteWidth);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{class_device_context_a6d08e8ddde4580145c5556b2b375e2f0}{update}}(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ ID3D11Resource*\ pDstResource,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ DstSubresource,}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \textcolor{keyword}{const}\ D3D11\_BOX*\ pDstBox,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pSrcData,}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ SrcRowPitch,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ SrcDepthPitch);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00115\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{class_device_context_af51569641f4df1f98e78d4e5bb71577b}{render}}(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ StartSlot,}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ NumBuffers,}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ setPixelShader\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ DXGI\_FORMAT\ \ \ \ format\ =\ DXGI\_FORMAT\_UNKNOWN);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00129\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{class_device_context_a37a4ea5842700e9c6addac6adca96df2}{destroy}}();}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00142\ \ \ HRESULT}
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{class_buffer_a30e5bfadde7c7c05cccd65ff51596c04}{createBuffer}}(\mbox{\hyperlink{class_device}{Device}}\&\ device,}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ D3D11\_BUFFER\_DESC\&\ desc,}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ D3D11\_SUBRESOURCE\_DATA*\ initData);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00148\ \ \ ID3D11Buffer*\ m\_buffer\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00149\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00158\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_stride\ =\ 0;}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00164\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_offset\ =\ 0;}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00169\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_bindFlag\ =\ 0;}
+\DoxyCodeLine{00170\ \};}
+\DoxyCodeLine{00171\ }
+
+\end{DoxyCode}

@@ -1,0 +1,121 @@
+\doxysection{c14n.\+h}
+\hypertarget{c14n_8h_source}{}\label{c14n_8h_source}\index{include/fbx/libxml2/libxml/c14n.h@{include/fbx/libxml2/libxml/c14n.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Summary:\ Provide\ Canonical\ XML\ and\ Exclusive\ XML\ Canonicalization}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Description:\ the\ c14n\ modules\ provides\ a}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ "{}Canonical\ XML"{}\ implementation}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ http://www.w3.org/TR/xml-\/c14n}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ and\ an}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ "{}Exclusive\ XML\ Canonicalization"{}\ implementation}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ http://www.w3.org/TR/xml-\/exc-\/c14n}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ Copy:\ See\ Copyright\ for\ the\ status\ of\ this\ software.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ Author:\ Aleksey\ Sanin\ <aleksey@aleksey.com>}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_C14N\_H\_\_}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ \_\_XML\_C14N\_H\_\_}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <libxml/xmlversion.h>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_C14N\_ENABLED}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_OUTPUT\_ENABLED}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <libxml/tree.h>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <libxml/xpath.h>}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ XML\ Canonicalization}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ http://www.w3.org/TR/xml-\/c14n}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *\ Exclusive\ XML\ Canonicalization}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *\ http://www.w3.org/TR/xml-\/exc-\/c14n}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *\ Canonical\ form\ of\ an\ XML\ document\ could\ be\ created\ if\ and\ only\ if}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ \ a)\ default\ attributes\ (if\ any)\ are\ added\ to\ all\ nodes}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *\ \ b)\ all\ character\ and\ parsed\ entity\ references\ are\ resolved}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *\ In\ order\ to\ achieve\ this\ in\ libxml2\ the\ document\ MUST\ be\ loaded\ with}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ following\ global\ settings:}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *\ \ \ \ xmlLoadExtDtdDefaultValue\ =\ XML\_DETECT\_IDS\ |\ XML\_COMPLETE\_ATTRS;}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ \ \ \ xmlSubstituteEntitiesDefault(1);}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ or\ corresponding\ parser\ context\ setting:}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ \ \ \ xmlParserCtxtPtr\ ctxt;}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ \ \ \ ...}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *\ \ \ \ ctxt-\/>loadsubset\ =\ XML\_DETECT\_IDS\ |\ XML\_COMPLETE\_ATTRS;}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ *\ \ \ \ ctxt-\/>replaceEntities\ =\ 1;}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ *\ \ \ \ ...}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *\ xmlC14NMode:}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *\ Predefined\ values\ for\ C14N\ modes}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00063\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ XML\_C14N\_1\_0\ \ \ \ \ \ \ \ \ \ \ \ =\ 0,\ \ \ \ \textcolor{comment}{/*\ Original\ C14N\ 1.0\ spec\ */}}
+\DoxyCodeLine{00065\ \ \ \ \ XML\_C14N\_EXCLUSIVE\_1\_0\ \ =\ 1,\ \ \ \ \textcolor{comment}{/*\ Exclusive\ C14N\ 1.0\ spec\ */}}
+\DoxyCodeLine{00066\ \ \ \ \ XML\_C14N\_1\_1\ \ \ \ \ \ \ \ \ \ \ \ =\ 2\ \ \ \ \ \textcolor{comment}{/*\ C14N\ 1.1\ spec\ */}}
+\DoxyCodeLine{00067\ \}\ xmlC14NMode;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ xmlC14NDocSaveTo\ \ \ \ (xmlDocPtr\ doc,}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodeSetPtr\ nodes,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mode,\ \textcolor{comment}{/*\ a\ xmlC14NMode\ */}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ **inclusive\_ns\_prefixes,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ with\_comments,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlOutputBufferPtr\ buf);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ xmlC14NDocDumpMemory\ \ \ \ (xmlDocPtr\ doc,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodeSetPtr\ nodes,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mode,\ \textcolor{comment}{/*\ a\ xmlC14NMode\ */}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ **inclusive\_ns\_prefixes,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ with\_comments,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ **doc\_txt\_ptr);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ xmlC14NDocSave\ \ \ \ \ \ (xmlDocPtr\ doc,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodeSetPtr\ nodes,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mode,\ \textcolor{comment}{/*\ a\ xmlC14NMode\ */}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ **inclusive\_ns\_prefixes,}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ with\_comments,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ compression);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{typedef}\ int\ (*xmlC14NIsVisibleCallback)\ (\textcolor{keywordtype}{void}*\ user\_data,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ node,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ parent);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ xmlC14NExecute\ \ \ \ \ \ (xmlDocPtr\ doc,}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlC14NIsVisibleCallback\ is\_visible\_callback,}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ user\_data,}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mode,\ \textcolor{comment}{/*\ a\ xmlC14NMode\ */}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ **inclusive\_ns\_prefixes,}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ with\_comments,}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlOutputBufferPtr\ buf);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_OUTPUT\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_C14N\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_XML\_C14N\_H\_\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00128\ }
+
+\end{DoxyCode}

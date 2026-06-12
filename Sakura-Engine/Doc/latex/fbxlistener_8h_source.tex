@@ -1,0 +1,74 @@
+\doxysection{fbxlistener.\+h}
+\hypertarget{fbxlistener_8h_source}{}\label{fbxlistener_8h_source}\index{include/fbx/fbxsdk/core/fbxlistener.h@{include/fbx/fbxsdk/core/fbxlistener.h}}
+\mbox{\hyperlink{fbxlistener_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_LISTENER\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_LISTENER\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxemitter_8h}{fbxsdk/core/fbxemitter.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxeventhandler_8h}{fbxsdk/core/fbxeventhandler.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxintrusivelist_8h}{fbxsdk/core/base/fbxintrusivelist.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_listener_a8d0059633c0a29709abd105fb4f911ec}{FbxListener}}}
+\DoxyCodeLine{00042\ \{}
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_fbx_listener_a47f9225b672464b671e7d260fba28fa3}{\string~FbxListener}}();}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_fbx_listener_a8d0059633c0a29709abd105fb4f911ec}{FbxListener}}()\{\}}
+\DoxyCodeLine{00053\ \ \ \ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ EventType,\textcolor{keyword}{typename}\ ListenerType>\ \mbox{\hyperlink{class_fbx_event_handler}{FbxEventHandler}}*\ \mbox{\hyperlink{class_fbx_listener_af2771e336fe4b8a9e3e9a7f2598d43a9}{Bind}}(\mbox{\hyperlink{class_fbx_emitter}{FbxEmitter}}\&\ pEmitter,\ \textcolor{keywordtype}{void}\ (ListenerType::*pFunc)(\textcolor{keyword}{const}\ EventType*))}
+\DoxyCodeLine{00068\ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_member_func_event_handler}{FbxMemberFuncEventHandler<EventType,ListenerType>}}*\ eventHandler\ =\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ FbxNew<\ FbxMemberFuncEventHandler<EventType,ListenerType>\ >(\textcolor{keyword}{static\_cast<}ListenerType*\textcolor{keyword}{>}(\textcolor{keyword}{this}),pFunc);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ pEmitter.\mbox{\hyperlink{class_fbx_emitter_ab8022a1fd620467f12f493673cfa16a9}{AddListener}}(*eventHandler);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ mEventHandler.PushBack(*eventHandler);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ eventHandler;}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ EventType,\textcolor{keyword}{typename}\ ListenerType>\ \mbox{\hyperlink{class_fbx_event_handler}{FbxEventHandler}}*\ \mbox{\hyperlink{class_fbx_listener_ad1296e4108c7dc65436e5d53514bdfe4}{Bind}}(\mbox{\hyperlink{class_fbx_emitter}{FbxEmitter}}\&\ pEmitter,\ \textcolor{keywordtype}{void}\ (ListenerType::*pFunc)(\textcolor{keyword}{const}\ EventType*)\textcolor{keyword}{const})}
+\DoxyCodeLine{00084\ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_const_member_func_event_handler}{FbxConstMemberFuncEventHandler<EventType,ListenerType>}}*\ eventHandler\ =\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxNew<\ FbxConstMemberFuncEventHandler<EventType,ListenerType>\ >(\textcolor{keyword}{static\_cast<}ListenerType*\textcolor{keyword}{>}(\textcolor{keyword}{this}),pFunc);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ pEmitter.\mbox{\hyperlink{class_fbx_emitter_ab8022a1fd620467f12f493673cfa16a9}{AddListener}}(*eventHandler);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ mEventHandler.PushBack(*eventHandler);}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ eventHandler;}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ EventType>\ \mbox{\hyperlink{class_fbx_event_handler}{FbxEventHandler}}*\ \mbox{\hyperlink{class_fbx_listener_aec6e910f3cfce09ceffed50c8393dec3}{Bind}}(\mbox{\hyperlink{class_fbx_emitter}{FbxEmitter}}\&\ pEmitter,\ \textcolor{keywordtype}{void}\ (*pFunc)(\textcolor{keyword}{const}\ EventType*,\mbox{\hyperlink{class_fbx_listener_a8d0059633c0a29709abd105fb4f911ec}{FbxListener}}*))}
+\DoxyCodeLine{00100\ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_func_event_handler}{FbxFuncEventHandler<EventType>}}*\ eventHandler\ =\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxNew<\ FbxFuncEventHandler<EventType>\ >(\textcolor{keyword}{this},\ pFunc);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ pEmitter.\mbox{\hyperlink{class_fbx_emitter_ab8022a1fd620467f12f493673cfa16a9}{AddListener}}(*eventHandler);}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ mEventHandler.PushBack(*eventHandler);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ eventHandler;}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_listener_a723ba6f82b533e427d72ab39da3f8aeb}{Unbind}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_event_handler}{FbxEventHandler}}*\ aBindId);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_intrusive_list}{FbxIntrusiveList<FbxEventHandler,\ FbxEventHandler::eListener>}}\ EventHandlerList;}
+\DoxyCodeLine{00116\ \ \ \ \ EventHandlerList\ mEventHandler;}
+\DoxyCodeLine{00117\ \};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_LISTENER\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

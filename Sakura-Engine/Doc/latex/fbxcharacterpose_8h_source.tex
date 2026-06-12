@@ -1,0 +1,67 @@
+\doxysection{fbxcharacterpose.\+h}
+\hypertarget{fbxcharacterpose_8h_source}{}\label{fbxcharacterpose_8h_source}\index{include/fbx/fbxsdk/scene/constraint/fbxcharacterpose.h@{include/fbx/fbxsdk/scene/constraint/fbxcharacterpose.h}}
+\mbox{\hyperlink{fbxcharacterpose_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_CONSTRAINT\_CHARACTER\_POSE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_CONSTRAINT\_CHARACTER\_POSE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcharacter_8h}{fbxsdk/scene/constraint/fbxcharacter.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxnode_8h}{fbxsdk/scene/geometry/fbxnode.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_character_pose}{FbxCharacterPose}}\ :\ \textcolor{keyword}{public}\ FbxObject}
+\DoxyCodeLine{00049\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_character_pose}{FbxCharacterPose}},FbxObject);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_character_pose_ab0aa178aa39799fae44ef3837dfcc9bf}{Reset}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ \mbox{\hyperlink{class_fbx_character_pose_a22916a7c5fad95685f5a65b63c497aa9}{GetRootNode}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_fbx_character}{FbxCharacter}}*\ \mbox{\hyperlink{class_fbx_character_pose_a4583a94277faf9776012bf0c129e796a}{GetCharacter}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_character_pose_a0abc45efdccf78de0b736232bb85e106}{GetOffset}}(\mbox{\hyperlink{class_fbx_character_ad75bf42026e435ac0ff4d7ece2317be4}{FbxCharacter::ENodeId}}\ pCharacterNodeId,\ \mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\&\ pOffset)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_character_pose_ab258febbc8198b6687eaef43654909c5}{GetLocalPosition}}(\mbox{\hyperlink{class_fbx_character_ad75bf42026e435ac0ff4d7ece2317be4}{FbxCharacter::ENodeId}}\ pCharacterNodeId,\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pLocalT,\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pLocalR,\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pLocalS)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_character_pose_abe05a6239a8a3e436a3e4d28ccde5499}{GetGlobalPosition}}(\mbox{\hyperlink{class_fbx_character_ad75bf42026e435ac0ff4d7ece2317be4}{FbxCharacter::ENodeId}}\ pCharacterNodeId,\ \mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\&\ pGlobalPosition)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ \mbox{\hyperlink{class_fbx_character_pose_aad68d0f910ee219ff72b9419900f5e25}{GetPoseScene}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00094\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00095\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00097\ \ \ \ \ FbxObject\&\ \mbox{\hyperlink{class_fbx_character_pose_ad46f09eeccae7012eb32c19590405fd7}{Copy}}(\textcolor{keyword}{const}\ FbxObject\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00098\ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_character_pose_a7a24a4ce787fdd6c17859c653a846f5a}{Clone}}(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}{FbxObject::ECloneType}}\ pCloneType=\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{eDeepClone}},\ FbxObject*\ pContainer=NULL,\ \textcolor{keywordtype}{void}*\ pSet\ =\ NULL)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_object_a0b43f5017582b7167d8447bd9911236e}{Clone}}(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ pPoseScene,\ \ \ \ \ \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}{FbxObject::ECloneType}}\ pCloneType=\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{eDeepClone}},\ FbxObject*\ pContainer=NULL,\ \textcolor{keywordtype}{void}*\ pSet\ =\ NULL);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_character_pose_acf0e173f5bafcd3cd1cdb6847a3b8027}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_character_pose_acf7e11535cca9be8149f83c9c044ceac}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ mPoseScene;}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00108\ \};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_CONSTRAINT\_CHARACTER\_POSE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

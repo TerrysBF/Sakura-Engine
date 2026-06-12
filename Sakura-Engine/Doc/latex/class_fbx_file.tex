@@ -1,0 +1,330 @@
+\doxysection{Fbx\+File Class Reference}
+\hypertarget{class_fbx_file}{}\label{class_fbx_file}\index{FbxFile@{FbxFile}}
+
+
+{\ttfamily \#include $<$fbxfile.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_file_a0370e8fd17b3658f718e1350a6a6f462}\label{class_fbx_file_a0370e8fd17b3658f718e1350a6a6f462} 
+enum {\bfseries EMode} \{ \newline
+{\bfseries e\+None}
+, {\bfseries e\+Read\+Only}
+, {\bfseries e\+Read\+Write}
+, {\bfseries e\+Create\+Write\+Only}
+, \newline
+{\bfseries e\+Create\+Read\+Write}
+, {\bfseries e\+Create\+Append}
+ \}
+\item 
+\Hypertarget{class_fbx_file_aba91fe59f9c0a4c84a92f13c0c27deec}\label{class_fbx_file_aba91fe59f9c0a4c84a92f13c0c27deec} 
+enum {\bfseries ESeek\+Pos} \{ {\bfseries e\+Begin}
+, {\bfseries e\+Current}
+, {\bfseries e\+End}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_file_a1942c2245eabf7f0507118226af13727}{Open}} (const char \texorpdfstring{$\ast$}{*}p\+File\+Name\+\_\+\+UTF8, const EMode p\+Mode=e\+Create\+Read\+Write, const bool p\+Binary=true)
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_file_a32456c88ed5a970971facea637ba96b1}{Open}} (\mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \texorpdfstring{$\ast$}{*}p\+Stream, void \texorpdfstring{$\ast$}{*}p\+Stream\+Data, const char \texorpdfstring{$\ast$}{*}p\+Mode)
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_file_ae8028a6bb80f3ebe4f6fcbaab367228b}{Close}} ()
+\item 
+virtual void \mbox{\hyperlink{class_fbx_file_af12434c7b2bf0cd193d3327180186901}{Seek}} (const Fbx\+Int64 p\+Offset, const ESeek\+Pos p\+Seek\+Pos=e\+Begin)
+\item 
+virtual Fbx\+Int64 \mbox{\hyperlink{class_fbx_file_aa32606ad8b5a8163f04c38b3020ec826}{Tell}} () const
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_fbx_file_a9d2eb8ec7b9a877dd7aa9b2950287285}{Read}} (void \texorpdfstring{$\ast$}{*}p\+Dst\+Buf, const size\+\_\+t p\+Size)
+\item 
+virtual char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_file_a78ac4b81047b74a5bea9120699696be5}{Read\+String}} (char \texorpdfstring{$\ast$}{*}p\+Dst\+Buf, const size\+\_\+t p\+Dst\+Size, bool p\+Stop\+At\+First\+White\+Space=false)
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_fbx_file_a8fff74d83402e939b69ac4c25a5bc689}{Write}} (const void \texorpdfstring{$\ast$}{*}p\+Src\+Buf, const size\+\_\+t p\+Size)
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_file_a64271cf33bdcd55d35502cd46ab910a5}{Write\+Format}} (const char \texorpdfstring{$\ast$}{*}p\+Format,...)
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_file_aa93638b789020857a19306175a921271}{Truncate}} (const Fbx\+Int64 p\+Size)
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_file_a3e438294b7e07dbc3b672ba771ebdd51}{End\+Of\+File}} () const
+\item 
+virtual Fbx\+Int64 \mbox{\hyperlink{class_fbx_file_aa7d93faa5ec8ef431b6c9b82845e8271}{Get\+Size}} ()
+\item 
+virtual void \mbox{\hyperlink{class_fbx_file_af337d81039f651f40aae9de95a0589d3}{Get\+Memory\+File\+Info}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Mem\+Ptr, size\+\_\+t \&p\+Size)
+\item 
+bool \mbox{\hyperlink{class_fbx_file_acf436397d99f8b7fb5baf5b32eac26b1}{Is\+Open}} () const
+\item 
+bool \mbox{\hyperlink{class_fbx_file_ae515a0ebd07a7ebedd0a62b5299cd417}{Is\+Stream}} () const
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_file_a2afefe8442014ecc14fab944862a3ad3}{Get\+File\+Path\+Name}} () const
+\item 
+EMode \mbox{\hyperlink{class_fbx_file_a26175571d3f5682ea7af8ac5ba1f640f}{Get\+File\+Mode}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_file_a797c6a169a44de27d96d991e884dafed}{Get\+Last\+Error}} ()
+\item 
+void \mbox{\hyperlink{class_fbx_file_abaf8e0ca1c1f47a349848ec49966cc6a}{Clear\+Error}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_file_a2be552f90b28c49c17626fe52309694a}\label{class_fbx_file_a2be552f90b28c49c17626fe52309694a} 
+FILE \texorpdfstring{$\ast$}{*} {\bfseries m\+File\+Ptr}
+\item 
+\Hypertarget{class_fbx_file_ad2c5d8c4cc9284b848f2283af005325f}\label{class_fbx_file_ad2c5d8c4cc9284b848f2283af005325f} 
+\mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \texorpdfstring{$\ast$}{*} {\bfseries m\+Stream\+Ptr}
+\item 
+\Hypertarget{class_fbx_file_a88370b753b3632ed4970357a2ec290d4}\label{class_fbx_file_a88370b753b3632ed4970357a2ec290d4} 
+bool {\bfseries m\+Is\+Open}
+\item 
+\Hypertarget{class_fbx_file_ada5a1b024c0b9b67aede8605c4565013}\label{class_fbx_file_ada5a1b024c0b9b67aede8605c4565013} 
+bool {\bfseries m\+Is\+Stream}
+\item 
+\Hypertarget{class_fbx_file_ad9b7111817531ba69e1abddc7cc6d247}\label{class_fbx_file_ad9b7111817531ba69e1abddc7cc6d247} 
+EMode {\bfseries m\+Mode}
+\item 
+\Hypertarget{class_fbx_file_a47455f1ec52460e17c7a687f2e873128}\label{class_fbx_file_a47455f1ec52460e17c7a687f2e873128} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} {\bfseries m\+File\+Name}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for interfacing with files, providing a similar interface for files independant of the OS or filesystem. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_file_abaf8e0ca1c1f47a349848ec49966cc6a}\index{FbxFile@{FbxFile}!ClearError@{ClearError}}
+\index{ClearError@{ClearError}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{ClearError()}{ClearError()}}
+{\footnotesize\ttfamily \label{class_fbx_file_abaf8e0ca1c1f47a349848ec49966cc6a} 
+void Fbx\+File\+::\+Clear\+Error (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Resets the current error code and the end of file indicator of the opened file \Hypertarget{class_fbx_file_ae8028a6bb80f3ebe4f6fcbaab367228b}\index{FbxFile@{FbxFile}!Close@{Close}}
+\index{Close@{Close}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{Close()}{Close()}}
+{\footnotesize\ttfamily \label{class_fbx_file_ae8028a6bb80f3ebe4f6fcbaab367228b} 
+virtual bool Fbx\+File\+::\+Close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Closes a file, freeing its handle. \begin{DoxyReturn}{Returns}
+True if closing is successful. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_a3e438294b7e07dbc3b672ba771ebdd51}\index{FbxFile@{FbxFile}!EndOfFile@{EndOfFile}}
+\index{EndOfFile@{EndOfFile}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{EndOfFile()}{EndOfFile()}}
+{\footnotesize\ttfamily \label{class_fbx_file_a3e438294b7e07dbc3b672ba771ebdd51} 
+virtual bool Fbx\+File\+::\+End\+Of\+File (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Checks whether the current file cursor position is at the end of file. \begin{DoxyReturn}{Returns}
+True if the cursor is at the end of file, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_a26175571d3f5682ea7af8ac5ba1f640f}\index{FbxFile@{FbxFile}!GetFileMode@{GetFileMode}}
+\index{GetFileMode@{GetFileMode}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{GetFileMode()}{GetFileMode()}}
+{\footnotesize\ttfamily \label{class_fbx_file_a26175571d3f5682ea7af8ac5ba1f640f} 
+EMode Fbx\+File\+::\+Get\+File\+Mode (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the mode with which the file was opened, when calling the \doxylink{class_fbx_file_a1942c2245eabf7f0507118226af13727}{Open()} method. \begin{DoxyReturn}{Returns}
+Mode with which the file was opened 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_a2afefe8442014ecc14fab944862a3ad3}\index{FbxFile@{FbxFile}!GetFilePathName@{GetFilePathName}}
+\index{GetFilePathName@{GetFilePathName}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{GetFilePathName()}{GetFilePathName()}}
+{\footnotesize\ttfamily \label{class_fbx_file_a2afefe8442014ecc14fab944862a3ad3} 
+const char \texorpdfstring{$\ast$}{*} Fbx\+File\+::\+Get\+File\+Path\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the full file path name, as provided when opening it. \begin{DoxyReturn}{Returns}
+File full path 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_a797c6a169a44de27d96d991e884dafed}\index{FbxFile@{FbxFile}!GetLastError@{GetLastError}}
+\index{GetLastError@{GetLastError}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{GetLastError()}{GetLastError()}}
+{\footnotesize\ttfamily \label{class_fbx_file_a797c6a169a44de27d96d991e884dafed} 
+int Fbx\+File\+::\+Get\+Last\+Error (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns last encountered error when performing any operation on the file. \begin{DoxyReturn}{Returns}
+Last error code 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_af337d81039f651f40aae9de95a0589d3}\index{FbxFile@{FbxFile}!GetMemoryFileInfo@{GetMemoryFileInfo}}
+\index{GetMemoryFileInfo@{GetMemoryFileInfo}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{GetMemoryFileInfo()}{GetMemoryFileInfo()}}
+{\footnotesize\ttfamily \label{class_fbx_file_af337d81039f651f40aae9de95a0589d3} 
+virtual void Fbx\+File\+::\+Get\+Memory\+File\+Info (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{p\+Mem\+Ptr}{, }\item[{size\+\_\+t \&}]{p\+Size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Unused function in this default implementation. Must be implemented by memory files. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Mem\+Ptr} & Unused \\
+\hline
+{\em p\+Size} & Unused \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_file_aa7d93faa5ec8ef431b6c9b82845e8271}\index{FbxFile@{FbxFile}!GetSize@{GetSize}}
+\index{GetSize@{GetSize}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{GetSize()}{GetSize()}}
+{\footnotesize\ttfamily \label{class_fbx_file_aa7d93faa5ec8ef431b6c9b82845e8271} 
+virtual Fbx\+Int64 Fbx\+File\+::\+Get\+Size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Gets the size of the currently opened file. \begin{DoxyReturn}{Returns}
+File size 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_acf436397d99f8b7fb5baf5b32eac26b1}\index{FbxFile@{FbxFile}!IsOpen@{IsOpen}}
+\index{IsOpen@{IsOpen}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{IsOpen()}{IsOpen()}}
+{\footnotesize\ttfamily \label{class_fbx_file_acf436397d99f8b7fb5baf5b32eac26b1} 
+bool Fbx\+File\+::\+Is\+Open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Checks whether the file is currently opened. \begin{DoxyReturn}{Returns}
+True if file is opened, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_ae515a0ebd07a7ebedd0a62b5299cd417}\index{FbxFile@{FbxFile}!IsStream@{IsStream}}
+\index{IsStream@{IsStream}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{IsStream()}{IsStream()}}
+{\footnotesize\ttfamily \label{class_fbx_file_ae515a0ebd07a7ebedd0a62b5299cd417} 
+bool Fbx\+File\+::\+Is\+Stream (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Checks whether the file is currently opened with a user-\/provided streaming interface instead of just the file name \begin{DoxyReturn}{Returns}
+True if file has been opened with a stream interface, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_a1942c2245eabf7f0507118226af13727}\index{FbxFile@{FbxFile}!Open@{Open}}
+\index{Open@{Open}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{Open()}{Open()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_file_a1942c2245eabf7f0507118226af13727} 
+virtual bool Fbx\+File\+::\+Open (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+File\+Name\+\_\+\+UTF8}{, }\item[{const EMode}]{p\+Mode}{ = {\ttfamily eCreateReadWrite}, }\item[{const bool}]{p\+Binary}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Opens a file on disk using the specified read/write mode. 
+\begin{DoxyParams}{Parameters}
+{\em p\+File\+Name\+\_\+\+UTF8} & Filename in UTF8 (compatible with ASCII) \\
+\hline
+{\em p\+Mode} & Mode in which to open the file, e.\+g. e\+Read\+Only, e\+Create\+Read\+Write, etc. \\
+\hline
+{\em p\+Binary} & Whether the file is to be opened in binary or text mode. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if opening is successful. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_a32456c88ed5a970971facea637ba96b1}\index{FbxFile@{FbxFile}!Open@{Open}}
+\index{Open@{Open}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{Open()}{Open()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_file_a32456c88ed5a970971facea637ba96b1} 
+virtual bool Fbx\+File\+::\+Open (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \texorpdfstring{$\ast$}{*}}]{p\+Stream}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Stream\+Data}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Mode}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Opens a file from a data stream using the specified read/write mode. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Stream} & Stream instance with which the file will be read/written \\
+\hline
+{\em p\+Stream\+Data} & User-\/defined data to pass as a parameter to the stream\textquotesingle{}s \doxylink{class_fbx_file_a1942c2245eabf7f0507118226af13727}{Open()} method. \\
+\hline
+{\em p\+Mode} & Deprecated/\+Unused. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if opening is successful. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_a9d2eb8ec7b9a877dd7aa9b2950287285}\index{FbxFile@{FbxFile}!Read@{Read}}
+\index{Read@{Read}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{Read()}{Read()}}
+{\footnotesize\ttfamily \label{class_fbx_file_a9d2eb8ec7b9a877dd7aa9b2950287285} 
+virtual size\+\_\+t Fbx\+File\+::\+Read (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Dst\+Buf}{, }\item[{const size\+\_\+t}]{p\+Size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Read a part of the file into a buffer 
+\begin{DoxyParams}{Parameters}
+{\em p\+Dst\+Buf} & Pre-\/allocated buffer in which to read data \\
+\hline
+{\em p\+Size} & Size of the data chunk to be read in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes read. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_a78ac4b81047b74a5bea9120699696be5}\index{FbxFile@{FbxFile}!ReadString@{ReadString}}
+\index{ReadString@{ReadString}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{ReadString()}{ReadString()}}
+{\footnotesize\ttfamily \label{class_fbx_file_a78ac4b81047b74a5bea9120699696be5} 
+virtual char \texorpdfstring{$\ast$}{*} Fbx\+File\+::\+Read\+String (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{p\+Dst\+Buf}{, }\item[{const size\+\_\+t}]{p\+Dst\+Size}{, }\item[{bool}]{p\+Stop\+At\+First\+White\+Space}{ = {\ttfamily false}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Read a part of the file as a string into a buffer 
+\begin{DoxyParams}{Parameters}
+{\em p\+Dst\+Buf} & Pre-\/allocated buffer in which to read the string \\
+\hline
+{\em p\+Dst\+Size} & Size of the data chunk to be read in characters \\
+\hline
+{\em p\+Stop\+At\+First\+White\+Space} & If true, will stop reading at first white space, otherwise it will stop at the first line feed (~\newline
+) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer on the data read. Equivalent to parameter p\+Dst\+Buf 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_af12434c7b2bf0cd193d3327180186901}\index{FbxFile@{FbxFile}!Seek@{Seek}}
+\index{Seek@{Seek}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{Seek()}{Seek()}}
+{\footnotesize\ttfamily \label{class_fbx_file_af12434c7b2bf0cd193d3327180186901} 
+virtual void Fbx\+File\+::\+Seek (\begin{DoxyParamCaption}\item[{const Fbx\+Int64}]{p\+Offset}{, }\item[{const ESeek\+Pos}]{p\+Seek\+Pos}{ = {\ttfamily eBegin}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Seek to a specific position in the file, starting from either beginning, current position or end 
+\begin{DoxyParams}{Parameters}
+{\em p\+Offset} & Offset to seek to (advance the file position cursor) starting from p\+Seek\+Pos \\
+\hline
+{\em p\+Seek\+Pos} & Starting position from which to seek to. Beginning, current position or end. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_file_aa32606ad8b5a8163f04c38b3020ec826}\index{FbxFile@{FbxFile}!Tell@{Tell}}
+\index{Tell@{Tell}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{Tell()}{Tell()}}
+{\footnotesize\ttfamily \label{class_fbx_file_aa32606ad8b5a8163f04c38b3020ec826} 
+virtual Fbx\+Int64 Fbx\+File\+::\+Tell (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the position at which the file cursor currently is. For example, will be ==0 for beginning and ==File\+Size for end. \begin{DoxyReturn}{Returns}
+The position at which the file cursor currently is. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_aa93638b789020857a19306175a921271}\index{FbxFile@{FbxFile}!Truncate@{Truncate}}
+\index{Truncate@{Truncate}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{Truncate()}{Truncate()}}
+{\footnotesize\ttfamily \label{class_fbx_file_aa93638b789020857a19306175a921271} 
+virtual bool Fbx\+File\+::\+Truncate (\begin{DoxyParamCaption}\item[{const Fbx\+Int64}]{p\+Size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Modify the size of a file. Null characters (\textquotesingle{}\textbackslash{}0\textquotesingle{}) are appended if the file is extended. If the file is truncated, all data from the end of the shortened file to the original length of the file is lost. Please note that this function considers the current file cursor as the beginning of the file. It is therefore required to use Seek(0) prior to calling it if we want the size specified by the p\+Size parameter to be absolute. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Size} & New desired file size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if file was successfully truncated 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_a8fff74d83402e939b69ac4c25a5bc689}\index{FbxFile@{FbxFile}!Write@{Write}}
+\index{Write@{Write}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{Write()}{Write()}}
+{\footnotesize\ttfamily \label{class_fbx_file_a8fff74d83402e939b69ac4c25a5bc689} 
+virtual size\+\_\+t Fbx\+File\+::\+Write (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{p\+Src\+Buf}{, }\item[{const size\+\_\+t}]{p\+Size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Write a buffer to an opened file 
+\begin{DoxyParams}{Parameters}
+{\em p\+Src\+Buf} & Pre-\/allocated buffer from which to write data \\
+\hline
+{\em p\+Size} & Size of the data chunk to be written in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes written. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_a64271cf33bdcd55d35502cd46ab910a5}\index{FbxFile@{FbxFile}!WriteFormat@{WriteFormat}}
+\index{WriteFormat@{WriteFormat}!FbxFile@{FbxFile}}
+\doxysubsubsection{\texorpdfstring{WriteFormat()}{WriteFormat()}}
+{\footnotesize\ttfamily \label{class_fbx_file_a64271cf33bdcd55d35502cd46ab910a5} 
+virtual bool Fbx\+File\+::\+Write\+Format (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Format}{, }\item[{}]{...}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Write a formatted string to an opened file 
+\begin{DoxyParams}{Parameters}
+{\em p\+Format} & Pre-\/allocated format buffer from which to write data \\
+\hline
+{\em ...} & Variable number of arguments describing the values in the previous parameter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if data was successfully written 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/base/\mbox{\hyperlink{fbxfile_8h}{fbxfile.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,74 @@
+\doxysection{Device.\+h}
+\hypertarget{_device_8h_source}{}\label{_device_8h_source}\index{include/Device.h@{include/Device.h}}
+\mbox{\hyperlink{_device_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00021\ \ \ Device\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ Device()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00024\ \ \ \string~Device()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00027\ \ \ \ \ init();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00030\ \ \ \ \ update();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00033\ \ \ \ \ render();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00036\ \ \ \ \ destroy();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00046\ \ \ HRESULT}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_device_a83d4b0e9c34170ac366f1ba0d0d10cae}{CreateRenderTargetView}}(ID3D11Resource*\ pResource,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \textcolor{keyword}{const}\ D3D11\_RENDER\_TARGET\_VIEW\_DESC*\ pDesc,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ ID3D11RenderTargetView**\ ppRTView);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00058\ \ \ HRESULT}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_device_a5f47d9e9a35ff36a31ff3b7f7f272aa0}{CreateTexture2D}}(\textcolor{keyword}{const}\ D3D11\_TEXTURE2D\_DESC*\ pDesc,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \textcolor{keyword}{const}\ D3D11\_SUBRESOURCE\_DATA*\ pInitialData,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ ID3D11Texture2D**\ ppTexture2D);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00070\ \ \ HRESULT}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{class_device_aa6879e4d9f47f2a43b1428481e455e33}{CreateDepthStencilView}}(ID3D11Resource*\ pResource,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \textcolor{keyword}{const}\ D3D11\_DEPTH\_STENCIL\_VIEW\_DESC*\ pDesc,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ ID3D11DepthStencilView**\ ppDepthStencilView);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00083\ \ \ HRESULT}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{class_device_abced6774b2f2c1dc266ddb878a269161}{CreateVertexShader}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pShaderBytecode,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ BytecodeLength,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ ID3D11ClassLinkage*\ pClassLinkage,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ ID3D11VertexShader**\ ppVertexShader);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00098\ \ \ HRESULT}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{class_device_a589a96924ed7d53bf98e417c5bbac006}{CreateInputLayout}}(\textcolor{keyword}{const}\ D3D11\_INPUT\_ELEMENT\_DESC*\ pInputElementDescs,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ NumElements,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pShaderBytecodeWithInputSignature,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ BytecodeLength,}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ ID3D11InputLayout**\ ppInputLayout);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00113\ \ \ HRESULT}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{class_device_acbf52d92ffc56c05a737c9ebdf3e20a6}{CreatePixelShader}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pShaderBytecode,}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ BytecodeLength,}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ ID3D11ClassLinkage*\ pClassLinkage,}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ ID3D11PixelShader**\ ppPixelShader);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00126\ \ \ HRESULT}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{class_device_a0651d53915efb814d2d4e2f5842a5f11}{CreateBuffer}}(\textcolor{keyword}{const}\ D3D11\_BUFFER\_DESC*\ pDesc,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \textcolor{keyword}{const}\ D3D11\_SUBRESOURCE\_DATA*\ pInitialData,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ ID3D11Buffer**\ ppBuffer);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00137\ \ \ HRESULT}
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{class_device_aebafe3a3cbe3d9706f6fc66e34a1ca47}{CreateSamplerState}}(\textcolor{keyword}{const}\ D3D11\_SAMPLER\_DESC*\ pSamplerDesc,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ ID3D11SamplerState**\ ppSamplerState);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00146\ \ \ ID3D11Device*\ \mbox{\hyperlink{class_device_a9281ad1a4d437348a6119d8ad75f8505}{m\_device}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00147\ \};}
+
+\end{DoxyCode}

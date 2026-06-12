@@ -1,0 +1,2220 @@
+\doxysection{Fbx\+Object Class Reference}
+\hypertarget{class_fbx_object}{}\label{class_fbx_object}\index{FbxObject@{FbxObject}}
+
+
+{\ttfamily \#include $<$fbxobject.\+h$>$}
+
+Inheritance diagram for Fbx\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_fbx_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{Indent}\textbf{ General Object Management}\par
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_a65e47d62ed950247cd097b3b505d7b48}{Is}} () const
+\item 
+\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a87421255c4def515760a5b5df656a20f}{Get\+Fbx\+Manager}} () const
+\item 
+\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aa5cf0570302b29cb491322fd030dede9}{Get\+Document}} () const
+\item 
+\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a0ecffb08701519b99478724080a1903b}{Get\+Root\+Document}} () const
+\item 
+\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aab252b8b092953c63e32e5dc1bcf74a2}{Get\+Scene}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_object_a7b49e6a0c17132cd7e2e7e8485a08915}{Destroy}} (bool p\+Recursive=false)
+\item 
+void \mbox{\hyperlink{class_fbx_object_af8626c123cf302297bdecb4c8d62db99}{Reset\+Properties}} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Selection management}\par
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_object_ade0dddb02e39f6823d0bea6071ef4410}{Get\+Selected}} ()
+\item 
+virtual void \mbox{\hyperlink{class_fbx_object_ab61c3e576aaf899deda673702c0a1b79}{Set\+Selected}} (bool p\+Selected)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ User data}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_ac37f77806bfd54d6a41ca6158768deb0}{Set\+User\+Data\+Ptr}} (const Fbx\+UInt64 \&p\+User\+ID, void \texorpdfstring{$\ast$}{*}p\+User\+Data)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a82453a87c2eda4d474c53bbfc6339392}{Get\+User\+Data\+Ptr}} (const Fbx\+UInt64 \&p\+User\+ID) const
+\item 
+void \mbox{\hyperlink{class_fbx_object_af52325b1b5f2f1f5884d5d14d80c1922}{Set\+User\+Data\+Ptr}} (void \texorpdfstring{$\ast$}{*}p\+User\+Data)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a9eb021fc31e60002406980948e7638ad}{Get\+User\+Data\+Ptr}} () const
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ General Object Connection and Relationship Management}\par
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a1c75d466c5166486787bfa06b4fd221f}{Connect\+Src\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object, Fbx\+Connection\+::\+EType p\+Type=Fbx\+Connection\+::e\+None)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a2ff6d4507136a693622a7d8434b440ed}{Is\+Connected\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a1ff942832a9a9d829988c757899b6655}{Disconnect\+Src\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_af1e035b53794520b66c3240a20660b40}{Disconnect\+All\+Src\+Object}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ad6c02944e76b8d6780e734383f872a7d}{Disconnect\+All\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a5fce56e85d5e0568243a5df99dabb42f}{Get\+Src\+Object\+Count}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_object_aa1fe90887d90288ee0c06121ec79c0a8}{Get\+Src\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae9f5b092a4beb82e14489e2deda32152}{Get\+Src\+Object}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_afc85555fe801a0ba69a0d2df15d95199}{Get\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae2395e360ff9e53e18c99052a41e1156}{Find\+Src\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aa719dc9513cfbfc8767d4c2af367bc44}{Find\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_a17f59548a86067094c17501801e7aa46}{Disconnect\+All\+Src\+Object}} ()
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_ae5b578e810b22bcd8d0df323097ed995}{Disconnect\+All\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_a9da9f905564dc108d1363049eb032fa8}{Get\+Src\+Object\+Count}} () const
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_aabefdc2922a216fb7a1ce864fcf2438a}{Get\+Src\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a8d7e062552be10952806a719b20b3685}{Get\+Src\+Object}} (int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a7eb8cc999af713c9ccf39d726a0317b9}{Get\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ab4e093b55f5361fbc025cf8ea3cb401f}{Find\+Src\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aafb907a917f661eb4a80d1b85d04518d}{Find\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a3c7e883121fe1ceb271381146bd52ed0}{Connect\+Dst\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object, Fbx\+Connection\+::\+EType p\+Type=Fbx\+Connection\+::e\+None)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a06725964170902b4d79453d76326fc5b}{Is\+Connected\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a949fdf817b27505861f293cea4dc3b86}{Disconnect\+Dst\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a5ebe517e8b3f221285b9754009c0660b}{Disconnect\+All\+Dst\+Object}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a5668d54f53f16f5ffad95727f92a8ee6}{Disconnect\+All\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a5be091701bfa94643dc2333768f56866}{Get\+Dst\+Object\+Count}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_object_a46183e2905f10779c57389dc4ec3a5de}{Get\+Dst\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a16e69934f654a544c986a583a59972be}{Get\+Dst\+Object}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a4cdab7b4be2985fd907159ae16e09d2f}{Get\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a83483c85e1431fdb5cdd45dfeb03a6de}{Find\+Dst\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a1b29d3cb822da43e40dd6fdf586bb6df}{Find\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_aa3aab1135cdd8e63c3255e17f926d950}{Disconnect\+All\+Dst\+Object}} ()
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_afd459bbb653d2a31e5c03dfdb64e649b}{Disconnect\+All\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_a1a642124ddabd14884fc0c85793a5c6d}{Get\+Dst\+Object\+Count}} () const
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_a03da9b6768a234550042e0b3a70f081f}{Get\+Dst\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae8a6869c4809e67473b333213f9326fb}{Get\+Dst\+Object}} (int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ad2fea70ba6a29879cefdff5d5c6a2fd0}{Get\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a34db1b17cb89374a13238d7ba4689c53}{Find\+Dst\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a4fdbc988fc39eb5ab3ad74b5134d9fb3}{Find\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Property Management}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_abc7d6efa0f0b7f0037818b8700465077}{Get\+First\+Property}} () const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a34e7ffc0f49a4e3be8db6310efccd020}{Get\+Next\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a697319ff157f50b097f49118f5582f98}{Find\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_aab369c8ec541c9e6994a28015619e510}{Find\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, const \mbox{\hyperlink{class_fbx_data_type}{Fbx\+Data\+Type}} \&p\+Data\+Type, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_ac20a46bd7abf3c09fc2af0df47f4f261}{Find\+Property\+Hierarchical}} (const char \texorpdfstring{$\ast$}{*}p\+Name, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a47b6379edc68313f2b23da3d3b36e5ab}{Find\+Property\+Hierarchical}} (const char \texorpdfstring{$\ast$}{*}p\+Name, const \mbox{\hyperlink{class_fbx_data_type}{Fbx\+Data\+Type}} \&p\+Data\+Type, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a70e190147f28712dee1ec1e00b73c24e}{Get\+Class\+Root\+Property}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_aef0b1c0672a044b6e44c824b9469c7e7}{Connect\+Src\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a7f2c8c668ac8e009584c12f19809be22}{Is\+Connected\+Src\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a545423b1e5060fcad8784bd0aa0432b6}{Disconnect\+Src\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a0c9680063d0f6771dd881cf3950337d6}{Get\+Src\+Property\+Count}} () const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_aa79380869a619b260fd1f861eb224f5e}{Get\+Src\+Property}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_ad87b66288e8308973dc477cda1346a05}{Find\+Src\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a6bd087870ae3d3dc82c89105387e7baa}{Connect\+Dst\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a678e5ccdbf6ab28c1df239fbdcea76d3}{Is\+Connected\+Dst\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a0931b1e490684c4ff0532d69a466b4b2}{Disconnect\+Dst\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a878feb5a29caf3262360037fe4a5c1e6}{Get\+Dst\+Property\+Count}} () const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_aaec1374d8a9a02429ae4eb317438856d}{Get\+Dst\+Property}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a3552b9625640d12db3a9cb70a9fae794}{Find\+Dst\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Off-\/\+Loading Management}\par
+{\em \begin{DoxyRemark}{Remarks}
+You can modify the unloaded state flag using the \doxylink{class_fbx_object_a38333e180ca371f76495267a26cccb08}{Set\+Object\+Flags()} method. The Content\+Is\+Unloaded() method below (implemented in this class) is simply a synonym of Get\+Object\+Flags(e\+CONTENT\+\_\+\+UNLOADED\+\_\+\+FLAG) 
+\end{DoxyRemark}
+}\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_object_ac28653a3c65e840498eebfb54276e483}{Content\+Unload}} ()
+\item 
+int \mbox{\hyperlink{class_fbx_object_a296d454c59bd93245dd5e2312dc7f165}{Content\+Load}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ac1e5a81afa5c74aec67c57136b541161}{Content\+Is\+Loaded}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_object_a7720b36c508a8c32c9cf72a7a59f5c3e}{Content\+Decrement\+Lock\+Count}} ()
+\item 
+void \mbox{\hyperlink{class_fbx_object_a83ebb7c4a09328e517a4b5367fcf8c0d}{Content\+Increment\+Lock\+Count}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ad9e3373b45e2fbce5a7a11a09edd96f7}{Content\+Is\+Locked}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_object_ab8a59df9233cdfeaae05e5b6d15f5101}{Content\+Write\+To}} (\mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \&p\+Stream) const
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_object_aeb4255bda633e1986730748758a7cf6c}{Content\+Read\+From}} (const \mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \&p\+Stream)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Logging.}\par
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_ae2fe13bc65c1ffe2c2338bc2a2740429}{Emit\+Message}} (Fbx\+Message \texorpdfstring{$\ast$}{*}p\+Message) const
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Localization helper.}\par
+\begin{DoxyCompactItemize}
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a61aeb40883053aa206578c2305623a95}{Localize}} (const char \texorpdfstring{$\ast$}{*}p\+ID, const char \texorpdfstring{$\ast$}{*}p\+Default=NULL) const
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Application Implementation Management}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_library}{Fbx\+Library}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a56546e89ab7132ffd52c92257a73c022}{Get\+Parent\+Library}} () const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a83138088781da53eb6fc3e3793ca9171}{Add\+Implementation}} (\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}p\+Implementation)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_af5372f14b186dbd1e69688e899c46081}{Remove\+Implementation}} (\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}p\+Implementation)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a9703e0631381d9bbc91cac102198cf36}{Has\+Default\+Implementation}} (void) const
+\item 
+\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_afa41110ea96c574ad30036bcc91a730e}{Get\+Default\+Implementation}} (void) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ac216eb622d77659c18092b202632aaa9}{Set\+Default\+Implementation}} (\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}p\+Implementation)
+\item 
+int \mbox{\hyperlink{class_fbx_object_add119a7c5623e087101589ebbc0a65ed}{Get\+Implementation\+Count}} (const \mbox{\hyperlink{class_fbx_implementation_filter}{Fbx\+Implementation\+Filter}} \texorpdfstring{$\ast$}{*}p\+Criteria=NULL) const
+\item 
+\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a8e7a39d2b2c3688e44c7222adca4a275}{Get\+Implementation}} (int p\+Index, const \mbox{\hyperlink{class_fbx_implementation_filter}{Fbx\+Implementation\+Filter}} \texorpdfstring{$\ast$}{*}p\+Criteria=NULL) const
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Object Storage \&\& Retrieval}\par
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_acce60f1ae8d6b0ffba2de85c04766194}{Get\+Url}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_object_a308a88953aae8669a93f0202b02a46a9}{Set\+Url}} (const char \texorpdfstring{$\ast$}{*}p\+Url)
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_emitter_ab8022a1fd620467f12f493673cfa16a9}{Add\+Listener}} (\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \&p\+Handler)
+\item 
+void \mbox{\hyperlink{class_fbx_emitter_a9d5e8f773a85bd9f7a88d9f01eb5463d}{Remove\+Listener}} (\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \&p\+Handler)
+\item 
+{\footnotesize template$<$typename Event\+Type$>$ }\\void \mbox{\hyperlink{class_fbx_emitter_ad541e3b06c0beeab71fcf066fc44c78d}{Emit}} (const Event\+Type \&p\+Event) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Object Flags Management}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{EObject\+Flag}} \{ \newline
+\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a1e3be60c132e4128211bcae9151b7394}{e\+None}} = 0
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244aef7e1bffd6a66da3afcef75a5b58099c}{e\+Initialized}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244ab30526fefc7c765c86915837cb78d194}{e\+System}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a9d477bbe1f04724fcc65b40b0ed25634}{e\+Savable}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2
+, \newline
+\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a46eb7a51468eab26cdfaf4ff5ba94f7b}{e\+Selected}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a003e4ca99b413e36199255548e54e0a6}{e\+Hidden}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 4
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244ad4bf6f05e3c50e585dec611288da91c6}{e\+Content\+Loaded}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 5
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244ace826129cda639eeb41fa034268d1f93}{e\+Dont\+Localize}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 6
+, \newline
+\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244aaac8a289575d6365b97978c9b7bb104c}{e\+Copy\+Called\+By\+Clone}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 16
+ \}
+\begin{DoxyCompactList}\small\item\em Flags available to control objects. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fbx_object_a38333e180ca371f76495267a26cccb08}{Set\+Object\+Flags}} (\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{EObject\+Flag}} p\+Flags, bool p\+Value)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a02d91c1f2930a03cfd0e8c2b1fffa0ee}{Get\+Object\+Flags}} (\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{EObject\+Flag}} p\+Flags) const
+\item 
+void \mbox{\hyperlink{class_fbx_object_aa59f051b6c0be5f93eb88cc2f15b43e5}{Set\+All\+Object\+Flags}} (Fbx\+UInt p\+Flags)
+\item 
+Fbx\+UInt \mbox{\hyperlink{class_fbx_object_a18b30c43de008570c05f3a6f1e46eb10}{Get\+All\+Object\+Flags}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Copying, Cloning and Referencing}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}{EClone\+Type}} \{ \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{e\+Deep\+Clone}}
+, \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbae681cda4dccb3f5ccf260e5ccc47d88c}{e\+Reference\+Clone}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of clones that can be created for \doxylink{class_fbx_object}{Fbx\+Object}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \& \mbox{\hyperlink{class_fbx_object_a2753a5e2d57c54efbbf5137cf37c8096}{Copy}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object)
+\item 
+virtual \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a0b43f5017582b7167d8447bd9911236e}{Clone}} (\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}{Fbx\+Object\+::\+EClone\+Type}} p\+Clone\+Type=\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{e\+Deep\+Clone}}, \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Container=NULL, void \texorpdfstring{$\ast$}{*}p\+Set=NULL) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a5898e582711f3266ac3d0f779d541ef6}{Is\+AReference\+To}} () const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_abafd0f4ab90b2d1090c0c225bc4c3e3a}{Get\+Reference\+To}} () const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_af64184bd9341c8a3300588c818594328}{Is\+Referenced\+By}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_object_a97318ba302685288321f65144063b7c7}{Get\+Referenced\+By\+Count}} () const
+\item 
+FBX\+\_\+\+DEPRECATED \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a5797b48dd0247100a71190e30615e697}{Get\+Referenced\+By}} (int p\+Index) const
+\item 
+int \mbox{\hyperlink{class_fbx_object_a553ed0c8a1f00394a11d5123fb040f6c}{Get\+Referenced\+By}} (\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&p\+Referenced\+By) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Run-\/time Class\+Id Management}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a528f1b2c2b7abbd64c525ba3a9a496b8}\label{class_fbx_object_a528f1b2c2b7abbd64c525ba3a9a496b8} 
+enum {\bfseries EProperty\+Notify\+Type} \{ {\bfseries e\+Property\+Set\+Request}
+, {\bfseries e\+Property\+Set}
+, {\bfseries e\+Property\+Get}
+ \}
+\item 
+\Hypertarget{class_fbx_object_a865ee4dfaa7a8f9050105d4477288da8}\label{class_fbx_object_a865ee4dfaa7a8f9050105d4477288da8} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} {\bfseries Root\+Property}
+\begin{DoxyCompactList}\small\item\em The root property that holds all children property for this object. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_object_a5d7018830479ec28905f28575480f88f}\label{class_fbx_object_a5d7018830479ec28905f28575480f88f} 
+class {\bfseries Fbx\+Property}
+\item 
+void \mbox{\hyperlink{class_fbx_object_af9273215e168b14d12a4a3e393e061c9}{Set\+Runtime\+Class\+Id}} (const \mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \&p\+Class\+Id)
+\item 
+\mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \mbox{\hyperlink{class_fbx_object_ad81de7de1ede009e3d80361450620475}{Get\+Runtime\+Class\+Id}} () const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ac1f9e5981fbf87911d669e078495cb09}{Is\+Runtime}} (const \mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \&p\+Class\+Id) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a4c804ecb85faa0544d305d9f7e98d777}{Is\+Runtime\+Plug}} () const
+\item 
+virtual void \mbox{\hyperlink{class_fbx_object_a2720f16a08150d162242b0c59f58c3dc}{Compact}} ()
+\item 
+\Hypertarget{class_fbx_object_a49a593ea33e629adfac89c3238838144}\label{class_fbx_object_a49a593ea33e629adfac89c3238838144} 
+virtual bool {\bfseries Compare} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Other\+Object)
+\item 
+\Hypertarget{class_fbx_object_affe87473b7a6485c7c7ad6e4184a0cad}\label{class_fbx_object_affe87473b7a6485c7c7ad6e4184a0cad} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object)
+\item 
+\Hypertarget{class_fbx_object_a9bdaa7d7553dc65fde0138f0e60be723}\label{class_fbx_object_a9bdaa7d7553dc65fde0138f0e60be723} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object)
+\item 
+\Hypertarget{class_fbx_object_a5f01a45e03bbf2c243ae9ef71d9050cf}\label{class_fbx_object_a5f01a45e03bbf2c243ae9ef71d9050cf} 
+virtual void {\bfseries Set\+Document} (\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}p\+Document)
+\item 
+\Hypertarget{class_fbx_object_ad0d95cfddc2733a5e5e5ef0927b412b1}\label{class_fbx_object_ad0d95cfddc2733a5e5e5ef0927b412b1} 
+\mbox{\hyperlink{class_fbx_property_handle}{Fbx\+Property\+Handle}} \& {\bfseries Get\+Property\+Handle} ()
+\item 
+\Hypertarget{class_fbx_object_acb82c98823f7a30704e455a9bfacabd8}\label{class_fbx_object_acb82c98823f7a30704e455a9bfacabd8} 
+virtual const char \texorpdfstring{$\ast$}{*} {\bfseries Get\+Type\+Name} () const
+\item 
+\Hypertarget{class_fbx_object_a6d30a5d00400039a248977cf9f9255b2}\label{class_fbx_object_a6d30a5d00400039a248977cf9f9255b2} 
+virtual \mbox{\hyperlink{class_fbx_string_list}{Fbx\+String\+List}} {\bfseries Get\+Type\+Flags} () const
+\item 
+\Hypertarget{class_fbx_object_a57545454bba422674d78b805dca43409}\label{class_fbx_object_a57545454bba422674d78b805dca43409} 
+void {\bfseries Wipe\+All\+Connections} ()
+\item 
+\Hypertarget{class_fbx_object_adbd35588cd04556b1a7fc5ffdee8b417}\label{class_fbx_object_adbd35588cd04556b1a7fc5ffdee8b417} 
+static void {\bfseries Set\+Wipe\+Mode} (bool p\+State)
+\item 
+\Hypertarget{class_fbx_object_a14b73206429c6b2e9c4d6d934721d43a}\label{class_fbx_object_a14b73206429c6b2e9c4d6d934721d43a} 
+static bool {\bfseries Get\+Wipe\+Mode} ()
+\item 
+virtual void \mbox{\hyperlink{class_fbx_object_a313503bc645af3fdceb4a99ef5cea7eb}{Construct}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+From)
+\item 
+virtual void \mbox{\hyperlink{class_fbx_object_ad44f814323dc1b5e78bff1bfc608b4bb}{Construct\+Properties}} (bool p\+Force\+Set)
+\item 
+virtual void \mbox{\hyperlink{class_fbx_object_a123e084d9b32b29c28af6384b7c3c608}{Destruct}} (bool p\+Recursive)
+\item 
+virtual void \mbox{\hyperlink{class_fbx_object_a284f2a438579fcacd8bffd85f556dde2}{Content\+Clear}} ()
+\item 
+virtual \mbox{\hyperlink{class_fbx_peripheral}{Fbx\+Peripheral}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae29c652036d35f33cfc8af7449078ed5}{Get\+Peripheral}} ()
+\item 
+\Hypertarget{class_fbx_object_a87981fe7a05df318be39146a1493d1cc}\label{class_fbx_object_a87981fe7a05df318be39146a1493d1cc} 
+{\bfseries Fbx\+Object} (\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \&p\+Manager, const char \texorpdfstring{$\ast$}{*}p\+Name)
+\item 
+\Hypertarget{class_fbx_object_ab7a400f3829d1f0da57d3d78c8168dd0}\label{class_fbx_object_ab7a400f3829d1f0da57d3d78c8168dd0} 
+virtual bool {\bfseries Connect\+Notify} (const \mbox{\hyperlink{class_fbx_connect_event}{Fbx\+Connect\+Event}} \&p\+Event)
+\item 
+\Hypertarget{class_fbx_object_a68b9ad65d98d7be9cb252949bc709385}\label{class_fbx_object_a68b9ad65d98d7be9cb252949bc709385} 
+virtual bool {\bfseries Property\+Notify} (EProperty\+Notify\+Type p\+Type, \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+\Hypertarget{class_fbx_object_a1044dfc8f3321b2ba23a95076d8ad7f9}\label{class_fbx_object_a1044dfc8f3321b2ba23a95076d8ad7f9} 
+bool {\bfseries Copyable} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Object Name Management}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_aceea1c2fdb26784d668d05dd52df0d68}{Set\+Name}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ad292343f61a5c670fb322bf592839bcf}{Get\+Name}} () const
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_ae378979d85476e931375e30b6498f8db}{Get\+Name\+Without\+Name\+Space\+Prefix}} () const
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a9caa594f866ea3a424f5f6e3676e2799}{Get\+Name\+With\+Name\+Space\+Prefix}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_object_a97b6469f5877e37d352b6f6224791fb2}{Set\+Initial\+Name}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a23fdcb85828748da9611491f64dcde0a}{Get\+Initial\+Name}} () const
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a9cc9873c1d66722b964c04da5ec2001f}{Get\+Name\+Space\+Only}} ()
+\item 
+void \mbox{\hyperlink{class_fbx_object_a0546604cdd763f630c9ffdf9cfcf8bdc}{Set\+Name\+Space}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} p\+Name\+Space)
+\item 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_fbx_object_a8e0aeec9b01f961d552315014a36f775}{Get\+Name\+Space\+Array}} (char identifier)
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a3a01a4d055e558d322016ce8d7337329}{Get\+Name\+Only}} () const
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a8a0b08d810c3451ea912840caab53694}{Get\+Name\+Space\+Prefix}} () const
+\item 
+\Hypertarget{class_fbx_object_a011f202aae673da33eaa2851548aceb1}\label{class_fbx_object_a011f202aae673da33eaa2851548aceb1} 
+const Fbx\+UInt64 \& {\bfseries Get\+Unique\+ID} () const
+\begin{DoxyCompactList}\small\item\em Returns the unique ID of this object. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_aa10bc0608457b0e0c13c80686472f4c4}{Remove\+Prefix}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\item 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_aef0a016a9b53593f537b68ba47b8dd6e}{Strip\+Prefix}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&l\+Name)
+\item 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a23b53eecb8b6b7d198496392dc987548}{Strip\+Prefix}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Types inherited from \mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}}}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{class_fbx_intrusive_list}{Fbx\+Intrusive\+List}}$<$ \mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}}, \mbox{\hyperlink{class_fbx_event_handler_a47139da2cfd5abee91664d75c4fb577cae2c0d7da494cef8d787ee3495e24a6c0}{Fbx\+Event\+Handler\+::e\+Emitter}} $>$ {\bfseries Event\+Handler\+List}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_fbx_emitter_1_1_event_data}{Event\+Data}} \texorpdfstring{$\ast$}{*} {\bfseries m\+Data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The base class of most FBX objects. Provides the benefits of connectivity, identity, run-\/time typing, properties, naming, copying, cloning, selection, and automated file IO. Most of the FBX SDK API deals with \doxylink{class_fbx_object}{Fbx\+Object} pointers when it comes to manipulate objects in its simplest form.
+
+The Class\+ID mechanism replaces the dynamic\+\_\+cast mechanism for efficient run-\/time type information.
+
+The \doxylink{class_fbx_object}{Fbx\+Object} provides methods for managing the connections between objects. ~\newline
+ Using connections, objects can be related to each other to form hierarchies or structures. All of the FBX scene\textquotesingle{}s object relations are expressed as connections between objects. Those connections can be altered as needed to reflect most kind of setups encountered in this world. For example, connections can be used to express parenting between transform nodes. Connections are not strict in the sense that we allow any type of objects to connect to any other type of objects. The meaning of the connection is purely semantic. As of yet, we do not provide the functionality to validate if the connections made by the users are allowed or not.
+
+\doxylink{class_fbx_object}{Fbx\+Object} provide a property (\doxylink{class_fbx_property}{Fbx\+Property}) mechanism to describe characteristics of objects in a scene. Properties may be either static or dynamic. Static properties are defined in the class direction and can be accessed directly by their name on the object exposing them without the need for a search in the property list of the object. Dynamic properties can be added during run-\/time, while the program is running. Objects can have an unlimited amount of properties. Properties can be listed at run-\/time, allowing for a flexible support of custom data on objects, since they might be considered by the FBX file readers/writers depending on the flags set.
+
+Here is an example of a new empty minimal class template for FBX objects\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//Declaration}}
+\DoxyCodeLine{\textcolor{keyword}{class\ }MyClass\ :\ \textcolor{keyword}{public}\ FbxObject}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(MyClass,\ FbxObject);\ \ \textcolor{comment}{//Be\ careful!\ The\ second\ parameter\ to\ this\ macro\ must\ be\ the\ parent\ class\ name!}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//Declare\ methods\ and\ properties\ here...}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//Implementation}}
+\DoxyCodeLine{\mbox{\hyperlink{fbxobject_8h_ac76185d8d380cda2e3d5c10981e5f510}{FBXSDK\_OBJECT\_IMPLEMENT}}(MyClass);}
+
+\end{DoxyCode}
+ Before the new class can be used, it needs to be registered to the manager with the following method\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{MyFbxManager-\/>RegisterFbxClass(\textcolor{stringliteral}{"{}MyClassName"{}},\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(MyClass),\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxObject));\ \ \textcolor{comment}{//Be\ careful!\ The\ 3rd\ parameter\ must\ be\ the\ parent\ class!\ If\ the\ parent\ class\ change,\ it\ must\ be\ updated\ here\ too!}}
+
+\end{DoxyCode}
+ Then to create or delete instances of your new class, the following methods must be used\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//Creating\ a\ new\ instance}}
+\DoxyCodeLine{MyClass*\ MyObject\ =\ MyClass::Create(MyFbxManager,\ \textcolor{stringliteral}{"{}Object\ Name"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//Deleting\ this\ instance}}
+\DoxyCodeLine{MyObject-\/>Destroy();}
+\DoxyCodeLine{MyObject\ =\ NULL;}
+
+\end{DoxyCode}
+ \begin{DoxySeeAlso}{See also}
+\doxylink{class_fbx_property}{Fbx\+Property} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}\index{FbxObject@{FbxObject}!ECloneType@{ECloneType}}
+\index{ECloneType@{ECloneType}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ECloneType}{ECloneType}}
+{\footnotesize\ttfamily \label{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb} 
+enum \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}{Fbx\+Object\+::\+EClone\+Type}}}
+
+
+
+Types of clones that can be created for \doxylink{class_fbx_object}{Fbx\+Object}. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eDeepClone@{eDeepClone}!FbxObject@{FbxObject}}\index{FbxObject@{FbxObject}!eDeepClone@{eDeepClone}}}\Hypertarget{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}\label{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0} 
+e\+Deep\+Clone&A deep copy of the object. Changes to either the original or clone properties do not propagate to each other. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eReferenceClone@{eReferenceClone}!FbxObject@{FbxObject}}\index{FbxObject@{FbxObject}!eReferenceClone@{eReferenceClone}}}\Hypertarget{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbae681cda4dccb3f5ccf260e5ccc47d88c}\label{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbae681cda4dccb3f5ccf260e5ccc47d88c} 
+e\+Reference\+Clone&Changes to original object properties propagate to clone. Changes to clone properties do not propagate to original. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fbx_object_a117b8002963e9fe475a93556c217b244}\index{FbxObject@{FbxObject}!EObjectFlag@{EObjectFlag}}
+\index{EObjectFlag@{EObjectFlag}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{EObjectFlag}{EObjectFlag}}
+{\footnotesize\ttfamily \label{class_fbx_object_a117b8002963e9fe475a93556c217b244} 
+enum \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{Fbx\+Object\+::\+EObject\+Flag}}}
+
+
+
+Flags available to control objects. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eNone@{eNone}!FbxObject@{FbxObject}}\index{FbxObject@{FbxObject}!eNone@{eNone}}}\Hypertarget{class_fbx_object_a117b8002963e9fe475a93556c217b244a1e3be60c132e4128211bcae9151b7394}\label{class_fbx_object_a117b8002963e9fe475a93556c217b244a1e3be60c132e4128211bcae9151b7394} 
+e\+None&No flags. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eInitialized@{eInitialized}!FbxObject@{FbxObject}}\index{FbxObject@{FbxObject}!eInitialized@{eInitialized}}}\Hypertarget{class_fbx_object_a117b8002963e9fe475a93556c217b244aef7e1bffd6a66da3afcef75a5b58099c}\label{class_fbx_object_a117b8002963e9fe475a93556c217b244aef7e1bffd6a66da3afcef75a5b58099c} 
+e\+Initialized&Automatically set when \doxylink{class_fbx_object_a313503bc645af3fdceb4a99ef5cea7eb}{Fbx\+Object\+::\+Construct()} is completed. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eSystem@{eSystem}!FbxObject@{FbxObject}}\index{FbxObject@{FbxObject}!eSystem@{eSystem}}}\Hypertarget{class_fbx_object_a117b8002963e9fe475a93556c217b244ab30526fefc7c765c86915837cb78d194}\label{class_fbx_object_a117b8002963e9fe475a93556c217b244ab30526fefc7c765c86915837cb78d194} 
+e\+System&When set, object is deleted upon \doxylink{class_fbx_manager}{Fbx\+Manager} destroy only. Use carefully! \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eSavable@{eSavable}!FbxObject@{FbxObject}}\index{FbxObject@{FbxObject}!eSavable@{eSavable}}}\Hypertarget{class_fbx_object_a117b8002963e9fe475a93556c217b244a9d477bbe1f04724fcc65b40b0ed25634}\label{class_fbx_object_a117b8002963e9fe475a93556c217b244a9d477bbe1f04724fcc65b40b0ed25634} 
+e\+Savable&If set, object is stored in FBX file upon export. All objects are savable by default. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eSelected@{eSelected}!FbxObject@{FbxObject}}\index{FbxObject@{FbxObject}!eSelected@{eSelected}}}\Hypertarget{class_fbx_object_a117b8002963e9fe475a93556c217b244a46eb7a51468eab26cdfaf4ff5ba94f7b}\label{class_fbx_object_a117b8002963e9fe475a93556c217b244a46eb7a51468eab26cdfaf4ff5ba94f7b} 
+e\+Selected&Used by the selection mechanic to specify a selected object. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eHidden@{eHidden}!FbxObject@{FbxObject}}\index{FbxObject@{FbxObject}!eHidden@{eHidden}}}\Hypertarget{class_fbx_object_a117b8002963e9fe475a93556c217b244a003e4ca99b413e36199255548e54e0a6}\label{class_fbx_object_a117b8002963e9fe475a93556c217b244a003e4ca99b413e36199255548e54e0a6} 
+e\+Hidden&Used for interface representation; if set, the object should not be visible. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eContentLoaded@{eContentLoaded}!FbxObject@{FbxObject}}\index{FbxObject@{FbxObject}!eContentLoaded@{eContentLoaded}}}\Hypertarget{class_fbx_object_a117b8002963e9fe475a93556c217b244ad4bf6f05e3c50e585dec611288da91c6}\label{class_fbx_object_a117b8002963e9fe475a93556c217b244ad4bf6f05e3c50e585dec611288da91c6} 
+e\+Content\+Loaded&Used by load-\/on-\/demand mechanic to specify if an object has its content loaded. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eDontLocalize@{eDontLocalize}!FbxObject@{FbxObject}}\index{FbxObject@{FbxObject}!eDontLocalize@{eDontLocalize}}}\Hypertarget{class_fbx_object_a117b8002963e9fe475a93556c217b244ace826129cda639eeb41fa034268d1f93}\label{class_fbx_object_a117b8002963e9fe475a93556c217b244ace826129cda639eeb41fa034268d1f93} 
+e\+Dont\+Localize&Used by asset builder; Do not localize this object. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eCopyCalledByClone@{eCopyCalledByClone}!FbxObject@{FbxObject}}\index{FbxObject@{FbxObject}!eCopyCalledByClone@{eCopyCalledByClone}}}\Hypertarget{class_fbx_object_a117b8002963e9fe475a93556c217b244aaac8a289575d6365b97978c9b7bb104c}\label{class_fbx_object_a117b8002963e9fe475a93556c217b244aaac8a289575d6365b97978c9b7bb104c} 
+e\+Copy\+Called\+By\+Clone&Used internally. If set, modify the Copy behavior of the object. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_object_a83138088781da53eb6fc3e3793ca9171}\index{FbxObject@{FbxObject}!AddImplementation@{AddImplementation}}
+\index{AddImplementation@{AddImplementation}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{AddImplementation()}{AddImplementation()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a83138088781da53eb6fc3e3793ca9171} 
+bool Fbx\+Object\+::\+Add\+Implementation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}}]{p\+Implementation}{}\end{DoxyParamCaption})}
+
+Adds an implementation. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Implementation} & The implementation to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+To succeed this function must be called with an implementation that has not already been added to this node. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_a0b43f5017582b7167d8447bd9911236e}\index{FbxObject@{FbxObject}!Clone@{Clone}}
+\index{Clone@{Clone}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a0b43f5017582b7167d8447bd9911236e} 
+virtual \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}{Fbx\+Object\+::\+EClone\+Type}}}]{p\+Clone\+Type}{ = {\ttfamily \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{e\+Deep\+Clone}}}, }\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Container}{ = {\ttfamily NULL}, }\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Set}{ = {\ttfamily NULL}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Creates a clone of this object. By default, the connections are NOT cloned. If the desired effect is to clone the connections as well, you must clone using the \doxylink{class_fbx_clone_manager}{Fbx\+Clone\+Manager} (refer to this class documentation for further details).
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Clone\+Type} & The type of clone to be created. By default, the clone type is e\+Deep\+Clone. \\
+\hline
+{\em p\+Container} & An optional parameter to specify which object will "{}contain"{} the new object. By contain, we mean the new object will become a source to the container, connection-\/wise. \\
+\hline
+{\em p\+Set} & See remark section. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new clone, or NULL (if the specified clone type is not supported). 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+When doing either a "{}deep"{} or "{}reference"{} clone type, the clone will always get its properties values set from the source object properties values. 
+
+Since this is a virtual function, some classes might do additional tasks. 
+
+The {\itshape p\+Set} argument is not used in the default implementation of this method. Specialized implementations should cast this pointer to \doxylink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{Fbx\+Clone\+Manager\+::\+Clone\+Set} to have access to the cloned objects so far. Typically, this pointer is set by the clone manager. 
+\end{DoxyRemark}
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_blend_shape_a7ae827b314c9e7d1de6a6ce286cf9004}{Fbx\+Blend\+Shape}}, \mbox{\hyperlink{class_fbx_blend_shape_channel_abc7737411be2fc277d7e45f78935649c}{Fbx\+Blend\+Shape\+Channel}}, \mbox{\hyperlink{class_fbx_character_aae64d56de5e56e6dd834a77bbb3457d8}{Fbx\+Character}}, \mbox{\hyperlink{class_fbx_character_pose_a7a24a4ce787fdd6c17859c653a846f5a}{Fbx\+Character\+Pose}}, \mbox{\hyperlink{class_fbx_geometry_a739a109a36488f28780bd536c8385425}{Fbx\+Geometry}}, \mbox{\hyperlink{class_fbx_scene_a6a84c9407abaa69609c57dab8d4b2dbb}{Fbx\+Scene}}, \mbox{\hyperlink{class_fbx_shape_a781ecbbcd95fd427ab5face6220f45ef}{Fbx\+Shape}}, and \mbox{\hyperlink{class_fbx_skin_a6028562e4ecdbb21949c1e273c2a8232}{Fbx\+Skin}}.
+
+\Hypertarget{class_fbx_object_a2720f16a08150d162242b0c59f58c3dc}\index{FbxObject@{FbxObject}!Compact@{Compact}}
+\index{Compact@{Compact}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{Compact()}{Compact()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a2720f16a08150d162242b0c59f58c3dc} 
+virtual void Fbx\+Object\+::\+Compact (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Compact the memory used by this object. \begin{DoxyRemark}{Remarks}
+Note that this function might not result in saved memory because it depends if the sub-\/class implements it, or if any memory can actually be saved. 
+\end{DoxyRemark}
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_document_ab0f90cdb426e49ee95f9902ab57c7fe3}{Fbx\+Document}}, \mbox{\hyperlink{class_fbx_geometry_base_a9225735a50a6b87095042dba1f0539e4}{Fbx\+Geometry\+Base}}, \mbox{\hyperlink{class_fbx_mesh_ab7332d123d349349b9b88b4b78cd9e0c}{Fbx\+Mesh}}, \mbox{\hyperlink{class_fbx_shape_a03eccef9ad8709ed65635363e5de17b1}{Fbx\+Shape}}, and \mbox{\hyperlink{class_fbx_skin_a41b9cfb41bd55b69a6fa687b9e0eec7e}{Fbx\+Skin}}.
+
+\Hypertarget{class_fbx_object_a3c7e883121fe1ceb271381146bd52ed0}\index{FbxObject@{FbxObject}!ConnectDstObject@{ConnectDstObject}}
+\index{ConnectDstObject@{ConnectDstObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ConnectDstObject()}{ConnectDstObject()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a3c7e883121fe1ceb271381146bd52ed0} 
+bool Fbx\+Object\+::\+Connect\+Dst\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{, }\item[{Fbx\+Connection\+::\+EType}]{p\+Type}{ = {\ttfamily FbxConnection\+:\+:eNone}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Connects this object to one destination object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The destination object with which this object connects. \\
+\hline
+{\em p\+Type} & The connection type between this object and the destination object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a6bd087870ae3d3dc82c89105387e7baa}\index{FbxObject@{FbxObject}!ConnectDstProperty@{ConnectDstProperty}}
+\index{ConnectDstProperty@{ConnectDstProperty}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ConnectDstProperty()}{ConnectDstProperty()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a6bd087870ae3d3dc82c89105387e7baa} 
+bool Fbx\+Object\+::\+Connect\+Dst\+Property (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&}]{p\+Property}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Connects this object to a destination property. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Property} & The destination property with which this object connects. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a1c75d466c5166486787bfa06b4fd221f}\index{FbxObject@{FbxObject}!ConnectSrcObject@{ConnectSrcObject}}
+\index{ConnectSrcObject@{ConnectSrcObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ConnectSrcObject()}{ConnectSrcObject()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a1c75d466c5166486787bfa06b4fd221f} 
+bool Fbx\+Object\+::\+Connect\+Src\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{, }\item[{Fbx\+Connection\+::\+EType}]{p\+Type}{ = {\ttfamily FbxConnection\+:\+:eNone}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Connects this object to a source object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The source object to which this object connects. \\
+\hline
+{\em p\+Type} & The connection type between this object and the source object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_aef0b1c0672a044b6e44c824b9469c7e7}\index{FbxObject@{FbxObject}!ConnectSrcProperty@{ConnectSrcProperty}}
+\index{ConnectSrcProperty@{ConnectSrcProperty}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ConnectSrcProperty()}{ConnectSrcProperty()}}
+{\footnotesize\ttfamily \label{class_fbx_object_aef0b1c0672a044b6e44c824b9469c7e7} 
+bool Fbx\+Object\+::\+Connect\+Src\+Property (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&}]{p\+Property}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Connects this object to a source property. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Property} & The source property with which this object connects. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a313503bc645af3fdceb4a99ef5cea7eb}\index{FbxObject@{FbxObject}!Construct@{Construct}}
+\index{Construct@{Construct}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{Construct()}{Construct()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a313503bc645af3fdceb4a99ef5cea7eb} 
+virtual void Fbx\+Object\+::\+Construct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+From}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Optional constructor override, automatically called by default constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+From} & If not null, the function must take it into account like a copy constructor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+In case it is decided to override this function, do not forget to call Parent\+Class\+::\+Construct(p\+From) at the beginning. 
+\end{DoxyRemark}
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_anim_curve_base_aa33df9238285d7b41e8c45f45511d5a7}{Fbx\+Anim\+Curve\+Base}}, \mbox{\hyperlink{class_fbx_anim_curve_node_ad8ac1d54ccfa08ff9e89fe64458fe374}{Fbx\+Anim\+Curve\+Node}}, \mbox{\hyperlink{class_fbx_anim_eval_classic_aa2e537316ba593e73b774bdaef3b3d2b}{Fbx\+Anim\+Eval\+Classic}}, \mbox{\hyperlink{class_fbx_anim_evaluator_afcb2304d207ca21a65dd808938df843d}{Fbx\+Anim\+Evaluator}}, \mbox{\hyperlink{class_fbx_audio_ab47361501326012798b257d3ea9b9121}{Fbx\+Audio}}, \mbox{\hyperlink{class_fbx_binding_operator_ace47470dae43ff39fda049c3a01f654b}{Fbx\+Binding\+Operator}}, \mbox{\hyperlink{class_fbx_blend_shape_channel_a66643a7e132e6c6d8f8f10441f73de2f}{Fbx\+Blend\+Shape\+Channel}}, \mbox{\hyperlink{class_fbx_cache_ab657d22bd4736b458aeaa45724840108}{Fbx\+Cache}}, \mbox{\hyperlink{class_fbx_callback_add98dbdb74e10c9f81e4a24cb474feb6}{Fbx\+Callback}}, \mbox{\hyperlink{class_fbx_camera_manipulator_a23a478e2be4c93a0712c8e1bc6adbf47}{Fbx\+Camera\+Manipulator}}, \mbox{\hyperlink{class_fbx_character_a4778494b6833846e2f42abbd4596655b}{Fbx\+Character}}, \mbox{\hyperlink{class_fbx_character_pose_acf0e173f5bafcd3cd1cdb6847a3b8027}{Fbx\+Character\+Pose}}, \mbox{\hyperlink{class_fbx_cluster_a268ef6da0160945b6cc773731278eca0}{Fbx\+Cluster}}, \mbox{\hyperlink{class_fbx_constraint_a4e2edc0855dde42689ee956c5b9d4297}{Fbx\+Constraint}}, \mbox{\hyperlink{class_fbx_container_a8aa6f91bd940bf0ce08a8ed5d95da73b}{Fbx\+Container}}, \mbox{\hyperlink{class_fbx_container_template_a11af390dc0d736356618cebc55474eb7}{Fbx\+Container\+Template}}, \mbox{\hyperlink{class_fbx_control_set_plug_a4980ce0c11643668c1361a3a3b21b0f4}{Fbx\+Control\+Set\+Plug}}, \mbox{\hyperlink{class_fbx_deformer_a11273695ad53438d5f4c29583275da8d}{Fbx\+Deformer}}, \mbox{\hyperlink{class_fbx_document_a80f5d709c17a1f4b323c3f7d0ae29deb}{Fbx\+Document}}, \mbox{\hyperlink{class_fbx_embedded_file_callback_ac0880f05c5356f0bbbf301ff34352e3a}{Fbx\+Embedded\+File\+Callback}}, \mbox{\hyperlink{class_fbx_exporter_aafe0b30b5a1867ba2f5f50b041307dff}{Fbx\+Exporter}}, \mbox{\hyperlink{class_fbx_file_texture_a99494d6c31d4524e5c5d2615e904f1fe}{Fbx\+File\+Texture}}, \mbox{\hyperlink{class_fbx_generic_node_ad109e358aca6e0f7b79c400c88ca55a4}{Fbx\+Generic\+Node}}, \mbox{\hyperlink{class_fbx_geometry_ab05c4e444c6422ab57defcfadda33e5d}{Fbx\+Geometry}}, \mbox{\hyperlink{class_fbx_geometry_weighted_map_a9bd040d254b09d707103477c2ae60044}{Fbx\+Geometry\+Weighted\+Map}}, \mbox{\hyperlink{class_fbx_global_settings_a376110f292c1134256ad88668c47a1c6}{Fbx\+Global\+Settings}}, \mbox{\hyperlink{class_fbx_importer_a51c916598a509904bbbe3d6fd19f5132}{Fbx\+Importer}}, \mbox{\hyperlink{class_fbx_i_o_base_aeab1d8889b0c8335c1847750605d932d}{Fbx\+IOBase}}, \mbox{\hyperlink{class_fbx_i_o_settings_acc06445a193fb3b1b8026080f37b93e9}{Fbx\+IOSettings}}, \mbox{\hyperlink{class_fbx_library_a0a625bf1e40e704c159d2045ea6379ba}{Fbx\+Library}}, \mbox{\hyperlink{class_fbx_line_a9ed76b948d296ad1d05694755251c1d9}{Fbx\+Line}}, \mbox{\hyperlink{class_fbx_media_clip_ab7bdca62f3a65df4404b92e90e47dd76}{Fbx\+Media\+Clip}}, \mbox{\hyperlink{class_fbx_mesh_a19c239a6a4b66471d258a650796a49a8}{Fbx\+Mesh}}, \mbox{\hyperlink{class_fbx_node_adc64bc1c0e5ef90a93d41ba2173aa6d5}{Fbx\+Node}}, \mbox{\hyperlink{class_fbx_null_a4ef8c2dfcef1b711e4a1e88aad58799a}{Fbx\+Null}}, \mbox{\hyperlink{class_fbx_nurbs_aa12b46bb07426b40c791d43aeb125e1b}{Fbx\+Nurbs}}, \mbox{\hyperlink{class_fbx_nurbs_curve_a6a27120df24a9dad44ae0e5306540755}{Fbx\+Nurbs\+Curve}}, \mbox{\hyperlink{class_fbx_nurbs_surface_aa3df345b86ba1f72df739f80b378c231}{Fbx\+Nurbs\+Surface}}, \mbox{\hyperlink{class_fbx_patch_af47a8a608a35a85fefd645d3c289897f}{Fbx\+Patch}}, \mbox{\hyperlink{class_fbx_pose_aac3cbd18000911083b060657c9cdb89f}{Fbx\+Pose}}, \mbox{\hyperlink{class_fbx_procedural_texture_ad076a88aaba3ea34b2bd80fc9c7095be}{Fbx\+Procedural\+Texture}}, \mbox{\hyperlink{class_fbx_processor_x_ref_copy_aae1645d8f5fd3a8cb5e4a7571d918cc0}{Fbx\+Processor\+XRef\+Copy}}, \mbox{\hyperlink{class_fbx_selection_node_ae195463d7b0841ca415d53caca14766b}{Fbx\+Selection\+Node}}, \mbox{\hyperlink{class_fbx_skeleton_a3e6e1f39632bde487a23e687add22d5c}{Fbx\+Skeleton}}, \mbox{\hyperlink{class_fbx_skin_ad2379b816a1be25f56e02542d50dd4b4}{Fbx\+Skin}}, \mbox{\hyperlink{class_fbx_sub_deformer_a63cec5c0a396558546434764e7abddb7}{Fbx\+Sub\+Deformer}}, \mbox{\hyperlink{class_fbx_sub_div_a717857ed79b0710649b77274e718d9c2}{Fbx\+Sub\+Div}}, \mbox{\hyperlink{class_fbx_texture_a0677260d636a8fc3fd1702965834543f}{Fbx\+Texture}}, \mbox{\hyperlink{class_fbx_thumbnail_a69cd43f319fed899c77d329218f39ab6}{Fbx\+Thumbnail}}, \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a59c98d3cc6047bbc5ecefc800e8e04e2}{Fbx\+Trim\+Nurbs\+Surface}}, and \mbox{\hyperlink{class_fbx_video_a08a374f812dc199cbfe6b356d4460967}{Fbx\+Video}}.
+
+\Hypertarget{class_fbx_object_ad44f814323dc1b5e78bff1bfc608b4bb}\index{FbxObject@{FbxObject}!ConstructProperties@{ConstructProperties}}
+\index{ConstructProperties@{ConstructProperties}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ConstructProperties()}{ConstructProperties()}}
+{\footnotesize\ttfamily \label{class_fbx_object_ad44f814323dc1b5e78bff1bfc608b4bb} 
+virtual void Fbx\+Object\+::\+Construct\+Properties (\begin{DoxyParamCaption}\item[{bool}]{p\+Force\+Set}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Optional property constructor override, automatically called by default constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Force\+Set} & If the property value must be set regardless of default value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+If your object have properties, they must be initialized in this function. 
+\end{DoxyRemark}
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_anim_curve_node_a402918dfe97442c0a165c100c14c0717}{Fbx\+Anim\+Curve\+Node}}, \mbox{\hyperlink{class_fbx_anim_layer_aee3263a56347cf14aac2d82a8203731a}{Fbx\+Anim\+Layer}}, \mbox{\hyperlink{class_fbx_anim_stack_af6afc0451d46c075aaa8238ab12244e1}{Fbx\+Anim\+Stack}}, \mbox{\hyperlink{class_fbx_audio_a94d9cdaf65ab2db36d0bd21ffb8e0e81}{Fbx\+Audio}}, \mbox{\hyperlink{class_fbx_audio_layer_a5f4c4a99cc8077ae148a76142976f36a}{Fbx\+Audio\+Layer}}, \mbox{\hyperlink{class_fbx_binding_operator_a49bb28d6669ac2fec2cd64dbb6d8ceb8}{Fbx\+Binding\+Operator}}, \mbox{\hyperlink{class_fbx_blend_shape_channel_a754944c1940a82019dccc9a001b95a41}{Fbx\+Blend\+Shape\+Channel}}, \mbox{\hyperlink{class_fbx_boundary_a2db3d4bc0a61c0e5d0d7e4d5f52004ca}{Fbx\+Boundary}}, \mbox{\hyperlink{class_fbx_cache_a7e2aebce96ed2a2138a220e4624ea0aa}{Fbx\+Cache}}, \mbox{\hyperlink{class_fbx_cached_effect_aa0341b46b72b66b5810204c6102700a1}{Fbx\+Cached\+Effect}}, \mbox{\hyperlink{class_fbx_camera_a21bcc6b7e18190d2440d5ab3fcd07da3}{Fbx\+Camera}}, \mbox{\hyperlink{class_fbx_camera_manipulator_ad5b4b072e55a354048806676a69bb83c}{Fbx\+Camera\+Manipulator}}, \mbox{\hyperlink{class_fbx_camera_stereo_aea5a1b8e977db5d4f2815703e5cd9f0f}{Fbx\+Camera\+Stereo}}, \mbox{\hyperlink{class_fbx_camera_switcher_a56a5ebf8f1a99c85ce7afd59190136e3}{Fbx\+Camera\+Switcher}}, \mbox{\hyperlink{class_fbx_character_a88909679db0ffab9344062f858e924e8}{Fbx\+Character}}, \mbox{\hyperlink{class_fbx_cluster_aa916f8cda84d17a7cc65522851d3cb53}{Fbx\+Cluster}}, \mbox{\hyperlink{class_fbx_constraint_a72b21e3d4c76c7a0f90ee5f4f69af11e}{Fbx\+Constraint}}, \mbox{\hyperlink{class_fbx_constraint_aim_a5e704e655965a8d501042831b8b0845a}{Fbx\+Constraint\+Aim}}, \mbox{\hyperlink{class_fbx_constraint_parent_a0f3eb2582b0e1d3a1137d1cd83c2f3b8}{Fbx\+Constraint\+Parent}}, \mbox{\hyperlink{class_fbx_constraint_position_a09fe7cf7a4f0face21b6b849d09e97df}{Fbx\+Constraint\+Position}}, \mbox{\hyperlink{class_fbx_constraint_rotation_a7516b4ae9397030fcf4b60141e1fc175}{Fbx\+Constraint\+Rotation}}, \mbox{\hyperlink{class_fbx_constraint_scale_ac0d200b7756948bbd4c5d2097fff6f26}{Fbx\+Constraint\+Scale}}, \mbox{\hyperlink{class_fbx_constraint_single_chain_i_k_a2d5e5e11ee0fa7317e2ae8cc5fef24dd}{Fbx\+Constraint\+Single\+Chain\+IK}}, \mbox{\hyperlink{class_fbx_container_a04e5ec3b79704f21e3646407877566b2}{Fbx\+Container}}, \mbox{\hyperlink{class_fbx_container_template_aa806e5e8dc4b0b9718d475e8b23749bd}{Fbx\+Container\+Template}}, \mbox{\hyperlink{class_fbx_control_set_plug_a11e4afafee00b1ce874044ac41abdf7f}{Fbx\+Control\+Set\+Plug}}, \mbox{\hyperlink{class_fbx_display_layer_adfcb091b5e0efb54612b60eef8d48965}{Fbx\+Display\+Layer}}, \mbox{\hyperlink{class_fbx_document_aa5bb2afc8ec3ffd4aa88c7d6926ccdaa}{Fbx\+Document}}, \mbox{\hyperlink{class_fbx_document_info_ac61c4078dc963ce2c7cd164376a29817}{Fbx\+Document\+Info}}, \mbox{\hyperlink{class_fbx_file_texture_aa718662a5dc94d9372ca5b5b52d3f895}{Fbx\+File\+Texture}}, \mbox{\hyperlink{class_fbx_geometry_base_ae6cd36d0cb936ec83126112a245a8cbd}{Fbx\+Geometry\+Base}}, \mbox{\hyperlink{class_fbx_global_settings_a299c527fe23cf25817cb01b9fdf7f3ab}{Fbx\+Global\+Settings}}, \mbox{\hyperlink{class_fbx_implementation_a2f767f14c3933f9ece0621f165981187}{Fbx\+Implementation}}, \mbox{\hyperlink{class_fbx_i_o_settings_a2499c48daf9811243e84d0ff687178d3}{Fbx\+IOSettings}}, \mbox{\hyperlink{class_fbx_light_a8c5433eadb3ccab7064a9147937f751b}{Fbx\+Light}}, \mbox{\hyperlink{class_fbx_line_a424a189b6a7e68bf8cda1d940ff917ed}{Fbx\+Line}}, \mbox{\hyperlink{class_fbx_marker_a77683e19664cfcf75d4ff4e0062dcf31}{Fbx\+Marker}}, \mbox{\hyperlink{class_fbx_media_clip_a7a4599f7a6d04365f1150c8fdea0c275}{Fbx\+Media\+Clip}}, \mbox{\hyperlink{class_fbx_node_a48e9e9088f009b111262080f45a67172}{Fbx\+Node}}, \mbox{\hyperlink{class_fbx_node_attribute_af39eb37f6177337f1587fca15d7e6bb9}{Fbx\+Node\+Attribute}}, \mbox{\hyperlink{class_fbx_null_a9885e86ab3b6f8467258f2b5b29ac3db}{Fbx\+Null}}, \mbox{\hyperlink{class_fbx_pose_a26519c67126483913aab4f8d4115da91}{Fbx\+Pose}}, \mbox{\hyperlink{class_fbx_procedural_texture_a3c6d9f16c70aef155f5ca4e404935058}{Fbx\+Procedural\+Texture}}, \mbox{\hyperlink{class_fbx_processor_shader_dependency_a1dc7f491d6feff97845b1947e7cdeac7}{Fbx\+Processor\+Shader\+Dependency}}, \mbox{\hyperlink{class_fbx_processor_x_ref_copy_a9e9ac4c620de2ea88e86444fa094d5d6}{Fbx\+Processor\+XRef\+Copy}}, \mbox{\hyperlink{class_fbx_processor_x_ref_copy_user_library_a89224fdc26e059d817cddf9d923bc224}{Fbx\+Processor\+XRef\+Copy\+User\+Library}}, \mbox{\hyperlink{class_fbx_scene_reference_a5748e22ac5e080525cf56286acbc87b9}{Fbx\+Scene\+Reference}}, \mbox{\hyperlink{class_fbx_selection_set_a4ef17dde1463ed0508c237fb5d138970}{Fbx\+Selection\+Set}}, \mbox{\hyperlink{class_fbx_shape_a5de84314ae2261ef814bd7842d8e4b83}{Fbx\+Shape}}, \mbox{\hyperlink{class_fbx_skeleton_a6e907b6856505356dd53c5333c288f0f}{Fbx\+Skeleton}}, \mbox{\hyperlink{class_fbx_surface_lambert_a0cea18d1b60340f590706c835ff8cb11}{Fbx\+Surface\+Lambert}}, \mbox{\hyperlink{class_fbx_surface_material_a8ea732ea2b74628a8623fc5b407ba8f8}{Fbx\+Surface\+Material}}, \mbox{\hyperlink{class_fbx_surface_phong_a31f27a76697a4436ed206053a2bd2166}{Fbx\+Surface\+Phong}}, \mbox{\hyperlink{class_fbx_texture_ae35546f3bd942e035524f8aac636d323}{Fbx\+Texture}}, \mbox{\hyperlink{class_fbx_thumbnail_aff976920d9d08cafd6f7b15daef80f8a}{Fbx\+Thumbnail}}, \mbox{\hyperlink{class_fbx_vertex_cache_deformer_af751c6f7acdc423b7add507aa13e507a}{Fbx\+Vertex\+Cache\+Deformer}}, and \mbox{\hyperlink{class_fbx_video_aac120cd94574200a43d23aeb5e20e686}{Fbx\+Video}}.
+
+\Hypertarget{class_fbx_object_a284f2a438579fcacd8bffd85f556dde2}\index{FbxObject@{FbxObject}!ContentClear@{ContentClear}}
+\index{ContentClear@{ContentClear}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ContentClear()}{ContentClear()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a284f2a438579fcacd8bffd85f556dde2} 
+virtual void Fbx\+Object\+::\+Content\+Clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Clears this object\textquotesingle{}s content from memory. This method must be overridden in the derived classes. \begin{DoxyRemark}{Remarks}
+This method is called by \doxylink{class_fbx_object_ac28653a3c65e840498eebfb54276e483}{Content\+Unload()} if the object content\textquotesingle{}s unloading is successful. 
+\end{DoxyRemark}
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_geometry_base_ac7665a9493f7ca62bc2500bf65e0b9f4}{Fbx\+Geometry\+Base}}, and \mbox{\hyperlink{class_fbx_mesh_a597236eae9b708d07f276107f33747cd}{Fbx\+Mesh}}.
+
+\Hypertarget{class_fbx_object_a7720b36c508a8c32c9cf72a7a59f5c3e}\index{FbxObject@{FbxObject}!ContentDecrementLockCount@{ContentDecrementLockCount}}
+\index{ContentDecrementLockCount@{ContentDecrementLockCount}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ContentDecrementLockCount()}{ContentDecrementLockCount()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a7720b36c508a8c32c9cf72a7a59f5c3e} 
+void Fbx\+Object\+::\+Content\+Decrement\+Lock\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Decreases the content lock count of an object. If the content lock count of an object is greater than 0, the content of the object is considered locked. \Hypertarget{class_fbx_object_a83ebb7c4a09328e517a4b5367fcf8c0d}\index{FbxObject@{FbxObject}!ContentIncrementLockCount@{ContentIncrementLockCount}}
+\index{ContentIncrementLockCount@{ContentIncrementLockCount}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ContentIncrementLockCount()}{ContentIncrementLockCount()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a83ebb7c4a09328e517a4b5367fcf8c0d} 
+void Fbx\+Object\+::\+Content\+Increment\+Lock\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Increases the content lock count of an object. If the content lock count of an object is greater than 0, the content of the object is considered locked. \Hypertarget{class_fbx_object_ac1e5a81afa5c74aec67c57136b541161}\index{FbxObject@{FbxObject}!ContentIsLoaded@{ContentIsLoaded}}
+\index{ContentIsLoaded@{ContentIsLoaded}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ContentIsLoaded()}{ContentIsLoaded()}}
+{\footnotesize\ttfamily \label{class_fbx_object_ac1e5a81afa5c74aec67c57136b541161} 
+bool Fbx\+Object\+::\+Content\+Is\+Loaded (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Judges if this object\textquotesingle{}s content is loaded. \begin{DoxyReturn}{Returns}
+{\ttfamily True} if this object\textquotesingle{}s content is loaded, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+An object that has not been filled yet must be considered unloaded. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_ad9e3373b45e2fbce5a7a11a09edd96f7}\index{FbxObject@{FbxObject}!ContentIsLocked@{ContentIsLocked}}
+\index{ContentIsLocked@{ContentIsLocked}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ContentIsLocked()}{ContentIsLocked()}}
+{\footnotesize\ttfamily \label{class_fbx_object_ad9e3373b45e2fbce5a7a11a09edd96f7} 
+bool Fbx\+Object\+::\+Content\+Is\+Locked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Judges if this object\textquotesingle{}s content is locked. The content is considered locked if the content lock count is greater than 0 \begin{DoxyReturn}{Returns}
+{\ttfamily True} if this object\textquotesingle{}s content is locked, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+A locked state prevents the object content from being unloaded from memory but does not block the loading. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_a296d454c59bd93245dd5e2312dc7f165}\index{FbxObject@{FbxObject}!ContentLoad@{ContentLoad}}
+\index{ContentLoad@{ContentLoad}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ContentLoad()}{ContentLoad()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a296d454c59bd93245dd5e2312dc7f165} 
+int Fbx\+Object\+::\+Content\+Load (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Loads this object\textquotesingle{}s content using the offload peripheral that is currently set in the document. \begin{DoxyReturn}{Returns}
+1 if this object\textquotesingle{}s content has been successfully loaded from the current peripheral, 2 if the content is already loaded, and 0 if an error occurs or the object\textquotesingle{}s content is locked. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+On a successful Load attempt, the object content is locked. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_aeb4255bda633e1986730748758a7cf6c}\index{FbxObject@{FbxObject}!ContentReadFrom@{ContentReadFrom}}
+\index{ContentReadFrom@{ContentReadFrom}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ContentReadFrom()}{ContentReadFrom()}}
+{\footnotesize\ttfamily \label{class_fbx_object_aeb4255bda633e1986730748758a7cf6c} 
+virtual bool Fbx\+Object\+::\+Content\+Read\+From (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \&}]{p\+Stream}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Reads the content of the object from the given stream. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Stream} & The source stream. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the object fills itself with the received data from the stream successfully, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_geometry_base_a0802770a783a3f32776281e4238ed614}{Fbx\+Geometry\+Base}}, and \mbox{\hyperlink{class_fbx_patch_a1340f2cc00f721f0b352c623f3359b90}{Fbx\+Patch}}.
+
+\Hypertarget{class_fbx_object_ac28653a3c65e840498eebfb54276e483}\index{FbxObject@{FbxObject}!ContentUnload@{ContentUnload}}
+\index{ContentUnload@{ContentUnload}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ContentUnload()}{ContentUnload()}}
+{\footnotesize\ttfamily \label{class_fbx_object_ac28653a3c65e840498eebfb54276e483} 
+int Fbx\+Object\+::\+Content\+Unload (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Unloads this object\textquotesingle{}s content using the offload peripheral that is currently set in the document then flushes it from memory. \begin{DoxyReturn}{Returns}
+2 if the object\textquotesingle{}s content is already unloaded or 1 if this object\textquotesingle{}s content has been successfully unloaded to the current peripheral.
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+If the content is locked more than once, or the peripheral cannot handle this object\textquotesingle{}s unloading, or if an error occurs, this method returns 0 and does not flush the content. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_ab8a59df9233cdfeaae05e5b6d15f5101}\index{FbxObject@{FbxObject}!ContentWriteTo@{ContentWriteTo}}
+\index{ContentWriteTo@{ContentWriteTo}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ContentWriteTo()}{ContentWriteTo()}}
+{\footnotesize\ttfamily \label{class_fbx_object_ab8a59df9233cdfeaae05e5b6d15f5101} 
+virtual bool Fbx\+Object\+::\+Content\+Write\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \&}]{p\+Stream}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Writes the content of the object to the given stream. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Stream} & The destination stream. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the content is successfully processed by the receiving stream, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_geometry_base_a19663a6cd749ec50af203a1b3c91a75f}{Fbx\+Geometry\+Base}}, and \mbox{\hyperlink{class_fbx_patch_ae0b80693ef6753b19e2fadcb31239605}{Fbx\+Patch}}.
+
+\Hypertarget{class_fbx_object_a2753a5e2d57c54efbbf5137cf37c8096}\index{FbxObject@{FbxObject}!Copy@{Copy}}
+\index{Copy@{Copy}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a2753a5e2d57c54efbbf5137cf37c8096} 
+virtual \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \& Fbx\+Object\+::\+Copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&}]{p\+Object}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Copy an object content into this object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The source object to copy data from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the destination object being modified by the source. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+This function replace the assignment operator (operator=). It will copy all property values and the name. Connections are NOT copied. 
+\end{DoxyRemark}
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_anim_curve_base_a485fd08103ddcfd67edbd2accce5ef12}{Fbx\+Anim\+Curve\+Base}}, \mbox{\hyperlink{class_fbx_anim_curve_node_a29b0f1ad66b2f4c6d68cfc7d4318c917}{Fbx\+Anim\+Curve\+Node}}, \mbox{\hyperlink{class_fbx_audio_ad50d72a9997a2f3c20a46d146aeb1eb8}{Fbx\+Audio}}, \mbox{\hyperlink{class_fbx_binding_table_base_a1504b72b22c789825169da4936609af9}{Fbx\+Binding\+Table\+Base}}, \mbox{\hyperlink{class_fbx_blend_shape_aeead359204a018f1dd62a2f2f359ad5f}{Fbx\+Blend\+Shape}}, \mbox{\hyperlink{class_fbx_blend_shape_channel_a409fe0aa3223464c7df84332f3dec3e9}{Fbx\+Blend\+Shape\+Channel}}, \mbox{\hyperlink{class_fbx_boundary_afb17281e6259524bf181caa46210d2fb}{Fbx\+Boundary}}, \mbox{\hyperlink{class_fbx_cached_effect_a7d2cb30490696252d122b2cf62113841}{Fbx\+Cached\+Effect}}, \mbox{\hyperlink{class_fbx_camera_ab5273ff0b4404056bf216f14a05da087}{Fbx\+Camera}}, \mbox{\hyperlink{class_fbx_camera_switcher_af7c8f8a96c5516f10e6ed481656b2864}{Fbx\+Camera\+Switcher}}, \mbox{\hyperlink{class_fbx_character_a2f70ca8d68bc6784082171d51b0925f0}{Fbx\+Character}}, \mbox{\hyperlink{class_fbx_character_pose_ad46f09eeccae7012eb32c19590405fd7}{Fbx\+Character\+Pose}}, \mbox{\hyperlink{class_fbx_cluster_a12c29179bb66be3815d89ff12c729567}{Fbx\+Cluster}}, \mbox{\hyperlink{class_fbx_document_aa278271dcde11db521e79496a96c0025}{Fbx\+Document}}, \mbox{\hyperlink{class_fbx_document_info_acfc4627efe4a738d641cfc5b233989d4}{Fbx\+Document\+Info}}, \mbox{\hyperlink{class_fbx_embedded_file_callback_af621444dffb6cbd591adf556e6796810}{Fbx\+Embedded\+File\+Callback}}, \mbox{\hyperlink{class_fbx_file_texture_a708e3dd73a701b42112447556d4a50bb}{Fbx\+File\+Texture}}, \mbox{\hyperlink{class_fbx_geometry_aecc81c07964bc66722a5dd102ccccd51}{Fbx\+Geometry}}, \mbox{\hyperlink{class_fbx_geometry_base_a6f86362411b0a318ec01ccc7b13c7129}{Fbx\+Geometry\+Base}}, \mbox{\hyperlink{class_fbx_geometry_weighted_map_aa8d9920b546fffcd92884a35aa28fef8}{Fbx\+Geometry\+Weighted\+Map}}, \mbox{\hyperlink{class_fbx_global_settings_a15d6fe7640d0f2de46008b0d0f0d15cc}{Fbx\+Global\+Settings}}, \mbox{\hyperlink{class_fbx_layer_container_a216d870abcb2e91169c10aa6fbeaba23}{Fbx\+Layer\+Container}}, \mbox{\hyperlink{class_fbx_layered_texture_a30e6b8a3e368a41c282f53559b3bd50b}{Fbx\+Layered\+Texture}}, \mbox{\hyperlink{class_fbx_line_ad2f9b764860f7be4162d90b572775db1}{Fbx\+Line}}, \mbox{\hyperlink{class_fbx_marker_a2b34f6ba432de978bbf6566fd8ea7d12}{Fbx\+Marker}}, \mbox{\hyperlink{class_fbx_media_clip_a120357bae8a7532deb5e56910c85e1b2}{Fbx\+Media\+Clip}}, \mbox{\hyperlink{class_fbx_mesh_ae18b04f306cd7c4441f7589e08e44b09}{Fbx\+Mesh}}, \mbox{\hyperlink{class_fbx_node_a395b03ed6e6ca98f03f7af77b61869da}{Fbx\+Node}}, \mbox{\hyperlink{class_fbx_null_aba3c0aafdde0d48a8da41837a53c7e33}{Fbx\+Null}}, \mbox{\hyperlink{class_fbx_nurbs_afb2103bc95392ce7821c57d923067b83}{Fbx\+Nurbs}}, \mbox{\hyperlink{class_fbx_nurbs_curve_a7110a78d5deb007e00daf5a201a125b9}{Fbx\+Nurbs\+Curve}}, \mbox{\hyperlink{class_fbx_nurbs_surface_ac6ca6f9b7eecb9204a195b7c3ff73b2a}{Fbx\+Nurbs\+Surface}}, \mbox{\hyperlink{class_fbx_patch_a312436fb95ca5312f4dea5c84c8e24bb}{Fbx\+Patch}}, \mbox{\hyperlink{class_fbx_pose_a7b1bc93f87f621a543b65f268e47cc8a}{Fbx\+Pose}}, \mbox{\hyperlink{class_fbx_procedural_texture_aa0be099a9cc42b2c4635b01f5804292f}{Fbx\+Procedural\+Texture}}, \mbox{\hyperlink{class_fbx_scene_a9c44527c84cedf821071420c38ef3558}{Fbx\+Scene}}, \mbox{\hyperlink{class_fbx_shape_a6b6c8edf8ddad3554aa7b1f3783c1707}{Fbx\+Shape}}, \mbox{\hyperlink{class_fbx_skeleton_a8af818b25bdb70ea9fd9a79635a14210}{Fbx\+Skeleton}}, \mbox{\hyperlink{class_fbx_skin_a29cfe89e08669b55b8ba39dd93978482}{Fbx\+Skin}}, \mbox{\hyperlink{class_fbx_texture_aeb9ca0b402217d193d4a93d1e0851feb}{Fbx\+Texture}}, \mbox{\hyperlink{class_fbx_thumbnail_a62afcde1aad5fc4894433c4e28307b2e}{Fbx\+Thumbnail}}, \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a8b4bdd72178ca087982edd198ba93e07}{Fbx\+Trim\+Nurbs\+Surface}}, \mbox{\hyperlink{class_fbx_vertex_cache_deformer_aed1f0e8b487e5df60175746b0eaee6f4}{Fbx\+Vertex\+Cache\+Deformer}}, and \mbox{\hyperlink{class_fbx_video_ae25d44cc578d473348c7e0fce11a684b}{Fbx\+Video}}.
+
+\Hypertarget{class_fbx_object_a7b49e6a0c17132cd7e2e7e8485a08915}\index{FbxObject@{FbxObject}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{Destroy()}{Destroy()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a7b49e6a0c17132cd7e2e7e8485a08915} 
+void Fbx\+Object\+::\+Destroy (\begin{DoxyParamCaption}\item[{bool}]{p\+Recursive}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+Unregister and delete this object from memory. This will also breaks all connections as well as removing all the instance of all the properties of this object with the object\textquotesingle{}s class. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Recursive} & If true, all children (source) objects will also be unregistered and deleted. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_object_a123e084d9b32b29c28af6384b7c3c608}\index{FbxObject@{FbxObject}!Destruct@{Destruct}}
+\index{Destruct@{Destruct}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{Destruct()}{Destruct()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a123e084d9b32b29c28af6384b7c3c608} 
+virtual void Fbx\+Object\+::\+Destruct (\begin{DoxyParamCaption}\item[{bool}]{p\+Recursive}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Optional destructor override, automatically called by default destructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Recursive} & If true, children objects should be destroyed as well. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+In case it is decided to override this function, do not forget to call Parent\+Class\+::\+Destruct(p\+Resursive) at the end. 
+\end{DoxyRemark}
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_anim_curve_node_a70bbedb0a044318945769d2a30ca7af0}{Fbx\+Anim\+Curve\+Node}}, \mbox{\hyperlink{class_fbx_anim_eval_classic_af0c40073f6491da61737e99262e122fe}{Fbx\+Anim\+Eval\+Classic}}, \mbox{\hyperlink{class_fbx_anim_evaluator_a9858fdc258890344e65ec43123d5bb91}{Fbx\+Anim\+Evaluator}}, \mbox{\hyperlink{class_fbx_anim_stack_ab9a27422d0462329f2b57166b95bf440}{Fbx\+Anim\+Stack}}, \mbox{\hyperlink{class_fbx_binding_operator_af6f89778c4d2391335dc222cd40a899c}{Fbx\+Binding\+Operator}}, \mbox{\hyperlink{class_fbx_cache_aae66dc4e401c2b6812a3a1ef962a32d5}{Fbx\+Cache}}, \mbox{\hyperlink{class_fbx_callback_a9e6670fc3852825f1d1442ba4755bfe6}{Fbx\+Callback}}, \mbox{\hyperlink{class_fbx_camera_manipulator_af88ccd596a01ba16f2abcb634e07205b}{Fbx\+Camera\+Manipulator}}, \mbox{\hyperlink{class_fbx_camera_switcher_ac85cab9215c26b42978429d8f8e3ee06}{Fbx\+Camera\+Switcher}}, \mbox{\hyperlink{class_fbx_character_a7d3ef04dfe19f34c677760b6ac2fc626}{Fbx\+Character}}, \mbox{\hyperlink{class_fbx_character_pose_acf7e11535cca9be8149f83c9c044ceac}{Fbx\+Character\+Pose}}, \mbox{\hyperlink{class_fbx_container_template_afab7993ee223f91625407f888b41768f}{Fbx\+Container\+Template}}, \mbox{\hyperlink{class_fbx_document_aeb662d9c227c704e5f34b668f2719850}{Fbx\+Document}}, \mbox{\hyperlink{class_fbx_document_info_af7e5f2d64c0d3f340ef7b7def8a41721}{Fbx\+Document\+Info}}, \mbox{\hyperlink{class_fbx_exporter_a9e87ea3aa786c3893658b9e7c93747bf}{Fbx\+Exporter}}, \mbox{\hyperlink{class_fbx_geometry_a043889ad2c9abba52f25bcee826feb10}{Fbx\+Geometry}}, \mbox{\hyperlink{class_fbx_geometry_weighted_map_abe967bae2aa9ed1779408fdb215921a1}{Fbx\+Geometry\+Weighted\+Map}}, \mbox{\hyperlink{class_fbx_importer_acb6af2932aab12fba5152fcaf5def856}{Fbx\+Importer}}, \mbox{\hyperlink{class_fbx_i_o_settings_ac632c2465bee4a73b8516fbbd5cbd8d2}{Fbx\+IOSettings}}, \mbox{\hyperlink{class_fbx_layer_container_a740d2d40ee5bf783ec2f5588483b394b}{Fbx\+Layer\+Container}}, \mbox{\hyperlink{class_fbx_library_aabc02baabc9bf08093eb9011ca8ca7b0}{Fbx\+Library}}, \mbox{\hyperlink{class_fbx_line_a641d30d0128d7a94c398e09454b0a956}{Fbx\+Line}}, \mbox{\hyperlink{class_fbx_mesh_ac62b6ab82c3ec11700c0e07d0bb69f88}{Fbx\+Mesh}}, \mbox{\hyperlink{class_fbx_node_a40b60ad84cb57e85cbc54503d98afc33}{Fbx\+Node}}, \mbox{\hyperlink{class_fbx_nurbs_a832fb5ac91441c64d103878c19becdcf}{Fbx\+Nurbs}}, \mbox{\hyperlink{class_fbx_nurbs_curve_ac78c5f59d98a18f2d442bfaf943ef365}{Fbx\+Nurbs\+Curve}}, \mbox{\hyperlink{class_fbx_nurbs_surface_ac4de97f931a8e4004dd6f5e4971e46fc}{Fbx\+Nurbs\+Surface}}, \mbox{\hyperlink{class_fbx_patch_a4d5687b7b00f0a1ca48bd2420ac39780}{Fbx\+Patch}}, \mbox{\hyperlink{class_fbx_pose_a9aa982c962be7e7013c5bc75cedc9e42}{Fbx\+Pose}}, \mbox{\hyperlink{class_fbx_processor_shader_dependency_a7c81c1aadcd442088b66c6274fa46b23}{Fbx\+Processor\+Shader\+Dependency}}, and \mbox{\hyperlink{class_fbx_thumbnail_ab69c9f0cce95048dcc7eface533d66b1}{Fbx\+Thumbnail}}.
+
+\Hypertarget{class_fbx_object_a5ebe517e8b3f221285b9754009c0660b}\index{FbxObject@{FbxObject}!DisconnectAllDstObject@{DisconnectAllDstObject}}
+\index{DisconnectAllDstObject@{DisconnectAllDstObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{DisconnectAllDstObject()}{DisconnectAllDstObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a5ebe517e8b3f221285b9754009c0660b} 
+bool Fbx\+Object\+::\+Disconnect\+All\+Dst\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Disconnects this object from all destination objects. \begin{DoxyReturn}{Returns}
+{\ttfamily True} if it disconnects all destination objects successfully, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_aa3aab1135cdd8e63c3255e17f926d950}\index{FbxObject@{FbxObject}!DisconnectAllDstObject@{DisconnectAllDstObject}}
+\index{DisconnectAllDstObject@{DisconnectAllDstObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{DisconnectAllDstObject()}{DisconnectAllDstObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_aa3aab1135cdd8e63c3255e17f926d950} 
+template$<$class T$>$ \\
+bool Fbx\+Object\+::\+Disconnect\+All\+Dst\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Disconnects this object from all destination objects of the specified class type. \begin{DoxyReturn}{Returns}
+{\ttfamily true} if it disconnects all destination objects of the specified class type successfully, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a5668d54f53f16f5ffad95727f92a8ee6}\index{FbxObject@{FbxObject}!DisconnectAllDstObject@{DisconnectAllDstObject}}
+\index{DisconnectAllDstObject@{DisconnectAllDstObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{DisconnectAllDstObject()}{DisconnectAllDstObject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a5668d54f53f16f5ffad95727f92a8ee6} 
+bool Fbx\+Object\+::\+Disconnect\+All\+Dst\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Disconnects this object from all destination objects that satisfy given criteria. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if it disconnects all destination objects successfully, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_afd459bbb653d2a31e5c03dfdb64e649b}\index{FbxObject@{FbxObject}!DisconnectAllDstObject@{DisconnectAllDstObject}}
+\index{DisconnectAllDstObject@{DisconnectAllDstObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{DisconnectAllDstObject()}{DisconnectAllDstObject()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_afd459bbb653d2a31e5c03dfdb64e649b} 
+template$<$class T$>$ \\
+bool Fbx\+Object\+::\+Disconnect\+All\+Dst\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Disconnects this object from all destination objects that are the specified class type and that satisfy the given criteria. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if it disconnects all destination objects successfully, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_af1e035b53794520b66c3240a20660b40}\index{FbxObject@{FbxObject}!DisconnectAllSrcObject@{DisconnectAllSrcObject}}
+\index{DisconnectAllSrcObject@{DisconnectAllSrcObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{DisconnectAllSrcObject()}{DisconnectAllSrcObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_af1e035b53794520b66c3240a20660b40} 
+bool Fbx\+Object\+::\+Disconnect\+All\+Src\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Disconnects this object from all source objects. \begin{DoxyReturn}{Returns}
+{\ttfamily True} if it disconnects all source objects successfully, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a17f59548a86067094c17501801e7aa46}\index{FbxObject@{FbxObject}!DisconnectAllSrcObject@{DisconnectAllSrcObject}}
+\index{DisconnectAllSrcObject@{DisconnectAllSrcObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{DisconnectAllSrcObject()}{DisconnectAllSrcObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a17f59548a86067094c17501801e7aa46} 
+template$<$class T$>$ \\
+bool Fbx\+Object\+::\+Disconnect\+All\+Src\+Object (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Disconnects this object from all source objects of the specified class type. \begin{DoxyReturn}{Returns}
+{\ttfamily true} if it disconnects all source objects successfully, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_ad6c02944e76b8d6780e734383f872a7d}\index{FbxObject@{FbxObject}!DisconnectAllSrcObject@{DisconnectAllSrcObject}}
+\index{DisconnectAllSrcObject@{DisconnectAllSrcObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{DisconnectAllSrcObject()}{DisconnectAllSrcObject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_ad6c02944e76b8d6780e734383f872a7d} 
+bool Fbx\+Object\+::\+Disconnect\+All\+Src\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Disconnects this object from all source objects that satisfy a given criteria. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if it disconnects all the source objects successfully, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_ae5b578e810b22bcd8d0df323097ed995}\index{FbxObject@{FbxObject}!DisconnectAllSrcObject@{DisconnectAllSrcObject}}
+\index{DisconnectAllSrcObject@{DisconnectAllSrcObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{DisconnectAllSrcObject()}{DisconnectAllSrcObject()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_ae5b578e810b22bcd8d0df323097ed995} 
+template$<$class T$>$ \\
+bool Fbx\+Object\+::\+Disconnect\+All\+Src\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Disconnects this object from all source objects that are of the specified class type and that satisfy the given criteria. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if it disconnects all source objects successfully, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a949fdf817b27505861f293cea4dc3b86}\index{FbxObject@{FbxObject}!DisconnectDstObject@{DisconnectDstObject}}
+\index{DisconnectDstObject@{DisconnectDstObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{DisconnectDstObject()}{DisconnectDstObject()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a949fdf817b27505861f293cea4dc3b86} 
+bool Fbx\+Object\+::\+Disconnect\+Dst\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Disconnects this object from the destination object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The destination object from which this object disconnects. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a0931b1e490684c4ff0532d69a466b4b2}\index{FbxObject@{FbxObject}!DisconnectDstProperty@{DisconnectDstProperty}}
+\index{DisconnectDstProperty@{DisconnectDstProperty}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{DisconnectDstProperty()}{DisconnectDstProperty()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a0931b1e490684c4ff0532d69a466b4b2} 
+bool Fbx\+Object\+::\+Disconnect\+Dst\+Property (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&}]{p\+Property}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Disconnects this object from the specified destination property. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Property} & The specified destination property. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a1ff942832a9a9d829988c757899b6655}\index{FbxObject@{FbxObject}!DisconnectSrcObject@{DisconnectSrcObject}}
+\index{DisconnectSrcObject@{DisconnectSrcObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{DisconnectSrcObject()}{DisconnectSrcObject()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a1ff942832a9a9d829988c757899b6655} 
+bool Fbx\+Object\+::\+Disconnect\+Src\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Disconnects this object from a source object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The source object from which this object will be disconnected. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a545423b1e5060fcad8784bd0aa0432b6}\index{FbxObject@{FbxObject}!DisconnectSrcProperty@{DisconnectSrcProperty}}
+\index{DisconnectSrcProperty@{DisconnectSrcProperty}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{DisconnectSrcProperty()}{DisconnectSrcProperty()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a545423b1e5060fcad8784bd0aa0432b6} 
+bool Fbx\+Object\+::\+Disconnect\+Src\+Property (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&}]{p\+Property}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Disconnects this object from the specified source property. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Property} & The specified source property. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_ae2fe13bc65c1ffe2c2338bc2a2740429}\index{FbxObject@{FbxObject}!EmitMessage@{EmitMessage}}
+\index{EmitMessage@{EmitMessage}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{EmitMessage()}{EmitMessage()}}
+{\footnotesize\ttfamily \label{class_fbx_object_ae2fe13bc65c1ffe2c2338bc2a2740429} 
+void Fbx\+Object\+::\+Emit\+Message (\begin{DoxyParamCaption}\item[{Fbx\+Message \texorpdfstring{$\ast$}{*}}]{p\+Message}{}\end{DoxyParamCaption}) const}
+
+Emits a message in all available message emitters in the document or SDK manager. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Message} & The message to emit. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The ownership of the message is transferred, don\textquotesingle{}t delete it. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_a83483c85e1431fdb5cdd45dfeb03a6de}\index{FbxObject@{FbxObject}!FindDstObject@{FindDstObject}}
+\index{FindDstObject@{FindDstObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{FindDstObject()}{FindDstObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a83483c85e1431fdb5cdd45dfeb03a6de} 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Find\+Dst\+Object (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{int}]{p\+Start\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches the destination object with the specified name, starting at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The object name. \\
+\hline
+{\em p\+Start\+Index} & The start index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The destination object with the name, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a34db1b17cb89374a13238d7ba4689c53}\index{FbxObject@{FbxObject}!FindDstObject@{FindDstObject}}
+\index{FindDstObject@{FindDstObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{FindDstObject()}{FindDstObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a34db1b17cb89374a13238d7ba4689c53} 
+template$<$class T$>$ \\
+T \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Find\+Dst\+Object (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{int}]{p\+Start\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches the destination object with the specified name which is of the specified class type, starting at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The object name. \\
+\hline
+{\em p\+Start\+Index} & The start index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The source object with the name, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a1b29d3cb822da43e40dd6fdf586bb6df}\index{FbxObject@{FbxObject}!FindDstObject@{FindDstObject}}
+\index{FindDstObject@{FindDstObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{FindDstObject()}{FindDstObject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a1b29d3cb822da43e40dd6fdf586bb6df} 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Find\+Dst\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{int}]{p\+Start\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches the destination object with the specified name which satisfies the given criteria, starting at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+{\em p\+Name} & The object name. \\
+\hline
+{\em p\+Start\+Index} & The start index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The destination object with the name, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a4fdbc988fc39eb5ab3ad74b5134d9fb3}\index{FbxObject@{FbxObject}!FindDstObject@{FindDstObject}}
+\index{FindDstObject@{FindDstObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{FindDstObject()}{FindDstObject()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a4fdbc988fc39eb5ab3ad74b5134d9fb3} 
+template$<$class T$>$ \\
+T \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Find\+Dst\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{int}]{p\+Start\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches the destination object with the specified name that is the specified class type and that satisfies the given criteria, starting at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+{\em p\+Name} & The object name. \\
+\hline
+{\em p\+Start\+Index} & The start index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The source object with the name, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a3552b9625640d12db3a9cb70a9fae794}\index{FbxObject@{FbxObject}!FindDstProperty@{FindDstProperty}}
+\index{FindDstProperty@{FindDstProperty}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{FindDstProperty()}{FindDstProperty()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a3552b9625640d12db3a9cb70a9fae794} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} Fbx\+Object\+::\+Find\+Dst\+Property (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{int}]{p\+Start\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches a destination property with which this object connects that has a specific name, starting at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The specified property name. \\
+\hline
+{\em p\+Start\+Index} & The start index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The destination property with the specified name. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a697319ff157f50b097f49118f5582f98}\index{FbxObject@{FbxObject}!FindProperty@{FindProperty}}
+\index{FindProperty@{FindProperty}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{FindProperty()}{FindProperty()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a697319ff157f50b097f49118f5582f98} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} Fbx\+Object\+::\+Find\+Property (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{bool}]{p\+Case\+Sensitive}{ = {\ttfamily true}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches a property by name. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The property name. \\
+\hline
+{\em p\+Case\+Sensitive} & Whether the name is case-\/sensitive. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A valid \doxylink{class_fbx_property}{Fbx\+Property} if found, else an invalid \doxylink{class_fbx_property}{Fbx\+Property}. See \doxylink{class_fbx_property_a1c40042c55d1f4a1d4837f06fbc1d764}{Fbx\+Property\+::\+Is\+Valid()} 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_aab369c8ec541c9e6994a28015619e510}\index{FbxObject@{FbxObject}!FindProperty@{FindProperty}}
+\index{FindProperty@{FindProperty}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{FindProperty()}{FindProperty()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_object_aab369c8ec541c9e6994a28015619e510} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} Fbx\+Object\+::\+Find\+Property (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{const \mbox{\hyperlink{class_fbx_data_type}{Fbx\+Data\+Type}} \&}]{p\+Data\+Type}{, }\item[{bool}]{p\+Case\+Sensitive}{ = {\ttfamily true}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches a property by name and data type. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The property name. \\
+\hline
+{\em p\+Data\+Type} & The data type of the property. \\
+\hline
+{\em p\+Case\+Sensitive} & Whether the name is case-\/sensitive. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A valid \doxylink{class_fbx_property}{Fbx\+Property} if the property is found, else an invalid \doxylink{class_fbx_property}{Fbx\+Property}. See \doxylink{class_fbx_property_a1c40042c55d1f4a1d4837f06fbc1d764}{Fbx\+Property\+::\+Is\+Valid()} 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_ac20a46bd7abf3c09fc2af0df47f4f261}\index{FbxObject@{FbxObject}!FindPropertyHierarchical@{FindPropertyHierarchical}}
+\index{FindPropertyHierarchical@{FindPropertyHierarchical}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{FindPropertyHierarchical()}{FindPropertyHierarchical()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_object_ac20a46bd7abf3c09fc2af0df47f4f261} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} Fbx\+Object\+::\+Find\+Property\+Hierarchical (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{bool}]{p\+Case\+Sensitive}{ = {\ttfamily true}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches a property by full name. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The full name of the property as a {\ttfamily NULL} terminated string. \\
+\hline
+{\em p\+Case\+Sensitive} & whether or not the name is case-\/sensitive. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A valid \doxylink{class_fbx_property}{Fbx\+Property} if the property is found, else an invalid \doxylink{class_fbx_property}{Fbx\+Property}. See \doxylink{class_fbx_property_a1c40042c55d1f4a1d4837f06fbc1d764}{Fbx\+Property\+::\+Is\+Valid()} 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a47b6379edc68313f2b23da3d3b36e5ab}\index{FbxObject@{FbxObject}!FindPropertyHierarchical@{FindPropertyHierarchical}}
+\index{FindPropertyHierarchical@{FindPropertyHierarchical}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{FindPropertyHierarchical()}{FindPropertyHierarchical()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a47b6379edc68313f2b23da3d3b36e5ab} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} Fbx\+Object\+::\+Find\+Property\+Hierarchical (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{const \mbox{\hyperlink{class_fbx_data_type}{Fbx\+Data\+Type}} \&}]{p\+Data\+Type}{, }\item[{bool}]{p\+Case\+Sensitive}{ = {\ttfamily true}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches a property by full name and data type. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The full name of the property as a {\ttfamily NULL} terminated string. \\
+\hline
+{\em p\+Data\+Type} & The data type of the property. \\
+\hline
+{\em p\+Case\+Sensitive} & whether or not the name is case-\/sensitive. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A valid \doxylink{class_fbx_property}{Fbx\+Property} if the property is found, else an invalid \doxylink{class_fbx_property}{Fbx\+Property}. See \doxylink{class_fbx_property_a1c40042c55d1f4a1d4837f06fbc1d764}{Fbx\+Property\+::\+Is\+Valid()} 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_ae2395e360ff9e53e18c99052a41e1156}\index{FbxObject@{FbxObject}!FindSrcObject@{FindSrcObject}}
+\index{FindSrcObject@{FindSrcObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{FindSrcObject()}{FindSrcObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_ae2395e360ff9e53e18c99052a41e1156} 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Find\+Src\+Object (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{int}]{p\+Start\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches the source object with the specified name, starting at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The object name. \\
+\hline
+{\em p\+Start\+Index} & The start index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The source object with the name, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_ab4e093b55f5361fbc025cf8ea3cb401f}\index{FbxObject@{FbxObject}!FindSrcObject@{FindSrcObject}}
+\index{FindSrcObject@{FindSrcObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{FindSrcObject()}{FindSrcObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_ab4e093b55f5361fbc025cf8ea3cb401f} 
+template$<$class T$>$ \\
+T \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Find\+Src\+Object (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{int}]{p\+Start\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches the source object with the specified name that is the specified class type, starting at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The object name. \\
+\hline
+{\em p\+Start\+Index} & The start index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The source object with the name, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_aa719dc9513cfbfc8767d4c2af367bc44}\index{FbxObject@{FbxObject}!FindSrcObject@{FindSrcObject}}
+\index{FindSrcObject@{FindSrcObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{FindSrcObject()}{FindSrcObject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_aa719dc9513cfbfc8767d4c2af367bc44} 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Find\+Src\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{int}]{p\+Start\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches the source object with the specified name which satisfies the given criteria, starting at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+{\em p\+Name} & The object name. \\
+\hline
+{\em p\+Start\+Index} & The start index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The source object with the name, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_aafb907a917f661eb4a80d1b85d04518d}\index{FbxObject@{FbxObject}!FindSrcObject@{FindSrcObject}}
+\index{FindSrcObject@{FindSrcObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{FindSrcObject()}{FindSrcObject()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_aafb907a917f661eb4a80d1b85d04518d} 
+template$<$class T$>$ \\
+T \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Find\+Src\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{int}]{p\+Start\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches the source object with the specified name that is the specified class type and that satisfies the given criteria, starting at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+{\em p\+Name} & The object name. \\
+\hline
+{\em p\+Start\+Index} & The start index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The source object with the name, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_ad87b66288e8308973dc477cda1346a05}\index{FbxObject@{FbxObject}!FindSrcProperty@{FindSrcProperty}}
+\index{FindSrcProperty@{FindSrcProperty}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{FindSrcProperty()}{FindSrcProperty()}}
+{\footnotesize\ttfamily \label{class_fbx_object_ad87b66288e8308973dc477cda1346a05} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} Fbx\+Object\+::\+Find\+Src\+Property (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{int}]{p\+Start\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches a source property with which this object connects that has a specific name, starting at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The specified property name. \\
+\hline
+{\em p\+Start\+Index} & The start index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The source property with the specified name. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a18b30c43de008570c05f3a6f1e46eb10}\index{FbxObject@{FbxObject}!GetAllObjectFlags@{GetAllObjectFlags}}
+\index{GetAllObjectFlags@{GetAllObjectFlags}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetAllObjectFlags()}{GetAllObjectFlags()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a18b30c43de008570c05f3a6f1e46eb10} 
+Fbx\+UInt Fbx\+Object\+::\+Get\+All\+Object\+Flags (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get all object flags at once. \begin{DoxyReturn}{Returns}
+All bit flags at once. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a70e190147f28712dee1ec1e00b73c24e}\index{FbxObject@{FbxObject}!GetClassRootProperty@{GetClassRootProperty}}
+\index{GetClassRootProperty@{GetClassRootProperty}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetClassRootProperty()}{GetClassRootProperty()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a70e190147f28712dee1ec1e00b73c24e} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} Fbx\+Object\+::\+Get\+Class\+Root\+Property (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns the class root property. \begin{DoxyReturn}{Returns}
+The class root property if it exists, else an invalid \doxylink{class_fbx_property}{Fbx\+Property}. See \doxylink{class_fbx_property_a1c40042c55d1f4a1d4837f06fbc1d764}{Fbx\+Property\+::\+Is\+Valid()}. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+Class \doxylink{class_fbx_object}{Fbx\+Object} and its sub-\/classes all have a class root property. This class root property contains basic information about the class type, such as the class name. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_afa41110ea96c574ad30036bcc91a730e}\index{FbxObject@{FbxObject}!GetDefaultImplementation@{GetDefaultImplementation}}
+\index{GetDefaultImplementation@{GetDefaultImplementation}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetDefaultImplementation()}{GetDefaultImplementation()}}
+{\footnotesize\ttfamily \label{class_fbx_object_afa41110ea96c574ad30036bcc91a730e} 
+\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Default\+Implementation (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+Returns the default implementation of this shading node. \begin{DoxyReturn}{Returns}
+The default implementation of this shading node. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_aa5cf0570302b29cb491322fd030dede9}\index{FbxObject@{FbxObject}!GetDocument@{GetDocument}}
+\index{GetDocument@{GetDocument}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetDocument()}{GetDocument()}}
+{\footnotesize\ttfamily \label{class_fbx_object_aa5cf0570302b29cb491322fd030dede9} 
+\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Document (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns a const pointer to the document that contains this object. \begin{DoxyReturn}{Returns}
+A const pointer to the document that contains this object or {\ttfamily NULL} if the object does not belong to any document. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a4cdab7b4be2985fd907159ae16e09d2f}\index{FbxObject@{FbxObject}!GetDstObject@{GetDstObject}}
+\index{GetDstObject@{GetDstObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetDstObject()}{GetDstObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a4cdab7b4be2985fd907159ae16e09d2f} 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Dst\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{, }\item[{int}]{p\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the destination object with which this object connects that satisfies the given criteria at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+{\em p\+Index} & The specified index whose default value is 0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The destination object that satisfies the given criteria at the specified index, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_ad2fea70ba6a29879cefdff5d5c6a2fd0}\index{FbxObject@{FbxObject}!GetDstObject@{GetDstObject}}
+\index{GetDstObject@{GetDstObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetDstObject()}{GetDstObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_ad2fea70ba6a29879cefdff5d5c6a2fd0} 
+template$<$class T$>$ \\
+T \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Dst\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{, }\item[{int}]{p\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the destination object with which this object connects that is the specified class type and that satisfies the given criteria at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+{\em p\+Index} & The specified index whose default value is 0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The destination object that is the specified class type and that satisfies the given criteria at the specified index, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a16e69934f654a544c986a583a59972be}\index{FbxObject@{FbxObject}!GetDstObject@{GetDstObject}}
+\index{GetDstObject@{GetDstObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetDstObject()}{GetDstObject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a16e69934f654a544c986a583a59972be} 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Dst\+Object (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the destination object at the specified index with which this object connects. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The specified index whose default value is 0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The destination object at the specified index, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_ae8a6869c4809e67473b333213f9326fb}\index{FbxObject@{FbxObject}!GetDstObject@{GetDstObject}}
+\index{GetDstObject@{GetDstObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetDstObject()}{GetDstObject()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_ae8a6869c4809e67473b333213f9326fb} 
+template$<$class T$>$ \\
+T \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Dst\+Object (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the destination object with which this object connects that is the specified class type at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The specified index whose default value is 0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The destination object of the specified class type at the specified index, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a5be091701bfa94643dc2333768f56866}\index{FbxObject@{FbxObject}!GetDstObjectCount@{GetDstObjectCount}}
+\index{GetDstObjectCount@{GetDstObjectCount}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetDstObjectCount()}{GetDstObjectCount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a5be091701bfa94643dc2333768f56866} 
+int Fbx\+Object\+::\+Get\+Dst\+Object\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the number of destination objects with which this object connects. \begin{DoxyReturn}{Returns}
+The number of destination objects with which this object connects. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a1a642124ddabd14884fc0c85793a5c6d}\index{FbxObject@{FbxObject}!GetDstObjectCount@{GetDstObjectCount}}
+\index{GetDstObjectCount@{GetDstObjectCount}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetDstObjectCount()}{GetDstObjectCount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a1a642124ddabd14884fc0c85793a5c6d} 
+template$<$class T$>$ \\
+int Fbx\+Object\+::\+Get\+Dst\+Object\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the number of destination objects of the specified class type with which this object connects. \begin{DoxyReturn}{Returns}
+The number of destination objects of the specified class type with which this object connects. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a46183e2905f10779c57389dc4ec3a5de}\index{FbxObject@{FbxObject}!GetDstObjectCount@{GetDstObjectCount}}
+\index{GetDstObjectCount@{GetDstObjectCount}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetDstObjectCount()}{GetDstObjectCount()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a46183e2905f10779c57389dc4ec3a5de} 
+int Fbx\+Object\+::\+Get\+Dst\+Object\+Count (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the number of destination objects with which this object connects that satisfy the given criteria. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of destination objects with which this object connects that satisfy the given criteria. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a03da9b6768a234550042e0b3a70f081f}\index{FbxObject@{FbxObject}!GetDstObjectCount@{GetDstObjectCount}}
+\index{GetDstObjectCount@{GetDstObjectCount}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetDstObjectCount()}{GetDstObjectCount()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a03da9b6768a234550042e0b3a70f081f} 
+template$<$class T$>$ \\
+int Fbx\+Object\+::\+Get\+Dst\+Object\+Count (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the number of destination objects with which this object connects that are the specified class type and that satisfy the given criteria. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of destination objects that are the specified class type and that satisfy the given criteria. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_aaec1374d8a9a02429ae4eb317438856d}\index{FbxObject@{FbxObject}!GetDstProperty@{GetDstProperty}}
+\index{GetDstProperty@{GetDstProperty}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetDstProperty()}{GetDstProperty()}}
+{\footnotesize\ttfamily \label{class_fbx_object_aaec1374d8a9a02429ae4eb317438856d} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} Fbx\+Object\+::\+Get\+Dst\+Property (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the destination property at the specified index with which this object connects. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The specified index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The destination property at the specified index. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a878feb5a29caf3262360037fe4a5c1e6}\index{FbxObject@{FbxObject}!GetDstPropertyCount@{GetDstPropertyCount}}
+\index{GetDstPropertyCount@{GetDstPropertyCount}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetDstPropertyCount()}{GetDstPropertyCount()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a878feb5a29caf3262360037fe4a5c1e6} 
+int Fbx\+Object\+::\+Get\+Dst\+Property\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the number of destination properties with which this object connects. \begin{DoxyReturn}{Returns}
+The number of destination properties with which this object connects. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a87421255c4def515760a5b5df656a20f}\index{FbxObject@{FbxObject}!GetFbxManager@{GetFbxManager}}
+\index{GetFbxManager@{GetFbxManager}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetFbxManager()}{GetFbxManager()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a87421255c4def515760a5b5df656a20f} 
+\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Fbx\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Retrieve the \doxylink{class_fbx_manager}{Fbx\+Manager} this object belongs to. \begin{DoxyReturn}{Returns}
+A pointer to the manager that this object belongs to. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_abc7d6efa0f0b7f0037818b8700465077}\index{FbxObject@{FbxObject}!GetFirstProperty@{GetFirstProperty}}
+\index{GetFirstProperty@{GetFirstProperty}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetFirstProperty()}{GetFirstProperty()}}
+{\footnotesize\ttfamily \label{class_fbx_object_abc7d6efa0f0b7f0037818b8700465077} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} Fbx\+Object\+::\+Get\+First\+Property (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the first property of this object. \begin{DoxyReturn}{Returns}
+The first property of this object. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a8e7a39d2b2c3688e44c7222adca4a275}\index{FbxObject@{FbxObject}!GetImplementation@{GetImplementation}}
+\index{GetImplementation@{GetImplementation}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetImplementation()}{GetImplementation()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a8e7a39d2b2c3688e44c7222adca4a275} 
+\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Implementation (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{, }\item[{const \mbox{\hyperlink{class_fbx_implementation_filter}{Fbx\+Implementation\+Filter}} \texorpdfstring{$\ast$}{*}}]{p\+Criteria}{ = {\ttfamily NULL}}\end{DoxyParamCaption}) const}
+
+Returns the implementation at the specified index that satisfies the given criteria. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The specified index. \\
+\hline
+{\em p\+Criteria} & The given criteria. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The implementation at the specified index, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_add119a7c5623e087101589ebbc0a65ed}\index{FbxObject@{FbxObject}!GetImplementationCount@{GetImplementationCount}}
+\index{GetImplementationCount@{GetImplementationCount}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetImplementationCount()}{GetImplementationCount()}}
+{\footnotesize\ttfamily \label{class_fbx_object_add119a7c5623e087101589ebbc0a65ed} 
+int Fbx\+Object\+::\+Get\+Implementation\+Count (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_implementation_filter}{Fbx\+Implementation\+Filter}} \texorpdfstring{$\ast$}{*}}]{p\+Criteria}{ = {\ttfamily NULL}}\end{DoxyParamCaption}) const}
+
+Returns the number of implementations that satisfy a given criteria. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of implementations. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a23fdcb85828748da9611491f64dcde0a}\index{FbxObject@{FbxObject}!GetInitialName@{GetInitialName}}
+\index{GetInitialName@{GetInitialName}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetInitialName()}{GetInitialName()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a23fdcb85828748da9611491f64dcde0a} 
+const char \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Initial\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the initial name of the object. \begin{DoxyReturn}{Returns}
+The object\textquotesingle{}s initial name as a {\ttfamily NULL} terminated string. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_ad292343f61a5c670fb322bf592839bcf}\index{FbxObject@{FbxObject}!GetName@{GetName}}
+\index{GetName@{GetName}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}}
+{\footnotesize\ttfamily \label{class_fbx_object_ad292343f61a5c670fb322bf592839bcf} 
+const char \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the full name of this object. \begin{DoxyReturn}{Returns}
+The full name as a {\ttfamily NULL} terminated string. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a3a01a4d055e558d322016ce8d7337329}\index{FbxObject@{FbxObject}!GetNameOnly@{GetNameOnly}}
+\index{GetNameOnly@{GetNameOnly}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetNameOnly()}{GetNameOnly()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a3a01a4d055e558d322016ce8d7337329} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+Object\+::\+Get\+Name\+Only (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns only the name (no namespace or prefix) of the object. \begin{DoxyReturn}{Returns}
+The name only as a {\ttfamily NULL} terminated string. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a8e0aeec9b01f961d552315014a36f775}\index{FbxObject@{FbxObject}!GetNameSpaceArray@{GetNameSpaceArray}}
+\index{GetNameSpaceArray@{GetNameSpaceArray}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetNameSpaceArray()}{GetNameSpaceArray()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a8e0aeec9b01f961d552315014a36f775} 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*} $>$ Fbx\+Object\+::\+Get\+Name\+Space\+Array (\begin{DoxyParamCaption}\item[{char}]{identifier}{}\end{DoxyParamCaption})}
+
+Returns an array of all the namespaces for this object 
+\begin{DoxyParams}{Parameters}
+{\em identifier} & The identifier of the namespaces. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The array of all namespaces. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a9cc9873c1d66722b964c04da5ec2001f}\index{FbxObject@{FbxObject}!GetNameSpaceOnly@{GetNameSpaceOnly}}
+\index{GetNameSpaceOnly@{GetNameSpaceOnly}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetNameSpaceOnly()}{GetNameSpaceOnly()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a9cc9873c1d66722b964c04da5ec2001f} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+Object\+::\+Get\+Name\+Space\+Only (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns the namespace of the object. \begin{DoxyReturn}{Returns}
+The object\textquotesingle{}s namespace as a {\ttfamily NULL} terminated string. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a8a0b08d810c3451ea912840caab53694}\index{FbxObject@{FbxObject}!GetNameSpacePrefix@{GetNameSpacePrefix}}
+\index{GetNameSpacePrefix@{GetNameSpacePrefix}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetNameSpacePrefix()}{GetNameSpacePrefix()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a8a0b08d810c3451ea912840caab53694} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+Object\+::\+Get\+Name\+Space\+Prefix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the namespace qualifier. \begin{DoxyReturn}{Returns}
+The namespace qualifier. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a9caa594f866ea3a424f5f6e3676e2799}\index{FbxObject@{FbxObject}!GetNameWithNameSpacePrefix@{GetNameWithNameSpacePrefix}}
+\index{GetNameWithNameSpacePrefix@{GetNameWithNameSpacePrefix}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetNameWithNameSpacePrefix()}{GetNameWithNameSpacePrefix()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a9caa594f866ea3a424f5f6e3676e2799} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+Object\+::\+Get\+Name\+With\+Name\+Space\+Prefix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the name of the object with the namespace qualifier. \begin{DoxyReturn}{Returns}
+The object name with the namespace qualifier. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_ae378979d85476e931375e30b6498f8db}\index{FbxObject@{FbxObject}!GetNameWithoutNameSpacePrefix@{GetNameWithoutNameSpacePrefix}}
+\index{GetNameWithoutNameSpacePrefix@{GetNameWithoutNameSpacePrefix}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetNameWithoutNameSpacePrefix()}{GetNameWithoutNameSpacePrefix()}}
+{\footnotesize\ttfamily \label{class_fbx_object_ae378979d85476e931375e30b6498f8db} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+Object\+::\+Get\+Name\+Without\+Name\+Space\+Prefix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the name of the object without the namespace qualifier. \begin{DoxyReturn}{Returns}
+The object name without the namespace qualifier. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a34e7ffc0f49a4e3be8db6310efccd020}\index{FbxObject@{FbxObject}!GetNextProperty@{GetNextProperty}}
+\index{GetNextProperty@{GetNextProperty}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetNextProperty()}{GetNextProperty()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a34e7ffc0f49a4e3be8db6310efccd020} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} Fbx\+Object\+::\+Get\+Next\+Property (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&}]{p\+Property}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the next property of this object that follows the specified property. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Property} & The specified property. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The next property of this object that follows p\+Property. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a02d91c1f2930a03cfd0e8c2b1fffa0ee}\index{FbxObject@{FbxObject}!GetObjectFlags@{GetObjectFlags}}
+\index{GetObjectFlags@{GetObjectFlags}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetObjectFlags()}{GetObjectFlags()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a02d91c1f2930a03cfd0e8c2b1fffa0ee} 
+bool Fbx\+Object\+::\+Get\+Object\+Flags (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{EObject\+Flag}}}]{p\+Flags}{}\end{DoxyParamCaption}) const}
+
+Get the state of object flags. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Flags} & Bit flags to query. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the specified bit flags are all set. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a56546e89ab7132ffd52c92257a73c022}\index{FbxObject@{FbxObject}!GetParentLibrary@{GetParentLibrary}}
+\index{GetParentLibrary@{GetParentLibrary}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetParentLibrary()}{GetParentLibrary()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a56546e89ab7132ffd52c92257a73c022} 
+\mbox{\hyperlink{class_fbx_library}{Fbx\+Library}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Parent\+Library (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns a handle on the parent library of this object. \begin{DoxyReturn}{Returns}
+The parent library of this object, or {\ttfamily NULL} if the parent library doesn\textquotesingle{}t exist. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_ae29c652036d35f33cfc8af7449078ed5}\index{FbxObject@{FbxObject}!GetPeripheral@{GetPeripheral}}
+\index{GetPeripheral@{GetPeripheral}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetPeripheral()}{GetPeripheral()}}
+{\footnotesize\ttfamily \label{class_fbx_object_ae29c652036d35f33cfc8af7449078ed5} 
+virtual \mbox{\hyperlink{class_fbx_peripheral}{Fbx\+Peripheral}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Peripheral (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Retrieves the peripheral of that object. \begin{DoxyReturn}{Returns}
+The current peripheral for that object 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+A peripheral manipulates the content of an object. For instance, a peripheral can load the connections of an object on demand. 
+\end{DoxyRemark}
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_document_a3c709c02953282d8919f91b32179a9be}{Fbx\+Document}}.
+
+\Hypertarget{class_fbx_object_a553ed0c8a1f00394a11d5123fb040f6c}\index{FbxObject@{FbxObject}!GetReferencedBy@{GetReferencedBy}}
+\index{GetReferencedBy@{GetReferencedBy}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetReferencedBy()}{GetReferencedBy()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a553ed0c8a1f00394a11d5123fb040f6c} 
+int Fbx\+Object\+::\+Get\+Referenced\+By (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&}]{p\+Referenced\+By}{}\end{DoxyParamCaption}) const}
+
+Returns an array containing all the reference clones of this object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Referenced\+By} & The array of refeerences populated by this function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of objects that are reference clones of this object. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a5797b48dd0247100a71190e30615e697}\index{FbxObject@{FbxObject}!GetReferencedBy@{GetReferencedBy}}
+\index{GetReferencedBy@{GetReferencedBy}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetReferencedBy()}{GetReferencedBy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a5797b48dd0247100a71190e30615e697} 
+FBX\+\_\+\+DEPRECATED \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Referenced\+By (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{}\end{DoxyParamCaption}) const}
+
+Returns a reference clone of this object at the specified index. This method has been deprecated in favor of retrieving the entire array with the function overload that takes an \doxylink{class_fbx_array}{Fbx\+Array}. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The specified index, valid values are \mbox{[}0, \doxylink{class_fbx_object_a97318ba302685288321f65144063b7c7}{Get\+Referenced\+By\+Count()}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The reference clone, or NULL (if p\+Index is out of range). 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a97318ba302685288321f65144063b7c7}\index{FbxObject@{FbxObject}!GetReferencedByCount@{GetReferencedByCount}}
+\index{GetReferencedByCount@{GetReferencedByCount}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetReferencedByCount()}{GetReferencedByCount()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a97318ba302685288321f65144063b7c7} 
+int Fbx\+Object\+::\+Get\+Referenced\+By\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the number of objects that are reference clones of this object. \begin{DoxyReturn}{Returns}
+The number of objects that are reference clones of this object. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_abafd0f4ab90b2d1090c0c225bc4c3e3a}\index{FbxObject@{FbxObject}!GetReferenceTo@{GetReferenceTo}}
+\index{GetReferenceTo@{GetReferenceTo}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetReferenceTo()}{GetReferenceTo()}}
+{\footnotesize\ttfamily \label{class_fbx_object_abafd0f4ab90b2d1090c0c225bc4c3e3a} 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Reference\+To (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+If this object is a reference clone, returns the original object (from which the clone originates). \begin{DoxyReturn}{Returns}
+The original object, or NULL (if this object is not a reference clone). 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a0ecffb08701519b99478724080a1903b}\index{FbxObject@{FbxObject}!GetRootDocument@{GetRootDocument}}
+\index{GetRootDocument@{GetRootDocument}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetRootDocument()}{GetRootDocument()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a0ecffb08701519b99478724080a1903b} 
+\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Root\+Document (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns a const pointer to the root document that contains this object. \begin{DoxyReturn}{Returns}
+A const pointer to the root document that contains this object or {\ttfamily NULL} if the object does not belong to any document. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+It returns this pointer if this object is a document object and does not belong to any document. That means this object is the root document. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_ad81de7de1ede009e3d80361450620475}\index{FbxObject@{FbxObject}!GetRuntimeClassId@{GetRuntimeClassId}}
+\index{GetRuntimeClassId@{GetRuntimeClassId}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetRuntimeClassId()}{GetRuntimeClassId()}}
+{\footnotesize\ttfamily \label{class_fbx_object_ad81de7de1ede009e3d80361450620475} 
+\mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} Fbx\+Object\+::\+Get\+Runtime\+Class\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Retrieve the run-\/time Class\+Id for this object. \begin{DoxyReturn}{Returns}
+The run-\/time Class\+Id for this object. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_aab252b8b092953c63e32e5dc1bcf74a2}\index{FbxObject@{FbxObject}!GetScene@{GetScene}}
+\index{GetScene@{GetScene}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetScene()}{GetScene()}}
+{\footnotesize\ttfamily \label{class_fbx_object_aab252b8b092953c63e32e5dc1bcf74a2} 
+\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Scene (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns a const pointer to the scene that contains this object. \begin{DoxyReturn}{Returns}
+A pointer to the scene that contains this object or {\ttfamily NULL} if the object does not belong to any scene. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_ade0dddb02e39f6823d0bea6071ef4410}\index{FbxObject@{FbxObject}!GetSelected@{GetSelected}}
+\index{GetSelected@{GetSelected}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetSelected()}{GetSelected()}}
+{\footnotesize\ttfamily \label{class_fbx_object_ade0dddb02e39f6823d0bea6071ef4410} 
+virtual bool Fbx\+Object\+::\+Get\+Selected (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns if this object is currently in a selected state. \begin{DoxyReturn}{Returns}
+{\ttfamily True} if this object is selected, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_afc85555fe801a0ba69a0d2df15d95199}\index{FbxObject@{FbxObject}!GetSrcObject@{GetSrcObject}}
+\index{GetSrcObject@{GetSrcObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetSrcObject()}{GetSrcObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_afc85555fe801a0ba69a0d2df15d95199} 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Src\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{, }\item[{int}]{p\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the source object that satisfies the criteria at the specified index with which this object connects. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+{\em p\+Index} & The specified index whose default value is 0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The source object that satisfies the given criteria at the specified index, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a7eb8cc999af713c9ccf39d726a0317b9}\index{FbxObject@{FbxObject}!GetSrcObject@{GetSrcObject}}
+\index{GetSrcObject@{GetSrcObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetSrcObject()}{GetSrcObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a7eb8cc999af713c9ccf39d726a0317b9} 
+template$<$class T$>$ \\
+T \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Src\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{, }\item[{int}]{p\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the source object that is the specified class type and that satisfies the given criteria at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+{\em p\+Index} & The specified index whose default value is 0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The source object that is of the specified class type and that satisfies the given criteria at the specified index, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_ae9f5b092a4beb82e14489e2deda32152}\index{FbxObject@{FbxObject}!GetSrcObject@{GetSrcObject}}
+\index{GetSrcObject@{GetSrcObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetSrcObject()}{GetSrcObject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_ae9f5b092a4beb82e14489e2deda32152} 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Src\+Object (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the source object with which this object connects at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The specified index whose default value is 0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The source object at the specified index, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a8d7e062552be10952806a719b20b3685}\index{FbxObject@{FbxObject}!GetSrcObject@{GetSrcObject}}
+\index{GetSrcObject@{GetSrcObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetSrcObject()}{GetSrcObject()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a8d7e062552be10952806a719b20b3685} 
+template$<$class T$>$ \\
+T \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+Src\+Object (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the source object of the specified class type at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The specified index whose default value is 0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The source object of a specified class type at the specified index, NULL if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a5fce56e85d5e0568243a5df99dabb42f}\index{FbxObject@{FbxObject}!GetSrcObjectCount@{GetSrcObjectCount}}
+\index{GetSrcObjectCount@{GetSrcObjectCount}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetSrcObjectCount()}{GetSrcObjectCount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a5fce56e85d5e0568243a5df99dabb42f} 
+int Fbx\+Object\+::\+Get\+Src\+Object\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the number of source objects with which this object connects. \begin{DoxyReturn}{Returns}
+The number of source objects with which this object connects. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a9da9f905564dc108d1363049eb032fa8}\index{FbxObject@{FbxObject}!GetSrcObjectCount@{GetSrcObjectCount}}
+\index{GetSrcObjectCount@{GetSrcObjectCount}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetSrcObjectCount()}{GetSrcObjectCount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a9da9f905564dc108d1363049eb032fa8} 
+template$<$class T$>$ \\
+int Fbx\+Object\+::\+Get\+Src\+Object\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the number of source objects of a specific class type with which this object connects. \begin{DoxyReturn}{Returns}
+The number of source objects of the specified class type with which this object connects. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_aa1fe90887d90288ee0c06121ec79c0a8}\index{FbxObject@{FbxObject}!GetSrcObjectCount@{GetSrcObjectCount}}
+\index{GetSrcObjectCount@{GetSrcObjectCount}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetSrcObjectCount()}{GetSrcObjectCount()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_aa1fe90887d90288ee0c06121ec79c0a8} 
+int Fbx\+Object\+::\+Get\+Src\+Object\+Count (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the number of source objects that satisfy the given criteria with which this object connects. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of source objects that satisfy the given criteria with which this object connects. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_aabefdc2922a216fb7a1ce864fcf2438a}\index{FbxObject@{FbxObject}!GetSrcObjectCount@{GetSrcObjectCount}}
+\index{GetSrcObjectCount@{GetSrcObjectCount}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetSrcObjectCount()}{GetSrcObjectCount()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_fbx_object_aabefdc2922a216fb7a1ce864fcf2438a} 
+template$<$class T$>$ \\
+int Fbx\+Object\+::\+Get\+Src\+Object\+Count (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the number of source objects with which this object connects that are the specified class type and that satisfy the given criteria. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The given criteria. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of source objects that are the specified class type and that satisfy the given criteria. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_aa79380869a619b260fd1f861eb224f5e}\index{FbxObject@{FbxObject}!GetSrcProperty@{GetSrcProperty}}
+\index{GetSrcProperty@{GetSrcProperty}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetSrcProperty()}{GetSrcProperty()}}
+{\footnotesize\ttfamily \label{class_fbx_object_aa79380869a619b260fd1f861eb224f5e} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} Fbx\+Object\+::\+Get\+Src\+Property (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the source property at the specified index with which this object connects. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The specified index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The source property at the specified index. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a0c9680063d0f6771dd881cf3950337d6}\index{FbxObject@{FbxObject}!GetSrcPropertyCount@{GetSrcPropertyCount}}
+\index{GetSrcPropertyCount@{GetSrcPropertyCount}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetSrcPropertyCount()}{GetSrcPropertyCount()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a0c9680063d0f6771dd881cf3950337d6} 
+int Fbx\+Object\+::\+Get\+Src\+Property\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the number of source properties with which this object connects. \begin{DoxyReturn}{Returns}
+The number of source properties with which this object connects. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_acce60f1ae8d6b0ffba2de85c04766194}\index{FbxObject@{FbxObject}!GetUrl@{GetUrl}}
+\index{GetUrl@{GetUrl}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetUrl()}{GetUrl()}}
+{\footnotesize\ttfamily \label{class_fbx_object_acce60f1ae8d6b0ffba2de85c04766194} 
+virtual \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+Object\+::\+Get\+Url (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the URL of this object. \begin{DoxyReturn}{Returns}
+The URL of this object. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The URL indicates where the object is stored. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_a9eb021fc31e60002406980948e7638ad}\index{FbxObject@{FbxObject}!GetUserDataPtr@{GetUserDataPtr}}
+\index{GetUserDataPtr@{GetUserDataPtr}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetUserDataPtr()}{GetUserDataPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a9eb021fc31e60002406980948e7638ad} 
+void \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+User\+Data\+Ptr (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the data pointer of the user data record whose ID is the object ID. \begin{DoxyReturn}{Returns}
+The data pointer of the user data record, {\ttfamily NULL} if the user data record is not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a82453a87c2eda4d474c53bbfc6339392}\index{FbxObject@{FbxObject}!GetUserDataPtr@{GetUserDataPtr}}
+\index{GetUserDataPtr@{GetUserDataPtr}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{GetUserDataPtr()}{GetUserDataPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a82453a87c2eda4d474c53bbfc6339392} 
+void \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Get\+User\+Data\+Ptr (\begin{DoxyParamCaption}\item[{const Fbx\+UInt64 \&}]{p\+User\+ID}{}\end{DoxyParamCaption}) const}
+
+Returns the data pointer of an user data record whose ID is p\+User\+ID. 
+\begin{DoxyParams}{Parameters}
+{\em p\+User\+ID} & The ID of the user data record. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The data pointer of the user data record, {\ttfamily NULL} if the user data record is not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a9703e0631381d9bbc91cac102198cf36}\index{FbxObject@{FbxObject}!HasDefaultImplementation@{HasDefaultImplementation}}
+\index{HasDefaultImplementation@{HasDefaultImplementation}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{HasDefaultImplementation()}{HasDefaultImplementation()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a9703e0631381d9bbc91cac102198cf36} 
+bool Fbx\+Object\+::\+Has\+Default\+Implementation (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption}) const}
+
+Determines if this shading node has a default implementation. \begin{DoxyReturn}{Returns}
+{\ttfamily True} if this shading node has a default implementation, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a65e47d62ed950247cd097b3b505d7b48}\index{FbxObject@{FbxObject}!Is@{Is}}
+\index{Is@{Is}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{Is()}{Is()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a65e47d62ed950247cd097b3b505d7b48} 
+template$<$class T$>$ \\
+bool Fbx\+Object\+::\+Is (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Templated test if this class is a hierarchical children of the specified class type. \begin{DoxyReturn}{Returns}
+{\ttfamily true} if the object is a hierarchical children of the type specified. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+This function will perform a complete search until it reaches the top level class, but it will stop as soon as one Class\+Id matches the test. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_a5898e582711f3266ac3d0f779d541ef6}\index{FbxObject@{FbxObject}!IsAReferenceTo@{IsAReferenceTo}}
+\index{IsAReferenceTo@{IsAReferenceTo}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{IsAReferenceTo()}{IsAReferenceTo()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a5898e582711f3266ac3d0f779d541ef6} 
+bool Fbx\+Object\+::\+Is\+AReference\+To (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Checks if this object is a reference clone of another object. \begin{DoxyReturn}{Returns}
+{\ttfamily True} if this object is a clone of another object, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a06725964170902b4d79453d76326fc5b}\index{FbxObject@{FbxObject}!IsConnectedDstObject@{IsConnectedDstObject}}
+\index{IsConnectedDstObject@{IsConnectedDstObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{IsConnectedDstObject()}{IsConnectedDstObject()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a06725964170902b4d79453d76326fc5b} 
+bool Fbx\+Object\+::\+Is\+Connected\+Dst\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Judges whether this object connects with the destination object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The destination object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if this object connects with the destination object, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a678e5ccdbf6ab28c1df239fbdcea76d3}\index{FbxObject@{FbxObject}!IsConnectedDstProperty@{IsConnectedDstProperty}}
+\index{IsConnectedDstProperty@{IsConnectedDstProperty}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{IsConnectedDstProperty()}{IsConnectedDstProperty()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a678e5ccdbf6ab28c1df239fbdcea76d3} 
+bool Fbx\+Object\+::\+Is\+Connected\+Dst\+Property (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&}]{p\+Property}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Determines if this object connects with the specified destination property. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Property} & The specified destination property. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if this object connects with the specified destination property, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a2ff6d4507136a693622a7d8434b440ed}\index{FbxObject@{FbxObject}!IsConnectedSrcObject@{IsConnectedSrcObject}}
+\index{IsConnectedSrcObject@{IsConnectedSrcObject}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{IsConnectedSrcObject()}{IsConnectedSrcObject()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a2ff6d4507136a693622a7d8434b440ed} 
+bool Fbx\+Object\+::\+Is\+Connected\+Src\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Judges whether this object connects with the source object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The source object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if this object connects with the source object, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a7f2c8c668ac8e009584c12f19809be22}\index{FbxObject@{FbxObject}!IsConnectedSrcProperty@{IsConnectedSrcProperty}}
+\index{IsConnectedSrcProperty@{IsConnectedSrcProperty}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{IsConnectedSrcProperty()}{IsConnectedSrcProperty()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a7f2c8c668ac8e009584c12f19809be22} 
+bool Fbx\+Object\+::\+Is\+Connected\+Src\+Property (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&}]{p\+Property}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Determines whether this object connects with the specified source property. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Property} & The specified source property. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if this object connects with the specified source property, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_af64184bd9341c8a3300588c818594328}\index{FbxObject@{FbxObject}!IsReferencedBy@{IsReferencedBy}}
+\index{IsReferencedBy@{IsReferencedBy}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{IsReferencedBy()}{IsReferencedBy()}}
+{\footnotesize\ttfamily \label{class_fbx_object_af64184bd9341c8a3300588c818594328} 
+bool Fbx\+Object\+::\+Is\+Referenced\+By (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Checks if any objects are reference cloned from this object. \begin{DoxyReturn}{Returns}
+{\ttfamily True} if there are objects reference cloned from this object, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_ac1f9e5981fbf87911d669e078495cb09}\index{FbxObject@{FbxObject}!IsRuntime@{IsRuntime}}
+\index{IsRuntime@{IsRuntime}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{IsRuntime()}{IsRuntime()}}
+{\footnotesize\ttfamily \label{class_fbx_object_ac1f9e5981fbf87911d669e078495cb09} 
+bool Fbx\+Object\+::\+Is\+Runtime (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \&}]{p\+Class\+Id}{}\end{DoxyParamCaption}) const}
+
+Test if this class is a hierarchical children of the specified class type. This test will be performed on the run-\/time class registered with the FBX SDK Manager rather than the static Class\+Id generated at compile time. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Class\+Id} & The class type to test against self. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the object is a hierarchical children of the type specified. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+This function will perform a complete search until it reaches the top level class, but it will stop as soon as one Class\+Id matches the test. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_a4c804ecb85faa0544d305d9f7e98d777}\index{FbxObject@{FbxObject}!IsRuntimePlug@{IsRuntimePlug}}
+\index{IsRuntimePlug@{IsRuntimePlug}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{IsRuntimePlug()}{IsRuntimePlug()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a4c804ecb85faa0544d305d9f7e98d777} 
+bool Fbx\+Object\+::\+Is\+Runtime\+Plug (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Find out if the Class\+Id was registered during run-\/time rather than at compile time. \begin{DoxyReturn}{Returns}
+True if the run-\/time Class\+Id is inequal to the Class\+Id. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_a61aeb40883053aa206578c2305623a95}\index{FbxObject@{FbxObject}!Localize@{Localize}}
+\index{Localize@{Localize}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{Localize()}{Localize()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a61aeb40883053aa206578c2305623a95} 
+virtual const char \texorpdfstring{$\ast$}{*} Fbx\+Object\+::\+Localize (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+ID}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Default}{ = {\ttfamily NULL}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Localization helper function, it calls the implementation of FBX SDK manager. Sub-\/classes that manage their own localization could over-\/ride this function. 
+\begin{DoxyParams}{Parameters}
+{\em p\+ID} & The identifier of the text to be localized. \\
+\hline
+{\em p\+Default} & The default text. Uses p\+ID as the default text if p\+Default is NULL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The localized text or the default text if the text can\textquotesingle{}t be localized, . 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_library_a28c6485c6337f48b26f5ec9a90c42160}{Fbx\+Library}}.
+
+\Hypertarget{class_fbx_object_af5372f14b186dbd1e69688e899c46081}\index{FbxObject@{FbxObject}!RemoveImplementation@{RemoveImplementation}}
+\index{RemoveImplementation@{RemoveImplementation}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{RemoveImplementation()}{RemoveImplementation()}}
+{\footnotesize\ttfamily \label{class_fbx_object_af5372f14b186dbd1e69688e899c46081} 
+bool Fbx\+Object\+::\+Remove\+Implementation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}}]{p\+Implementation}{}\end{DoxyParamCaption})}
+
+Removes an implementation. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Implementation} & The implementation to be removed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+To succeed this function must be called with an implementation that has already been added to this node. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_aa10bc0608457b0e0c13c80686472f4c4}\index{FbxObject@{FbxObject}!RemovePrefix@{RemovePrefix}}
+\index{RemovePrefix@{RemovePrefix}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{RemovePrefix()}{RemovePrefix()}}
+{\footnotesize\ttfamily \label{class_fbx_object_aa10bc0608457b0e0c13c80686472f4c4} 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+Object\+::\+Remove\+Prefix (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Removes the prefix of p\+Name 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & Whose prefix is removed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A temporary string without prefix. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_af8626c123cf302297bdecb4c8d62db99}\index{FbxObject@{FbxObject}!ResetProperties@{ResetProperties}}
+\index{ResetProperties@{ResetProperties}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{ResetProperties()}{ResetProperties()}}
+{\footnotesize\ttfamily \label{class_fbx_object_af8626c123cf302297bdecb4c8d62db99} 
+void Fbx\+Object\+::\+Reset\+Properties (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Reset all the properties of this object to their default values. \Hypertarget{class_fbx_object_aa59f051b6c0be5f93eb88cc2f15b43e5}\index{FbxObject@{FbxObject}!SetAllObjectFlags@{SetAllObjectFlags}}
+\index{SetAllObjectFlags@{SetAllObjectFlags}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{SetAllObjectFlags()}{SetAllObjectFlags()}}
+{\footnotesize\ttfamily \label{class_fbx_object_aa59f051b6c0be5f93eb88cc2f15b43e5} 
+void Fbx\+Object\+::\+Set\+All\+Object\+Flags (\begin{DoxyParamCaption}\item[{Fbx\+UInt}]{p\+Flags}{}\end{DoxyParamCaption})}
+
+Override all object flags at once. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Flags} & The bit flags to set all the object flags to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+This function will override all flags; unspecified bit flags will be un-\/set. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_ac216eb622d77659c18092b202632aaa9}\index{FbxObject@{FbxObject}!SetDefaultImplementation@{SetDefaultImplementation}}
+\index{SetDefaultImplementation@{SetDefaultImplementation}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{SetDefaultImplementation()}{SetDefaultImplementation()}}
+{\footnotesize\ttfamily \label{class_fbx_object_ac216eb622d77659c18092b202632aaa9} 
+bool Fbx\+Object\+::\+Set\+Default\+Implementation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}}]{p\+Implementation}{}\end{DoxyParamCaption})}
+
+Sets the default implementation of this shading node. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Implementation} & The implementation to be set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+To succeed this function must be called with an implementation that has already been added to this node. Only the implementation which has already been added can be set as the default implementation. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_a97b6469f5877e37d352b6f6224791fb2}\index{FbxObject@{FbxObject}!SetInitialName@{SetInitialName}}
+\index{SetInitialName@{SetInitialName}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{SetInitialName()}{SetInitialName()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a97b6469f5877e37d352b6f6224791fb2} 
+void Fbx\+Object\+::\+Set\+Initial\+Name (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{}\end{DoxyParamCaption})}
+
+Sets the initial name of the object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The object\textquotesingle{}s initial name as a {\ttfamily NULL} terminated string. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_object_aceea1c2fdb26784d668d05dd52df0d68}\index{FbxObject@{FbxObject}!SetName@{SetName}}
+\index{SetName@{SetName}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{SetName()}{SetName()}}
+{\footnotesize\ttfamily \label{class_fbx_object_aceea1c2fdb26784d668d05dd52df0d68} 
+void Fbx\+Object\+::\+Set\+Name (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{}\end{DoxyParamCaption})}
+
+Sets the name of this object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The object name as a {\ttfamily NULL} terminated string. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_object_a0546604cdd763f630c9ffdf9cfcf8bdc}\index{FbxObject@{FbxObject}!SetNameSpace@{SetNameSpace}}
+\index{SetNameSpace@{SetNameSpace}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{SetNameSpace()}{SetNameSpace()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a0546604cdd763f630c9ffdf9cfcf8bdc} 
+void Fbx\+Object\+::\+Set\+Name\+Space (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}}}]{p\+Name\+Space}{}\end{DoxyParamCaption})}
+
+Sets the namespace of the object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name\+Space} & The object\textquotesingle{}s namespace as a {\ttfamily NULL} terminated string. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_object_a38333e180ca371f76495267a26cccb08}\index{FbxObject@{FbxObject}!SetObjectFlags@{SetObjectFlags}}
+\index{SetObjectFlags@{SetObjectFlags}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{SetObjectFlags()}{SetObjectFlags()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a38333e180ca371f76495267a26cccb08} 
+void Fbx\+Object\+::\+Set\+Object\+Flags (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{EObject\+Flag}}}]{p\+Flags}{, }\item[{bool}]{p\+Value}{}\end{DoxyParamCaption})}
+
+Set the state of object flags. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Flags} & Bit flags which value is going to be changed. \\
+\hline
+{\em p\+Value} & If {\ttfamily true}, bit flags will be set, otherwise bits will be un-\/set. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_object_af9273215e168b14d12a4a3e393e061c9}\index{FbxObject@{FbxObject}!SetRuntimeClassId@{SetRuntimeClassId}}
+\index{SetRuntimeClassId@{SetRuntimeClassId}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{SetRuntimeClassId()}{SetRuntimeClassId()}}
+{\footnotesize\ttfamily \label{class_fbx_object_af9273215e168b14d12a4a3e393e061c9} 
+void Fbx\+Object\+::\+Set\+Runtime\+Class\+Id (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \&}]{p\+Class\+Id}{}\end{DoxyParamCaption})}
+
+Set the run-\/time Class\+Id for this class. In most contexts, users do not have to change the run-\/time Class\+Id, they are automatically generated when registered a new class during run-\/time. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Class\+Id} & The Class\+Id to set as the run-\/time Class\+Id for this object. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_object_ab61c3e576aaf899deda673702c0a1b79}\index{FbxObject@{FbxObject}!SetSelected@{SetSelected}}
+\index{SetSelected@{SetSelected}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{SetSelected()}{SetSelected()}}
+{\footnotesize\ttfamily \label{class_fbx_object_ab61c3e576aaf899deda673702c0a1b79} 
+virtual void Fbx\+Object\+::\+Set\+Selected (\begin{DoxyParamCaption}\item[{bool}]{p\+Selected}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets whether this object is currently selected. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Selected} & The selection flag. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_object_a308a88953aae8669a93f0202b02a46a9}\index{FbxObject@{FbxObject}!SetUrl@{SetUrl}}
+\index{SetUrl@{SetUrl}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{SetUrl()}{SetUrl()}}
+{\footnotesize\ttfamily \label{class_fbx_object_a308a88953aae8669a93f0202b02a46a9} 
+virtual bool Fbx\+Object\+::\+Set\+Url (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Url}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Sets the URL of this object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Url} & The URL to be set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The URL indicates where the object is stored. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_ac37f77806bfd54d6a41ca6158768deb0}\index{FbxObject@{FbxObject}!SetUserDataPtr@{SetUserDataPtr}}
+\index{SetUserDataPtr@{SetUserDataPtr}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{SetUserDataPtr()}{SetUserDataPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_object_ac37f77806bfd54d6a41ca6158768deb0} 
+void Fbx\+Object\+::\+Set\+User\+Data\+Ptr (\begin{DoxyParamCaption}\item[{const Fbx\+UInt64 \&}]{p\+User\+ID}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p\+User\+Data}{}\end{DoxyParamCaption})}
+
+Sets the data pointer for an user data record whose ID is p\+User\+ID. 
+\begin{DoxyParams}{Parameters}
+{\em p\+User\+ID} & The ID of the user data record. \\
+\hline
+{\em p\+User\+Data} & The data pointer of the user data record. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+An user data record is composed of an ID and a data pointer. If the user data record identified by p\+User\+ID does not exist, a new user data record is created and its data pointer is set as p\+User\+Data. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_af52325b1b5f2f1f5884d5d14d80c1922}\index{FbxObject@{FbxObject}!SetUserDataPtr@{SetUserDataPtr}}
+\index{SetUserDataPtr@{SetUserDataPtr}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{SetUserDataPtr()}{SetUserDataPtr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_object_af52325b1b5f2f1f5884d5d14d80c1922} 
+void Fbx\+Object\+::\+Set\+User\+Data\+Ptr (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+User\+Data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the data pointer for the user data record whose ID is the object ID. 
+\begin{DoxyParams}{Parameters}
+{\em p\+User\+Data} & The data pointer of the user data record. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+An user data record is composed of an ID and a data pointer. If the user data record identified by p\+User\+ID does not exist, a new user data record is created and its data pointer is set as p\+User\+Data. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_object_a23b53eecb8b6b7d198496392dc987548}\index{FbxObject@{FbxObject}!StripPrefix@{StripPrefix}}
+\index{StripPrefix@{StripPrefix}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{StripPrefix()}{StripPrefix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_object_a23b53eecb8b6b7d198496392dc987548} 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+Object\+::\+Strip\+Prefix (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Strips the prefix of p\+Name 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & Whose prefix is stripped. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A temporary string stripped of its prefix. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_object_aef0a016a9b53593f537b68ba47b8dd6e}\index{FbxObject@{FbxObject}!StripPrefix@{StripPrefix}}
+\index{StripPrefix@{StripPrefix}!FbxObject@{FbxObject}}
+\doxysubsubsection{\texorpdfstring{StripPrefix()}{StripPrefix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_object_aef0a016a9b53593f537b68ba47b8dd6e} 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+Object\+::\+Strip\+Prefix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{l\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Strips the prefix of p\+Name 
+\begin{DoxyParams}{Parameters}
+{\em l\+Name} & Whose prefix is stripped. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+l\+Name stripped of its prefix. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/\mbox{\hyperlink{fbxobject_8h}{fbxobject.\+h}}\end{DoxyCompactItemize}

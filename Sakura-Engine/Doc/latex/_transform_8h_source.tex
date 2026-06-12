@@ -1,0 +1,108 @@
+\doxysection{Transform.\+h}
+\hypertarget{_transform_8h_source}{}\label{_transform_8h_source}\index{include/ECS/Transform.h@{include/ECS/Transform.h}}
+\mbox{\hyperlink{_transform_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}EngineUtilities/Vectors/Vector3.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00012\ \ \ Transform\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component_a404098a91640552f9d0284d08b53def4}{Component}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \textcolor{comment}{//\ Constructor\ que\ inicializa\ posici?n,\ rotaci?n\ y\ escala\ por\ defecto}}
+\DoxyCodeLine{00015\ \ \ Transform()\ :\ position(),}
+\DoxyCodeLine{00016\ \ \ \ \ rotation(),}
+\DoxyCodeLine{00017\ \ \ \ \ scale(),}
+\DoxyCodeLine{00018\ \ \ \ \ matrix(),}
+\DoxyCodeLine{00019\ \ \ \ \ worldMatrix(),}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_component_a404098a91640552f9d0284d08b53def4}{Component}}(\mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a25f73324dc93d9024c0c75b4e6815335}{ComponentType::TRANSFORM}})\ \{\}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{comment}{//\ M?todos\ para\ inicializaci?n,\ actualizaci?n,\ renderizado\ y\ destrucci?n}}
+\DoxyCodeLine{00023\ \ \ \textcolor{comment}{//\ Inicializa\ el\ objeto\ Transform}}
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00025\ \ \ \ \ init()\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ scale.one();}
+\DoxyCodeLine{00027\ \ \ \ \ matrix\ =\ XMMatrixIdentity();}
+\DoxyCodeLine{00028\ \ \ \ \ worldMatrix\ =\ XMMatrixIdentity();}
+\DoxyCodeLine{00029\ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{comment}{//\ Actualiza\ el\ estado\ del\ objeto\ Transform\ basado\ en\ el\ tiempo\ transcurrido}}
+\DoxyCodeLine{00032\ \ \ \textcolor{comment}{//\ @param\ deltaTime:\ Tiempo\ transcurrido\ desde\ la\ ?ltima\ actualizaci?n}}
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_transform_aec7a77f20db1b4d6f0dc76ce17adcac4}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ Aplicar\ escala}}
+\DoxyCodeLine{00036\ \ \ \ \ XMMATRIX\ scaleMatrix\ =\ XMMatrixScaling(scale.x,\ scale.y,\ scale.z);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ Aplicar\ rotacion}}
+\DoxyCodeLine{00038\ \ \ \ \ XMMATRIX\ rotationMatrix\ =\ XMMatrixRotationRollPitchYaw(rotation.x,\ rotation.y,\ rotation.z);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ Aplicar\ traslacion}}
+\DoxyCodeLine{00040\ \ \ \ \ XMMATRIX\ translationMatrix\ =\ XMMatrixTranslation(position.x,\ position.y,\ position.z);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Componer\ la\ matriz\ final\ en\ el\ orden:\ scale\ -\/>\ rotation\ -\/>\ translation}}
+\DoxyCodeLine{00043\ \ \ \ \ matrix\ =\ scaleMatrix\ *\ rotationMatrix\ *\ translationMatrix;}
+\DoxyCodeLine{00044\ \ \ \ \ worldMatrix\ =\ matrix;}
+\DoxyCodeLine{00045\ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{comment}{//\ Renderiza\ el\ objeto\ Transform}}
+\DoxyCodeLine{00048\ \ \ \textcolor{comment}{//\ @param\ deviceContext:\ Contexto\ del\ dispositivo\ de\ renderizado}}
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_transform_a74a4fb8499d1c811dddeec1ea5ffe9ac}{render}}(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext)\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{comment}{//\ Destruye\ el\ objeto\ Transform\ y\ libera\ recursos}}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00054\ \ \ \ \ destroy()\ \{\}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{comment}{//\ M?todos\ de\ acceso\ a\ los\ datos\ de\ posici?n}}
+\DoxyCodeLine{00057\ \ \ \textcolor{comment}{//\ Retorna\ la\ posici?n\ actual}}
+\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\&}
+\DoxyCodeLine{00059\ \ \ \ \ getPosition()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ position;\ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{comment}{//\ Establece\ una\ nueva\ posici?n}}
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00063\ \ \ \ \ setPosition(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\&\ newPos)\ \{\ position\ =\ newPos;\ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{comment}{//\ M?todos\ de\ acceso\ a\ los\ datos\ de\ rotaci?n}}
+\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ Retorna\ la\ rotaci?n\ actual}}
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\&}
+\DoxyCodeLine{00068\ \ \ \ \ getRotation()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ rotation;\ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \textcolor{comment}{//\ Establece\ una\ nueva\ rotaci?n}}
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00072\ \ \ \ \ setRotation(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\&\ newRot)\ \{\ rotation\ =\ newRot;\ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \textcolor{comment}{//\ M?todos\ de\ acceso\ a\ los\ datos\ de\ escala}}
+\DoxyCodeLine{00075\ \ \ \textcolor{comment}{//\ Retorna\ la\ escala\ actual}}
+\DoxyCodeLine{00076\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\&}
+\DoxyCodeLine{00077\ \ \ \ \ getScale()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ scale;\ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \textcolor{comment}{//\ Establece\ una\ nueva\ escala}}
+\DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00081\ \ \ \ \ setScale(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\&\ newScale)\ \{\ scale\ =\ newScale;\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00084\ \ \ \ \ setTransform(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\&\ newPos,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\&\ newRot,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\&\ newSca)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ position\ =\ newPos;}
+\DoxyCodeLine{00088\ \ \ \ \ rotation\ =\ newRot;}
+\DoxyCodeLine{00089\ \ \ \ \ scale\ =\ newSca;}
+\DoxyCodeLine{00090\ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \textcolor{comment}{//\ M?todo\ para\ trasladar\ la\ posici?n\ del\ objeto}}
+\DoxyCodeLine{00093\ \ \ \textcolor{comment}{//\ @param\ translation:\ Vector\ que\ representa\ la\ cantidad\ de\ traslado\ en\ cada\ eje}}
+\DoxyCodeLine{00094\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00095\ \ \ \ \ translate(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\&\ translation);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00098\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ position;\ \ \textcolor{comment}{//\ Posici?n\ del\ objeto}}
+\DoxyCodeLine{00099\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ rotation;\ \ \textcolor{comment}{//\ Rotaci?n\ del\ objeto}}
+\DoxyCodeLine{00100\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ scale;\ \ \ \ \ \textcolor{comment}{//\ Escala\ del\ objeto}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00103\ \ \ XMMATRIX\ matrix;\ \ \ \ \textcolor{comment}{//\ Matriz\ de\ transformaci?n\ local}}
+\DoxyCodeLine{00104\ \ \ XMMATRIX\ worldMatrix;\ \textcolor{comment}{//\ Matriz\ de\ transformaci?n\ world}}
+\DoxyCodeLine{00105\ \};}
+\DoxyCodeLine{00106\ }
+
+\end{DoxyCode}

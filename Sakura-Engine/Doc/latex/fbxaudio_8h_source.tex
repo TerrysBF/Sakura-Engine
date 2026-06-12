@@ -1,0 +1,70 @@
+\doxysection{fbxaudio.\+h}
+\hypertarget{fbxaudio_8h_source}{}\label{fbxaudio_8h_source}\index{include/fbx/fbxsdk/scene/fbxaudio.h@{include/fbx/fbxsdk/scene/fbxaudio.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2017\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_AUDIO\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_AUDIO\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmediaclip_8h}{fbxsdk/scene/fbxmediaclip.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_audio}{FbxAudio}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_media_clip}{FbxMediaClip}}}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_audio}{FbxAudio}},\ \mbox{\hyperlink{class_fbx_media_clip}{FbxMediaClip}});}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_audio}{FbxAudio}}*\ \mbox{\hyperlink{class_fbx_audio_a3185206e96e43cf169d930e589225ba6}{Create}}(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ pContainer,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_audio_ac2ce5e5ad6745b3c7edf26491162cd2c}{Reset}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxInt>}}\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_audio_ae686cf36da9a8d32384ed18be38afec0}{BitRate}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxInt>}}\ \ \ \ \mbox{\hyperlink{class_fbx_audio_a9f8bc554548de94f75cbf617c862f705}{SampleRate}};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxUChar>}}\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_audio_a0c5c4125b0e73a0cc55c10810bc5d78e}{Channels}};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxTime>}}\ \ \ \ \ \ \mbox{\hyperlink{class_fbx_audio_a7369fc7ecae20e7626fa72500247dc75}{Duration}};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ FbxProperty\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_audio_aabdc6836e61f70c4296404d18a6cc0b4}{AnimFX}};}
+\DoxyCodeLine{00074\ \ \ \ \ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ FbxProperty\ \mbox{\hyperlink{class_fbx_audio_a55cb0f553ffc4f1b81345d5daad311c8}{Volume}}();}
+\DoxyCodeLine{00084\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00085\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00086\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00088\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ InitializeAnimFX();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_audio_ab47361501326012798b257d3ea9b9121}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_audio_a94d9cdaf65ab2db36d0bd21ffb8e0e81}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00096\ \ \ \ \ FbxObject\&\ \mbox{\hyperlink{class_fbx_audio_ad50d72a9997a2f3c20a46d146aeb1eb8}{Copy}}(\textcolor{keyword}{const}\ FbxObject\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00099\ \};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_AUDIO\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

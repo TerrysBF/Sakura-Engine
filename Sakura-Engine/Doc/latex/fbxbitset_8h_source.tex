@@ -1,0 +1,57 @@
+\doxysection{fbxbitset.\+h}
+\hypertarget{fbxbitset_8h_source}{}\label{fbxbitset_8h_source}\index{include/fbx/fbxsdk/core/base/fbxbitset.h@{include/fbx/fbxsdk/core/base/fbxbitset.h}}
+\mbox{\hyperlink{fbxbitset_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_BASE\_BITSET\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_BASE\_BITSET\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_bit_set_ad2f5e43f377d1382c847befddb386710}{FbxBitSet}}}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_fbx_bit_set_ad2f5e43f377d1382c847befddb386710}{FbxBitSet}}(\textcolor{keyword}{const}\ FbxUInt\ pInitialSize=0);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_bit_set_af1b946280a865ffe296f72d0a7648c18}{\string~FbxBitSet}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_bit_set_a1aa861ea6719807763a3faf01d9a8fd5}{SetBit}}(\textcolor{keyword}{const}\ FbxUInt\ pBitIndex);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_bit_set_a1386fb2e41b67394008e63e445dc079e}{SetAllBits}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ pValue);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_bit_set_ade99ba2a4fc49743b4d2e2037a5d4e28}{UnsetBit}}(\textcolor{keyword}{const}\ FbxUInt\ pBitIndex);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_bit_set_a79b538f2c893476457eac2b11d1d7e28}{GetBit}}(\textcolor{keyword}{const}\ FbxUInt\ pBitIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \ \ \ \ FbxUInt\ \mbox{\hyperlink{class_fbx_bit_set_ac7747c0ffab8b6d63d931e52548a0f2a}{GetFirstSetBitIndex}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00067\ \ \ \ \ FbxUInt\ \mbox{\hyperlink{class_fbx_bit_set_af7459511dca956e445c733e1b1b43ef9}{GetLastSetBitIndex}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \ \ FbxUInt\ \mbox{\hyperlink{class_fbx_bit_set_a95f7f4e88d181f4ce61cc24bef217cc4}{GetNextSetBitIndex}}(\textcolor{keyword}{const}\ FbxUInt\ pBitIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ FbxUInt\ \mbox{\hyperlink{class_fbx_bit_set_a4a254f2f2906494c4c23452f03a1c399}{GetPreviousSetBitIndex}}(\textcolor{keyword}{const}\ FbxUInt\ pBitIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ Grow(\textcolor{keyword}{const}\ FbxUInt\ pNewSize);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}*\ mData;}
+\DoxyCodeLine{00085\ \ \ \ \ FbxUInt\ mSize;}
+\DoxyCodeLine{00086\ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_BASE\_BITSET\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,266 @@
+\doxysection{include/fbx/fbxsdk/core/fbxobject.h File Reference}
+\hypertarget{fbxobject_8h}{}\label{fbxobject_8h}\index{include/fbx/fbxsdk/core/fbxobject.h@{include/fbx/fbxsdk/core/fbxobject.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxclassid.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxquery.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxemitter.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxproperty.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxstream.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/base/fbxstringlist.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/utils/fbxnamehandler.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}}
+\item 
+class \mbox{\hyperlink{class_fbx_iterator}{Fbx\+Iterator$<$ Fbx\+Property $>$}}
+\item 
+class \mbox{\hyperlink{class_fbx_iterator_src_base}{Fbx\+Iterator\+Src\+Base}}
+\item 
+class \mbox{\hyperlink{class_fbx_iterator_src}{Fbx\+Iterator\+Src$<$ Type $>$}}
+\item 
+class \mbox{\hyperlink{class_fbx_iterator_dst_base}{Fbx\+Iterator\+Dst\+Base}}
+\item 
+class \mbox{\hyperlink{class_fbx_iterator_dst}{Fbx\+Iterator\+Dst$<$ Type $>$}}
+\item 
+class \mbox{\hyperlink{class_fbx_connect_event}{Fbx\+Connect\+Event}}
+\item 
+class \mbox{\hyperlink{class_fbx_object_property_changed}{Fbx\+Object\+Property\+Changed}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fbxobject_8h_a1395c3fb07999940d9b4672fa87ca2cd}{FBXSDK\+\_\+\+CLASS\+\_\+\+DECLARE}}(Class,  Parent,  Const\+\_\+\+Override)
+\item 
+\#define \mbox{\hyperlink{fbxobject_8h_a8394e7e6e68c71761128bc539acca09c}{FBXSDK\+\_\+\+FBXOBJECT\+\_\+\+DECLARE}}(Class,  Parent,  Const\+\_\+\+Override)
+\item 
+\#define \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\+\_\+\+OBJECT\+\_\+\+DECLARE}}(Class,  Parent)
+\begin{DoxyCompactList}\small\item\em Macro used to declare a new class derived from \doxylink{class_fbx_object}{Fbx\+Object}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{fbxobject_8h_a8e970655f5b1f1c91f4887e30fa8379d}{FBXSDK\+\_\+\+ABSTRACT\+\_\+\+OBJECT\+\_\+\+DECLARE}}(Class,  Parent)
+\begin{DoxyCompactList}\small\item\em Macro used to declare a new abstract class derived from \doxylink{class_fbx_object}{Fbx\+Object}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{fbxobject_8h_ac76185d8d380cda2e3d5c10981e5f510}{FBXSDK\+\_\+\+OBJECT\+\_\+\+IMPLEMENT}}(Class)
+\begin{DoxyCompactList}\small\item\em Macro used to implement a new class derived from \doxylink{class_fbx_object}{Fbx\+Object}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{fbxobject_8h_ad0cf5fd98d32bf0df085c31257e0d524}{FBXSDK\+\_\+\+ABSTRACT\+\_\+\+OBJECT\+\_\+\+IMPLEMENT}}(Class)
+\begin{DoxyCompactList}\small\item\em Macro used to implement a new abstract class derived from \doxylink{class_fbx_object}{Fbx\+Object}. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\+\_\+\+TYPE}}(class)
+\item 
+\#define \mbox{\hyperlink{fbxobject_8h_a13a2f4f0eeea3daf81411a268f65ff82}{Fbx\+For\+Each}}(Iterator,  Object)
+\begin{DoxyCompactList}\small\item\em Macro used to iterate over source or destination objects that connect to property (\doxylink{class_fbx_property}{Fbx\+Property}) or object (\doxylink{class_fbx_object}{Fbx\+Object}). \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{fbxobject_8h_a3fe9c6ab69bafbcbefcf17ad3debb3a6}{Fbx\+For\+Each\+Reverse}}(Iterator,  Object)
+\begin{DoxyCompactList}\small\item\em Macro used to reversely iterate over source or destination objects that connect to property (\doxylink{class_fbx_property}{Fbx\+Property}) or object (\doxylink{class_fbx_object}{Fbx\+Object}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fbxobject_8h_a51d456ee1427429178296670f3327b20}{Fbx\+Cast}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)
+\item 
+{\footnotesize template$<$class T$>$ }\\const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fbxobject_8h_a17a9580fc27e5abb69583aa1e2b39f3d}{Fbx\+Cast}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}\index{fbxobject.h@{fbxobject.h}!FBX\_TYPE@{FBX\_TYPE}}
+\index{FBX\_TYPE@{FBX\_TYPE}!fbxobject.h@{fbxobject.h}}
+\doxysubsubsection{\texorpdfstring{FBX\_TYPE}{FBX\_TYPE}}
+{\footnotesize\ttfamily \label{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e} 
+\#define FBX\+\_\+\+TYPE(\begin{DoxyParamCaption}\item[{}]{class}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\textcolor{keyword}{const}\ \textcolor{keyword}{class}*)0)}
+
+\end{DoxyCode}
+Convert the class type parameter into a C class parameter for other function inputs. Usage example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//Assuming\ MyCamera\ is\ a\ valid\ FbxCamera\ object}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ AreCamerasObject\ =\ MyCamera-\/>Is<\mbox{\hyperlink{class_fbx_object}{FbxObject}}>();\ \textcolor{comment}{//Should\ return\ true\ :)}}
+
+\end{DoxyCode}
+ \Hypertarget{fbxobject_8h_a13a2f4f0eeea3daf81411a268f65ff82}\index{fbxobject.h@{fbxobject.h}!FbxForEach@{FbxForEach}}
+\index{FbxForEach@{FbxForEach}!fbxobject.h@{fbxobject.h}}
+\doxysubsubsection{\texorpdfstring{FbxForEach}{FbxForEach}}
+{\footnotesize\ttfamily \label{fbxobject_8h_a13a2f4f0eeea3daf81411a268f65ff82} 
+\#define Fbx\+For\+Each(\begin{DoxyParamCaption}\item[{}]{Iterator}{, }\item[{}]{Object}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}((Object)=(Iterator).GetFirst();(Object)!=0;(Object)=(Iterator).GetNext())}
+
+\end{DoxyCode}
+
+
+Macro used to iterate over source or destination objects that connect to property (\doxylink{class_fbx_property}{Fbx\+Property}) or object (\doxylink{class_fbx_object}{Fbx\+Object}). 
+
+\Hypertarget{fbxobject_8h_a3fe9c6ab69bafbcbefcf17ad3debb3a6}\index{fbxobject.h@{fbxobject.h}!FbxForEachReverse@{FbxForEachReverse}}
+\index{FbxForEachReverse@{FbxForEachReverse}!fbxobject.h@{fbxobject.h}}
+\doxysubsubsection{\texorpdfstring{FbxForEachReverse}{FbxForEachReverse}}
+{\footnotesize\ttfamily \label{fbxobject_8h_a3fe9c6ab69bafbcbefcf17ad3debb3a6} 
+\#define Fbx\+For\+Each\+Reverse(\begin{DoxyParamCaption}\item[{}]{Iterator}{, }\item[{}]{Object}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}(Object=(Iterator).GetLast();(Object)!=0;Object=(Iterator).GetPrevious())}
+
+\end{DoxyCode}
+
+
+Macro used to reversely iterate over source or destination objects that connect to property (\doxylink{class_fbx_property}{Fbx\+Property}) or object (\doxylink{class_fbx_object}{Fbx\+Object}) 
+
+\Hypertarget{fbxobject_8h_a8e970655f5b1f1c91f4887e30fa8379d}\index{fbxobject.h@{fbxobject.h}!FBXSDK\_ABSTRACT\_OBJECT\_DECLARE@{FBXSDK\_ABSTRACT\_OBJECT\_DECLARE}}
+\index{FBXSDK\_ABSTRACT\_OBJECT\_DECLARE@{FBXSDK\_ABSTRACT\_OBJECT\_DECLARE}!fbxobject.h@{fbxobject.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_ABSTRACT\_OBJECT\_DECLARE}{FBXSDK\_ABSTRACT\_OBJECT\_DECLARE}}
+{\footnotesize\ttfamily \label{fbxobject_8h_a8e970655f5b1f1c91f4887e30fa8379d} 
+\#define FBXSDK\+\_\+\+ABSTRACT\+\_\+\+OBJECT\+\_\+\+DECLARE(\begin{DoxyParamCaption}\item[{}]{Class}{, }\item[{}]{Parent}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ FBXSDK\_CLASS\_DECLARE(Class,\ Parent,\ \textcolor{keyword}{const}\ \textcolor{keyword}{override})\(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{protected}:\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{fbxclassid_8h_a92913ee366f3bad100fc516a55446766}{FbxObjectCreateProc}}\ Allocate;\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ Class(\mbox{\hyperlink{class_fbx_manager}{FbxManager}}\&\ pManager,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName)\ :\ Parent(pManager,\ pName)\{\};\(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{private}:\ \textcolor{comment}{/*\ end\ of\ object\ declaration,\ put\ back\ private\ */}\(\backslash\)}
+
+\end{DoxyCode}
+
+
+Macro used to declare a new abstract class derived from \doxylink{class_fbx_object}{Fbx\+Object}. 
+
+\Hypertarget{fbxobject_8h_ad0cf5fd98d32bf0df085c31257e0d524}\index{fbxobject.h@{fbxobject.h}!FBXSDK\_ABSTRACT\_OBJECT\_IMPLEMENT@{FBXSDK\_ABSTRACT\_OBJECT\_IMPLEMENT}}
+\index{FBXSDK\_ABSTRACT\_OBJECT\_IMPLEMENT@{FBXSDK\_ABSTRACT\_OBJECT\_IMPLEMENT}!fbxobject.h@{fbxobject.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_ABSTRACT\_OBJECT\_IMPLEMENT}{FBXSDK\_ABSTRACT\_OBJECT\_IMPLEMENT}}
+{\footnotesize\ttfamily \label{fbxobject_8h_ad0cf5fd98d32bf0df085c31257e0d524} 
+\#define FBXSDK\+\_\+\+ABSTRACT\+\_\+\+OBJECT\+\_\+\+IMPLEMENT(\begin{DoxyParamCaption}\item[{}]{Class}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_fbx_class_id}{FbxClassId}}\ Class::ClassId;\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{fbxclassid_8h_a92913ee366f3bad100fc516a55446766}{FbxObjectCreateProc}}\ Class::Allocate\ =\ 0;\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ Class*\ Class::Create(\mbox{\hyperlink{class_fbx_manager}{FbxManager}}*\ pManager,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ return\ (Class*)pManager-\/>CreateNewObjectFromClassId(Class::ClassId,\ pName);\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\(\backslash\)}
+
+\end{DoxyCode}
+
+
+Macro used to implement a new abstract class derived from \doxylink{class_fbx_object}{Fbx\+Object}. 
+
+\Hypertarget{fbxobject_8h_a1395c3fb07999940d9b4672fa87ca2cd}\index{fbxobject.h@{fbxobject.h}!FBXSDK\_CLASS\_DECLARE@{FBXSDK\_CLASS\_DECLARE}}
+\index{FBXSDK\_CLASS\_DECLARE@{FBXSDK\_CLASS\_DECLARE}!fbxobject.h@{fbxobject.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_CLASS\_DECLARE}{FBXSDK\_CLASS\_DECLARE}}
+{\footnotesize\ttfamily \label{fbxobject_8h_a1395c3fb07999940d9b4672fa87ca2cd} 
+\#define FBXSDK\+\_\+\+CLASS\+\_\+\+DECLARE(\begin{DoxyParamCaption}\item[{}]{Class}{, }\item[{}]{Parent}{, }\item[{}]{Const\+\_\+\+Override}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{private}:\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ Class(\textcolor{keyword}{const}\ Class\&);\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ Class\&\ operator=(\textcolor{keyword}{const}\ Class\&);\(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{protected}:\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{virtual}\ \string~Class()\{\};\(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{public}:\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_class_id}{FbxClassId}}\ ClassId;\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_class_id}{FbxClassId}}\ GetClassId()\ Const\_Override\ \{\ \textcolor{keywordflow}{return}\ ClassId;\ \}\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FBXSDK\_NAMESPACE::FbxManager;\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{typedef}\ Parent\ ParentClass;\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ Class*\ Create(FbxManager*\ pManager,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName);\(\backslash\)}
+
+\end{DoxyCode}
+\Hypertarget{fbxobject_8h_a8394e7e6e68c71761128bc539acca09c}\index{fbxobject.h@{fbxobject.h}!FBXSDK\_FBXOBJECT\_DECLARE@{FBXSDK\_FBXOBJECT\_DECLARE}}
+\index{FBXSDK\_FBXOBJECT\_DECLARE@{FBXSDK\_FBXOBJECT\_DECLARE}!fbxobject.h@{fbxobject.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_FBXOBJECT\_DECLARE}{FBXSDK\_FBXOBJECT\_DECLARE}}
+{\footnotesize\ttfamily \label{fbxobject_8h_a8394e7e6e68c71761128bc539acca09c} 
+\#define FBXSDK\+\_\+\+FBXOBJECT\+\_\+\+DECLARE(\begin{DoxyParamCaption}\item[{}]{Class}{, }\item[{}]{Parent}{, }\item[{}]{Const\+\_\+\+Override}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ FBXSDK\_CLASS\_DECLARE(Class,\ Parent,\ Const\_Override)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ FBXSDK\_FRIEND\_NEW()\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ Class*\ Create(\mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pContainer,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName);\(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{protected}:\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ Class*\ Allocate(\mbox{\hyperlink{class_fbx_manager}{FbxManager}}*\ pManager,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ Class*\ pFrom);\(\backslash\)}
+
+\end{DoxyCode}
+\Hypertarget{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}\index{fbxobject.h@{fbxobject.h}!FBXSDK\_OBJECT\_DECLARE@{FBXSDK\_OBJECT\_DECLARE}}
+\index{FBXSDK\_OBJECT\_DECLARE@{FBXSDK\_OBJECT\_DECLARE}!fbxobject.h@{fbxobject.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_OBJECT\_DECLARE}{FBXSDK\_OBJECT\_DECLARE}}
+{\footnotesize\ttfamily \label{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e} 
+\#define FBXSDK\+\_\+\+OBJECT\+\_\+\+DECLARE(\begin{DoxyParamCaption}\item[{}]{Class}{, }\item[{}]{Parent}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ FBXSDK\_FBXOBJECT\_DECLARE(Class,\ Parent,\ \textcolor{keyword}{const}\ \textcolor{keyword}{override})\(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{protected}:\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ Class(\mbox{\hyperlink{class_fbx_manager}{FbxManager}}\&\ pManager,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName)\ :\ Parent(pManager,\ pName)\{\};\(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{private}:\ \textcolor{comment}{/*\ end\ of\ object\ declaration,\ put\ back\ private\ */}\(\backslash\)}
+
+\end{DoxyCode}
+
+
+Macro used to declare a new class derived from \doxylink{class_fbx_object}{Fbx\+Object}. 
+
+\Hypertarget{fbxobject_8h_ac76185d8d380cda2e3d5c10981e5f510}\index{fbxobject.h@{fbxobject.h}!FBXSDK\_OBJECT\_IMPLEMENT@{FBXSDK\_OBJECT\_IMPLEMENT}}
+\index{FBXSDK\_OBJECT\_IMPLEMENT@{FBXSDK\_OBJECT\_IMPLEMENT}!fbxobject.h@{fbxobject.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_OBJECT\_IMPLEMENT}{FBXSDK\_OBJECT\_IMPLEMENT}}
+{\footnotesize\ttfamily \label{fbxobject_8h_ac76185d8d380cda2e3d5c10981e5f510} 
+\#define FBXSDK\+\_\+\+OBJECT\+\_\+\+IMPLEMENT(\begin{DoxyParamCaption}\item[{}]{Class}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_fbx_class_id}{FbxClassId}}\ Class::ClassId;\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ Class*\ Class::Create(\mbox{\hyperlink{class_fbx_manager}{FbxManager}}*\ pManager,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ return\ (Class*)pManager-\/>CreateNewObjectFromClassId(Class::ClassId,\ pName);\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ Class*\ Class::Create(\mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pContainer,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN\_VALUE(pContainer\ \&\&\ pContainer-\/>GetFbxManager(),\ NULL);\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ return\ (Class*)pContainer-\/>GetFbxManager()-\/>CreateNewObjectFromClassId(Class::ClassId,\ pName,\ pContainer);\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ Class*\ Class::Allocate(FbxManager*\ pManager,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ Class*\ pFrom)\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Class*\ lNewObject\ =\ FbxNew<Class>(*pManager,\ pName);\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ lNewObject-\/>Construct(pFrom);\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ lNewObject-\/>SetObjectFlags(\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244aef7e1bffd6a66da3afcef75a5b58099c}{FbxObject::eInitialized}},\ \textcolor{keyword}{true});\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lNewObject;\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\(\backslash\)}
+
+\end{DoxyCode}
+
+
+Macro used to implement a new class derived from \doxylink{class_fbx_object}{Fbx\+Object}. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fbxobject_8h_a17a9580fc27e5abb69583aa1e2b39f3d}\index{fbxobject.h@{fbxobject.h}!FbxCast@{FbxCast}}
+\index{FbxCast@{FbxCast}!fbxobject.h@{fbxobject.h}}
+\doxysubsubsection{\texorpdfstring{FbxCast()}{FbxCast()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{fbxobject_8h_a17a9580fc27e5abb69583aa1e2b39f3d} 
+template$<$class T$>$ \\
+const T \texorpdfstring{$\ast$}{*} Fbx\+Cast (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Safe const casting of FBX SDK objects into other FBX SDK class types. This cast will perform the complete test to make sure the object inherits from the requested class type. This is the equivalent of a dynamic\+\_\+cast but much faster. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The object to try to cast into T type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A non-\/null pointer if the cast was successful. 
+\end{DoxyReturn}
+\Hypertarget{fbxobject_8h_a51d456ee1427429178296670f3327b20}\index{fbxobject.h@{fbxobject.h}!FbxCast@{FbxCast}}
+\index{FbxCast@{FbxCast}!fbxobject.h@{fbxobject.h}}
+\doxysubsubsection{\texorpdfstring{FbxCast()}{FbxCast()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{fbxobject_8h_a51d456ee1427429178296670f3327b20} 
+template$<$class T$>$ \\
+T \texorpdfstring{$\ast$}{*} Fbx\+Cast (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Safe casting of FBX SDK objects into other FBX SDK class types. This cast will perform the complete test to make sure the object inherits from the requested class type. This is the equivalent of a dynamic\+\_\+cast but much faster. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The object to try to cast into T type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A non-\/null pointer if the cast was successful. 
+\end{DoxyReturn}

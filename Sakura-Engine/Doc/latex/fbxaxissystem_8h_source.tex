@@ -1,0 +1,149 @@
+\doxysection{fbxaxissystem.\+h}
+\hypertarget{fbxaxissystem_8h_source}{}\label{fbxaxissystem_8h_source}\index{include/fbx/fbxsdk/scene/fbxaxissystem.h@{include/fbx/fbxsdk/scene/fbxaxissystem.h}}
+\mbox{\hyperlink{fbxaxissystem_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_AXIS\_SYSTEM\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_AXIS\_SYSTEM\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxarray_8h}{fbxsdk/core/base/fbxarray.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxstring_8h}{fbxsdk/core/base/fbxstring.h}}>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00097\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxAxisSystem}
+\DoxyCodeLine{00098\ \{}
+\DoxyCodeLine{00099\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_axis_system_ad41a41f7ccd9167f54d09b65ad781d00}{EUpVector}}}
+\DoxyCodeLine{00104\ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ eXAxis\ =\ 1,}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ eYAxis\ =\ 2,}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ eZAxis\ =\ 3}
+\DoxyCodeLine{00108\ \ \ \ \ \};}
+\DoxyCodeLine{00109\ \ \ \ \ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_axis_system_a34bce1daad7ed6ae71916bb825d3ec87}{EFrontVector}}}
+\DoxyCodeLine{00118\ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ eParityEven\ =\ 1,}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ eParityOdd\ =\ 2}
+\DoxyCodeLine{00121\ \ \ \ \ \};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_axis_system_a7cf0485846b560fa34f86932c02ec333}{ECoordSystem}}}
+\DoxyCodeLine{00129\ \ \ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ eRightHanded,}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ eLeftHanded}
+\DoxyCodeLine{00132\ \ \ \ \ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_axis_system_a0391b88959ec9ed790cb76eac9a6ed17}{EPreDefinedAxisSystem}}}
+\DoxyCodeLine{00138\ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_a0391b88959ec9ed790cb76eac9a6ed17ad5e9ac656bd6239774a5e42e4ba6d934}{eMayaZUp}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_a0391b88959ec9ed790cb76eac9a6ed17a50808e67e3328965897a009c4b50a31e}{eMayaYUp}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_a0391b88959ec9ed790cb76eac9a6ed17ab9b1fd4a0c7dd20253a1642bfaeea0c0}{eMax}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_a0391b88959ec9ed790cb76eac9a6ed17a8920292b5d781bf132c1d80e9228d347}{eMotionBuilder}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_a0391b88959ec9ed790cb76eac9a6ed17ac1fa0ca99895821578046b6c78f389e0}{eOpenGL}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_a0391b88959ec9ed790cb76eac9a6ed17a30702b7143f70669c4fd283836b2d2ce}{eDirectX}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_a0391b88959ec9ed790cb76eac9a6ed17acb86800d6af93402f8c090f6603aff37}{eLightwave}}\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00146\ \ \ \ \ \};}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system}{FbxAxisSystem}}();}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_a38f184b0d67eeb8578e25c800a0571a5}{FbxAxisSystem}}(\mbox{\hyperlink{class_fbx_axis_system_ad41a41f7ccd9167f54d09b65ad781d00}{EUpVector}}\ pUpVector,\ \mbox{\hyperlink{class_fbx_axis_system_a34bce1daad7ed6ae71916bb825d3ec87}{EFrontVector}}\ pFrontVector,\ \mbox{\hyperlink{class_fbx_axis_system_a7cf0485846b560fa34f86932c02ec333}{ECoordSystem}}\ pCoorSystem);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_a3db4f8e0bc1a588cc8c7fc2fa29a532c}{FbxAxisSystem}}(\textcolor{keyword}{const}\ FbxAxisSystem\&\ pAxisSystem);}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_a8333ad188498e489a2bf065c2b5b1ad3}{FbxAxisSystem}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_axis_system_a0391b88959ec9ed790cb76eac9a6ed17}{EPreDefinedAxisSystem}}\ pAxisSystem);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_axis_system_a7adca2ea8d5934185b42f28cf9213314}{ParseAxisSystem}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pAxes,\ FbxAxisSystem\&\ pOutput);}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_axis_system_ae1c61cb9cf7208d0c4373d8c894bec8c}{\string~FbxAxisSystem}}();}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_axis_system_a36933159c0730e52b918f9b52cb2ecc1}{operator==}}(\textcolor{keyword}{const}\ FbxAxisSystem\&\ pAxisSystem)\textcolor{keyword}{const};}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_axis_system_adf5cf05010b87ddde4bb158e274892b4}{operator!=}}(\textcolor{keyword}{const}\ FbxAxisSystem\&\ pAxisSystem)\textcolor{keyword}{const};}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00220\ \ \ \ \ FbxAxisSystem\&\ \mbox{\hyperlink{class_fbx_axis_system_aa360e5f778c5e3605603e44ced0400e8}{operator=}}(\textcolor{keyword}{const}\ FbxAxisSystem\&\ pAxisSystem);}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ FbxAxisSystem\ \mbox{\hyperlink{class_fbx_axis_system_af6d2329b82cd505ae9816810f9d26bd6}{MayaZUp}};}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ FbxAxisSystem\ \mbox{\hyperlink{class_fbx_axis_system_a898f6952538dbc23cead05b2a1e19d10}{MayaYUp}};}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ FbxAxisSystem\ \mbox{\hyperlink{class_fbx_axis_system_a3ac2db6cd471f8477a1d0b4a3ad22608}{Max}};}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ FbxAxisSystem\ \mbox{\hyperlink{class_fbx_axis_system_af24f958db3b4147d22005984cd4cebb2}{Motionbuilder}};}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ FbxAxisSystem\ \mbox{\hyperlink{class_fbx_axis_system_a30249cc37f848cdac27b77d3520f4e28}{OpenGL}};}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ FbxAxisSystem\ \mbox{\hyperlink{class_fbx_axis_system_a2eddfe5afe7db5f56adee774c51559e9}{DirectX}};}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ FbxAxisSystem\ \mbox{\hyperlink{class_fbx_axis_system_a45fc90ee125c8dafa7ca95f62e7485a8}{Lightwave}};}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_axis_system_abc616a5d9a18005c996e2d7107db8a4b}{DeepConvertScene}}(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ pScene)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_axis_system_abb9a361cd8d245c60e68b05868c67b4e}{ConvertScene}}(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ pScene)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_axis_system_a25f6f6ddb481f280bfecca5d39d14d4c}{ConvertScene}}(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ pScene,\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pFbxRoot)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00279\ \ \ \ \ }
+\DoxyCodeLine{00284\ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_a34bce1daad7ed6ae71916bb825d3ec87}{EFrontVector}}\ \mbox{\hyperlink{class_fbx_axis_system_a523996d3b195bf6016ab7c0333a5d389}{GetFrontVector}}(\ \textcolor{keywordtype}{int}\ \&\ pSign\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00290\ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_ad41a41f7ccd9167f54d09b65ad781d00}{EUpVector}}\ \mbox{\hyperlink{class_fbx_axis_system_a3ed72f373b701c5f7c108e93f23e0e73}{GetUpVector}}(\ \textcolor{keywordtype}{int}\ \&\ pSign\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00295\ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_a7cf0485846b560fa34f86932c02ec333}{ECoordSystem}}\ \mbox{\hyperlink{class_fbx_axis_system_a6ebdf99e9754d3bd83d3a8f98544b331}{GetCoorSystem}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_axis_system_a2ee31cfe8c836f4abdbc939a0891a6a9}{GetMatrix}}(\mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\&\ pMatrix);}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_axis_system_a3eff3d4a3b2270a5f3675f32b698e6e9}{ConvertChildren}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pRoot,\ \textcolor{keyword}{const}\ FbxAxisSystem\&\ pSrcSystem)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00312\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00313\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00315\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_axis_system_1_1_axis_def}{AxisDef}}}
+\DoxyCodeLine{00317\ \ \ \ \ \{}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ EAxis\ \{eXAxis,\ eYAxis,\ eZAxis\};}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_axis_system_1_1_axis_def}{AxisDef}}\&\ pAxis)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (mAxis\ ==\ pAxis.mAxis)\ \&\&\ (mSign\ ==\ pAxis.mSign);\ \}}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ EAxis\ \ \ mAxis;}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ mSign;}
+\DoxyCodeLine{00323\ \ \ \ \ \};}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxConversionMatrix;}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_1_1_axis_def}{AxisDef}}\ mUpVector;}
+\DoxyCodeLine{00328\ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_1_1_axis_def}{AxisDef}}\ mFrontVector;}
+\DoxyCodeLine{00329\ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system_1_1_axis_def}{AxisDef}}\ mCoorSystem;}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keywordtype}{void}\ ConvertTProperty(\mbox{\hyperlink{class_fbx_array}{FbxArray<FbxNode*>}}\&\ pNodes,\ \textcolor{keyword}{const}\ FbxAxisSystem\&\ pFrom)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{keywordtype}{void}\ ConvertCurveNodes(\mbox{\hyperlink{class_fbx_array}{FbxArray<FbxAnimCurveNode*>}}\&\ pCurveNodes,\ \textcolor{keyword}{const}\ FbxAxisSystem\&\ pFrom)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordtype}{void}\ AdjustPreRotation(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ pConversionRM)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordtype}{void}\ AdjustPivots(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ pConversionRM)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keywordtype}{void}\ GetConversionMatrix(\textcolor{keyword}{const}\ FbxAxisSystem\&\ pFrom,\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ pConversionRM)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keywordtype}{void}\ AdjustLimits(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ pConversionRM)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00337\ \ \ \ \ \textcolor{keywordtype}{void}\ AdjustPoses(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ pScene,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ pConversionRM)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordtype}{void}\ AdjustCamera(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ pConversionRM\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordtype}{void}\ AdjustCluster(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ pConversionRM)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_axis_system_a3eff3d4a3b2270a5f3675f32b698e6e9}{ConvertChildren}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pRoot,\ \textcolor{keyword}{const}\ FbxAxisSystem\&\ pSrcSystem,\ \textcolor{keywordtype}{bool}\ pSubChildrenOnly)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxGlobalSettings;}
+\DoxyCodeLine{00343\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00344\ \};}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_AXIS\_SYSTEM\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

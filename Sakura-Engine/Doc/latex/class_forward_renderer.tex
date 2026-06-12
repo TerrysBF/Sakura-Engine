@@ -1,0 +1,70 @@
+\doxysection{Forward\+Renderer Class Reference}
+\hypertarget{class_forward_renderer}{}\label{class_forward_renderer}\index{ForwardRenderer@{ForwardRenderer}}
+
+
+Renderer tipo forward que se encarga de dibujar la escena por etapas.  
+
+
+
+
+{\ttfamily \#include $<$Forward\+Renderer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+HRESULT \mbox{\hyperlink{class_forward_renderer_a53cad59cfe5c992e5699c977774bd5a4}{init}} (\mbox{\hyperlink{class_device}{Device}} \&device)
+\begin{DoxyCompactList}\small\item\em Inicializa el renderer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forward_renderer_a4c110f519734e28a84c5ed8b1aff33dc}{update\+Per\+Frame}} (const \mbox{\hyperlink{class_camera}{Camera}} \&camera, const \mbox{\hyperlink{class_render_scene}{Render\+Scene}} \&scene, \mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context)
+\begin{DoxyCompactList}\small\item\em Actualiza datos que cambian cada frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_forward_renderer_a7e7b3ad22672a010c11a3dcf68787ab8}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context, const \mbox{\hyperlink{class_camera}{Camera}} \&camera, \mbox{\hyperlink{class_render_scene}{Render\+Scene}} \&scene, \mbox{\hyperlink{class_editor_viewport_pass}{Editor\+Viewport\+Pass}} \&viewport\+Pass)
+\begin{DoxyCompactList}\small\item\em Ejecuta todo el proceso de render. \end{DoxyCompactList}\item 
+\Hypertarget{class_forward_renderer_a606037eab872e04bf068895e0e9e43ed}\label{class_forward_renderer_a606037eab872e04bf068895e0e9e43ed} 
+ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} {\bfseries get\+Shadow\+Map\+SRV} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la textura de sombras. \end{DoxyCompactList}\item 
+\Hypertarget{class_forward_renderer_a16749a5bb4296da509afdda2062034d8}\label{class_forward_renderer_a16749a5bb4296da509afdda2062034d8} 
+ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} {\bfseries get\+Pre\+Shadow\+SRV} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la textura del debug previo a sombras. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Renderer tipo forward que se encarga de dibujar la escena por etapas. 
+
+Maneja distintos passes como sombras, objetos opacos, transparentes y skybox, además de preparar buffers y estados. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_forward_renderer_a53cad59cfe5c992e5699c977774bd5a4}\index{ForwardRenderer@{ForwardRenderer}!init@{init}}
+\index{init@{init}!ForwardRenderer@{ForwardRenderer}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_forward_renderer_a53cad59cfe5c992e5699c977774bd5a4} 
+HRESULT Forward\+Renderer\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa el renderer. 
+
+Crea buffers, estados y recursos necesarios para renderizar. \Hypertarget{class_forward_renderer_a7e7b3ad22672a010c11a3dcf68787ab8}\index{ForwardRenderer@{ForwardRenderer}!render@{render}}
+\index{render@{render}!ForwardRenderer@{ForwardRenderer}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_forward_renderer_a7e7b3ad22672a010c11a3dcf68787ab8} 
+void Forward\+Renderer\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{, }\item[{const \mbox{\hyperlink{class_camera}{Camera}} \&}]{camera}{, }\item[{\mbox{\hyperlink{class_render_scene}{Render\+Scene}} \&}]{scene}{, }\item[{\mbox{\hyperlink{class_editor_viewport_pass}{Editor\+Viewport\+Pass}} \&}]{viewport\+Pass}{}\end{DoxyParamCaption})}
+
+
+
+Ejecuta todo el proceso de render. 
+
+Llama a los distintos passes como sombras, opacos, transparentes y skybox. \Hypertarget{class_forward_renderer_a4c110f519734e28a84c5ed8b1aff33dc}\index{ForwardRenderer@{ForwardRenderer}!updatePerFrame@{updatePerFrame}}
+\index{updatePerFrame@{updatePerFrame}!ForwardRenderer@{ForwardRenderer}}
+\doxysubsubsection{\texorpdfstring{updatePerFrame()}{updatePerFrame()}}
+{\footnotesize\ttfamily \label{class_forward_renderer_a4c110f519734e28a84c5ed8b1aff33dc} 
+void Forward\+Renderer\+::update\+Per\+Frame (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_camera}{Camera}} \&}]{camera}{, }\item[{const \mbox{\hyperlink{class_render_scene}{Render\+Scene}} \&}]{scene}{, }\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{}\end{DoxyParamCaption})}
+
+
+
+Actualiza datos que cambian cada frame. 
+
+Se encarga de actualizar los constant buffers con la información de la cámara y la escena. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Rendering/Forward\+Renderer.\+h\item 
+source/\+Rendering/Forward\+Renderer.\+cpp\end{DoxyCompactItemize}

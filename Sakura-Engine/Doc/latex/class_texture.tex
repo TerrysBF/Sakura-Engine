@@ -1,0 +1,232 @@
+\doxysection{Texture Class Reference}
+\hypertarget{class_texture}{}\label{class_texture}\index{Texture@{Texture}}
+
+
+Encapsula una textura 2D en Direct3D 11, incluyendo su recurso y vista como Shader Resource.  
+
+
+
+
+{\ttfamily \#include $<$Texture.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_texture_a66179be276016021e80b1c67c047d4ad}\label{class_texture_a66179be276016021e80b1c67c047d4ad} 
+{\bfseries Texture} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_texture_ad2a9673e810b8c1f8c7dcb9b94fd71e5}{\texorpdfstring{$\sim$}{\string~}\+Texture}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor por defecto. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_texture_a8c07d83beec59b6d5501bb98d726746f}{init}} (\mbox{\hyperlink{class_device}{Device}} \&device, const std\+::string \&texture\+Name, Extension\+Type extension\+Type)
+\begin{DoxyCompactList}\small\item\em Inicializa una textura cargada desde archivo. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_texture_a4adaa026f13720fa65b71d48ad224d0d}{init}} (\mbox{\hyperlink{class_device}{Device}} \&device, unsigned int width, unsigned int height, DXGI\+\_\+\+FORMAT Format, unsigned int Bind\+Flags, unsigned int sample\+Count=1, unsigned int quality\+Levels=0)
+\begin{DoxyCompactList}\small\item\em Inicializa una textura creada desde memoria. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_texture_afcdc415773ccf163d828913ef4d8167c}{init}} (\mbox{\hyperlink{class_device}{Device}} \&device, \mbox{\hyperlink{class_texture}{Texture}} \&texture\+Ref, DXGI\+\_\+\+FORMAT format)
+\begin{DoxyCompactList}\small\item\em Inicializa una textura a partir de otra existente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_texture_a5f238ba1919408c1cd3ef6c103d62434}{update}} ()
+\begin{DoxyCompactList}\small\item\em Actualiza el contenido de la textura. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_texture_a5affdac705503b635dc209d75edfd7ea}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context, unsigned int Start\+Slot, unsigned int Num\+Views)
+\begin{DoxyCompactList}\small\item\em Asigna la textura al pipeline de render. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_texture_a9885329fec4191d5a7aee3d198519ea9}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Libera los recursos de la textura. \end{DoxyCompactList}\item 
+\Hypertarget{class_texture_ab2ac8515e7d9e4dc2297ec91f0425a7a}\label{class_texture_ab2ac8515e7d9e4dc2297ec91f0425a7a} 
+HRESULT {\bfseries Create\+Cubemap} (\mbox{\hyperlink{class_device}{Device}} \&device, \mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context, const std\+::array$<$ std\+::string, 6 $>$ \&face\+Paths, bool generate\+Mips)
+\item 
+\Hypertarget{class_texture_a43008323950e6b10eb19f8ddbe7d19c4}\label{class_texture_a43008323950e6b10eb19f8ddbe7d19c4} 
+ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} {\bfseries Create\+Cubemap\+Face\+SRV} (ID3\+D11\+Device \texorpdfstring{$\ast$}{*}device, ID3\+D11\+Texture2D \texorpdfstring{$\ast$}{*}cubemap\+Tex, DXGI\+\_\+\+FORMAT format, UINT face\+Index, UINT mip\+Levels=1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_texture_ac4fff716a8f730618c12857b7e08421d}\label{class_texture_ac4fff716a8f730618c12857b7e08421d} 
+ID3\+D11\+Texture2D \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+texture} = nullptr
+\begin{DoxyCompactList}\small\item\em Recurso base de la textura en GPU. \end{DoxyCompactList}\item 
+ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_texture_add2f7d0ebab7a1d34f6f7b7e00a68875}{m\+\_\+texture\+From\+Img}} = nullptr
+\begin{DoxyCompactList}\small\item\em Vista de la textura como recurso de shader. \end{DoxyCompactList}\item 
+\Hypertarget{class_texture_ac8428ffa114c66c9abc928c7e2a47077}\label{class_texture_ac8428ffa114c66c9abc928c7e2a47077} 
+std\+::string {\bfseries m\+\_\+texture\+Name}
+\begin{DoxyCompactList}\small\item\em Nombre o ruta de la textura (si proviene de archivo). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encapsula una textura 2D en Direct3D 11, incluyendo su recurso y vista como Shader Resource. 
+
+Esta clase administra texturas que pueden provenir de\+:
+\begin{DoxyItemize}
+\item Archivos de imagen (png, jpg, etc.).
+\item Texturas creadas en memoria (RTV, DSV, UAV).
+\item Copias a partir de otra textura.
+\end{DoxyItemize}
+
+Proporciona m?todos para inicializaci?n, actualizaci?n, uso en shaders y destrucci?n. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_texture_ad2a9673e810b8c1f8c7dcb9b94fd71e5}\index{Texture@{Texture}!````~Texture@{\texorpdfstring{$\sim$}{\string~}Texture}}
+\index{````~Texture@{\texorpdfstring{$\sim$}{\string~}Texture}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Texture()}{\string~Texture()}}
+{\footnotesize\ttfamily \label{class_texture_ad2a9673e810b8c1f8c7dcb9b94fd71e5} 
+Texture\+::\texorpdfstring{$\sim$}{\string~}\+Texture (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destructor por defecto. 
+
+No libera autom?ticamente los recursos COM; llamar a \doxylink{class_texture_a9885329fec4191d5a7aee3d198519ea9}{destroy()}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_texture_a9885329fec4191d5a7aee3d198519ea9}\index{Texture@{Texture}!destroy@{destroy}}
+\index{destroy@{destroy}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{class_texture_a9885329fec4191d5a7aee3d198519ea9} 
+void Texture\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Libera los recursos de la textura. 
+
+Libera tanto el recurso de textura ({\ttfamily ID3\+D11\+Texture2D}) como su {\ttfamily Shader\+Resource\+View} asociado.
+
+\begin{DoxyPostcond}{Postcondition}
+{\ttfamily m\+\_\+texture} == nullptr y {\ttfamily m\+\_\+texture\+From\+Img} == nullptr. 
+\end{DoxyPostcond}
+\Hypertarget{class_texture_a8c07d83beec59b6d5501bb98d726746f}\index{Texture@{Texture}!init@{init}}
+\index{init@{init}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_texture_a8c07d83beec59b6d5501bb98d726746f} 
+HRESULT Texture\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{const std\+::string \&}]{texture\+Name}{, }\item[{Extension\+Type}]{extension\+Type}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa una textura cargada desde archivo. 
+
+Crea un recurso de textura a partir de un archivo de imagen y genera su {\ttfamily Shader\+Resource\+View} correspondiente para ser usado en shaders.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se crear? la textura. \\
+\hline
+{\em texture\+Name} & Nombre o ruta del archivo de textura. \\
+\hline
+{\em extension\+Type} & Tipo de extensi?n de archivo (ej. PNG, JPG, DDS). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si fue exitoso; c?digo {\ttfamily HRESULT} en caso contrario.
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Si retorna {\ttfamily S\+\_\+\+OK}, {\ttfamily m\+\_\+texture} y {\ttfamily m\+\_\+texture\+From\+Img} != nullptr.
+\end{DoxyPostcond}
+Inicializa una textura cargándola desde un archivo de imagen (DDS/\+PNG/\+JPG) y crea la Shader Resource View para poder usarla en los shaders. \Hypertarget{class_texture_afcdc415773ccf163d828913ef4d8167c}\index{Texture@{Texture}!init@{init}}
+\index{init@{init}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_texture_afcdc415773ccf163d828913ef4d8167c} 
+HRESULT Texture\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{\mbox{\hyperlink{class_texture}{Texture}} \&}]{texture\+Ref}{, }\item[{DXGI\+\_\+\+FORMAT}]{format}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa una textura a partir de otra existente. 
+
+Crea una nueva textura basada en la descripci?n de {\ttfamily texture\+Ref}, con un formato diferente.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se crear? la textura. \\
+\hline
+{\em texture\+Ref} & Referencia a otra textura existente. \\
+\hline
+{\em format} & Nuevo formato DXGI de la textura. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si fue exitoso; c?digo {\ttfamily HRESULT} en caso contrario.
+\end{DoxyReturn}
+Crea una Shader Resource View (SRV) a partir de otra textura ya existente. \Hypertarget{class_texture_a4adaa026f13720fa65b71d48ad224d0d}\index{Texture@{Texture}!init@{init}}
+\index{init@{init}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_texture_a4adaa026f13720fa65b71d48ad224d0d} 
+HRESULT Texture\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{unsigned int}]{width}{, }\item[{unsigned int}]{height}{, }\item[{DXGI\+\_\+\+FORMAT}]{Format}{, }\item[{unsigned int}]{Bind\+Flags}{, }\item[{unsigned int}]{sample\+Count}{ = {\ttfamily 1}, }\item[{unsigned int}]{quality\+Levels}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+
+
+Inicializa una textura creada desde memoria. 
+
+Crea un recurso de textura 2D vac?o con un tama?o y formato especificados. ?til para render targets, depth buffers o texturas din?micas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se crear? la textura. \\
+\hline
+{\em width} & Ancho de la textura en p?xeles. \\
+\hline
+{\em height} & Alto de la textura en p?xeles. \\
+\hline
+{\em Format} & Formato DXGI de la textura (ej. DXGI\+\_\+\+FORMAT\+\_\+\+R8\+G8\+B8\+A8\+\_\+\+UNORM). \\
+\hline
+{\em Bind\+Flags} & Banderas de enlace (ej. {\ttfamily D3\+D11\+\_\+\+BIND\+\_\+\+SHADER\+\_\+\+RESOURCE}, {\ttfamily D3\+D11\+\_\+\+BIND\+\_\+\+RENDER\+\_\+\+TARGET}). \\
+\hline
+{\em sample\+Count} & N?mero de muestras para MSAA (por defecto 1 = sin MSAA). \\
+\hline
+{\em quality\+Levels} & Niveles de calidad soportados para MSAA. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si fue exitoso; c?digo {\ttfamily HRESULT} en caso contrario.
+\end{DoxyReturn}
+Crea una textura 2D vacía en GPU. Esta se usa normalmente para depth, render targets, etc. \Hypertarget{class_texture_a5affdac705503b635dc209d75edfd7ea}\index{Texture@{Texture}!render@{render}}
+\index{render@{render}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_texture_a5affdac705503b635dc209d75edfd7ea} 
+void Texture\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{, }\item[{unsigned int}]{Start\+Slot}{, }\item[{unsigned int}]{Num\+Views}{}\end{DoxyParamCaption})}
+
+
+
+Asigna la textura al pipeline de render. 
+
+Llama a {\ttfamily PSSet\+Shader\+Resources} para establecer la textura como recurso de shader en la etapa de Pixel Shader.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto donde se aplicar? la textura. \\
+\hline
+{\em Start\+Slot} & Slot inicial en el que se vincular? la textura. \\
+\hline
+{\em Num\+Views} & N?mero de vistas de recurso a asignar (normalmente 1).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily m\+\_\+texture\+From\+Img} debe haberse creado con \doxylink{class_texture_a8c07d83beec59b6d5501bb98d726746f}{init()}. 
+\end{DoxyPrecond}
+\Hypertarget{class_texture_a5f238ba1919408c1cd3ef6c103d62434}\index{Texture@{Texture}!update@{update}}
+\index{update@{update}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_texture_a5f238ba1919408c1cd3ef6c103d62434} 
+void Texture\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Actualiza el contenido de la textura. 
+
+M?todo de marcador, ?til para soportar carga din?mica de datos o streaming de texturas desde CPU hacia GPU.
+
+\begin{DoxyNote}{Note}
+Actualmente no realiza ninguna operaci?n. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_texture_add2f7d0ebab7a1d34f6f7b7e00a68875}\index{Texture@{Texture}!m\_textureFromImg@{m\_textureFromImg}}
+\index{m\_textureFromImg@{m\_textureFromImg}!Texture@{Texture}}
+\doxysubsubsection{\texorpdfstring{m\_textureFromImg}{m\_textureFromImg}}
+{\footnotesize\ttfamily \label{class_texture_add2f7d0ebab7a1d34f6f7b7e00a68875} 
+ID3\+D11\+Shader\+Resource\+View\texorpdfstring{$\ast$}{*} Texture\+::m\+\_\+texture\+From\+Img = nullptr}
+
+
+
+Vista de la textura como recurso de shader. 
+
+Permite acceder a la textura desde Pixel Shader u otros shaders. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_texture_8h}{Texture.\+h}}\item 
+source/\mbox{\hyperlink{_texture_8cpp}{Texture.\+cpp}}\end{DoxyCompactItemize}

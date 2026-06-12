@@ -1,0 +1,63 @@
+\doxysection{Material.\+h}
+\hypertarget{_material_8h_source}{}\label{_material_8h_source}\index{include/Rendering/Material.h@{include/Rendering/Material.h}}
+\mbox{\hyperlink{_material_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_render_types_8h}{Rendering/RenderTypes.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_shader_program}{ShaderProgram}};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_rasterizer_state}{RasterizerState}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_depth_stencil_state}{DepthStencilState}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_sampler_state}{SamplerState}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_material}{Material}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ Asigna\ el\ shader\ del\ material}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ setShader(\mbox{\hyperlink{class_shader_program}{ShaderProgram}}*\ shader)\ \{\ m\_shader\ =\ shader;\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ Asigna\ el\ estado\ de\ rasterización}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ setRasterizerState(\mbox{\hyperlink{class_rasterizer_state}{RasterizerState}}*\ state)\ \{\ m\_rasterizerState\ =\ state;\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ Asigna\ el\ estado\ de\ profundidad}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ setDepthStencilState(\mbox{\hyperlink{class_depth_stencil_state}{DepthStencilState}}*\ state)\ \{\ m\_depthStencilState\ =\ state;\ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ Asigna\ el\ sampler\ para\ texturas}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ setSamplerState(\mbox{\hyperlink{class_sampler_state}{SamplerState}}*\ state)\ \{\ m\_samplerState\ =\ state;\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ Define\ el\ tipo\ de\ material\ (opaco,\ transparente,\ etc.)}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ setDomain(\mbox{\hyperlink{_render_types_8h_acaa906eae435bf9d60324427d97cd887}{MaterialDomain}}\ domain)\ \{\ m\_domain\ =\ domain;\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ Define\ el\ modo\ de\ mezcla}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ setBlendMode(\mbox{\hyperlink{_render_types_8h_a30323fa90e24ca484998b9fba6c40e85}{BlendMode}}\ blendMode)\ \{\ m\_blendMode\ =\ blendMode;\ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Obtiene\ el\ shader\ del\ material}}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_shader_program}{ShaderProgram}}*\ getShader()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_shader;\ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ Obtiene\ el\ estado\ de\ rasterización}}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_rasterizer_state}{RasterizerState}}*\ getRasterizerState()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_rasterizerState;\ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ Obtiene\ el\ estado\ de\ profundidad}}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_depth_stencil_state}{DepthStencilState}}*\ getDepthStencilState()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_depthStencilState;\ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ Obtiene\ el\ sampler}}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_sampler_state}{SamplerState}}*\ getSamplerState()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_samplerState;\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ Obtiene\ el\ dominio\ del\ material}}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{_render_types_8h_acaa906eae435bf9d60324427d97cd887}{MaterialDomain}}\ getDomain()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_domain;\ \}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ Obtiene\ el\ modo\ de\ mezcla}}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{_render_types_8h_a30323fa90e24ca484998b9fba6c40e85}{BlendMode}}\ getBlendMode()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_blendMode;\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_shader_program}{ShaderProgram}}*\ m\_shader\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{class_rasterizer_state}{RasterizerState}}*\ m\_rasterizerState\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_depth_stencil_state}{DepthStencilState}}*\ m\_depthStencilState\ =\ \textcolor{keyword}{nullptr};\ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_sampler_state}{SamplerState}}*\ m\_samplerState\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{_render_types_8h_acaa906eae435bf9d60324427d97cd887}{MaterialDomain}}\ m\_domain\ =\ MaterialDomain::Opaque;\ }
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{_render_types_8h_a30323fa90e24ca484998b9fba6c40e85}{BlendMode}}\ m\_blendMode\ =\ BlendMode::Opaque;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,296 @@
+\doxysection{Actor Class Reference}
+\hypertarget{class_actor}{}\label{class_actor}\index{Actor@{Actor}}
+
+
+Representa una entidad gr{\ucr}fica con mallas, texturas y estados de renderizado.  
+
+
+
+
+{\ttfamily \#include $<$Actor.\+h$>$}
+
+Inheritance diagram for Actor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_actor}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_actor_af1a502eb04e2295a15a2857fa2126c9b}\label{class_actor_af1a502eb04e2295a15a2857fa2126c9b} 
+{\bfseries Actor} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_actor_a5c6934758cbb54d81bf896ce9c6988e9}{Actor}} (\mbox{\hyperlink{class_device}{Device}} \&device)
+\begin{DoxyCompactList}\small\item\em Constructor que inicializa el actor con un dispositivo. \end{DoxyCompactList}\item 
+\Hypertarget{class_actor_a4e8d9d909ec2c3d3205682e83bf8ff18}\label{class_actor_a4e8d9d909ec2c3d3205682e83bf8ff18} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Actor} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual por defecto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_actor_a600f92edff9a55bc63a1242738653dab}{awake}} () override
+\item 
+void \mbox{\hyperlink{class_actor_ae789334128df3f9899d00d0e0c2dad12}{init}} () override
+\begin{DoxyCompactList}\small\item\em Inicializa el actor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_actor_aef2c4b98c0fb423d70c6229ac19f8965}{update}} (float delta\+Time, \mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context) override
+\begin{DoxyCompactList}\small\item\em Actualiza el actor en cada frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_actor_ad385c0dc92989174b01c07dd26d423b5}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context) override
+\begin{DoxyCompactList}\small\item\em Renderiza el actor en la escena. \end{DoxyCompactList}\item 
+\Hypertarget{class_actor_ad420ba399f8b13122dca55a4d6804e7c}\label{class_actor_ad420ba399f8b13122dca55a4d6804e7c} 
+void {\bfseries render\+For\+Skybox} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context)
+\item 
+void \mbox{\hyperlink{class_actor_ab8f46e862574f0c660f895ab6893d0d6}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Libera todos los recursos asociados al actor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_actor_ad217dfce01f7c33ef87688f19d28f836}{set\+Mesh}} (\mbox{\hyperlink{class_device}{Device}} \&device, std\+::vector$<$ \mbox{\hyperlink{class_mesh_component}{Mesh\+Component}} $>$ meshes)
+\begin{DoxyCompactList}\small\item\em Establece las mallas del actor. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_actor_a3774c7733aab5ad0d447db5e32dc9a6c}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el nombre del actor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_actor_a13ce4fba3bb646cc03d409c1ea3cf753}{set\+Name}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Establece el nombre del actor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_actor_abbacf6f347fa05ace133b45f1343a9cc}{set\+Textures}} (std\+::vector$<$ \mbox{\hyperlink{class_texture}{Texture}} $>$ textures)
+\begin{DoxyCompactList}\small\item\em Establece las texturas del actor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_actor_a2e272052b63928c34e8e293b261a5c74}{set\+Cast\+Shadow}} (bool v)
+\begin{DoxyCompactList}\small\item\em Define si el actor proyecta sombras. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_actor_a25dbcfb159157c984ef7c2cc9354494e}{can\+Cast\+Shadow}} () const
+\begin{DoxyCompactList}\small\item\em Indica si el actor puede proyectar sombras. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_actor_a7df63570cf61c0046828b4f4e00d10ad}{render\+Shadow}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context)
+\begin{DoxyCompactList}\small\item\em Renderiza la sombra del actor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Entity} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{class_entity_a5806de15f47f1d84b7ebe0e2519c8fd1}{add\+Component}} (\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU\+::\+TShared\+Pointer}}$<$ T $>$ component)
+\begin{DoxyCompactList}\small\item\em Agrega un componente a la entidad. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU\+::\+TShared\+Pointer}}$<$ T $>$ \mbox{\hyperlink{class_entity_ab4a3dc4747f9b832460231a9a01a9021}{get\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene un componente de la entidad por su tipo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries m\+\_\+is\+Active}
+\item 
+int {\bfseries m\+\_\+id}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU\+::\+TShared\+Pointer}}$<$ \mbox{\hyperlink{class_component}{Component}} $>$ $>$ {\bfseries m\+\_\+components}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa una entidad gr{\ucr}fica con mallas, texturas y estados de renderizado. 
+
+Un \doxylink{class_actor}{Actor} es una entidad del motor que contiene mallas, texturas y recursos de renderizado necesarios para dibujar un objeto en la escena. Administra buffers de v{\ucr}rtices e {\ucr}ndices, estados de rasterizaci{\ucr}n, blending y shaders, adem{\ucr}s de soportar renderizado de sombras. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_actor_a5c6934758cbb54d81bf896ce9c6988e9}\index{Actor@{Actor}!Actor@{Actor}}
+\index{Actor@{Actor}!Actor@{Actor}}
+\doxysubsubsection{\texorpdfstring{Actor()}{Actor()}}
+{\footnotesize\ttfamily \label{class_actor_a5c6934758cbb54d81bf896ce9c6988e9} 
+Actor\+::\+Actor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{}\end{DoxyParamCaption})}
+
+
+
+Constructor que inicializa el actor con un dispositivo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo usado para inicializar recursos del actor. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_actor_a600f92edff9a55bc63a1242738653dab}\index{Actor@{Actor}!awake@{awake}}
+\index{awake@{awake}!Actor@{Actor}}
+\doxysubsubsection{\texorpdfstring{awake()}{awake()}}
+{\footnotesize\ttfamily \label{class_actor_a600f92edff9a55bc63a1242738653dab} 
+void Actor\+::awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_entity}{Entity}}.
+
+\Hypertarget{class_actor_a25dbcfb159157c984ef7c2cc9354494e}\index{Actor@{Actor}!canCastShadow@{canCastShadow}}
+\index{canCastShadow@{canCastShadow}!Actor@{Actor}}
+\doxysubsubsection{\texorpdfstring{canCastShadow()}{canCastShadow()}}
+{\footnotesize\ttfamily \label{class_actor_a25dbcfb159157c984ef7c2cc9354494e} 
+bool Actor\+::can\+Cast\+Shadow (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indica si el actor puede proyectar sombras. 
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si el actor proyecta sombras; {\ttfamily false} en caso contrario. 
+\end{DoxyReturn}
+\Hypertarget{class_actor_ab8f46e862574f0c660f895ab6893d0d6}\index{Actor@{Actor}!destroy@{destroy}}
+\index{destroy@{destroy}!Actor@{Actor}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{class_actor_ab8f46e862574f0c660f895ab6893d0d6} 
+void Actor\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Libera todos los recursos asociados al actor. 
+
+Incluye buffers, estados, shaders y texturas. 
+
+Implements \mbox{\hyperlink{class_entity_a00e9f22462766408bffd4673e30bf04c}{Entity}}.
+
+\Hypertarget{class_actor_a3774c7733aab5ad0d447db5e32dc9a6c}\index{Actor@{Actor}!getName@{getName}}
+\index{getName@{getName}!Actor@{Actor}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily \label{class_actor_a3774c7733aab5ad0d447db5e32dc9a6c} 
+std\+::string Actor\+::get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene el nombre del actor. 
+
+\begin{DoxyReturn}{Returns}
+Nombre actual del actor. 
+\end{DoxyReturn}
+\Hypertarget{class_actor_ae789334128df3f9899d00d0e0c2dad12}\index{Actor@{Actor}!init@{init}}
+\index{init@{init}!Actor@{Actor}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_actor_ae789334128df3f9899d00d0e0c2dad12} 
+void Actor\+::init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Inicializa el actor. 
+
+M{\ucr}todo heredado de {\ttfamily \doxylink{class_entity}{Entity}}. Puede usarse para inicializar recursos adicionales en clases derivadas. 
+
+Implements \mbox{\hyperlink{class_entity_a31e6183ea44922d54a43be48b8fd4bc0}{Entity}}.
+
+\Hypertarget{class_actor_ad385c0dc92989174b01c07dd26d423b5}\index{Actor@{Actor}!render@{render}}
+\index{render@{render}!Actor@{Actor}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_actor_ad385c0dc92989174b01c07dd26d423b5} 
+void Actor\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Renderiza el actor en la escena. 
+
+Configura estados de render, buffers y shaders antes de dibujar las mallas asociadas al actor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto del dispositivo para operaciones gr{\ucr}ficas. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_entity_a87b5ba15d18505f65312336d38554200}{Entity}}.
+
+\Hypertarget{class_actor_a7df63570cf61c0046828b4f4e00d10ad}\index{Actor@{Actor}!renderShadow@{renderShadow}}
+\index{renderShadow@{renderShadow}!Actor@{Actor}}
+\doxysubsubsection{\texorpdfstring{renderShadow()}{renderShadow()}}
+{\footnotesize\ttfamily \label{class_actor_a7df63570cf61c0046828b4f4e00d10ad} 
+void Actor\+::render\+Shadow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{}\end{DoxyParamCaption})}
+
+
+
+Renderiza la sombra del actor. 
+
+Usa shaders y estados espec{\ucr}ficos de shadow mapping para dibujar la proyecci{\ucr}n del actor en el mapa de sombras.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto del dispositivo para operaciones gr{\ucr}ficas. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_actor_a2e272052b63928c34e8e293b261a5c74}\index{Actor@{Actor}!setCastShadow@{setCastShadow}}
+\index{setCastShadow@{setCastShadow}!Actor@{Actor}}
+\doxysubsubsection{\texorpdfstring{setCastShadow()}{setCastShadow()}}
+{\footnotesize\ttfamily \label{class_actor_a2e272052b63928c34e8e293b261a5c74} 
+void Actor\+::set\+Cast\+Shadow (\begin{DoxyParamCaption}\item[{bool}]{v}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Define si el actor proyecta sombras. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Valor booleano que habilita o deshabilita las sombras. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_actor_ad217dfce01f7c33ef87688f19d28f836}\index{Actor@{Actor}!setMesh@{setMesh}}
+\index{setMesh@{setMesh}!Actor@{Actor}}
+\doxysubsubsection{\texorpdfstring{setMesh()}{setMesh()}}
+{\footnotesize\ttfamily \label{class_actor_ad217dfce01f7c33ef87688f19d28f836} 
+void Actor\+::set\+Mesh (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{class_mesh_component}{Mesh\+Component}} $>$}]{meshes}{}\end{DoxyParamCaption})}
+
+
+
+Establece las mallas del actor. 
+
+Inicializa buffers de v{\ucr}rtices e {\ucr}ndices asociados a las mallas.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el cual se inicializan las mallas. \\
+\hline
+{\em meshes} & Vector de componentes de malla que se asignar{\ucr}n al actor. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_actor_a13ce4fba3bb646cc03d409c1ea3cf753}\index{Actor@{Actor}!setName@{setName}}
+\index{setName@{setName}!Actor@{Actor}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily \label{class_actor_a13ce4fba3bb646cc03d409c1ea3cf753} 
+void Actor\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Establece el nombre del actor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nuevo nombre para el actor. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_actor_abbacf6f347fa05ace133b45f1343a9cc}\index{Actor@{Actor}!setTextures@{setTextures}}
+\index{setTextures@{setTextures}!Actor@{Actor}}
+\doxysubsubsection{\texorpdfstring{setTextures()}{setTextures()}}
+{\footnotesize\ttfamily \label{class_actor_abbacf6f347fa05ace133b45f1343a9cc} 
+void Actor\+::set\+Textures (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_texture}{Texture}} $>$}]{textures}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Establece las texturas del actor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em textures} & Vector de texturas a asignar al actor. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_actor_aef2c4b98c0fb423d70c6229ac19f8965}\index{Actor@{Actor}!update@{update}}
+\index{update@{update}!Actor@{Actor}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_actor_aef2c4b98c0fb423d70c6229ac19f8965} 
+void Actor\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{, }\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Actualiza el actor en cada frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Tiempo transcurrido desde la {\ucr}ltima actualizaci{\ucr}n. \\
+\hline
+{\em device\+Context} & Contexto del dispositivo para operaciones gr{\ucr}ficas.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Este m{\ucr}todo puede actualizar animaciones, transformaciones u otros recursos dependientes del tiempo. 
+\end{DoxyNote}
+
+
+Implements \mbox{\hyperlink{class_entity_aadea4a2a3446afb745059373d9b24ca7}{Entity}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+ECS/\mbox{\hyperlink{_actor_8h}{Actor.\+h}}\item 
+source/\+ECS/Actorcpp.\+cpp\end{DoxyCompactItemize}

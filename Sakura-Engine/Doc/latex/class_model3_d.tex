@@ -1,0 +1,174 @@
+\doxysection{Model3D Class Reference}
+\hypertarget{class_model3_d}{}\label{class_model3_d}\index{Model3D@{Model3D}}
+Inheritance diagram for Model3D\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_model3_d}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_model3_d_aa749816ca13a57884d8e03586ce1d5b8}\label{class_model3_d_aa749816ca13a57884d8e03586ce1d5b8} 
+{\bfseries Model3D} (const std\+::string \&name, Model\+Type model\+Type)
+\item 
+\Hypertarget{class_model3_d_a74c76aa75f90597eb90ba1755705483f}\label{class_model3_d_a74c76aa75f90597eb90ba1755705483f} 
+{\bfseries Model3D} (const std\+::string \&name, const \mbox{\hyperlink{struct_skybox_vertex}{Skybox\+Vertex}} vertices\mbox{[}$\,$\mbox{]}, const unsigned int indices\mbox{[}$\,$\mbox{]})
+\item 
+bool \mbox{\hyperlink{class_model3_d_ad264d3cfd83ad78aba54114601af582a}{load}} (const std\+::string \&path) override
+\begin{DoxyCompactList}\small\item\em Carga el recurso desde disco usando una ruta de archivo. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_model3_d_ac718e514403a19985847deca1d062db7}{init}} () override
+\begin{DoxyCompactList}\small\item\em Crea o inicializa el recurso en GPU (buffers, texturas, etc.). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_model3_d_a61b4891ed430a715e389af5a6fff08c7}{unload}} () override
+\begin{DoxyCompactList}\small\item\em Libera la memoria asociada al recurso (CPU/\+GPU). \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_model3_d_a42dbe41a7435885766515c4ebb2bc87b}{get\+Size\+In\+Bytes}} () const override
+\begin{DoxyCompactList}\small\item\em Devuelve el tamaño estimado del recurso en memoria (en bytes). Útil para profiling o administración de memoria. \end{DoxyCompactList}\item 
+\Hypertarget{class_model3_d_abdb0024f7ee1bf6bbcbcc3d65e659b50}\label{class_model3_d_abdb0024f7ee1bf6bbcbcc3d65e659b50} 
+const std\+::vector$<$ \mbox{\hyperlink{class_mesh_component}{Mesh\+Component}} $>$ \& {\bfseries Get\+Meshes} () const
+\item 
+\Hypertarget{class_model3_d_a5cdae17cad9823d42103566303b1e7f0}\label{class_model3_d_a5cdae17cad9823d42103566303b1e7f0} 
+bool {\bfseries Initialize\+FBXManager} ()
+\item 
+\Hypertarget{class_model3_d_a4e782099d6994dea8bf7362fd1aac417}\label{class_model3_d_a4e782099d6994dea8bf7362fd1aac417} 
+std\+::vector$<$ \mbox{\hyperlink{class_mesh_component}{Mesh\+Component}} $>$ {\bfseries Load\+FBXModel} (const std\+::string \&file\+Path)
+\item 
+\Hypertarget{class_model3_d_a0bd43f8027e7bc9e0e1e6ce8b7a956b2}\label{class_model3_d_a0bd43f8027e7bc9e0e1e6ce8b7a956b2} 
+std\+::vector$<$ \mbox{\hyperlink{class_mesh_component}{Mesh\+Component}} $>$ {\bfseries Load\+OBJModel} (const std\+::string \&file\+Path)
+\item 
+\Hypertarget{class_model3_d_a9944956c9e15734c440f10d43c041f14}\label{class_model3_d_a9944956c9e15734c440f10d43c041f14} 
+void {\bfseries Process\+FBXNode} (\mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*}node)
+\item 
+\Hypertarget{class_model3_d_af3fa01eb2c87efde1c7a3efb790b5718}\label{class_model3_d_af3fa01eb2c87efde1c7a3efb790b5718} 
+void {\bfseries Process\+FBXMesh} (\mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*}node)
+\item 
+\Hypertarget{class_model3_d_aaeef2276564385492afc4f4a06e729db}\label{class_model3_d_aaeef2276564385492afc4f4a06e729db} 
+void {\bfseries Process\+FBXMaterials} (\mbox{\hyperlink{class_fbx_surface_material}{Fbx\+Surface\+Material}} \texorpdfstring{$\ast$}{*}material)
+\item 
+\Hypertarget{class_model3_d_a71fd81d4c35dd3407d6f4be332355ce0}\label{class_model3_d_a71fd81d4c35dd3407d6f4be332355ce0} 
+std\+::vector$<$ std\+::string $>$ {\bfseries Get\+Texture\+File\+Names} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_i_resource}{IResource}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i_resource_a01378dfe489a635001e3c1afded70563}{IResource}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Construye un recurso con un nombre lógico. Inicialmente se marca como tipo desconocido y estado Unloaded. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IResource} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual por defecto. \end{DoxyCompactList}\item 
+void {\bfseries Set\+Path} (const std\+::string \&path)
+\item 
+void {\bfseries Set\+Type} (Resource\+Type t)
+\item 
+void {\bfseries Set\+State} (Resource\+State s)
+\item 
+const std\+::string \& {\bfseries Get\+Name} () const
+\item 
+const std\+::string \& {\bfseries Get\+Path} () const
+\item 
+Resource\+Type {\bfseries Get\+Type} () const
+\item 
+Resource\+State {\bfseries Get\+State} () const
+\item 
+uint64\+\_\+t {\bfseries Get\+ID} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_model3_d_ab9a81ea03d3e9f5d2895d61aaa09ed75}\label{class_model3_d_ab9a81ea03d3e9f5d2895d61aaa09ed75} 
+Model\+Type {\bfseries m\+\_\+model\+Type}
+\item 
+\Hypertarget{class_model3_d_ab53a3095e21c7fc39713871e48c25000}\label{class_model3_d_ab53a3095e21c7fc39713871e48c25000} 
+std\+::vector$<$ \mbox{\hyperlink{class_mesh_component}{Mesh\+Component}} $>$ {\bfseries m\+\_\+meshes}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_i_resource}{IResource}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries m\+\_\+name}
+\item 
+std\+::string {\bfseries m\+\_\+file\+Path}
+\item 
+Resource\+Type {\bfseries m\+\_\+type}
+\item 
+Resource\+State {\bfseries m\+\_\+state}
+\item 
+uint64\+\_\+t {\bfseries m\+\_\+id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_model3_d_a42dbe41a7435885766515c4ebb2bc87b}\index{Model3D@{Model3D}!getSizeInBytes@{getSizeInBytes}}
+\index{getSizeInBytes@{getSizeInBytes}!Model3D@{Model3D}}
+\doxysubsubsection{\texorpdfstring{getSizeInBytes()}{getSizeInBytes()}}
+{\footnotesize\ttfamily \label{class_model3_d_a42dbe41a7435885766515c4ebb2bc87b} 
+size\+\_\+t Model3\+D\+::get\+Size\+In\+Bytes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Devuelve el tamaño estimado del recurso en memoria (en bytes). Útil para profiling o administración de memoria. 
+
+\begin{DoxyReturn}{Returns}
+Tamaño aproximado en bytes.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_resource_aa6f824e7353d9eaa63eef132324f7265}{IResource}}.
+
+\Hypertarget{class_model3_d_ac718e514403a19985847deca1d062db7}\index{Model3D@{Model3D}!init@{init}}
+\index{init@{init}!Model3D@{Model3D}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_model3_d_ac718e514403a19985847deca1d062db7} 
+bool Model3\+D\+::init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Crea o inicializa el recurso en GPU (buffers, texturas, etc.). 
+
+\begin{DoxyReturn}{Returns}
+true si la inicialización fue exitosa; false en caso contrario.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_resource_ae8338623eb79926b74191f767bd920eb}{IResource}}.
+
+\Hypertarget{class_model3_d_ad264d3cfd83ad78aba54114601af582a}\index{Model3D@{Model3D}!load@{load}}
+\index{load@{load}!Model3D@{Model3D}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily \label{class_model3_d_ad264d3cfd83ad78aba54114601af582a} 
+bool Model3\+D\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Carga el recurso desde disco usando una ruta de archivo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Ruta o nombre de archivo del recurso.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si la carga fue exitosa; false en caso contrario.
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_i_resource_a0f82dd9a4aaa6258a7a9e6ace1fe9ec0}{IResource}}.
+
+\Hypertarget{class_model3_d_a61b4891ed430a715e389af5a6fff08c7}\index{Model3D@{Model3D}!unload@{unload}}
+\index{unload@{unload}!Model3D@{Model3D}}
+\doxysubsubsection{\texorpdfstring{unload()}{unload()}}
+{\footnotesize\ttfamily \label{class_model3_d_a61b4891ed430a715e389af5a6fff08c7} 
+void Model3\+D\+::unload (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Libera la memoria asociada al recurso (CPU/\+GPU). 
+
+
+
+Implements \mbox{\hyperlink{class_i_resource_ac95808d27eedffc2ceb17f4d7f6885f8}{IResource}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_model3_d_8h}{Model3\+D.\+h}}\item 
+source/\mbox{\hyperlink{_model3_d_8cpp}{Model3\+D.\+cpp}}\end{DoxyCompactItemize}

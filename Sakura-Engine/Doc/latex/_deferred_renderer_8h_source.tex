@@ -1,0 +1,208 @@
+\doxysection{Deferred\+Renderer.\+h}
+\hypertarget{_deferred_renderer_8h_source}{}\label{_deferred_renderer_8h_source}\index{include/Rendering/DeferredRenderer.h@{include/Rendering/DeferredRenderer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_buffer_8h}{Buffer.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_depth_stencil_state_8h}{DepthStencilState.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_depth_stencil_view_8h}{DepthStencilView.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_rasterizer_state_8h}{RasterizerState.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Rendering/ISceneRender.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_render_scene_8h}{Rendering/RenderScene.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_render_types_8h}{Rendering/RenderTypes.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_sampler_state_8h}{SamplerState.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}ShaderProgram.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_texture_8h}{Texture.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_editor_viewport_pass_8h}{EngineUtilities/Utilities/EditorViewportPass.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device}{Device}};}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_camera}{Camera}};}
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_material}{Material}};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00031\ \ \ \mbox{\hyperlink{class_deferred_renderer}{DeferredRenderer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_scene_renderer}{ISceneRenderer}}\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ \ \ HRESULT}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_deferred_renderer_adf8861c01b58c989d9f1777279e3b976}{init}}(\mbox{\hyperlink{class_device}{Device}}\&\ device)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_deferred_renderer_a6b534e029ab1cb1a0dce09b3921b2fa1}{resize}}(\mbox{\hyperlink{class_device}{Device}}\&\ device,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ width,}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ height)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_deferred_renderer_a1a4959684a5b3992319dbef1db1e6617}{render}}(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_camera}{Camera}}\&\ camera,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \mbox{\hyperlink{class_render_scene}{RenderScene}}\&\ scene,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \mbox{\hyperlink{class_editor_viewport_pass}{EditorViewportPass}}\&\ viewport)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{class_deferred_renderer_acf7f7fb555ec10386535d763861c6365}{destroy}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00080\ \ \ ID3D11ShaderResourceView*}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{class_deferred_renderer_a3f61436d8bb217a5bbe1e2b525a98612}{getShadowMapSRV}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ m\_shadowMapSRV.m\_textureFromImg;\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00088\ \ \ ID3D11ShaderResourceView*}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{class_deferred_renderer_a0e6c4cf572739bd07e922b4a9b26fbeb}{getPreShadowSRV}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ m\_preShadowDebugPass.getSRVC();\ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00096\ \ \ ID3D11ShaderResourceView*}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{class_deferred_renderer_a6c3f16e09472824572b911863f4b9a6f}{getGBufferAlbedoMetallicSRV}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ m\_gBufferAlbedoMetallicSRV.m\_textureFromImg;\ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00104\ \ \ ID3D11ShaderResourceView*}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{class_deferred_renderer_a6e61c0d058fa57533d29fc383bd1e6d8}{getGBufferNormalRoughnessSRV}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ m\_gBufferNormalRoughnessSRV.m\_textureFromImg;\ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00112\ \ \ ID3D11ShaderResourceView*}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{class_deferred_renderer_aab978a436c84f21479e274a18e02ca8a}{getGBufferWorldAoSRV}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ m\_gBufferWorldAoSRV.m\_textureFromImg;\ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00120\ \ \ ID3D11ShaderResourceView*}
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{class_deferred_renderer_aee67afcff38810e88b44ec074d9182e6}{getGBufferEmissiveAlphaSRV}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ m\_gBufferEmissiveAlphaSRV.m\_textureFromImg;\ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00128\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{class_deferred_renderer_aefe43a30d1a4b5d272ecc6073c4ce1c0}{setShadowFactorDebugEnabled}}(\textcolor{keywordtype}{bool}\ enabled)\textcolor{keyword}{\ override\ }\{\ m\_shadowFactorDebugEnabled\ =\ enabled;\ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00136\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{class_deferred_renderer_a44b056942c313df3e2629b42d0d1e0c6}{setDeferredDebugViewMode}}(\textcolor{keywordtype}{int}\ mode)\textcolor{keyword}{\ override\ }\{\ m\_deferredDebugViewMode\ =\ mode;\ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00144\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*}
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{class_deferred_renderer_a20857322b67abfbb09687642db34adf9}{getDebugName}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}DeferredRenderer"{}};\ \}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00152\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00153\ \ \ \ \ buildQueues(\mbox{\hyperlink{class_render_scene}{RenderScene}}\&\ scene,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_camera}{Camera}}\&\ camera);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00158\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00159\ \ \ \ \ updatePerFrame(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_camera}{Camera}}\&\ camera,}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_render_scene}{RenderScene}}\&\ scene,}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00166\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00167\ \ \ \ \ updateLightMatrices(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_camera}{Camera}}\&\ camera,}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_render_scene}{RenderScene}}\&\ scene);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00173\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00174\ \ \ \ \ renderSceneToTarget(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \mbox{\hyperlink{class_render_scene}{RenderScene}}\&\ scene,}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \mbox{\hyperlink{class_editor_viewport_pass}{EditorViewportPass}}\&\ targetPass,}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ applyShadows);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00182\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00183\ \ \ \ \ bindGBufferTargets(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ ID3D11DepthStencilView*\ depthStencilView);}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00189\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00190\ \ \ \ \ bindFinalTarget(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ ID3D11RenderTargetView*\ renderTargetView,}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ ID3D11DepthStencilView*\ depthStencilView);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00197\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00198\ \ \ \ \ clearDeferredSRVs(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00203\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00204\ \ \ \ \ renderGeometryPass(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00209\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00210\ \ \ \ \ renderGeometryObject(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_render_object}{RenderObject}}\&\ \textcolor{keywordtype}{object});}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00216\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00217\ \ \ \ \ renderLightPass(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00222\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00223\ \ \ \ \ renderSkyboxPass(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \mbox{\hyperlink{class_render_scene}{RenderScene}}\&\ scene);}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00229\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00230\ \ \ \ \ renderTransparentPass(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00235\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00236\ \ \ \ \ renderForwardObject(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_render_object}{RenderObject}}\&\ \textcolor{keywordtype}{object},}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \mbox{\hyperlink{_render_types_8h_aa342cea98690a76abdcb92feffddf2f2}{RenderPassType}}\ passType);}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00243\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00244\ \ \ \ \ renderShadowPass(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00249\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00250\ \ \ \ \ renderShadowObject(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_render_object}{RenderObject}}\&\ \textcolor{keywordtype}{object});}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00256\ \ \ HRESULT}
+\DoxyCodeLine{00257\ \ \ \ \ createShadowResources(\mbox{\hyperlink{class_device}{Device}}\&\ device);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00262\ \ \ HRESULT}
+\DoxyCodeLine{00263\ \ \ \ \ createGBufferResources(\mbox{\hyperlink{class_device}{Device}}\&\ device,}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ width,}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ height);}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00270\ \ \ HRESULT}
+\DoxyCodeLine{00271\ \ \ \ \ createGBufferTargtes(\mbox{\hyperlink{class_device}{Device}}\&\ device,}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ width,}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ height,}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ DXGI\_FORMAT\ format,}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \mbox{\hyperlink{class_texture}{Texture}}\&\ texture,}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \mbox{\hyperlink{class_texture}{Texture}}\&\ srv,}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \mbox{\hyperlink{class_render_target_view}{RenderTargetView}}\&\ rtv);}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00282\ \ \ HRESULT}
+\DoxyCodeLine{00283\ \ \ \ \ createLightingResources(\mbox{\hyperlink{class_device}{Device}}\&\ device);}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00288\ \ \ HRESULT}
+\DoxyCodeLine{00289\ \ \ \ \ createFullScreenQuad(\mbox{\hyperlink{class_device}{Device}}\&\ device);}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00294\ \ \ HRESULT}
+\DoxyCodeLine{00295\ \ \ \ \ createBlendStates(\mbox{\hyperlink{class_device}{Device}}\&\ device);}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00300\ \ \ ID3D11BlendState*}
+\DoxyCodeLine{00301\ \ \ \ \ resolveBlendState(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_material}{Material}}\&\ material)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00308\ \ \ \mbox{\hyperlink{class_buffer}{Buffer}}\ m\_perFrameBuffer;}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00313\ \ \ \mbox{\hyperlink{class_buffer}{Buffer}}\ m\_perObjectBuffer;}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00318\ \ \ \mbox{\hyperlink{class_buffer}{Buffer}}\ m\_perMaterialBuffer;}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00323\ \ \ \mbox{\hyperlink{class_buffer}{Buffer}}\ m\_lightingDebugBuffer;}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00328\ \ \ \mbox{\hyperlink{class_buffer}{Buffer}}\ m\_fullscreenVertexBuffer;}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00333\ \ \ \mbox{\hyperlink{class_buffer}{Buffer}}\ m\_fullscreenIndexBuffer;}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00338\ \ \ \mbox{\hyperlink{class_depth_stencil_state}{DepthStencilState}}\ m\_transparentDepthStencil;}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00343\ \ \ \mbox{\hyperlink{class_depth_stencil_state}{DepthStencilState}}\ m\_disabledDepthStencil;}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00348\ \ \ \mbox{\hyperlink{class_depth_stencil_state}{DepthStencilState}}\ m\_shadowDepthStencil;}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00353\ \ \ ID3D11BlendState*\ m\_alphaBlendState\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00358\ \ \ ID3D11BlendState*\ m\_opaqueBlendState\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00363\ \ \ ID3D11BlendState*\ m\_additiveBlendState\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00368\ \ \ ID3D11BlendState*\ m\_premultipliedBlendState\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00373\ \ \ \textcolor{keywordtype}{float}\ m\_blendFactor[4]\ =\ \{\ 0.0f,\ 0.0f,\ 0.0f,\ 0.0f\ \};}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00378\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_shadowMapSize\ =\ 2048;}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00383\ \ \ \textcolor{keywordtype}{bool}\ m\_aplyShadows\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00388\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_renderWidth\ =\ 1280;}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00393\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_renderHeight\ =\ 720;}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00398\ \ \ \textcolor{keywordtype}{bool}\ m\_shadowFactorDebugEnabled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00403\ \ \ \textcolor{keywordtype}{int}\ m\_deferredDebugViewMode\ =\ 0;}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00408\ \ \ std::vector<const\ RenderObject*>\ m\_opaqueQueue;}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00413\ \ \ std::vector<const\ RenderObject*>\ m\_transparentQueue;}
+\DoxyCodeLine{00414\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,80 @@
+\doxysection{fbxanimstack.\+h}
+\hypertarget{fbxanimstack_8h_source}{}\label{fbxanimstack_8h_source}\index{include/fbx/fbxsdk/scene/animation/fbxanimstack.h@{include/fbx/fbxsdk/scene/animation/fbxanimstack.h}}
+\mbox{\hyperlink{fbxanimstack_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_ANIMATION\_STACK\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_ANIMATION\_STACK\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxtime_8h}{fbxsdk/core/base/fbxtime.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcollection_8h}{fbxsdk/scene/fbxcollection.h}}>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ these\ symbols\ are\ defined\ for\ backward\ compatibility}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ FBXSDK\_TAKENODE\_DEFAULT\_NAME\ \ \ \ "{}Default"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ FBXSDK\_ROOTCURVE\_DEFAULT\_NAME\ \ \ "{}Defaults"{}}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_take_info}{FbxTakeInfo}};}
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_thumbnail}{FbxThumbnail}};}
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_anim_evaluator}{FbxAnimEvaluator}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_anim_stack}{FbxAnimStack}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_collection}{FbxCollection}}}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_anim_stack}{FbxAnimStack}},\ \mbox{\hyperlink{class_fbx_collection}{FbxCollection}});}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ Properties}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxString>}}\ \mbox{\hyperlink{class_fbx_anim_stack_a87abfeabeaa31a44e2474f01d4501b7f}{Description}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxTime>}}\ \mbox{\hyperlink{class_fbx_anim_stack_a140ba636c0907144d60d2901c0995456}{LocalStart}};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxTime>}}\ \mbox{\hyperlink{class_fbx_anim_stack_a07be87cbd6b3226be489c69b5466a72d}{LocalStop}};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxTime>}}\ \mbox{\hyperlink{class_fbx_anim_stack_adeac4e2557e00ccd420eb9b790377e22}{ReferenceStart}};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxTime>}}\ \mbox{\hyperlink{class_fbx_anim_stack_a480a3b46ab895a740ee658e7022ec208}{ReferenceStop}};}
+\DoxyCodeLine{00090\ \ \ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_stack_a69f6d38a6b4fa348585674e5d68464b2}{Reset}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_take_info}{FbxTakeInfo}}*\ pTakeInfo\ =\ NULL);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_time_span}{FbxTimeSpan}}\ \mbox{\hyperlink{class_fbx_anim_stack_a61d246d787a9ac3ab230527e9bab00bb}{GetLocalTimeSpan}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_stack_ae7d19d4d0cbc6e01fef742b9acaa036e}{SetLocalTimeSpan}}(\mbox{\hyperlink{class_fbx_time_span}{FbxTimeSpan}}\&\ pTimeSpan);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_time_span}{FbxTimeSpan}}\ \mbox{\hyperlink{class_fbx_anim_stack_a01aacdecb9d3e1860e015aa364111239}{GetReferenceTimeSpan}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_stack_ae63b01339e65e5a6c52ce532e0006e8b}{SetReferenceTimeSpan}}(\mbox{\hyperlink{class_fbx_time_span}{FbxTimeSpan}}\&\ pTimeSpan);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_anim_stack_a20891f3e62c6a50a628f2ed65616bf36}{BakeLayers}}(\mbox{\hyperlink{class_fbx_anim_evaluator}{FbxAnimEvaluator}}*\ pEvaluator,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pStart,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pStop,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pPeriod);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00139\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00140\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00142\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_stack_af6afc0451d46c075aaa8238ab12244e1}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_stack_ab9a27422d0462329f2b57166b95bf440}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00146\ \};}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_ANIMATION\_STACK\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

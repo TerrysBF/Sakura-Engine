@@ -1,0 +1,74 @@
+\doxysection{fbxcontainertemplate.\+h}
+\hypertarget{fbxcontainertemplate_8h_source}{}\label{fbxcontainertemplate_8h_source}\index{include/fbx/fbxsdk/scene/fbxcontainertemplate.h@{include/fbx/fbxsdk/scene/fbxcontainertemplate.h}}
+\mbox{\hyperlink{fbxcontainertemplate_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_CONTAINER\_TEMPLATE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_CONTAINER\_TEMPLATE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{//Container\ Template\ tokens}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ FBXSDK\_CONTAINER\_TEMPLATE\_STR\ \ "{}templates"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ FBXSDK\_TEMPLATE\_STR\ \ \ \ \ \ \ \ \ \ \ \ "{}template"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ FBXSDK\_EXTENDS\_TEMPLATE\_STR\ \ \ \ "{}extends"{}}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{struct\ }FbxContainerTemplate\_internal;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_container_template}{FbxContainerTemplate}}\ :\ \textcolor{keyword}{public}\ FbxObject}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_container_template}{FbxContainerTemplate}},\ FbxObject);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_container_template_a34fce668ab777e7dc5f81030662d7576}{ParseTemplateFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pTemplateFilePath,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxString*>}}\&\ pExtendTemplateNames);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_container_template_aa3f0f367f7e95139f439169e340104df}{AddExtendTemplatePath}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pExtendTemplatePath);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_container_template_abbd73724e4f4d1ebaa8eec23d4aa7e30}{GetExtendTemplatePathAt}}(FbxUInt\ pIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ FbxUInt\ \mbox{\hyperlink{class_fbx_container_template_a552b2b289ce6ec39e031a0032234cac4}{GetExtendTemplateCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_container_template_a6f2fbdd59ebc8966e980f5ed7e837d00}{ClearExtendTemplatePath}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxString>}}\ \mbox{\hyperlink{class_fbx_container_template_ae30cc6c47849ef02f82707c8691df636}{ContainerTemplateName}};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxString>}}\ \mbox{\hyperlink{class_fbx_container_template_a6377f5a818df77faf04a001ae7a22cca}{ContainerTemplatePath}};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxString>}}\ \mbox{\hyperlink{class_fbx_container_template_a6f0973e4624ac59f1c0af9e172f224c1}{ContainerTemplatePackageName}};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxString>}}\ \mbox{\hyperlink{class_fbx_container_template_ac2029d97e3946bc2a62f2a673a1981c0}{ContainerTemplateVersion}};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00101\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00102\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00104\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_container_template_a11af390dc0d736356618cebc55474eb7}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_container_template_aa806e5e8dc4b0b9718d475e8b23749bd}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_container_template_afab7993ee223f91625407f888b41768f}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00108\ \ \ \ \ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00110\ \ \ \ \ FbxContainerTemplate\_internal*\ \ mData;}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxString*>}}\ \ \ \ \ \ \ \ mExtendTemplatePaths;}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00113\ \};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_CONTAINER\_TEMPLATE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

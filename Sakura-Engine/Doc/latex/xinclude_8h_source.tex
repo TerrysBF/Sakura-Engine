@@ -1,0 +1,85 @@
+\doxysection{xinclude.\+h}
+\hypertarget{xinclude_8h_source}{}\label{xinclude_8h_source}\index{include/fbx/libxml2/libxml/xinclude.h@{include/fbx/libxml2/libxml/xinclude.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Summary:\ implementation\ of\ XInclude}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Description:\ API\ to\ handle\ XInclude\ processing,}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ implements\ the}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ World\ Wide\ Web\ Consortium\ Last\ Call\ Working\ Draft\ 10\ November\ 2003}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ http://www.w3.org/TR/2003/WD-\/xinclude-\/20031110}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Copy:\ See\ Copyright\ for\ the\ status\ of\ this\ software.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Author:\ Daniel\ Veillard}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_XINCLUDE\_H\_\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_\_XML\_XINCLUDE\_H\_\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <libxml/xmlversion.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <libxml/tree.h>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_XINCLUDE\_ENABLED}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ XINCLUDE\_NS\ (const\ xmlChar\ *)\ "{}http://www.w3.org/2003/XInclude"{}}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ XINCLUDE\_OLD\_NS\ (const\ xmlChar\ *)\ "{}http://www.w3.org/2001/XInclude"{}}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ XINCLUDE\_NODE\ (const\ xmlChar\ *)\ "{}include"{}}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ XINCLUDE\_FALLBACK\ (const\ xmlChar\ *)\ "{}fallback"{}}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ XINCLUDE\_HREF\ (const\ xmlChar\ *)\ "{}href"{}}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ XINCLUDE\_PARSE\ (const\ xmlChar\ *)\ "{}parse"{}}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ XINCLUDE\_PARSE\_XML\ (const\ xmlChar\ *)\ "{}xml"{}}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ XINCLUDE\_PARSE\_TEXT\ (const\ xmlChar\ *)\ "{}text"{}}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ XINCLUDE\_PARSE\_ENCODING\ (const\ xmlChar\ *)\ "{}encoding"{}}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ XINCLUDE\_PARSE\_XPOINTER\ (const\ xmlChar\ *)\ "{}xpointer"{}}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlXIncludeCtxt\ xmlXIncludeCtxt;}
+\DoxyCodeLine{00087\ \textcolor{keyword}{typedef}\ xmlXIncludeCtxt\ *xmlXIncludeCtxtPtr;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ *\ standalone\ processing}}
+\DoxyCodeLine{00091\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00092\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ xmlXIncludeProcess\ \ (xmlDocPtr\ doc);}
+\DoxyCodeLine{00094\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ xmlXIncludeProcessFlags\ (xmlDocPtr\ doc,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ flags);}
+\DoxyCodeLine{00097\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ xmlXIncludeProcessFlagsData(xmlDocPtr\ doc,}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ flags,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *data);}
+\DoxyCodeLine{00101\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlXIncludeProcessTreeFlagsData(xmlNodePtr\ tree,}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ flags,}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *data);}
+\DoxyCodeLine{00105\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ xmlXIncludeProcessTree\ \ (xmlNodePtr\ tree);}
+\DoxyCodeLine{00107\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ xmlXIncludeProcessTreeFlags(xmlNodePtr\ tree,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ flags);}
+\DoxyCodeLine{00110\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ *\ contextual\ processing}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00113\ XMLPUBFUN\ xmlXIncludeCtxtPtr\ XMLCALL}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ xmlXIncludeNewContext\ \ \ (xmlDocPtr\ doc);}
+\DoxyCodeLine{00115\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ xmlXIncludeSetFlags\ (xmlXIncludeCtxtPtr\ ctxt,}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ flags);}
+\DoxyCodeLine{00118\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ xmlXIncludeFreeContext\ \ (xmlXIncludeCtxtPtr\ ctxt);}
+\DoxyCodeLine{00120\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ xmlXIncludeProcessNode\ \ (xmlXIncludeCtxtPtr\ ctxt,}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ tree);}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00124\ \}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_XINCLUDE\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_XML\_XINCLUDE\_H\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

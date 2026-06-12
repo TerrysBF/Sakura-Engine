@@ -1,0 +1,463 @@
+\doxysection{Device\+Context Class Reference}
+\hypertarget{class_device_context}{}\label{class_device_context}\index{DeviceContext@{DeviceContext}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_device_context_a9bbeaf8534205198a8e2c36568a6f81f}{init}} ()
+\begin{DoxyCompactList}\small\item\em Inicializa el contexto del dispositivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_a6d08e8ddde4580145c5556b2b375e2f0}{update}} ()
+\begin{DoxyCompactList}\small\item\em Actualiza par?metros internos del contexto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_af51569641f4df1f98e78d4e5bb71577b}{render}} ()
+\begin{DoxyCompactList}\small\item\em Ejecuta operaciones relacionadas con render. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_a37a4ea5842700e9c6addac6adca96df2}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Libera el recurso {\ttfamily ID3\+D11\+Device\+Context}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_a62e2b7216664523e5554a178e5081a75}{RSSet\+Viewports}} (unsigned int Num\+Viewports, const D3\+D11\+\_\+\+VIEWPORT \texorpdfstring{$\ast$}{*}p\+Viewports)
+\begin{DoxyCompactList}\small\item\em Configura los viewports en la etapa de rasterizaci?n. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_a2e91385834d851088e195aad0b931562}{PSSet\+Shader\+Resources}} (unsigned int Start\+Slot, unsigned int Num\+Views, ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}pp\+Shader\+Resource\+Views)
+\begin{DoxyCompactList}\small\item\em Asigna Shader Resource Views a la etapa de Pixel Shader. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_adcb770495dd18f0bbed89f4ed72503d0}{IASet\+Input\+Layout}} (ID3\+D11\+Input\+Layout \texorpdfstring{$\ast$}{*}p\+Input\+Layout)
+\begin{DoxyCompactList}\small\item\em Define el Input Layout activo en la etapa de ensamblado de entrada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_ab16a9e523a2abdbd17147f60cac2094b}{VSSet\+Shader}} (ID3\+D11\+Vertex\+Shader \texorpdfstring{$\ast$}{*}p\+Vertex\+Shader, ID3\+D11\+Class\+Instance \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}pp\+Class\+Instances, unsigned int Num\+Class\+Instances)
+\begin{DoxyCompactList}\small\item\em Asigna un Vertex Shader al pipeline. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_a7044d6587b9ba31432bae01494a40551}{PSSet\+Shader}} (ID3\+D11\+Pixel\+Shader \texorpdfstring{$\ast$}{*}p\+Pixel\+Shader, ID3\+D11\+Class\+Instance \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}pp\+Class\+Instances, unsigned int Num\+Class\+Instances)
+\begin{DoxyCompactList}\small\item\em Asigna un Pixel Shader al pipeline. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_aaf442b96d4250a16b6b96c34147c22b1}{Update\+Subresource}} (ID3\+D11\+Resource \texorpdfstring{$\ast$}{*}p\+Dst\+Resource, unsigned int Dst\+Subresource, const D3\+D11\+\_\+\+BOX \texorpdfstring{$\ast$}{*}p\+Dst\+Box, const void \texorpdfstring{$\ast$}{*}p\+Src\+Data, unsigned int Src\+Row\+Pitch, unsigned int Src\+Depth\+Pitch)
+\begin{DoxyCompactList}\small\item\em Copia datos desde CPU hacia un recurso en GPU. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_ab2ce34adaceafbd0836e0dcd1116a310}{IASet\+Vertex\+Buffers}} (unsigned int Start\+Slot, unsigned int Num\+Buffers, ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}pp\+Vertex\+Buffers, const unsigned int \texorpdfstring{$\ast$}{*}p\+Strides, const unsigned int \texorpdfstring{$\ast$}{*}p\+Offsets)
+\begin{DoxyCompactList}\small\item\em Asigna buffers de v?rtices a la etapa de ensamblado de entrada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_a8a6cb5e29d6c658668dc018d61a6c814}{IASet\+Index\+Buffer}} (ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*}p\+Index\+Buffer, DXGI\+\_\+\+FORMAT Format, unsigned int Offset)
+\begin{DoxyCompactList}\small\item\em Asigna un Index \doxylink{class_buffer}{Buffer} a la etapa de ensamblado de entrada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_abe6e14d1bd4a7642a172c6e5877a0b01}{PSSet\+Samplers}} (unsigned int Start\+Slot, unsigned int Num\+Samplers, ID3\+D11\+Sampler\+State \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}pp\+Samplers)
+\begin{DoxyCompactList}\small\item\em Asigna Sampler States a la etapa de Pixel Shader. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_a01073a8e0ec55e28b381917d2945f420}{RSSet\+State}} (ID3\+D11\+Rasterizer\+State \texorpdfstring{$\ast$}{*}p\+Rasterizer\+State)
+\begin{DoxyCompactList}\small\item\em Configura el \doxylink{class_rasterizer}{Rasterizer} State actual. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_a0ee89d927cdd0211b278ed89d87b9a3d}{OMSet\+Blend\+State}} (ID3\+D11\+Blend\+State \texorpdfstring{$\ast$}{*}p\+Blend\+State, const float Blend\+Factor\mbox{[}4\mbox{]}, unsigned int Sample\+Mask)
+\begin{DoxyCompactList}\small\item\em Asigna un Blend State al Output Merger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_a9f73f4e05b95b75e88693bd85846af49}{OMSet\+Render\+Targets}} (unsigned int Num\+Views, ID3\+D11\+Render\+Target\+View \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}pp\+Render\+Target\+Views, ID3\+D11\+Depth\+Stencil\+View \texorpdfstring{$\ast$}{*}p\+Depth\+Stencil\+View)
+\begin{DoxyCompactList}\small\item\em Asigna Render Targets y Depth Stencil al Output Merger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_a34a12888528cc1fe0aa2b1342708410c}{IASet\+Primitive\+Topology}} (D3\+D11\+\_\+\+PRIMITIVE\+\_\+\+TOPOLOGY Topology)
+\begin{DoxyCompactList}\small\item\em Define la topolog?a de primitivas a renderizar. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_ae958b30f70da60280025e9e364df2ef0}{Clear\+Render\+Target\+View}} (ID3\+D11\+Render\+Target\+View \texorpdfstring{$\ast$}{*}p\+Render\+Target\+View, const float Color\+RGBA\mbox{[}4\mbox{]})
+\begin{DoxyCompactList}\small\item\em Limpia un Render Target con un color dado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_a8fa7d9540b8986cb9e78b17b3248c820}{Clear\+Depth\+Stencil\+View}} (ID3\+D11\+Depth\+Stencil\+View \texorpdfstring{$\ast$}{*}p\+Depth\+Stencil\+View, unsigned int Clear\+Flags, float Depth, UINT8 Stencil)
+\begin{DoxyCompactList}\small\item\em Limpia un Depth Stencil View. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_a8385548e1ebacaaf827730e6d370e35b}{VSSet\+Constant\+Buffers}} (unsigned int Start\+Slot, unsigned int Num\+Buffers, ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}pp\+Constant\+Buffers)
+\begin{DoxyCompactList}\small\item\em Asigna constant buffers a la etapa de Vertex Shader. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_a5504695c11258d3815fa8a75bbc5dc0f}{PSSet\+Constant\+Buffers}} (unsigned int Start\+Slot, unsigned int Num\+Buffers, ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}pp\+Constant\+Buffers)
+\begin{DoxyCompactList}\small\item\em Asigna constant buffers a la etapa de Pixel Shader. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_device_context_a065f6780f8c3895b966bcc6a3a79827e}{Draw\+Indexed}} (unsigned int Index\+Count, unsigned int Start\+Index\+Location, int Base\+Vertex\+Location)
+\begin{DoxyCompactList}\small\item\em Env?a un comando de dibujado de primitivas indexadas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ID3\+D11\+Device\+Context \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_device_context_a74703e6c18ffefeb45937677ce734cb7}{m\+\_\+device\+Context}} = nullptr
+\begin{DoxyCompactList}\small\item\em Puntero al contexto inmediato de Direct3D 11. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_device_context_a8fa7d9540b8986cb9e78b17b3248c820}\index{DeviceContext@{DeviceContext}!ClearDepthStencilView@{ClearDepthStencilView}}
+\index{ClearDepthStencilView@{ClearDepthStencilView}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{ClearDepthStencilView()}{ClearDepthStencilView()}}
+{\footnotesize\ttfamily \label{class_device_context_a8fa7d9540b8986cb9e78b17b3248c820} 
+void Device\+Context\+::\+Clear\+Depth\+Stencil\+View (\begin{DoxyParamCaption}\item[{ID3\+D11\+Depth\+Stencil\+View \texorpdfstring{$\ast$}{*}}]{p\+Depth\+Stencil\+View}{, }\item[{unsigned int}]{Clear\+Flags}{, }\item[{float}]{Depth}{, }\item[{UINT8}]{Stencil}{}\end{DoxyParamCaption})}
+
+
+
+Limpia un Depth Stencil View. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Depth\+Stencil\+View} & Vista a limpiar. \\
+\hline
+{\em Clear\+Flags} & Flags de limpieza (D3\+D11\+\_\+\+CLEAR\+\_\+\+DEPTH / D3\+D11\+\_\+\+CLEAR\+\_\+\+STENCIL). \\
+\hline
+{\em Depth} & Valor de profundidad (0.\+0 -\/ 1.\+0). \\
+\hline
+{\em Stencil} & Valor de est?ncil. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_ae958b30f70da60280025e9e364df2ef0}\index{DeviceContext@{DeviceContext}!ClearRenderTargetView@{ClearRenderTargetView}}
+\index{ClearRenderTargetView@{ClearRenderTargetView}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{ClearRenderTargetView()}{ClearRenderTargetView()}}
+{\footnotesize\ttfamily \label{class_device_context_ae958b30f70da60280025e9e364df2ef0} 
+void Device\+Context\+::\+Clear\+Render\+Target\+View (\begin{DoxyParamCaption}\item[{ID3\+D11\+Render\+Target\+View \texorpdfstring{$\ast$}{*}}]{p\+Render\+Target\+View}{, }\item[{const float}]{Color\+RGBA}{\mbox{[}4\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+Limpia un Render Target con un color dado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Render\+Target\+View} & Render target a limpiar. \\
+\hline
+{\em Color\+RGBA} & Color en formato RGBA. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_a37a4ea5842700e9c6addac6adca96df2}\index{DeviceContext@{DeviceContext}!destroy@{destroy}}
+\index{destroy@{destroy}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{class_device_context_a37a4ea5842700e9c6addac6adca96df2} 
+void Device\+Context\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Libera el recurso {\ttfamily ID3\+D11\+Device\+Context}. 
+
+\begin{DoxyPostcond}{Postcondition}
+{\ttfamily m\+\_\+device\+Context} == nullptr. 
+\end{DoxyPostcond}
+\Hypertarget{class_device_context_a065f6780f8c3895b966bcc6a3a79827e}\index{DeviceContext@{DeviceContext}!DrawIndexed@{DrawIndexed}}
+\index{DrawIndexed@{DrawIndexed}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{DrawIndexed()}{DrawIndexed()}}
+{\footnotesize\ttfamily \label{class_device_context_a065f6780f8c3895b966bcc6a3a79827e} 
+void Device\+Context\+::\+Draw\+Indexed (\begin{DoxyParamCaption}\item[{unsigned int}]{Index\+Count}{, }\item[{unsigned int}]{Start\+Index\+Location}{, }\item[{int}]{Base\+Vertex\+Location}{}\end{DoxyParamCaption})}
+
+
+
+Env?a un comando de dibujado de primitivas indexadas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Index\+Count} & N?mero de ?ndices a renderizar. \\
+\hline
+{\em Start\+Index\+Location} & Posici?n inicial en el buffer de ?ndices. \\
+\hline
+{\em Base\+Vertex\+Location} & Offset aplicado a los v?rtices. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_a8a6cb5e29d6c658668dc018d61a6c814}\index{DeviceContext@{DeviceContext}!IASetIndexBuffer@{IASetIndexBuffer}}
+\index{IASetIndexBuffer@{IASetIndexBuffer}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{IASetIndexBuffer()}{IASetIndexBuffer()}}
+{\footnotesize\ttfamily \label{class_device_context_a8a6cb5e29d6c658668dc018d61a6c814} 
+void Device\+Context\+::\+IASet\+Index\+Buffer (\begin{DoxyParamCaption}\item[{ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*}}]{p\+Index\+Buffer}{, }\item[{DXGI\+\_\+\+FORMAT}]{Format}{, }\item[{unsigned int}]{Offset}{}\end{DoxyParamCaption})}
+
+
+
+Asigna un Index \doxylink{class_buffer}{Buffer} a la etapa de ensamblado de entrada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Index\+Buffer} & \doxylink{class_buffer}{Buffer} de ?ndices. \\
+\hline
+{\em Format} & Formato de ?ndice (ej. DXGI\+\_\+\+FORMAT\+\_\+\+R16\+\_\+\+UINT). \\
+\hline
+{\em Offset} & Offset inicial en bytes. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_adcb770495dd18f0bbed89f4ed72503d0}\index{DeviceContext@{DeviceContext}!IASetInputLayout@{IASetInputLayout}}
+\index{IASetInputLayout@{IASetInputLayout}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{IASetInputLayout()}{IASetInputLayout()}}
+{\footnotesize\ttfamily \label{class_device_context_adcb770495dd18f0bbed89f4ed72503d0} 
+void Device\+Context\+::\+IASet\+Input\+Layout (\begin{DoxyParamCaption}\item[{ID3\+D11\+Input\+Layout \texorpdfstring{$\ast$}{*}}]{p\+Input\+Layout}{}\end{DoxyParamCaption})}
+
+
+
+Define el Input Layout activo en la etapa de ensamblado de entrada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Input\+Layout} & Input layout a asignar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_a34a12888528cc1fe0aa2b1342708410c}\index{DeviceContext@{DeviceContext}!IASetPrimitiveTopology@{IASetPrimitiveTopology}}
+\index{IASetPrimitiveTopology@{IASetPrimitiveTopology}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{IASetPrimitiveTopology()}{IASetPrimitiveTopology()}}
+{\footnotesize\ttfamily \label{class_device_context_a34a12888528cc1fe0aa2b1342708410c} 
+void Device\+Context\+::\+IASet\+Primitive\+Topology (\begin{DoxyParamCaption}\item[{D3\+D11\+\_\+\+PRIMITIVE\+\_\+\+TOPOLOGY}]{Topology}{}\end{DoxyParamCaption})}
+
+
+
+Define la topolog?a de primitivas a renderizar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Topology} & Tipo de topolog?a (ej. D3\+D11\+\_\+\+PRIMITIVE\+\_\+\+TOPOLOGY\+\_\+\+TRIANGLELIST). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_ab2ce34adaceafbd0836e0dcd1116a310}\index{DeviceContext@{DeviceContext}!IASetVertexBuffers@{IASetVertexBuffers}}
+\index{IASetVertexBuffers@{IASetVertexBuffers}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{IASetVertexBuffers()}{IASetVertexBuffers()}}
+{\footnotesize\ttfamily \label{class_device_context_ab2ce34adaceafbd0836e0dcd1116a310} 
+void Device\+Context\+::\+IASet\+Vertex\+Buffers (\begin{DoxyParamCaption}\item[{unsigned int}]{Start\+Slot}{, }\item[{unsigned int}]{Num\+Buffers}{, }\item[{ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}}]{pp\+Vertex\+Buffers}{, }\item[{const unsigned int \texorpdfstring{$\ast$}{*}}]{p\+Strides}{, }\item[{const unsigned int \texorpdfstring{$\ast$}{*}}]{p\+Offsets}{}\end{DoxyParamCaption})}
+
+
+
+Asigna buffers de v?rtices a la etapa de ensamblado de entrada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Start\+Slot} & Slot inicial. \\
+\hline
+{\em Num\+Buffers} & N?mero de buffers. \\
+\hline
+{\em pp\+Vertex\+Buffers} & Arreglo de punteros a vertex buffers. \\
+\hline
+{\em p\+Strides} & Arreglo con tama?os de cada v?rtice. \\
+\hline
+{\em p\+Offsets} & Arreglo con offsets iniciales. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_a9bbeaf8534205198a8e2c36568a6f81f}\index{DeviceContext@{DeviceContext}!init@{init}}
+\index{init@{init}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_device_context_a9bbeaf8534205198a8e2c36568a6f81f} 
+void Device\+Context\+::init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa el contexto del dispositivo. 
+
+Este m?todo se utiliza como punto de inicializaci?n; la implementaci?n puede asociar el contexto inmediato creado junto con {\ttfamily ID3\+D11\+Device}. \Hypertarget{class_device_context_a0ee89d927cdd0211b278ed89d87b9a3d}\index{DeviceContext@{DeviceContext}!OMSetBlendState@{OMSetBlendState}}
+\index{OMSetBlendState@{OMSetBlendState}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{OMSetBlendState()}{OMSetBlendState()}}
+{\footnotesize\ttfamily \label{class_device_context_a0ee89d927cdd0211b278ed89d87b9a3d} 
+void Device\+Context\+::\+OMSet\+Blend\+State (\begin{DoxyParamCaption}\item[{ID3\+D11\+Blend\+State \texorpdfstring{$\ast$}{*}}]{p\+Blend\+State}{, }\item[{const float}]{Blend\+Factor}{\mbox{[}4\mbox{]}, }\item[{unsigned int}]{Sample\+Mask}{}\end{DoxyParamCaption})}
+
+
+
+Asigna un Blend State al Output Merger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Blend\+State} & Estado de blending. \\
+\hline
+{\em Blend\+Factor} & Factor de mezcla (RGBA). \\
+\hline
+{\em Sample\+Mask} & M?scara de muestras. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_a9f73f4e05b95b75e88693bd85846af49}\index{DeviceContext@{DeviceContext}!OMSetRenderTargets@{OMSetRenderTargets}}
+\index{OMSetRenderTargets@{OMSetRenderTargets}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{OMSetRenderTargets()}{OMSetRenderTargets()}}
+{\footnotesize\ttfamily \label{class_device_context_a9f73f4e05b95b75e88693bd85846af49} 
+void Device\+Context\+::\+OMSet\+Render\+Targets (\begin{DoxyParamCaption}\item[{unsigned int}]{Num\+Views}{, }\item[{ID3\+D11\+Render\+Target\+View \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}}]{pp\+Render\+Target\+Views}{, }\item[{ID3\+D11\+Depth\+Stencil\+View \texorpdfstring{$\ast$}{*}}]{p\+Depth\+Stencil\+View}{}\end{DoxyParamCaption})}
+
+
+
+Asigna Render Targets y Depth Stencil al Output Merger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Num\+Views} & N?mero de render targets. \\
+\hline
+{\em pp\+Render\+Target\+Views} & Arreglo de render target views. \\
+\hline
+{\em p\+Depth\+Stencil\+View} & Vista de profundidad/est?ncil. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_a5504695c11258d3815fa8a75bbc5dc0f}\index{DeviceContext@{DeviceContext}!PSSetConstantBuffers@{PSSetConstantBuffers}}
+\index{PSSetConstantBuffers@{PSSetConstantBuffers}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{PSSetConstantBuffers()}{PSSetConstantBuffers()}}
+{\footnotesize\ttfamily \label{class_device_context_a5504695c11258d3815fa8a75bbc5dc0f} 
+void Device\+Context\+::\+PSSet\+Constant\+Buffers (\begin{DoxyParamCaption}\item[{unsigned int}]{Start\+Slot}{, }\item[{unsigned int}]{Num\+Buffers}{, }\item[{ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}}]{pp\+Constant\+Buffers}{}\end{DoxyParamCaption})}
+
+
+
+Asigna constant buffers a la etapa de Pixel Shader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Start\+Slot} & Slot inicial. \\
+\hline
+{\em Num\+Buffers} & N?mero de buffers. \\
+\hline
+{\em pp\+Constant\+Buffers} & Arreglo de constant buffers. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_abe6e14d1bd4a7642a172c6e5877a0b01}\index{DeviceContext@{DeviceContext}!PSSetSamplers@{PSSetSamplers}}
+\index{PSSetSamplers@{PSSetSamplers}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{PSSetSamplers()}{PSSetSamplers()}}
+{\footnotesize\ttfamily \label{class_device_context_abe6e14d1bd4a7642a172c6e5877a0b01} 
+void Device\+Context\+::\+PSSet\+Samplers (\begin{DoxyParamCaption}\item[{unsigned int}]{Start\+Slot}{, }\item[{unsigned int}]{Num\+Samplers}{, }\item[{ID3\+D11\+Sampler\+State \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}}]{pp\+Samplers}{}\end{DoxyParamCaption})}
+
+
+
+Asigna Sampler States a la etapa de Pixel Shader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Start\+Slot} & Slot inicial. \\
+\hline
+{\em Num\+Samplers} & N?mero de samplers. \\
+\hline
+{\em pp\+Samplers} & Arreglo de sampler states. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_a7044d6587b9ba31432bae01494a40551}\index{DeviceContext@{DeviceContext}!PSSetShader@{PSSetShader}}
+\index{PSSetShader@{PSSetShader}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{PSSetShader()}{PSSetShader()}}
+{\footnotesize\ttfamily \label{class_device_context_a7044d6587b9ba31432bae01494a40551} 
+void Device\+Context\+::\+PSSet\+Shader (\begin{DoxyParamCaption}\item[{ID3\+D11\+Pixel\+Shader \texorpdfstring{$\ast$}{*}}]{p\+Pixel\+Shader}{, }\item[{ID3\+D11\+Class\+Instance \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}}]{pp\+Class\+Instances}{, }\item[{unsigned int}]{Num\+Class\+Instances}{}\end{DoxyParamCaption})}
+
+
+
+Asigna un Pixel Shader al pipeline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Pixel\+Shader} & Puntero al pixel shader. \\
+\hline
+{\em pp\+Class\+Instances} & Instancias de clase (opcional). \\
+\hline
+{\em Num\+Class\+Instances} & N?mero de instancias de clase. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_a2e91385834d851088e195aad0b931562}\index{DeviceContext@{DeviceContext}!PSSetShaderResources@{PSSetShaderResources}}
+\index{PSSetShaderResources@{PSSetShaderResources}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{PSSetShaderResources()}{PSSetShaderResources()}}
+{\footnotesize\ttfamily \label{class_device_context_a2e91385834d851088e195aad0b931562} 
+void Device\+Context\+::\+PSSet\+Shader\+Resources (\begin{DoxyParamCaption}\item[{unsigned int}]{Start\+Slot}{, }\item[{unsigned int}]{Num\+Views}{, }\item[{ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}}]{pp\+Shader\+Resource\+Views}{}\end{DoxyParamCaption})}
+
+
+
+Asigna Shader Resource Views a la etapa de Pixel Shader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Start\+Slot} & Slot inicial. \\
+\hline
+{\em Num\+Views} & N?mero de vistas a asignar. \\
+\hline
+{\em pp\+Shader\+Resource\+Views} & Arreglo de vistas de recurso de shader. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_af51569641f4df1f98e78d4e5bb71577b}\index{DeviceContext@{DeviceContext}!render@{render}}
+\index{render@{render}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_device_context_af51569641f4df1f98e78d4e5bb71577b} 
+void Device\+Context\+::render (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Ejecuta operaciones relacionadas con render. 
+
+\begin{DoxyNote}{Note}
+M?todo placeholder; puede ser usado para depuraci?n. 
+\end{DoxyNote}
+\Hypertarget{class_device_context_a01073a8e0ec55e28b381917d2945f420}\index{DeviceContext@{DeviceContext}!RSSetState@{RSSetState}}
+\index{RSSetState@{RSSetState}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{RSSetState()}{RSSetState()}}
+{\footnotesize\ttfamily \label{class_device_context_a01073a8e0ec55e28b381917d2945f420} 
+void Device\+Context\+::\+RSSet\+State (\begin{DoxyParamCaption}\item[{ID3\+D11\+Rasterizer\+State \texorpdfstring{$\ast$}{*}}]{p\+Rasterizer\+State}{}\end{DoxyParamCaption})}
+
+
+
+Configura el \doxylink{class_rasterizer}{Rasterizer} State actual. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Rasterizer\+State} & Estado de rasterizaci?n. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_a62e2b7216664523e5554a178e5081a75}\index{DeviceContext@{DeviceContext}!RSSetViewports@{RSSetViewports}}
+\index{RSSetViewports@{RSSetViewports}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{RSSetViewports()}{RSSetViewports()}}
+{\footnotesize\ttfamily \label{class_device_context_a62e2b7216664523e5554a178e5081a75} 
+void Device\+Context\+::\+RSSet\+Viewports (\begin{DoxyParamCaption}\item[{unsigned int}]{Num\+Viewports}{, }\item[{const D3\+D11\+\_\+\+VIEWPORT \texorpdfstring{$\ast$}{*}}]{p\+Viewports}{}\end{DoxyParamCaption})}
+
+
+
+Configura los viewports en la etapa de rasterizaci?n. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Num\+Viewports} & N?mero de viewports. \\
+\hline
+{\em p\+Viewports} & Puntero a un arreglo de descriptores de viewport. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_a6d08e8ddde4580145c5556b2b375e2f0}\index{DeviceContext@{DeviceContext}!update@{update}}
+\index{update@{update}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_device_context_a6d08e8ddde4580145c5556b2b375e2f0} 
+void Device\+Context\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Actualiza par?metros internos del contexto. 
+
+\begin{DoxyNote}{Note}
+M?todo placeholder, ?til para extender funcionalidades. 
+\end{DoxyNote}
+\Hypertarget{class_device_context_aaf442b96d4250a16b6b96c34147c22b1}\index{DeviceContext@{DeviceContext}!UpdateSubresource@{UpdateSubresource}}
+\index{UpdateSubresource@{UpdateSubresource}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{UpdateSubresource()}{UpdateSubresource()}}
+{\footnotesize\ttfamily \label{class_device_context_aaf442b96d4250a16b6b96c34147c22b1} 
+void Device\+Context\+::\+Update\+Subresource (\begin{DoxyParamCaption}\item[{ID3\+D11\+Resource \texorpdfstring{$\ast$}{*}}]{p\+Dst\+Resource}{, }\item[{unsigned int}]{Dst\+Subresource}{, }\item[{const D3\+D11\+\_\+\+BOX \texorpdfstring{$\ast$}{*}}]{p\+Dst\+Box}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{p\+Src\+Data}{, }\item[{unsigned int}]{Src\+Row\+Pitch}{, }\item[{unsigned int}]{Src\+Depth\+Pitch}{}\end{DoxyParamCaption})}
+
+
+
+Copia datos desde CPU hacia un recurso en GPU. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Dst\+Resource} & Recurso destino. \\
+\hline
+{\em Dst\+Subresource} & ?ndice de subrecurso. \\
+\hline
+{\em p\+Dst\+Box} & Regi?n destino (puede ser nullptr). \\
+\hline
+{\em p\+Src\+Data} & Datos fuente. \\
+\hline
+{\em Src\+Row\+Pitch} & Tama?o por fila. \\
+\hline
+{\em Src\+Depth\+Pitch} & Tama?o por capa de profundidad. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_a8385548e1ebacaaf827730e6d370e35b}\index{DeviceContext@{DeviceContext}!VSSetConstantBuffers@{VSSetConstantBuffers}}
+\index{VSSetConstantBuffers@{VSSetConstantBuffers}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{VSSetConstantBuffers()}{VSSetConstantBuffers()}}
+{\footnotesize\ttfamily \label{class_device_context_a8385548e1ebacaaf827730e6d370e35b} 
+void Device\+Context\+::\+VSSet\+Constant\+Buffers (\begin{DoxyParamCaption}\item[{unsigned int}]{Start\+Slot}{, }\item[{unsigned int}]{Num\+Buffers}{, }\item[{ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}}]{pp\+Constant\+Buffers}{}\end{DoxyParamCaption})}
+
+
+
+Asigna constant buffers a la etapa de Vertex Shader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Start\+Slot} & Slot inicial. \\
+\hline
+{\em Num\+Buffers} & N?mero de buffers. \\
+\hline
+{\em pp\+Constant\+Buffers} & Arreglo de constant buffers. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_device_context_ab16a9e523a2abdbd17147f60cac2094b}\index{DeviceContext@{DeviceContext}!VSSetShader@{VSSetShader}}
+\index{VSSetShader@{VSSetShader}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{VSSetShader()}{VSSetShader()}}
+{\footnotesize\ttfamily \label{class_device_context_ab16a9e523a2abdbd17147f60cac2094b} 
+void Device\+Context\+::\+VSSet\+Shader (\begin{DoxyParamCaption}\item[{ID3\+D11\+Vertex\+Shader \texorpdfstring{$\ast$}{*}}]{p\+Vertex\+Shader}{, }\item[{ID3\+D11\+Class\+Instance \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}}]{pp\+Class\+Instances}{, }\item[{unsigned int}]{Num\+Class\+Instances}{}\end{DoxyParamCaption})}
+
+
+
+Asigna un Vertex Shader al pipeline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Vertex\+Shader} & Puntero al vertex shader. \\
+\hline
+{\em pp\+Class\+Instances} & Instancias de clase (opcional). \\
+\hline
+{\em Num\+Class\+Instances} & N?mero de instancias de clase. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_device_context_a74703e6c18ffefeb45937677ce734cb7}\index{DeviceContext@{DeviceContext}!m\_deviceContext@{m\_deviceContext}}
+\index{m\_deviceContext@{m\_deviceContext}!DeviceContext@{DeviceContext}}
+\doxysubsubsection{\texorpdfstring{m\_deviceContext}{m\_deviceContext}}
+{\footnotesize\ttfamily \label{class_device_context_a74703e6c18ffefeb45937677ce734cb7} 
+ID3\+D11\+Device\+Context\texorpdfstring{$\ast$}{*} Device\+Context\+::m\+\_\+device\+Context = nullptr}
+
+
+
+Puntero al contexto inmediato de Direct3D 11. 
+
+V?lido tras \doxylink{class_device_context_a9bbeaf8534205198a8e2c36568a6f81f}{init()}; liberado en \doxylink{class_device_context_a37a4ea5842700e9c6addac6adca96df2}{destroy()}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_device_context_8h}{Device\+Context.\+h}}\item 
+source/Device\+Context.\+cpp\end{DoxyCompactItemize}

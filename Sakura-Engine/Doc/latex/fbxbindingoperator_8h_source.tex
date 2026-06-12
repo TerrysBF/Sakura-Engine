@@ -1,0 +1,528 @@
+\doxysection{fbxbindingoperator.\+h}
+\hypertarget{fbxbindingoperator_8h_source}{}\label{fbxbindingoperator_8h_source}\index{include/fbx/fbxsdk/scene/shading/fbxbindingoperator.h@{include/fbx/fbxsdk/scene/shading/fbxbindingoperator.h}}
+\mbox{\hyperlink{fbxbindingoperator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_SHADING\_BINDING\_OPERATOR\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_SHADING\_BINDING\_OPERATOR\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxbindingtablebase_8h}{fbxsdk/scene/shading/fbxbindingtablebase.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_table_base}{FbxBindingTableBase}}}
+\DoxyCodeLine{00050\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}},\ \mbox{\hyperlink{class_fbx_binding_table_base}{FbxBindingTableBase}});}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ FBXTYPE>}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_binding_operator_a1487485be07b04ef755f8831912d2709}{Evaluate}}(\textcolor{keyword}{const}\ FbxObject*\ pObject,\ FBXTYPE*\ pResult)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00061\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ lResultType;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ lResult\ =\ NULL;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lSuccess\ =\ \mbox{\hyperlink{class_fbx_binding_operator_a1487485be07b04ef755f8831912d2709}{Evaluate}}(pObject,\ \&lResultType,\ \&lResult);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lSuccess)}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ FbxTypeCopy(*pResult,\ lResult,\ lResultType);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ FreeEvaluationResult(lResultType,\ lResult);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lSuccess;}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ FBXTYPE>}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_binding_operator_ac7e93e46c1aea6fa49dca09d3f2df342}{ReverseEvaluation}}(\textcolor{keyword}{const}\ FbxObject*\ pObject,\ FBXTYPE\ *\ pInOut,\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ setObj=\textcolor{keyword}{false},\ \textcolor{keywordtype}{int}\ index=0)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00088\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ lIn\ =\ pInOut;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ lOut\ =\ NULL;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ lOutType;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lSuccess\ =\ ReverseEvaluate(pObject,\ lIn,\ \&lOut,\ \&lOutType,\ setObj,\ index);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lSuccess)}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ FbxTypeCopy(*pInOut,\ lOut,\ lOutType);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ FreeEvaluationResult(lOutType,\ lOut);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lSuccess;}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ FBXTYPE>}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_binding_operator_ab649606ddda104b1ab6b329fde618654}{EvaluateEntry}}(\textcolor{keyword}{const}\ FbxObject*\ pObject,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pEntryDestinationName,\ FBXTYPE*\ pResult)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00121\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ lResultType;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ lResult\ =\ NULL;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lSuccess\ =\ \mbox{\hyperlink{class_fbx_binding_operator_ab649606ddda104b1ab6b329fde618654}{EvaluateEntry}}(pObject,\ pEntryDestinationName,\ \&lResultType,\ \&lResult);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lSuccess)}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ FbxTypeCopy(*pResult,\ lResult,\ lResultType);}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ FreeEvaluationResult(lResultType,\ lResult);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lSuccess;}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxString>}}\ \mbox{\hyperlink{class_fbx_binding_operator_a2dba5cfe05b72b6a46b2195872a93005}{FunctionName}};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxString>}}\ \mbox{\hyperlink{class_fbx_binding_operator_a6c1e84a9019ff0fa80424439fa745ee1}{TargetName}};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{comment}{//\ Static\ values}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_binding_operator_ac905ce728f7bfb5bd7becf78af8a5c4d}{sFunctionName}};}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_binding_operator_ac53f7653f20364486e319b64b275ed4b}{sTargetName}};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_binding_operator_aea467026528b679f7a8edc9862895f63}{sDefaultFunctionName}};}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_binding_operator_adba0167e90625ae94b159146b5e13b13}{sDefaultTargetName}};}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{comment}{//\ Functions}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ RegisterFunctions();}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ UnregisterFunctions();}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{Function}}}
+\DoxyCodeLine{00184\ \ \ \ \ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_a87c75b7d2a19945c11161104691294c9}{\string~Function}}()\ \{\}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_aa238a63d12508db3cb5c00a4b157524e}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ FbxObject*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_a9bbeec993a6e453a6569e7f40a85fd52}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ FbxObject*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00211\ \ \ \ \ \};}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_creator_base}{FunctionCreatorBase}}}
+\DoxyCodeLine{00217\ \ \ \ \ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_creator_base_af1836555f0af15087801bcd0ca25e977}{\string~FunctionCreatorBase}}()\ \{\}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_creator_base_a0887234efda738427c3e0ca7c9128262}{GetFunctionName}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{Function}}*\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_creator_base_ae7e67efccfe2920e1f0bc72f4e6a0a84}{CreateFunction}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00230\ \ \ \ \ \};}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ FUNCTION>}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_binding_operator_1_1_function_creator}{FunctionCreator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_creator_base}{FunctionCreatorBase}}}
+\DoxyCodeLine{00237\ \ \ \ \ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_creator_ad9d330eb92b863bd283f377a623d853e}{GetFunctionName}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00244\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FUNCTION::FunctionName;}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{Function}}*\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_creator_a10071ddf796cf8f02344632ece9bbbff}{CreateFunction}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00251\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FbxNew<\ FUNCTION\ >();}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00254\ \ \ \ \ \};}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_registry}{FunctionRegistry}}}
+\DoxyCodeLine{00260\ \ \ \ \ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_registry_a5ecec300a953a369fb892a46a362e384}{RegisterFunctionCreator}}(\mbox{\hyperlink{class_fbx_binding_operator_1_1_function_creator_base}{FunctionCreatorBase}}\ \textcolor{keyword}{const}\&\ pCreator)}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ sRegistry.Insert(pCreator.\mbox{\hyperlink{class_fbx_binding_operator_1_1_function_creator_base_a0887234efda738427c3e0ca7c9128262}{GetFunctionName}}(),\ \&pCreator);}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_registry_a8395c776992e40df9639032984dcc094}{UnregisterFunctionCreator}}(\mbox{\hyperlink{class_fbx_binding_operator_1_1_function_creator_base}{FunctionCreatorBase}}\ \textcolor{keyword}{const}\&\ pCreator)}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ sRegistry.Remove(pCreator.\mbox{\hyperlink{class_fbx_binding_operator_1_1_function_creator_base_a0887234efda738427c3e0ca7c9128262}{GetFunctionName}}());}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_creator_base}{FunctionCreatorBase}}*\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_registry_a2b46c4a0f61211a84e78e0875d71ff19}{FindCreator}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName)}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ RegistryType::RecordType*\ lRecord\ =\ sRegistry.Find(pName);}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lRecord)}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lRecord-\/>GetValue();}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_map}{FbxMap<const\ char*,\ const\ FunctionCreatorBase*,\ FbxCharPtrCompare>}}\ RegistryType;}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ RegistryType\ sRegistry;}
+\DoxyCodeLine{00298\ \ \ \ \ \};}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00302\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00303\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keywordtype}{bool}\ EvaluateEntry(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pEntryDestinationName,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetEntryProperty(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pEntryDestinationName,\ \mbox{\hyperlink{class_fbx_property}{FbxProperty}}\ \&\ pProp)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_binding_operator_ace47470dae43ff39fda049c3a01f654b}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_binding_operator_af6f89778c4d2391335dc222cd40a899c}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_binding_operator_a49bb28d6669ac2fec2cd64dbb6d8ceb8}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordtype}{void}\ InstantiateFunction();}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_binding_operator_a1487485be07b04ef755f8831912d2709}{Evaluate}}(\textcolor{keyword}{const}\ FbxObject*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReverseEvaluate(\textcolor{keyword}{const}\ FbxObject*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keywordtype}{void}\ FreeEvaluationResult(\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pResultType,\ \textcolor{keywordtype}{void}*\ pResult)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \ \ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{Function}}*\ mFunction;}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00320\ \};}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00326\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxNodePositionBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00327\ \{}
+\DoxyCodeLine{00328\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_node_position_b_o_f_aaa0c4610384d1dbb4e566bad44c356ee}{FunctionName}};}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_node_position_b_o_f_a4c13773dd197bddedcfdee90d3dfd9f2}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00342\ \ \ \ \ }
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_node_position_b_o_f_a26a0cb3846aa49334418cd84db1ab162}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00347\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00348\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00349\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00350\ \ \ \ \ FbxNodePositionBOF();}
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxNodePositionBOF();}
+\DoxyCodeLine{00352\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00353\ \};}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00358\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxNodeDirectionBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00359\ \{}
+\DoxyCodeLine{00360\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_node_direction_b_o_f_a653e830c1b1480a48f55cd980fe54f91}{FunctionName}};}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_node_direction_b_o_f_a62c47929d6ef31dd64b2f8830417b25b}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00374\ \ \ \ \ }
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_node_direction_b_o_f_a1f31d17a7d1ebc20c49d019f9f1dfff2}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00379\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00380\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00381\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00382\ \ \ \ \ FbxNodeDirectionBOF();}
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxNodeDirectionBOF();}
+\DoxyCodeLine{00384\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00385\ \};}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00389\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxAssignBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00390\ \{}
+\DoxyCodeLine{00391\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_assign_b_o_f_a65ac910c4b20983717f7556ae8ee7a27}{FunctionName}};}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_assign_b_o_f_a6b2d96e93fd44190399779e36277c1bf}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00402\ \ \ \ \ }
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_assign_b_o_f_aae12e1bb26166060efe6e179991df941}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00407\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00408\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00409\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00410\ \ \ \ \ FbxAssignBOF();}
+\DoxyCodeLine{00411\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxAssignBOF();}
+\DoxyCodeLine{00412\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00413\ \};}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00419\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxConditionalBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00420\ \{}
+\DoxyCodeLine{00421\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00423\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_conditional_b_o_f_ac0653f2120f3d07ea7c308611b9f2bbc}{FunctionName}};}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_conditional_b_o_f_a2f308b29d7f9137872e5b397091c3afb}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00439\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_conditional_b_o_f_afacfd85ba732eea8f30dc92dbde276c2}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00442\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00443\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00444\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00445\ \ \ \ \ FbxConditionalBOF();}
+\DoxyCodeLine{00446\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxConditionalBOF();}
+\DoxyCodeLine{00447\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00448\ \};}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ }
+\DoxyCodeLine{00454\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxSwitchBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00455\ \{}
+\DoxyCodeLine{00456\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00458\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_switch_b_o_f_a5d39c1526096c35b43cb93759270df40}{FunctionName}};}
+\DoxyCodeLine{00459\ }
+\DoxyCodeLine{00473\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_switch_b_o_f_a0209cb9d0d28e22c7e405a7658d00234}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00474\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_switch_b_o_f_a3fb331467c87cf6c5d01377766660ac0}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00475\ }
+\DoxyCodeLine{00476\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00477\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00478\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00479\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00480\ \ \ \ \ FbxSwitchBOF();}
+\DoxyCodeLine{00481\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxSwitchBOF();}
+\DoxyCodeLine{00482\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00483\ \};}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00486\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxTRSToMatrixBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00487\ \{}
+\DoxyCodeLine{00488\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00490\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_t_r_s_to_matrix_b_o_f_a91c277c5be0b7fef6081446541badd1a}{FunctionName}};}
+\DoxyCodeLine{00491\ }
+\DoxyCodeLine{00501\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_t_r_s_to_matrix_b_o_f_ab420b015ccb5dcb0baa9a0d01d50b7f3}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00502\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_t_r_s_to_matrix_b_o_f_a729c3bb9b6529d620e6f06956ea8e4de}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00504\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00505\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00506\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00507\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00508\ \ \ \ \ FbxTRSToMatrixBOF();}
+\DoxyCodeLine{00509\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxTRSToMatrixBOF();}
+\DoxyCodeLine{00510\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00511\ \};}
+\DoxyCodeLine{00512\ }
+\DoxyCodeLine{00513\ }
+\DoxyCodeLine{00514\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxAddBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00515\ \{}
+\DoxyCodeLine{00516\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00518\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_add_b_o_f_a2929c676c1a89849156895fbe579fd4e}{FunctionName}};}
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00529\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_add_b_o_f_a442e11ea20fa24796f67475f9c3b838d}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00530\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_add_b_o_f_a6bb22946b71dad11158e9066448513e9}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00531\ }
+\DoxyCodeLine{00532\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00533\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00534\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00535\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00536\ \ \ \ \ FbxAddBOF();}
+\DoxyCodeLine{00537\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxAddBOF();}
+\DoxyCodeLine{00538\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00539\ \};}
+\DoxyCodeLine{00540\ }
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00542\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxSubstractBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00543\ \{}
+\DoxyCodeLine{00544\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00546\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_substract_b_o_f_a9fc179455ff9204e58db8670b51c44b2}{FunctionName}};}
+\DoxyCodeLine{00547\ }
+\DoxyCodeLine{00557\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_substract_b_o_f_a6ea2ab8ef548329c6761b836611e85e8}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00558\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_substract_b_o_f_ab3da7ccd5c672922ee97a94d04b93776}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00559\ \ \ \ \ }
+\DoxyCodeLine{00560\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00561\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00562\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00563\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00564\ \ \ \ \ FbxSubstractBOF();}
+\DoxyCodeLine{00565\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxSubstractBOF();}
+\DoxyCodeLine{00566\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00567\ \};}
+\DoxyCodeLine{00568\ }
+\DoxyCodeLine{00569\ }
+\DoxyCodeLine{00570\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxMultiplyBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00571\ \{}
+\DoxyCodeLine{00572\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00574\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_multiply_b_o_f_aac9bacaab22a2dcd18c16b703892d35b}{FunctionName}};}
+\DoxyCodeLine{00575\ }
+\DoxyCodeLine{00585\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_multiply_b_o_f_ae7d0d1eb4ddb0bfb7f8c61f86d1466bc}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00586\ \ \ \ \ \textcolor{comment}{//Set\ index\ to\ 1\ to\ get\ realWorldScale.\ \ }}
+\DoxyCodeLine{00587\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_multiply_b_o_f_a0b750f14da51ff275e3d60324a72cb7e}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00588\ \ \ \ \ }
+\DoxyCodeLine{00589\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00590\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00591\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00592\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00593\ \ \ \ \ FbxMultiplyBOF();}
+\DoxyCodeLine{00594\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxMultiplyBOF();}
+\DoxyCodeLine{00595\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00596\ \};}
+\DoxyCodeLine{00597\ }
+\DoxyCodeLine{00598\ }
+\DoxyCodeLine{00599\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxMultiplyDistBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00600\ \{}
+\DoxyCodeLine{00601\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00603\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_multiply_dist_b_o_f_a94b148cde29c7d50de35d8da207ecf6a}{FunctionName}};}
+\DoxyCodeLine{00604\ }
+\DoxyCodeLine{00614\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_multiply_dist_b_o_f_a3b2a4baca7601d218c5e0a4c5a793cfc}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00615\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_multiply_dist_b_o_f_a5c05ec033359b09b856330d647fafe65}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00616\ \ \ \ \ }
+\DoxyCodeLine{00617\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00618\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00619\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00620\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00621\ \ \ \ \ FbxMultiplyDistBOF();}
+\DoxyCodeLine{00622\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxMultiplyDistBOF();}
+\DoxyCodeLine{00623\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00624\ \};}
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00626\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxOneOverXBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00627\ \{}
+\DoxyCodeLine{00628\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00630\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_one_over_x_b_o_f_a17b7276cdb45a9c396edc78b33a6a9c7}{FunctionName}};}
+\DoxyCodeLine{00631\ }
+\DoxyCodeLine{00641\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_one_over_x_b_o_f_a27bb239389b78f967170815cd04f970b}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00642\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_one_over_x_b_o_f_ab612faf17743e37368ec1fdaf5138136}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00643\ }
+\DoxyCodeLine{00644\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00645\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00646\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00647\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00648\ \ \ \ \ FbxOneOverXBOF();}
+\DoxyCodeLine{00649\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxOneOverXBOF();}
+\DoxyCodeLine{00650\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00651\ \};}
+\DoxyCodeLine{00652\ }
+\DoxyCodeLine{00653\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxPowerBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00654\ \{}
+\DoxyCodeLine{00655\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00657\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_power_b_o_f_a1201076a74abe5321aeafafcd4b65f63}{FunctionName}};}
+\DoxyCodeLine{00658\ }
+\DoxyCodeLine{00668\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_power_b_o_f_add3ce0af3013bdbe4b45912cc1a8fc5b}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00669\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_power_b_o_f_a59eeb1d7053cbdbd582c3c320e4eb9fe}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00670\ }
+\DoxyCodeLine{00671\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00672\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00673\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00674\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00675\ \ \ \ \ FbxPowerBOF();}
+\DoxyCodeLine{00676\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxPowerBOF();}
+\DoxyCodeLine{00677\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00678\ \};}
+\DoxyCodeLine{00679\ }
+\DoxyCodeLine{00680\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxDegreeToRadianBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00681\ \{}
+\DoxyCodeLine{00682\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00684\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_degree_to_radian_b_o_f_a5a082cbbb422d50fdc37dabab272caba}{FunctionName}};}
+\DoxyCodeLine{00685\ }
+\DoxyCodeLine{00695\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_degree_to_radian_b_o_f_a6b7c0af7521d1b8d231d2385edc9bdf5}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00696\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_degree_to_radian_b_o_f_ad2eb6fcbbfb31f68f5c00f0becf7de2a}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00697\ \ \ \ \ }
+\DoxyCodeLine{00698\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00699\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00700\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00701\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00702\ \ \ \ \ FbxDegreeToRadianBOF();}
+\DoxyCodeLine{00703\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxDegreeToRadianBOF();}
+\DoxyCodeLine{00704\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00705\ \};}
+\DoxyCodeLine{00706\ }
+\DoxyCodeLine{00707\ }
+\DoxyCodeLine{00708\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxVectorDegreeToVectorRadianBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00709\ \{}
+\DoxyCodeLine{00710\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00712\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_vector_degree_to_vector_radian_b_o_f_a69dbcc81c0c6b15cd9906886b3266481}{FunctionName}};}
+\DoxyCodeLine{00713\ }
+\DoxyCodeLine{00723\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_vector_degree_to_vector_radian_b_o_f_a321d77a7afd21bdf6a36da72f651cb03}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00724\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_vector_degree_to_vector_radian_b_o_f_a30608af3832d339589be2edfb29623fa}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00725\ \ \ \ \ }
+\DoxyCodeLine{00726\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00727\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00728\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00729\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00730\ \ \ \ \ FbxVectorDegreeToVectorRadianBOF();}
+\DoxyCodeLine{00731\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxVectorDegreeToVectorRadianBOF();}
+\DoxyCodeLine{00732\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00733\ \};}
+\DoxyCodeLine{00734\ }
+\DoxyCodeLine{00735\ }
+\DoxyCodeLine{00736\ }
+\DoxyCodeLine{00737\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxSphericalToCartesianBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00738\ \{}
+\DoxyCodeLine{00739\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00741\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_spherical_to_cartesian_b_o_f_a17f65fd82d7c31f9233ea2871cc732ad}{FunctionName}};}
+\DoxyCodeLine{00742\ }
+\DoxyCodeLine{00752\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_spherical_to_cartesian_b_o_f_a0cc65167ca6c0d09994236790883e99f}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00753\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_spherical_to_cartesian_b_o_f_a5c01c9af323491de93d5df25dc89e321}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00754\ \ \ \ \ }
+\DoxyCodeLine{00755\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00756\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00757\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00758\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00759\ \ \ \ \ FbxSphericalToCartesianBOF();}
+\DoxyCodeLine{00760\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxSphericalToCartesianBOF();}
+\DoxyCodeLine{00761\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00762\ \};}
+\DoxyCodeLine{00763\ }
+\DoxyCodeLine{00764\ }
+\DoxyCodeLine{00765\ }
+\DoxyCodeLine{00766\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxIsYupBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00767\ \{}
+\DoxyCodeLine{00768\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00770\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_is_yup_b_o_f_a0db8ffbc3f9941561f19ad457493f917}{FunctionName}};}
+\DoxyCodeLine{00771\ }
+\DoxyCodeLine{00781\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_is_yup_b_o_f_a00b09f99e727a45e6434b419a692ade6}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00782\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_is_yup_b_o_f_a1c45c8d392965ae9239a4c5239ab8c13}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00783\ \ \ \ \ }
+\DoxyCodeLine{00784\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00785\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00786\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00787\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00788\ \ \ \ \ FbxIsYupBOF();}
+\DoxyCodeLine{00789\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxIsYupBOF();}
+\DoxyCodeLine{00790\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00791\ \};}
+\DoxyCodeLine{00792\ }
+\DoxyCodeLine{00793\ }
+\DoxyCodeLine{00794\ }
+\DoxyCodeLine{00798\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxSymbolIDBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00799\ \{}
+\DoxyCodeLine{00800\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00802\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_symbol_i_d_b_o_f_a7f5ac03e2e8bb5358dff19973afee349}{FunctionName}};}
+\DoxyCodeLine{00803\ }
+\DoxyCodeLine{00812\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_symbol_i_d_b_o_f_aad30e0b9e9a8de12a2e9292c51bb3b7a}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00813\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_symbol_i_d_b_o_f_a6afdd41a386c89d208b30020df58ce12}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00814\ \ \ \ \ }
+\DoxyCodeLine{00815\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00816\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00817\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00818\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00819\ \ \ \ \ FbxSymbolIDBOF();}
+\DoxyCodeLine{00820\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxSymbolIDBOF();}
+\DoxyCodeLine{00821\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00822\ \};}
+\DoxyCodeLine{00823\ }
+\DoxyCodeLine{00824\ }
+\DoxyCodeLine{00828\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxSpotDistributionChooserBOF\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_binding_operator_1_1_function}{FbxBindingOperator::Function}}}
+\DoxyCodeLine{00829\ \{}
+\DoxyCodeLine{00830\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00832\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_spot_distribution_chooser_b_o_f_a593bafa23828b4991ad09ac5f0540304}{FunctionName}};}
+\DoxyCodeLine{00833\ }
+\DoxyCodeLine{00843\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_spot_distribution_chooser_b_o_f_a1a70a0ddfe289638097e4b987639d485}{Evaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pResultType,\ \textcolor{keywordtype}{void}**\ pResult)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00844\ \ \ \ \ }
+\DoxyCodeLine{00846\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_spot_distribution_chooser_b_o_f_a4c45747ba46765e71480d0663b5da510}{ReverseEvaluate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ pOperator,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTarget,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pIn,\ \textcolor{keywordtype}{void}**\ pOut,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}*\ pOutType,\ \textcolor{keywordtype}{bool}\ setObj,\ \textcolor{keywordtype}{int}\ index)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00847\ \ \ \ \ }
+\DoxyCodeLine{00848\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00849\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00850\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00851\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00852\ \ \ \ \ FbxSpotDistributionChooserBOF();}
+\DoxyCodeLine{00853\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxSpotDistributionChooserBOF();}
+\DoxyCodeLine{00854\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00855\ \};}
+\DoxyCodeLine{00856\ }
+\DoxyCodeLine{00857\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00858\ }
+\DoxyCodeLine{00859\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_SHADING\_BINDING\_OPERATOR\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

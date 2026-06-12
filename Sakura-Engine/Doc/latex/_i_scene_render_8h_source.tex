@@ -1,0 +1,74 @@
+\doxysection{IScene\+Render.\+h}
+\hypertarget{_i_scene_render_8h_source}{}\label{_i_scene_render_8h_source}\index{include/Rendering/ISceneRender.h@{include/Rendering/ISceneRender.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device}{Device}};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_camera}{Camera}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_render_scene}{RenderScene}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_editor_viewport_pass}{EditorViewportPass}};}
+\DoxyCodeLine{00013\ \textcolor{comment}{//class\ Texture;}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{enum\ class}}
+\DoxyCodeLine{00020\ \ \ RenderType\ \{}
+\DoxyCodeLine{00021\ \ \ Forward\ =\ 0,}
+\DoxyCodeLine{00022\ \ \ Deferred\ =\ 1}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{class_i_scene_renderer}{ISceneRenderer}}\ \{}
+\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{virtual}}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_i_scene_renderer_a5c2fc0a676fb88ec98ad63e5c5c5a675}{\string~ISceneRenderer}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{virtual}\ HRESULT}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_i_scene_renderer_abcf67572e8f03a808fa6b398a9c68610}{init}}(\mbox{\hyperlink{class_device}{Device}}\&\ device)\ =\ 0;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00059\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{class_i_scene_renderer_a1179b9b651c1d275f30ab7698aee0f3a}{resize}}(\mbox{\hyperlink{class_device}{Device}}\&\ device,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ width,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ height)\ =\ 0;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00072\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{class_i_scene_renderer_a5cbf505400269ed955914b3da892a24b}{render}}(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_camera}{Camera}}\&\ camera,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \mbox{\hyperlink{class_render_scene}{RenderScene}}\&\ scene,}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \mbox{\hyperlink{class_editor_viewport_pass}{EditorViewportPass}}\&\ viewport)\ =\ 0;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{class_i_scene_renderer_a8de27780f6e69fb6e54538130d4b504c}{destroy}}()\ =\ 0;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00089\ \ \ \textcolor{keyword}{virtual}\ ID3D11ShaderResourceView*}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{class_i_scene_renderer_ab2a13e7d87a9cddfa63730044df093d5}{getShadowMapSRV}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00097\ \ \ \textcolor{keyword}{virtual}\ ID3D11ShaderResourceView*}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{class_i_scene_renderer_a8e1278d28241898c84820f06e3c949f6}{getPreShadowSRV}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00105\ \ \ \textcolor{keyword}{virtual}\ ID3D11ShaderResourceView*}
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{class_i_scene_renderer_a0e2893e2ce82e0cd94c689805d6ef57b}{getGBufferAlbedoMetallicSRV}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00113\ \ \ \textcolor{keyword}{virtual}\ ID3D11ShaderResourceView*}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{class_i_scene_renderer_a91a39ba50794d9dd4ab8a92f4f8923de}{getGBufferNormalRoughnessSRV}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00121\ \ \ \textcolor{keyword}{virtual}\ ID3D11ShaderResourceView*}
+\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{class_i_scene_renderer_a60d3a2cb70d78b4c838a1a14a7fe3063}{getGBufferWorldAoSRV}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00129\ \ \ \textcolor{keyword}{virtual}\ ID3D11ShaderResourceView*}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{class_i_scene_renderer_a1e4b1980650ecd17bbf2002811a3381d}{getGBufferEmissiveAlphaSRV}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00137\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{class_i_scene_renderer_a59dc7d98d43b3a18e96caf1024b51c4d}{setShadowFactorDebugEnabled}}(\textcolor{keywordtype}{bool}\ enabled)\ \{\ (void)enabled;\ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00145\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00146\ \ \ \ \ \mbox{\hyperlink{class_i_scene_renderer_afa0e61a43bd4ae7325ce72bf0a4da8ec}{setDeferredDebugViewMode}}(\textcolor{keywordtype}{int}\ mode)\ \{\ (void)mode;\ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00153\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*}
+\DoxyCodeLine{00154\ \ \ \ \ \mbox{\hyperlink{class_i_scene_renderer_aa4da9056b1fc258771c1ac40d722b41b}{getDebugName}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00155\ \};}
+
+\end{DoxyCode}

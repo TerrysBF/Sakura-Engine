@@ -1,0 +1,107 @@
+\doxysection{fbxanimevalstate.\+h}
+\hypertarget{fbxanimevalstate_8h_source}{}\label{fbxanimevalstate_8h_source}\index{include/fbx/fbxsdk/scene/animation/fbxanimevalstate.h@{include/fbx/fbxsdk/scene/animation/fbxanimevalstate.h}}
+\mbox{\hyperlink{fbxanimevalstate_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_ANIMATION\_EVALUATION\_STATE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_ANIMATION\_EVALUATION\_STATE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxtime_8h}{fbxsdk/core/base/fbxtime.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpropertydef_8h}{fbxsdk/core/fbxpropertydef.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxnode_8h}{fbxsdk/scene/geometry/fbxnode.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_transform}{FbxTransform}};}
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_node_eval_state}{FbxNodeEvalState}};}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_property_eval_state}{FbxPropertyEvalState}};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_map}{FbxMap<FbxNode*,\ FbxNodeEvalState*>}}\ FbxNodeEvalStateMap;}
+\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_map}{FbxMap<FbxProperty,\ FbxPropertyEvalState*>}}\ FbxPropertyEvalStateMap;}
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_map}{FbxMap<FbxAnimLayer*,\ FbxAnimCurveNode*>}}\ FbxAnimLayerCurveNodeMap;}
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_map}{FbxMap<FbxProperty,\ FbxAnimLayerCurveNodeMap*>}}\ FbxPropertyCurveNodeMap;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxAnimEvalState}
+\DoxyCodeLine{00042\ \{}
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ \mbox{\hyperlink{class_fbx_anim_eval_state_ad6674f0c37ecd45c15dcfbc220f8faff}{GetTime}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_eval_state_a34be9a999fc7dfa426307b4778a50344}{Reset}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_eval_state_aff48b77374c628e0e5e02d0dcb5aee55}{Begin}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_eval_state_a7e647a8391cf8f0356e38e0fd86f5310}{Flush}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_eval_state_aaeebbdfac04c6dbe42c992bc484698c3}{Flush}}(\mbox{\hyperlink{class_fbx_property}{FbxProperty}}\&\ pProperty);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{class_fbx_node_eval_state}{FbxNodeEvalState}}*\ \mbox{\hyperlink{class_fbx_anim_eval_state_ac4a048cd95562bad5a682d8e152549b4}{GetNodeEvalState}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_eval_state}{FbxPropertyEvalState}}*\ \mbox{\hyperlink{class_fbx_anim_eval_state_a8007b664659695bd246c361cbdf9c22a}{GetPropertyEvalState}}(\mbox{\hyperlink{class_fbx_property}{FbxProperty}}\&\ pProperty);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{class_fbx_anim_curve_node}{FbxAnimCurveNode}}*\ \mbox{\hyperlink{class_fbx_anim_eval_state_a41f959ae5753f4e6ca4bac6494afcd17}{GetPropertyCurveNode}}(\mbox{\hyperlink{class_fbx_property}{FbxProperty}}\&\ pProperty,\ \mbox{\hyperlink{class_fbx_anim_layer}{FbxAnimLayer}}*\ pAnimLayer);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00081\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00082\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00084\ \ \ \ \ FbxAnimEvalState();}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxAnimEvalState();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mTime;}
+\DoxyCodeLine{00089\ \ \ \ \ FbxNodeEvalStateMap\ \ \ \ \ mNodeMap;}
+\DoxyCodeLine{00090\ \ \ \ \ FbxPropertyEvalStateMap\ mPropertyMap;}
+\DoxyCodeLine{00091\ \ \ \ \ FbxPropertyCurveNodeMap\ mPropertyCurveNodeMap;}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00093\ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxEvalState}
+\DoxyCodeLine{00097\ \{}
+\DoxyCodeLine{00098\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00099\ \ \ \ \ FbxEvalState()\ :\ \mbox{\hyperlink{class_fbx_eval_state_a9c153054cba876e54d38046e582b32d0}{mUpToDate}}(\textcolor{keyword}{false})\{\}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_eval_state_a9c153054cba876e54d38046e582b32d0}{mUpToDate}};\ \ \ \ }
+\DoxyCodeLine{00101\ \};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxNodeEvalState\ :\ \textcolor{keyword}{public}\ FbxEvalState}
+\DoxyCodeLine{00105\ \{}
+\DoxyCodeLine{00106\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00107\ \ \ \ \ FbxNodeEvalState(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \mbox{\hyperlink{class_fbx_node_eval_state_a06f62c625cb7095d6334a21ba5cde42d}{mLT}};\ \ \ \ }
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \mbox{\hyperlink{class_fbx_node_eval_state_ac630f31b0915572e2a4e248b20c3b447}{mLR}};\ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \mbox{\hyperlink{class_fbx_node_eval_state_a6e1f5d4bf262b03068164d7d0e3641bd}{mLS}};\ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\ \mbox{\hyperlink{class_fbx_node_eval_state_a54312754ca26de28be9272c304e7ba4f}{mLX}};\ \ \ \ }
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\ \mbox{\hyperlink{class_fbx_node_eval_state_a28e9c56c4abd928db69ea10e46656994}{mGX}};\ \ \ \ }
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{class_fbx_transform}{FbxTransform}}*\ \mbox{\hyperlink{class_fbx_node_eval_state_a49ac9e098c85b1642bb7f78d90c756ac}{mTransform}};}
+\DoxyCodeLine{00119\ \};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00122\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxPropertyEvalState\ :\ \textcolor{keyword}{public}\ FbxEvalState}
+\DoxyCodeLine{00123\ \{}
+\DoxyCodeLine{00124\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00125\ \ \ \ \ FbxPropertyEvalState(\mbox{\hyperlink{class_fbx_property}{FbxProperty}}\&\ pProperty);}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxPropertyEvalState();}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ Get()\textcolor{keyword}{\ const\ }\{\ T\ lValue;\ mValue-\/>Get(\&lValue,\ FbxTypeOf(lValue));\ \textcolor{keywordflow}{return}\ lValue;\ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ Set(\textcolor{keyword}{const}\ T\&\ pValue)\{\ \textcolor{keywordflow}{return}\ mValue-\/>Set(\&pValue,\ FbxTypeOf(pValue));\ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_value}{FbxPropertyValue}}*\ mValue;}
+\DoxyCodeLine{00132\ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_ANIMATION\_EVALUATION\_STATE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

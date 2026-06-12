@@ -1,0 +1,84 @@
+\doxysection{OBJReader.\+h}
+\hypertarget{_o_b_j_reader_8h_source}{}\label{_o_b_j_reader_8h_source}\index{include/OBJReader.h@{include/OBJReader.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_mesh_component_8h}{MeshComponent.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Clase\ ObjReader}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Sirve\ para\ leer\ archivos\ .obj\ y\ llenar\ un\ MeshComponent}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ con\ vértices\ e\ índices.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ Lee:}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ -\/\ v\ \ -\/>\ posiciones}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ -\/\ vt\ -\/>\ coordenadas\ de\ textura\ (uv)}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ -\/\ vn\ -\/>\ normales}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ -\/\ f\ \ -\/>\ caras\ (polígonos)}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ Las\ caras\ se\ convierten\ a\ triángulos\ usando\ un\ “fan”:}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ \ (0,\ i,\ i+1)}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ Usa\ un\ mapa\ (cache)\ para\ no\ repetir\ vértices\ cuando\ la}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ misma\ combinación v/vt/vn\ se\ repite.}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ El\ parámetro\ flipV\ permite\ invertir\ la\ componente\ V\ de\ la\ UV}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ por\ si\ la\ textura\ está al\ revés verticalmente.}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }ObjReader\ \{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \textcolor{comment}{//\ Constructor\ vacío}}
+\DoxyCodeLine{00031\ \ \ ObjReader()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{comment}{//\ Destructor\ por\ defecto}}
+\DoxyCodeLine{00034\ \ \ \string~ObjReader()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ \ \ *\ Carga\ un\ archivo\ .obj\ desde\ 'path'\ y\ llena\ outMesh.}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ \ \ *}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ \ \ *\ Si\ 'path'\ ya\ termina\ en\ "{}.obj"{},\ se\ usa\ tal\ cual.}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ \ \ *\ Si\ no,\ se\ le\ agrega\ "{}.obj"{}\ al\ final.}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ \ \ *}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ \ \ *\ flipV\ =\ true\ invierte\ la\ V\ de\ las\ coordenadas\ de\ textura.}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ \ \ *\ Devuelve\ true\ si\ se\ cargó algo\ válido\ (tiene\ vértices\ e\ índices).}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{bool}\ load(\textcolor{keyword}{const}\ std::string\&\ path,\ \mbox{\hyperlink{class_mesh_component}{MeshComponent}}\&\ outMesh,\ \textcolor{keywordtype}{bool}\ flipV\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00048\ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ \ \ *\ Revisa\ si\ la\ cadena\ termina\ en\ "{}.obj"{}\ o\ "{}.OBJ"{}.}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{00051\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ endsWithObj\_(\textcolor{keyword}{const}\ std::string\&\ s);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ \ \ *\ Parsea\ una\ tupla\ de\ índice\ del\ .obj:}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ \ \ *\ \ -\/\ "{}v/vt/vn"{}}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ \ \ *\ \ -\/\ "{}v/vt"{}}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ \ \ *\ \ -\/\ "{}v//vn"{}}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ \ \ *\ \ -\/\ "{}v"{}}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ \ \ *}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ \ \ *\ Rellena:}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ \ \ *\ \ vi\ =\ índice\ de\ posición}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ \ \ *\ \ ti\ =\ índice\ de\ texcoord}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ \ \ *\ \ ni\ =\ índice\ de\ normal}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ \ \ *}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ \ \ *\ Todos\ son\ base\ 0,\ o\ -\/1\ si\ no\ existe\ esa\ parte.}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ parseTuple\_(\textcolor{keyword}{const}\ std::string\&\ key,\ \textcolor{keywordtype}{int}\&\ vi,\ \textcolor{keywordtype}{int}\&\ ti,\ \textcolor{keywordtype}{int}\&\ ni);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ \ \ *\ Imprime\ un\ mensaje\ de\ advertencia\ en\ consola.}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ \ \ *\ Útil\ para\ avisar\ cuando\ hay\ líneas\ raras\ en\ el\ .obj.}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ \ \ */}}
+\DoxyCodeLine{00073\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ logWarn\_(\textcolor{keyword}{const}\ std::string\&\ msg);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \textcolor{comment}{//\ Se\ deshabilita\ la\ copia\ del\ objeto\ para\ evitar\ duplicados}}
+\DoxyCodeLine{00076\ \ \ ObjReader(\textcolor{keyword}{const}\ ObjReader\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00077\ \ \ ObjReader\&\ operator=(\textcolor{keyword}{const}\ ObjReader\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00078\ \};}
+
+\end{DoxyCode}

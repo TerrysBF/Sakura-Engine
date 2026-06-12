@@ -1,0 +1,150 @@
+\doxysection{Render\+Types.\+h}
+\hypertarget{_render_types_8h_source}{}\label{_render_types_8h_source}\index{include/Rendering/RenderTypes.h@{include/Rendering/RenderTypes.h}}
+\mbox{\hyperlink{_render_types_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mesh}{Mesh}};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_material_instance}{MaterialInstance}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{enum\ class}}
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{_render_types_8h_acaa906eae435bf9d60324427d97cd887}{MaterialDomain}}\ \{}
+\DoxyCodeLine{00017\ \ \ Opaque\ =\ 0,}
+\DoxyCodeLine{00018\ \ \ Masked,}
+\DoxyCodeLine{00019\ \ \ Transparent}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{enum\ class}}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{_render_types_8h_a30323fa90e24ca484998b9fba6c40e85}{BlendMode}}\ \{}
+\DoxyCodeLine{00028\ \ \ Opaque\ =\ 0,}
+\DoxyCodeLine{00029\ \ \ Alpha,}
+\DoxyCodeLine{00030\ \ \ Additive,}
+\DoxyCodeLine{00031\ \ \ PremultipliedAlpha}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{enum\ class}}
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{_render_types_8h_aa342cea98690a76abdcb92feffddf2f2}{RenderPassType}}\ \{}
+\DoxyCodeLine{00040\ \ \ Shadow\ =\ 0,}
+\DoxyCodeLine{00041\ \ \ Opaque,}
+\DoxyCodeLine{00042\ \ \ \mbox{\hyperlink{class_skybox}{Skybox}},}
+\DoxyCodeLine{00043\ \ \ Transparent,}
+\DoxyCodeLine{00044\ \ \ Editor}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{enum\ class}}
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{_render_types_8h_adc3ec8293e6a97ebe43f0196b9a7f638}{LightType}}\ \{}
+\DoxyCodeLine{00053\ \ \ Directional\ =\ 0,}
+\DoxyCodeLine{00054\ \ \ Point,}
+\DoxyCodeLine{00055\ \ \ Spot}
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00065\ \ \ \mbox{\hyperlink{struct_light_data}{LightData}}\ \{}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \mbox{\hyperlink{_render_types_8h_adc3ec8293e6a97ebe43f0196b9a7f638}{LightType}}\ \mbox{\hyperlink{struct_light_data_a0b15337b9ab509c6d0f51ff93877de43}{type}}\ =\ LightType::Directional;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ \mbox{\hyperlink{struct_light_data_a068a2a68b353db7ba54619a0c6d1c83a}{color}}\ =\ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}(1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_light_data_ad3dbde00547467a1a9b42c33e8e2eb40}{intensity}}\ =\ 1.0f;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00085\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ \mbox{\hyperlink{struct_light_data_a9e4e76f89810a2a6da588a9ce08dc12d}{direction}}\ =\ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}(0.0f,\ -\/1.0f,\ 0.0f);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00090\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_light_data_a714bf36969ee00ec7b19fec64bd702b1}{range}}\ =\ 0.0f;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ \mbox{\hyperlink{struct_light_data_ac29daa0314be1c5e49e0606d78c9464a}{position}}\ =\ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}(0.0f,\ 0.0f,\ 0.0f);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00100\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_light_data_ab9098c68efaaca6254cca8d4bbea38f3}{spotAngle}}\ =\ 0.0f;}
+\DoxyCodeLine{00101\ \};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00111\ \ \ \mbox{\hyperlink{struct_material_params}{MaterialParams}}\ \{}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00116\ \ \ XMFLOAT4\ \mbox{\hyperlink{struct_material_params_a982cef349f215aa87ba11465ba78c93e}{baseColor}}\ =\ XMFLOAT4(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_material_params_a4a01142f6206e2fd9d9ca053745938c7}{metallic}}\ =\ 1.0f;}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00126\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_material_params_a472553a331f7f6c27e1d917c90dcf202}{roughness}}\ =\ 1.0f;}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00131\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_material_params_ae61d9c669c42a5827003624c24e69748}{ao}}\ =\ 1.0f;}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00136\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_material_params_adf6f0ddee08b3134094cef623fc1df6b}{normalScale}}\ =\ 1.0f;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00141\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_material_params_a7372ab0d351b368b9f80a28332fc43d5}{emissiveStrength}}\ =\ 1.0f;}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00146\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_material_params_ac36038e7661a86fc9fcbf0d50ac6604c}{alphaCutoff}}\ =\ 0.5f;}
+\DoxyCodeLine{00147\ \};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00155\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00156\ \ \ \mbox{\hyperlink{struct_c_b_per_frame}{CBPerFrame}}\ \{}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00161\ \ \ XMFLOAT4X4\ \mbox{\hyperlink{struct_c_b_per_frame_a0d02beee62cde1ec7c7ba358493b8887}{View}}\{\};}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00166\ \ \ XMFLOAT4X4\ \mbox{\hyperlink{struct_c_b_per_frame_a19a4651626a228e11fbd0c438e38fa54}{Projection}}\{\};}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00171\ \ \ XMFLOAT4X4\ \mbox{\hyperlink{struct_c_b_per_frame_aa6f092ca727e5e75ae7821e94b493eef}{LightViewProjection}}\{\};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00176\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ \mbox{\hyperlink{struct_c_b_per_frame_a1561e0d9575df303f062457dac6c411c}{CameraPos}}\{\};}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \textcolor{keywordtype}{float}\ pad0\ =\ 0.0f;}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00183\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ \mbox{\hyperlink{struct_c_b_per_frame_aaa89a15f09c1e3322176b5a53304d157}{LightDir}}\ =\ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}(0.0f,\ -\/1.0f,\ 0.0f);}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \textcolor{keywordtype}{float}\ pad1\ =\ 0.0f;}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00190\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ \mbox{\hyperlink{struct_c_b_per_frame_a066da2224382017205bd71336ec2b067}{LightColor}}\ =\ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}(1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \textcolor{keywordtype}{float}\ pad2\ =\ 0.0f;}
+\DoxyCodeLine{00193\ \};}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00201\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00202\ \ \ \mbox{\hyperlink{struct_c_b_per_object}{CBPerObject}}\ \{}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00207\ \ \ XMFLOAT4X4\ \mbox{\hyperlink{struct_c_b_per_object_a17f2c139fabc9df3c2642e3c5201e522}{World}}\{\};}
+\DoxyCodeLine{00208\ \};}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00216\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00217\ \ \ \mbox{\hyperlink{struct_c_b_per_material}{CBPerMaterial}}\ \{}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00222\ \ \ XMFLOAT4\ \mbox{\hyperlink{struct_c_b_per_material_a754a6289c4b4a7823b120040baaf8fe4}{BaseColor}}\ =\ XMFLOAT4(1.0f,\ 1.0f,\ 1.0f,\ 1.0f);}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00227\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_c_b_per_material_a047a1059b6bd3a6d94cb5b4bc24ded94}{Metallic}}\ =\ 1.0f;}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00232\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_c_b_per_material_a1c04e2ee55b197242e4a4500c3073c92}{Roughness}}\ =\ 1.0f;}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00237\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_c_b_per_material_a6e0624a481c7f459da2cc49eecbe25a3}{AO}}\ =\ 1.0f;}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00242\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_c_b_per_material_a8948517b7ae7d0ab55d88d3af7120091}{NormalScale}}\ =\ 1.0f;}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00247\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_c_b_per_material_ae6922c2b03883784f21096f752cda88f}{EmissiveStrength}}\ =\ 1.0f;}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00252\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_c_b_per_material_a29a04afa6b568c401a1923a7fbe3649c}{AlphaCutoff}}\ =\ 0.0f;}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \textcolor{keywordtype}{float}\ pad0\ =\ 0.0f;}
+\DoxyCodeLine{00255\ \ \ \textcolor{keywordtype}{float}\ pad1\ =\ 0.0f;}
+\DoxyCodeLine{00256\ \ \ \textcolor{keywordtype}{float}\ pad2\ =\ 0.0f;}
+\DoxyCodeLine{00257\ \ \ \textcolor{keywordtype}{float}\ pad3\ =\ 0.0f;}
+\DoxyCodeLine{00258\ \ \ \textcolor{keywordtype}{float}\ pad4\ =\ 0.0f;}
+\DoxyCodeLine{00259\ \ \ \textcolor{keywordtype}{float}\ pad5\ =\ 0.0f;}
+\DoxyCodeLine{00260\ \};}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00269\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00270\ \ \ \mbox{\hyperlink{struct_render_object}{RenderObject}}\ \{}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00275\ \ \ \mbox{\hyperlink{class_mesh}{Mesh}}*\ \mbox{\hyperlink{struct_render_object_aa27bf8cd7d10da3792647a71cb7802b3}{mesh}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00280\ \ \ \mbox{\hyperlink{class_material_instance}{MaterialInstance}}*\ \mbox{\hyperlink{struct_render_object_a00c7ba5f305587b2ff8c6dc844d9972f}{materialInstance}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00285\ \ \ std::vector<MaterialInstance*>\ \mbox{\hyperlink{struct_render_object_a8bd5e2a1f83bcd86fa4309769b91e817}{materialInstances}};}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00290\ \ \ XMMATRIX\ \mbox{\hyperlink{struct_render_object_a904f6c7dbfa95f6823ba7e9c7fb208fc}{world}}\ =\ XMMatrixIdentity();}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00295\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_render_object_ad6f292915c9129b3635f8b8aff9e4d7f}{castShadow}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00300\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_render_object_a5c10b048ff6c5812d78d94e441812a06}{transparent}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00305\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_render_object_a93ccd9180cdba7dd5e8973f9bfaed62e}{distanceToCamera}}\ =\ 0.0f;}
+\DoxyCodeLine{00306\ \};}
+
+\end{DoxyCode}

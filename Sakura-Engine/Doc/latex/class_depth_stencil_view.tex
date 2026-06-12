@@ -1,0 +1,160 @@
+\doxysection{Depth\+Stencil\+View Class Reference}
+\hypertarget{class_depth_stencil_view}{}\label{class_depth_stencil_view}\index{DepthStencilView@{DepthStencilView}}
+
+
+Encapsula un {\ttfamily ID3\+D11\+Depth\+Stencil\+View} para usar un recurso de profundidad/est?ncil en el pipeline.  
+
+
+
+
+{\ttfamily \#include $<$Depth\+Stencil\+View.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_depth_stencil_view_a1b691304f3c224fb9a368c59f152822d}\label{class_depth_stencil_view_a1b691304f3c224fb9a368c59f152822d} 
+{\bfseries Depth\+Stencil\+View} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor por defecto (no crea recursos). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_depth_stencil_view_af951c8918b75d1e085114c5c1ab60e8c}{\texorpdfstring{$\sim$}{\string~}\+Depth\+Stencil\+View}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor por defecto. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_depth_stencil_view_a577271a39193da2f3e8a9df52c167670}{init}} (\mbox{\hyperlink{class_device}{Device}} \&device, \mbox{\hyperlink{class_texture}{Texture}} \&depth\+Stencil, DXGI\+\_\+\+FORMAT format)
+\begin{DoxyCompactList}\small\item\em Inicializa el {\ttfamily ID3\+D11\+Depth\+Stencil\+View} a partir de una textura de profundidad. \end{DoxyCompactList}\item 
+\Hypertarget{class_depth_stencil_view_a0a05c279f251c0d014c84629c8bdcca6}\label{class_depth_stencil_view_a0a05c279f251c0d014c84629c8bdcca6} 
+HRESULT {\bfseries init} (\mbox{\hyperlink{class_device}{Device}} \&device, \mbox{\hyperlink{class_texture}{Texture}} \&depth\+Stencil, DXGI\+\_\+\+FORMAT format, D3\+D11\+\_\+\+DSV\+\_\+\+DIMENSION view\+Dimension)
+\item 
+void \mbox{\hyperlink{class_depth_stencil_view_aab6d96a774c5e88e7736e00cdc2f0929}{update}} ()
+\begin{DoxyCompactList}\small\item\em Actualiza par?metros internos si se requieren cambios en el estado. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_depth_stencil_view_a87d09cc62b11bd3cdf92b3e51b7128df}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context)
+\begin{DoxyCompactList}\small\item\em Asigna la vista de profundidad/est?ncil al pipeline de render. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_depth_stencil_view_a09eeac13e34e94a5aeda476d4624ce55}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Libera el recurso asociado al {\ttfamily ID3\+D11\+Depth\+Stencil\+View}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ID3\+D11\+Depth\+Stencil\+View \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_depth_stencil_view_a97a6836b3e61ca8cfa252bf5bffc7ffb}{m\+\_\+depth\+Stencil\+View}} = nullptr
+\begin{DoxyCompactList}\small\item\em Vista de profundidad/est?ncil de Direct3D 11. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encapsula un {\ttfamily ID3\+D11\+Depth\+Stencil\+View} para usar un recurso de profundidad/est?ncil en el pipeline. 
+
+Esta clase administra la creaci?n, aplicaci?n y liberaci?n de un {\ttfamily \doxylink{class_depth_stencil_view}{Depth\+Stencil\+View}} en Direct3D 11, necesario para vincular un buffer de profundidad/est?ncil a la etapa de Output-\/\+Merger.
+
+\begin{DoxyNote}{Note}
+No administra directamente la vida de {\ttfamily \doxylink{class_texture}{Texture}} ni de {\ttfamily \doxylink{class_device_context}{Device\+Context}}. 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_depth_stencil_view_af951c8918b75d1e085114c5c1ab60e8c}\index{DepthStencilView@{DepthStencilView}!````~DepthStencilView@{\texorpdfstring{$\sim$}{\string~}DepthStencilView}}
+\index{````~DepthStencilView@{\texorpdfstring{$\sim$}{\string~}DepthStencilView}!DepthStencilView@{DepthStencilView}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DepthStencilView()}{\string~DepthStencilView()}}
+{\footnotesize\ttfamily \label{class_depth_stencil_view_af951c8918b75d1e085114c5c1ab60e8c} 
+Depth\+Stencil\+View\+::\texorpdfstring{$\sim$}{\string~}\+Depth\+Stencil\+View (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destructor por defecto. 
+
+No libera autom?ticamente; llamar a \doxylink{class_depth_stencil_view_a09eeac13e34e94a5aeda476d4624ce55}{destroy()} expl?citamente. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_depth_stencil_view_a09eeac13e34e94a5aeda476d4624ce55}\index{DepthStencilView@{DepthStencilView}!destroy@{destroy}}
+\index{destroy@{destroy}!DepthStencilView@{DepthStencilView}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{class_depth_stencil_view_a09eeac13e34e94a5aeda476d4624ce55} 
+void Depth\+Stencil\+View\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Libera el recurso asociado al {\ttfamily ID3\+D11\+Depth\+Stencil\+View}. 
+
+Idempotente\+: puede llamarse m?ltiples veces de forma segura.
+
+\begin{DoxyPostcond}{Postcondition}
+{\ttfamily m\+\_\+depth\+Stencil\+View} == nullptr. 
+\end{DoxyPostcond}
+\Hypertarget{class_depth_stencil_view_a577271a39193da2f3e8a9df52c167670}\index{DepthStencilView@{DepthStencilView}!init@{init}}
+\index{init@{init}!DepthStencilView@{DepthStencilView}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_depth_stencil_view_a577271a39193da2f3e8a9df52c167670} 
+HRESULT Depth\+Stencil\+View\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{\mbox{\hyperlink{class_texture}{Texture}} \&}]{depth\+Stencil}{, }\item[{DXGI\+\_\+\+FORMAT}]{format}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa el {\ttfamily ID3\+D11\+Depth\+Stencil\+View} a partir de una textura de profundidad. 
+
+Crea y asocia un {\ttfamily \doxylink{class_depth_stencil_view}{Depth\+Stencil\+View}} con el recurso proporcionado (generalmente una textura creada con {\ttfamily D3\+D11\+\_\+\+BIND\+\_\+\+DEPTH\+\_\+\+STENCIL}).
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se crear? el recurso. \\
+\hline
+{\em depth\+Stencil} & Textura que servir? como buffer de profundidad/est?ncil. \\
+\hline
+{\em format} & Formato DXGI con el que se crear? la vista (ejemplo\+: {\ttfamily DXGI\+\_\+\+FORMAT\+\_\+\+D24\+\_\+\+UNORM\+\_\+\+S8\+\_\+\+UINT}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si la creaci?n fue exitosa; c?digo {\ttfamily HRESULT} en caso contrario.
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Si retorna {\ttfamily S\+\_\+\+OK}, {\ttfamily m\+\_\+depth\+Stencil\+View} != nullptr. 
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_depth_stencil_view_a09eeac13e34e94a5aeda476d4624ce55}{destroy()} 
+\end{DoxySeeAlso}
+\Hypertarget{class_depth_stencil_view_a87d09cc62b11bd3cdf92b3e51b7128df}\index{DepthStencilView@{DepthStencilView}!render@{render}}
+\index{render@{render}!DepthStencilView@{DepthStencilView}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_depth_stencil_view_a87d09cc62b11bd3cdf92b3e51b7128df} 
+void Depth\+Stencil\+View\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{}\end{DoxyParamCaption})}
+
+
+
+Asigna la vista de profundidad/est?ncil al pipeline de render. 
+
+Llama a {\ttfamily OMSet\+Render\+Targets} para asociar {\ttfamily m\+\_\+depth\+Stencil\+View} al {\ttfamily \doxylink{class_device_context}{Device\+Context}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto de dispositivo donde se enlazar? el depth-\/stencil view.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily m\+\_\+depth\+Stencil\+View} debe haberse creado con \doxylink{class_depth_stencil_view_a577271a39193da2f3e8a9df52c167670}{init()}. 
+\end{DoxyPrecond}
+\Hypertarget{class_depth_stencil_view_aab6d96a774c5e88e7736e00cdc2f0929}\index{DepthStencilView@{DepthStencilView}!update@{update}}
+\index{update@{update}!DepthStencilView@{DepthStencilView}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_depth_stencil_view_aab6d96a774c5e88e7736e00cdc2f0929} 
+void Depth\+Stencil\+View\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Actualiza par?metros internos si se requieren cambios en el estado. 
+
+M?todo de marcador para actualizar la configuraci?n del recurso.
+
+\begin{DoxyNote}{Note}
+Actualmente no realiza ninguna operaci?n. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_depth_stencil_view_a97a6836b3e61ca8cfa252bf5bffc7ffb}\index{DepthStencilView@{DepthStencilView}!m\_depthStencilView@{m\_depthStencilView}}
+\index{m\_depthStencilView@{m\_depthStencilView}!DepthStencilView@{DepthStencilView}}
+\doxysubsubsection{\texorpdfstring{m\_depthStencilView}{m\_depthStencilView}}
+{\footnotesize\ttfamily \label{class_depth_stencil_view_a97a6836b3e61ca8cfa252bf5bffc7ffb} 
+ID3\+D11\+Depth\+Stencil\+View\texorpdfstring{$\ast$}{*} Depth\+Stencil\+View\+::m\+\_\+depth\+Stencil\+View = nullptr}
+
+
+
+Vista de profundidad/est?ncil de Direct3D 11. 
+
+V?lido despu?s de una llamada exitosa a \doxylink{class_depth_stencil_view_a577271a39193da2f3e8a9df52c167670}{init()}; {\ttfamily nullptr} tras \doxylink{class_depth_stencil_view_a09eeac13e34e94a5aeda476d4624ce55}{destroy()}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_depth_stencil_view_8h}{Depth\+Stencil\+View.\+h}}\item 
+source/\mbox{\hyperlink{_depth_stencil_view_8cpp}{Depth\+Stencil\+View.\+cpp}}\end{DoxyCompactItemize}

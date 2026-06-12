@@ -1,0 +1,86 @@
+\doxysection{Mesh\+Renderer\+Component.\+h}
+\hypertarget{_mesh_renderer_component_8h_source}{}\label{_mesh_renderer_component_8h_source}\index{include/ECS/MeshRendererComponent.h@{include/ECS/MeshRendererComponent.h}}
+\mbox{\hyperlink{_mesh_renderer_component_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}ECS/Component.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mesh}{Mesh}};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_material_instance}{MaterialInstance}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{class_mesh_renderer_component_a66a796cccaf4d07697ccb9f63e6be0cb}{MeshRendererComponent}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component_a404098a91640552f9d0284d08b53def4}{Component}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{class_mesh_renderer_component_a66a796cccaf4d07697ccb9f63e6be0cb}{MeshRendererComponent}}()}
+\DoxyCodeLine{00029\ \ \ \ \ :\ \mbox{\hyperlink{class_component_a404098a91640552f9d0284d08b53def4}{Component}}(\mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{ComponentType}}::\mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a0b8403fccaa9b51239c179649c6fcb50}{MESH}})\ \{\}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_renderer_component_a2fbe94234438d5d4ef25f462488a6baf}{init}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_renderer_component_aaf79f11600a21e5174b7f0b939343734}{update}}(\textcolor{keywordtype}{float}\ deltaTime)\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_renderer_component_aac8fc88d486338da31b3fecb96fec38d}{render}}(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext)\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_renderer_component_a8cf48f387eb648d6b1c17e5642d0df46}{destroy}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_renderer_component_a37f556713e78881417ac88054628c7ed}{setMesh}}(\mbox{\hyperlink{class_mesh}{Mesh}}*\ mesh)\ \{\ m\_mesh\ =\ mesh;\ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{class_mesh}{Mesh}}*\ \mbox{\hyperlink{class_mesh_renderer_component_a95d2fffbab03ea2ab00a17711dd942aa}{getMesh}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_mesh;\ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_renderer_component_a927b853ba7afa3fcd63dcfc34b71a080}{setMaterialInstance}}(\mbox{\hyperlink{class_material_instance}{MaterialInstance}}*\ materialInstance)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ m\_materialInstance\ =\ materialInstance;}
+\DoxyCodeLine{00071\ \ \ \ \ m\_materialInstances.clear();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{if}\ (materialInstance)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ m\_materialInstances.push\_back(materialInstance);}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00082\ \ \ \mbox{\hyperlink{class_material_instance}{MaterialInstance}}*\ \mbox{\hyperlink{class_mesh_renderer_component_abed22b76a6ef103c6a692d4af89cdcb2}{getMaterialInstance}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_materialInstance;\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_renderer_component_a9b771ac52e4dcdb82618a5ac61529678}{setMaterialInstances}}(\textcolor{keyword}{const}\ std::vector<MaterialInstance*>\&\ materialInstances)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ m\_materialInstances\ =\ materialInstances;}
+\DoxyCodeLine{00090\ \ \ \ \ m\_materialInstance\ =\ m\_materialInstances.empty()\ ?\ nullptr\ :\ m\_materialInstances.front();}
+\DoxyCodeLine{00091\ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_renderer_component_a4cea7fa7d44517267dd05155d599341a}{addMaterialInstance}}(\mbox{\hyperlink{class_material_instance}{MaterialInstance}}*\ materialInstance)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{if}\ (!materialInstance)\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{if}\ (!m\_materialInstance)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ m\_materialInstance\ =\ materialInstance;}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ m\_materialInstances.push\_back(materialInstance);}
+\DoxyCodeLine{00107\ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00113\ \ \ \textcolor{keyword}{const}\ std::vector<MaterialInstance*>\&\ \mbox{\hyperlink{class_mesh_renderer_component_ac0723bfd9156e05abef4145ede803c54}{getMaterialInstances}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{return}\ m\_materialInstances;}
+\DoxyCodeLine{00115\ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_mesh_renderer_component_a56d4f19db8b5f45acc5e566444ea964f}{isVisible}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_visible;\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00128\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_renderer_component_a413bfa1ebf0e5207338160c4e8b6c537}{setVisible}}(\textcolor{keywordtype}{bool}\ visible)\ \{\ m\_visible\ =\ visible;\ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00135\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_mesh_renderer_component_a46cd96021c2ea6021880ef0c47d4544f}{canCastShadow}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_castShadow;\ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00141\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_renderer_component_a3a8d0619490025153b90127ca8ad80b5}{setCastShadow}}(\textcolor{keywordtype}{bool}\ value)\ \{\ m\_castShadow\ =\ value;\ \}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00148\ \ \ \mbox{\hyperlink{class_mesh}{Mesh}}*\ m\_mesh\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00153\ \ \ \mbox{\hyperlink{class_material_instance}{MaterialInstance}}*\ m\_materialInstance\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00158\ \ \ std::vector<MaterialInstance*>\ m\_materialInstances;}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00163\ \ \ \textcolor{keywordtype}{bool}\ m\_visible\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00168\ \ \ \textcolor{keywordtype}{bool}\ m\_castShadow\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00169\ \};}
+
+\end{DoxyCode}

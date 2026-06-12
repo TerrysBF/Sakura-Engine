@@ -1,0 +1,282 @@
+\doxysection{fbxcolladautils.\+h}
+\hypertarget{fbxcolladautils_8h_source}{}\label{fbxcolladautils_8h_source}\index{include/fbx/fbxsdk/fileio/collada/fbxcolladautils.h@{include/fbx/fbxsdk/fileio/collada/fbxcolladautils.h}}
+\mbox{\hyperlink{fbxcolladautils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2017\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_FILEIO\_COLLADA\_UTILS\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_FILEIO\_COLLADA\_UTILS\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk_8h}{fbxsdk.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcolladatokens_8h}{fbxsdk/fileio/collada/fbxcolladatokens.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcolladaiostream_8h}{fbxsdk/fileio/collada/fbxcolladaiostream.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxscene_8h}{fbxsdk/scene/fbxscene.h}}>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxrenamingstrategybase_8h}{fbxsdk/utils/fbxrenamingstrategybase.h}}>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxnamehandler_8h}{fbxsdk/utils/fbxnamehandler.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <libxml/globals.h>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }FbxRenamingStrategyCollada\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_renaming_strategy_base_a96b05d890a49769ed329ffb79c052a54}{FbxRenamingStrategyBase}}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ FbxRenamingStrategyCollada();}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxRenamingStrategyCollada();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_renaming_strategy_collada_a83448d8e6ea5bf92ae392c33b6a0e68a}{CleanUp}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_renaming_strategy_collada_a72daf24c78fdc72780b983c15d45bb83}{DecodeScene}}(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ pScene)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_renaming_strategy_collada_a0bb1ee0edf14b00d295ee718ecff8b72}{EncodeScene}}(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ pScene)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_renaming_strategy_collada_a055f116f4153bb532528ad302c228422}{DecodeString}}(\mbox{\hyperlink{class_fbx_name_handler}{FbxNameHandler}}\&\ pName)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_renaming_strategy_collada_a5bac5e42c595c2532628185e1622363e}{EncodeString}}(\mbox{\hyperlink{class_fbx_name_handler}{FbxNameHandler}}\&\ pName,\ \textcolor{keywordtype}{bool}\ pIsPropertyName\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#ifndef\ INT\_MAX}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\ \ \ \ \#define\ INT\_MAX\ 0x7FFFFFFF}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#ifndef\ CENTIMETERS\_TO\_INCHES}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\ \ \ \ \#define\ CENTIMETERS\_TO\_INCHES\ 2.54f}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#ifndef\ RADIANS\_TO\_DEGREES}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\ \ \ \ \#define\ RADIANS\_TO\_DEGREES\ 57.295799f}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{enum}\ DAE\_Flow\ \{\ kCOLLADAFlowIn,\ kCOLLADAFlowOut,\ kCOLLADAFlowInOut\ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MATRIX\_STRIDE\ =\ 16;}
+\DoxyCodeLine{00057\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ VECTOR\_STRIDE\ =\ 3;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ COLLADA\_ID\_PROPERTY\_NAME\ "{}COLLADA\_ID"{}}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_xml_node_deletion_policy}{XmlNodeDeletionPolicy}}}
+\DoxyCodeLine{00062\ \{}
+\DoxyCodeLine{00063\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ DeleteIt(xmlNode\ **\ ptr)}
+\DoxyCodeLine{00065\ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*ptr\ !=\ NULL)}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ xmlFreeNode(*ptr);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ *ptr\ =\ NULL;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_auto_ptr}{FbxAutoPtr<xmlNode,\ XmlNodeDeletionPolicy>}}\ XmlNodePtr;}
+\DoxyCodeLine{00075\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_map}{FbxMap<\ FbxString,\ xmlNode*\ >}}\ SourceElementMapType;}
+\DoxyCodeLine{00076\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_map}{FbxMap<\ FbxString,\ xmlNode*\ >}}\ SkinMapType;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{comment}{//\ Some\ information\ connecting\ COLLADA\ layer\ string,\ such\ as\ "{}NORMAL"{}\ or\ "{}UV"{},\ to\ FBX\ layer\ element\ type.}}
+\DoxyCodeLine{00079\ \textcolor{keyword}{struct\ }ColladaLayerTraits}
+\DoxyCodeLine{00080\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ ColladaLayerTraits()\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ :\ mLayerType(FbxLayerElement::eUnknown),\ mLayerElementLength(0)\ \{\}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00084\ \ \ \ \ ColladaLayerTraits(\mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pType,\ \textcolor{keywordtype}{int}\ pLength)}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ :\ mLayerType(pType),\ mLayerElementLength(pLength)\ \{\}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ Type\ of\ FBX\ element\ layer}}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ mLayerType;}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ Count\ of\ double\ of\ each\ element\ in\ FBX\ element\ layer}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ mLayerElementLength;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ ColladaLayerTraits\ \mbox{\hyperlink{struct_collada_layer_traits_ab540128a228dc27186beca5c5dd5f707}{GetLayerTraits}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \&\ pLabel);}
+\DoxyCodeLine{00097\ \};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxcolladautils_8h_a9d6769de96a79448db342865e5997a06}{DAE\_AddNotificationError}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_manager}{FbxManager}}\ *\ pSdkManger,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \&\ pErrorMessage);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxcolladautils_8h_aba34b77b00a61f944d6732db57690ed7}{DAE\_AddNotificationWarning}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_manager}{FbxManager}}\ *\ pSdkManger,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \&\ pWarningMessage);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{keywordtype}{void}\ DAE\_ExportArray(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxVector4>}}\&\ arr);}
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ DAE\_ExportArray(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxVector2>}}\&\ arr);}
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ DAE\_ExportArray(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxColor>}}\&\ arr);}
+\DoxyCodeLine{00114\ \textcolor{keywordtype}{void}\ DAE\_ExportArray(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_fbx_array}{FbxArray<double>}}\&\ arr);}
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ DAE\_ExportArray(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_fbx_string_list}{FbxStringList}}\&\ arr);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{comment}{//\ Syntax\ modification\ -\/\ for\ COLLADA\ 1.4}}
+\DoxyCodeLine{00118\ xmlNode*\ DAE\_ExportSource14(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_fbx_string_list}{FbxStringList}}\&\ accessorParams,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<double>}}\&\ arr,\ \textcolor{keywordtype}{bool}\ isCommonProfile=\textcolor{keyword}{true});\ }
+\DoxyCodeLine{00119\ xmlNode*\ DAE\_ExportSource14(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxVector4>}}\&\ arr);}
+\DoxyCodeLine{00120\ xmlNode*\ DAE\_ExportSource14(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxVector2>}}\&\ arr);}
+\DoxyCodeLine{00121\ xmlNode*\ DAE\_ExportSource14(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxColor>}}\&\ arr);}
+\DoxyCodeLine{00122\ xmlNode*\ DAE\_ExportSource14(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxAMatrix>}}\&\ arr);\ }
+\DoxyCodeLine{00123\ xmlNode*\ DAE\_ExportSource14(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxMatrix>}}\&\ arr);}
+\DoxyCodeLine{00124\ xmlNode*\ DAE\_ExportSource14(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_fbx_string_list}{FbxStringList}}\&\ arr,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ type,\ \textcolor{keywordtype}{bool}\ isCommonProfile=\textcolor{keyword}{true});}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{keywordtype}{void}\ DAE\_ExportSourceArray(xmlNode*\ sourceNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxColor>}}\&\ arr);}
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ DAE\_ExportSourceArray14(xmlNode*\ sourceNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxColor>}}\&\ arr);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ xmlNode*\ DAE\_ExportAccessor(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ arrayRef,\ \textcolor{keywordtype}{int}\ count,\ \textcolor{keywordtype}{int}\ stride,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ type);}
+\DoxyCodeLine{00131\ xmlNode*\ DAE\_ExportAccessor14(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ arrayRef,\ \textcolor{keywordtype}{int}\ count,\ \textcolor{keywordtype}{int}\ stride,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ type);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{keywordtype}{void}\ DAE\_AddXYZAccessor(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ profile,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ arrayName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ arrayRef,\ \textcolor{keywordtype}{int}\ count);}
+\DoxyCodeLine{00134\ \textcolor{keywordtype}{void}\ DAE\_AddSTAccessor(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ profile,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ arrayName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ arrayRef,\ \textcolor{keywordtype}{int}\ count);}
+\DoxyCodeLine{00135\ \textcolor{keywordtype}{void}\ DAE\_AddFlow(xmlNode*\ node,\ DAE\_Flow\ flow);}
+\DoxyCodeLine{00136\ \textcolor{keywordtype}{void}\ DAE\_AddXYZAccessor14(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ profile,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ arrayName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ arrayRef,\ \textcolor{keywordtype}{int}\ count);}
+\DoxyCodeLine{00137\ \textcolor{keywordtype}{void}\ DAE\_AddSTAccessor14(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ profile,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ arrayName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ arrayRef,\ \textcolor{keywordtype}{int}\ count);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{comment}{//\ AddParameter\ functions\ for\ COLLADA\ 1.3.}}
+\DoxyCodeLine{00140\ xmlNode*\ DAE\_AddParameter(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_color}{FbxColor}}\&\ color,\ DAE\_Flow\ flow);}
+\DoxyCodeLine{00141\ xmlNode*\ DAE\_AddParameter(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ vector,\ DAE\_Flow\ flow);}
+\DoxyCodeLine{00142\ xmlNode*\ DAE\_AddParameter(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{double}\ value,\ DAE\_Flow\ flow);}
+\DoxyCodeLine{00143\ xmlNode*\ DAE\_AddParameter(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{bool}\ value,\ DAE\_Flow\ flow);}
+\DoxyCodeLine{00144\ xmlNode*\ DAE\_AddParameter(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ type,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ value,\ DAE\_Flow\ flow);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{comment}{//\ Overload\ functions\ without\ DAE\_Flow,\ for\ COLLADA\ 1.4.}}
+\DoxyCodeLine{00147\ xmlNode*\ DAE\_AddParameter(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ FbxDouble3\&\ color);}
+\DoxyCodeLine{00148\ xmlNode*\ DAE\_AddParameter(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_color}{FbxColor}}\&\ color);}
+\DoxyCodeLine{00149\ xmlNode*\ DAE\_AddParameter(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ vector);}
+\DoxyCodeLine{00150\ xmlNode*\ DAE\_AddParameter(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{double}\ value);}
+\DoxyCodeLine{00151\ xmlNode*\ DAE\_AddParameter(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00152\ xmlNode*\ DAE\_AddParameter(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ type,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ value);}
+\DoxyCodeLine{00153\ xmlNode*\ DAE\_AddTechnique(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ technique);}
+\DoxyCodeLine{00154\ \textcolor{keywordtype}{void}\ DAE\_AddInput(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ semantic,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ source,\ \textcolor{keywordtype}{int}\ idx\ =\ -\/1);}
+\DoxyCodeLine{00155\ \textcolor{keywordtype}{void}\ DAE\_AddInput14(xmlNode*\ parentXmlNode,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ semantic,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ source,\ \textcolor{keywordtype}{int}\ offset\ =\ -\/1,\ \textcolor{keywordtype}{int}\ set=-\/1);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ matrixToString(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\&\ mx);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_array}{FbxArray<xmlNode*>}}\ CNodeList;}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00166\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxcolladautils_8h_a58f717df95d4eacd55f710ddb7d9942a}{findChildrenByType}}(xmlNode*\ pParentElement,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_set}{FbxSet<FbxString>}}\&\ pTypes,\ CNodeList\&\ pChildrenElements);}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00173\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxcolladautils_8h_a58f717df95d4eacd55f710ddb7d9942a}{findChildrenByType}}(xmlNode*\ pParentElement,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pType,\ CNodeList\&\ pChildrenElements);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ xmlNode*\ getSourceAccessor(xmlNode*\ sourceNode);}
+\DoxyCodeLine{00176\ xmlNode*\ getTechniqueNode(xmlNode*\ parent,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ profile);}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{comment}{//\ Conversions}}
+\DoxyCodeLine{00179\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ inchesToCentimeters(\textcolor{keywordtype}{double}\ val)\ \{\ \textcolor{keywordflow}{return}\ FbxFloor(val\ /\ CENTIMETERS\_TO\_INCHES\ *\ 100000)\ /\ 100000;\ \}}
+\DoxyCodeLine{00180\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ centimetersToInches(\textcolor{keywordtype}{double}\ val)\ \{\ \textcolor{keywordflow}{return}\ FbxFloor(val\ *\ CENTIMETERS\_TO\_INCHES\ *\ 100000)\ /\ 100000;\ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ degreesToRadians(\textcolor{keywordtype}{double}\ val)\ \{\ \textcolor{keywordflow}{return}\ FbxFloor(val\ /\ RADIANS\_TO\_DEGREES\ *\ 100000)\ /\ 100000;\ \}}
+\DoxyCodeLine{00183\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ radiansToDegrees(\textcolor{keywordtype}{double}\ val)\ \{\ \textcolor{keywordflow}{return}\ FbxFloor(val\ *\ RADIANS\_TO\_DEGREES\ *\ 100000)\ /\ 100000;\ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00192\ xmlNode*\ \mbox{\hyperlink{fbxcolladautils_8h_af86399e0da5cc7b6b0db481176e0ad0d}{DAE\_FindChildElementByAttribute}}(xmlNode*\ pParentElement,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pAttributeName,}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pAttributeValue,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pDefaultAttributeValue\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00201\ xmlNode*\ \mbox{\hyperlink{fbxcolladautils_8h_a7d779670e1e0e9b41f70bc15d5488ae7}{DAE\_FindChildElementByTag}}(xmlNode*\ pParentElement,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pTag,\ xmlNode*\ pFindFrom\ =\ NULL);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00207\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00208\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxcolladautils_8h_a8ad56792aad4343fc12428f8235f7d38}{DAE\_GetElementContent}}(xmlNode\ *\ pElement,\ TYPE\ \&\ pData)}
+\DoxyCodeLine{00209\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordflow}{if}\ (pElement\ !=\ NULL)}
+\DoxyCodeLine{00211\ \ \ \ \ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ xmlChar*\ lContent\ =\ xmlNodeGetContent(pElement);}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lContent)}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxcolladaiostream_8h_ad67888713b29fb4b369bdcbcf795a7e7}{FromString}}(\&pData,\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *)lContent);}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ xmlFree(lContent);}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \}}
+\DoxyCodeLine{00219\ \}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00225\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fbxcolladautils_8h_a1208dad3ee25bec7b87087897e18891a}{DAE\_CheckCompatibility}}(xmlNode\ *\ pNodeElement);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00231\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxcolladautils_8h_a6274be764ec506f0082ba8f6e51e6d0a}{DAE\_GetElementTag}}(xmlNode\ *\ pElement,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \&\ pTag);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00238\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{fbxcolladautils_8h_a0e3205c1636dc88c39dfc8bbd59fc81d}{DAE\_GetElementAttributeValue}}(xmlNode\ *\ pElement,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pAttributeName);}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00246\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ TYPE>}
+\DoxyCodeLine{00247\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fbxcolladautils_8h_a0e3205c1636dc88c39dfc8bbd59fc81d}{DAE\_GetElementAttributeValue}}(xmlNode\ *\ pElement,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pAttributeName,\ TYPE\ \&\ pData)}
+\DoxyCodeLine{00248\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordflow}{if}\ (!pElement\ ||\ !pAttributeName)}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ xmlChar*\ lPropertyValue\ =\ xmlGetProp(pElement,\ (\textcolor{keyword}{const}\ xmlChar\ *)pAttributeName);}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordflow}{if}\ (lPropertyValue)}
+\DoxyCodeLine{00254\ \ \ \ \ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxcolladaiostream_8h_ad67888713b29fb4b369bdcbcf795a7e7}{FromString}}(\&pData,\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *)lPropertyValue);}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ xmlFree(lPropertyValue);}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00258\ \ \ \ \ \}}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00260\ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{comment}{//\ Special\ instantiation\ for\ string;}}
+\DoxyCodeLine{00263\ \textcolor{comment}{//\ Omit\ the\ whitespaces,\ just\ return\ the\ whole\ string}}
+\DoxyCodeLine{00264\ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00265\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fbxcolladautils_8h_a0e3205c1636dc88c39dfc8bbd59fc81d}{DAE\_GetElementAttributeValue}}(xmlNode\ *\ pElement,}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pAttributeName,}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \&\ pData)}
+\DoxyCodeLine{00268\ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordflow}{if}\ (!pElement\ ||\ !pAttributeName)}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ xmlChar*\ lPropertyValue\ =xmlGetProp(pElement,\ (\textcolor{keyword}{const}\ xmlChar\ *)pAttributeName);}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordflow}{if}\ (lPropertyValue)}
+\DoxyCodeLine{00274\ \ \ \ \ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ pData\ =\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *)lPropertyValue;}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ xmlFree(lPropertyValue);}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00278\ \ \ \ \ \}}
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00280\ \}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00288\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fbxcolladautils_8h_ad3c04a67830c3f6283b914a5c046eb25}{DAE\_CompareAttributeValue}}(xmlNode\ *\ pElement,}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pAttributeName,}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pValue);}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00297\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{fbxcolladautils_8h_a8f072503ad1b1bf7b2f0bf83916e4d8b}{DAE\_GetIDFromUrlAttribute}}(xmlNode\ *\ pElement,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pExternalRef);}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00303\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{fbxcolladautils_8h_a7ec6c4cf8ec207b59e40a8caccc3f5b4}{DAE\_GetIDFromSourceAttribute}}(xmlNode\ *\ pElement);}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00310\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{fbxcolladautils_8h_af8be8a842f6e0c186a68db3195cd848d}{DAE\_GetIDFromTargetAttribute}}(xmlNode\ *\ pElement);}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00317\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxcolladautils_8h_ac84072ce5185ddeac9317de415615294}{DAE\_SetName}}(\mbox{\hyperlink{class_fbx_object}{FbxObject}}\ *\ pObject,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \&\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \&\ pID);}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00328\ xmlNode\ *\ \mbox{\hyperlink{fbxcolladautils_8h_ab2fa4844ea52fcf41b4defe8c0d963fb}{DAE\_GetSourceWithSemantic}}(xmlNode\ *\ pConsumerElement,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pSemantic,}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ SourceElementMapType\ \&\ pSourceElements);}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00337\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00338\ xmlNode\ *\ \mbox{\hyperlink{fbxcolladautils_8h_a10902760f20d61e537b4565a2f63fd33}{DAE\_AddChildElement}}(xmlNode\ *\ pParentElement,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pTag,}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ T\ \&\ pContent)}
+\DoxyCodeLine{00340\ \{}
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ lRepr\ =\ ToString(pContent);}
+\DoxyCodeLine{00342\ \ \ \ \ \textcolor{keywordflow}{return}\ xmlNewChild(pParentElement,\ NULL,\ (xmlChar\ *)pTag,}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ (xmlChar\ *)lRepr.\mbox{\hyperlink{class_fbx_string_aea97f578b083dd83a13364cab3008dd6}{Buffer}}());}
+\DoxyCodeLine{00344\ \}}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \textcolor{comment}{//\ Create\ a\ child\ element\ with\ empty\ content.}}
+\DoxyCodeLine{00347\ \textcolor{keyword}{inline}\ xmlNode\ *\ \mbox{\hyperlink{fbxcolladautils_8h_a10902760f20d61e537b4565a2f63fd33}{DAE\_AddChildElement}}(xmlNode\ *\ pParentElement,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pTag)}
+\DoxyCodeLine{00348\ \{}
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxcolladautils_8h_a10902760f20d61e537b4565a2f63fd33}{DAE\_AddChildElement}}(pParentElement,\ pTag,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}());}
+\DoxyCodeLine{00350\ \}}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ \textcolor{comment}{//\ Create\ a\ new\ element\ with\ empty\ content.}}
+\DoxyCodeLine{00353\ \textcolor{keyword}{inline}\ xmlNode\ *\ DAE\_NewElement(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pTag)}
+\DoxyCodeLine{00354\ \{}
+\DoxyCodeLine{00355\ \ \ \ \ \textcolor{keywordflow}{return}\ xmlNewNode(NULL,\ \textcolor{keyword}{reinterpret\_cast<}xmlChar*\textcolor{keyword}{>}(\textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{char}\ *\textcolor{keyword}{>}(pTag)));}
+\DoxyCodeLine{00356\ \}}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00364\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00365\ xmlAttr\ *\ \mbox{\hyperlink{fbxcolladautils_8h_a4da81de7f522825299e7a97c0d98edd9}{DAE\_AddAttribute}}(xmlNode\ *\ pElement,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \&\ pAttributeName,}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ T\ \&\ pAttributeValue)}
+\DoxyCodeLine{00367\ \{}
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ lRepr\ =\ ToString(pAttributeValue);}
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keywordflow}{return}\ xmlNewProp(pElement,\ (xmlChar\ *)pAttributeName.\mbox{\hyperlink{class_fbx_string_aea97f578b083dd83a13364cab3008dd6}{Buffer}}(),}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ (xmlChar\ *)lRepr.\mbox{\hyperlink{class_fbx_string_aea97f578b083dd83a13364cab3008dd6}{Buffer}}());}
+\DoxyCodeLine{00371\ \}}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00377\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_system_unit}{FbxSystemUnit}}\ \mbox{\hyperlink{fbxcolladautils_8h_a8cd972719879976b871915665316af0e}{DAE\_ImportUnit}}(xmlNode\ *\ pUnitElement);}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00383\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxcolladautils_8h_a1e5d454ded1f039b5cb232bcb85eaf9b}{IncreaseLclTranslationAnimation}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}\ *\ pNode,\ FbxDouble3\ \&\ pOffset);}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00390\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxcolladautils_8h_afac02fba97bbe60df48f7a0377e3b161}{RecursiveSearchElement}}(xmlNode\ *\ pBaseElement,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pTag,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<xmlNode*>}}\ \&\ pResult);}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_FILEIO\_COLLADA\_UTILS\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

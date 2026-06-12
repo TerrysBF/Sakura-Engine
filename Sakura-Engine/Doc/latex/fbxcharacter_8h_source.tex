@@ -1,0 +1,868 @@
+\doxysection{fbxcharacter.\+h}
+\hypertarget{fbxcharacter_8h_source}{}\label{fbxcharacter_8h_source}\index{include/fbx/fbxsdk/scene/constraint/fbxcharacter.h@{include/fbx/fbxsdk/scene/constraint/fbxcharacter.h}}
+\mbox{\hyperlink{fbxcharacter_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_CONSTRAINT\_CHARACTER\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_CONSTRAINT\_CHARACTER\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxtransforms_8h}{fbxsdk/core/math/fbxtransforms.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxconstraint_8h}{fbxsdk/scene/constraint/fbxconstraint.h}}>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_control_set}{FbxControlSet}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_character_link_ab2f755a75b24f1e1ffbe21f61b4f718f}{FbxCharacterLink}}}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_character_link_ae90994844e941f231b6be3d59e21cdce}{EType}}}
+\DoxyCodeLine{00035\ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ eCharacterLink,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ eControlSetLink,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ eControlSetEffector,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ eControlSetEffectorAux}
+\DoxyCodeLine{00040\ \ \ \ \ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_fbx_character_link_ab2f755a75b24f1e1ffbe21f61b4f718f}{FbxCharacterLink}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_fbx_character_link_a8f9d5ca289fe6fc60e6d3648112f8dcc}{FbxCharacterLink}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_character_link_ab2f755a75b24f1e1ffbe21f61b4f718f}{FbxCharacterLink}}\&\ pCharacterLink);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_fbx_character_link_ab2f755a75b24f1e1ffbe21f61b4f718f}{FbxCharacterLink}}\&\ \mbox{\hyperlink{class_fbx_character_link_a246045fe7f5e64f57de77684e4b27350}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_character_link_ab2f755a75b24f1e1ffbe21f61b4f718f}{FbxCharacterLink}}\&\ pCharacterLink);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_character_link_a9d0e6c6b7fc03ccb93283d79f763403f}{Reset}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ mNode;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \ \mbox{\hyperlink{class_fbx_character_link_a57e20720f9a533670e5b003f9a3d05f2}{mTemplateName}};\ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ \mbox{\hyperlink{class_fbx_character_link_a3baf29ae4a06587d77e8a8ac9fef225d}{mOffsetT}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ \mbox{\hyperlink{class_fbx_character_link_aab8ab2a895523dce65a76ea68a732960}{mOffsetR}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ \mbox{\hyperlink{class_fbx_character_link_acf71e4b7ea7b661ec5efa22a090e0a18}{mOffsetS}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ \mbox{\hyperlink{class_fbx_character_link_a82c5bd03f0927e100bd8ee6315cd5db0}{mParentROffset}};\ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_character_link_a013df32c72b266e1b0c23ed6e88d6723}{mHasRotSpace}};\ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_fbx_limits}{FbxLimits}}\ \ \mbox{\hyperlink{class_fbx_character_link_a54890e0bba0ad7aa9e345a5a907258d9}{mRLimits}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ \mbox{\hyperlink{class_fbx_character_link_ad72d5286a98d4e83b71bb2c53885d6ce}{mPreRotation}};\ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ \mbox{\hyperlink{class_fbx_character_link_a35c2a40e3cbf60ed88c23487c3c57526}{mPostRotation}};\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_character_link_ae55332d252f95e91e842117a566f53d7}{mRotOrder}};}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ mAxisLen;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00084\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00085\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{class_fbx_property}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_character_link_aa0e1f2f48f9da2baca38191023b55e10}{mPropertyLink}};}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{class_fbx_property}{FbxProperty}}\ mPropertyOffsetT;}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{class_fbx_property}{FbxProperty}}\ mPropertyOffsetR;}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{class_fbx_property}{FbxProperty}}\ mPropertyOffsetS;}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{class_fbx_property}{FbxProperty}}\ mPropertyParentOffsetR;}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{class_fbx_property}{FbxProperty}}\ mPropertyTemplateName;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ FromFbxEOrder(FbxEuler::EOrder\ pOrder);}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{static}\ FbxEuler::EOrder\ ToFbxEOrder(\textcolor{keywordtype}{int}\ pOrder);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00098\ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_character}{FbxCharacter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_constraint}{FbxConstraint}}}
+\DoxyCodeLine{00110\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_character}{FbxCharacter}},\ \mbox{\hyperlink{class_fbx_constraint}{FbxConstraint}});}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_character_a0c2ca4f8cab9c76a83b0e207f3ae8ea1}{EInputType}}}
+\DoxyCodeLine{00122\ \ \ \ \ \{\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ eInputActor,\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ eInputCharacter,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ eInputMarkerSet,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ eOutputMarkerSet,}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ eInputStancePose}
+\DoxyCodeLine{00128\ \ \ \ \ \};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_character_aa04f2d3cc99d77fe7b9d2066fc9f255e}{EGroupId}}}
+\DoxyCodeLine{00132\ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ eGroupBase,}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ eGroupAuxiliary,}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ eGroupSpine,}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ eGroupRoll,}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ eGroupSpecial,}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ eGroupLeftHand,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ eGroupRightHand,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ eGroupProps,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ eGroupGameModeParent,}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ eGroupNeck,}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ eGroupLeftFoot,}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ eGroupRightFoot,}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ eGroupFloorContact,}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ eGroupIdCount}
+\DoxyCodeLine{00147\ \ \ \ \ \};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_character_ad75bf42026e435ac0ff4d7ece2317be4}{ENodeId}}}
+\DoxyCodeLine{00152\ \ \ \ \ \{\ \ \ \ \ \ \ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ eHips,}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ eLeftHip,}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ eLeftKnee,}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ eLeftAnkle,}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ eLeftFoot,}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ eRightHip,}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ eRightKnee,}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ eRightAnkle,}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ eRightFoot,}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ eWaist,}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ eChest,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ eLeftCollar,}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ eLeftShoulder,}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ eLeftElbow,}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ eLeftWrist,}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ eRightCollar,}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ eRightShoulder,}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ eRightElbow,}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ eRightWrist,}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ eNeck,}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ eHead,}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ eLeftHipRoll,}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ eLeftKneeRoll,}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ eRightHipRoll,}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ eRightKneeRoll,}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ eLeftShoulderRoll,}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ eLeftElbowRoll,}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ eRightShoulderRoll,}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ eRightElbowRoll,}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ eSpine2,}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ eSpine3,}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ eSpine4,}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ eSpine5,}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ eSpine6,}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ eSpine7,}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ eSpine8,}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ eSpine9,}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ eLeftThumbA,}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ eLeftThumbB,}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ eLeftThumbC,}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ eLeftIndexA,}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ eLeftIndexB,}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ eLeftIndexC,}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ eLeftMiddleA,}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ eLeftMiddleB,}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ eLeftMiddleC,}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ eLeftRingA,}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ eLeftRingB,}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ eLeftRingC,}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ eLeftPinkyA,}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ eLeftPinkyB,}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ eLeftPinkyC,}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ eRightThumbA,}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ eRightThumbB,}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ eRightThumbC,}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ eRightIndexA,}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ eRightIndexB,}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ eRightIndexC,}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ eRightMiddleA,}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ eRightMiddleB,}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ eRightMiddleC,}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ eRightRingA,}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ eRightRingB,}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ eRightRingC,}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ eRightPinkyA,}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ eRightPinkyB,}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ eRightPinkyC,}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ eReference,}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ eLeftFloor,}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ eRightFloor,}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ eHipsTranslation,}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ eProps0,}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ eProps1,}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ eProps2,}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ eProps3,}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ eProps4,}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ eGameModeParentLeftHipRoll,}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ eGameModeParentLeftKnee,}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ eGameModeParentLeftKneeRoll,}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ eGameModeParentRightHipRoll,}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ eGameModeParentRightKnee,}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ eGameModeParentRightKneeRoll,}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ eGameModeParentLeftShoulderRoll,\ \ \ \ \ \ \ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ eGameModeParentLeftElbow,\ \ \ \ \ \ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ eGameModeParentLeftElbowRoll,\ \ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ eGameModeParentRightShoulderRoll,}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ eGameModeParentRightElbow,\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ eGameModeParentRightElbowRoll,\ }
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ eLeftUpLegRoll,}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ eLeftLegRoll,}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ eRightUpLegRoll,}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ eRightLegRoll,}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ eLeftArmRoll,}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ eLeftForeArmRoll,}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ eRightArmRoll,}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ eRightForeArmRoll,}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ eLeftHandFloor,}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ eRightHandFloor,}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ eLeftHand,}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ eRightHand,}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ eNeck1,}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ eNeck2,}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ eNeck3,}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ eNeck4,}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ eNeck5,}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ eNeck6,}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ eNeck7,}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ eNeck8,}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ eNeck9,}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ eLeftInHandThumb,}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ eLeftThumbD,}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ eLeftInHandIndex,}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ eLeftIndexD,}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ eLeftInHandMiddle,}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ eLeftMiddleD,}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ eLeftInHandRing,}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ eLeftRingD,}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ eLeftInHandPinky,}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ eLeftPinkyD,}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ eLeftInHandExtraFinger,}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ eLeftExtraFingerA,}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ eLeftExtraFingerB,}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ eLeftExtraFingerC,}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ eLeftExtraFingerD,}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ eRightInHandThumb,}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ eRightThumbD,}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ eRightInHandIndex,}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ eRightIndexD,}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ eRightInHandMiddle,}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ eRightMiddleD,}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ eRightInHandRing,}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ eRightRingD,}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ eRightInHandPinky,}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ eRightPinkyD,}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ eRightInHandExtraFinger,}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ eRightExtraFingerA,}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ eRightExtraFingerB,}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ eRightExtraFingerC,}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ eRightExtraFingerD,}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ eLeftInFootThumb,}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ eLeftFootThumbA,}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ eLeftFootThumbB,}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ eLeftFootThumbC,}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ eLeftFootThumbD,}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ eLeftInFootIndex,}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ eLeftFootIndexA,}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ eLeftFootIndexB,}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ eLeftFootIndexC,}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ eLeftFootIndexD,}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ eLeftInFootMiddle,}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ eLeftFootMiddleA,}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ eLeftFootMiddleB,}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ eLeftFootMiddleC,}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ eLeftFootMiddleD,}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ eLeftInFootRing,}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ eLeftFootRingA,}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ eLeftFootRingB,}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ eLeftFootRingC,}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ eLeftFootRingD,}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ eLeftInFootPinky,}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ eLeftFootPinkyA,}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ eLeftFootPinkyB,}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ eLeftFootPinkyC,}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ eLeftFootPinkyD,}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ eLeftInFootExtraFinger,}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ eLeftFootExtraFingerA,}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ eLeftFootExtraFingerB,}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ eLeftFootExtraFingerC,}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ eLeftFootExtraFingerD,}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ eRightInFootThumb,}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ eRightFootThumbA,}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ eRightFootThumbB,}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ eRightFootThumbC,}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ eRightFootThumbD,}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ eRightInFootIndex,}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ eRightFootIndexA,}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ eRightFootIndexB,}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ eRightFootIndexC,}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ eRightFootIndexD,}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ eRightInFootMiddle,}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ eRightFootMiddleA,}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ eRightFootMiddleB,}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ eRightFootMiddleC,}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ eRightFootMiddleD,}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ eRightInFootRing,}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ eRightFootRingA,}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ eRightFootRingB,}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ eRightFootRingC,}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ eRightFootRingD,}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ eRightInFootPinky,}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ eRightFootPinkyA,}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ eRightFootPinkyB,}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ eRightFootPinkyC,}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ eRightFootPinkyD,}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ eRightInFootExtraFinger,}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ eRightFootExtraFingerA,}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ eRightFootExtraFingerB,}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ eRightFootExtraFingerC,}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ eRightFootExtraFingerD,}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ eLeftCollarExtra,}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ eRightCollarExtra,}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ eLeafLeftHipRoll1,}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ eLeafLeftKneeRoll1,}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ eLeafRightHipRoll1,}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ eLeafRightKneeRoll1,}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ eLeafLeftShoulderRoll1,}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ eLeafLeftElbowRoll1,}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ eLeafRightShoulderRoll1,}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ eLeafRightElbowRoll1,}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ eLeafLeftHipRoll2,}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ eLeafLeftKneeRoll2,}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ eLeafRightHipRoll2,}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ eLeafRightKneeRoll2,}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ eLeafLeftShoulderRoll2,}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ eLeafLeftElbowRoll2,}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ eLeafRightShoulderRoll2,}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ eLeafRightElbowRoll2,}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ eLeafLeftHipRoll3,}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ eLeafLeftKneeRoll3,}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ eLeafRightHipRoll3,}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ eLeafRightKneeRoll3,}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ eLeafLeftShoulderRoll3,}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ eLeafLeftElbowRoll3,}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ eLeafRightShoulderRoll3,}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ eLeafRightElbowRoll3,}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ eLeafLeftHipRoll4,}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ eLeafLeftKneeRoll4,}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ eLeafRightHipRoll4,}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ eLeafRightKneeRoll4,}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ eLeafLeftShoulderRoll4,}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ eLeafLeftElbowRoll4,}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ eLeafRightShoulderRoll4,}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ eLeafRightElbowRoll4,}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ eLeafLeftHipRoll5,}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ eLeafLeftKneeRoll5,}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ eLeafRightHipRoll5,}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ eLeafRightKneeRoll5,}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ eLeafLeftShoulderRoll5,}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ eLeafLeftElbowRoll5,}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ eLeafRightShoulderRoll5,}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ eLeafRightElbowRoll5,}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ eNodeIdCount,}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ eNodeIdInvalid=-\/1}
+\DoxyCodeLine{00396\ \ \ \ \ \};}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keyword}{enum}\ EOffAutoUser}
+\DoxyCodeLine{00399\ \ \ \ \ \{}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ eParamModeOff,}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ eParamModeAuto,}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ eParamModeUser}
+\DoxyCodeLine{00403\ \ \ \ \ \};}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ \textcolor{keyword}{enum}\ EAutoUser}
+\DoxyCodeLine{00406\ \ \ \ \ \{}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ eParamModeAuto2,}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ eParamModeUser2}
+\DoxyCodeLine{00409\ \ \ \ \ \};}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \ \ \ \ \textcolor{keyword}{enum}\ EPostureMode}
+\DoxyCodeLine{00412\ \ \ \ \ \{}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ ePostureBiped,}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ ePostureQuadriped,}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ ePostureCount}
+\DoxyCodeLine{00416\ \ \ \ \ \};}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \ \ \ \ \textcolor{keyword}{enum}\ EFloorPivot}
+\DoxyCodeLine{00419\ \ \ \ \ \{}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ eFloorPivotAuto,}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ eFloorPivotAnkle,}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ eFloorPivotToes,}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ eFloorPivotCount}
+\DoxyCodeLine{00424\ \ \ \ \ \};}
+\DoxyCodeLine{00425\ }
+\DoxyCodeLine{00426\ \ \ \ \ \textcolor{keyword}{enum}\ ERollExtractionMode}
+\DoxyCodeLine{00427\ \ \ \ \ \{}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ eRelativeRollExtraction,}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ eAbsoluteRollExtraction,}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ eRollExtractionTypeCount}
+\DoxyCodeLine{00431\ \ \ \ \ \};}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keyword}{enum}\ EHipsTranslationMode}
+\DoxyCodeLine{00434\ \ \ \ \ \{}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ eHipsTranslationWorldRigid,}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ eHipsTranslationBodyRigid,}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ eHipsTranslationTypeCount}
+\DoxyCodeLine{00438\ \ \ \ \ \};}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00440\ \ \ \ \ \textcolor{keyword}{enum}\ EFootContactType}
+\DoxyCodeLine{00441\ \ \ \ \ \{}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ eFootTypeNormal,}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ eFootTypeAnkle,}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ eFootTypeToeBase,}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ eFootTypeHoof,}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ eFootContactModeCount}
+\DoxyCodeLine{00447\ \ \ \ \ \};}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keyword}{enum}\ EHandContactType}
+\DoxyCodeLine{00450\ \ \ \ \ \{}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ eHandTypeNormal,}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ eHandTypeWrist,}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ eHandTypeFingerBase,}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ eHandTypeHoof,}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ eHandContactModeCount}
+\DoxyCodeLine{00456\ \ \ \ \ \};}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ \ \ \ \ \textcolor{keyword}{enum}\ EFingerContactMode}
+\DoxyCodeLine{00459\ \ \ \ \ \{}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ eFingerContactModeSticky,}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ eFingerContactModeSpread,}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ eFingerContactModeStickySpread,}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ eFingerContactModeCount}
+\DoxyCodeLine{00464\ \ \ \ \ \};}
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00466\ \ \ \ \ \textcolor{keyword}{enum}\ EContactBehaviour}
+\DoxyCodeLine{00467\ \ \ \ \ \{}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ eContactNeverSync,}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ eContactSyncOnKey,}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ eContactAlwaysSync,}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ eContactBehaviorCount}
+\DoxyCodeLine{00472\ \ \ \ \ \};}
+\DoxyCodeLine{00473\ }
+\DoxyCodeLine{00474\ \ \ \ \ \textcolor{keyword}{enum}\ EPropertyUnit}
+\DoxyCodeLine{00475\ \ \ \ \ \{}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ ePropertyNoUnit,}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ ePropertyPercent,}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ ePropertySecond,}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ ePropertyCentimeter,}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ ePropertyDegree,}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ ePropertyEnum,}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ ePropertyReal}
+\DoxyCodeLine{00483\ \ \ \ \ \};}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \ \ \ \ \textcolor{keyword}{enum}\ EErrorCode}
+\DoxyCodeLine{00486\ \ \ \ \ \{}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ eInternalError,}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ eErrorCount}
+\DoxyCodeLine{00489\ \ \ \ \ \};\ }
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00497\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_character_a1ee11d659b9fb685b13018d1df9c2dd5}{Reset}}();}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00503\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_character_ab87ed5f986b701e71c9c48974004a340}{SetInput}}(\mbox{\hyperlink{class_fbx_character_a0c2ca4f8cab9c76a83b0e207f3ae8ea1}{EInputType}}\ pInputType,\ FbxObject*\ pInputObject\ =\ NULL);}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00506\ \ \ \ \ \mbox{\hyperlink{class_fbx_character_a0c2ca4f8cab9c76a83b0e207f3ae8ea1}{EInputType}}\ \mbox{\hyperlink{class_fbx_character_ae4404d380579722e4297cee338e5c33c}{GetInputType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00507\ }
+\DoxyCodeLine{00513\ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_character_a93c9de178e3cb8057448468f113d7c19}{GetInputObject}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00522\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_character_a8ead498579d0c9aa560e59042ccd36a9}{SetCharacterLink}}(\mbox{\hyperlink{class_fbx_character_ad75bf42026e435ac0ff4d7ece2317be4}{ENodeId}}\ pCharacterNodeId,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_character_link}{FbxCharacterLink}}\&\ pCharacterLink,\ \textcolor{keywordtype}{bool}\ pUpdateObjectList\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00523\ }
+\DoxyCodeLine{00529\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_character_a556ef97158eecdedc32ba8175943d637}{GetCharacterLink}}(\mbox{\hyperlink{class_fbx_character_ad75bf42026e435ac0ff4d7ece2317be4}{ENodeId}}\ pCharacterNodeId,\ \mbox{\hyperlink{class_fbx_character_link}{FbxCharacterLink}}*\ pCharacterLink\ =\ NULL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00530\ }
+\DoxyCodeLine{00534\ \ \ \ \ \mbox{\hyperlink{class_fbx_control_set}{FbxControlSet}}\&\ \mbox{\hyperlink{class_fbx_character_a6c176ca323b43c5dcd4575f9334fe85d}{GetControlSet}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00540\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_character_a10fbb4a94c4e27e24839ff1ad181af46}{GetCharacterGroupCount}}(\mbox{\hyperlink{class_fbx_character_aa04f2d3cc99d77fe7b9d2066fc9f255e}{EGroupId}}\ pCharacterGroupId);}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00547\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_character_ad75bf42026e435ac0ff4d7ece2317be4}{ENodeId}}\ \mbox{\hyperlink{class_fbx_character_a8bd837899b9c7cb0579c30486bd3f063}{GetCharacterGroupElementByIndex}}(\mbox{\hyperlink{class_fbx_character_aa04f2d3cc99d77fe7b9d2066fc9f255e}{EGroupId}}\ pCharacterGroupId,\ \textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00548\ }
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00555\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_character_a77716c6c94cc545dbf69fc7a80da941c}{GetCharacterGroupNameByIndex}}(\mbox{\hyperlink{class_fbx_character_aa04f2d3cc99d77fe7b9d2066fc9f255e}{EGroupId}}\ pCharacterGroupId,\ \textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00556\ }
+\DoxyCodeLine{00562\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_character_a1881005b51b372f7b9238da7fdcf5367}{GetCharacterGroupVersionByIndex}}(\mbox{\hyperlink{class_fbx_character_aa04f2d3cc99d77fe7b9d2066fc9f255e}{EGroupId}}\ pCharacterGroupId,\ \textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00563\ }
+\DoxyCodeLine{00571\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_character_adca9207dfaffda7b98ea1b70c88fa0f3}{FindCharacterGroupIndexByName}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keywordtype}{bool}\ pForceGroupId,\ \mbox{\hyperlink{class_fbx_character_aa04f2d3cc99d77fe7b9d2066fc9f255e}{EGroupId}}\&\ pCharacterGroupId,\ \textcolor{keywordtype}{int}\&\ pIndex);}
+\DoxyCodeLine{00572\ }
+\DoxyCodeLine{00580\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_character_a0f42325e394e7ec5184a7c396d4b1b4a}{GetCharacterGroupIndexByElement}}(\mbox{\hyperlink{class_fbx_character_ad75bf42026e435ac0ff4d7ece2317be4}{ENodeId}}\ pCharacterNodeId,\ \mbox{\hyperlink{class_fbx_character_aa04f2d3cc99d77fe7b9d2066fc9f255e}{EGroupId}}\&\ pCharacterGroupId,\ \textcolor{keywordtype}{int}\&\ pIndex);}
+\DoxyCodeLine{00581\ }
+\DoxyCodeLine{00588\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_character_adca146a3155027af9ea82513fa614ef1}{GetCharacterGroupVersionByElement}}(\mbox{\hyperlink{class_fbx_character_ad75bf42026e435ac0ff4d7ece2317be4}{ENodeId}}\ pCharacterNodeId,\ \textcolor{keywordtype}{int}\&\ pVersion);}
+\DoxyCodeLine{00589\ }
+\DoxyCodeLine{00597\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_character_ad7162048fc5ab287acafcef3a0088c38}{GetCharacterNodeNameFromNodeId}}(\mbox{\hyperlink{class_fbx_character_ad75bf42026e435ac0ff4d7ece2317be4}{ENodeId}}\ pCharacterNodeId,\ \textcolor{keywordtype}{char}*\&\ pName);}
+\DoxyCodeLine{00598\ }
+\DoxyCodeLine{00604\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_character_af7a49eb6a3936fc9d45d734e23d9ab1e}{GetCharacterNodeIdFromNodeName}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{class_fbx_character_ad75bf42026e435ac0ff4d7ece2317be4}{ENodeId}}\&\ pCharacterNodeId);}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00606\ \ \ \ \ \textcolor{comment}{//\ FbxCharacter\ Properties}}
+\DoxyCodeLine{00607\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxInt>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PullIterationCount;}
+\DoxyCodeLine{00608\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EPostureMode>}}\ \ \ \ \ \ \ \ \ \ \ \ Posture;}
+\DoxyCodeLine{00609\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ForceActorSpace;}
+\DoxyCodeLine{00610\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ScaleCompensation;}
+\DoxyCodeLine{00611\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EOffAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ ScaleCompensationMode;}
+\DoxyCodeLine{00612\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HipsHeightCompensation;}
+\DoxyCodeLine{00613\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EOffAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ HipsHeightCompensationMode;}
+\DoxyCodeLine{00614\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ AnkleHeightCompensation;}
+\DoxyCodeLine{00615\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EOffAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ AnkleHeightCompensationMode;}
+\DoxyCodeLine{00616\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ AnkleProximityCompensation;}
+\DoxyCodeLine{00617\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EOffAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ AnkleProximityCompensationMode;}
+\DoxyCodeLine{00618\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ MassCenterCompensation;}
+\DoxyCodeLine{00619\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ApplyLimits;}
+\DoxyCodeLine{00620\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ChestReduction;}
+\DoxyCodeLine{00621\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CollarReduction;}
+\DoxyCodeLine{00622\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ NeckReduction;}
+\DoxyCodeLine{00623\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HeadReduction;}
+\DoxyCodeLine{00624\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorLeftAnkle;}
+\DoxyCodeLine{00625\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorRightAnkle;}
+\DoxyCodeLine{00626\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorLeftKnee;}
+\DoxyCodeLine{00627\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorRightKnee;}
+\DoxyCodeLine{00628\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorChest;}
+\DoxyCodeLine{00629\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorHead;}
+\DoxyCodeLine{00630\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorLeftWrist;}
+\DoxyCodeLine{00631\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorRightWrist;}
+\DoxyCodeLine{00632\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorLeftElbow;}
+\DoxyCodeLine{00633\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorRightElbow;}
+\DoxyCodeLine{00634\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorLeftFingerBase;}
+\DoxyCodeLine{00635\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorRightFingerBase;}
+\DoxyCodeLine{00636\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorLeftToesBase;}
+\DoxyCodeLine{00637\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorRightToesBase;}
+\DoxyCodeLine{00638\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorLeftFingerBaseRotation;}
+\DoxyCodeLine{00639\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorRightFingerBaseRotation;}
+\DoxyCodeLine{00640\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorLeftToesBaseRotation;}
+\DoxyCodeLine{00641\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorRightToesBaseRotation;}
+\DoxyCodeLine{00642\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorLeftAnkleRotation;}
+\DoxyCodeLine{00643\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorRightAnkleRotation;}
+\DoxyCodeLine{00644\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorHeadRotation;}
+\DoxyCodeLine{00645\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorLeftWristRotation;}
+\DoxyCodeLine{00646\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorRightWristRotation;}
+\DoxyCodeLine{00647\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorChestRotation;}
+\DoxyCodeLine{00648\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ReachActorLowerChestRotation;}
+\DoxyCodeLine{00649\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble3>}}\ \ \ \ \ \ \ \ \ \ \ \ HipsTOffset;}
+\DoxyCodeLine{00650\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble3>}}\ \ \ \ \ \ \ \ \ \ \ \ ChestTOffset;}
+\DoxyCodeLine{00651\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<ERollExtractionMode>}}\ \ RollExtractionMode;}
+\DoxyCodeLine{00652\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftUpLegRoll;}
+\DoxyCodeLine{00653\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftUpLegRollMode;}
+\DoxyCodeLine{00654\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftLegRoll;}
+\DoxyCodeLine{00655\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftLegRollMode;}
+\DoxyCodeLine{00656\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightUpLegRoll;}
+\DoxyCodeLine{00657\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightUpLegRollMode;}
+\DoxyCodeLine{00658\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightLegRoll;}
+\DoxyCodeLine{00659\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightLegRollMode;}
+\DoxyCodeLine{00660\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftArmRoll;}
+\DoxyCodeLine{00661\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftArmRollMode;}
+\DoxyCodeLine{00662\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftForeArmRoll;}
+\DoxyCodeLine{00663\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftForeArmRollMode;}
+\DoxyCodeLine{00664\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightArmRoll;}
+\DoxyCodeLine{00665\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightArmRollMode;}
+\DoxyCodeLine{00666\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightForeArmRoll;}
+\DoxyCodeLine{00667\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightForeArmRollMode;}
+\DoxyCodeLine{00668\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftUpLegRollEx;}
+\DoxyCodeLine{00669\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftUpLegRollExMode;}
+\DoxyCodeLine{00670\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftLegRollEx;}
+\DoxyCodeLine{00671\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftLegRollExMode;}
+\DoxyCodeLine{00672\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightUpLegRollEx;}
+\DoxyCodeLine{00673\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightUpLegRollExMode;}
+\DoxyCodeLine{00674\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightLegRollEx;}
+\DoxyCodeLine{00675\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightLegRollExMode;}
+\DoxyCodeLine{00676\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftArmRollEx;}
+\DoxyCodeLine{00677\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftArmRollExMode;}
+\DoxyCodeLine{00678\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftForeArmRollEx;}
+\DoxyCodeLine{00679\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftForeArmRollExMode;}
+\DoxyCodeLine{00680\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightArmRollEx;}
+\DoxyCodeLine{00681\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightArmRollExMode;}
+\DoxyCodeLine{00682\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightForeArmExRoll;}
+\DoxyCodeLine{00683\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightForeArmRollExMode;}
+\DoxyCodeLine{00684\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EContactBehaviour>}}\ \ \ \ \ \ ContactBehaviour;}
+\DoxyCodeLine{00685\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ FootFloorContact;}
+\DoxyCodeLine{00686\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ FootAutomaticToes;}
+\DoxyCodeLine{00687\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EFloorPivot>}}\ \ \ \ \ \ \ \ \ \ FootFloorPivot;}
+\DoxyCodeLine{00688\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ FootBottomToAnkle;}
+\DoxyCodeLine{00689\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ FootBackToAnkle;}
+\DoxyCodeLine{00690\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ FootMiddleToAnkle;}
+\DoxyCodeLine{00691\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ FootFrontToMiddle;}
+\DoxyCodeLine{00692\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ FootInToAnkle;}
+\DoxyCodeLine{00693\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ FootOutToAnkle;}
+\DoxyCodeLine{00694\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ FootContactSize;}
+\DoxyCodeLine{00695\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ FootFingerContact;}
+\DoxyCodeLine{00696\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EFootContactType>}}\ \ \ \ \ \ \ \ FootContactType;}
+\DoxyCodeLine{00697\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EFingerContactMode>}}\ \ \ \ FootFingerContactMode;}
+\DoxyCodeLine{00698\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ FootContactStiffness;}
+\DoxyCodeLine{00699\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ FootFingerContactRollStiffness;}
+\DoxyCodeLine{00700\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HandFloorContact;}
+\DoxyCodeLine{00701\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HandAutomaticFingers;}
+\DoxyCodeLine{00702\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EFloorPivot>}}\ \ \ \ \ \ \ \ \ \ HandFloorPivot;}
+\DoxyCodeLine{00703\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HandBottomToWrist;}
+\DoxyCodeLine{00704\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HandBackToWrist;}
+\DoxyCodeLine{00705\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HandMiddleToWrist;}
+\DoxyCodeLine{00706\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HandFrontToMiddle;}
+\DoxyCodeLine{00707\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HandInToWrist;}
+\DoxyCodeLine{00708\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HandOutToWrist;}
+\DoxyCodeLine{00709\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HandContactSize;}
+\DoxyCodeLine{00710\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HandFingerContact;}
+\DoxyCodeLine{00711\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EHandContactType>}}\ \ \ \ \ \ \ \ HandContactType;}
+\DoxyCodeLine{00712\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EFingerContactMode>}}\ \ \ \ HandFingerContactMode;}
+\DoxyCodeLine{00713\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HandContactStiffness;}
+\DoxyCodeLine{00714\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HandFingerContactRollStiffness;}
+\DoxyCodeLine{00715\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftHandThumbTip;}
+\DoxyCodeLine{00716\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftHandIndexTip;}
+\DoxyCodeLine{00717\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftHandMiddleTip;}
+\DoxyCodeLine{00718\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftHandRingTip;}
+\DoxyCodeLine{00719\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftHandPinkyTip;}
+\DoxyCodeLine{00720\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftHandExtraFingerTip;}
+\DoxyCodeLine{00721\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightHandThumbTip;}
+\DoxyCodeLine{00722\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightHandIndexTip;}
+\DoxyCodeLine{00723\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightHandMiddleTip;}
+\DoxyCodeLine{00724\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightHandRingTip;}
+\DoxyCodeLine{00725\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightHandPinkyTip;}
+\DoxyCodeLine{00726\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightHandExtraFingerTip;}
+\DoxyCodeLine{00727\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftFootThumbTip;}
+\DoxyCodeLine{00728\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftFootIndexTip;}
+\DoxyCodeLine{00729\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftFootMiddleTip;}
+\DoxyCodeLine{00730\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftFootRingTip;}
+\DoxyCodeLine{00731\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftFootPinkyTip;}
+\DoxyCodeLine{00732\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftFootExtraFingerTip;}
+\DoxyCodeLine{00733\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightFootThumbTip;}
+\DoxyCodeLine{00734\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightFootIndexTip;}
+\DoxyCodeLine{00735\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightFootMiddleTip;}
+\DoxyCodeLine{00736\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightFootRingTip;}
+\DoxyCodeLine{00737\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightFootPinkyTip;}
+\DoxyCodeLine{00738\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightFootExtraFingerTip;}
+\DoxyCodeLine{00739\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ FingerSolving;}
+\DoxyCodeLine{00740\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlPullLeftToeBase;}
+\DoxyCodeLine{00741\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlPullLeftFoot;}
+\DoxyCodeLine{00742\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlPullLeftKnee;}
+\DoxyCodeLine{00743\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlPullRightToeBase;}
+\DoxyCodeLine{00744\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlPullRightFoot;}
+\DoxyCodeLine{00745\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlPullRightKnee;}
+\DoxyCodeLine{00746\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlPullLeftFingerBase;}
+\DoxyCodeLine{00747\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlPullLeftHand;}
+\DoxyCodeLine{00748\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlPullLeftElbow;}
+\DoxyCodeLine{00749\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlPullRightFingerBase;}
+\DoxyCodeLine{00750\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlPullRightHand;}
+\DoxyCodeLine{00751\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlPullRightElbow;}
+\DoxyCodeLine{00752\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlChestPullLeftHand;}
+\DoxyCodeLine{00753\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlChestPullRightHand;}
+\DoxyCodeLine{00754\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlPullHead;}
+\DoxyCodeLine{00755\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistHipsPosition;}
+\DoxyCodeLine{00756\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlEnforceGravity;}
+\DoxyCodeLine{00757\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistHipsOrientation;}
+\DoxyCodeLine{00758\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistChestPosition;}
+\DoxyCodeLine{00759\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistChestOrientation;}
+\DoxyCodeLine{00760\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistLeftCollar;}
+\DoxyCodeLine{00761\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistRightCollar;}
+\DoxyCodeLine{00762\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistLeftKnee;}
+\DoxyCodeLine{00763\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistMaximumExtensionLeftKnee;}
+\DoxyCodeLine{00764\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistCompressionFactorLeftKnee;}
+\DoxyCodeLine{00765\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistRightKnee;}
+\DoxyCodeLine{00766\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistMaximumExtensionRightKnee;}
+\DoxyCodeLine{00767\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistCompressionFactorRightKnee;}
+\DoxyCodeLine{00768\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistLeftElbow;}
+\DoxyCodeLine{00769\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistMaximumExtensionLeftElbow;}
+\DoxyCodeLine{00770\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistCompressionFactorLeftElbow;}
+\DoxyCodeLine{00771\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistRightElbow;}
+\DoxyCodeLine{00772\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistMaximumExtensionRightElbow;}
+\DoxyCodeLine{00773\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlResistCompressionFactorRightElbow;}
+\DoxyCodeLine{00774\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlSpineStiffness;}
+\DoxyCodeLine{00775\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ CtrlNeckStiffness;}
+\DoxyCodeLine{00776\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ MirrorMode;}
+\DoxyCodeLine{00777\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ ShoulderCorrection;}
+\DoxyCodeLine{00778\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftKneeKillPitch;}
+\DoxyCodeLine{00779\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightKneeKillPitch;}
+\DoxyCodeLine{00780\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftElbowKillPitch;}
+\DoxyCodeLine{00781\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightElbowKillPitch;}
+\DoxyCodeLine{00782\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EHipsTranslationMode>}}\ \ \ \ HipsTranslationMode;}
+\DoxyCodeLine{00783\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ WriteReference;}
+\DoxyCodeLine{00784\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ SyncMode;}
+\DoxyCodeLine{00785\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ Damping;}
+\DoxyCodeLine{00786\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ OrientationDamping;}
+\DoxyCodeLine{00787\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EOffAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ OrientationDampingMode;}
+\DoxyCodeLine{00788\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ DisplacementDamping;}
+\DoxyCodeLine{00789\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EOffAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ DisplacementDampingMode;}
+\DoxyCodeLine{00790\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ DisplacementMemory;}
+\DoxyCodeLine{00791\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ DisplacementMemoryMode;}
+\DoxyCodeLine{00792\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HipsDisplacementDamping;}
+\DoxyCodeLine{00793\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HipsDisplacementDampingMode;}
+\DoxyCodeLine{00794\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ AnkleDisplacementDamping;}
+\DoxyCodeLine{00795\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ AnkleDisplacementDampingMode;}
+\DoxyCodeLine{00796\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ WristDisplacementDamping;}
+\DoxyCodeLine{00797\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ WristDisplacementDampingMode;}
+\DoxyCodeLine{00798\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ Stabilization;}
+\DoxyCodeLine{00799\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ AnkleStabilizationTime;}
+\DoxyCodeLine{00800\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ AnkleStabilizationTimeMode;}
+\DoxyCodeLine{00801\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ AnkleStabilizationPerimeter;}
+\DoxyCodeLine{00802\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ AnkleStabilizationPerimeterMode;}
+\DoxyCodeLine{00803\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ AnkleStabilizationAngularPerimeter;}
+\DoxyCodeLine{00804\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EOffAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ AnkleStabilizationAngularPerimeterMode;}
+\DoxyCodeLine{00805\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ AnkleStabilizationFloorProximity;}
+\DoxyCodeLine{00806\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EOffAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ AnkleStabilizationFloorProximityMode;}
+\DoxyCodeLine{00807\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ AnkleStabilizationDamping;}
+\DoxyCodeLine{00808\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EOffAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ AnkleStabilizationDampingMode;}
+\DoxyCodeLine{00809\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ AnkleStabilizationRecoveryTime;}
+\DoxyCodeLine{00810\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EOffAutoUser>}}\ \ \ \ \ \ \ \ \ \ \ \ AnkleStabilizationRecoveryTimeMode;}
+\DoxyCodeLine{00811\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxReference>}}\ \ \ \ \ \ \ \ \ \ \ \ SourceObject;}
+\DoxyCodeLine{00812\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxReference>}}\ \ \ \ \ \ \ \ \ \ \ \ DestinationObject;}
+\DoxyCodeLine{00813\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxReference>}}\ \ \ \ \ \ \ \ \ \ \ \ Actor;}
+\DoxyCodeLine{00814\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxReference>}}\ \ \ \ \ \ \ \ \ \ \ \ Character;}
+\DoxyCodeLine{00815\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxReference>}}\ \ \ \ \ \ \ \ \ \ \ \ ControlSet;}
+\DoxyCodeLine{00816\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ HikVersion;}
+\DoxyCodeLine{00817\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ Characterize;}
+\DoxyCodeLine{00818\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LockXForm;}
+\DoxyCodeLine{00819\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LockPick;}
+\DoxyCodeLine{00820\ }
+\DoxyCodeLine{00821\ \ \ \ \ \textcolor{comment}{//\ HIK\ 4.6\ new\ properties}}
+\DoxyCodeLine{00822\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ RealisticShoulder;}
+\DoxyCodeLine{00823\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ CollarStiffnessX;}
+\DoxyCodeLine{00824\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ CollarStiffnessY;\ }
+\DoxyCodeLine{00825\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ CollarStiffnessZ;\ }
+\DoxyCodeLine{00826\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ ExtraCollarRatio;}
+\DoxyCodeLine{00827\ }
+\DoxyCodeLine{00828\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ LeftLegMaxExtensionAngle;}
+\DoxyCodeLine{00829\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ RightLegMaxExtensionAngle;\ }
+\DoxyCodeLine{00830\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ LeftArmMaxExtensionAngle;}
+\DoxyCodeLine{00831\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ RightArmMaxExtensionAngle;\ }
+\DoxyCodeLine{00832\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00833\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ StretchStartArmsAndLegs;}
+\DoxyCodeLine{00834\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ StretchStopArmsAndLegs;}
+\DoxyCodeLine{00835\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ SnSScaleArmsAndLegs;}
+\DoxyCodeLine{00836\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ SnSReachLeftWrist;}
+\DoxyCodeLine{00837\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ SnSReachRightWrist;\ }
+\DoxyCodeLine{00838\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ SnSReachLeftAnkle;}
+\DoxyCodeLine{00839\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ SnSReachRightAnkle;\ }
+\DoxyCodeLine{00840\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ SnSScaleSpine;}
+\DoxyCodeLine{00841\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ SnSScaleSpineChildren;}
+\DoxyCodeLine{00842\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ SnSSpineFreedom;}
+\DoxyCodeLine{00843\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ SnSReachChestEnd;}
+\DoxyCodeLine{00844\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ SnSScaleNeck;}
+\DoxyCodeLine{00845\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ SnSNeckFreedom;}
+\DoxyCodeLine{00846\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ SnSReachHead;}
+\DoxyCodeLine{00847\ \ \ \ \ }
+\DoxyCodeLine{00848\ \ \ \ \ \textcolor{comment}{//\ HIK\ 2016.5.0\ roll\ properties}}
+\DoxyCodeLine{00849\ \ \ \ \ \textcolor{comment}{//\ Leaf\ roll\ properties}}
+\DoxyCodeLine{00850\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftUpLegRoll1;}
+\DoxyCodeLine{00851\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftUpLegRoll1Mode;}
+\DoxyCodeLine{00852\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftLegRoll1;}
+\DoxyCodeLine{00853\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftLegRoll1Mode;}
+\DoxyCodeLine{00854\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightUpLegRoll1;}
+\DoxyCodeLine{00855\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightUpLegRoll1Mode;}
+\DoxyCodeLine{00856\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightLegRoll1;}
+\DoxyCodeLine{00857\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightLegRoll1Mode;}
+\DoxyCodeLine{00858\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftArmRoll1;}
+\DoxyCodeLine{00859\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftArmRoll1Mode;}
+\DoxyCodeLine{00860\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftForeArmRoll1;}
+\DoxyCodeLine{00861\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftForeArmRoll1Mode;}
+\DoxyCodeLine{00862\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightArmRoll1;}
+\DoxyCodeLine{00863\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightArmRoll1Mode;}
+\DoxyCodeLine{00864\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightForeArmRoll1;}
+\DoxyCodeLine{00865\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightForeArmRoll1Mode;}
+\DoxyCodeLine{00866\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftUpLegRoll2;}
+\DoxyCodeLine{00867\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftUpLegRoll2Mode;}
+\DoxyCodeLine{00868\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftLegRoll2;}
+\DoxyCodeLine{00869\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftLegRoll2Mode;}
+\DoxyCodeLine{00870\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightUpLegRoll2;}
+\DoxyCodeLine{00871\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightUpLegRoll2Mode;}
+\DoxyCodeLine{00872\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightLegRoll2;}
+\DoxyCodeLine{00873\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightLegRoll2Mode;}
+\DoxyCodeLine{00874\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftArmRoll2;}
+\DoxyCodeLine{00875\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftArmRoll2Mode;}
+\DoxyCodeLine{00876\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftForeArmRoll2;}
+\DoxyCodeLine{00877\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftForeArmRoll2Mode;}
+\DoxyCodeLine{00878\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightArmRoll2;}
+\DoxyCodeLine{00879\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightArmRoll2Mode;}
+\DoxyCodeLine{00880\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightForeArmRoll2;}
+\DoxyCodeLine{00881\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightForeArmRoll2Mode;}
+\DoxyCodeLine{00882\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftUpLegRoll3;}
+\DoxyCodeLine{00883\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftUpLegRoll3Mode;}
+\DoxyCodeLine{00884\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftLegRoll3;}
+\DoxyCodeLine{00885\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftLegRoll3Mode;}
+\DoxyCodeLine{00886\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightUpLegRoll3;}
+\DoxyCodeLine{00887\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightUpLegRoll3Mode;}
+\DoxyCodeLine{00888\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightLegRoll3;}
+\DoxyCodeLine{00889\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightLegRoll3Mode;}
+\DoxyCodeLine{00890\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftArmRoll3;}
+\DoxyCodeLine{00891\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftArmRoll3Mode;}
+\DoxyCodeLine{00892\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftForeArmRoll3;}
+\DoxyCodeLine{00893\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftForeArmRoll3Mode;}
+\DoxyCodeLine{00894\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightArmRoll3;}
+\DoxyCodeLine{00895\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightArmRoll3Mode;}
+\DoxyCodeLine{00896\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightForeArmRoll3;}
+\DoxyCodeLine{00897\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightForeArmRoll3Mode;}
+\DoxyCodeLine{00898\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftUpLegRoll4;}
+\DoxyCodeLine{00899\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftUpLegRoll4Mode;}
+\DoxyCodeLine{00900\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftLegRoll4;}
+\DoxyCodeLine{00901\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftLegRoll4Mode;}
+\DoxyCodeLine{00902\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightUpLegRoll4;}
+\DoxyCodeLine{00903\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightUpLegRoll4Mode;}
+\DoxyCodeLine{00904\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightLegRoll4;}
+\DoxyCodeLine{00905\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightLegRoll4Mode;}
+\DoxyCodeLine{00906\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftArmRoll4;}
+\DoxyCodeLine{00907\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftArmRoll4Mode;}
+\DoxyCodeLine{00908\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftForeArmRoll4;}
+\DoxyCodeLine{00909\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftForeArmRoll4Mode;}
+\DoxyCodeLine{00910\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightArmRoll4;}
+\DoxyCodeLine{00911\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightArmRoll4Mode;}
+\DoxyCodeLine{00912\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightForeArmRoll4;}
+\DoxyCodeLine{00913\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightForeArmRoll4Mode;}
+\DoxyCodeLine{00914\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftUpLegRoll5;}
+\DoxyCodeLine{00915\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftUpLegRoll5Mode;}
+\DoxyCodeLine{00916\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftLegRoll5;}
+\DoxyCodeLine{00917\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftLegRoll5Mode;}
+\DoxyCodeLine{00918\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightUpLegRoll5;}
+\DoxyCodeLine{00919\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightUpLegRoll5Mode;}
+\DoxyCodeLine{00920\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightLegRoll5;}
+\DoxyCodeLine{00921\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightLegRoll5Mode;}
+\DoxyCodeLine{00922\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftArmRoll5;}
+\DoxyCodeLine{00923\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftArmRoll5Mode;}
+\DoxyCodeLine{00924\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftForeArmRoll5;}
+\DoxyCodeLine{00925\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafLeftForeArmRoll5Mode;}
+\DoxyCodeLine{00926\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightArmRoll5;}
+\DoxyCodeLine{00927\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightArmRoll5Mode;}
+\DoxyCodeLine{00928\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightForeArmRoll5;}
+\DoxyCodeLine{00929\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeafRightForeArmRoll5Mode;}
+\DoxyCodeLine{00930\ \ \ \ \ \textcolor{comment}{//\ Full\ limb\ roll\ extraction}}
+\DoxyCodeLine{00931\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftLegFullRollExtraction;}
+\DoxyCodeLine{00932\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightLegFullRollExtraction;}
+\DoxyCodeLine{00933\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftArmFullRollExtraction;}
+\DoxyCodeLine{00934\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ RightArmFullRollExtraction;}
+\DoxyCodeLine{00935\ \ \ \ \ }
+\DoxyCodeLine{00936\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00937\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00938\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00939\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00940\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ SetVersion(\textcolor{keywordtype}{int}\ pVersion)\{\ mCharacterVersion\ =\ pVersion;\ \}}
+\DoxyCodeLine{00941\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ Version()\{\ \textcolor{keywordflow}{return}\ mCharacterVersion;\ \}}
+\DoxyCodeLine{00942\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ SetValuesFromLegacyLoad();}
+\DoxyCodeLine{00943\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ SetValuesForLegacySave(\textcolor{keywordtype}{int}\ pVersion);}
+\DoxyCodeLine{00944\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ RestoreValuesFromLegacySave();}
+\DoxyCodeLine{00945\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ IsLegacy();}
+\DoxyCodeLine{00946\ }
+\DoxyCodeLine{00947\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ GetPropertyInfoCount();}
+\DoxyCodeLine{00948\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ GetPropertyInfo(\textcolor{keywordtype}{char}*\ \&pCharacterPropertyName,\ \textcolor{keywordtype}{char}*\ \&pCharacterPropertyModeName,\ EPropertyUnit\ \&pUnit,\ \textcolor{keywordtype}{int}\ \&pPropertyIndex,\ \textcolor{keywordtype}{char}*\ \&pHIKPropertyName,\ \textcolor{keywordtype}{char}*\ \&pHIKPropertyModeName,\ \textcolor{keywordtype}{int}\ pIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00949\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ GetFbxCharacterPropertyFromHIKProperty(\textcolor{keywordtype}{char}*\ \&pCharacterPropertyName,\ \textcolor{keywordtype}{char}*\ \&pCharacterPropertyModeName,\ EPropertyUnit\ \&pUnit,\ \textcolor{keywordtype}{int}\ \&pPropertyIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pHIKPropertyName)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00950\ \ \ \ \ }
+\DoxyCodeLine{00951\ \ \ \ \ FbxCharacterLink*\ \ \ GetCharacterLinkPtr(ENodeId\ pCharacterNodeId);}
+\DoxyCodeLine{00952\ }
+\DoxyCodeLine{00953\ \ \ \ \ FbxObject*\ \ \mbox{\hyperlink{class_fbx_character_aae64d56de5e56e6dd834a77bbb3457d8}{Clone}}(\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}{FbxObject::ECloneType}}\ pCloneType=\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{eDeepClone}},\ FbxObject*\ pContainer=NULL,\ \textcolor{keywordtype}{void}*\ pSet\ =\ NULL)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00954\ }
+\DoxyCodeLine{00955\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00956\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_character_a4778494b6833846e2f42abbd4596655b}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00957\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_character_a88909679db0ffab9344062f858e924e8}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00958\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_character_a7d3ef04dfe19f34c677760b6ac2fc626}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00959\ }
+\DoxyCodeLine{00960\ \ \ \ \ FbxObject\&\ \ \ \ \ \ \mbox{\hyperlink{class_fbx_character_a2f70ca8d68bc6784082171d51b0925f0}{Copy}}(\textcolor{keyword}{const}\ FbxObject\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00961\ \ \ \ \ \mbox{\hyperlink{class_fbx_constraint_a49c1634663395eab7c28856df233ec66}{EType}}\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_character_a2f2aa20af5e5a35ad4f5583e990e6f9c}{GetConstraintType}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00962\ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list}{FbxStringList}}\ \ GetTypeFlags()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00963\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ ConnectNotify\ (\mbox{\hyperlink{class_fbx_connect_event}{FbxConnectEvent}}\ \textcolor{keyword}{const}\ \&pEvent)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00964\ }
+\DoxyCodeLine{00965\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00966\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ InverseProperty(FbxProperty\&\ pProp);}
+\DoxyCodeLine{00967\ }
+\DoxyCodeLine{00968\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mCharacterVersion;}
+\DoxyCodeLine{00969\ \ \ \ \ \mbox{\hyperlink{class_fbx_character_link}{FbxCharacterLink}}\ \ \ \ \ \ \ \ mCharacterLink[eNodeIdCount];}
+\DoxyCodeLine{00970\ \ \ \ \ \mbox{\hyperlink{class_fbx_control_set}{FbxControlSet}}*\ \ \ \ \ \ \ \ \ mControlSet;}
+\DoxyCodeLine{00971\ }
+\DoxyCodeLine{00972\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxNode;}
+\DoxyCodeLine{00973\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00974\ \};}
+\DoxyCodeLine{00975\ }
+\DoxyCodeLine{00976\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ FbxCharacter::EOffAutoUser\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00977\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ FbxCharacter::EAutoUser\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00978\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ FbxCharacter::EPostureMode\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00979\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ FbxCharacter::EFloorPivot\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00980\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ FbxCharacter::ERollExtractionMode\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00981\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ FbxCharacter::EHipsTranslationMode\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00982\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ FbxCharacter::EFootContactType\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00983\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ FbxCharacter::EHandContactType\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00984\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ FbxCharacter::EFingerContactMode\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00985\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ FbxCharacter::EContactBehaviour\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00986\ }
+\DoxyCodeLine{00987\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00988\ }
+\DoxyCodeLine{00989\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_CONSTRAINT\_CHARACTER\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

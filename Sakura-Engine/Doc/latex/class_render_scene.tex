@@ -1,0 +1,75 @@
+\doxysection{Render\+Scene Class Reference}
+\hypertarget{class_render_scene}{}\label{class_render_scene}\index{RenderScene@{RenderScene}}
+
+
+Representa los elementos visibles que se van a renderizar en un frame.  
+
+
+
+
+{\ttfamily \#include $<$Render\+Scene.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_render_scene_a828ee9fdd372c9e921985bf9a2bb4ba7}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Limpia todos los datos de la escena. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_render_object}{Render\+Object}} $>$ \mbox{\hyperlink{class_render_scene_aa5000ed1d286a8843655e9d3a929d69a}{opaque\+Objects}}
+\begin{DoxyCompactList}\small\item\em Lista de objetos opacos. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_render_object}{Render\+Object}} $>$ \mbox{\hyperlink{class_render_scene_a552a9d924723022840b329c634791450}{transparent\+Objects}}
+\begin{DoxyCompactList}\small\item\em Lista de objetos transparentes. \end{DoxyCompactList}\item 
+\Hypertarget{class_render_scene_a913c5b7ec240d19572927b159fde01bc}\label{class_render_scene_a913c5b7ec240d19572927b159fde01bc} 
+std\+::vector$<$ \mbox{\hyperlink{struct_light_data}{Light\+Data}} $>$ {\bfseries directional\+Lights}
+\begin{DoxyCompactList}\small\item\em Lista de luces direccionales activas. \end{DoxyCompactList}\item 
+\Hypertarget{class_render_scene_a005d0f1d2c1848ff863c7a57301df2a6}\label{class_render_scene_a005d0f1d2c1848ff863c7a57301df2a6} 
+\mbox{\hyperlink{class_skybox}{Skybox}} \texorpdfstring{$\ast$}{*} {\bfseries skybox} = nullptr
+\begin{DoxyCompactList}\small\item\em \doxylink{class_skybox}{Skybox} activo en el frame actual. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa los elementos visibles que se van a renderizar en un frame. 
+
+Esta clase sirve como una estructura temporal que organiza los objetos antes de enviarlos al renderer. Separa los objetos por tipo y guarda información como luces y skybox. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_render_scene_a828ee9fdd372c9e921985bf9a2bb4ba7}\index{RenderScene@{RenderScene}!clear@{clear}}
+\index{clear@{clear}!RenderScene@{RenderScene}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily \label{class_render_scene_a828ee9fdd372c9e921985bf9a2bb4ba7} 
+void Render\+Scene\+::clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Limpia todos los datos de la escena. 
+
+Se utiliza al inicio de cada frame para eliminar la información anterior y preparar nuevos datos de render. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_render_scene_aa5000ed1d286a8843655e9d3a929d69a}\index{RenderScene@{RenderScene}!opaqueObjects@{opaqueObjects}}
+\index{opaqueObjects@{opaqueObjects}!RenderScene@{RenderScene}}
+\doxysubsubsection{\texorpdfstring{opaqueObjects}{opaqueObjects}}
+{\footnotesize\ttfamily \label{class_render_scene_aa5000ed1d286a8843655e9d3a929d69a} 
+std\+::vector$<$\mbox{\hyperlink{struct_render_object}{Render\+Object}}$>$ Render\+Scene\+::opaque\+Objects}
+
+
+
+Lista de objetos opacos. 
+
+Estos objetos se renderizan normalmente primero. \Hypertarget{class_render_scene_a552a9d924723022840b329c634791450}\index{RenderScene@{RenderScene}!transparentObjects@{transparentObjects}}
+\index{transparentObjects@{transparentObjects}!RenderScene@{RenderScene}}
+\doxysubsubsection{\texorpdfstring{transparentObjects}{transparentObjects}}
+{\footnotesize\ttfamily \label{class_render_scene_a552a9d924723022840b329c634791450} 
+std\+::vector$<$\mbox{\hyperlink{struct_render_object}{Render\+Object}}$>$ Render\+Scene\+::transparent\+Objects}
+
+
+
+Lista de objetos transparentes. 
+
+Estos objetos suelen ordenarse por distancia antes de renderizarse. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Rendering/\mbox{\hyperlink{_render_scene_8h}{Render\+Scene.\+h}}\end{DoxyCompactItemize}

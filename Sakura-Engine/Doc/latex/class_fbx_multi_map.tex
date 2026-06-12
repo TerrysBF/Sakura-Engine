@@ -1,0 +1,187 @@
+\doxysection{Fbx\+Multi\+Map Class Reference}
+\hypertarget{class_fbx_multi_map}{}\label{class_fbx_multi_map}\index{FbxMultiMap@{FbxMultiMap}}
+
+
+{\ttfamily \#include $<$fbxmultimap.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_fbx_multi_map_1_1_pair}{Pair}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_multi_map_af2a311d7518a76cf06ac5f2ce84d597a}{Add}} (Fbx\+Handle p\+Key, Fbx\+Handle p\+Item)
+\item 
+bool \mbox{\hyperlink{class_fbx_multi_map_a373841e60d39a284ea1bc33df94627e7}{Remove}} (Fbx\+Handle p\+Key)
+\item 
+bool \mbox{\hyperlink{class_fbx_multi_map_a6aa9b2ddee4842a0547430264fa9caa1}{Remove\+Item}} (Fbx\+Handle p\+Item)
+\item 
+bool \mbox{\hyperlink{class_fbx_multi_map_a33b8107d8815b1628aa6e743349ac00a}{Set\+Item}} (Fbx\+Handle p\+Key, Fbx\+Handle p\+Item)
+\item 
+Fbx\+Handle \mbox{\hyperlink{class_fbx_multi_map_af0a42e2b8786d36bf7942318b9b89201}{Get}} (Fbx\+Handle p\+Key, int \texorpdfstring{$\ast$}{*}p\+Index=NULL)
+\item 
+\Hypertarget{class_fbx_multi_map_add121708bf4b592eecf823eee98ed841}\label{class_fbx_multi_map_add121708bf4b592eecf823eee98ed841} 
+void {\bfseries Clear} ()
+\begin{DoxyCompactList}\small\item\em Delete the array. \end{DoxyCompactList}\item 
+Fbx\+Handle \mbox{\hyperlink{class_fbx_multi_map_a335ac1a6e65c336cdcb06cb425bec932}{Get\+From\+Index}} (int p\+Index, Fbx\+Handle \texorpdfstring{$\ast$}{*}p\+Key=NULL)
+\item 
+bool \mbox{\hyperlink{class_fbx_multi_map_a8511db42672da436f2c385171ca6f174}{Remove\+From\+Index}} (int p\+Index)
+\item 
+int \mbox{\hyperlink{class_fbx_multi_map_a5e496eeb0e6154087fd2259539c16782}{Get\+Count}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_multi_map_a6a70e16ab207c85ab270fd779642667d}{Swap}} ()
+\item 
+void \mbox{\hyperlink{class_fbx_multi_map_affec6231b7c9cc7455c8ad9b8106332a}{Sort}} ()
+\item 
+\Hypertarget{class_fbx_multi_map_abc46e5413a8ad6b460a480a5f2ccf7bb}\label{class_fbx_multi_map_abc46e5413a8ad6b460a480a5f2ccf7bb} 
+{\bfseries Fbx\+Multi\+Map} (int p\+Item\+Per\+Block=20)
+\item 
+\Hypertarget{class_fbx_multi_map_a1cb167013e1385a004bf17b95019b985}\label{class_fbx_multi_map_a1cb167013e1385a004bf17b95019b985} 
+{\bfseries Fbx\+Multi\+Map} (const \mbox{\hyperlink{class_fbx_multi_map}{Fbx\+Multi\+Map}} \&p\+Other)
+\item 
+\Hypertarget{class_fbx_multi_map_a4dcc639f1e2ecf4269471fac2837f1a1}\label{class_fbx_multi_map_a4dcc639f1e2ecf4269471fac2837f1a1} 
+\mbox{\hyperlink{class_fbx_multi_map}{Fbx\+Multi\+Map}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_fbx_multi_map}{Fbx\+Multi\+Map}} \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to manipulate a map that can contain multiple times the same key. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_multi_map_af2a311d7518a76cf06ac5f2ce84d597a}\index{FbxMultiMap@{FbxMultiMap}!Add@{Add}}
+\index{Add@{Add}!FbxMultiMap@{FbxMultiMap}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily \label{class_fbx_multi_map_af2a311d7518a76cf06ac5f2ce84d597a} 
+bool Fbx\+Multi\+Map\+::\+Add (\begin{DoxyParamCaption}\item[{Fbx\+Handle}]{p\+Key}{, }\item[{Fbx\+Handle}]{p\+Item}{}\end{DoxyParamCaption})}
+
+If can\textquotesingle{}t find the matching item,append a item at the end of the array. If find the matching item ,insert the new item before the matching item. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Key} & The value of Key in new item, also is the character for matching. \\
+\hline
+{\em p\+Item} & The value of Item in new item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If add successfully return true,otherwise return false. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_multi_map_af0a42e2b8786d36bf7942318b9b89201}\index{FbxMultiMap@{FbxMultiMap}!Get@{Get}}
+\index{Get@{Get}!FbxMultiMap@{FbxMultiMap}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily \label{class_fbx_multi_map_af0a42e2b8786d36bf7942318b9b89201} 
+Fbx\+Handle Fbx\+Multi\+Map\+::\+Get (\begin{DoxyParamCaption}\item[{Fbx\+Handle}]{p\+Key}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{p\+Index}{ = {\ttfamily NULL}}\end{DoxyParamCaption})}
+
+Get first matching item with the given parameter. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Key} & The character for matching. \\
+\hline
+{\em p\+Index} & The pointer to the index of the matching item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of Item in the matching item. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+If there are multiple elements that match the character, the index returned is unspecified. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_multi_map_a5e496eeb0e6154087fd2259539c16782}\index{FbxMultiMap@{FbxMultiMap}!GetCount@{GetCount}}
+\index{GetCount@{GetCount}!FbxMultiMap@{FbxMultiMap}}
+\doxysubsubsection{\texorpdfstring{GetCount()}{GetCount()}}
+{\footnotesize\ttfamily \label{class_fbx_multi_map_a5e496eeb0e6154087fd2259539c16782} 
+int Fbx\+Multi\+Map\+::\+Get\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get number of items in the array. \begin{DoxyReturn}{Returns}
+The number of items in the array. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_multi_map_a335ac1a6e65c336cdcb06cb425bec932}\index{FbxMultiMap@{FbxMultiMap}!GetFromIndex@{GetFromIndex}}
+\index{GetFromIndex@{GetFromIndex}!FbxMultiMap@{FbxMultiMap}}
+\doxysubsubsection{\texorpdfstring{GetFromIndex()}{GetFromIndex()}}
+{\footnotesize\ttfamily \label{class_fbx_multi_map_a335ac1a6e65c336cdcb06cb425bec932} 
+Fbx\+Handle Fbx\+Multi\+Map\+::\+Get\+From\+Index (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{, }\item[{Fbx\+Handle \texorpdfstring{$\ast$}{*}}]{p\+Key}{ = {\ttfamily NULL}}\end{DoxyParamCaption})}
+
+Get the item of the given index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The index for matching. \\
+\hline
+{\em p\+Key} & The pointer to the Key of the matching item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of Item in the matching item. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_multi_map_a373841e60d39a284ea1bc33df94627e7}\index{FbxMultiMap@{FbxMultiMap}!Remove@{Remove}}
+\index{Remove@{Remove}!FbxMultiMap@{FbxMultiMap}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily \label{class_fbx_multi_map_a373841e60d39a284ea1bc33df94627e7} 
+bool Fbx\+Multi\+Map\+::\+Remove (\begin{DoxyParamCaption}\item[{Fbx\+Handle}]{p\+Key}{}\end{DoxyParamCaption})}
+
+Remove the first matching item, whose reference is the same as given. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Key} & The given reference. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If remove successfully return true,otherwise return false. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_multi_map_a8511db42672da436f2c385171ca6f174}\index{FbxMultiMap@{FbxMultiMap}!RemoveFromIndex@{RemoveFromIndex}}
+\index{RemoveFromIndex@{RemoveFromIndex}!FbxMultiMap@{FbxMultiMap}}
+\doxysubsubsection{\texorpdfstring{RemoveFromIndex()}{RemoveFromIndex()}}
+{\footnotesize\ttfamily \label{class_fbx_multi_map_a8511db42672da436f2c385171ca6f174} 
+bool Fbx\+Multi\+Map\+::\+Remove\+From\+Index (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{}\end{DoxyParamCaption})}
+
+Remove the item of the given index 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The given index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If remove successfully return true,otherwise return false. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_multi_map_a6aa9b2ddee4842a0547430264fa9caa1}\index{FbxMultiMap@{FbxMultiMap}!RemoveItem@{RemoveItem}}
+\index{RemoveItem@{RemoveItem}!FbxMultiMap@{FbxMultiMap}}
+\doxysubsubsection{\texorpdfstring{RemoveItem()}{RemoveItem()}}
+{\footnotesize\ttfamily \label{class_fbx_multi_map_a6aa9b2ddee4842a0547430264fa9caa1} 
+bool Fbx\+Multi\+Map\+::\+Remove\+Item (\begin{DoxyParamCaption}\item[{Fbx\+Handle}]{p\+Item}{}\end{DoxyParamCaption})}
+
+Remove all the matching item, whose item is the same as given. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & The given item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If remove successfully return true,otherwise return false. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_multi_map_a33b8107d8815b1628aa6e743349ac00a}\index{FbxMultiMap@{FbxMultiMap}!SetItem@{SetItem}}
+\index{SetItem@{SetItem}!FbxMultiMap@{FbxMultiMap}}
+\doxysubsubsection{\texorpdfstring{SetItem()}{SetItem()}}
+{\footnotesize\ttfamily \label{class_fbx_multi_map_a33b8107d8815b1628aa6e743349ac00a} 
+bool Fbx\+Multi\+Map\+::\+Set\+Item (\begin{DoxyParamCaption}\item[{Fbx\+Handle}]{p\+Key}{, }\item[{Fbx\+Handle}]{p\+Item}{}\end{DoxyParamCaption})}
+
+Set first matching item with the given parameter. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Key} & The character for matching. \\
+\hline
+{\em p\+Item} & The value of Item that the matching item will be set. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If set successfully return true,otherwise return false. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_multi_map_affec6231b7c9cc7455c8ad9b8106332a}\index{FbxMultiMap@{FbxMultiMap}!Sort@{Sort}}
+\index{Sort@{Sort}!FbxMultiMap@{FbxMultiMap}}
+\doxysubsubsection{\texorpdfstring{Sort()}{Sort()}}
+{\footnotesize\ttfamily \label{class_fbx_multi_map_affec6231b7c9cc7455c8ad9b8106332a} 
+void Fbx\+Multi\+Map\+::\+Sort (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Sort the array according the value of Key in each item. \Hypertarget{class_fbx_multi_map_a6a70e16ab207c85ab270fd779642667d}\index{FbxMultiMap@{FbxMultiMap}!Swap@{Swap}}
+\index{Swap@{Swap}!FbxMultiMap@{FbxMultiMap}}
+\doxysubsubsection{\texorpdfstring{Swap()}{Swap()}}
+{\footnotesize\ttfamily \label{class_fbx_multi_map_a6a70e16ab207c85ab270fd779642667d} 
+void Fbx\+Multi\+Map\+::\+Swap (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Swap the value of Key and Item in every item of array, and sort the new array with the value of Key. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/base/\mbox{\hyperlink{fbxmultimap_8h}{fbxmultimap.\+h}}\end{DoxyCompactItemize}

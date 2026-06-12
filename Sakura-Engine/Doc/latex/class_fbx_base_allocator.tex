@@ -1,0 +1,97 @@
+\doxysection{Fbx\+Base\+Allocator Class Reference}
+\hypertarget{class_fbx_base_allocator}{}\label{class_fbx_base_allocator}\index{FbxBaseAllocator@{FbxBaseAllocator}}
+
+
+{\ttfamily \#include $<$fbxcontainerallocators.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_base_allocator_a9597eb137f26dc696170b9eddf0298a5}{Fbx\+Base\+Allocator}} (const size\+\_\+t p\+Record\+Size)
+\item 
+void \mbox{\hyperlink{class_fbx_base_allocator_ad84870f23a2b067b3bade2604dab2621}{Reserve}} (const size\+\_\+t)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_base_allocator_aeee87bff2845ba6189e2bdbcd2d246ce}{Allocate\+Records}} (const size\+\_\+t p\+Record\+Count=1)
+\item 
+void \mbox{\hyperlink{class_fbx_base_allocator_a345b6d46e57e8313966a5f3654d1195c}{Free\+Memory}} (void \texorpdfstring{$\ast$}{*}p\+Record)
+\item 
+size\+\_\+t \mbox{\hyperlink{class_fbx_base_allocator_ab7aa3164aa6fc973baca1515b494198f}{Get\+Record\+Size}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An allocator class for use as a template parameter to one of the container class (\doxylink{class_fbx_map}{Fbx\+Map}, \doxylink{class_fbx_set}{Fbx\+Set}, \doxylink{class_fbx_dynamic_array}{Fbx\+Dynamic\+Array}...) must implement these. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_base_allocator_a9597eb137f26dc696170b9eddf0298a5}\index{FbxBaseAllocator@{FbxBaseAllocator}!FbxBaseAllocator@{FbxBaseAllocator}}
+\index{FbxBaseAllocator@{FbxBaseAllocator}!FbxBaseAllocator@{FbxBaseAllocator}}
+\doxysubsubsection{\texorpdfstring{FbxBaseAllocator()}{FbxBaseAllocator()}}
+{\footnotesize\ttfamily \label{class_fbx_base_allocator_a9597eb137f26dc696170b9eddf0298a5} 
+Fbx\+Base\+Allocator\+::\+Fbx\+Base\+Allocator (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{p\+Record\+Size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+The class constructor. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Record\+Size} & the size of one record held by the container. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The parameter p\+Record\+Size is not necessarily the same size as of the value type, since the container may wrap the value into a private class. 
+\end{DoxyRemark}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_base_allocator_aeee87bff2845ba6189e2bdbcd2d246ce}\index{FbxBaseAllocator@{FbxBaseAllocator}!AllocateRecords@{AllocateRecords}}
+\index{AllocateRecords@{AllocateRecords}!FbxBaseAllocator@{FbxBaseAllocator}}
+\doxysubsubsection{\texorpdfstring{AllocateRecords()}{AllocateRecords()}}
+{\footnotesize\ttfamily \label{class_fbx_base_allocator_aeee87bff2845ba6189e2bdbcd2d246ce} 
+void \texorpdfstring{$\ast$}{*} Fbx\+Base\+Allocator\+::\+Allocate\+Records (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{p\+Record\+Count}{ = {\ttfamily 1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a pointer to a uninitialized continuous block of memory able to hold p\+Record\+Count \texorpdfstring{$\ast$}{*} p\+Record\+Size bytes. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Record\+Count} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+p\+Record\+Size was defined in the Constructor description, above. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_base_allocator_a345b6d46e57e8313966a5f3654d1195c}\index{FbxBaseAllocator@{FbxBaseAllocator}!FreeMemory@{FreeMemory}}
+\index{FreeMemory@{FreeMemory}!FbxBaseAllocator@{FbxBaseAllocator}}
+\doxysubsubsection{\texorpdfstring{FreeMemory()}{FreeMemory()}}
+{\footnotesize\ttfamily \label{class_fbx_base_allocator_a345b6d46e57e8313966a5f3654d1195c} 
+void Fbx\+Base\+Allocator\+::\+Free\+Memory (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Record}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Frees a block of memory returned by Allocate\+Records. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Record} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_base_allocator_ab7aa3164aa6fc973baca1515b494198f}\index{FbxBaseAllocator@{FbxBaseAllocator}!GetRecordSize@{GetRecordSize}}
+\index{GetRecordSize@{GetRecordSize}!FbxBaseAllocator@{FbxBaseAllocator}}
+\doxysubsubsection{\texorpdfstring{GetRecordSize()}{GetRecordSize()}}
+{\footnotesize\ttfamily \label{class_fbx_base_allocator_ab7aa3164aa6fc973baca1515b494198f} 
+size\+\_\+t Fbx\+Base\+Allocator\+::\+Get\+Record\+Size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the size of each record allocated. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_base_allocator_ad84870f23a2b067b3bade2604dab2621}\index{FbxBaseAllocator@{FbxBaseAllocator}!Reserve@{Reserve}}
+\index{Reserve@{Reserve}!FbxBaseAllocator@{FbxBaseAllocator}}
+\doxysubsubsection{\texorpdfstring{Reserve()}{Reserve()}}
+{\footnotesize\ttfamily \label{class_fbx_base_allocator_ad84870f23a2b067b3bade2604dab2621} 
+void Fbx\+Base\+Allocator\+::\+Reserve (\begin{DoxyParamCaption}\item[{const size\+\_\+t}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This tells the allocator that we are about to call Allocate\+Records one or many times to allocate p\+Record\+Count records. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Record\+Count} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+This gives the allocator a chance to do whatever it deems necessary to optimize subsequent allocations, for example, by preallocating a sufficiently large pool of memory. 
+\end{DoxyRemark}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/base/\mbox{\hyperlink{fbxcontainerallocators_8h}{fbxcontainerallocators.\+h}}\end{DoxyCompactItemize}

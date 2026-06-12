@@ -1,0 +1,88 @@
+\chapter{\texorpdfstring{$<$}{<}strong\texorpdfstring{$>$}{>}Manual\texorpdfstring{$<$}{<}/strong\texorpdfstring{$>$}{>}}
+\hypertarget{md__docs_2_manual}{}\label{md__docs_2_manual}\index{$<$strong$>$Manual$<$/strong$>$@{$<$strong$>$Manual$<$/strong$>$}}
+\label{md__docs_2_manual_autotoc_md15}%
+\Hypertarget{md__docs_2_manual_autotoc_md15}%
+\hypertarget{md__docs_2_manual_autotoc_md16}{}\doxysubsection{\texorpdfstring{{\bfseries{Uso del parser OBJ (cómo lo estoy usando)}}}{{\bfseries{Uso del parser OBJ (cómo lo estoy usando)}}}}\label{md__docs_2_manual_autotoc_md16}
+Tengo una clase llamada \doxylink{class_obj_reader}{Obj\+Reader} que uso para cargar modelos .obj y dejarlos listos en un \doxylink{class_mesh_component}{Mesh\+Component}, que luego va a los buffers de DirectX.
+
+La función principal es\+:
+
+bool Obj\+Reader\+::load(const std\+::string\& path, Mesh\+Component\& out\+Mesh, bool flip\+V);
+
+Yo la uso más o menos así\+:
+
+\doxylink{class_obj_reader}{Obj\+Reader} m\+\_\+model\+Loader;
+
+\doxylink{class_mesh_component}{Mesh\+Component} m\+\_\+mesh;
+
+if (!m\+\_\+model\+Loader.\+load("{}\+Alien"{}, m\+\_\+mesh)) \{ \begin{DoxyVerb}// aquí manejo el error (mensaje, return, etc.)
+\end{DoxyVerb}
+
+
+\}
+
+
+\begin{DoxyItemize}
+\item Si paso "{}\+Alien"{}, por dentro el parser le agrega .obj si no lo tiene.
+\item También se puede llamar con ruta completa, tipo "{}models/\+Alien.\+obj"{}.
+\end{DoxyItemize}
+
+El parámetro flipV sirve por si las UV salen volteadas en vertical. ~\newline
+ Por defecto es true, entonces hace v = 1.\+0f -\/ v al leer las vt. ~\newline
+ Si la textura se ve bien sin voltear, se puede llamar así\+:
+
+m\+\_\+model\+Loader.\+load("{}\+Alien"{}, m\+\_\+mesh, false);\hypertarget{md__docs_2_manual_autotoc_md17}{}\doxysubsection{\texorpdfstring{{\bfseries{Qué deja listo el parser en la malla}}}{{\bfseries{Qué deja listo el parser en la malla}}}}\label{md__docs_2_manual_autotoc_md17}
+Después de llamar a load, el \doxylink{class_mesh_component}{Mesh\+Component} queda con\+:
+
+m\+\_\+mesh.\+m\+\_\+vertex // vector\texorpdfstring{$<$}{<}\doxylink{struct_simple_vertex}{Simple\+Vertex}\texorpdfstring{$>$}{>} (posición + uv)
+
+m\+\_\+mesh.\+m\+\_\+index // vector\texorpdfstring{$<$}{<}unsigned int\texorpdfstring{$>$}{>} (índices)
+
+m\+\_\+mesh.\+m\+\_\+num\+Vertex // número de vértices
+
+m\+\_\+mesh.\+m\+\_\+num\+Index // número de índices
+
+El \doxylink{struct_simple_vertex}{Simple\+Vertex} que uso es\+:
+
+struct \doxylink{struct_simple_vertex}{Simple\+Vertex} \{ \begin{DoxyVerb}XMFLOAT3 Pos;
+
+XMFLOAT2 Tex;
+\end{DoxyVerb}
+
+
+\};
+
+Con esos datos ya creo los buffers de GPU\+:
+
+m\+\_\+vertex\+Buffer.\+init(m\+\_\+device, m\+\_\+mesh, D3\+D11\+\_\+\+BIND\+\_\+\+VERTEX\+\_\+\+BUFFER);
+
+m\+\_\+index\+Buffer.\+init(m\+\_\+device, m\+\_\+mesh, D3\+D11\+\_\+\+BIND\+\_\+\+INDEX\+\_\+\+BUFFER);
+
+Y en el render hago el Draw\+Indexed con m\+\_\+mesh.\+m\+\_\+num\+Index.\hypertarget{md__docs_2_manual_autotoc_md18}{}\doxysubsection{\texorpdfstring{{\bfseries{Qué cosas del OBJ estoy leyendo}}}{{\bfseries{Qué cosas del OBJ estoy leyendo}}}}\label{md__docs_2_manual_autotoc_md18}
+De todo el formato OBJ, yo solo estoy usando lo básico\+:
+
+
+\begin{DoxyItemize}
+\item v x y z → posiciones de vértice.
+\item vt u v → coordenadas de textura.
+\item vn nx ny nz → las leo pero de momento casi no las uso.
+\item f ... → caras, que pueden venir como\+:
+\begin{DoxyItemize}
+\item v/vt/vn
+\item v/vt
+\item v//vn
+\item v
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Las caras que tienen más de 3 vértices las convierto a triángulos con un “fan”\+:
+
+
+\begin{DoxyItemize}
+\item si la cara tiene vértices 0,1,2,3, genero triángulos\+:
+\begin{DoxyItemize}
+\item (0,1,2) y (0,2,3)
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+El resto de cosas del OBJ (g, o, usemtl, etc.) las ignoro por ahora porque para este proyecto solo necesito geometría + UV para poder texturizar el modelo. 

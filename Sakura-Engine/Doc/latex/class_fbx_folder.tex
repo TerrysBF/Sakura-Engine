@@ -1,0 +1,129 @@
+\doxysection{Fbx\+Folder Class Reference}
+\hypertarget{class_fbx_folder}{}\label{class_fbx_folder}\index{FbxFolder@{FbxFolder}}
+
+
+{\ttfamily \#include $<$fbxfolder.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_folder_aba9ef5b806b138dec254dfe5dedbb719}{EEntry\+Type}} \{ \mbox{\hyperlink{class_fbx_folder_aba9ef5b806b138dec254dfe5dedbb719a5e6793b9289c6aecd4cf50a6e19bbee5}{e\+Regular\+Entry}}
+, \mbox{\hyperlink{class_fbx_folder_aba9ef5b806b138dec254dfe5dedbb719a1a78e903f59673df49ba233185e186c9}{e\+Folder\+Entry}}
+ \}
+\begin{DoxyCompactList}\small\item\em The different entry type that can be found in folders. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_folder_a84cebc4677af006fa464547079e943c2}{Open}} (const char \texorpdfstring{$\ast$}{*}p\+Folder\+Path\+\_\+\+UTF8)
+\item 
+bool \mbox{\hyperlink{class_fbx_folder_aae7143fd3d6c61581af8d102564c904a}{Next}} ()
+\item 
+\mbox{\hyperlink{class_fbx_folder_aba9ef5b806b138dec254dfe5dedbb719}{EEntry\+Type}} \mbox{\hyperlink{class_fbx_folder_a19057a425782659aeeda901f7888f804}{Get\+Entry\+Type}} () const
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_folder_a893ff8805d32ab1c0bf614d07e706c0c}{Get\+Entry\+Name}} () const
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_folder_ad98c0c295c92874dc8a4f8bfe9db88ac}{Get\+Entry\+Extension}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_folder_a43be1ed2f95c3a0876b32b1e89a57c03}{Close}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_folder_a350cdc0cd6b8bb625ebb7c4b560f9e45}{Is\+Open}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for iterating into file system folders and the items contained. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_fbx_folder_aba9ef5b806b138dec254dfe5dedbb719}\index{FbxFolder@{FbxFolder}!EEntryType@{EEntryType}}
+\index{EEntryType@{EEntryType}!FbxFolder@{FbxFolder}}
+\doxysubsubsection{\texorpdfstring{EEntryType}{EEntryType}}
+{\footnotesize\ttfamily \label{class_fbx_folder_aba9ef5b806b138dec254dfe5dedbb719} 
+enum \mbox{\hyperlink{class_fbx_folder_aba9ef5b806b138dec254dfe5dedbb719}{Fbx\+Folder\+::\+EEntry\+Type}}}
+
+
+
+The different entry type that can be found in folders. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eRegularEntry@{eRegularEntry}!FbxFolder@{FbxFolder}}\index{FbxFolder@{FbxFolder}!eRegularEntry@{eRegularEntry}}}\Hypertarget{class_fbx_folder_aba9ef5b806b138dec254dfe5dedbb719a5e6793b9289c6aecd4cf50a6e19bbee5}\label{class_fbx_folder_aba9ef5b806b138dec254dfe5dedbb719a5e6793b9289c6aecd4cf50a6e19bbee5} 
+e\+Regular\+Entry&Regular entry, such as file. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eFolderEntry@{eFolderEntry}!FbxFolder@{FbxFolder}}\index{FbxFolder@{FbxFolder}!eFolderEntry@{eFolderEntry}}}\Hypertarget{class_fbx_folder_aba9ef5b806b138dec254dfe5dedbb719a1a78e903f59673df49ba233185e186c9}\label{class_fbx_folder_aba9ef5b806b138dec254dfe5dedbb719a1a78e903f59673df49ba233185e186c9} 
+e\+Folder\+Entry&Folder entry that potentially contain more files. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_folder_a43be1ed2f95c3a0876b32b1e89a57c03}\index{FbxFolder@{FbxFolder}!Close@{Close}}
+\index{Close@{Close}!FbxFolder@{FbxFolder}}
+\doxysubsubsection{\texorpdfstring{Close()}{Close()}}
+{\footnotesize\ttfamily \label{class_fbx_folder_a43be1ed2f95c3a0876b32b1e89a57c03} 
+void Fbx\+Folder\+::\+Close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Close the folder when done browsing its content. \Hypertarget{class_fbx_folder_ad98c0c295c92874dc8a4f8bfe9db88ac}\index{FbxFolder@{FbxFolder}!GetEntryExtension@{GetEntryExtension}}
+\index{GetEntryExtension@{GetEntryExtension}!FbxFolder@{FbxFolder}}
+\doxysubsubsection{\texorpdfstring{GetEntryExtension()}{GetEntryExtension()}}
+{\footnotesize\ttfamily \label{class_fbx_folder_ad98c0c295c92874dc8a4f8bfe9db88ac} 
+char \texorpdfstring{$\ast$}{*} Fbx\+Folder\+::\+Get\+Entry\+Extension (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Retrieve the extension name of the current entry. \begin{DoxyReturn}{Returns}
+The extension name of the current entry. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_folder_a893ff8805d32ab1c0bf614d07e706c0c}\index{FbxFolder@{FbxFolder}!GetEntryName@{GetEntryName}}
+\index{GetEntryName@{GetEntryName}!FbxFolder@{FbxFolder}}
+\doxysubsubsection{\texorpdfstring{GetEntryName()}{GetEntryName()}}
+{\footnotesize\ttfamily \label{class_fbx_folder_a893ff8805d32ab1c0bf614d07e706c0c} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+Folder\+::\+Get\+Entry\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Retrieve the name of the current entry in the folder. \begin{DoxyReturn}{Returns}
+The name of the current entry. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_folder_a19057a425782659aeeda901f7888f804}\index{FbxFolder@{FbxFolder}!GetEntryType@{GetEntryType}}
+\index{GetEntryType@{GetEntryType}!FbxFolder@{FbxFolder}}
+\doxysubsubsection{\texorpdfstring{GetEntryType()}{GetEntryType()}}
+{\footnotesize\ttfamily \label{class_fbx_folder_a19057a425782659aeeda901f7888f804} 
+\mbox{\hyperlink{class_fbx_folder_aba9ef5b806b138dec254dfe5dedbb719}{EEntry\+Type}} Fbx\+Folder\+::\+Get\+Entry\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the type of the current entry in the folder. \begin{DoxyReturn}{Returns}
+The entry type. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_folder_a350cdc0cd6b8bb625ebb7c4b560f9e45}\index{FbxFolder@{FbxFolder}!IsOpen@{IsOpen}}
+\index{IsOpen@{IsOpen}!FbxFolder@{FbxFolder}}
+\doxysubsubsection{\texorpdfstring{IsOpen()}{IsOpen()}}
+{\footnotesize\ttfamily \label{class_fbx_folder_a350cdc0cd6b8bb625ebb7c4b560f9e45} 
+bool Fbx\+Folder\+::\+Is\+Open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Find out if the folder was successfully opened the last time Open was called. \begin{DoxyReturn}{Returns}
+True if the folder is currently open. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_folder_aae7143fd3d6c61581af8d102564c904a}\index{FbxFolder@{FbxFolder}!Next@{Next}}
+\index{Next@{Next}!FbxFolder@{FbxFolder}}
+\doxysubsubsection{\texorpdfstring{Next()}{Next()}}
+{\footnotesize\ttfamily \label{class_fbx_folder_aae7143fd3d6c61581af8d102564c904a} 
+bool Fbx\+Folder\+::\+Next (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get the next item in the folder. \begin{DoxyReturn}{Returns}
+True if another item was found after the current one. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_folder_a84cebc4677af006fa464547079e943c2}\index{FbxFolder@{FbxFolder}!Open@{Open}}
+\index{Open@{Open}!FbxFolder@{FbxFolder}}
+\doxysubsubsection{\texorpdfstring{Open()}{Open()}}
+{\footnotesize\ttfamily \label{class_fbx_folder_a84cebc4677af006fa464547079e943c2} 
+bool Fbx\+Folder\+::\+Open (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Folder\+Path\+\_\+\+UTF8}{}\end{DoxyParamCaption})}
+
+Open the specified folder for browsing its content. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Folder\+Path\+\_\+\+UTF8} & The folder path to open. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the folder path was successfully open, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/base/\mbox{\hyperlink{fbxfolder_8h}{fbxfolder.\+h}}\end{DoxyCompactItemize}

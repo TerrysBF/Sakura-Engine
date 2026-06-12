@@ -1,0 +1,75 @@
+\doxysection{Base\+App Class Reference}
+\hypertarget{class_base_app}{}\label{class_base_app}\index{BaseApp@{BaseApp}}
+
+
+{\ttfamily \#include $<$Base\+App.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_base_app_af32e9c8881b8a57ee6937deec8499746}\label{class_base_app_af32e9c8881b8a57ee6937deec8499746} 
+{\bfseries Base\+App} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. No crea ni inicializa recursos gráficos. \end{DoxyCompactList}\item 
+\Hypertarget{class_base_app_acd5dea4cb74bc7bbdc200426873723f5}\label{class_base_app_acd5dea4cb74bc7bbdc200426873723f5} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Base\+App} ()
+\begin{DoxyCompactList}\small\item\em Destructor. Llama a \doxylink{class_base_app_a45e22a14bfc1f98f452b08ebb3386b2b}{destroy()} para liberar recursos. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_base_app_a3cf0b29ba0e997d8cbac4fca91635cb9}{run}} (HINSTANCE h\+Inst, int n\+Cmd\+Show)
+\item 
+HRESULT \mbox{\hyperlink{class_base_app_a2c64e873874aed23aa14e0c8a659e3ca}{init}} ()
+\item 
+void \mbox{\hyperlink{class_base_app_abdc46a4c89b86fd0441615214e19fb4d}{update}} (float delta\+Time)
+\item 
+\Hypertarget{class_base_app_a4002d0cff2225b7b79501aeb17a3e970}\label{class_base_app_a4002d0cff2225b7b79501aeb17a3e970} 
+void {\bfseries render} ()
+\begin{DoxyCompactList}\small\item\em Renderiza la escena actual en el back buffer y la presenta en pantalla. \end{DoxyCompactList}\item 
+\Hypertarget{class_base_app_a45e22a14bfc1f98f452b08ebb3386b2b}\label{class_base_app_a45e22a14bfc1f98f452b08ebb3386b2b} 
+void {\bfseries destroy} ()
+\begin{DoxyCompactList}\small\item\em Libera y destruye los recursos creados por la aplicación. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase principal de la aplicación. Administra la ventana, la inicialización de DirectX y el ciclo de render. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_base_app_a2c64e873874aed23aa14e0c8a659e3ca}\index{BaseApp@{BaseApp}!init@{init}}
+\index{init@{init}!BaseApp@{BaseApp}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_base_app_a2c64e873874aed23aa14e0c8a659e3ca} 
+HRESULT Base\+App\+::init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Inicializa la ventana, el dispositivo gráfico y los recursos básicos. \begin{DoxyReturn}{Returns}
+S\+\_\+\+OK si todo salió bien; código de error en caso contrario. 
+\end{DoxyReturn}
+\Hypertarget{class_base_app_a3cf0b29ba0e997d8cbac4fca91635cb9}\index{BaseApp@{BaseApp}!run@{run}}
+\index{run@{run}!BaseApp@{BaseApp}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily \label{class_base_app_a3cf0b29ba0e997d8cbac4fca91635cb9} 
+int Base\+App\+::run (\begin{DoxyParamCaption}\item[{HINSTANCE}]{h\+Inst}{, }\item[{int}]{n\+Cmd\+Show}{}\end{DoxyParamCaption})}
+
+Ejecuta la aplicación\+: inicializa, entra al loop de mensajes y al ciclo principal. 
+\begin{DoxyParams}{Parameters}
+{\em h\+Inst} & Instancia de la aplicación. \\
+\hline
+{\em n\+Cmd\+Show} & Modo de visualización de la ventana. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Código de salida de la aplicación. 
+\end{DoxyReturn}
+\Hypertarget{class_base_app_abdc46a4c89b86fd0441615214e19fb4d}\index{BaseApp@{BaseApp}!update@{update}}
+\index{update@{update}!BaseApp@{BaseApp}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_base_app_abdc46a4c89b86fd0441615214e19fb4d} 
+void Base\+App\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})}
+
+Actualiza la lógica de la aplicación por frame. 
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Tiempo transcurrido desde el último frame. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Base\+App.\+h\item 
+source/Base\+App.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,57 @@
+\doxysection{fbxplugincontainer.\+h}
+\hypertarget{fbxplugincontainer_8h_source}{}\label{fbxplugincontainer_8h_source}\index{include/fbx/fbxsdk/core/fbxplugincontainer.h@{include/fbx/fbxsdk/core/fbxplugincontainer.h}}
+\mbox{\hyperlink{fbxplugincontainer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_PLUGIN\_CONTAINER\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_PLUGIN\_CONTAINER\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifndef\ FBXSDK\_ENV\_WINSTORE}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxplugin_8h}{fbxsdk/core/fbxplugin.h}}>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxemitter_8h}{fbxsdk/core/fbxemitter.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_plugin_container}{FbxPluginContainer}}\ :\ \textcolor{keyword}{public}\ FbxEmitter}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_intrusive_list}{FbxIntrusiveList<FbxPlugin>}}\ \mbox{\hyperlink{class_fbx_plugin_container_a42abd8471efa91f56de2c4c64c220972}{PluginList}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_plugin_container_a3fc28ffe0296973afb3014112b4b0df0}{Register}}(\mbox{\hyperlink{class_fbx_plugin}{FbxPlugin}}\&\ pPlugin);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_plugin_container_af4b2068d41d0e87e97135e9effea55f7}{Unregister}}(\mbox{\hyperlink{class_fbx_plugin}{FbxPlugin}}\&\ pPlugin);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_plugin_container_a42abd8471efa91f56de2c4c64c220972}{PluginList}}\&\ \mbox{\hyperlink{class_fbx_plugin_container_afc30cddb82c621febf18c92cf03ddd64}{GetPlugins}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{class_fbx_plugin_container_a42abd8471efa91f56de2c4c64c220972}{PluginList}}\&\ \mbox{\hyperlink{class_fbx_plugin_container_abb78a589cb476d68bcc5d243346c3c88}{GetPlugins}}();}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00061\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00062\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00064\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_plugin_container}{\string~FbxPluginContainer}}();}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{class_fbx_plugin_container_a42abd8471efa91f56de2c4c64c220972}{PluginList}}\ mPlugins;}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !FBXSDK\_ENV\_WINSTORE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_PLUGIN\_CONTAINER\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

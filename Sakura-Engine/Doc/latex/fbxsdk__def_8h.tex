@@ -1,0 +1,86 @@
+\doxysection{include/fbx/fbxsdk/fbxsdk\+\_\+def.h File Reference}
+\hypertarget{fbxsdk__def_8h}{}\label{fbxsdk__def_8h}\index{include/fbx/fbxsdk/fbxsdk\_def.h@{include/fbx/fbxsdk/fbxsdk\_def.h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$wchar.\+h$>$}\newline
+{\ttfamily \#include $<$locale.\+h$>$}\newline
+{\ttfamily \#include $<$float.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$climits$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+version.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/arch/fbxarch.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/arch/fbxtypes.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/arch/fbxdebug.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/arch/fbxalloc.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/arch/fbxnew.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/arch/fbxstdcompliant.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fbxsdk__def_8h_a13e2dabd614d0dab749b603f970f7794}{FBX\+\_\+\+SAFE\+\_\+\+DELETE}}(p)
+\item 
+\#define \mbox{\hyperlink{fbxsdk__def_8h_a90d01c019b70e0de18d88f99de5680b8}{FBX\+\_\+\+SAFE\+\_\+\+DELETE\+\_\+\+ARRAY}}(a)
+\item 
+\#define \mbox{\hyperlink{fbxsdk__def_8h_a8e254e2b5a33faf864eb0e05cdafe2de}{FBX\+\_\+\+SAFE\+\_\+\+DESTROY}}(p)
+\item 
+\#define \mbox{\hyperlink{fbxsdk__def_8h_a09c6671866084dcf79bbe9fb2c05ba69}{FBX\+\_\+\+SAFE\+\_\+\+FREE}}(p)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+FBX SDK environment definition.
+
+This file is the principal FBX SDK environment definition. It is used at the top of every header and source file so that every unit is using the same definitions. 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fbxsdk__def_8h_a13e2dabd614d0dab749b603f970f7794}\index{fbxsdk\_def.h@{fbxsdk\_def.h}!FBX\_SAFE\_DELETE@{FBX\_SAFE\_DELETE}}
+\index{FBX\_SAFE\_DELETE@{FBX\_SAFE\_DELETE}!fbxsdk\_def.h@{fbxsdk\_def.h}}
+\doxysubsubsection{\texorpdfstring{FBX\_SAFE\_DELETE}{FBX\_SAFE\_DELETE}}
+{\footnotesize\ttfamily \label{fbxsdk__def_8h_a13e2dabd614d0dab749b603f970f7794} 
+\#define FBX\+\_\+\+SAFE\+\_\+\+DELETE(\begin{DoxyParamCaption}\item[{}]{p}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(p);(p)=NULL;\}}
+
+\end{DoxyCode}
+\Hypertarget{fbxsdk__def_8h_a90d01c019b70e0de18d88f99de5680b8}\index{fbxsdk\_def.h@{fbxsdk\_def.h}!FBX\_SAFE\_DELETE\_ARRAY@{FBX\_SAFE\_DELETE\_ARRAY}}
+\index{FBX\_SAFE\_DELETE\_ARRAY@{FBX\_SAFE\_DELETE\_ARRAY}!fbxsdk\_def.h@{fbxsdk\_def.h}}
+\doxysubsubsection{\texorpdfstring{FBX\_SAFE\_DELETE\_ARRAY}{FBX\_SAFE\_DELETE\_ARRAY}}
+{\footnotesize\ttfamily \label{fbxsdk__def_8h_a90d01c019b70e0de18d88f99de5680b8} 
+\#define FBX\+\_\+\+SAFE\+\_\+\+DELETE\+\_\+\+ARRAY(\begin{DoxyParamCaption}\item[{}]{a}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{FbxDeleteArray(a);(a)=NULL;\}}
+
+\end{DoxyCode}
+\Hypertarget{fbxsdk__def_8h_a8e254e2b5a33faf864eb0e05cdafe2de}\index{fbxsdk\_def.h@{fbxsdk\_def.h}!FBX\_SAFE\_DESTROY@{FBX\_SAFE\_DESTROY}}
+\index{FBX\_SAFE\_DESTROY@{FBX\_SAFE\_DESTROY}!fbxsdk\_def.h@{fbxsdk\_def.h}}
+\doxysubsubsection{\texorpdfstring{FBX\_SAFE\_DESTROY}{FBX\_SAFE\_DESTROY}}
+{\footnotesize\ttfamily \label{fbxsdk__def_8h_a8e254e2b5a33faf864eb0e05cdafe2de} 
+\#define FBX\+\_\+\+SAFE\+\_\+\+DESTROY(\begin{DoxyParamCaption}\item[{}]{p}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}(p)\{(p)-\/>Destroy();(p)=NULL;\}}
+
+\end{DoxyCode}
+\Hypertarget{fbxsdk__def_8h_a09c6671866084dcf79bbe9fb2c05ba69}\index{fbxsdk\_def.h@{fbxsdk\_def.h}!FBX\_SAFE\_FREE@{FBX\_SAFE\_FREE}}
+\index{FBX\_SAFE\_FREE@{FBX\_SAFE\_FREE}!fbxsdk\_def.h@{fbxsdk\_def.h}}
+\doxysubsubsection{\texorpdfstring{FBX\_SAFE\_FREE}{FBX\_SAFE\_FREE}}
+{\footnotesize\ttfamily \label{fbxsdk__def_8h_a09c6671866084dcf79bbe9fb2c05ba69} 
+\#define FBX\+\_\+\+SAFE\+\_\+\+FREE(\begin{DoxyParamCaption}\item[{}]{p}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}(p)\{FbxFree(p);(p)=NULL;\}}
+
+\end{DoxyCode}

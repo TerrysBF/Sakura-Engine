@@ -1,0 +1,632 @@
+\doxysection{Fbx\+Array\texorpdfstring{$<$}{<} T, Alignment \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_fbx_array}{}\label{class_fbx_array}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+
+
+{\ttfamily \#include $<$fbxarray.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_fbx_array_1_1t_data}{t\+Data}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_array_a377daf7143bb378a9458456c25d903a6}\label{class_fbx_array_a377daf7143bb378a9458456c25d903a6} 
+typedef int(\texorpdfstring{$\ast$}{*} {\bfseries Compare\+Func}) (const void \texorpdfstring{$\ast$}{*}, const void \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Element compare function pointer definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_array_a006b4a9076135b9e9d1a3bc3cc24bf4d}\label{class_fbx_array_a006b4a9076135b9e9d1a3bc3cc24bf4d} 
+{\bfseries Fbx\+Array} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_array_a5b7d0848d8d853a58b8d1dc01a1a9119}\label{class_fbx_array_a5b7d0848d8d853a58b8d1dc01a1a9119} 
+{\bfseries Fbx\+Array} (const int p\+Capacity)
+\begin{DoxyCompactList}\small\item\em Reserve constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_array_a7dec0990f0403e8f62290a8da67660e5}\label{class_fbx_array_a7dec0990f0403e8f62290a8da67660e5} 
+{\bfseries Fbx\+Array} (const \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}} \&p\+Array)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_fbx_array_ac07e76028f49d8208b607a95b74a126a}{\texorpdfstring{$\sim$}{\string~}\+Fbx\+Array}} ()
+\item 
+int \mbox{\hyperlink{class_fbx_array_abe27ea8c62ff35f231103b8cde65b443}{Insert\+At}} (const int p\+Index, const T \&p\+Element, bool p\+Compact=false)
+\item 
+int \mbox{\hyperlink{class_fbx_array_add84f40fedd645b6e464ff6c2554802a}{Add}} (const T \&p\+Element)
+\item 
+int \mbox{\hyperlink{class_fbx_array_a9f1e5b1cc6ece1bdf217ac845c1fb749}{Add\+Unique}} (const T \&p\+Element)
+\item 
+int \mbox{\hyperlink{class_fbx_array_a619caa4e5f17dab66a19299de1cb45d2}{Add\+Compact}} (const T \&p\+Element)
+\item 
+int \mbox{\hyperlink{class_fbx_array_a43006702c6e479cb04fb592d9ec44486}{Size}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_array_ae5e9632b568030e072758b4d06dab244}{Capacity}} () const
+\item 
+FBX\+\_\+\+ARRAY\+\_\+\+INLINE T \& \mbox{\hyperlink{class_fbx_array_a64d378c0e748c34889324f4ef63eadac}{operator\mbox{[}$\,$\mbox{]}}} (const int p\+Index) const
+\item 
+T \mbox{\hyperlink{class_fbx_array_a2dd97adf1d76dac4b25bdfef1c104fe6}{Get\+At}} (const int p\+Index) const
+\item 
+T \mbox{\hyperlink{class_fbx_array_a8b3e98f463aeeb2a4aa48698e6444fe2}{Get\+First}} () const
+\item 
+T \mbox{\hyperlink{class_fbx_array_a45c4602332134b89b6fbdb09a02986cf}{Get\+Last}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_array_a8cff28d57d692635b4c5201ec97f62db}{Find}} (const T \&p\+Element, const int p\+Start\+Index=0) const
+\item 
+int \mbox{\hyperlink{class_fbx_array_a6bc5e95609f41390261936a70edfa9a2}{Find\+Reverse}} (const T \&p\+Element, const int p\+Start\+Index=FBXSDK\+\_\+\+INT\+\_\+\+MAX) const
+\item 
+bool \mbox{\hyperlink{class_fbx_array_ad6c56df8723a46a8551cb83d143599f2}{Reserve}} (const int p\+Capacity)
+\item 
+void \mbox{\hyperlink{class_fbx_array_a1731c6ddd047c4593ba77b725f6caad3}{Set\+At}} (const int p\+Index, const T \&p\+Element)
+\item 
+void \mbox{\hyperlink{class_fbx_array_ad1a54d6da4978371a6fbdc7f1028ebed}{Set\+First}} (const T \&p\+Element)
+\item 
+void \mbox{\hyperlink{class_fbx_array_a1580e7f23b8b35d28a0325cedd37e12c}{Set\+Last}} (const T \&p\+Element)
+\item 
+FBX\+\_\+\+ARRAY\+\_\+\+INLINE T \mbox{\hyperlink{class_fbx_array_a542f9299d2200410f27a8b51090131a1}{Remove\+At}} (const int p\+Index)
+\item 
+T \mbox{\hyperlink{class_fbx_array_abca861f83a6e5164bb0ac3ff4a50bd52}{Remove\+First}} ()
+\item 
+T \mbox{\hyperlink{class_fbx_array_a39496cf9ac1c5192febf540d94fbaca0}{Remove\+Last}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_array_aaabbd5cf90fdbfb30ada53b1ec6047ae}{Remove\+It}} (const T \&p\+Element)
+\item 
+void \mbox{\hyperlink{class_fbx_array_a380e238ec9b2d685e30bfba6a8a3cfe0}{Remove\+Range}} (const int p\+Index, const int p\+Count)
+\item 
+bool \mbox{\hyperlink{class_fbx_array_a7980711027c870ce16dd92cf059e12a7}{Resize\+Uninitialized}} (const int p\+Size, bool p\+Preserve\+Capacity\+If\+Possible=false)
+\item 
+bool \mbox{\hyperlink{class_fbx_array_aeda7638d145ee1b228edecf933ecd033}{Resize}} (const int p\+Size, bool p\+Preserve\+Capacity\+If\+Possible=false)
+\item 
+bool \mbox{\hyperlink{class_fbx_array_acbfae6ced2d5619ce4e03e82695aa779}{Grow}} (const int p\+Size)
+\item 
+bool \mbox{\hyperlink{class_fbx_array_a9c9b1d60dd76d91ae90c050d6c2b171f}{Shrink}} (const int p\+Size)
+\item 
+bool \mbox{\hyperlink{class_fbx_array_a0e9c0593ddc08df5334f48696f191fe6}{Compact}} ()
+\item 
+void \mbox{\hyperlink{class_fbx_array_a5ffc520c7803d552333d2ea27e4f4cf3}{Clear}} ()
+\item 
+void \mbox{\hyperlink{class_fbx_array_abbc58a49b400d422ffdecb5dd0fa8c9e}{Sort}} (\mbox{\hyperlink{class_fbx_array_a377daf7143bb378a9458456c25d903a6}{Compare\+Func}} p\+Compare\+Func)
+\item 
+\Hypertarget{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}\label{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8} 
+T \texorpdfstring{$\ast$}{*} {\bfseries Get\+Array} () const
+\begin{DoxyCompactList}\small\item\em Get pointer to internal array of elements. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_array_a2160f1ee805db0333003e9671a3efbe2}\label{class_fbx_array_a2160f1ee805db0333003e9671a3efbe2} 
+{\bfseries operator T\texorpdfstring{$\ast$}{*}} () const
+\begin{DoxyCompactList}\small\item\em Cast operator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fbx_array_a225f74641fb74748c5f4c0d5efc0ea70}{Add\+Array}} (const \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T $>$ \&p\+Other)
+\item 
+void \mbox{\hyperlink{class_fbx_array_a15166fd92d7e15548e16fd87b6e24bf9}{Add\+Array\+No\+Duplicate}} (const \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T $>$ \&p\+Other)
+\item 
+void \mbox{\hyperlink{class_fbx_array_a8d5747f1b3acb86382cb753c11098667}{Remove\+Array}} (const \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T $>$ \&p\+Other)
+\item 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T $>$ \& \mbox{\hyperlink{class_fbx_array_a0c5176e3114c6aae30c6cccbac561773}{operator=}} (const \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T $>$ \&p\+Other)
+\item 
+bool \mbox{\hyperlink{class_fbx_array_af0dcb6c881ce339f62a409f6cb2f1539}{operator==}} (const \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T $>$ \&p\+Other) const
+\item 
+\Hypertarget{class_fbx_array_a6916ea0da411c36d8e493bd3aa91056e}\label{class_fbx_array_a6916ea0da411c36d8e493bd3aa91056e} 
+int {\bfseries Get\+Count} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_array_a1a043daa7b19c2f9ddb932904347a115}\label{class_fbx_array_a1a043daa7b19c2f9ddb932904347a115} 
+struct \mbox{\hyperlink{struct_fbx_array_1_1t_data}{Fbx\+Array\+::t\+Data}} \texorpdfstring{$\ast$}{*} {\bfseries m\+Data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T, const int Alignment = 16$>$\newline
+class Fbx\+Array$<$ T, Alignment $>$}
+Class for array of basic elements such as pointers and basic types. This class will not call constructor and destructor for elements, thus it is not suitable for object references. Memory allocations are always done in a single contiguous memory region. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_array_ac07e76028f49d8208b607a95b74a126a}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!````~FbxArray@{\texorpdfstring{$\sim$}{\string~}FbxArray}}
+\index{````~FbxArray@{\texorpdfstring{$\sim$}{\string~}FbxArray}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FbxArray()}{\string~FbxArray()}}
+{\footnotesize\ttfamily \label{class_fbx_array_ac07e76028f49d8208b607a95b74a126a} 
+template$<$class T, const int Alignment = 16$>$ \\
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Destructor. \begin{DoxyRemark}{Remarks}
+The destructor for each element will not be called. 
+\end{DoxyRemark}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_array_add84f40fedd645b6e464ff6c2554802a}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!Add@{Add}}
+\index{Add@{Add}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily \label{class_fbx_array_add84f40fedd645b6e464ff6c2554802a} 
+template$<$class T, const int Alignment = 16$>$ \\
+int \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Add (\begin{DoxyParamCaption}\item[{const T \&}]{p\+Element}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Append an element at the end of the array, doubling the array if capacity is not sufficient. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & Element to append to the array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if add failed, otherwise the position of the added element in the array. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+This function is the optimized version of Insert\+At(\+Get\+Size(), p\+Element) which, by skipping some validation tests, can provide up to 33\% speed gains. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_a225f74641fb74748c5f4c0d5efc0ea70}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!AddArray@{AddArray}}
+\index{AddArray@{AddArray}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{AddArray()}{AddArray()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a225f74641fb74748c5f4c0d5efc0ea70} 
+template$<$class T, const int Alignment = 16$>$ \\
+void \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Add\+Array (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T $>$ \&}]{p\+Other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Append another array at the end of this array. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Other} & The other array to append to this array. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_array_a15166fd92d7e15548e16fd87b6e24bf9}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!AddArrayNoDuplicate@{AddArrayNoDuplicate}}
+\index{AddArrayNoDuplicate@{AddArrayNoDuplicate}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{AddArrayNoDuplicate()}{AddArrayNoDuplicate()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a15166fd92d7e15548e16fd87b6e24bf9} 
+template$<$class T, const int Alignment = 16$>$ \\
+void \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Add\+Array\+No\+Duplicate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T $>$ \&}]{p\+Other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Append the elements of another array at the end of this array if they are not present. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Other} & Another array. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_array_a619caa4e5f17dab66a19299de1cb45d2}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!AddCompact@{AddCompact}}
+\index{AddCompact@{AddCompact}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{AddCompact()}{AddCompact()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a619caa4e5f17dab66a19299de1cb45d2} 
+template$<$class T, const int Alignment = 16$>$ \\
+int \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Add\+Compact (\begin{DoxyParamCaption}\item[{const T \&}]{p\+Element}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Append an element at the end of the array, growing the array by one element if capacity is not sufficient. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & Element to append to the array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if add failed, otherwise the position of the added element in the array. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_array_a9f1e5b1cc6ece1bdf217ac845c1fb749}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!AddUnique@{AddUnique}}
+\index{AddUnique@{AddUnique}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{AddUnique()}{AddUnique()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a9f1e5b1cc6ece1bdf217ac845c1fb749} 
+template$<$class T, const int Alignment = 16$>$ \\
+int \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Add\+Unique (\begin{DoxyParamCaption}\item[{const T \&}]{p\+Element}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Append an element at the end of array, if not already present, doubling the array if capacity is not sufficient. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & Element to append to the array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if add failed, otherwise the position of the added element in the array. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_array_ae5e9632b568030e072758b4d06dab244}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!Capacity@{Capacity}}
+\index{Capacity@{Capacity}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{Capacity()}{Capacity()}}
+{\footnotesize\ttfamily \label{class_fbx_array_ae5e9632b568030e072758b4d06dab244} 
+template$<$class T, const int Alignment = 16$>$ \\
+int \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Capacity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieve the current allocated memory capacity of the array. \begin{DoxyReturn}{Returns}
+The capacity of the array in number of element. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The capacity will always be greater or equal to its size. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_a5ffc520c7803d552333d2ea27e4f4cf3}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!Clear@{Clear}}
+\index{Clear@{Clear}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a5ffc520c7803d552333d2ea27e4f4cf3} 
+template$<$class T, const int Alignment = 16$>$ \\
+void \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Reset the number of element to zero and free the memory allocated. \begin{DoxyRemark}{Remarks}
+This only free the memory allocated by the array, and doesn\textquotesingle{}t call the destructor of each element. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_a0e9c0593ddc08df5334f48696f191fe6}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!Compact@{Compact}}
+\index{Compact@{Compact}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{Compact()}{Compact()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a0e9c0593ddc08df5334f48696f191fe6} 
+template$<$class T, const int Alignment = 16$>$ \\
+bool \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Compact (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Compact the array so that its capacity is the same as its size. \begin{DoxyReturn}{Returns}
+{\ttfamily true} if operation succeeded, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_array_a8cff28d57d692635b4c5201ec97f62db}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!Find@{Find}}
+\index{Find@{Find}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{Find()}{Find()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a8cff28d57d692635b4c5201ec97f62db} 
+template$<$class T, const int Alignment = 16$>$ \\
+int \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Find (\begin{DoxyParamCaption}\item[{const T \&}]{p\+Element}{, }\item[{const int}]{p\+Start\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Find first matching element, from first to last. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & The element to be compared to each of the elements. \\
+\hline
+{\em p\+Start\+Index} & The position to start searching from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Position of first matching element or -\/1 if there is no matching element. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_array_a6bc5e95609f41390261936a70edfa9a2}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!FindReverse@{FindReverse}}
+\index{FindReverse@{FindReverse}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{FindReverse()}{FindReverse()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a6bc5e95609f41390261936a70edfa9a2} 
+template$<$class T, const int Alignment = 16$>$ \\
+int \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Find\+Reverse (\begin{DoxyParamCaption}\item[{const T \&}]{p\+Element}{, }\item[{const int}]{p\+Start\+Index}{ = {\ttfamily FBXSDK\+\_\+INT\+\_\+MAX}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Find first matching element, from last to first. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & The element to be compared to each of the elements. \\
+\hline
+{\em p\+Start\+Index} & The position to start searching from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Position of first matching element or -\/1 if there is no matching element. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_array_a2dd97adf1d76dac4b25bdfef1c104fe6}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!GetAt@{GetAt}}
+\index{GetAt@{GetAt}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{GetAt()}{GetAt()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a2dd97adf1d76dac4b25bdfef1c104fe6} 
+template$<$class T, const int Alignment = 16$>$ \\
+T \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Get\+At (\begin{DoxyParamCaption}\item[{const int}]{p\+Index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieve a copy of the element at given index position in the array. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & Position of element in the array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the element at the specified position in the array. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+No error will be thrown if the index is out of bounds. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_a8b3e98f463aeeb2a4aa48698e6444fe2}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!GetFirst@{GetFirst}}
+\index{GetFirst@{GetFirst}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{GetFirst()}{GetFirst()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a8b3e98f463aeeb2a4aa48698e6444fe2} 
+template$<$class T, const int Alignment = 16$>$ \\
+T \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Get\+First (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieve a copy of the first element. \begin{DoxyReturn}{Returns}
+Copy of the first element. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The array should have at least one element and no error will be thrown if the array is empty. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_a45c4602332134b89b6fbdb09a02986cf}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!GetLast@{GetLast}}
+\index{GetLast@{GetLast}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{GetLast()}{GetLast()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a45c4602332134b89b6fbdb09a02986cf} 
+template$<$class T, const int Alignment = 16$>$ \\
+T \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Get\+Last (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieve a copy of the last element. \begin{DoxyReturn}{Returns}
+Copy of the last element. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The array should have at least one element and no error will be thrown if the array is empty. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_acbfae6ced2d5619ce4e03e82695aa779}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!Grow@{Grow}}
+\index{Grow@{Grow}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{Grow()}{Grow()}}
+{\footnotesize\ttfamily \label{class_fbx_array_acbfae6ced2d5619ce4e03e82695aa779} 
+template$<$class T, const int Alignment = 16$>$ \\
+bool \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Grow (\begin{DoxyParamCaption}\item[{const int}]{p\+Size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Increase size of array by the specified size. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Size} & The size to add to the array size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if operation succeeded, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_array_abe27ea8c62ff35f231103b8cde65b443}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!InsertAt@{InsertAt}}
+\index{InsertAt@{InsertAt}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{InsertAt()}{InsertAt()}}
+{\footnotesize\ttfamily \label{class_fbx_array_abe27ea8c62ff35f231103b8cde65b443} 
+template$<$class T, const int Alignment = 16$>$ \\
+int \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Insert\+At (\begin{DoxyParamCaption}\item[{const int}]{p\+Index}{, }\item[{const T \&}]{p\+Element}{, }\item[{bool}]{p\+Compact}{ = {\ttfamily false}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Insert an element at the given position, growing the array if capacity is not sufficient. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & Position where to insert the element. Must be a positive value. \\
+\hline
+{\em p\+Element} & Element to insert in the array. \\
+\hline
+{\em p\+Compact} & If {\ttfamily true} and capacity is exceeded, grow capacity by one, otherwise double capacity (default). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if insert failed, otherwise the position of the inserted element in the array. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+If the given index is greater than \doxylink{class_fbx_array_a43006702c6e479cb04fb592d9ec44486}{Size()}, the element is appended at the end. Use compact mode only if you need to save memory. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_a0c5176e3114c6aae30c6cccbac561773}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a0c5176e3114c6aae30c6cccbac561773} 
+template$<$class T, const int Alignment = 16$>$ \\
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T $>$ \& \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T $>$ \&}]{p\+Other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Operator to copy elements of an array. \begin{DoxyReturn}{Returns}
+this array containing a copy of p\+Other elements. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_array_af0dcb6c881ce339f62a409f6cb2f1539}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_fbx_array_af0dcb6c881ce339f62a409f6cb2f1539} 
+template$<$class T, const int Alignment = 16$>$ \\
+bool \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T $>$ \&}]{p\+Other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Operator to compare elements of an array. \begin{DoxyReturn}{Returns}
+{\ttfamily true} if the two arrays are equal, otherwise {\ttfamily false}. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_array_a64d378c0e748c34889324f4ef63eadac}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a64d378c0e748c34889324f4ef63eadac} 
+template$<$class T, const int Alignment = 16$>$ \\
+FBX\+\_\+\+ARRAY\+\_\+\+INLINE T \& \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const int}]{p\+Index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieve a reference of the element at given index position in the array. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & Position of element in the array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to the element at the specified position in the array. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+No error will be thrown if the index is out of bounds. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_a8d5747f1b3acb86382cb753c11098667}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!RemoveArray@{RemoveArray}}
+\index{RemoveArray@{RemoveArray}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveArray()}{RemoveArray()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a8d5747f1b3acb86382cb753c11098667} 
+template$<$class T, const int Alignment = 16$>$ \\
+void \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Remove\+Array (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T $>$ \&}]{p\+Other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Remove the elements of another array from this array is they are present. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Other} & Another array. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_array_a542f9299d2200410f27a8b51090131a1}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!RemoveAt@{RemoveAt}}
+\index{RemoveAt@{RemoveAt}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveAt()}{RemoveAt()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a542f9299d2200410f27a8b51090131a1} 
+template$<$class T, const int Alignment = 16$>$ \\
+FBX\+\_\+\+ARRAY\+\_\+\+INLINE T \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Remove\+At (\begin{DoxyParamCaption}\item[{const int}]{p\+Index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Remove an element at the given position in the array. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & Position of the element to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Removed element. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+No error will be thrown if the index is out of bounds. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_abca861f83a6e5164bb0ac3ff4a50bd52}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!RemoveFirst@{RemoveFirst}}
+\index{RemoveFirst@{RemoveFirst}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveFirst()}{RemoveFirst()}}
+{\footnotesize\ttfamily \label{class_fbx_array_abca861f83a6e5164bb0ac3ff4a50bd52} 
+template$<$class T, const int Alignment = 16$>$ \\
+T \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Remove\+First (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Remove the first element in the array. \begin{DoxyReturn}{Returns}
+Removed element. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The array should have at least one element and no error will be thrown if the array is empty. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_aaabbd5cf90fdbfb30ada53b1ec6047ae}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!RemoveIt@{RemoveIt}}
+\index{RemoveIt@{RemoveIt}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveIt()}{RemoveIt()}}
+{\footnotesize\ttfamily \label{class_fbx_array_aaabbd5cf90fdbfb30ada53b1ec6047ae} 
+template$<$class T, const int Alignment = 16$>$ \\
+bool \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Remove\+It (\begin{DoxyParamCaption}\item[{const T \&}]{p\+Element}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Remove first matching element in the array. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & Element to be removed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if a matching element is found and removed, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_array_a39496cf9ac1c5192febf540d94fbaca0}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!RemoveLast@{RemoveLast}}
+\index{RemoveLast@{RemoveLast}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveLast()}{RemoveLast()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a39496cf9ac1c5192febf540d94fbaca0} 
+template$<$class T, const int Alignment = 16$>$ \\
+T \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Remove\+Last (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Remove the last element in the array. \begin{DoxyReturn}{Returns}
+Removed element. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The array should have at least one element and no error will be thrown if the array is empty. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_a380e238ec9b2d685e30bfba6a8a3cfe0}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!RemoveRange@{RemoveRange}}
+\index{RemoveRange@{RemoveRange}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{RemoveRange()}{RemoveRange()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a380e238ec9b2d685e30bfba6a8a3cfe0} 
+template$<$class T, const int Alignment = 16$>$ \\
+void \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Remove\+Range (\begin{DoxyParamCaption}\item[{const int}]{p\+Index}{, }\item[{const int}]{p\+Count}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Remove a range of elements at the given position in the array. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & Begin position of the elements to remove. \\
+\hline
+{\em p\+Count} & The count of elements to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if successful, otherwise {\ttfamily false}. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+This function re-\/use the memory already allocated 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_ad6c56df8723a46a8551cb83d143599f2}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!Reserve@{Reserve}}
+\index{Reserve@{Reserve}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{Reserve()}{Reserve()}}
+{\footnotesize\ttfamily \label{class_fbx_array_ad6c56df8723a46a8551cb83d143599f2} 
+template$<$class T, const int Alignment = 16$>$ \\
+bool \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Reserve (\begin{DoxyParamCaption}\item[{const int}]{p\+Capacity}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Request for allocation of additional memory without inserting new elements. After the memory has been reserved, please use \doxylink{class_fbx_array_a1731c6ddd047c4593ba77b725f6caad3}{Set\+At()} to initialize elements. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Capacity} & The number of additional element memory allocation requested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the memory allocation succeeded or if the capacity is unchanged, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+If the requested capacity is less than or equal to the current capacity, this call has no effect. In either case, \doxylink{class_fbx_array_a43006702c6e479cb04fb592d9ec44486}{Size()} is unchanged. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_aeda7638d145ee1b228edecf933ecd033}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!Resize@{Resize}}
+\index{Resize@{Resize}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{Resize()}{Resize()}}
+{\footnotesize\ttfamily \label{class_fbx_array_aeda7638d145ee1b228edecf933ecd033} 
+template$<$class T, const int Alignment = 16$>$ \\
+bool \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Resize (\begin{DoxyParamCaption}\item[{const int}]{p\+Size}{, }\item[{bool}]{p\+Preserve\+Capacity\+If\+Possible}{ = {\ttfamily false}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Inserts or erases elements at the end such that \doxylink{class_fbx_array_a43006702c6e479cb04fb592d9ec44486}{Size()} becomes p\+Size, increasing capacity if needed. Please use \doxylink{class_fbx_array_a1731c6ddd047c4593ba77b725f6caad3}{Set\+At()} to initialize any new elements. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Size} & The new count of elements to set the array to. Must be greater or equal to zero. \\
+\hline
+{\em p\+Preserve\+Capacity\+If\+Possible} & If the new count will fit into the existing allocation, do not adjust the capacity. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the memory (re)allocation succeeded, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+If the requested element count is less than or equal to the current count, elements are freed from memory. Otherwise, the array grows and elements are unchanged. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_a7980711027c870ce16dd92cf059e12a7}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!ResizeUninitialized@{ResizeUninitialized}}
+\index{ResizeUninitialized@{ResizeUninitialized}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{ResizeUninitialized()}{ResizeUninitialized()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a7980711027c870ce16dd92cf059e12a7} 
+template$<$class T, const int Alignment = 16$>$ \\
+bool \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Resize\+Uninitialized (\begin{DoxyParamCaption}\item[{const int}]{p\+Size}{, }\item[{bool}]{p\+Preserve\+Capacity\+If\+Possible}{ = {\ttfamily false}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Inserts or erases elements at the end such that \doxylink{class_fbx_array_a43006702c6e479cb04fb592d9ec44486}{Size()} becomes p\+Size, increasing capacity if needed. Please use \doxylink{class_fbx_array_a1731c6ddd047c4593ba77b725f6caad3}{Set\+At()} to initialize any new elements. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Size} & The new count of elements to set the array to. Must be greater or equal to zero. \\
+\hline
+{\em p\+Preserve\+Capacity\+If\+Possible} & If the new count will fit into the existing allocation, do not adjust the capacity. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the memory (re)allocation succeeded, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+If the requested element count is less than or equal to the current count, elements are freed from memory. Otherwise, the array grows and elements are unchanged. The new array memory is not cleared to 0. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_a1731c6ddd047c4593ba77b725f6caad3}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!SetAt@{SetAt}}
+\index{SetAt@{SetAt}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{SetAt()}{SetAt()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a1731c6ddd047c4593ba77b725f6caad3} 
+template$<$class T, const int Alignment = 16$>$ \\
+void \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Set\+At (\begin{DoxyParamCaption}\item[{const int}]{p\+Index}{, }\item[{const T \&}]{p\+Element}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the element at given position in the array. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & Position of element in the array. \\
+\hline
+{\em p\+Element} & The new element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+If the index is outside range, and outside capacity, this call has no effect. However, if index is within capacity range, element count is increased such that \doxylink{class_fbx_array_a43006702c6e479cb04fb592d9ec44486}{Size()} will become p\+Index + 1. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_ad1a54d6da4978371a6fbdc7f1028ebed}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!SetFirst@{SetFirst}}
+\index{SetFirst@{SetFirst}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{SetFirst()}{SetFirst()}}
+{\footnotesize\ttfamily \label{class_fbx_array_ad1a54d6da4978371a6fbdc7f1028ebed} 
+template$<$class T, const int Alignment = 16$>$ \\
+void \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Set\+First (\begin{DoxyParamCaption}\item[{const T \&}]{p\+Element}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the value of the first element. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & The new value of the last element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The array should have at least one element and no error will be thrown if the array is empty. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_a1580e7f23b8b35d28a0325cedd37e12c}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!SetLast@{SetLast}}
+\index{SetLast@{SetLast}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{SetLast()}{SetLast()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a1580e7f23b8b35d28a0325cedd37e12c} 
+template$<$class T, const int Alignment = 16$>$ \\
+void \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Set\+Last (\begin{DoxyParamCaption}\item[{const T \&}]{p\+Element}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set the value of the last element. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Element} & The new value of the last element. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The array should have at least one element and no error will be thrown if the array is empty. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_a9c9b1d60dd76d91ae90c050d6c2b171f}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!Shrink@{Shrink}}
+\index{Shrink@{Shrink}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{Shrink()}{Shrink()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a9c9b1d60dd76d91ae90c050d6c2b171f} 
+template$<$class T, const int Alignment = 16$>$ \\
+bool \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Shrink (\begin{DoxyParamCaption}\item[{const int}]{p\+Size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Reduce size of array by the specified size. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Size} & The size to remove from the array size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if operation succeeded, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_array_a43006702c6e479cb04fb592d9ec44486}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!Size@{Size}}
+\index{Size@{Size}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{Size()}{Size()}}
+{\footnotesize\ttfamily \label{class_fbx_array_a43006702c6e479cb04fb592d9ec44486} 
+template$<$class T, const int Alignment = 16$>$ \\
+int \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieve the number of element contained in the array. To increase the capacity without increasing the size, please use \doxylink{class_fbx_array_ad6c56df8723a46a8551cb83d143599f2}{Reserve()}. \begin{DoxyReturn}{Returns}
+The number of element in the array. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The size of the array cannot exceed its capacity. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_array_abbc58a49b400d422ffdecb5dd0fa8c9e}\index{FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}!Sort@{Sort}}
+\index{Sort@{Sort}!FbxArray$<$ T, Alignment $>$@{FbxArray$<$ T, Alignment $>$}}
+\doxysubsubsection{\texorpdfstring{Sort()}{Sort()}}
+{\footnotesize\ttfamily \label{class_fbx_array_abbc58a49b400d422ffdecb5dd0fa8c9e} 
+template$<$class T, const int Alignment = 16$>$ \\
+void \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T, Alignment $>$\+::\+Sort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_array_a377daf7143bb378a9458456c25d903a6}{Compare\+Func}}}]{p\+Compare\+Func}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sort the array using the specified compare function pointer 
+\begin{DoxyParams}{Parameters}
+{\em p\+Compare\+Func} & The compare function to use to sort elements. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/base/\mbox{\hyperlink{fbxarray_8h}{fbxarray.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,117 @@
+\doxysection{User\+Interface Class Reference}
+\hypertarget{class_user_interface}{}\label{class_user_interface}\index{UserInterface@{UserInterface}}
+
+
+Capa de interfaz de usuario basada en Dear Im\+Gui.  
+
+
+
+
+{\ttfamily \#include $<$User\+Interface.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_user_interface_a17f4bef607e5ddb739afcb5a502df267}{init}} (void \texorpdfstring{$\ast$}{*}hwnd, ID3\+D11\+Device \texorpdfstring{$\ast$}{*}device, ID3\+D11\+Device\+Context \texorpdfstring{$\ast$}{*}context)
+\begin{DoxyCompactList}\small\item\em Inicializa Dear Im\+Gui con Win32 + DirectX 11. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_interface_a52ec3c0bcd2f444e8d344d40708bbe2a}{set\+Scene\+Actors}} (const std\+::vector$<$ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU\+::\+TShared\+Pointer}}$<$ \mbox{\hyperlink{class_actor}{Actor}} $>$ $>$ \texorpdfstring{$\ast$}{*}actors)
+\begin{DoxyCompactList}\small\item\em Asocia el vector de actores de la escena para poder mostrarlos en el panel de jerarquía. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_interface_a7c9acd9ad089bbd6d0ca371a14cd82fa}{update}} ()
+\begin{DoxyCompactList}\small\item\em Construye la UI para el frame actual (ventanas Im\+Gui, jerarquía, inspector, etc.). Debe llamarse una vez por frame antes del render. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_interface_af2389f2be34dbb906255bc53fd4e1d54}{render}} ()
+\begin{DoxyCompactList}\small\item\em Renderiza la UI sobre el backbuffer actual. Debe llamarse después de dibujar la escena 3D. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_user_interface_a1e4349fe8dd7858692a7f5b2afa343c5}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Libera los recursos de Im\+Gui. Llamar antes de destruir el device/context. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Capa de interfaz de usuario basada en Dear Im\+Gui. 
+
+Muestra\+:
+\begin{DoxyItemize}
+\item Barra de menú principal.
+\item Panel de jerarquía (lista de actores de la escena).
+\item Panel de inspector (componentes del actor seleccionado). 
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_user_interface_a1e4349fe8dd7858692a7f5b2afa343c5}\index{UserInterface@{UserInterface}!destroy@{destroy}}
+\index{destroy@{destroy}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{class_user_interface_a1e4349fe8dd7858692a7f5b2afa343c5} 
+void User\+Interface\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Libera los recursos de Im\+Gui. Llamar antes de destruir el device/context. 
+
+Libera los recursos asociados a Im\+Gui (contexto y backends Win32/\+DX11). \Hypertarget{class_user_interface_a17f4bef607e5ddb739afcb5a502df267}\index{UserInterface@{UserInterface}!init@{init}}
+\index{init@{init}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_user_interface_a17f4bef607e5ddb739afcb5a502df267} 
+void User\+Interface\+::init (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{hwnd}{, }\item[{ID3\+D11\+Device \texorpdfstring{$\ast$}{*}}]{device}{, }\item[{ID3\+D11\+Device\+Context \texorpdfstring{$\ast$}{*}}]{context}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa Dear Im\+Gui con Win32 + DirectX 11. 
+
+Inicializa Im\+Gui para trabajar con Win32 y DirectX 11. Crea el contexto de Im\+Gui, configura flags básicos y enlaza con la ventana y el device.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hwnd} & Handle de la ventana Win32. \\
+\hline
+{\em device} & Dispositivo de D3\+D11. \\
+\hline
+{\em context} & Contexto inmediato de D3\+D11.\\
+\hline
+{\em hwnd} & Handle de la ventana Win32.\\
+\hline
+{\em device} & Dispositivo de Direct3D 11.\\
+\hline
+{\em context} & Contexto de dispositivo de Direct3D 11.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_interface_af2389f2be34dbb906255bc53fd4e1d54}\index{UserInterface@{UserInterface}!render@{render}}
+\index{render@{render}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_user_interface_af2389f2be34dbb906255bc53fd4e1d54} 
+void User\+Interface\+::render (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Renderiza la UI sobre el backbuffer actual. Debe llamarse después de dibujar la escena 3D. 
+
+Renderiza la interfaz de usuario de Im\+Gui sobre el back buffer actual. \Hypertarget{class_user_interface_a52ec3c0bcd2f444e8d344d40708bbe2a}\index{UserInterface@{UserInterface}!setSceneActors@{setSceneActors}}
+\index{setSceneActors@{setSceneActors}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{setSceneActors()}{setSceneActors()}}
+{\footnotesize\ttfamily \label{class_user_interface_a52ec3c0bcd2f444e8d344d40708bbe2a} 
+void User\+Interface\+::set\+Scene\+Actors (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU\+::\+TShared\+Pointer}}$<$ \mbox{\hyperlink{class_actor}{Actor}} $>$ $>$ \texorpdfstring{$\ast$}{*}}]{actors}{}\end{DoxyParamCaption})}
+
+
+
+Asocia el vector de actores de la escena para poder mostrarlos en el panel de jerarquía. 
+
+Asigna la lista de actores de la escena para que la UI pueda mostrarlos en la jerarquía. También resetea el actor seleccionado y la caché de \doxylink{class_transform}{Transform}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em actors} & Puntero a un vector con actores compartidos.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_user_interface_a7c9acd9ad089bbd6d0ca371a14cd82fa}\index{UserInterface@{UserInterface}!update@{update}}
+\index{update@{update}!UserInterface@{UserInterface}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_user_interface_a7c9acd9ad089bbd6d0ca371a14cd82fa} 
+void User\+Interface\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Construye la UI para el frame actual (ventanas Im\+Gui, jerarquía, inspector, etc.). Debe llamarse una vez por frame antes del render. 
+
+Actualiza el frame de la interfaz de usuario. Prepara un nuevo frame de Im\+Gui y dibuja las ventanas principales (menú, jerarquía, inspector). 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/User\+Interface.\+h\item 
+source/User\+Interface.\+cpp\end{DoxyCompactItemize}

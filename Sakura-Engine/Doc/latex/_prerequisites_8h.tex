@@ -1,0 +1,165 @@
+\doxysection{include/\+Prerequisites.h File Reference}
+\hypertarget{_prerequisites_8h}{}\label{_prerequisites_8h}\index{include/Prerequisites.h@{include/Prerequisites.h}}
+
+
+Declara la API de Prerequisites dentro del subsistema Core.  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include $<$xnamath.\+h$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$d3d11.\+h$>$}\newline
+{\ttfamily \#include $<$d3dx11.\+h$>$}\newline
+{\ttfamily \#include $<$d3dcompiler.\+h$>$}\newline
+{\ttfamily \#include "{}Resource.\+h"{}}\newline
+{\ttfamily \#include "{}Engine\+Utilities/\+Vectors/\+Vector2.\+h"{}}\newline
+{\ttfamily \#include "{}Engine\+Utilities/\+Vectors/\+Vector3.\+h"{}}\newline
+{\ttfamily \#include "{}Engine\+Utilities\textbackslash{}\+Memory\textbackslash{}\+TShared\+Pointer.\+h"{}}\newline
+{\ttfamily \#include "{}Engine\+Utilities\textbackslash{}\+Memory\textbackslash{}\+TWeak\+Pointer.\+h"{}}\newline
+{\ttfamily \#include "{}Engine\+Utilities\textbackslash{}\+Memory\textbackslash{}\+TStatic\+Ptr.\+h"{}}\newline
+{\ttfamily \#include "{}Engine\+Utilities\textbackslash{}\+Memory\textbackslash{}\+TUnique\+Ptr.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_simple_vertex}{Simple\+Vertex}}
+\item 
+struct \mbox{\hyperlink{struct_skybox_vertex}{Skybox\+Vertex}}
+\item 
+struct \mbox{\hyperlink{struct_c_b_never_changes}{CBNever\+Changes}}
+\item 
+struct \mbox{\hyperlink{struct_c_b_skybox}{CBSkybox}}
+\item 
+struct \mbox{\hyperlink{struct_c_b_change_on_resize}{CBChange\+On\+Resize}}
+\item 
+struct \mbox{\hyperlink{struct_c_b_main}{CBMain}}
+\item 
+struct \mbox{\hyperlink{struct_c_b_changes_every_frame}{CBChanges\+Every\+Frame}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_prerequisites_8h_a2bc549675ca29f733709b4656d22d52a}{SAFE\+\_\+\+RELEASE}}(x)
+\item 
+\#define \mbox{\hyperlink{_prerequisites_8h_a8fe30e7b51deb1d5519885ad20b879c8}{MESSAGE}}(class\+Obj,  method,  state)
+\item 
+\#define \mbox{\hyperlink{_prerequisites_8h_ab5d83f25f2317ec67a651392ed1ac091}{ERROR}}(class\+Obj,  method,  error\+MSG)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_prerequisites_8h_ab8685fb7f8f0003664786f0e1e04f65a}\label{_prerequisites_8h_ab8685fb7f8f0003664786f0e1e04f65a} 
+enum {\bfseries Extension\+Type} \{ {\bfseries DDS} = 0
+, {\bfseries PNG} = 1
+, {\bfseries JPG} = 2
+ \}
+\item 
+\Hypertarget{_prerequisites_8h_a6230e1b9ecbf2d82d10856fd7e1fde46}\label{_prerequisites_8h_a6230e1b9ecbf2d82d10856fd7e1fde46} 
+enum {\bfseries Shader\+Type} \{ {\bfseries VERTEX\+\_\+\+SHADER} = 0
+, {\bfseries PIXEL\+\_\+\+SHADER} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} \{ \newline
+\mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}} = 0
+, \mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a25f73324dc93d9024c0c75b4e6815335}{TRANSFORM}} = 1
+, \mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a0b8403fccaa9b51239c179649c6fcb50}{MESH}} = 2
+, \mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a23f8f5e62324af5f4d8f899cee8fb70d}{MATERIAL}} = 3
+, \newline
+\mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a4919f140b33a2432bd92521d08194fef}{HIERARCHY}} = 4
+ \}
+\begin{DoxyCompactList}\small\item\em Tipos de componentes disponibles en el juego. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Declara la API de Prerequisites dentro del subsistema Core. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_prerequisites_8h_ab5d83f25f2317ec67a651392ed1ac091}\index{Prerequisites.h@{Prerequisites.h}!ERROR@{ERROR}}
+\index{ERROR@{ERROR}!Prerequisites.h@{Prerequisites.h}}
+\doxysubsubsection{\texorpdfstring{ERROR}{ERROR}}
+{\footnotesize\ttfamily \label{_prerequisites_8h_ab5d83f25f2317ec67a651392ed1ac091} 
+\#define ERROR(\begin{DoxyParamCaption}\item[{}]{class\+Obj}{, }\item[{}]{method}{, }\item[{}]{error\+MSG}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{try}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::wostringstream\ os\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ os\_\ <<\ L\textcolor{stringliteral}{"{}ERROR\ :\ "{}}\ <<\ classObj\ <<\ L\textcolor{stringliteral}{"{}::"{}}\ <<\ method\ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <<\ L\textcolor{stringliteral}{"{}\ :\ "{}}\ <<\ errorMSG\ <<\ L\textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ OutputDebugStringW(os\_.str().c\_str());\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (...)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ OutputDebugStringW(L\textcolor{stringliteral}{"{}Failed\ to\ log\ error\ message.\(\backslash\)n"{}});\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{_prerequisites_8h_a8fe30e7b51deb1d5519885ad20b879c8}\index{Prerequisites.h@{Prerequisites.h}!MESSAGE@{MESSAGE}}
+\index{MESSAGE@{MESSAGE}!Prerequisites.h@{Prerequisites.h}}
+\doxysubsubsection{\texorpdfstring{MESSAGE}{MESSAGE}}
+{\footnotesize\ttfamily \label{_prerequisites_8h_a8fe30e7b51deb1d5519885ad20b879c8} 
+\#define MESSAGE(\begin{DoxyParamCaption}\item[{}]{class\+Obj}{, }\item[{}]{method}{, }\item[{}]{state}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ std::wostringstream\ os\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ os\_\ <<\ classObj\ <<\ \textcolor{stringliteral}{"{}::"{}}\ <<\ method\ <<\ \textcolor{stringliteral}{"{}\ :\ "{}}\ <<\ \textcolor{stringliteral}{"{}[CREATION\ OF\ RESOURCE\ "{}}\ <<\ \textcolor{stringliteral}{"{}:\ "{}}\ <<\ state\ <<\ \textcolor{stringliteral}{"{}]\ \(\backslash\)n"{}};\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ OutputDebugStringW(\ os\_.str().c\_str()\ );\ \ \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{_prerequisites_8h_a2bc549675ca29f733709b4656d22d52a}\index{Prerequisites.h@{Prerequisites.h}!SAFE\_RELEASE@{SAFE\_RELEASE}}
+\index{SAFE\_RELEASE@{SAFE\_RELEASE}!Prerequisites.h@{Prerequisites.h}}
+\doxysubsubsection{\texorpdfstring{SAFE\_RELEASE}{SAFE\_RELEASE}}
+{\footnotesize\ttfamily \label{_prerequisites_8h_a2bc549675ca29f733709b4656d22d52a} 
+\#define SAFE\+\_\+\+RELEASE(\begin{DoxyParamCaption}\item[{}]{x}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}(x\ !=\ \textcolor{keyword}{nullptr})\ x-\/>Release();\ x\ =\ \textcolor{keyword}{nullptr};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}\index{Prerequisites.h@{Prerequisites.h}!ComponentType@{ComponentType}}
+\index{ComponentType@{ComponentType}!Prerequisites.h@{Prerequisites.h}}
+\doxysubsubsection{\texorpdfstring{ComponentType}{ComponentType}}
+{\footnotesize\ttfamily \label{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0} 
+enum \mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}}}
+
+
+
+Tipos de componentes disponibles en el juego. 
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NONE@{NONE}!Prerequisites.h@{Prerequisites.h}}\index{Prerequisites.h@{Prerequisites.h}!NONE@{NONE}}}\Hypertarget{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0ac157bdf0b85a40d2619cbc8bc1ae5fe2}\label{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0ac157bdf0b85a40d2619cbc8bc1ae5fe2} 
+NONE&Tipo de componente no especificado. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSFORM@{TRANSFORM}!Prerequisites.h@{Prerequisites.h}}\index{Prerequisites.h@{Prerequisites.h}!TRANSFORM@{TRANSFORM}}}\Hypertarget{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a25f73324dc93d9024c0c75b4e6815335}\label{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a25f73324dc93d9024c0c75b4e6815335} 
+TRANSFORM&Componente de transformaci?n. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MESH@{MESH}!Prerequisites.h@{Prerequisites.h}}\index{Prerequisites.h@{Prerequisites.h}!MESH@{MESH}}}\Hypertarget{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a0b8403fccaa9b51239c179649c6fcb50}\label{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a0b8403fccaa9b51239c179649c6fcb50} 
+MESH&Componente de malla. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MATERIAL@{MATERIAL}!Prerequisites.h@{Prerequisites.h}}\index{Prerequisites.h@{Prerequisites.h}!MATERIAL@{MATERIAL}}}\Hypertarget{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a23f8f5e62324af5f4d8f899cee8fb70d}\label{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a23f8f5e62324af5f4d8f899cee8fb70d} 
+MATERIAL&Componente de material. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HIERARCHY@{HIERARCHY}!Prerequisites.h@{Prerequisites.h}}\index{Prerequisites.h@{Prerequisites.h}!HIERARCHY@{HIERARCHY}}}\Hypertarget{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a4919f140b33a2432bd92521d08194fef}\label{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a4919f140b33a2432bd92521d08194fef} 
+HIERARCHY&Componente de jerarqu?a. \\
+\hline
+
+\end{DoxyEnumFields}

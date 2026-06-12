@@ -1,0 +1,536 @@
+\doxysection{fbxnew.\+h}
+\hypertarget{fbxnew_8h_source}{}\label{fbxnew_8h_source}\index{include/fbx/fbxsdk/core/arch/fbxnew.h@{include/fbx/fbxsdk/core/arch/fbxnew.h}}
+\mbox{\hyperlink{fbxnew_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_ARCH\_NEW\_H\_}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_ARCH\_NEW\_H\_}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <new>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_COMPILER\_MSC)}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ warning(push)}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ warning(disable\ :\ 4345)\ }\textcolor{comment}{//warning\ C4345:\ behavior\ change:\ an\ object\ of\ POD\ type\ constructed\ with\ an\ initializer\ of\ the\ form\ ()\ will\ be\ default-\/initialized}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{//Type\ traits\ for\ primitive\ types}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_simple_type}{FbxSimpleType}}\ \{\ \textcolor{keyword}{enum}\ \{value\ =\ 0\};\ \};}
+\DoxyCodeLine{00036\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_simple_type}{FbxSimpleType}}<T*>\ \{\ \textcolor{keyword}{enum}\ \{value\ =\ 1\};\ \};}
+\DoxyCodeLine{00037\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_simple_type}{FbxSimpleType}}<const\ T>\ \{\ \textcolor{keyword}{enum}\ \{value\ =\ FbxSimpleType<T>::value\};\ \};}
+\DoxyCodeLine{00038\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ n>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_simple_type}{FbxSimpleType}}<T[n]>\ \{\ \textcolor{keyword}{enum}\ \{value\ =\ FbxSimpleType<T>::value\};\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ FBXSDK\_DEFINE\_SIMPLE\_TYPE(T)\ template<>\ struct\ FbxSimpleType<T>\{\ union\ \{T\ t;\}\ catcherr;\ enum\ \{value\ =\ 1\};\}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ FBXSDK\_DEFINE\_SIMPLE\_TYPE(\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{00043\ FBXSDK\_DEFINE\_SIMPLE\_TYPE(\textcolor{keywordtype}{char});}
+\DoxyCodeLine{00044\ FBXSDK\_DEFINE\_SIMPLE\_TYPE(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char});}
+\DoxyCodeLine{00045\ FBXSDK\_DEFINE\_SIMPLE\_TYPE(\textcolor{keywordtype}{short});}
+\DoxyCodeLine{00046\ FBXSDK\_DEFINE\_SIMPLE\_TYPE(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short});}
+\DoxyCodeLine{00047\ FBXSDK\_DEFINE\_SIMPLE\_TYPE(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00048\ FBXSDK\_DEFINE\_SIMPLE\_TYPE(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00049\ FBXSDK\_DEFINE\_SIMPLE\_TYPE(\textcolor{keywordtype}{long});}
+\DoxyCodeLine{00050\ FBXSDK\_DEFINE\_SIMPLE\_TYPE(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long});}
+\DoxyCodeLine{00051\ FBXSDK\_DEFINE\_SIMPLE\_TYPE(\textcolor{keywordtype}{float});}
+\DoxyCodeLine{00052\ FBXSDK\_DEFINE\_SIMPLE\_TYPE(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{00053\ FBXSDK\_DEFINE\_SIMPLE\_TYPE(\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double});}
+\DoxyCodeLine{00054\ FBXSDK\_DEFINE\_SIMPLE\_TYPE(\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long});}
+\DoxyCodeLine{00055\ FBXSDK\_DEFINE\_SIMPLE\_TYPE(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long});}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ FBXSDK\_IS\_SIMPLE\_TYPE(T)\ ((bool)FbxSimpleType<T>::value)}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ T*\ FbxNew()}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T();}
+\DoxyCodeLine{00063\ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1>\ T*\ FbxNew(T1\&\ p1)}
+\DoxyCodeLine{00066\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1);}
+\DoxyCodeLine{00069\ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1)}
+\DoxyCodeLine{00072\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1);}
+\DoxyCodeLine{00075\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2>\ T*\ FbxNew(T1\&\ p1,\ T2\&\ p2)}
+\DoxyCodeLine{00078\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2);}
+\DoxyCodeLine{00081\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2>\ T*\ FbxNew(T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2)}
+\DoxyCodeLine{00084\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2);}
+\DoxyCodeLine{00087\ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ T2\&\ p2)}
+\DoxyCodeLine{00090\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2);}
+\DoxyCodeLine{00093\ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2)}
+\DoxyCodeLine{00096\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2);}
+\DoxyCodeLine{00099\ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3>\ T*\ FbxNew(T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3)}
+\DoxyCodeLine{00102\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3);}
+\DoxyCodeLine{00105\ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3>\ T*\ FbxNew(T1\&\ p1,\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3)}
+\DoxyCodeLine{00108\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3);}
+\DoxyCodeLine{00111\ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3>\ T*\ FbxNew(T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ T3\&\ p3)}
+\DoxyCodeLine{00114\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3);}
+\DoxyCodeLine{00117\ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3>\ T*\ FbxNew(T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3)}
+\DoxyCodeLine{00120\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3);}
+\DoxyCodeLine{00123\ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3)}
+\DoxyCodeLine{00126\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3);}
+\DoxyCodeLine{00129\ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3)}
+\DoxyCodeLine{00132\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3);}
+\DoxyCodeLine{00135\ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ T3\&\ p3)}
+\DoxyCodeLine{00138\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3);}
+\DoxyCodeLine{00141\ \}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3)}
+\DoxyCodeLine{00144\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3);}
+\DoxyCodeLine{00147\ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4)}
+\DoxyCodeLine{00150\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00153\ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4)}
+\DoxyCodeLine{00156\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00159\ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(T1\&\ p1,\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ T4\&\ p4)}
+\DoxyCodeLine{00162\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00165\ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(T1\&\ p1,\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4)}
+\DoxyCodeLine{00168\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00171\ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4)}
+\DoxyCodeLine{00174\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00177\ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4)}
+\DoxyCodeLine{00180\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00183\ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ T4\&\ p4)}
+\DoxyCodeLine{00186\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00189\ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4)}
+\DoxyCodeLine{00192\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00195\ \}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4)}
+\DoxyCodeLine{00198\ \{}
+\DoxyCodeLine{00199\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00201\ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4)}
+\DoxyCodeLine{00204\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00207\ \}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ T4\&\ p4)}
+\DoxyCodeLine{00210\ \{}
+\DoxyCodeLine{00211\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00213\ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4)}
+\DoxyCodeLine{00216\ \{}
+\DoxyCodeLine{00217\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00219\ \}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4)}
+\DoxyCodeLine{00222\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00225\ \}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4)}
+\DoxyCodeLine{00228\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00231\ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ T4\&\ p4)}
+\DoxyCodeLine{00234\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00237\ \}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4)}
+\DoxyCodeLine{00240\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,\ p2,\ p3,\ p4);}
+\DoxyCodeLine{00243\ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5>\ T*\ FbxNew(T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4,\ T5\&\ p5)}
+\DoxyCodeLine{00246\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5);}
+\DoxyCodeLine{00249\ \}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4,\ T5\&\ p5)}
+\DoxyCodeLine{00252\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5);}
+\DoxyCodeLine{00255\ \}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4,\ T5\&\ p5)}
+\DoxyCodeLine{00258\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5);}
+\DoxyCodeLine{00261\ \}}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ T4\&\ p4,\ T5\&\ p5)}
+\DoxyCodeLine{00264\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5);}
+\DoxyCodeLine{00267\ \}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4,\ T5\&\ p5)}
+\DoxyCodeLine{00270\ \{}
+\DoxyCodeLine{00271\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5);}
+\DoxyCodeLine{00273\ \}}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4,\ \textcolor{keyword}{const}\ T5\&\ p5)}
+\DoxyCodeLine{00276\ \{}
+\DoxyCodeLine{00277\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5);}
+\DoxyCodeLine{00279\ \}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ T4\&\ p4,\ T5\&\ p5)}
+\DoxyCodeLine{00282\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5);}
+\DoxyCodeLine{00285\ \}}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4,\ T5\&\ p5)}
+\DoxyCodeLine{00288\ \{}
+\DoxyCodeLine{00289\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5);}
+\DoxyCodeLine{00291\ \}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4,\ \textcolor{keyword}{const}\ T5\&\ p5)}
+\DoxyCodeLine{00294\ \{}
+\DoxyCodeLine{00295\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5);}
+\DoxyCodeLine{00297\ \}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4,\ T5\&\ p5)}
+\DoxyCodeLine{00300\ \{}
+\DoxyCodeLine{00301\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5);}
+\DoxyCodeLine{00303\ \}}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ T4\&\ p4,\ \textcolor{keyword}{const}\ T5\&\ p5)}
+\DoxyCodeLine{00306\ \{}
+\DoxyCodeLine{00307\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5);}
+\DoxyCodeLine{00309\ \}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4,\ \textcolor{keyword}{const}\ T5\&\ p5)}
+\DoxyCodeLine{00312\ \{}
+\DoxyCodeLine{00313\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5);}
+\DoxyCodeLine{00315\ \}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5,\ \textcolor{keyword}{typename}\ T6>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4,\ \textcolor{keyword}{const}\ T5\&\ p5,\ \textcolor{keyword}{const}\ T6\&\ p6)}
+\DoxyCodeLine{00318\ \{}
+\DoxyCodeLine{00319\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5,p6);}
+\DoxyCodeLine{00321\ \}}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5,\ \textcolor{keyword}{typename}\ T6,\ \textcolor{keyword}{typename}\ T7>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4,\ \textcolor{keyword}{const}\ T5\&\ p5,\ \textcolor{keyword}{const}\ T6\&\ p6,\ \textcolor{keyword}{const}\ T7\&\ p7)}
+\DoxyCodeLine{00324\ \{}
+\DoxyCodeLine{00325\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5,p6,p7);}
+\DoxyCodeLine{00327\ \}}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5,\ \textcolor{keyword}{typename}\ T6,\ \textcolor{keyword}{typename}\ T7,\ \textcolor{keyword}{typename}\ T8>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4,\ \textcolor{keyword}{const}\ T5\&\ p5,\ \textcolor{keyword}{const}\ T6\&\ p6,\ \textcolor{keyword}{const}\ T7\&\ p7,\ \textcolor{keyword}{const}\ T8\&\ p8)}
+\DoxyCodeLine{00330\ \{}
+\DoxyCodeLine{00331\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5,p6,p7,p8);}
+\DoxyCodeLine{00333\ \}}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ T1,\ \textcolor{keyword}{typename}\ T2,\ \textcolor{keyword}{typename}\ T3,\ \textcolor{keyword}{typename}\ T4,\ \textcolor{keyword}{typename}\ T5,\ \textcolor{keyword}{typename}\ T6,\ \textcolor{keyword}{typename}\ T7,\ \textcolor{keyword}{typename}\ T8,\ \textcolor{keyword}{typename}\ T9>\ T*\ FbxNew(\textcolor{keyword}{const}\ T1\&\ p1,\ \textcolor{keyword}{const}\ T2\&\ p2,\ \textcolor{keyword}{const}\ T3\&\ p3,\ \textcolor{keyword}{const}\ T4\&\ p4,\ \textcolor{keyword}{const}\ T5\&\ p5,\ \textcolor{keyword}{const}\ T6\&\ p6,\ \textcolor{keyword}{const}\ T7\&\ p7,\ \textcolor{keyword}{const}\ T8\&\ p8,\ \textcolor{keyword}{const}\ T9\&\ p9)}
+\DoxyCodeLine{00336\ \{}
+\DoxyCodeLine{00337\ \ \ \ \ T*\ p\ =\ (T*)FbxMalloc(\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}(p)T(p1,p2,p3,p4,p5,p6,p7,p8,p9);}
+\DoxyCodeLine{00339\ \}}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxnew_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(T*\ p)}
+\DoxyCodeLine{00342\ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \textcolor{keywordflow}{if}(\ p\ )}
+\DoxyCodeLine{00344\ \ \ \ \ \{}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ ((T*)p)-\/>\string~T();}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ FbxFree(p);}
+\DoxyCodeLine{00347\ \ \ \ \ \}}
+\DoxyCodeLine{00348\ \}}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxnew_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(\textcolor{keyword}{const}\ T*\ p)}
+\DoxyCodeLine{00351\ \{}
+\DoxyCodeLine{00352\ \ \ \ \ \textcolor{keywordflow}{if}(\ p\ )}
+\DoxyCodeLine{00353\ \ \ \ \ \{}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ ((T*)p)-\/>\string~T();}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ FbxFree(\textcolor{keyword}{const\_cast<}T*\textcolor{keyword}{>}(p));}
+\DoxyCodeLine{00356\ \ \ \ \ \}}
+\DoxyCodeLine{00357\ \}}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \textcolor{preprocessor}{\#ifdef\ FBXSDK\_CPU\_32}}
+\DoxyCodeLine{00360\ \textcolor{preprocessor}{\#define\ MALLOC\_HEADER\_SIZE\ 8}}
+\DoxyCodeLine{00361\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00362\ \textcolor{preprocessor}{\#ifdef\ FBXSDK\_CPU\_64}}
+\DoxyCodeLine{00363\ \textcolor{preprocessor}{\#define\ MALLOC\_HEADER\_SIZE\ 16}}
+\DoxyCodeLine{00364\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\textcolor{keyword}{typename}\ I>\ T*\ FbxNewArray(\textcolor{keyword}{const}\ I\ n)}
+\DoxyCodeLine{00367\ \{}
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ lSize\ =\ FbxAllocSize(n,\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keywordflow}{if}(\ FBXSDK\_IS\_SIMPLE\_TYPE(T)\ )}
+\DoxyCodeLine{00370\ \ \ \ \ \{}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (T*)FbxMalloc(lSize);}
+\DoxyCodeLine{00372\ \ \ \ \ \}}
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00374\ \ \ \ \ \{}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ malloc\ usually\ provides\ 8-\/byte\ or\ 16-\/byte\ alignment\ on\ 32bit\ and\ 64bit\ architectures}}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ respectively.\ By\ allocating\ 8\ or\ 16\ bytes\ for\ the\ header\ info,\ rather\ than\ sizeof(int),}}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ ensure\ this\ function\ maintains\ the\ same\ alignment\ behaviour\ as\ malloc.}}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \textcolor{keyword}{const}\ pTmp\ =\ FbxMalloc(lSize\ +\ MALLOC\_HEADER\_SIZE);}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}*\textcolor{keyword}{>}(pTmp)\ =\ n;}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ T*\ \textcolor{keyword}{const}\ p\ =\ \textcolor{keyword}{reinterpret\_cast<}T*\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(pTmp)\ +\ MALLOC\_HEADER\_SIZE);}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ n;\ ++i\ )}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}(p+i)T;\ \textcolor{comment}{//\ in-\/place\ new,\ not\ allocating\ memory\ so\ it\ is\ safe.}}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ p;}
+\DoxyCodeLine{00387\ \ \ \ \ \}}
+\DoxyCodeLine{00388\ \}}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ T*\ FbxNewArray(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{00391\ \{}
+\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordflow}{return}\ FbxNewArray<T,size\_t>((\textcolor{keywordtype}{size\_t})n);}
+\DoxyCodeLine{00393\ \}}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keywordtype}{void}\ FbxDeleteArray(T*\ p)}
+\DoxyCodeLine{00396\ \{}
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keywordflow}{if}(\ p\ )}
+\DoxyCodeLine{00398\ \ \ \ \ \{}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !FBXSDK\_IS\_SIMPLE\_TYPE(T)\ )}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00401\ \textcolor{comment}{//\ When\ compiling\ on\ MacOS\ with\ libstdc++\ we\ cannot\ use\ remove\_const\ (it\ does\ not\ exist\ -\/\ not\ C++11)}}
+\DoxyCodeLine{00402\ \textcolor{preprocessor}{\#ifndef\ USING\_LIBSTDCPP}}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ std::remove\_const<T>::type\ TMutable;}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \ \ \ \ TMutable*\ \textcolor{keyword}{const}\ pMutable\ =\ \textcolor{keyword}{const\_cast<}TMutable*\textcolor{keyword}{>}(p);}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ FbxNewArray\ allocates\ MALLOC\_HEADER\_SIZE\ extra\ bytes\ as\ a\ header\ to\ store\ the\ array\ length}}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \textcolor{keyword}{const}\ pTmp\ =\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(pMutable)\ -\/\ MALLOC\_HEADER\_SIZE;}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ n\ =\ *\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}*\textcolor{keyword}{>}(pTmp);}
+\DoxyCodeLine{00408\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \textcolor{keyword}{const}\ pTmp\ =\ (\textcolor{keywordtype}{char}*)(p)\ -\/\ MALLOC\_HEADER\_SIZE;}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ n\ =\ *(\textcolor{keywordtype}{int}*)(pTmp);}
+\DoxyCodeLine{00411\ \textcolor{preprocessor}{\#endif\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ ++i\ )}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ p[i].\string~T();}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ FbxFree(pTmp);}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ FbxFree((\textcolor{keywordtype}{void}*)p);}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00422\ \ \ \ \ \}}
+\DoxyCodeLine{00423\ \}}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00425\ \textcolor{preprocessor}{\#define\ FBXSDK\_FRIEND\_NEW()\(\backslash\)}}
+\DoxyCodeLine{00426\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T>\(\backslash\)}}
+\DoxyCodeLine{00427\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew();\(\backslash\)}}
+\DoxyCodeLine{00428\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1>\(\backslash\)}}
+\DoxyCodeLine{00429\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1);\(\backslash\)}}
+\DoxyCodeLine{00430\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1>\(\backslash\)}}
+\DoxyCodeLine{00431\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1);\(\backslash\)}}
+\DoxyCodeLine{00432\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2>\(\backslash\)}}
+\DoxyCodeLine{00433\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1,\ T2\&\ p2);\(\backslash\)}}
+\DoxyCodeLine{00434\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2>\(\backslash\)}}
+\DoxyCodeLine{00435\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1,\ const\ T2\&\ p2);\(\backslash\)}}
+\DoxyCodeLine{00436\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2>\(\backslash\)}}
+\DoxyCodeLine{00437\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ T2\&\ p2);\(\backslash\)}}
+\DoxyCodeLine{00438\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2>\(\backslash\)}}
+\DoxyCodeLine{00439\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2);\(\backslash\)}}
+\DoxyCodeLine{00440\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3>\(\backslash\)}}
+\DoxyCodeLine{00441\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3);\(\backslash\)}}
+\DoxyCodeLine{00442\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3>\(\backslash\)}}
+\DoxyCodeLine{00443\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1,\ T2\&\ p2,\ const\ T3\&\ p3);\(\backslash\)}}
+\DoxyCodeLine{00444\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3>\(\backslash\)}}
+\DoxyCodeLine{00445\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1,\ const\ T2\&\ p2,\ T3\&\ p3);\(\backslash\)}}
+\DoxyCodeLine{00446\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3>\(\backslash\)}}
+\DoxyCodeLine{00447\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1,\ const\ T2\&\ p2,\ const\ T3\&\ p3);\(\backslash\)}}
+\DoxyCodeLine{00448\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3>\(\backslash\)}}
+\DoxyCodeLine{00449\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3);\(\backslash\)}}
+\DoxyCodeLine{00450\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3>\(\backslash\)}}
+\DoxyCodeLine{00451\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ T2\&\ p2,\ const\ T3\&\ p3);\(\backslash\)}}
+\DoxyCodeLine{00452\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3>\(\backslash\)}}
+\DoxyCodeLine{00453\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ T3\&\ p3);\(\backslash\)}}
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3>\(\backslash\)}}
+\DoxyCodeLine{00455\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ const\ T3\&\ p3);\(\backslash\)}}
+\DoxyCodeLine{00456\ \textcolor{preprocessor}{\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00458\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00460\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ const\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00462\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1,\ T2\&\ p2,\ const\ T3\&\ p3,\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00463\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00464\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1,\ T2\&\ p2,\ const\ T3\&\ p3,\ const\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00465\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00466\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1,\ const\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00467\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00468\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1,\ const\ T2\&\ p2,\ T3\&\ p3,\ const\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00469\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00470\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1,\ const\ T2\&\ p2,\ const\ T3\&\ p3,\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00471\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00472\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1,\ const\ T2\&\ p2,\ const\ T3\&\ p3,\ const\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00473\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00474\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00475\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00476\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ const\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00477\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00478\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ T2\&\ p2,\ const\ T3\&\ p3,\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00479\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00480\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ T2\&\ p2,\ const\ T3\&\ p3,\ const\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00481\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00482\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00483\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00484\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ T3\&\ p3,\ const\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00485\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00486\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ const\ T3\&\ p3,\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00487\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4>\(\backslash\)}}
+\DoxyCodeLine{00488\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ const\ T3\&\ p3,\ const\ T4\&\ p4);\(\backslash\)}}
+\DoxyCodeLine{00489\ \textcolor{preprocessor}{\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00490\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5>\(\backslash\)}}
+\DoxyCodeLine{00491\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4,\ T5\&\ p5);\(\backslash\)}}
+\DoxyCodeLine{00492\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5>\(\backslash\)}}
+\DoxyCodeLine{00493\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4,\ T5\&\ p5);\(\backslash\)}}
+\DoxyCodeLine{00494\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5>\(\backslash\)}}
+\DoxyCodeLine{00495\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4,\ T5\&\ p5);\(\backslash\)}}
+\DoxyCodeLine{00496\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5>\(\backslash\)}}
+\DoxyCodeLine{00497\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ T2\&\ p2,\ const\ T3\&\ p3,\ T4\&\ p4,\ T5\&\ p5);\(\backslash\)}}
+\DoxyCodeLine{00498\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5>\(\backslash\)}}
+\DoxyCodeLine{00499\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ const\ T4\&\ p4,\ T5\&\ p5);\(\backslash\)}}
+\DoxyCodeLine{00500\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5>\(\backslash\)}}
+\DoxyCodeLine{00501\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4,\ const\ T5\&\ p5);\(\backslash\)}}
+\DoxyCodeLine{00502\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5>\(\backslash\)}}
+\DoxyCodeLine{00503\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ const\ T3\&\ p3,\ T4\&\ p4,\ T5\&\ p5);\(\backslash\)}}
+\DoxyCodeLine{00504\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5>\(\backslash\)}}
+\DoxyCodeLine{00505\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ T3\&\ p3,\ const\ T4\&\ p4,\ T5\&\ p5);\(\backslash\)}}
+\DoxyCodeLine{00506\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5>\(\backslash\)}}
+\DoxyCodeLine{00507\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ T3\&\ p3,\ T4\&\ p4,\ const\ T5\&\ p5);\(\backslash\)}}
+\DoxyCodeLine{00508\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5>\(\backslash\)}}
+\DoxyCodeLine{00509\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ const\ T3\&\ p3,\ const\ T4\&\ p4,\ T5\&\ p5);\(\backslash\)}}
+\DoxyCodeLine{00510\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5>\(\backslash\)}}
+\DoxyCodeLine{00511\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ const\ T3\&\ p3,\ T4\&\ p4,\ const\ T5\&\ p5);\(\backslash\)}}
+\DoxyCodeLine{00512\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5>\(\backslash\)}}
+\DoxyCodeLine{00513\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ const\ T3\&\ p3,\ const\ T4\&\ p4,\ const\ T5\&\ p5);\(\backslash\)}}
+\DoxyCodeLine{00514\ \textcolor{preprocessor}{\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00515\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5,\ typename\ T6>\(\backslash\)}}
+\DoxyCodeLine{00516\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ const\ T3\&\ p3,\ const\ T4\&\ p4,\ const\ T5\&\ p5,\ const\ T6\&\ p6);\(\backslash\)}}
+\DoxyCodeLine{00517\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5,\ typename\ T6,\ typename\ T7>\(\backslash\)}}
+\DoxyCodeLine{00518\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ const\ T3\&\ p3,\ const\ T4\&\ p4,\ const\ T5\&\ p5,\ const\ T6\&\ p6,\ const\ T7\&\ p7);\(\backslash\)}}
+\DoxyCodeLine{00519\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5,\ typename\ T6,\ typename\ T7,\ typename\ T8>\(\backslash\)}}
+\DoxyCodeLine{00520\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ const\ T3\&\ p3,\ const\ T4\&\ p4,\ const\ T5\&\ p5,\ const\ T6\&\ p6,\ const\ T7\&\ p7,\ const\ T8\&\ p8);\(\backslash\)}}
+\DoxyCodeLine{00521\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T,\ typename\ T1,\ typename\ T2,\ typename\ T3,\ typename\ T4,\ typename\ T5,\ typename\ T6,\ typename\ T7,\ typename\ T8,\ typename\ T9>\(\backslash\)}}
+\DoxyCodeLine{00522\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNew(const\ T1\&\ p1,\ const\ T2\&\ p2,\ const\ T3\&\ p3,\ const\ T4\&\ p4,\ const\ T5\&\ p5,\ const\ T6\&\ p6,\ const\ T7\&\ p7,\ const\ T8\&\ p8,\ const\ T9\&\ p9);\(\backslash\)}}
+\DoxyCodeLine{00523\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T>\(\backslash\)}}
+\DoxyCodeLine{00524\ \textcolor{preprocessor}{\ \ \ \ friend\ void\ FBXSDK\_NAMESPACE::FbxDelete(T*\ p);\(\backslash\)}}
+\DoxyCodeLine{00525\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T>\(\backslash\)}}
+\DoxyCodeLine{00526\ \textcolor{preprocessor}{\ \ \ \ friend\ void\ FBXSDK\_NAMESPACE::FbxDelete(const\ T*\ p);\(\backslash\)}}
+\DoxyCodeLine{00527\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T>\(\backslash\)}}
+\DoxyCodeLine{00528\ \textcolor{preprocessor}{\ \ \ \ friend\ T*\ FBXSDK\_NAMESPACE::FbxNewArray(const\ int\ n);\(\backslash\)}}
+\DoxyCodeLine{00529\ \textcolor{preprocessor}{\ \ \ \ template<typename\ T>\(\backslash\)}}
+\DoxyCodeLine{00530\ \textcolor{preprocessor}{\ \ \ \ friend\ void\ FBXSDK\_NAMESPACE::FbxDeleteArray(T*\ p);}}
+\DoxyCodeLine{00531\ }
+\DoxyCodeLine{00532\ \textcolor{preprocessor}{\#ifdef\ FBXSDK\_COMPILER\_MSC}}
+\DoxyCodeLine{00533\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ warning(pop)}}
+\DoxyCodeLine{00534\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00536\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00537\ }
+\DoxyCodeLine{00538\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_ARCH\_NEW\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

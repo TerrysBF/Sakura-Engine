@@ -1,0 +1,138 @@
+\doxysection{fbxpose.\+h}
+\hypertarget{fbxpose_8h_source}{}\label{fbxpose_8h_source}\index{include/fbx/fbxsdk/scene/fbxpose.h@{include/fbx/fbxsdk/scene/fbxpose.h}}
+\mbox{\hyperlink{fbxpose_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_POSE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_POSE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxarray_8h}{fbxsdk/core/base/fbxarray.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmatrix_8h}{fbxsdk/core/math/fbxmatrix.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_status}{FbxStatus}};}
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_pose}{FbxPose}};}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_node}{FbxNode}};}
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_user_notification}{FbxUserNotification}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_pose_info}{FbxPoseInfo}}}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\ \ \mbox{\hyperlink{struct_fbx_pose_info_aca02d941e426a2f6abbce9902ae92d73}{mMatrix}};\ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_fbx_pose_info_a8da52035b7e08cafc70aa419111c7142}{mMatrixIsLocal}};\ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ \mbox{\hyperlink{struct_fbx_pose_info_a06e5aa4a4b65795d0a0bd87e4c79c74c}{mNode}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxNode*>}}\ NodeList;}
+\DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxPose*>}}\ PoseList;}
+\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxPoseInfo*>}}\ PoseInfoList;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_pose}{FbxPose}}\ :\ \textcolor{keyword}{public}\ FbxObject}
+\DoxyCodeLine{00097\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_pose}{FbxPose}},FbxObject);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_pose_ac7248f7018e656e1f95e1824d5f3b529}{SetIsBindPose}}(\textcolor{keywordtype}{bool}\ pIsBindPose);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_pose_a6fa3e2bc1aafcdfd958923eb628d6ad5}{IsBindPose}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mType\ ==\ \textcolor{charliteral}{'b'};\ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_pose_a4c5f2afbe45d2a5cf0725c3cdff90dcf}{IsRestPose}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mType\ ==\ \textcolor{charliteral}{'r'};\ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_pose_a748de4278ce7c09917571e00fcbef26b}{GetCount}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPoseInfo.GetCount();\ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_pose_a81218a5133b2490b4efdda6bf96bb2ae}{Add}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ pMatrix,\ \textcolor{keywordtype}{bool}\ pLocalMatrix\ =\ \textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ pMultipleBindPose\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_pose_a8a2434897e944a957a699a19814d407f}{Remove}}(\textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{class_fbx_name_handler}{FbxNameHandler}}\ \mbox{\hyperlink{class_fbx_pose_a9a6ce2c4c29248df156ca86bacdb905c}{GetNodeName}}(\textcolor{keywordtype}{int}\ pIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00148\ \ \ \ \ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ \mbox{\hyperlink{class_fbx_pose_a57a884430e6d83d5f7d5739d2d868bef}{GetNode}}(\textcolor{keywordtype}{int}\ pIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ \mbox{\hyperlink{class_fbx_pose_a4aba97a9aa06edcb39422c6957a8ab7f}{GetMatrix}}(\textcolor{keywordtype}{int}\ pIndex)\ \ \ \ \ \ \ \textcolor{keyword}{const};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_pose_a984ed3b9da9cc827ec15f910e79043c2}{IsLocalMatrix}}(\textcolor{keywordtype}{int}\ pIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_pose_a0ab145961bb4163251d1a29f2fe37364}{ENameComponent}}}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ eInitialNameComponent\ =\ 1,\ \ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_pose_a0ab145961bb4163251d1a29f2fe37364ae900e062dc3eb1e9bf493d7980462851}{eCurrentNameComponent}}\ =\ 2,\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_pose_a0ab145961bb4163251d1a29f2fe37364abc7067764b4a5c2daecef3ac215124ff}{eAllNameComponents}}\ =\ 3\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_pose_a427820ec28ffde99a648991078d6ed1c}{Find}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_name_handler}{FbxNameHandler}}\&\ pNodeName,\ \textcolor{keywordtype}{char}\ pCompareWhat\ =\ \mbox{\hyperlink{class_fbx_pose_a0ab145961bb4163251d1a29f2fe37364abc7067764b4a5c2daecef3ac215124ff}{eAllNameComponents}})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_pose_a3314b102674679ed6ee9f6bdf386739e}{Find}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_pose_a7a312148d8ba4b20243b20152d809b3f}{GetPosesContaining}}(\mbox{\hyperlink{class_fbx_manager}{FbxManager}}\&\ pManager,\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ PoseList\&\ pPoseList,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\&\ pIndex);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_pose_a8d203f54db3a2903d98500b2b66aa4e4}{GetPosesContaining}}(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ pScene,\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ PoseList\&\ pPoseList,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\&\ pIndex);}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_pose_a0f3a4900ad6a6ccaae87e419f55abff1}{GetBindPoseContaining}}(\mbox{\hyperlink{class_fbx_manager}{FbxManager}}\&\ pManager,\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ PoseList\&\ pPoseList,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\&\ pIndex);}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_pose_ad96a702071f681013cc2a69773604cdc}{GetBindPoseContaining}}(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ pScene,\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ PoseList\&\ pPoseList,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\&\ pIndex);}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_pose_aa7280dc3f8c4d448d988c0bc7cf17a67}{GetRestPoseContaining}}(\mbox{\hyperlink{class_fbx_manager}{FbxManager}}\&\ pManager,\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ PoseList\&\ pPoseList,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\&\ pIndex);}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_pose_abbab8f2576e5dbfc949d5abed41e85eb}{GetRestPoseContaining}}(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ pScene,\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ PoseList\&\ pPoseList,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\&\ pIndex);}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_pose_ac5e304f440e64f4152aac437ab8fbddc}{IsValidBindPose}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pRoot,\ \textcolor{keywordtype}{double}\ pMatrixCmpTolerance=0.0001,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus\ =\ NULL);}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_pose_a75a0cfacdcebe5d078ede0aa6cadf389}{IsValidBindPoseVerbose}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pRoot,\ NodeList\&\ pMissingAncestors,\ NodeList\&\ pMissingDeformers,\ NodeList\&\ pMissingDeformersAncestors,\ NodeList\&\ pWrongMatrices,\ \textcolor{keywordtype}{double}\ pMatrixCmpTolerance=0.0001,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus\ =\ NULL);}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_pose_abbbc7ba0cedb2c1eaccc7c44a6070901}{IsValidBindPoseVerbose}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pRoot,\ \mbox{\hyperlink{class_fbx_user_notification}{FbxUserNotification}}*\ pUserNotification,\ \textcolor{keywordtype}{double}\ pMatrixCmpTolerance=0.0001,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus\ =\ NULL);}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00321\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00322\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00323\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{keywordtype}{bool}\ SetMatrix(\textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ pMatrix);}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_pose_aac3cbd18000911083b060657c9cdb89f}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_pose_a9aa982c962be7e7013c5bc75cedc9e42}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_pose_a26519c67126483913aab4f8d4115da91}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \ \ \ \ FbxObject\&\ \ \mbox{\hyperlink{class_fbx_pose_a7b1bc93f87f621a543b65f268e47cc8a}{Copy}}(\textcolor{keyword}{const}\ FbxObject\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00332\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ GetTypeName()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{comment}{//Returns\ false\ if\ pNode\ is\ already\ inserted\ in\ the\ list\ and\ the\ current\ matrix\ is\ different\ from\ the\ stored\ one.\ Also,\ if\ this\ pose\ is\ a\ rest\ pose,\ check\ if}}
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{comment}{//pNode\ belongs\ to\ other\ BindPoses\ (accessed\ through\ the\ scene\ pointer).\ pPos\ will\ contains\ the\ index\ of\ the\ FbxPoseInfo\ if\ the\ parameters\ are\ already\ stored\ in\ this\ object.}}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ValidateParams(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ pMatrix,\ \textcolor{keywordtype}{int}\&\ pPos);}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LocalValidateParams(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ pMatrix,\ \textcolor{keywordtype}{int}\&\ pPos);}
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ GetSpecificPoseContaining(\textcolor{keywordtype}{int}\ poseType,\ \mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ pScene,\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ PoseList\&\ pPoseList,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\&\ pIndex);}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00342\ \ \ \ \ \mbox{\hyperlink{struct_fbx_pose_info}{FbxPoseInfo}}*\ \ \ \ \ GetItem(\textcolor{keywordtype}{int}\ pIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00343\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UpdatePosInfoList();}
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsValidBindPoseCommon(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pRoot,\ NodeList*\ pMissingAncestors,\ NodeList*\ pMissingDeformers,\ NodeList*\ pMissingDeformersAncestors,\ NodeList*\ pWrongMatrices,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus,\ \textcolor{keywordtype}{double}\ pMatrixCmpTolerance=0.0001);}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mType;}
+\DoxyCodeLine{00347\ \ \ \ \ PoseInfoList\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mPoseInfo;}
+\DoxyCodeLine{00348\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mPoseInfoIsDirty;}
+\DoxyCodeLine{00349\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxReference>}}\ \ Nodes;}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00352\ \};}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_POSE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

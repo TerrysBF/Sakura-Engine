@@ -1,0 +1,49 @@
+\doxysection{include/fbx/fbxsdk/core/arch/fbxstdcompliant.h File Reference}
+\hypertarget{fbxstdcompliant_8h}{}\label{fbxstdcompliant_8h}\index{include/fbx/fbxsdk/core/arch/fbxstdcompliant.h@{include/fbx/fbxsdk/core/arch/fbxstdcompliant.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fbxstdcompliant_8h_acd975f0dfc3ab2d68e01c8be0e842801}{FBXSDK\+\_\+ftell64}}(fp)
+\item 
+\#define \mbox{\hyperlink{fbxstdcompliant_8h_a43e9fec5f26dc4438b29a31658670e6b}{FBXSDK\+\_\+fseek64}}(fp,  offs,  mode)
+\item 
+\Hypertarget{fbxstdcompliant_8h_a7eba8b22de7414e2019bc5bdd4c63d8b}\label{fbxstdcompliant_8h_a7eba8b22de7414e2019bc5bdd4c63d8b} 
+\#define {\bfseries FBXSDK\+\_\+strdup}~Fbx\+Str\+Dup
+\item 
+\Hypertarget{fbxstdcompliant_8h_a33a04da037b60697a587eee4e2ee696d}\label{fbxstdcompliant_8h_a33a04da037b60697a587eee4e2ee696d} 
+\#define {\bfseries FBXSDK\+\_\+\+CRT\+\_\+\+SECURE\+\_\+\+NO\+\_\+\+WARNING\+\_\+\+BEGIN}
+\item 
+\Hypertarget{fbxstdcompliant_8h_ad93d879787c90b1cb143f3dffe356fa5}\label{fbxstdcompliant_8h_ad93d879787c90b1cb143f3dffe356fa5} 
+\#define {\bfseries FBXSDK\+\_\+\+CRT\+\_\+\+SECURE\+\_\+\+NO\+\_\+\+WARNING\+\_\+\+END}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Macros to properly support the CRT secure functions. 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fbxstdcompliant_8h_a43e9fec5f26dc4438b29a31658670e6b}\index{fbxstdcompliant.h@{fbxstdcompliant.h}!FBXSDK\_fseek64@{FBXSDK\_fseek64}}
+\index{FBXSDK\_fseek64@{FBXSDK\_fseek64}!fbxstdcompliant.h@{fbxstdcompliant.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_fseek64}{FBXSDK\_fseek64}}
+{\footnotesize\ttfamily \label{fbxstdcompliant_8h_a43e9fec5f26dc4438b29a31658670e6b} 
+\#define FBXSDK\+\_\+fseek64(\begin{DoxyParamCaption}\item[{}]{fp}{, }\item[{}]{offs}{, }\item[{}]{mode}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{fseeko(fp,\ (off\_t)offs,\ mode)}
+
+\end{DoxyCode}
+\Hypertarget{fbxstdcompliant_8h_acd975f0dfc3ab2d68e01c8be0e842801}\index{fbxstdcompliant.h@{fbxstdcompliant.h}!FBXSDK\_ftell64@{FBXSDK\_ftell64}}
+\index{FBXSDK\_ftell64@{FBXSDK\_ftell64}!fbxstdcompliant.h@{fbxstdcompliant.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_ftell64}{FBXSDK\_ftell64}}
+{\footnotesize\ttfamily \label{fbxstdcompliant_8h_acd975f0dfc3ab2d68e01c8be0e842801} 
+\#define FBXSDK\+\_\+ftell64(\begin{DoxyParamCaption}\item[{}]{fp}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ftello(fp)}
+
+\end{DoxyCode}

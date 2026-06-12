@@ -1,0 +1,278 @@
+\doxysection{fbxtypes.\+h}
+\hypertarget{fbxtypes_8h_source}{}\label{fbxtypes_8h_source}\index{include/fbx/fbxsdk/core/arch/fbxtypes.h@{include/fbx/fbxsdk/core/arch/fbxtypes.h}}
+\mbox{\hyperlink{fbxtypes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_ARCH\_TYPES\_H\_}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_ARCH\_TYPES\_H\_}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxarch_8h}{fbxsdk/core/arch/fbxarch.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{//Note:\ On\ MacOSX\ and\ Linux\ 64-\/bit,\ long\ is\ defined\ as\ 64-\/bits\ while\ on\ Windows}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//it\ is\ still\ a\ 32-\/bits\ for\ backward\ compatibility.\ We\ stick\ with\ Windows\ standard.}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_CPU\_64)\ \&\&\ !defined(FBXSDK\_ENV\_WIN)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_SYSTEM\_IS\_LP64\ 1}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_object}{FbxObject}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ FbxBool;}
+\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{char}\ \ \ \ \ FbxChar;}
+\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \ \ FbxUChar;}
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{short}\ \ \ \ FbxShort;}
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \ FbxUShort;}
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ FbxInt;}
+\DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ FbxUInt;}
+\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ FbxFloat;}
+\DoxyCodeLine{00042\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ FbxDouble;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ FbxBool*\ \ \ \ \ \ \ \ FbxBoolPtr;}
+\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ FbxChar*\ \ \ \ \ \ \ \ FbxCharPtr;}
+\DoxyCodeLine{00046\ \textcolor{keyword}{typedef}\ FbxUChar*\ \ \ \ \ \ \ FbxUCharPtr;}
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ FbxShort*\ \ \ \ \ \ \ FbxShortPtr;}
+\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ FbxUShort*\ \ \ \ \ \ FbxUShortPtr;}
+\DoxyCodeLine{00049\ \textcolor{keyword}{typedef}\ FbxInt*\ \ \ \ \ \ \ \ \ FbxIntPtr;}
+\DoxyCodeLine{00050\ \textcolor{keyword}{typedef}\ FbxUInt*\ \ \ \ \ \ \ \ FbxUIntPtr;}
+\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ FbxFloat*\ \ \ \ \ \ \ FbxFloatPtr;}
+\DoxyCodeLine{00052\ \textcolor{keyword}{typedef}\ FbxDouble*\ \ \ \ \ \ FbxDoublePtr;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{typedef}\ FbxInt\ \ \ \ \ \ \ \ \ \ FbxEnum;}
+\DoxyCodeLine{00055\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ \ \ \ \ FbxReference;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//Architecture\ independent\ defines\ (guarantee\ size)}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_COMPILER\_MSC)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_LONGLONG(x)\ \ (x\#\#i64)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_ULONGLONG(x)\ (x\#\#Ui64)}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \_\_int8\ \ \ \ \ \ \ FbxInt8;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \_\_int8\ \ \ \ \ FbxUInt8;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \_\_int16\ \ \ \ \ \ FbxInt16;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \_\_int16\ \ \ \ FbxUInt16;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \_\_int32\ \ \ \ \ \ FbxInt32;}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \_\_int32\ \ \ \ FbxUInt32;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \_\_int64\ \ \ \ \ \ FbxInt64;}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \_\_int64\ \ \ \ FbxUInt64;}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_LONGLONG(x)\ \ (x\#\#LL)}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_ULONGLONG(x)\ (x\#\#ULL)}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ FbxInt8;}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ FbxUInt8;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{short}\ \ \ \ \ \ \ \ FbxInt16;}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \ \ \ \ \ FbxUInt16;}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ FbxInt32;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ FbxUInt32;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \ \ \ FbxInt64;}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \ FbxUInt64;}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#ifdef\ FBXSDK\_SYSTEM\_IS\_LP64}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ FbxLong;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ FbxULong;}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{signed}\ \textcolor{keywordtype}{long}\ \ \ \ \ \ \ \ \ FbxLong;}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \ \ \ \ \ \ FbxULong;}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00092\ \textcolor{keyword}{typedef}\ FbxInt64\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxLongLong;}
+\DoxyCodeLine{00093\ \textcolor{keyword}{typedef}\ FbxUInt64\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxULongLong;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{typedef}\ FbxLong*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxLongPtr;}
+\DoxyCodeLine{00096\ \textcolor{keyword}{typedef}\ FbxULong*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxULongPtr;}
+\DoxyCodeLine{00097\ \textcolor{keyword}{typedef}\ FbxLongLong*\ \ \ \ \ \ \ \ \ \ \ \ FbxLongLongPtr;}
+\DoxyCodeLine{00098\ \textcolor{keyword}{typedef}\ FbxULongLong*\ \ \ \ \ \ \ \ \ \ \ FbxULongLongPtr;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_ENV\_EMSCRIPTEN)}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxInt32\ \ \ \ \ \ \ \ \ \ \ \ \_\_int32\_t;}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxUInt32\ \ \ \ \ \ \ \ \ \ \ \_\_uint32\_t;}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxInt64\ \ \ \ \ \ \ \ \ \ \ \ \_\_int64\_t;}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxUInt64\ \ \ \ \ \ \ \ \ \ \ \_\_uint64\_t;}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00109\ \textcolor{comment}{//Minimum\ and\ Maximum\ values\ for\ types}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ FBXSDK\_CHAR\_MIN\ \ \ \ \ \ \ \ \ -\/128}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ FBXSDK\_CHAR\_MAX\ \ \ \ \ \ \ \ \ 127}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ FBXSDK\_UCHAR\_MIN\ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ FBXSDK\_UCHAR\_MAX\ \ \ \ \ \ \ \ 255}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ FBXSDK\_SHORT\_MIN\ \ \ \ \ \ \ \ -\/32768}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ FBXSDK\_SHORT\_MAX\ \ \ \ \ \ \ \ 32767}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ FBXSDK\_USHORT\_MIN\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ FBXSDK\_USHORT\_MAX\ \ \ \ \ \ \ 65535}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ FBXSDK\_INT\_MIN\ \ \ \ \ \ \ \ \ \ 0x80000000}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ FBXSDK\_INT\_MAX\ \ \ \ \ \ \ \ \ \ 0x7fffffff}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ FBXSDK\_UINT\_MIN\ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ FBXSDK\_UINT\_MAX\ \ \ \ \ \ \ \ \ 0xffffffff}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ FBXSDK\_LONG\_MIN\ \ \ \ \ \ \ \ \ FBXSDK\_INT\_MIN}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ FBXSDK\_LONG\_MAX\ \ \ \ \ \ \ \ \ FBXSDK\_INT\_MAX}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ FBXSDK\_ULONG\_MIN\ \ \ \ \ \ \ \ FBXSDK\_UINT\_MIN}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#define\ FBXSDK\_ULONG\_MAX\ \ \ \ \ \ \ \ FBXSDK\_UINT\_MAX}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ FBXSDK\_LONGLONG\_MIN\ \ \ \ \ FBXSDK\_LONGLONG(0x8000000000000000)}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ FBXSDK\_LONGLONG\_MAX\ \ \ \ \ FBXSDK\_LONGLONG(0x7fffffffffffffff)}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#define\ FBXSDK\_ULONGLONG\_MIN\ \ \ \ FBXSDK\_ULONGLONG(0)}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ FBXSDK\_ULONGLONG\_MAX\ \ \ \ FBXSDK\_ULONGLONG(0xffffffffffffffff)}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ FBXSDK\_FLOAT\_MIN\ \ \ \ \ \ \ \ FLT\_MIN}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ FBXSDK\_FLOAT\_MAX\ \ \ \ \ \ \ \ FLT\_MAX}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ FBXSDK\_FLOAT\_EPSILON\ \ \ \ FLT\_EPSILON}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ FBXSDK\_DOUBLE\_MIN\ \ \ \ \ \ \ DBL\_MIN}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ FBXSDK\_DOUBLE\_MAX\ \ \ \ \ \ \ DBL\_MAX}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#define\ FBXSDK\_DOUBLE\_EPSILON\ \ \ DBL\_EPSILON}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ FBXSDK\_TOLERANCE\ \ \ \ \ \ \ \ (1.0e-\/6)}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00139\ \textcolor{comment}{//Handle\ and\ atomic\ definition\ (size\ change\ depending\ of\ architecture)}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_CPU\_32)}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxUInt32\ \ \ \ \ \ \ \ \ \ \ FbxHandle;}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_REF\_MIN\ \ \ \ \ \ FBXSDK\_UINT\_MIN}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_REF\_MAX\ \ \ \ \ \ FBXSDK\_UINT\_MAX}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxLong\ \ \ \ \ \ \ \ \ \ \ \ \ FbxAtomic;}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_ATOMIC\_MIN\ \ \ FBXSDK\_LONG\_MIN}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_ATOMIC\_MAX\ \ \ FBXSDK\_LONG\_MAX}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#elif\ defined(FBXSDK\_CPU\_64)}}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxUInt64\ \ \ \ \ \ \ \ \ \ \ FbxHandle;}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_REF\_MIN\ \ \ \ \ \ FBXSDK\_ULONGLONG\_MIN}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_REF\_MAX\ \ \ \ \ \ FBXSDK\_ULONGLONG\_MAX}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxInt64\ \ \ \ \ \ \ \ \ \ \ \ FbxAtomic;}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_ATOMIC\_MIN\ \ \ FBXSDK\_LONGLONG\_MIN}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_ATOMIC\_MAX\ \ \ FBXSDK\_LONGLONG\_MAX}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\ \ \ \ \#error\ Unsupported\ architecture!}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00161\ \textcolor{comment}{//Various\ utility\ functions\ for\ fbxsdk\ basic\ types}}
+\DoxyCodeLine{00162\ \textcolor{keyword}{inline}\ FbxChar\ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxMin(\textcolor{keyword}{const}\ FbxChar)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_CHAR\_MIN;\ \}}
+\DoxyCodeLine{00163\ \textcolor{keyword}{inline}\ FbxUChar\ \ \ \ \ \ \ \ \ \ \ \ \ FbxMin(\textcolor{keyword}{const}\ FbxUChar)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_UCHAR\_MIN;\ \}}
+\DoxyCodeLine{00164\ \textcolor{keyword}{inline}\ FbxShort\ \ \ \ \ \ \ \ \ \ \ \ \ FbxMin(\textcolor{keyword}{const}\ FbxShort)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_SHORT\_MIN;\ \}}
+\DoxyCodeLine{00165\ \textcolor{keyword}{inline}\ FbxUShort\ \ \ \ \ \ \ \ \ \ \ \ FbxMin(\textcolor{keyword}{const}\ FbxUShort)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_USHORT\_MIN;\ \}}
+\DoxyCodeLine{00166\ \textcolor{keyword}{inline}\ FbxInt\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxMin(\textcolor{keyword}{const}\ FbxInt)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_INT\_MIN;\ \}}
+\DoxyCodeLine{00167\ \textcolor{keyword}{inline}\ FbxUInt\ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxMin(\textcolor{keyword}{const}\ FbxUInt)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_UINT\_MIN;\ \}}
+\DoxyCodeLine{00168\ \textcolor{keyword}{inline}\ FbxLongLong\ \ \ \ \ \ \ \ \ \ FbxMin(\textcolor{keyword}{const}\ FbxLongLong)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_LONGLONG\_MIN;\ \}}
+\DoxyCodeLine{00169\ \textcolor{keyword}{inline}\ FbxULongLong\ \ \ \ \ \ \ \ \ FbxMin(\textcolor{keyword}{const}\ FbxULongLong)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_ULONGLONG\_MIN;\ \}}
+\DoxyCodeLine{00170\ \textcolor{keyword}{inline}\ FbxFloat\ \ \ \ \ \ \ \ \ \ \ \ \ FbxMin(\textcolor{keyword}{const}\ FbxFloat)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_FLOAT\_MIN;\ \}}
+\DoxyCodeLine{00171\ \textcolor{keyword}{inline}\ FbxDouble\ \ \ \ \ \ \ \ \ \ \ \ FbxMin(\textcolor{keyword}{const}\ FbxDouble)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_DOUBLE\_MIN;\ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{keyword}{inline}\ FbxChar\ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxMax(\textcolor{keyword}{const}\ FbxChar)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_CHAR\_MAX;\ \}}
+\DoxyCodeLine{00174\ \textcolor{keyword}{inline}\ FbxUChar\ \ \ \ \ \ \ \ \ \ \ \ \ FbxMax(\textcolor{keyword}{const}\ FbxUChar)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_UCHAR\_MAX;\ \}}
+\DoxyCodeLine{00175\ \textcolor{keyword}{inline}\ FbxShort\ \ \ \ \ \ \ \ \ \ \ \ \ FbxMax(\textcolor{keyword}{const}\ FbxShort)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_SHORT\_MAX;\ \}}
+\DoxyCodeLine{00176\ \textcolor{keyword}{inline}\ FbxUShort\ \ \ \ \ \ \ \ \ \ \ \ FbxMax(\textcolor{keyword}{const}\ FbxUShort)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_USHORT\_MAX;\ \}}
+\DoxyCodeLine{00177\ \textcolor{keyword}{inline}\ FbxInt\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxMax(\textcolor{keyword}{const}\ FbxInt)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_INT\_MAX;\ \}}
+\DoxyCodeLine{00178\ \textcolor{keyword}{inline}\ FbxUInt\ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxMax(\textcolor{keyword}{const}\ FbxUInt)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_UINT\_MAX;\ \}}
+\DoxyCodeLine{00179\ \textcolor{keyword}{inline}\ FbxLongLong\ \ \ \ \ \ \ \ \ \ FbxMax(\textcolor{keyword}{const}\ FbxLongLong)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_LONGLONG\_MAX;\ \}}
+\DoxyCodeLine{00180\ \textcolor{keyword}{inline}\ FbxULongLong\ \ \ \ \ \ \ \ \ FbxMax(\textcolor{keyword}{const}\ FbxULongLong)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_ULONGLONG\_MAX;\ \}}
+\DoxyCodeLine{00181\ \textcolor{keyword}{inline}\ FbxFloat\ \ \ \ \ \ \ \ \ \ \ \ \ FbxMax(\textcolor{keyword}{const}\ FbxFloat)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_FLOAT\_MAX;\ \}}
+\DoxyCodeLine{00182\ \textcolor{keyword}{inline}\ FbxDouble\ \ \ \ \ \ \ \ \ \ \ \ FbxMax(\textcolor{keyword}{const}\ FbxDouble)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_DOUBLE\_MAX;\ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#ifndef\ FBXSDK\_SYSTEM\_IS\_LP64}}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keyword}{inline}\ FbxLong\ \ \ \ \ \ \ \ \ \ FbxMin(\textcolor{keyword}{const}\ FbxLong)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_LONG\_MIN;\ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{inline}\ FbxULong\ \ \ \ \ \ \ \ \ FbxMin(\textcolor{keyword}{const}\ FbxULong)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_ULONG\_MIN;\ \}}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{inline}\ FbxLong\ \ \ \ \ \ \ \ \ \ FbxMax(\textcolor{keyword}{const}\ FbxLong)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_LONG\_MAX;\ \}}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keyword}{inline}\ FbxULong\ \ \ \ \ \ \ \ \ FbxMax(\textcolor{keyword}{const}\ FbxULong)\{\ \textcolor{keywordflow}{return}\ FBXSDK\_ULONG\_MAX;\ \}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ \ FbxMin(\textcolor{keyword}{const}\ T)\{\};}
+\DoxyCodeLine{00192\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ \ FbxMax(\textcolor{keyword}{const}\ T)\{\};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ \ FbxMin(\textcolor{keyword}{const}\ T\ x,\ \textcolor{keyword}{const}\ T\ y)\{\ \textcolor{keywordflow}{return}\ (x\ <\ y)\ ?\ x\ :\ y;\ \}}
+\DoxyCodeLine{00195\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ \ FbxMax(\textcolor{keyword}{const}\ T\ x,\ \textcolor{keyword}{const}\ T\ y)\{\ \textcolor{keywordflow}{return}\ (x\ >\ y)\ ?\ x\ :\ y;\ \}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00198\ \textcolor{comment}{//Vector\ Template\ Types}}
+\DoxyCodeLine{00199\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxVectorTemplate2}
+\DoxyCodeLine{00200\ \{}
+\DoxyCodeLine{00201\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keyword}{inline}\ FbxVectorTemplate2()\{\ *\textcolor{keyword}{this}\ =\ T(0);\ \}}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{explicit}\ FbxVectorTemplate2(T\ pValue)\{\ *\textcolor{keyword}{this}\ =\ pValue;\ \}}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keyword}{inline}\ FbxVectorTemplate2(T\ pData0,\ T\ pData1)\{\ mData[0]\ =\ pData0;\ mData[1]\ =\ pData1;\ \}}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keyword}{inline}\ \string~FbxVectorTemplate2()\{\}}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{inline}\ T\&\ operator[](\textcolor{keywordtype}{int}\ pIndex)\{\ \textcolor{keywordflow}{return}\ mData[pIndex];\ \}}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ T\&\ operator[](\textcolor{keywordtype}{int}\ pIndex)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mData[pIndex];\ \}}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keyword}{inline}\ FbxVectorTemplate2<T>\&\ operator=(\textcolor{keyword}{const}\ T\&\ pValue)\{\ mData[0]\ =\ pValue;\ mData[1]\ =\ pValue;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{inline}\ FbxVectorTemplate2<T>\&\ operator=(\textcolor{keyword}{const}\ FbxVectorTemplate2<T>\&\ pVector)\{\ mData[0]\ =\ pVector.mData[0];\ mData[1]\ =\ pVector.mData[1];\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ FbxVectorTemplate2<T>\&\ pVector)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ ((mData[0]\ ==\ pVector.mData[0])\ \&\&\ (mData[1]\ ==\ pVector.mData[1]));\ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ FbxVectorTemplate2<T>\&\ pVector)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ !operator==(\ pVector\ );\ \}}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{inline}\ T*\ Buffer()\{\ \textcolor{keywordflow}{return}\ mData;\ \}}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ T*\ Buffer()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mData;\ \}}
+\DoxyCodeLine{00214\ \ \ \ \ T\ mData[2];}
+\DoxyCodeLine{00215\ \};}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxVectorTemplate3}
+\DoxyCodeLine{00218\ \{}
+\DoxyCodeLine{00219\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keyword}{inline}\ FbxVectorTemplate3()\{\ *\textcolor{keyword}{this}\ =\ T(0);\ \}}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{explicit}\ FbxVectorTemplate3(T\ pValue)\{\ *\textcolor{keyword}{this}\ =\ pValue;\ \}}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keyword}{inline}\ FbxVectorTemplate3(T\ pData0,\ T\ pData1,\ T\ pData2)\{\ mData[0]\ =\ pData0;\ mData[1]\ =\ pData1;\ mData[2]\ =\ pData2;\ \}}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keyword}{inline}\ \string~FbxVectorTemplate3()\{\}}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keyword}{inline}\ T\&\ operator[](\textcolor{keywordtype}{int}\ pIndex)\ \{\ \textcolor{keywordflow}{return}\ mData[pIndex];\ \}}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ T\&\ operator[](\textcolor{keywordtype}{int}\ pIndex)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mData[pIndex];\ \}}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{operator}\ \mbox{\hyperlink{class_fbx_vector_template2}{FbxVectorTemplate2<T>}}\&\ ()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ *((\mbox{\hyperlink{class_fbx_vector_template2}{FbxVectorTemplate2<T>}}*)\textcolor{keyword}{this});\ \}}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keyword}{inline}\ FbxVectorTemplate3<T>\&\ operator=(T\ \textcolor{keyword}{const}\ \&pValue)\{\ mData[0]\ =\ pValue;\ mData[1]\ =\ pValue;\ mData[2]\ =\ pValue;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{inline}\ FbxVectorTemplate3<T>\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector_template2}{FbxVectorTemplate2<T>}}\&\ pVector)\{\ mData[0]\ =\ pVector.mData[0];\ mData[1]\ =\ pVector.mData[1];\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keyword}{inline}\ FbxVectorTemplate3<T>\&\ operator=(\textcolor{keyword}{const}\ FbxVectorTemplate3<T>\&\ pVector)\{\ mData[0]\ =\ pVector.mData[0];\ mData[1]\ =\ pVector.mData[1];\ mData[2]\ =\ pVector.mData[2];\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ FbxVectorTemplate3<T>\&\ pVector)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ ((mData[0]\ ==\ pVector.mData[0])\ \&\&\ (mData[1]\ ==\ pVector.mData[1])\ \&\&\ (mData[2]\ ==\ pVector.mData[2]));\ \}}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ FbxVectorTemplate3<T>\&\ pVector)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ !operator==(pVector);\ \}}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keyword}{inline}\ T*\ Buffer()\{\ \textcolor{keywordflow}{return}\ mData;\ \}}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ T*\ Buffer()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mData;\ \}}
+\DoxyCodeLine{00234\ \ \ \ \ T\ mData[3];}
+\DoxyCodeLine{00235\ \};}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxVectorTemplate4}
+\DoxyCodeLine{00238\ \{}
+\DoxyCodeLine{00239\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keyword}{inline}\ FbxVectorTemplate4()\{\ *\textcolor{keyword}{this}\ =\ T(0);\ \}}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{explicit}\ FbxVectorTemplate4(T\ pValue)\{\ *\textcolor{keyword}{this}\ =\ pValue;\ \}}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keyword}{inline}\ FbxVectorTemplate4(T\ pData0,\ T\ pData1,\ T\ pData2,\ T\ pData3)\{\ mData[0]\ =\ pData0;\ mData[1]\ =\ pData1;\ mData[2]\ =\ pData2;\ mData[3]\ =\ pData3;\ \}}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keyword}{inline}\ \string~FbxVectorTemplate4()\{\}}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keyword}{inline}\ T\&\ operator[](\textcolor{keywordtype}{int}\ pIndex)\{\ \textcolor{keywordflow}{return}\ mData[pIndex];\ \}}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ T\&\ operator[](\textcolor{keywordtype}{int}\ pIndex)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mData[pIndex];\ \}}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{operator}\ \mbox{\hyperlink{class_fbx_vector_template3}{FbxVectorTemplate3<T>}}\&\ ()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ *((\mbox{\hyperlink{class_fbx_vector_template3}{FbxVectorTemplate3<T>}}*)\textcolor{keyword}{this});\ \}}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keyword}{inline}\ FbxVectorTemplate4<T>\&\ operator=(\textcolor{keyword}{const}\ T\&\ pValue)\{\ mData[0]\ =\ pValue;\ mData[1]\ =\ pValue;\ mData[2]\ =\ pValue;\ mData[3]\ =\ pValue;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keyword}{inline}\ FbxVectorTemplate4<T>\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector_template3}{FbxVectorTemplate3<T>}}\&\ pValue)\{\ mData[0]\ =\ pValue[0];\ mData[1]\ =\ pValue[1];\ mData[2]\ =\ pValue[2];\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{inline}\ FbxVectorTemplate4<T>\&\ operator=(\textcolor{keyword}{const}\ FbxVectorTemplate4<T>\&\ pVector)\{\ mData[0]\ =\ pVector.mData[0];\ mData[1]\ =\ pVector.mData[1];\ mData[2]\ =\ pVector.mData[2];\ mData[3]\ =\ pVector.mData[3];\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ FbxVectorTemplate4<T>\&\ pVector)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ ((mData[0]\ ==\ pVector.mData[0])\ \&\&\ (mData[1]\ ==\ pVector.mData[1])\ \&\&\ (mData[2]\ ==\ pVector.mData[2])\ \&\&\ (mData[3]\ ==\ pVector.mData[3]));\ \}}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ FbxVectorTemplate4<T>\&\ pVector)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ !operator==(\ pVector\ );\ \}}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keyword}{inline}\ T*\ Buffer()\{\ \textcolor{keywordflow}{return}\ mData;\ \}}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ T*\ Buffer()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mData;\ \}}
+\DoxyCodeLine{00254\ \ \ \ \ T\ mData[4];}
+\DoxyCodeLine{00255\ \};}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_vector_template2}{FbxVectorTemplate2<FbxDouble>}}\ FbxDouble2;}
+\DoxyCodeLine{00258\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_vector_template3}{FbxVectorTemplate3<FbxDouble>}}\ FbxDouble3;}
+\DoxyCodeLine{00259\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_vector_template4}{FbxVectorTemplate4<FbxDouble>}}\ FbxDouble4;}
+\DoxyCodeLine{00260\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_vector_template4}{FbxVectorTemplate4<FbxDouble4>}}\ FbxDouble4x4;}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_CPU\_32)}}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxInt\ FbxSSize\_t;}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxInt\ FbxIndex;}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_SSIZE\_T(x)\ (x)}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_SSIZE\_T\_MAX\ FBXSDK\_INT\_MAX}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#elif\ defined(FBXSDK\_CPU\_64)}}
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxInt64\ FbxSSize\_t;}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxInt64\ FbxIndex;}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_SSIZE\_T(x)\ FBXSDK\_LONGLONG(x)}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_SSIZE\_T\_MAX\ FBXSDK\_LONGLONG\_MAX}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \textcolor{comment}{//template<typename\ T>\ T\ FBXSDK\_DLL\ cast\_to(FbxSSize\_t\ value);}}
+\DoxyCodeLine{00275\ \textcolor{keywordtype}{int}\ FBXSDK\_DLL\ downcast\_to\_int(FbxSSize\_t\ value);}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_ARCH\_TYPES\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

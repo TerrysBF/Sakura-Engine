@@ -1,0 +1,90 @@
+\doxysection{fbxlimitsutilities.\+h}
+\hypertarget{fbxlimitsutilities_8h_source}{}\label{fbxlimitsutilities_8h_source}\index{include/fbx/fbxsdk/scene/geometry/fbxlimitsutilities.h@{include/fbx/fbxsdk/scene/geometry/fbxlimitsutilities.h}}
+\mbox{\hyperlink{fbxlimitsutilities_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_GEOMETRY\_LIMIT\_UTILS\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_GEOMETRY\_LIMIT\_UTILS\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxvector4_8h}{fbxsdk/core/math/fbxvector4.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxtransforms_8h}{fbxsdk/core/math/fbxtransforms.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxnode_8h}{fbxsdk/scene/geometry/fbxnode.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxLimitsUtilities}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_limits_utilities_aa55167751039b3d64b56cb7e58f2e62c}{EType}}}
+\DoxyCodeLine{00036\ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ eTranslation,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ eRotation,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ eScaling}
+\DoxyCodeLine{00040\ \ \ \ \ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_limits_utilities_a8c1ec432e195d91eae2548fbc98c8770}{ERotationType}}}
+\DoxyCodeLine{00047\ \ \ \ \ \{\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ eQuaternion,\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ eEuler}
+\DoxyCodeLine{00050\ \ \ \ \ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_limits_utilities_a6724e1b0b6ba776ecb0c66e7b0ed075d}{ERotationClampType}}}
+\DoxyCodeLine{00057\ \ \ \ \ \{\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ eRectangular,\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ eEllipsoid}
+\DoxyCodeLine{00060\ \ \ \ \ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_fbx_limits_utilities}{FbxLimitsUtilities}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetAuto(EType\ pType,\ \textcolor{keywordtype}{bool}\ pAuto);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ GetAuto(EType\ pType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetEnable(EType\ pType,\ \textcolor{keywordtype}{bool}\ pEnable);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ GetEnable(EType\ pType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetDefault(EType\ pType,\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ pDefault);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ GetDefault(EType\ pType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetMin(EType\ pType,\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ pMin);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ GetMin(EType\ pType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetMax(EType\ pType,\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ pMax);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ GetMax(EType\ pType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetRotationType(ERotationType\ pType);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ ERotationType\ GetRotationType()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ ERotationClampType\ GetRotationClampType()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetRotationAxis(\mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ pRotationAxis);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ GetRotationAxis()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetAxisLength(\textcolor{keywordtype}{double}\ pLength);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ GetAxisLength()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateAutomatic(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ GetEndPointTranslation(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ GetEndSite(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ mNode;}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ mAxisLength;\ }
+\DoxyCodeLine{00102\ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_GEOMETRY\_LIMIT\_UTILS\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

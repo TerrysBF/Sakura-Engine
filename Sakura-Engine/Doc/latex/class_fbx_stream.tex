@@ -1,0 +1,240 @@
+\doxysection{Fbx\+Stream Class Reference}
+\hypertarget{class_fbx_stream}{}\label{class_fbx_stream}\index{FbxStream@{FbxStream}}
+
+
+{\ttfamily \#include $<$fbxstream.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7}{EState}} \{ \mbox{\hyperlink{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7a960b577245aea4e5fb73b4c8430f3830}{e\+Closed}}
+, \mbox{\hyperlink{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7a87c8f9d5a45dc6123fadc18e5a6e3195}{e\+Open}}
+, \mbox{\hyperlink{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7a3187889296102999260bf0cff24078ac}{e\+Empty}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7}{EState}} \mbox{\hyperlink{class_fbx_stream_a602172d138a0fc5c4cb3443b2b925296}{Get\+State}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_stream_ab8b3c6e904344c1b1d74e457ae8a74e7}{Open}} (void \texorpdfstring{$\ast$}{*}p\+Stream\+Data)=0
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_stream_a6779ab0ccbe8e14e5cf5cf47f5206519}{Close}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_stream_a9174d1c9a10e7f0f6f283c6b7f9a1dce}{Flush}} ()=0
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_fbx_stream_ae05f3cd773c0593115bb57b86d609748}{Write}} (const void \texorpdfstring{$\ast$}{*}, Fbx\+UInt64)=0
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_fbx_stream_a39f0275e3b157078d35e5739ece93a11}{Read}} (void \texorpdfstring{$\ast$}{*}, Fbx\+UInt64) const =0
+\item 
+virtual char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_stream_a47c2a6a595d370bcacbdbe2d42e7eeab}{Read\+String}} (char \texorpdfstring{$\ast$}{*}p\+Buffer, int p\+Max\+Size, bool p\+Stop\+At\+First\+White\+Space=false)
+\item 
+virtual int \mbox{\hyperlink{class_fbx_stream_ae2a7513a648cde508d00f5172ba2843d}{Get\+Reader\+ID}} () const =0
+\item 
+virtual int \mbox{\hyperlink{class_fbx_stream_af39d714bf396c28252772b5d8e7caa47}{Get\+Writer\+ID}} () const =0
+\item 
+virtual void \mbox{\hyperlink{class_fbx_stream_a00041c3874c430a77fb7e69a9adc894f}{Seek}} (const Fbx\+Int64 \&p\+Offset, const Fbx\+File\+::\+ESeek\+Pos \&p\+Seek\+Pos)=0
+\item 
+virtual Fbx\+Int64 \mbox{\hyperlink{class_fbx_stream_ac8cd5a52fc01823cb9f39307080f2d44}{Get\+Position}} () const =0
+\item 
+virtual void \mbox{\hyperlink{class_fbx_stream_a6a3b3bb793d0f8bf456b3e4da5e38833}{Set\+Position}} (Fbx\+Int64 p\+Position)=0
+\item 
+virtual int \mbox{\hyperlink{class_fbx_stream_adec0d602a55d05e923980e048b8d5b54}{Get\+Error}} () const =0
+\item 
+virtual void \mbox{\hyperlink{class_fbx_stream_ad90dfab257677bb8cd62efb9d65d3a02}{Clear\+Error}} ()=0
+\item 
+\Hypertarget{class_fbx_stream_aeb464b99b3291571d4b5caa64ee1746b}\label{class_fbx_stream_aeb464b99b3291571d4b5caa64ee1746b} 
+size\+\_\+t {\bfseries Write} (const char \texorpdfstring{$\ast$}{*}p\+Data, Fbx\+UInt64 p\+Size)
+\item 
+\Hypertarget{class_fbx_stream_a4a9229b948db4b94da61ea3818bb21d4}\label{class_fbx_stream_a4a9229b948db4b94da61ea3818bb21d4} 
+size\+\_\+t {\bfseries Write} (const int \texorpdfstring{$\ast$}{*}p\+Data, Fbx\+UInt64 p\+Size)
+\item 
+\Hypertarget{class_fbx_stream_a01b8ace0a5cec68bee9e21c870202067}\label{class_fbx_stream_a01b8ace0a5cec68bee9e21c870202067} 
+size\+\_\+t {\bfseries Read} (char \texorpdfstring{$\ast$}{*}p\+Data, Fbx\+UInt64 p\+Size) const
+\item 
+\Hypertarget{class_fbx_stream_acac58539b5652fa01358a1c6e9bf6225}\label{class_fbx_stream_acac58539b5652fa01358a1c6e9bf6225} 
+size\+\_\+t {\bfseries Read} (int \texorpdfstring{$\ast$}{*}p\+Data, Fbx\+UInt64 p\+Size) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract class for implementing I/O operations through a stream of data. For instance, it can be used to read data from a memory source, thus making it possible to import files from memory. However, for the time being, the \doxylink{class_fbx_stream}{Fbx\+Stream} class is only supported with FBX files. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7}\index{FbxStream@{FbxStream}!EState@{EState}}
+\index{EState@{EState}!FbxStream@{FbxStream}}
+\doxysubsubsection{\texorpdfstring{EState}{EState}}
+{\footnotesize\ttfamily \label{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7} 
+enum \mbox{\hyperlink{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7}{Fbx\+Stream\+::\+EState}}}
+
+Current stream state. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eClosed@{eClosed}!FbxStream@{FbxStream}}\index{FbxStream@{FbxStream}!eClosed@{eClosed}}}\Hypertarget{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7a960b577245aea4e5fb73b4c8430f3830}\label{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7a960b577245aea4e5fb73b4c8430f3830} 
+e\+Closed&The stream is closed. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eOpen@{eOpen}!FbxStream@{FbxStream}}\index{FbxStream@{FbxStream}!eOpen@{eOpen}}}\Hypertarget{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7a87c8f9d5a45dc6123fadc18e5a6e3195}\label{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7a87c8f9d5a45dc6123fadc18e5a6e3195} 
+e\+Open&The stream is open. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eEmpty@{eEmpty}!FbxStream@{FbxStream}}\index{FbxStream@{FbxStream}!eEmpty@{eEmpty}}}\Hypertarget{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7a3187889296102999260bf0cff24078ac}\label{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7a3187889296102999260bf0cff24078ac} 
+e\+Empty&The stream is empty. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_stream_ad90dfab257677bb8cd62efb9d65d3a02}\index{FbxStream@{FbxStream}!ClearError@{ClearError}}
+\index{ClearError@{ClearError}!FbxStream@{FbxStream}}
+\doxysubsubsection{\texorpdfstring{ClearError()}{ClearError()}}
+{\footnotesize\ttfamily \label{class_fbx_stream_ad90dfab257677bb8cd62efb9d65d3a02} 
+virtual void Fbx\+Stream\+::\+Clear\+Error (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Clear current error condition by setting the current error value to 0. \Hypertarget{class_fbx_stream_a6779ab0ccbe8e14e5cf5cf47f5206519}\index{FbxStream@{FbxStream}!Close@{Close}}
+\index{Close@{Close}!FbxStream@{FbxStream}}
+\doxysubsubsection{\texorpdfstring{Close()}{Close()}}
+{\footnotesize\ttfamily \label{class_fbx_stream_a6779ab0ccbe8e14e5cf5cf47f5206519} 
+virtual bool Fbx\+Stream\+::\+Close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Close the stream. \begin{DoxyReturn}{Returns}
+True if successful. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+Each time the stream is open or closed, the stream position must be reset to zero. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_stream_a9174d1c9a10e7f0f6f283c6b7f9a1dce}\index{FbxStream@{FbxStream}!Flush@{Flush}}
+\index{Flush@{Flush}!FbxStream@{FbxStream}}
+\doxysubsubsection{\texorpdfstring{Flush()}{Flush()}}
+{\footnotesize\ttfamily \label{class_fbx_stream_a9174d1c9a10e7f0f6f283c6b7f9a1dce} 
+virtual bool Fbx\+Stream\+::\+Flush (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Empties the internal data of the stream. \begin{DoxyReturn}{Returns}
+True if successful. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_stream_adec0d602a55d05e923980e048b8d5b54}\index{FbxStream@{FbxStream}!GetError@{GetError}}
+\index{GetError@{GetError}!FbxStream@{FbxStream}}
+\doxysubsubsection{\texorpdfstring{GetError()}{GetError()}}
+{\footnotesize\ttfamily \label{class_fbx_stream_adec0d602a55d05e923980e048b8d5b54} 
+virtual int Fbx\+Stream\+::\+Get\+Error (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Return 0 if no errors occurred. Otherwise, return 1 to indicate an error. This method will be invoked whenever FBX needs to verify that the last operation succeeded. \Hypertarget{class_fbx_stream_ac8cd5a52fc01823cb9f39307080f2d44}\index{FbxStream@{FbxStream}!GetPosition@{GetPosition}}
+\index{GetPosition@{GetPosition}!FbxStream@{FbxStream}}
+\doxysubsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
+{\footnotesize\ttfamily \label{class_fbx_stream_ac8cd5a52fc01823cb9f39307080f2d44} 
+virtual Fbx\+Int64 Fbx\+Stream\+::\+Get\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Get the current stream position. \begin{DoxyReturn}{Returns}
+Current number of bytes from the beginning of the stream. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_stream_ae2a7513a648cde508d00f5172ba2843d}\index{FbxStream@{FbxStream}!GetReaderID@{GetReaderID}}
+\index{GetReaderID@{GetReaderID}!FbxStream@{FbxStream}}
+\doxysubsubsection{\texorpdfstring{GetReaderID()}{GetReaderID()}}
+{\footnotesize\ttfamily \label{class_fbx_stream_ae2a7513a648cde508d00f5172ba2843d} 
+virtual int Fbx\+Stream\+::\+Get\+Reader\+ID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+If not specified by KFbx\+Importer\+::\+Initialize(), the importer will ask the stream to select an appropriate reader ID to associate with the stream. \doxylink{class_fbx_i_o_plugin_registry}{Fbx\+IOPlugin\+Registry} can be used to locate id by extension or description. Return -\/1 to allow FBX to select an appropriate default. \Hypertarget{class_fbx_stream_a602172d138a0fc5c4cb3443b2b925296}\index{FbxStream@{FbxStream}!GetState@{GetState}}
+\index{GetState@{GetState}!FbxStream@{FbxStream}}
+\doxysubsubsection{\texorpdfstring{GetState()}{GetState()}}
+{\footnotesize\ttfamily \label{class_fbx_stream_a602172d138a0fc5c4cb3443b2b925296} 
+virtual \mbox{\hyperlink{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7}{EState}} Fbx\+Stream\+::\+Get\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Query the current state of the stream. \Hypertarget{class_fbx_stream_af39d714bf396c28252772b5d8e7caa47}\index{FbxStream@{FbxStream}!GetWriterID@{GetWriterID}}
+\index{GetWriterID@{GetWriterID}!FbxStream@{FbxStream}}
+\doxysubsubsection{\texorpdfstring{GetWriterID()}{GetWriterID()}}
+{\footnotesize\ttfamily \label{class_fbx_stream_af39d714bf396c28252772b5d8e7caa47} 
+virtual int Fbx\+Stream\+::\+Get\+Writer\+ID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+If not specified by KFbx\+Exporter\+::\+Initialize(), the exporter will ask the stream to select an appropriate writer ID to associate with the stream. KFbx\+IOPlugin\+Registry can be used to locate id by extension or description. Return -\/1 to allow FBX to select an appropriate default. \Hypertarget{class_fbx_stream_ab8b3c6e904344c1b1d74e457ae8a74e7}\index{FbxStream@{FbxStream}!Open@{Open}}
+\index{Open@{Open}!FbxStream@{FbxStream}}
+\doxysubsubsection{\texorpdfstring{Open()}{Open()}}
+{\footnotesize\ttfamily \label{class_fbx_stream_ab8b3c6e904344c1b1d74e457ae8a74e7} 
+virtual bool Fbx\+Stream\+::\+Open (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Stream\+Data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Open the stream. \begin{DoxyReturn}{Returns}
+True if successful. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+Each time the stream is open or closed, the stream position must be reset to zero. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_stream_a39f0275e3b157078d35e5739ece93a11}\index{FbxStream@{FbxStream}!Read@{Read}}
+\index{Read@{Read}!FbxStream@{FbxStream}}
+\doxysubsubsection{\texorpdfstring{Read()}{Read()}}
+{\footnotesize\ttfamily \label{class_fbx_stream_a39f0275e3b157078d35e5739ece93a11} 
+virtual size\+\_\+t Fbx\+Stream\+::\+Read (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{}{, }\item[{Fbx\+UInt64}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Read bytes from the stream and store them in the memory block. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Data} & Pointer to the memory block where the read bytes are stored. \\
+\hline
+{\em p\+Size} & Number of bytes read from the stream. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The actual number of bytes successfully read from the stream. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_stream_a47c2a6a595d370bcacbdbe2d42e7eeab}\index{FbxStream@{FbxStream}!ReadString@{ReadString}}
+\index{ReadString@{ReadString}!FbxStream@{FbxStream}}
+\doxysubsubsection{\texorpdfstring{ReadString()}{ReadString()}}
+{\footnotesize\ttfamily \label{class_fbx_stream_a47c2a6a595d370bcacbdbe2d42e7eeab} 
+virtual char \texorpdfstring{$\ast$}{*} Fbx\+Stream\+::\+Read\+String (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{p\+Buffer}{, }\item[{int}]{p\+Max\+Size}{, }\item[{bool}]{p\+Stop\+At\+First\+White\+Space}{ = {\ttfamily false}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Read a string from the stream. The default implementation is written in terms of \doxylink{class_fbx_stream_a39f0275e3b157078d35e5739ece93a11}{Read()} but does not cope with DOS line endings. Subclasses may need to override this if DOS line endings are to be supported. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Buffer} & Pointer to the memory block where the read bytes are stored. \\
+\hline
+{\em p\+Max\+Size} & Maximum number of bytes to be read from the stream. \\
+\hline
+{\em p\+Stop\+At\+First\+White\+Space} & Stop reading when any whitespace is encountered. Otherwise read to end of line (like fgets()). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+p\+Buffer, if successful, else NULL. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The default implementation terminates the {\itshape p\+Buffer} with a null character and assumes there is enough room for it. For example, a call with {\itshape p\+Max\+Size} = 1 will fill {\itshape p\+Buffer} with the null character only. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_stream_a00041c3874c430a77fb7e69a9adc894f}\index{FbxStream@{FbxStream}!Seek@{Seek}}
+\index{Seek@{Seek}!FbxStream@{FbxStream}}
+\doxysubsubsection{\texorpdfstring{Seek()}{Seek()}}
+{\footnotesize\ttfamily \label{class_fbx_stream_a00041c3874c430a77fb7e69a9adc894f} 
+virtual void Fbx\+Stream\+::\+Seek (\begin{DoxyParamCaption}\item[{const Fbx\+Int64 \&}]{p\+Offset}{, }\item[{const Fbx\+File\+::\+ESeek\+Pos \&}]{p\+Seek\+Pos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Adjust the current stream position. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Seek\+Pos} & Pre-\/defined position where offset is added (Fbx\+File\+::e\+Begin, Fbx\+File\+::e\+Current\+:, Fbx\+File\+::e\+End) \\
+\hline
+{\em p\+Offset} & Number of bytes to offset from p\+Seek\+Pos. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_stream_a6a3b3bb793d0f8bf456b3e4da5e38833}\index{FbxStream@{FbxStream}!SetPosition@{SetPosition}}
+\index{SetPosition@{SetPosition}!FbxStream@{FbxStream}}
+\doxysubsubsection{\texorpdfstring{SetPosition()}{SetPosition()}}
+{\footnotesize\ttfamily \label{class_fbx_stream_a6a3b3bb793d0f8bf456b3e4da5e38833} 
+virtual void Fbx\+Stream\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{Fbx\+Int64}]{p\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Set the current stream position. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Position} & Number of bytes from the beginning of the stream to seek to. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_stream_ae05f3cd773c0593115bb57b86d609748}\index{FbxStream@{FbxStream}!Write@{Write}}
+\index{Write@{Write}!FbxStream@{FbxStream}}
+\doxysubsubsection{\texorpdfstring{Write()}{Write()}}
+{\footnotesize\ttfamily \label{class_fbx_stream_ae05f3cd773c0593115bb57b86d609748} 
+virtual size\+\_\+t Fbx\+Stream\+::\+Write (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{}{, }\item[{Fbx\+UInt64}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Writes a memory block. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Data} & Pointer to the memory block to write. \\
+\hline
+{\em p\+Size} & Size (in bytes) of the memory block to write. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes written in the stream. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/\mbox{\hyperlink{fbxstream_8h}{fbxstream.\+h}}\end{DoxyCompactItemize}

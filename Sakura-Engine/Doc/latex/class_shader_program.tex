@@ -1,0 +1,478 @@
+\doxysection{Shader\+Program Class Reference}
+\hypertarget{class_shader_program}{}\label{class_shader_program}\index{ShaderProgram@{ShaderProgram}}
+
+
+Encapsula la creación, compilación y uso de Vertex Shader y Pixel Shader en Direct3D 11.  
+
+
+
+
+{\ttfamily \#include $<$Shader\+Program.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_shader_program_aa31ee72d0029cf0f05232a1e925fa99d}\label{class_shader_program_aa31ee72d0029cf0f05232a1e925fa99d} 
+{\bfseries Shader\+Program} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shader_program_a82d49021467be422297cb5f306a02428}{\texorpdfstring{$\sim$}{\string~}\+Shader\+Program}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor por defecto. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_shader_program_ae7c0e2f630f6f4b92a2bffe15802dbff}{init}} (\mbox{\hyperlink{class_device}{Device}} \&device, const std\+::string \&file\+Name, std\+::vector$<$ D3\+D11\+\_\+\+INPUT\+\_\+\+ELEMENT\+\_\+\+DESC $>$ Layout)
+\begin{DoxyCompactList}\small\item\em Inicializa el programa de shaders desde un archivo HLSL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shader_program_a4eeb60684a692cb96ef155d5e11f4401}{update}} ()
+\begin{DoxyCompactList}\small\item\em Actualiza parámetros internos de los shaders. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shader_program_a3d839da206404e2676ec39603d412b87}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context)
+\begin{DoxyCompactList}\small\item\em Aplica el Vertex Shader, Pixel Shader e Input Layout al pipeline. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shader_program_a3524e39bfa351287079a3eb2ae8dd885}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context, Shader\+Type type)
+\begin{DoxyCompactList}\small\item\em Aplica únicamente un shader específico al pipeline. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shader_program_a7ccfd4eb43ffdafcc4ad911249c9d770}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Libera todos los recursos asociados (shaders, blobs e input layout). \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_shader_program_a141e7347f526e7dafb42b40c21f6b151}{Create\+Input\+Layout}} (\mbox{\hyperlink{class_device}{Device}} \&device, std\+::vector$<$ D3\+D11\+\_\+\+INPUT\+\_\+\+ELEMENT\+\_\+\+DESC $>$ Layout)
+\begin{DoxyCompactList}\small\item\em Crea un Input Layout asociado al Vertex Shader. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_shader_program_a1b6bfd6ba477fbd032e5816230b27c82}{Create\+Shader}} (\mbox{\hyperlink{class_device}{Device}} \&device, Shader\+Type type)
+\begin{DoxyCompactList}\small\item\em Crea un shader (Vertex o Pixel) a partir del archivo establecido en {\ttfamily m\+\_\+shader\+File\+Name}. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_shader_program_af3a24bd5885188e81dc27d4c7b36d60f}{Create\+Shader}} (\mbox{\hyperlink{class_device}{Device}} \&device, Shader\+Type type, const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Crea un shader (Vertex o Pixel) a partir de un archivo HLSL. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_shader_program_a488166c9f6b0c021f0267bf1e0442713}{Compile\+Shader\+From\+File}} (char \texorpdfstring{$\ast$}{*}sz\+File\+Name, LPCSTR sz\+Entry\+Point, LPCSTR sz\+Shader\+Model, ID3\+DBlob \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}pp\+Blob\+Out)
+\begin{DoxyCompactList}\small\item\em Compila un shader desde archivo. \end{DoxyCompactList}\item 
+\Hypertarget{class_shader_program_aa31ee72d0029cf0f05232a1e925fa99d}\label{class_shader_program_aa31ee72d0029cf0f05232a1e925fa99d} 
+{\bfseries Shader\+Program} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_shader_program_a82d49021467be422297cb5f306a02428}{\texorpdfstring{$\sim$}{\string~}\+Shader\+Program}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor por defecto. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_shader_program_a66a23c1a5cc87b1b34f349f161d9b53a}{init}} (\mbox{\hyperlink{class_device}{Device}} \&device, const std\+::string \&file\+Name, \mbox{\hyperlink{class_layout_builder}{Layout\+Builder}} layout\+Builder)
+\begin{DoxyCompactList}\small\item\em Inicializa el programa de shaders desde un archivo HLSL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shader_program_a4eeb60684a692cb96ef155d5e11f4401}{update}} ()
+\begin{DoxyCompactList}\small\item\em Actualiza par?metros internos de los shaders. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shader_program_a3d839da206404e2676ec39603d412b87}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context)
+\begin{DoxyCompactList}\small\item\em Aplica el Vertex Shader, Pixel Shader e Input Layout al pipeline. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shader_program_a3524e39bfa351287079a3eb2ae8dd885}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context, Shader\+Type type)
+\begin{DoxyCompactList}\small\item\em Aplica ?nicamente un shader espec?fico al pipeline. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shader_program_a7ccfd4eb43ffdafcc4ad911249c9d770}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Libera todos los recursos asociados (shaders, blobs e input layout). \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_shader_program_adda3004301af525933bb875fcf67eb7e}{Create\+Input\+Layout}} (\mbox{\hyperlink{class_device}{Device}} \&device, \mbox{\hyperlink{class_layout_builder}{Layout\+Builder}})
+\begin{DoxyCompactList}\small\item\em Crea un Input Layout asociado al Vertex Shader. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_shader_program_a1b6bfd6ba477fbd032e5816230b27c82}{Create\+Shader}} (\mbox{\hyperlink{class_device}{Device}} \&device, Shader\+Type type)
+\begin{DoxyCompactList}\small\item\em Crea un shader (Vertex o Pixel) a partir del archivo establecido en {\ttfamily m\+\_\+shader\+File\+Name}. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_shader_program_af3a24bd5885188e81dc27d4c7b36d60f}{Create\+Shader}} (\mbox{\hyperlink{class_device}{Device}} \&device, Shader\+Type type, const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Crea un shader (Vertex o Pixel) a partir de un archivo HLSL. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_shader_program_a488166c9f6b0c021f0267bf1e0442713}{Compile\+Shader\+From\+File}} (char \texorpdfstring{$\ast$}{*}sz\+File\+Name, LPCSTR sz\+Entry\+Point, LPCSTR sz\+Shader\+Model, ID3\+DBlob \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}pp\+Blob\+Out)
+\begin{DoxyCompactList}\small\item\em Compila un shader desde archivo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_shader_program_a0d02103af6b893b89da3785009bcc14c}\label{class_shader_program_a0d02103af6b893b89da3785009bcc14c} 
+ID3\+D11\+Vertex\+Shader \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+\+Vertex\+Shader} = nullptr
+\begin{DoxyCompactList}\small\item\em Vertex Shader compilado y creado en GPU. \end{DoxyCompactList}\item 
+\Hypertarget{class_shader_program_a98caf33dc49db4d01a47ddd66db919e6}\label{class_shader_program_a98caf33dc49db4d01a47ddd66db919e6} 
+ID3\+D11\+Pixel\+Shader \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+\+Pixel\+Shader} = nullptr
+\begin{DoxyCompactList}\small\item\em Pixel Shader compilado y creado en GPU. \end{DoxyCompactList}\item 
+\Hypertarget{class_shader_program_a32427b4ae6939dbb8560b97ad9d5a2b1}\label{class_shader_program_a32427b4ae6939dbb8560b97ad9d5a2b1} 
+\mbox{\hyperlink{class_input_layout}{Input\+Layout}} {\bfseries m\+\_\+input\+Layout}
+\begin{DoxyCompactList}\small\item\em Input Layout asociado al Vertex Shader. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encapsula la creación, compilación y uso de Vertex Shader y Pixel Shader en Direct3D 11. 
+
+Encapsula la creaci?n, compilaci?n y uso de Vertex Shader y Pixel Shader en Direct3D 11.
+
+Esta clase administra el ciclo de vida de un conjunto de shaders (VS y PS), incluyendo su compilación desde archivo, creación en el dispositivo y vinculación al pipeline. Además, maneja el Input Layout asociado al Vertex Shader.
+
+Esta clase administra el ciclo de vida de un conjunto de shaders (VS y PS), incluyendo su compilaci?n desde archivo, creaci?n en el dispositivo y vinculaci?n al pipeline. Adem?s, maneja el Input Layout asociado al Vertex Shader. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_shader_program_a82d49021467be422297cb5f306a02428}\index{ShaderProgram@{ShaderProgram}!````~ShaderProgram@{\texorpdfstring{$\sim$}{\string~}ShaderProgram}}
+\index{````~ShaderProgram@{\texorpdfstring{$\sim$}{\string~}ShaderProgram}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ShaderProgram()}{\string~ShaderProgram()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_shader_program_a82d49021467be422297cb5f306a02428} 
+Shader\+Program\+::\texorpdfstring{$\sim$}{\string~}\+Shader\+Program (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destructor por defecto. 
+
+No libera automáticamente los recursos COM; llamar a \doxylink{class_shader_program_a7ccfd4eb43ffdafcc4ad911249c9d770}{destroy()}. \Hypertarget{class_shader_program_a82d49021467be422297cb5f306a02428}\index{ShaderProgram@{ShaderProgram}!````~ShaderProgram@{\texorpdfstring{$\sim$}{\string~}ShaderProgram}}
+\index{````~ShaderProgram@{\texorpdfstring{$\sim$}{\string~}ShaderProgram}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}ShaderProgram()}{\string~ShaderProgram()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_shader_program_a82d49021467be422297cb5f306a02428} 
+Shader\+Program\+::\texorpdfstring{$\sim$}{\string~}\+Shader\+Program (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destructor por defecto. 
+
+No libera autom?ticamente los recursos COM; llamar a \doxylink{class_shader_program_a7ccfd4eb43ffdafcc4ad911249c9d770}{destroy()}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_shader_program_a488166c9f6b0c021f0267bf1e0442713}\index{ShaderProgram@{ShaderProgram}!CompileShaderFromFile@{CompileShaderFromFile}}
+\index{CompileShaderFromFile@{CompileShaderFromFile}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{CompileShaderFromFile()}{CompileShaderFromFile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_shader_program_a488166c9f6b0c021f0267bf1e0442713} 
+HRESULT Shader\+Program\+::\+Compile\+Shader\+From\+File (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{sz\+File\+Name}{, }\item[{LPCSTR}]{sz\+Entry\+Point}{, }\item[{LPCSTR}]{sz\+Shader\+Model}{, }\item[{ID3\+DBlob \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{pp\+Blob\+Out}{}\end{DoxyParamCaption})}
+
+
+
+Compila un shader desde archivo. 
+
+Llama internamente a {\ttfamily D3\+DCompile\+From\+File} para obtener el bytecode de un shader en función de su punto de entrada y modelo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sz\+File\+Name} & Ruta del archivo HLSL. \\
+\hline
+{\em sz\+Entry\+Point} & Punto de entrada de la función shader (ej. "{}\+VSMain"{}). \\
+\hline
+{\em sz\+Shader\+Model} & Modelo de shader (ej. "{}vs\+\_\+5\+\_\+0"{}, "{}ps\+\_\+5\+\_\+0"{}). \\
+\hline
+{\em pp\+Blob\+Out} & Salida con el bytecode compilado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si fue exitoso; código {\ttfamily HRESULT} en caso de error. 
+\end{DoxyReturn}
+\Hypertarget{class_shader_program_a488166c9f6b0c021f0267bf1e0442713}\index{ShaderProgram@{ShaderProgram}!CompileShaderFromFile@{CompileShaderFromFile}}
+\index{CompileShaderFromFile@{CompileShaderFromFile}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{CompileShaderFromFile()}{CompileShaderFromFile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_shader_program_a488166c9f6b0c021f0267bf1e0442713} 
+HRESULT Shader\+Program\+::\+Compile\+Shader\+From\+File (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{sz\+File\+Name}{, }\item[{LPCSTR}]{sz\+Entry\+Point}{, }\item[{LPCSTR}]{sz\+Shader\+Model}{, }\item[{ID3\+DBlob \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{pp\+Blob\+Out}{}\end{DoxyParamCaption})}
+
+
+
+Compila un shader desde archivo. 
+
+Llama internamente a {\ttfamily D3\+DCompile\+From\+File} para obtener el bytecode de un shader en funci?n de su punto de entrada y modelo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em sz\+File\+Name} & Ruta del archivo HLSL. \\
+\hline
+{\em sz\+Entry\+Point} & Punto de entrada de la funci?n shader (ej. "{}\+VSMain"{}). \\
+\hline
+{\em sz\+Shader\+Model} & Modelo de shader (ej. "{}vs\+\_\+5\+\_\+0"{}, "{}ps\+\_\+5\+\_\+0"{}). \\
+\hline
+{\em pp\+Blob\+Out} & Salida con el bytecode compilado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si fue exitoso; c?digo {\ttfamily HRESULT} en caso de error. 
+\end{DoxyReturn}
+\Hypertarget{class_shader_program_adda3004301af525933bb875fcf67eb7e}\index{ShaderProgram@{ShaderProgram}!CreateInputLayout@{CreateInputLayout}}
+\index{CreateInputLayout@{CreateInputLayout}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{CreateInputLayout()}{CreateInputLayout()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_shader_program_adda3004301af525933bb875fcf67eb7e} 
+HRESULT Shader\+Program\+::\+Create\+Input\+Layout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{\mbox{\hyperlink{class_layout_builder}{Layout\+Builder}}}]{}{}\end{DoxyParamCaption})}
+
+
+
+Crea un Input Layout asociado al Vertex Shader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se crear? el recurso. \\
+\hline
+{\em Layout} & Descripci?n de los elementos de entrada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si fue exitoso; c?digo {\ttfamily HRESULT} en caso de error. 
+\end{DoxyReturn}
+\Hypertarget{class_shader_program_a141e7347f526e7dafb42b40c21f6b151}\index{ShaderProgram@{ShaderProgram}!CreateInputLayout@{CreateInputLayout}}
+\index{CreateInputLayout@{CreateInputLayout}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{CreateInputLayout()}{CreateInputLayout()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_shader_program_a141e7347f526e7dafb42b40c21f6b151} 
+HRESULT Shader\+Program\+::\+Create\+Input\+Layout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{std\+::vector$<$ D3\+D11\+\_\+\+INPUT\+\_\+\+ELEMENT\+\_\+\+DESC $>$}]{Layout}{}\end{DoxyParamCaption})}
+
+
+
+Crea un Input Layout asociado al Vertex Shader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se creará el recurso. \\
+\hline
+{\em Layout} & Descripción de los elementos de entrada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si fue exitoso; código {\ttfamily HRESULT} en caso de error. 
+\end{DoxyReturn}
+\Hypertarget{class_shader_program_a1b6bfd6ba477fbd032e5816230b27c82}\index{ShaderProgram@{ShaderProgram}!CreateShader@{CreateShader}}
+\index{CreateShader@{CreateShader}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{CreateShader()}{CreateShader()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_shader_program_a1b6bfd6ba477fbd032e5816230b27c82} 
+HRESULT Shader\+Program\+::\+Create\+Shader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{Shader\+Type}]{type}{}\end{DoxyParamCaption})}
+
+
+
+Crea un shader (Vertex o Pixel) a partir del archivo establecido en {\ttfamily m\+\_\+shader\+File\+Name}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se creará el recurso. \\
+\hline
+{\em type} & Tipo de shader a crear. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si fue exitoso; código {\ttfamily HRESULT} en caso de error. 
+\end{DoxyReturn}
+\Hypertarget{class_shader_program_a1b6bfd6ba477fbd032e5816230b27c82}\index{ShaderProgram@{ShaderProgram}!CreateShader@{CreateShader}}
+\index{CreateShader@{CreateShader}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{CreateShader()}{CreateShader()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_shader_program_a1b6bfd6ba477fbd032e5816230b27c82} 
+HRESULT Shader\+Program\+::\+Create\+Shader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{Shader\+Type}]{type}{}\end{DoxyParamCaption})}
+
+
+
+Crea un shader (Vertex o Pixel) a partir del archivo establecido en {\ttfamily m\+\_\+shader\+File\+Name}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se crear? el recurso. \\
+\hline
+{\em type} & Tipo de shader a crear. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si fue exitoso; c?digo {\ttfamily HRESULT} en caso de error. 
+\end{DoxyReturn}
+\Hypertarget{class_shader_program_af3a24bd5885188e81dc27d4c7b36d60f}\index{ShaderProgram@{ShaderProgram}!CreateShader@{CreateShader}}
+\index{CreateShader@{CreateShader}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{CreateShader()}{CreateShader()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_shader_program_af3a24bd5885188e81dc27d4c7b36d60f} 
+HRESULT Shader\+Program\+::\+Create\+Shader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{Shader\+Type}]{type}{, }\item[{const std\+::string \&}]{file\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Crea un shader (Vertex o Pixel) a partir de un archivo HLSL. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se creará el recurso. \\
+\hline
+{\em type} & Tipo de shader a crear. \\
+\hline
+{\em file\+Name} & Nombre del archivo HLSL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si fue exitoso; código {\ttfamily HRESULT} en caso de error. 
+\end{DoxyReturn}
+\Hypertarget{class_shader_program_af3a24bd5885188e81dc27d4c7b36d60f}\index{ShaderProgram@{ShaderProgram}!CreateShader@{CreateShader}}
+\index{CreateShader@{CreateShader}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{CreateShader()}{CreateShader()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_shader_program_af3a24bd5885188e81dc27d4c7b36d60f} 
+HRESULT Shader\+Program\+::\+Create\+Shader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{Shader\+Type}]{type}{, }\item[{const std\+::string \&}]{file\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Crea un shader (Vertex o Pixel) a partir de un archivo HLSL. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se crear? el recurso. \\
+\hline
+{\em type} & Tipo de shader a crear. \\
+\hline
+{\em file\+Name} & Nombre del archivo HLSL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si fue exitoso; c?digo {\ttfamily HRESULT} en caso de error. 
+\end{DoxyReturn}
+\Hypertarget{class_shader_program_a7ccfd4eb43ffdafcc4ad911249c9d770}\index{ShaderProgram@{ShaderProgram}!destroy@{destroy}}
+\index{destroy@{destroy}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_shader_program_a7ccfd4eb43ffdafcc4ad911249c9d770} 
+void Shader\+Program\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Libera todos los recursos asociados (shaders, blobs e input layout). 
+
+\begin{DoxyPostcond}{Postcondition}
+{\ttfamily m\+\_\+\+Vertex\+Shader} == nullptr, {\ttfamily m\+\_\+\+Pixel\+Shader} == nullptr, {\ttfamily m\+\_\+vertex\+Shader\+Data} == nullptr, {\ttfamily m\+\_\+pixel\+Shader\+Data} == nullptr. 
+\end{DoxyPostcond}
+\Hypertarget{class_shader_program_a7ccfd4eb43ffdafcc4ad911249c9d770}\index{ShaderProgram@{ShaderProgram}!destroy@{destroy}}
+\index{destroy@{destroy}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_shader_program_a7ccfd4eb43ffdafcc4ad911249c9d770} 
+void Shader\+Program\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Libera todos los recursos asociados (shaders, blobs e input layout). 
+
+\begin{DoxyPostcond}{Postcondition}
+{\ttfamily m\+\_\+\+Vertex\+Shader} == nullptr, {\ttfamily m\+\_\+\+Pixel\+Shader} == nullptr, {\ttfamily m\+\_\+vertex\+Shader\+Data} == nullptr, {\ttfamily m\+\_\+pixel\+Shader\+Data} == nullptr. 
+\end{DoxyPostcond}
+\Hypertarget{class_shader_program_a66a23c1a5cc87b1b34f349f161d9b53a}\index{ShaderProgram@{ShaderProgram}!init@{init}}
+\index{init@{init}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_shader_program_a66a23c1a5cc87b1b34f349f161d9b53a} 
+HRESULT Shader\+Program\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{const std\+::string \&}]{file\+Name}{, }\item[{\mbox{\hyperlink{class_layout_builder}{Layout\+Builder}}}]{layout\+Builder}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa el programa de shaders desde un archivo HLSL. 
+
+Compila y crea los shaders (VS y PS) definidos en el archivo indicado, adem?s de crear el Input Layout con la descripci?n proporcionada.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se crear?n los recursos. \\
+\hline
+{\em file\+Name} & Nombre del archivo HLSL que contiene los shaders. \\
+\hline
+{\em Layout} & Vector con la descripci?n de los elementos de entrada (para VS). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si fue exitoso; c?digo {\ttfamily HRESULT} en caso de error.
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Si retorna {\ttfamily S\+\_\+\+OK}, los punteros a shaders y el input layout ser?n v?lidos. 
+\end{DoxyPostcond}
+\Hypertarget{class_shader_program_ae7c0e2f630f6f4b92a2bffe15802dbff}\index{ShaderProgram@{ShaderProgram}!init@{init}}
+\index{init@{init}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_shader_program_ae7c0e2f630f6f4b92a2bffe15802dbff} 
+HRESULT Shader\+Program\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{const std\+::string \&}]{file\+Name}{, }\item[{std\+::vector$<$ D3\+D11\+\_\+\+INPUT\+\_\+\+ELEMENT\+\_\+\+DESC $>$}]{Layout}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa el programa de shaders desde un archivo HLSL. 
+
+Compila y crea los shaders (VS y PS) definidos en el archivo indicado, además de crear el Input Layout con la descripción proporcionada.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se crearán los recursos. \\
+\hline
+{\em file\+Name} & Nombre del archivo HLSL que contiene los shaders. \\
+\hline
+{\em Layout} & Vector con la descripción de los elementos de entrada (para VS). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si fue exitoso; código {\ttfamily HRESULT} en caso de error.
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Si retorna {\ttfamily S\+\_\+\+OK}, los punteros a shaders y el input layout serán válidos. 
+\end{DoxyPostcond}
+\Hypertarget{class_shader_program_a3d839da206404e2676ec39603d412b87}\index{ShaderProgram@{ShaderProgram}!render@{render}}
+\index{render@{render}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_shader_program_a3d839da206404e2676ec39603d412b87} 
+void Shader\+Program\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{}\end{DoxyParamCaption})}
+
+
+
+Aplica el Vertex Shader, Pixel Shader e Input Layout al pipeline. 
+
+Llama a {\ttfamily VSSet\+Shader}, {\ttfamily PSSet\+Shader} y asigna el input layout al contexto.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto donde se aplicará el programa de shaders.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+Los shaders deben haberse creado con \doxylink{class_shader_program_ae7c0e2f630f6f4b92a2bffe15802dbff}{init()} o \doxylink{class_shader_program_a1b6bfd6ba477fbd032e5816230b27c82}{Create\+Shader()}. 
+\end{DoxyPrecond}
+\Hypertarget{class_shader_program_a3d839da206404e2676ec39603d412b87}\index{ShaderProgram@{ShaderProgram}!render@{render}}
+\index{render@{render}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_shader_program_a3d839da206404e2676ec39603d412b87} 
+void Shader\+Program\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{}\end{DoxyParamCaption})}
+
+
+
+Aplica el Vertex Shader, Pixel Shader e Input Layout al pipeline. 
+
+Llama a {\ttfamily VSSet\+Shader}, {\ttfamily PSSet\+Shader} y asigna el input layout al contexto.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto donde se aplicar? el programa de shaders.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+Los shaders deben haberse creado con \doxylink{class_shader_program_ae7c0e2f630f6f4b92a2bffe15802dbff}{init()} o \doxylink{class_shader_program_a1b6bfd6ba477fbd032e5816230b27c82}{Create\+Shader()}. 
+\end{DoxyPrecond}
+\Hypertarget{class_shader_program_a3524e39bfa351287079a3eb2ae8dd885}\index{ShaderProgram@{ShaderProgram}!render@{render}}
+\index{render@{render}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_shader_program_a3524e39bfa351287079a3eb2ae8dd885} 
+void Shader\+Program\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{, }\item[{Shader\+Type}]{type}{}\end{DoxyParamCaption})}
+
+
+
+Aplica únicamente un shader específico al pipeline. 
+
+Permite vincular solo el Vertex Shader o solo el Pixel Shader, según el parámetro {\ttfamily type}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto donde se aplicará el shader. \\
+\hline
+{\em type} & Tipo de shader a establecer (VS o PS). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_shader_program_a3524e39bfa351287079a3eb2ae8dd885}\index{ShaderProgram@{ShaderProgram}!render@{render}}
+\index{render@{render}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_shader_program_a3524e39bfa351287079a3eb2ae8dd885} 
+void Shader\+Program\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{, }\item[{Shader\+Type}]{type}{}\end{DoxyParamCaption})}
+
+
+
+Aplica ?nicamente un shader espec?fico al pipeline. 
+
+Permite vincular solo el Vertex Shader o solo el Pixel Shader, seg?n el par?metro {\ttfamily type}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto donde se aplicar? el shader. \\
+\hline
+{\em type} & Tipo de shader a establecer (VS o PS). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_shader_program_a4eeb60684a692cb96ef155d5e11f4401}\index{ShaderProgram@{ShaderProgram}!update@{update}}
+\index{update@{update}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_shader_program_a4eeb60684a692cb96ef155d5e11f4401} 
+void Shader\+Program\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Actualiza parámetros internos de los shaders. 
+
+Método de marcador para futuras extensiones (por ejemplo, recompilar shaders en caliente).
+
+\begin{DoxyNote}{Note}
+Actualmente no realiza ninguna operación. 
+\end{DoxyNote}
+\Hypertarget{class_shader_program_a4eeb60684a692cb96ef155d5e11f4401}\index{ShaderProgram@{ShaderProgram}!update@{update}}
+\index{update@{update}!ShaderProgram@{ShaderProgram}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_shader_program_a4eeb60684a692cb96ef155d5e11f4401} 
+void Shader\+Program\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Actualiza par?metros internos de los shaders. 
+
+M?todo de marcador para futuras extensiones (por ejemplo, recompilar shaders en caliente).
+
+\begin{DoxyNote}{Note}
+Actualmente no realiza ninguna operaci?n. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Shader\+Program.\+h\item 
+\mbox{\hyperlink{_shader_program_8h}{Shader\+Program.\+h}}\item 
+source/Shader\+Program.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,227 @@
+\doxysection{EU\+::TUnique\+Ptr\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_e_u_1_1_t_unique_ptr}{}\label{class_e_u_1_1_t_unique_ptr}\index{EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}}
+
+
+Clase \doxylink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr} para manejo exclusivo de memoria.  
+
+
+
+
+{\ttfamily \#include $<$TUnique\+Ptr.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a5de2ff4c60640477782f6252e2f273fa}{TUnique\+Ptr}} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a9c79cfc122f086a95200c395a3eb1413}{TUnique\+Ptr}} (T \texorpdfstring{$\ast$}{*}raw\+Ptr)
+\begin{DoxyCompactList}\small\item\em Constructor que toma un puntero crudo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_ab73e2431e44f306cd6fc3926032c7ff8}{TUnique\+Ptr}} (\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr}}$<$ T $>$ \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Constructor de movimiento. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr}}$<$ T $>$ \& \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a16fb84307620a10dc25ccdcc5bb60d6f}{operator=}} (\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr}}$<$ T $>$ \&\&other) noexcept
+\begin{DoxyCompactList}\small\item\em Operador de asignación de movimiento. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_ad1fd993e31459e6b4ca3f7a818cd817f}{\texorpdfstring{$\sim$}{\string~}\+TUnique\+Ptr}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_e_u_1_1_t_unique_ptr_aa4868b56bda89c149e14c9f923839072}\label{class_e_u_1_1_t_unique_ptr_aa4868b56bda89c149e14c9f923839072} 
+{\bfseries TUnique\+Ptr} (const \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr}}$<$ T $>$ \&)=delete
+\item 
+\Hypertarget{class_e_u_1_1_t_unique_ptr_ae47428205a1479f6899bf20301280883}\label{class_e_u_1_1_t_unique_ptr_ae47428205a1479f6899bf20301280883} 
+\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr}}$<$ T $>$ \& {\bfseries operator=} (const \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr}}$<$ T $>$ \&)=delete
+\item 
+T \& \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a9cdadf052238546697ba200f096c3af1}{operator\texorpdfstring{$\ast$}{*}}} () const
+\begin{DoxyCompactList}\small\item\em Operador de desreferenciación. \end{DoxyCompactList}\item 
+T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a61444b3f2679f8c1ba4e06ca019510f1}{operator-\/$>$}} () const
+\begin{DoxyCompactList}\small\item\em Operador de acceso a miembros. \end{DoxyCompactList}\item 
+T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_affcf77617b3a980490a29876a3a98fe2}{get}} () const
+\begin{DoxyCompactList}\small\item\em Obtener el puntero crudo. \end{DoxyCompactList}\item 
+T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a21d934e993ce931d09ca61e984eb77fd}{release}} ()
+\begin{DoxyCompactList}\small\item\em Liberar la propiedad del puntero crudo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a51fcc7adcb32f4992bad0d0bcbcb8f0a}{reset}} (T \texorpdfstring{$\ast$}{*}raw\+Ptr=nullptr)
+\begin{DoxyCompactList}\small\item\em Reiniciar el puntero gestionado. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a898982de8a9142a77c5fc2a8f4020107}{is\+Null}} () const
+\begin{DoxyCompactList}\small\item\em Verificar si el puntero es nulo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class EU\+::\+TUnique\+Ptr$<$ T $>$}
+Clase \doxylink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr} para manejo exclusivo de memoria. 
+
+La clase \doxylink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr} gestiona la memoria de un objeto de tipo T y garantiza que solo una instancia de \doxylink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr} puede poseer y gestionar el objeto en cualquier momento. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_e_u_1_1_t_unique_ptr_a5de2ff4c60640477782f6252e2f273fa}\index{EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}!TUniquePtr@{TUniquePtr}}
+\index{TUniquePtr@{TUniquePtr}!EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TUniquePtr()}{TUniquePtr()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_e_u_1_1_t_unique_ptr_a5de2ff4c60640477782f6252e2f273fa} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{EU\+::\+TUnique\+Ptr}}$<$ T $>$\+::\+TUnique\+Ptr (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor por defecto. 
+
+Inicializa el puntero a nullptr. \Hypertarget{class_e_u_1_1_t_unique_ptr_a9c79cfc122f086a95200c395a3eb1413}\index{EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}!TUniquePtr@{TUniquePtr}}
+\index{TUniquePtr@{TUniquePtr}!EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TUniquePtr()}{TUniquePtr()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_e_u_1_1_t_unique_ptr_a9c79cfc122f086a95200c395a3eb1413} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{EU\+::\+TUnique\+Ptr}}$<$ T $>$\+::\+TUnique\+Ptr (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{raw\+Ptr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor que toma un puntero crudo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em raw\+Ptr} & Puntero crudo al objeto que se va a gestionar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_e_u_1_1_t_unique_ptr_ab73e2431e44f306cd6fc3926032c7ff8}\index{EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}!TUniquePtr@{TUniquePtr}}
+\index{TUniquePtr@{TUniquePtr}!EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TUniquePtr()}{TUniquePtr()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_e_u_1_1_t_unique_ptr_ab73e2431e44f306cd6fc3926032c7ff8} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{EU\+::\+TUnique\+Ptr}}$<$ T $>$\+::\+TUnique\+Ptr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr}}$<$ T $>$ \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Constructor de movimiento. 
+
+Transfiere la propiedad del puntero del otro \doxylink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr} al nuevo objeto \doxylink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Otro objeto \doxylink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr} del mismo tipo T. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_e_u_1_1_t_unique_ptr_ad1fd993e31459e6b4ca3f7a818cd817f}\index{EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}!````~TUniquePtr@{\texorpdfstring{$\sim$}{\string~}TUniquePtr}}
+\index{````~TUniquePtr@{\texorpdfstring{$\sim$}{\string~}TUniquePtr}!EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}TUniquePtr()}{\string~TUniquePtr()}}
+{\footnotesize\ttfamily \label{class_e_u_1_1_t_unique_ptr_ad1fd993e31459e6b4ca3f7a818cd817f} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{EU\+::\+TUnique\+Ptr}}$<$ T $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destructor. 
+
+Libera la memoria del objeto gestionado. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_e_u_1_1_t_unique_ptr_affcf77617b3a980490a29876a3a98fe2}\index{EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}!get@{get}}
+\index{get@{get}!EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{class_e_u_1_1_t_unique_ptr_affcf77617b3a980490a29876a3a98fe2} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{EU\+::\+TUnique\+Ptr}}$<$ T $>$\+::get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtener el puntero crudo. 
+
+\begin{DoxyReturn}{Returns}
+Puntero crudo al objeto gestionado. 
+\end{DoxyReturn}
+\Hypertarget{class_e_u_1_1_t_unique_ptr_a898982de8a9142a77c5fc2a8f4020107}\index{EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}!isNull@{isNull}}
+\index{isNull@{isNull}!EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{isNull()}{isNull()}}
+{\footnotesize\ttfamily \label{class_e_u_1_1_t_unique_ptr_a898982de8a9142a77c5fc2a8f4020107} 
+template$<$typename T$>$ \\
+bool \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{EU\+::\+TUnique\+Ptr}}$<$ T $>$\+::is\+Null (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verificar si el puntero es nulo. 
+
+\begin{DoxyReturn}{Returns}
+true si el puntero es nulo, false en caso contrario. 
+\end{DoxyReturn}
+\Hypertarget{class_e_u_1_1_t_unique_ptr_a9cdadf052238546697ba200f096c3af1}\index{EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily \label{class_e_u_1_1_t_unique_ptr_a9cdadf052238546697ba200f096c3af1} 
+template$<$typename T$>$ \\
+T \& \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{EU\+::\+TUnique\+Ptr}}$<$ T $>$\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operador de desreferenciación. 
+
+\begin{DoxyReturn}{Returns}
+Referencia al objeto gestionado. 
+\end{DoxyReturn}
+\Hypertarget{class_e_u_1_1_t_unique_ptr_a61444b3f2679f8c1ba4e06ca019510f1}\index{EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/$>$()}{operator->()}}
+{\footnotesize\ttfamily \label{class_e_u_1_1_t_unique_ptr_a61444b3f2679f8c1ba4e06ca019510f1} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{EU\+::\+TUnique\+Ptr}}$<$ T $>$\+::operator-\/$>$ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Operador de acceso a miembros. 
+
+\begin{DoxyReturn}{Returns}
+Puntero al objeto gestionado. 
+\end{DoxyReturn}
+\Hypertarget{class_e_u_1_1_t_unique_ptr_a16fb84307620a10dc25ccdcc5bb60d6f}\index{EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_e_u_1_1_t_unique_ptr_a16fb84307620a10dc25ccdcc5bb60d6f} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr}}$<$ T $>$ \& \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{EU\+::\+TUnique\+Ptr}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr}}$<$ T $>$ \&\&}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Operador de asignación de movimiento. 
+
+Libera el objeto actual y transfiere la propiedad del puntero del otro \doxylink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr} al actual.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Otro objeto \doxylink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr} del mismo tipo T. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Referencia al objeto \doxylink{class_e_u_1_1_t_unique_ptr}{TUnique\+Ptr} actual. 
+\end{DoxyReturn}
+\Hypertarget{class_e_u_1_1_t_unique_ptr_a21d934e993ce931d09ca61e984eb77fd}\index{EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}!release@{release}}
+\index{release@{release}!EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{release()}{release()}}
+{\footnotesize\ttfamily \label{class_e_u_1_1_t_unique_ptr_a21d934e993ce931d09ca61e984eb77fd} 
+template$<$typename T$>$ \\
+T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{EU\+::\+TUnique\+Ptr}}$<$ T $>$\+::release (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Liberar la propiedad del puntero crudo. 
+
+Libera la propiedad del puntero crudo gestionado y devuelve el puntero sin gestionar.
+
+\begin{DoxyReturn}{Returns}
+Puntero crudo al objeto gestionado. 
+\end{DoxyReturn}
+\Hypertarget{class_e_u_1_1_t_unique_ptr_a51fcc7adcb32f4992bad0d0bcbcb8f0a}\index{EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}!reset@{reset}}
+\index{reset@{reset}!EU::TUniquePtr$<$ T $>$@{EU::TUniquePtr$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{class_e_u_1_1_t_unique_ptr_a51fcc7adcb32f4992bad0d0bcbcb8f0a} 
+template$<$typename T$>$ \\
+void \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{EU\+::\+TUnique\+Ptr}}$<$ T $>$\+::reset (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{raw\+Ptr}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reiniciar el puntero gestionado. 
+
+Libera el objeto actual (si existe) y toma la propiedad de un nuevo puntero crudo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em raw\+Ptr} & Puntero crudo al nuevo objeto que se va a gestionar. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Engine\+Utilities/\+Memory/TUnique\+Ptr.\+h\end{DoxyCompactItemize}

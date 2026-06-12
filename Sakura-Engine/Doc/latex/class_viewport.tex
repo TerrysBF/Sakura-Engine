@@ -1,0 +1,142 @@
+\doxysection{Viewport Class Reference}
+\hypertarget{class_viewport}{}\label{class_viewport}\index{Viewport@{Viewport}}
+
+
+Encapsula un {\ttfamily D3\+D11\+\_\+\+VIEWPORT} para definir la regi?n de renderizado en la pantalla.  
+
+
+
+
+{\ttfamily \#include $<$Viewport.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_viewport_a0ab3549845ad77677c5c0d358c8098b0}\label{class_viewport_a0ab3549845ad77677c5c0d358c8098b0} 
+{\bfseries Viewport} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\Hypertarget{class_viewport_a90d7e3b443886cacec33d470315c2b9e}\label{class_viewport_a90d7e3b443886cacec33d470315c2b9e} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Viewport} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor por defecto. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_viewport_add4a0ec13bc8e92f4df30038bc12287a}{init}} (const \mbox{\hyperlink{class_window}{Window}} \&window)
+\begin{DoxyCompactList}\small\item\em Inicializa el viewport a partir de una ventana. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_viewport_a88e7413754d0524719ee007ca6d0b31e}{init}} (unsigned int width, unsigned int height)
+\begin{DoxyCompactList}\small\item\em Inicializa el viewport con dimensiones espec?ficas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_viewport_a7997e0e684a4f8b5709f4d98be6cebb4}{update}} ()
+\begin{DoxyCompactList}\small\item\em Actualiza los par?metros del viewport. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_viewport_a15c07f83aed9b27afa0a9cf731840da4}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context)
+\begin{DoxyCompactList}\small\item\em Aplica el viewport al contexto de dispositivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_viewport_ab3f9e97c614f43869a283e0a9dbeae73}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Libera recursos asociados al viewport. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_viewport_a52cc9d4a0d56083a2d55391c2e8f6aeb}\label{class_viewport_a52cc9d4a0d56083a2d55391c2e8f6aeb} 
+D3\+D11\+\_\+\+VIEWPORT {\bfseries m\+\_\+viewport}
+\begin{DoxyCompactList}\small\item\em Estructura de Direct3D que define el viewport. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encapsula un {\ttfamily D3\+D11\+\_\+\+VIEWPORT} para definir la regi?n de renderizado en la pantalla. 
+
+Un viewport en Direct3D 11 especifica el ?rea rectangular del render target donde se dibujar?n las primitivas. Incluye dimensiones, profundidad m?nima y m?xima, as? como el origen en la superficie de render.
+
+Esta clase permite inicializar un viewport a partir de una ventana o de dimensiones espec?ficas, y aplicarlo al pipeline gr?fico. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_viewport_ab3f9e97c614f43869a283e0a9dbeae73}\index{Viewport@{Viewport}!destroy@{destroy}}
+\index{destroy@{destroy}!Viewport@{Viewport}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{class_viewport_ab3f9e97c614f43869a283e0a9dbeae73} 
+void Viewport\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Libera recursos asociados al viewport. 
+
+En este caso, no hay recursos COM asociados, por lo que la implementaci?n es vac?a. \Hypertarget{class_viewport_add4a0ec13bc8e92f4df30038bc12287a}\index{Viewport@{Viewport}!init@{init}}
+\index{init@{init}!Viewport@{Viewport}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_viewport_add4a0ec13bc8e92f4df30038bc12287a} 
+HRESULT Viewport\+::init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_window}{Window}} \&}]{window}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa el viewport a partir de una ventana. 
+
+Utiliza el tama?o del cliente de la ventana para definir las dimensiones del viewport.
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & Referencia a la ventana que define el ?rea de renderizado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si la inicializaci?n fue exitosa.
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+El miembro {\ttfamily m\+\_\+viewport} contendr? las dimensiones de la ventana. 
+\end{DoxyPostcond}
+\Hypertarget{class_viewport_a88e7413754d0524719ee007ca6d0b31e}\index{Viewport@{Viewport}!init@{init}}
+\index{init@{init}!Viewport@{Viewport}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_viewport_a88e7413754d0524719ee007ca6d0b31e} 
+HRESULT Viewport\+::init (\begin{DoxyParamCaption}\item[{unsigned int}]{width}{, }\item[{unsigned int}]{height}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa el viewport con dimensiones espec?ficas. 
+
+Define un viewport con el ancho y alto especificados. Los valores de profundidad m?nima y m?xima se establecen por defecto en 0.\+0f y 1.\+0f respectivamente.
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Ancho del viewport en p?xeles. \\
+\hline
+{\em height} & Alto del viewport en p?xeles. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si la inicializaci?n fue exitosa. 
+\end{DoxyReturn}
+\Hypertarget{class_viewport_a15c07f83aed9b27afa0a9cf731840da4}\index{Viewport@{Viewport}!render@{render}}
+\index{render@{render}!Viewport@{Viewport}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_viewport_a15c07f83aed9b27afa0a9cf731840da4} 
+void Viewport\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{}\end{DoxyParamCaption})}
+
+
+
+Aplica el viewport al contexto de dispositivo. 
+
+Llama a {\ttfamily RSSet\+Viewports} para establecer este viewport en la etapa de rasterizaci?n del pipeline.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto de dispositivo donde se aplicar?.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+El viewport debe haber sido inicializado con {\ttfamily \doxylink{class_viewport_add4a0ec13bc8e92f4df30038bc12287a}{init()}}. 
+\end{DoxyPrecond}
+\Hypertarget{class_viewport_a7997e0e684a4f8b5709f4d98be6cebb4}\index{Viewport@{Viewport}!update@{update}}
+\index{update@{update}!Viewport@{Viewport}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_viewport_a7997e0e684a4f8b5709f4d98be6cebb4} 
+void Viewport\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Actualiza los par?metros del viewport. 
+
+M?todo de marcador para futuras extensiones (por ejemplo, manejo de redimensionado din?mico de la ventana).
+
+\begin{DoxyNote}{Note}
+Actualmente no realiza ninguna operaci?n. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_viewport_8h}{Viewport.\+h}}\item 
+source/Viewport.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,82 @@
+\doxysection{uri.\+h}
+\hypertarget{uri_8h_source}{}\label{uri_8h_source}\index{include/fbx/libxml2/libxml/uri.h@{include/fbx/libxml2/libxml/uri.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_URI\_H\_\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ \_\_XML\_URI\_H\_\_}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <libxml/xmlversion.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <libxml/tree.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__xml_u_r_i}{\_xmlURI}}\ xmlURI;}
+\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ xmlURI\ *xmlURIPtr;}
+\DoxyCodeLine{00033\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__xml_u_r_i}{\_xmlURI}}\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{char}\ *scheme;\ \ \ \textcolor{comment}{/*\ the\ URI\ scheme\ */}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{char}\ *opaque;\ \ \ \textcolor{comment}{/*\ opaque\ part\ */}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{char}\ *authority;\ \ \ \ \textcolor{comment}{/*\ the\ authority\ part\ */}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{char}\ *server;\ \ \ \textcolor{comment}{/*\ the\ server\ part\ */}}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{char}\ *user;\ \ \ \ \ \textcolor{comment}{/*\ the\ user\ part\ */}}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ port;\ \ \ \ \ \ \ \textcolor{comment}{/*\ the\ port\ number\ */}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{char}\ *path;\ \ \ \ \ \textcolor{comment}{/*\ the\ path\ string\ */}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{char}\ *query;\ \ \ \ \textcolor{comment}{/*\ the\ query\ string\ (deprecated\ -\/\ use\ with\ caution)\ */}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{char}\ *fragment;\ \textcolor{comment}{/*\ the\ fragment\ identifier\ */}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{int}\ \ cleanup;\ \ \ \textcolor{comment}{/*\ parsing\ potentially\ unclean\ URI\ */}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{char}\ *query\_raw;\ \ \ \ \textcolor{comment}{/*\ the\ query\ string\ (as\ it\ appears\ in\ the\ URI)\ */}}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ This\ function\ is\ in\ tree.h:}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ xmlChar\ *\ \ \ \ xmlNodeGetBase\ \ (xmlDocPtr\ doc,}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ cur);}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00052\ XMLPUBFUN\ xmlURIPtr\ XMLCALL}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ xmlCreateURI\ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00054\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ xmlBuildURI\ \ \ \ \ (\textcolor{keyword}{const}\ xmlChar\ *URI,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *base);}
+\DoxyCodeLine{00057\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ xmlBuildRelativeURI\ (\textcolor{keyword}{const}\ xmlChar\ *URI,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *base);}
+\DoxyCodeLine{00060\ XMLPUBFUN\ xmlURIPtr\ XMLCALL}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ xmlParseURI\ \ \ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str);}
+\DoxyCodeLine{00062\ XMLPUBFUN\ xmlURIPtr\ XMLCALL}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ xmlParseURIRaw\ \ \ \ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ raw);}
+\DoxyCodeLine{00065\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ xmlParseURIReference\ \ \ \ (xmlURIPtr\ uri,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str);}
+\DoxyCodeLine{00068\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ xmlSaveUri\ \ \ \ \ \ (xmlURIPtr\ uri);}
+\DoxyCodeLine{00070\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ xmlPrintURI\ \ \ \ \ (FILE\ *stream,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlURIPtr\ uri);}
+\DoxyCodeLine{00073\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ xmlURIEscapeStr\ \ \ \ \ \ \ \ \ (\textcolor{keyword}{const}\ xmlChar\ *str,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *list);}
+\DoxyCodeLine{00076\ XMLPUBFUN\ \textcolor{keywordtype}{char}\ *\ XMLCALL}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ xmlURIUnescapeString\ \ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *str,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ len,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *target);}
+\DoxyCodeLine{00080\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ xmlNormalizeURIPath\ (\textcolor{keywordtype}{char}\ *path);}
+\DoxyCodeLine{00082\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ xmlURIEscape\ \ \ \ \ \ \ \ (\textcolor{keyword}{const}\ xmlChar\ *str);}
+\DoxyCodeLine{00084\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ xmlFreeURI\ \ \ \ \ \ (xmlURIPtr\ uri);}
+\DoxyCodeLine{00086\ XMLPUBFUN\ xmlChar*\ XMLCALL}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ xmlCanonicPath\ \ \ \ \ \ (\textcolor{keyword}{const}\ xmlChar\ *path);}
+\DoxyCodeLine{00088\ XMLPUBFUN\ xmlChar*\ XMLCALL}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ xmlPathToURI\ \ \ \ \ \ \ \ (\textcolor{keyword}{const}\ xmlChar\ *path);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00092\ \}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_XML\_URI\_H\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

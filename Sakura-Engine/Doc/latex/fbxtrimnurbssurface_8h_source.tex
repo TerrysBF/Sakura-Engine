@@ -1,0 +1,137 @@
+\doxysection{fbxtrimnurbssurface.\+h}
+\hypertarget{fbxtrimnurbssurface_8h_source}{}\label{fbxtrimnurbssurface_8h_source}\index{include/fbx/fbxsdk/scene/geometry/fbxtrimnurbssurface.h@{include/fbx/fbxsdk/scene/geometry/fbxtrimnurbssurface.h}}
+\mbox{\hyperlink{fbxtrimnurbssurface_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_GEOMETRY\_TRIM\_NURBS\_SURFACE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_GEOMETRY\_TRIM\_NURBS\_SURFACE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxgeometry_8h}{fbxsdk/scene/geometry/fbxgeometry.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxnurbscurve_8h}{fbxsdk/scene/geometry/fbxnurbscurve.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxnurbssurface_8h}{fbxsdk/scene/geometry/fbxnurbssurface.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_boundary}{FbxBoundary}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_boundary}{FbxBoundary}},\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_boundary_a2a42aaddc584761f409ced017e6ddd35}{sOuterFlag}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_boundary_af9e27e491f466ca615bd247fa2b33826}{OuterFlag}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_boundary_af94f173acd55d7d5f285f8539bbb48e4}{AddCurve}}(\ \mbox{\hyperlink{class_fbx_nurbs_curve}{FbxNurbsCurve}}*\ pCurve\ );}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_boundary_adcd0d41aa9a5804cd74ed14b6b8f6f8a}{GetCurveCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_fbx_nurbs_curve}{FbxNurbsCurve}}*\ \mbox{\hyperlink{class_fbx_boundary_a3937352eb31e414a9dbd0df4ad6b2e58}{GetCurve}}(\ \textcolor{keywordtype}{int}\ pIndex\ );}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_nurbs_curve}{FbxNurbsCurve}}*\ \mbox{\hyperlink{class_fbx_boundary_a94a4d2da6239bb9e5447627ddbda3f5e}{GetCurve}}(\ \textcolor{keywordtype}{int}\ pIndex\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{class_fbx_node_attribute_a08e1669d3d1a696910756ab17de56d6a}{FbxNodeAttribute::EType}}\ \mbox{\hyperlink{class_fbx_boundary_a42fa3c4a9c2cc0d5d06e0139da19368a}{GetAttributeType}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_boundary_ad319a0f4511c35710c24b543d30bbee2}{IsPointInControlHull}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pPoint\ );}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \mbox{\hyperlink{class_fbx_boundary_a615c36267401342800e00befefa50f6c}{ComputePointInBoundary}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00087\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00088\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{class_fbx_object}{FbxObject}}\&\ \mbox{\hyperlink{class_fbx_boundary_afb17281e6259524bf181caa46210d2fb}{Copy}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ ClearCurves();}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{void}\ CopyCurves(\ \mbox{\hyperlink{class_fbx_boundary}{FbxBoundary}}\ \textcolor{keyword}{const}\&\ pOther\ );}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{bool}\ IsValid(\textcolor{keywordtype}{bool}\ mustClosed\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{bool}\ IsCounterClockwise();}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ Reset();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_boundary_a2db3d4bc0a61c0e5d0d7e4d5f52004ca}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{bool}\ LineSegmentIntersect(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \&\ pStart1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \&\ pEnd1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \&\ pStart2,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \&\ pEnd2\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00102\ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface}{FbxTrimNurbsSurface}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}}
+\DoxyCodeLine{00109\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_trim_nurbs_surface}{FbxTrimNurbsSurface}},\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}});}
+\DoxyCodeLine{00111\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{class_fbx_node_attribute_a08e1669d3d1a696910756ab17de56d6a}{FbxNodeAttribute::EType}}\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a0f99d0d8dc4250473a4823c21914777e}{GetAttributeType}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_af9deaac6001549449325ca4112e3a58a}{GetTrimRegionCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_aaec68af89d01b7f4bd76c2ec5e3eb837}{BeginTrimRegion}}();}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a3490479b6c5121b3755c06d7d604c4b9}{EndTrimRegion}}();}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_ab1b07cf42bbc5ac750aaed3012ebeec6}{AddBoundary}}(\ \mbox{\hyperlink{class_fbx_boundary}{FbxBoundary}}*\ pBoundary\ );}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00151\ \ \ \ \ \mbox{\hyperlink{class_fbx_boundary}{FbxBoundary}}*\ \ \ \ \ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_ae164d91518c74117b66cad8fa08b44dc}{GetBoundary}}(\ \textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keywordtype}{int}\ pRegionIndex\ =\ 0\ );}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_boundary}{FbxBoundary}}*\ \ \ \ \ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a2cbf05b641c981fb0540fc9169296969}{GetBoundary}}(\ \textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keywordtype}{int}\ pRegionIndex\ =\ 0\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a95faf8ef0f87e4a329a7a7c0340dbd99}{GetBoundaryCount}}(\textcolor{keywordtype}{int}\ pRegionIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_ab255a3f5402aa8adb8d834af524ac291}{SetNurbsSurface}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_nurbs_surface}{FbxNurbsSurface}}*\ pNurbs\ );}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00176\ \ \ \ \ \mbox{\hyperlink{class_fbx_nurbs_surface}{FbxNurbsSurface}}*\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a27ddb9caf34ecd0b1dcfe725f9bcd5a5}{GetNurbsSurface}}();}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_nurbs_surface}{FbxNurbsSurface}}*\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a613063e4e07ecb426afe9e9dabdd05fe}{GetNurbsSurface}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a5f73a1d5abe4f71741ddc82fb7d003c8}{SetFlipNormals}}(\ \textcolor{keywordtype}{bool}\ pFlip\ )\ \{\ mFlipNormals\ =\ pFlip;\ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_ae8e939290c0ab69be23fa28b6c1d8cf7}{GetFlipNormals}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \ mFlipNormals;\ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a3f6e7200be4afb3c973ed57bb06fdd13}{GetControlPointsCount}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a16fa5aeefe09152b7a7853ddf62182b2}{SetControlPointAt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \&pCtrlPoint,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \&pNormal\ ,\ \textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keywordtype}{bool}\ pI2DSearch\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_af5b1051cd1e936df1935fe9df67777e9}{SetControlPointAt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \&pCtrlPoint,\ \textcolor{keywordtype}{int}\ pIndex)\textcolor{keyword}{\ override\ }\{\ ParentClass::SetControlPointAt(pCtrlPoint,\ pIndex);\ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00213\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}*\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a3560c158c260fa66ce93661e316161e1}{GetControlPoints}}(\mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus\ =\ NULL)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00216\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00217\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00219\ \ \ \ \ \mbox{\hyperlink{class_fbx_object}{FbxObject}}\&\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a8b4bdd72178ca087982edd198ba93e07}{Copy}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keywordtype}{bool}\ IsValid(\textcolor{keywordtype}{bool}\ mustClosed\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordtype}{void}\ ClearBoundaries();}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordtype}{void}\ CopyBoundaries(\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface}{FbxTrimNurbsSurface}}\ \textcolor{keyword}{const}\&\ pOther\ );}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordtype}{bool}\ IsValid(\textcolor{keywordtype}{int}\ pRegion,\ \textcolor{keywordtype}{bool}\ mustClosed\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordtype}{void}\ RebuildRegions();}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{void}\ Reset();}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a59c98d3cc6047bbc5ecefc800e8e04e2}{Construct}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ mFlipNormals;}
+\DoxyCodeLine{00233\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\ \ mRegionIndices;}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ mNewRegion;}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00236\ \};}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_GEOMETRY\_TRIM\_NURBS\_SURFACE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,211 @@
+\doxysection{include/fbx/fbxsdk/core/arch/fbxdebug.h File Reference}
+\hypertarget{fbxdebug_8h}{}\label{fbxdebug_8h}\index{include/fbx/fbxsdk/core/arch/fbxdebug.h@{include/fbx/fbxsdk/core/arch/fbxdebug.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_fbx_incompatible_with_array}{Fbx\+Incompatible\+With\+Array$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fbxdebug_8h_a3c386f94889c37d1cdb9e882f1c2d213}{FBXSDK\+\_\+\+ASSERT\+\_\+\+ENVSTR}}~"{}FBXSDK\+\_\+\+ASSERT"{}
+\item 
+\#define \mbox{\hyperlink{fbxdebug_8h_a9f068a0d6d82fca3d86818a3d6bf66ab}{FBX\+\_\+\+ASSERT}}(Condition)
+\item 
+\#define \mbox{\hyperlink{fbxdebug_8h_a42e3545c979004b9b98bbecf9f12e154}{FBX\+\_\+\+ASSERT\+\_\+\+MSG}}(Condition,  Message, ...)
+\item 
+\#define \mbox{\hyperlink{fbxdebug_8h_adc2893852feec3ac0ec8e0da2e04369b}{FBX\+\_\+\+ASSERT\+\_\+\+NOW}}(Message, ...)
+\item 
+\#define \mbox{\hyperlink{fbxdebug_8h_a2e7b645f42cc4d0b51cd2dfd05f3a75f}{FBX\+\_\+\+ASSERT\+\_\+\+RETURN}}(Condition)
+\item 
+\#define \mbox{\hyperlink{fbxdebug_8h_a464dbc6d915107abce3204a60e2ec7a0}{FBX\+\_\+\+ASSERT\+\_\+\+RETURN\+\_\+\+VALUE}}(Condition,  Value)
+\item 
+\Hypertarget{fbxdebug_8h_a37589da868412daae7b4f29ed46c39c8}\label{fbxdebug_8h_a37589da868412daae7b4f29ed46c39c8} 
+\#define {\bfseries FBX\+\_\+\+ASSERT\+\_\+\+STATIC}(Condition)
+\item 
+\#define \mbox{\hyperlink{fbxdebug_8h_a7f414210cc4706ede71086a366f91ecb}{FBX\+\_\+\+TRACE}}(Message, ...)
+\item 
+\#define \mbox{\hyperlink{fbxdebug_8h_a14171fa70e183e8206a415ef4a02b3a0}{FBXSDK\+\_\+\+INCOMPATIBLE\+\_\+\+WITH\+\_\+\+ARRAY\+\_\+\+TEMPLATE}}(T)
+\item 
+\#define \mbox{\hyperlink{fbxdebug_8h_ac24f4844b3ed7a1afe79ae02b3c7fedb}{FBXSDK\+\_\+\+INCOMPATIBLE\+\_\+\+WITH\+\_\+\+ARRAY}}(T)
+\item 
+\#define \mbox{\hyperlink{fbxdebug_8h_a331e1eaaf7d1d823886df870a5ad6a94}{FBXSDK\+\_\+\+IS\+\_\+\+INCOMPATIBLE\+\_\+\+WITH\+\_\+\+ARRAY}}(T)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fbxdebug_8h_a297e620aabd9731969776e9cff92b116}{Fbx\+Assert\+Proc}}) (const char \texorpdfstring{$\ast$}{*}p\+File\+Name, const char \texorpdfstring{$\ast$}{*}p\+Function\+Name, const unsigned int p\+Line\+Number, const char \texorpdfstring{$\ast$}{*}p\+Message)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+FBXSDK\+\_\+\+DLL void \mbox{\hyperlink{fbxdebug_8h_acfdcde5384f91cc53209b3d8d2b098b6}{Fbx\+Assert\+Set\+Proc}} (\mbox{\hyperlink{fbxdebug_8h_a297e620aabd9731969776e9cff92b116}{Fbx\+Assert\+Proc}} p\+Assert\+Proc)
+\item 
+\Hypertarget{fbxdebug_8h_a25fa1e7b7efbc834d1d559c58f2ccd2a}\label{fbxdebug_8h_a25fa1e7b7efbc834d1d559c58f2ccd2a} 
+FBXSDK\+\_\+\+DLL void {\bfseries Fbx\+Assert\+Set\+Default\+Proc} ()
+\begin{DoxyCompactList}\small\item\em Change the procedure back to the default one. \end{DoxyCompactList}\item 
+\Hypertarget{fbxdebug_8h_a00d29eb670214a41113d200693639cb3}\label{fbxdebug_8h_a00d29eb670214a41113d200693639cb3} 
+FBXSDK\+\_\+\+DLL void {\bfseries \+\_\+\+Fbx\+Assert} (const char \texorpdfstring{$\ast$}{*}p\+File\+Name, const char \texorpdfstring{$\ast$}{*}p\+Function\+Name, const unsigned int p\+Line\+Number, bool p\+Format, const char \texorpdfstring{$\ast$}{*}p\+Message,...)
+\item 
+\Hypertarget{fbxdebug_8h_a51619ffe786391a362f7554e5b1ac888}\label{fbxdebug_8h_a51619ffe786391a362f7554e5b1ac888} 
+FBXSDK\+\_\+\+DLL void {\bfseries \+\_\+\+Fbx\+Trace} (const char \texorpdfstring{$\ast$}{*}p\+Message,...)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Debugging macros and functions.
+
+All macros and functions are removed in release builds. To enable asserts, a debug build is required as well as the environment variable "{}\+FBXSDK\+\_\+\+ASSERT"{} set to 1 is also required. By default, assertions will pop-\/up a window. It is possible to disable the pop-\/up on the Windows platform by calling the following code\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\_CrtSetReportMode(\_CRT\_ASSERT,\ \_CRTDBG\_MODE\_DEBUG);}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fbxdebug_8h_a9f068a0d6d82fca3d86818a3d6bf66ab}\index{fbxdebug.h@{fbxdebug.h}!FBX\_ASSERT@{FBX\_ASSERT}}
+\index{FBX\_ASSERT@{FBX\_ASSERT}!fbxdebug.h@{fbxdebug.h}}
+\doxysubsubsection{\texorpdfstring{FBX\_ASSERT}{FBX\_ASSERT}}
+{\footnotesize\ttfamily \label{fbxdebug_8h_a9f068a0d6d82fca3d86818a3d6bf66ab} 
+\#define FBX\+\_\+\+ASSERT(\begin{DoxyParamCaption}\item[{}]{Condition}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((void)0)}
+
+\end{DoxyCode}
+\Hypertarget{fbxdebug_8h_a42e3545c979004b9b98bbecf9f12e154}\index{fbxdebug.h@{fbxdebug.h}!FBX\_ASSERT\_MSG@{FBX\_ASSERT\_MSG}}
+\index{FBX\_ASSERT\_MSG@{FBX\_ASSERT\_MSG}!fbxdebug.h@{fbxdebug.h}}
+\doxysubsubsection{\texorpdfstring{FBX\_ASSERT\_MSG}{FBX\_ASSERT\_MSG}}
+{\footnotesize\ttfamily \label{fbxdebug_8h_a42e3545c979004b9b98bbecf9f12e154} 
+\#define FBX\+\_\+\+ASSERT\+\_\+\+MSG(\begin{DoxyParamCaption}\item[{}]{Condition}{, }\item[{}]{Message}{, }\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((void)0)}
+
+\end{DoxyCode}
+\Hypertarget{fbxdebug_8h_adc2893852feec3ac0ec8e0da2e04369b}\index{fbxdebug.h@{fbxdebug.h}!FBX\_ASSERT\_NOW@{FBX\_ASSERT\_NOW}}
+\index{FBX\_ASSERT\_NOW@{FBX\_ASSERT\_NOW}!fbxdebug.h@{fbxdebug.h}}
+\doxysubsubsection{\texorpdfstring{FBX\_ASSERT\_NOW}{FBX\_ASSERT\_NOW}}
+{\footnotesize\ttfamily \label{fbxdebug_8h_adc2893852feec3ac0ec8e0da2e04369b} 
+\#define FBX\+\_\+\+ASSERT\+\_\+\+NOW(\begin{DoxyParamCaption}\item[{}]{Message}{, }\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((void)0)}
+
+\end{DoxyCode}
+\Hypertarget{fbxdebug_8h_a2e7b645f42cc4d0b51cd2dfd05f3a75f}\index{fbxdebug.h@{fbxdebug.h}!FBX\_ASSERT\_RETURN@{FBX\_ASSERT\_RETURN}}
+\index{FBX\_ASSERT\_RETURN@{FBX\_ASSERT\_RETURN}!fbxdebug.h@{fbxdebug.h}}
+\doxysubsubsection{\texorpdfstring{FBX\_ASSERT\_RETURN}{FBX\_ASSERT\_RETURN}}
+{\footnotesize\ttfamily \label{fbxdebug_8h_a2e7b645f42cc4d0b51cd2dfd05f3a75f} 
+\#define FBX\+\_\+\+ASSERT\+\_\+\+RETURN(\begin{DoxyParamCaption}\item[{}]{Condition}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}(!(Condition))\{\textcolor{keywordflow}{return};\}}
+
+\end{DoxyCode}
+\Hypertarget{fbxdebug_8h_a464dbc6d915107abce3204a60e2ec7a0}\index{fbxdebug.h@{fbxdebug.h}!FBX\_ASSERT\_RETURN\_VALUE@{FBX\_ASSERT\_RETURN\_VALUE}}
+\index{FBX\_ASSERT\_RETURN\_VALUE@{FBX\_ASSERT\_RETURN\_VALUE}!fbxdebug.h@{fbxdebug.h}}
+\doxysubsubsection{\texorpdfstring{FBX\_ASSERT\_RETURN\_VALUE}{FBX\_ASSERT\_RETURN\_VALUE}}
+{\footnotesize\ttfamily \label{fbxdebug_8h_a464dbc6d915107abce3204a60e2ec7a0} 
+\#define FBX\+\_\+\+ASSERT\+\_\+\+RETURN\+\_\+\+VALUE(\begin{DoxyParamCaption}\item[{}]{Condition}{, }\item[{}]{Value}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}(!(Condition))\{\textcolor{keywordflow}{return}\ Value;\}}
+
+\end{DoxyCode}
+\Hypertarget{fbxdebug_8h_a7f414210cc4706ede71086a366f91ecb}\index{fbxdebug.h@{fbxdebug.h}!FBX\_TRACE@{FBX\_TRACE}}
+\index{FBX\_TRACE@{FBX\_TRACE}!fbxdebug.h@{fbxdebug.h}}
+\doxysubsubsection{\texorpdfstring{FBX\_TRACE}{FBX\_TRACE}}
+{\footnotesize\ttfamily \label{fbxdebug_8h_a7f414210cc4706ede71086a366f91ecb} 
+\#define FBX\+\_\+\+TRACE(\begin{DoxyParamCaption}\item[{}]{Message}{, }\item[{}]{}...{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((void)0)}
+
+\end{DoxyCode}
+\Hypertarget{fbxdebug_8h_a3c386f94889c37d1cdb9e882f1c2d213}\index{fbxdebug.h@{fbxdebug.h}!FBXSDK\_ASSERT\_ENVSTR@{FBXSDK\_ASSERT\_ENVSTR}}
+\index{FBXSDK\_ASSERT\_ENVSTR@{FBXSDK\_ASSERT\_ENVSTR}!fbxdebug.h@{fbxdebug.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_ASSERT\_ENVSTR}{FBXSDK\_ASSERT\_ENVSTR}}
+{\footnotesize\ttfamily \label{fbxdebug_8h_a3c386f94889c37d1cdb9e882f1c2d213} 
+\#define FBXSDK\+\_\+\+ASSERT\+\_\+\+ENVSTR~"{}FBXSDK\+\_\+\+ASSERT"{}}
+
+If this environment variable is set to 1, the FBX SDK will assert in debug builds \Hypertarget{fbxdebug_8h_ac24f4844b3ed7a1afe79ae02b3c7fedb}\index{fbxdebug.h@{fbxdebug.h}!FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY@{FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY}}
+\index{FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY@{FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY}!fbxdebug.h@{fbxdebug.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY}{FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY}}
+{\footnotesize\ttfamily \label{fbxdebug_8h_ac24f4844b3ed7a1afe79ae02b3c7fedb} 
+\#define FBXSDK\+\_\+\+INCOMPATIBLE\+\_\+\+WITH\+\_\+\+ARRAY(\begin{DoxyParamCaption}\item[{}]{T}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}<>\ FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY\_TEMPLATE(T)}
+
+\end{DoxyCode}
+\Hypertarget{fbxdebug_8h_a14171fa70e183e8206a415ef4a02b3a0}\index{fbxdebug.h@{fbxdebug.h}!FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY\_TEMPLATE@{FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY\_TEMPLATE}}
+\index{FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY\_TEMPLATE@{FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY\_TEMPLATE}!fbxdebug.h@{fbxdebug.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY\_TEMPLATE}{FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY\_TEMPLATE}}
+{\footnotesize\ttfamily \label{fbxdebug_8h_a14171fa70e183e8206a415ef4a02b3a0} 
+\#define FBXSDK\+\_\+\+INCOMPATIBLE\+\_\+\+WITH\+\_\+\+ARRAY\+\_\+\+TEMPLATE(\begin{DoxyParamCaption}\item[{}]{T}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_incompatible_with_array}{FbxIncompatibleWithArray}}<\ T\ >\{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{union\ }\{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ T\ t();\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ catcherr;\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \{value\ =\ 1\};\}}
+
+\end{DoxyCode}
+\Hypertarget{fbxdebug_8h_a331e1eaaf7d1d823886df870a5ad6a94}\index{fbxdebug.h@{fbxdebug.h}!FBXSDK\_IS\_INCOMPATIBLE\_WITH\_ARRAY@{FBXSDK\_IS\_INCOMPATIBLE\_WITH\_ARRAY}}
+\index{FBXSDK\_IS\_INCOMPATIBLE\_WITH\_ARRAY@{FBXSDK\_IS\_INCOMPATIBLE\_WITH\_ARRAY}!fbxdebug.h@{fbxdebug.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_IS\_INCOMPATIBLE\_WITH\_ARRAY}{FBXSDK\_IS\_INCOMPATIBLE\_WITH\_ARRAY}}
+{\footnotesize\ttfamily \label{fbxdebug_8h_a331e1eaaf7d1d823886df870a5ad6a94} 
+\#define FBXSDK\+\_\+\+IS\+\_\+\+INCOMPATIBLE\+\_\+\+WITH\+\_\+\+ARRAY(\begin{DoxyParamCaption}\item[{}]{T}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((bool)\ FbxIncompatibleWithArray<T>::value)}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{fbxdebug_8h_a297e620aabd9731969776e9cff92b116}\index{fbxdebug.h@{fbxdebug.h}!FbxAssertProc@{FbxAssertProc}}
+\index{FbxAssertProc@{FbxAssertProc}!fbxdebug.h@{fbxdebug.h}}
+\doxysubsubsection{\texorpdfstring{FbxAssertProc}{FbxAssertProc}}
+{\footnotesize\ttfamily \label{fbxdebug_8h_a297e620aabd9731969776e9cff92b116} 
+typedef void(\texorpdfstring{$\ast$}{*} Fbx\+Assert\+Proc) (const char \texorpdfstring{$\ast$}{*}p\+File\+Name, const char \texorpdfstring{$\ast$}{*}p\+Function\+Name, const unsigned int p\+Line\+Number, const char \texorpdfstring{$\ast$}{*}p\+Message)}
+
+The assertion procedure signature. If a different assertion procedure must be provided, it should have this signature. 
+\begin{DoxyParams}{Parameters}
+{\em p\+File\+Name} & The file name where the assertion occurred. \\
+\hline
+{\em p\+Function\+Name} & The function name where the assertion occurred. \\
+\hline
+{\em p\+Line\+Number} & The line number in the file where the assertion occurred. \\
+\hline
+{\em p\+Message} & The message to display when the assertion occurs. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fbxdebug_8h_acfdcde5384f91cc53209b3d8d2b098b6}\index{fbxdebug.h@{fbxdebug.h}!FbxAssertSetProc@{FbxAssertSetProc}}
+\index{FbxAssertSetProc@{FbxAssertSetProc}!fbxdebug.h@{fbxdebug.h}}
+\doxysubsubsection{\texorpdfstring{FbxAssertSetProc()}{FbxAssertSetProc()}}
+{\footnotesize\ttfamily \label{fbxdebug_8h_acfdcde5384f91cc53209b3d8d2b098b6} 
+FBXSDK\+\_\+\+DLL void Fbx\+Assert\+Set\+Proc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fbxdebug_8h_a297e620aabd9731969776e9cff92b116}{Fbx\+Assert\+Proc}}}]{p\+Assert\+Proc}{}\end{DoxyParamCaption})}
+
+Change the procedure used when assertion occurs. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Assert\+Proc} & The procedure to be called when assertions occurs. \\
+\hline
+\end{DoxyParams}

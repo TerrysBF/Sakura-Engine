@@ -1,0 +1,86 @@
+\doxysection{IResource.\+h}
+\hypertarget{_i_resource_8h_source}{}\label{_i_resource_8h_source}\index{include/IResource.h@{include/IResource.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{enum\ class}}
+\DoxyCodeLine{00008\ \ \ \ \ ResourceType\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ Unknown,\ \ \textcolor{comment}{//\ Tipo\ desconocido\ o\ no\ inicializado.}}
+\DoxyCodeLine{00010\ \ \ \ \ Model3D,\ \ \textcolor{comment}{//\ Recurso\ de\ modelo\ 3D.}}
+\DoxyCodeLine{00011\ \ \ \ \ Texture,\ \ \textcolor{comment}{//\ Recurso\ de\ textura.}}
+\DoxyCodeLine{00012\ \ \ \ \ Sound,\ \ \ \ \textcolor{comment}{//\ Recurso\ de\ sonido.}}
+\DoxyCodeLine{00013\ \ \ \ \ Shader,\ \ \ \textcolor{comment}{//\ Recurso\ de\ shader.}}
+\DoxyCodeLine{00014\ \ \ \ \ Material\ \ \textcolor{comment}{//\ Recurso\ de\ material.}}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{enum\ class}}
+\DoxyCodeLine{00021\ \ \ \ \ ResourceState\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ Unloaded,\ \textcolor{comment}{//\ No\ cargado.}}
+\DoxyCodeLine{00023\ \ \ \ \ Loading,\ \ \textcolor{comment}{//\ En\ proceso\ de\ carga.}}
+\DoxyCodeLine{00024\ \ \ \ \ Loaded,\ \ \ \textcolor{comment}{//\ Cargado\ y\ listo\ para\ usarse.}}
+\DoxyCodeLine{00025\ \ \ \ \ Failed\ \ \ \ \textcolor{comment}{//\ Falló la\ carga\ o\ inicialización.}}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_i_resource_a01378dfe489a635001e3c1afded70563}{IResource}}\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_i_resource_a01378dfe489a635001e3c1afded70563}{IResource}}(\textcolor{keyword}{const}\ std::string\&\ name)}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ :\ m\_name(name)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ ,\ m\_filePath(\textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ ,\ m\_type(ResourceType::Unknown)}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ ,\ m\_state(ResourceState::Unloaded)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ ,\ m\_id(GenerateID())}
+\DoxyCodeLine{00045\ \ \ \ \ \{\ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_i_resource_ae92fd30872c61db5acaacbe00a672845}{\string~IResource}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_i_resource_ae8338623eb79926b74191f767bd920eb}{init}}()\ =\ 0;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_i_resource_a0f82dd9a4aaa6258a7a9e6ace1fe9ec0}{load}}(\textcolor{keyword}{const}\ std::string\&\ filename)\ =\ 0;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_i_resource_ac95808d27eedffc2ceb17f4d7f6885f8}{unload}}()\ =\ 0;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_i_resource_aa6f824e7353d9eaa63eef132324f7265}{getSizeInBytes}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ Ruta\ de\ archivo\ asociada\ al\ recurso.}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPath(\textcolor{keyword}{const}\ std::string\&\ path)\ \{\ m\_filePath\ =\ path;\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ Tipo\ de\ recurso\ (modelo,\ textura,\ etc.).}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ SetType(ResourceType\ t)\ \{\ m\_type\ =\ t;\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ Estado\ actual\ del\ recurso\ (Loaded,\ Failed,\ etc.).}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ SetState(ResourceState\ s)\ \{\ m\_state\ =\ s;\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//\ Getters\ básicos\ del\ recurso.}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ GetName()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_name;\ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ GetPath()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_filePath;\ \}}
+\DoxyCodeLine{00089\ \ \ \ \ ResourceType\ GetType()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_type;\ \}}
+\DoxyCodeLine{00090\ \ \ \ \ ResourceState\ GetState()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_state;\ \}}
+\DoxyCodeLine{00091\ \ \ \ \ uint64\_t\ GetID()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_id;\ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ Nombre\ lógico\ del\ recurso.}}
+\DoxyCodeLine{00095\ \ \ \ \ std::string\ m\_name;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ Ruta\ del\ archivo\ desde\ el\ que\ se\ carga\ el\ recurso.}}
+\DoxyCodeLine{00098\ \ \ \ \ std::string\ m\_filePath;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ Tipo\ de\ recurso.}}
+\DoxyCodeLine{00101\ \ \ \ \ ResourceType\ m\_type;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ Estado\ del\ recurso\ en\ su\ ciclo\ de\ vida.}}
+\DoxyCodeLine{00104\ \ \ \ \ ResourceState\ m\_state;}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ Identificador\ único\ del\ recurso.}}
+\DoxyCodeLine{00107\ \ \ \ \ uint64\_t\ m\_id;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{static}\ uint64\_t\ GenerateID()}
+\DoxyCodeLine{00115\ \ \ \ \ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint64\_t\ nextID\ =\ 1;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nextID++;}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \};}
+
+\end{DoxyCode}

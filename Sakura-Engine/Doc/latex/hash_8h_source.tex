@@ -1,0 +1,196 @@
+\doxysection{hash.\+h}
+\hypertarget{hash_8h_source}{}\label{hash_8h_source}\index{include/fbx/libxml2/libxml/hash.h@{include/fbx/libxml2/libxml/hash.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Summary:\ Chained\ hash\ tables}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Description:\ This\ module\ implements\ the\ hash\ table\ support\ used\ in}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ \ \ \ various\ places\ in\ the\ library.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Copy:\ See\ Copyright\ for\ the\ status\ of\ this\ software.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Author:\ Bjorn\ Reese\ <bjorn.reese@systematic.dk>}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_HASH\_H\_\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ \_\_XML\_HASH\_H\_\_}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ The\ hash\ table.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlHashTable\ xmlHashTable;}
+\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ xmlHashTable\ *xmlHashTablePtr;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <libxml/xmlversion.h>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <libxml/parser.h>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <libxml/dict.h>}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00033\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *\ Recent\ version\ of\ gcc\ produce\ a\ warning\ when\ a\ function\ pointer\ is\ assigned}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *\ to\ an\ object\ pointer,\ or\ vice\ versa.\ \ The\ following\ macro\ is\ a\ dirty\ hack}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *\ to\ allow\ suppression\ of\ the\ warning.\ \ If\ your\ architecture\ has\ function}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ pointers\ which\ are\ a\ different\ size\ than\ a\ void\ pointer,\ there\ may\ be\ some}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *\ serious\ trouble\ within\ the\ library.}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ XML\_CAST\_FPTR(fptr)\ fptr}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *\ function\ types:}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00069\ \textcolor{keyword}{typedef}\ void\ (*xmlHashDeallocator)(\textcolor{keywordtype}{void}\ *payload,\ \textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00079\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *(*xmlHashCopier)(\textcolor{keywordtype}{void}\ *payload,\ \textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00088\ \textcolor{keyword}{typedef}\ void\ (*xmlHashScanner)(\textcolor{keywordtype}{void}\ *payload,\ \textcolor{keywordtype}{void}\ *data,\ \textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00099\ \textcolor{keyword}{typedef}\ void\ (*xmlHashScannerFull)(\textcolor{keywordtype}{void}\ *payload,\ \textcolor{keywordtype}{void}\ *data,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,\ \textcolor{keyword}{const}\ xmlChar\ *name2,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name3);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00104\ \textcolor{comment}{\ *\ Constructor\ and\ destructor.}}
+\DoxyCodeLine{00105\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00106\ XMLPUBFUN\ xmlHashTablePtr\ XMLCALL}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashCreate\ \ \ (\textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00108\ XMLPUBFUN\ xmlHashTablePtr\ XMLCALL}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashCreateDict(\textcolor{keywordtype}{int}\ size,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlDictPtr\ dict);}
+\DoxyCodeLine{00111\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashFree\ (xmlHashTablePtr\ table,}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashDeallocator\ f);}
+\DoxyCodeLine{00114\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashDefaultDeallocator(\textcolor{keywordtype}{void}\ *entry,}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ *\ Add\ a\ new\ entry\ to\ the\ hash\ table.}}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00121\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashAddEntry\ (xmlHashTablePtr\ table,}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *userdata);}
+\DoxyCodeLine{00125\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashUpdateEntry(xmlHashTablePtr\ table,}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *userdata,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashDeallocator\ f);}
+\DoxyCodeLine{00130\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashAddEntry2(xmlHashTablePtr\ table,}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name2,}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *userdata);}
+\DoxyCodeLine{00135\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashUpdateEntry2(xmlHashTablePtr\ table,}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name2,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *userdata,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashDeallocator\ f);}
+\DoxyCodeLine{00141\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashAddEntry3(xmlHashTablePtr\ table,}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name2,}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name3,}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *userdata);}
+\DoxyCodeLine{00147\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashUpdateEntry3(xmlHashTablePtr\ table,}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name2,}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name3,}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *userdata,}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashDeallocator\ f);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00156\ \textcolor{comment}{\ *\ Remove\ an\ entry\ from\ the\ hash\ table.}}
+\DoxyCodeLine{00157\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00158\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashRemoveEntry(xmlHashTablePtr\ table,\ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashDeallocator\ f);}
+\DoxyCodeLine{00161\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashRemoveEntry2(xmlHashTablePtr\ table,\ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name2,\ xmlHashDeallocator\ f);}
+\DoxyCodeLine{00164\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ \ XMLCALL}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashRemoveEntry3(xmlHashTablePtr\ table,\ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name2,\ \textcolor{keyword}{const}\ xmlChar\ *name3,}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashDeallocator\ f);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00170\ \textcolor{comment}{\ *\ Retrieve\ the\ userdata.}}
+\DoxyCodeLine{00171\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00172\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ *\ XMLCALL}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashLookup\ \ \ (xmlHashTablePtr\ table,}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00175\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ *\ XMLCALL}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashLookup2\ \ (xmlHashTablePtr\ table,}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name2);}
+\DoxyCodeLine{00179\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ *\ XMLCALL}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashLookup3\ \ (xmlHashTablePtr\ table,}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name2,}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name3);}
+\DoxyCodeLine{00184\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ *\ XMLCALL}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashQLookup\ \ (xmlHashTablePtr\ table,}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *prefix);}
+\DoxyCodeLine{00188\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ *\ XMLCALL}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashQLookup2\ (xmlHashTablePtr\ table,}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *prefix,}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name2,}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *prefix2);}
+\DoxyCodeLine{00194\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ *\ XMLCALL}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashQLookup3\ (xmlHashTablePtr\ table,}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *prefix,}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name2,}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *prefix2,}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name3,}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *prefix3);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00204\ \textcolor{comment}{\ *\ Helpers.}}
+\DoxyCodeLine{00205\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00206\ XMLPUBFUN\ xmlHashTablePtr\ XMLCALL}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashCopy\ (xmlHashTablePtr\ table,}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashCopier\ f);}
+\DoxyCodeLine{00209\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashSize\ (xmlHashTablePtr\ table);}
+\DoxyCodeLine{00211\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashScan\ (xmlHashTablePtr\ table,}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashScanner\ f,}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *data);}
+\DoxyCodeLine{00215\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashScan3\ \ \ \ (xmlHashTablePtr\ table,}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name2,}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name3,}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashScanner\ f,}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *data);}
+\DoxyCodeLine{00222\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashScanFull\ (xmlHashTablePtr\ table,}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashScannerFull\ f,}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *data);}
+\DoxyCodeLine{00226\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashScanFull3(xmlHashTablePtr\ table,}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name2,}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name3,}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlHashScannerFull\ f,}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *data);}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00234\ \}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !\ \_\_XML\_HASH\_H\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

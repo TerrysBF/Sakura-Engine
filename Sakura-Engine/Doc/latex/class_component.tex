@@ -1,0 +1,146 @@
+\doxysection{Component Class Reference}
+\hypertarget{class_component}{}\label{class_component}\index{Component@{Component}}
+
+
+Clase base abstracta para todos los componentes del juego.  
+
+
+
+
+{\ttfamily \#include $<$Component.\+h$>$}
+
+Inheritance diagram for Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.341317cm]{class_component}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_component_a404098a91640552f9d0284d08b53def4}\label{class_component_a404098a91640552f9d0284d08b53def4} 
+{\bfseries Component} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_component_a4da90dfe700d29f2d16751aa4948a577}{Component}} (const \mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Constructor con tipo de componente. \end{DoxyCompactList}\item 
+\Hypertarget{class_component_ad82d7393e339c1b19cc17a0d55b5674d}\label{class_component_ad82d7393e339c1b19cc17a0d55b5674d} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Component} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_component_a56baf8afdea3366554b3c7b13fd6e3f7}{init}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_component_a9152b930559c4ece4ea5ddd3e6e4b22b}{update}} (float delta\+Time)=0
+\begin{DoxyCompactList}\small\item\em Método virtual puro para actualizar el componente. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_component_ac91ad449b882184077544527fa7ccea3}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context)=0
+\begin{DoxyCompactList}\small\item\em Método virtual puro para renderizar el componente. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_component_a89114b1387f1ec60cc865be019fe259a}{destroy}} ()=0
+\item 
+\mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} \mbox{\hyperlink{class_component_a39ba6f0bc561e3e24c849e35bdd19c42}{get\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene el tipo del componente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_component_a0f36a9cd926230266bac186f97771bfe}\label{class_component_a0f36a9cd926230266bac186f97771bfe} 
+\mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} {\bfseries m\+\_\+type}
+\begin{DoxyCompactList}\small\item\em Tipo del componente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase base abstracta para todos los componentes del juego. 
+
+La clase \doxylink{class_component}{Component} define la interfaz básica que todos los componentes deben implementar, permitiendo actualizar y renderizar el componente, así como obtener su tipo. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_component_a4da90dfe700d29f2d16751aa4948a577}\index{Component@{Component}!Component@{Component}}
+\index{Component@{Component}!Component@{Component}}
+\doxysubsubsection{\texorpdfstring{Component()}{Component()}}
+{\footnotesize\ttfamily \label{class_component_a4da90dfe700d29f2d16751aa4948a577} 
+Component\+::\+Component (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}}}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor con tipo de componente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Tipo del componente. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_component_a89114b1387f1ec60cc865be019fe259a}\index{Component@{Component}!destroy@{destroy}}
+\index{destroy@{destroy}!Component@{Component}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{class_component_a89114b1387f1ec60cc865be019fe259a} 
+virtual void Component\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_light_component_ab4b013f1b0cf544a8724672fc28233bf}{Light\+Component}}, \mbox{\hyperlink{class_mesh_component_add21471ffcfcfc3b00b4d1bad9ed79d4}{Mesh\+Component}}, and \mbox{\hyperlink{class_mesh_renderer_component_a8cf48f387eb648d6b1c17e5642d0df46}{Mesh\+Renderer\+Component}}.
+
+\Hypertarget{class_component_a39ba6f0bc561e3e24c849e35bdd19c42}\index{Component@{Component}!getType@{getType}}
+\index{getType@{getType}!Component@{Component}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \label{class_component_a39ba6f0bc561e3e24c849e35bdd19c42} 
+\mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} Component\+::get\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene el tipo del componente. 
+
+\begin{DoxyReturn}{Returns}
+El tipo del componente. 
+\end{DoxyReturn}
+\Hypertarget{class_component_a56baf8afdea3366554b3c7b13fd6e3f7}\index{Component@{Component}!init@{init}}
+\index{init@{init}!Component@{Component}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_component_a56baf8afdea3366554b3c7b13fd6e3f7} 
+virtual void Component\+::init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_light_component_aed19b6c4bc8a12ad47eff3ff8b5268b3}{Light\+Component}}, \mbox{\hyperlink{class_mesh_component_a078fb6f6dc2fd324d4256a935fbf0e9a}{Mesh\+Component}}, and \mbox{\hyperlink{class_mesh_renderer_component_a2fbe94234438d5d4ef25f462488a6baf}{Mesh\+Renderer\+Component}}.
+
+\Hypertarget{class_component_ac91ad449b882184077544527fa7ccea3}\index{Component@{Component}!render@{render}}
+\index{render@{render}!Component@{Component}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_component_ac91ad449b882184077544527fa7ccea3} 
+virtual void Component\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Método virtual puro para renderizar el componente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto del dispositivo para operaciones gráficas. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_hierarchy_component_a70ce318074314113003538704ba4bca0}{Hierarchy\+Component}}, \mbox{\hyperlink{class_light_component_abd10328f14f8a872db8f707562ab2c37}{Light\+Component}}, \mbox{\hyperlink{class_mesh_component_af5d5a041d6ef199ca11b0e33db262a86}{Mesh\+Component}}, \mbox{\hyperlink{class_mesh_renderer_component_aac8fc88d486338da31b3fecb96fec38d}{Mesh\+Renderer\+Component}}, and \mbox{\hyperlink{class_transform_a74a4fb8499d1c811dddeec1ea5ffe9ac}{Transform}}.
+
+\Hypertarget{class_component_a9152b930559c4ece4ea5ddd3e6e4b22b}\index{Component@{Component}!update@{update}}
+\index{update@{update}!Component@{Component}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_component_a9152b930559c4ece4ea5ddd3e6e4b22b} 
+virtual void Component\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Método virtual puro para actualizar el componente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & El tiempo transcurrido desde la última actualización. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_hierarchy_component_ab2143e73ad0c58447e0b029ce70a7efe}{Hierarchy\+Component}}, \mbox{\hyperlink{class_light_component_a01ce3b2328ec166c1ecb0bb3932046d1}{Light\+Component}}, \mbox{\hyperlink{class_mesh_component_a44977ec0336d6ef668413bf75fbe5a1f}{Mesh\+Component}}, \mbox{\hyperlink{class_mesh_renderer_component_aaf79f11600a21e5174b7f0b939343734}{Mesh\+Renderer\+Component}}, and \mbox{\hyperlink{class_transform_aec7a77f20db1b4d6f0dc76ce17adcac4}{Transform}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+ECS/Component.\+h\end{DoxyCompactItemize}

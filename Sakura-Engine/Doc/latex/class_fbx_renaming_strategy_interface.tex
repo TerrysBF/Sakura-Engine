@@ -1,0 +1,88 @@
+\doxysection{Fbx\+Renaming\+Strategy\+Interface Class Reference}
+\hypertarget{class_fbx_renaming_strategy_interface}{}\label{class_fbx_renaming_strategy_interface}\index{FbxRenamingStrategyInterface@{FbxRenamingStrategyInterface}}
+
+
+{\ttfamily \#include $<$fbxrenamingstrategy.\+h$>$}
+
+Inheritance diagram for Fbx\+Renaming\+Strategy\+Interface\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_fbx_renaming_strategy_interface}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_renaming_strategy_interface_a4c211fabbf906c3e3102a17febe1a428}\label{class_fbx_renaming_strategy_interface_a4c211fabbf906c3e3102a17febe1a428} 
+{\bfseries Fbx\+Renaming\+Strategy\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_renaming_strategy_interface_ab52664f630e238593eeba2bb204cebbe}\label{class_fbx_renaming_strategy_interface_ab52664f630e238593eeba2bb204cebbe} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Fbx\+Renaming\+Strategy\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_fbx_renaming_strategy_interface_a2090b5ae43936b617ec5d75015923f69}{Clear}} ()=0
+\begin{DoxyCompactList}\small\item\em Resets internal state regarding assigned names. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_fbx_renaming_strategy_interface_a1b91016c68dd9c7031624026fd39638a}{Rename}} (\mbox{\hyperlink{class_fbx_name_handler}{Fbx\+Name\+Handler}} \&p\+Name)=0
+\item 
+virtual \mbox{\hyperlink{class_fbx_renaming_strategy_interface}{Fbx\+Renaming\+Strategy\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_renaming_strategy_interface_af21b40aff16d65816a6c361cf7b6fdba}{Clone}} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This base class is an abstract implementation of a renaming strategy for avoiding name clashes. An implementation of a reader (\doxylink{class_fbx_reader}{Fbx\+Reader}) or writer (\doxylink{class_fbx_writer}{Fbx\+Writer}) class must call a concrete implementation of "{}\+Fbx\+Renaming\+Strategy\+Interface\+::\+Rename()"{} every time a name is imported or exported to avoid name clashes. Any class deriving from \doxylink{class_fbx_renaming_strategy_interface}{Fbx\+Renaming\+Strategy\+Interface} must implement \doxylink{class_fbx_renaming_strategy_interface_a2090b5ae43936b617ec5d75015923f69}{Fbx\+Renaming\+Strategy\+Interface\+::\+Clear()}, \doxylink{class_fbx_renaming_strategy_interface_a1b91016c68dd9c7031624026fd39638a}{Fbx\+Renaming\+Strategy\+Interface\+::\+Rename()}, and \doxylink{class_fbx_renaming_strategy_interface_af21b40aff16d65816a6c361cf7b6fdba}{Fbx\+Renaming\+Strategy\+Interface\+::\+Clone()}.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_fbx_name_handler}{Fbx\+Name\+Handler} \doxylink{class_fbx_renaming_strategy_number}{Fbx\+Renaming\+Strategy\+Number} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_renaming_strategy_interface_a2090b5ae43936b617ec5d75015923f69}\index{FbxRenamingStrategyInterface@{FbxRenamingStrategyInterface}!Clear@{Clear}}
+\index{Clear@{Clear}!FbxRenamingStrategyInterface@{FbxRenamingStrategyInterface}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily \label{class_fbx_renaming_strategy_interface_a2090b5ae43936b617ec5d75015923f69} 
+virtual void Fbx\+Renaming\+Strategy\+Interface\+::\+Clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Resets internal state regarding assigned names. 
+
+
+
+Implemented in \mbox{\hyperlink{class_fbx_renaming_strategy_a500de43d6c5a1b62c4a711f6233b0e18}{Fbx\+Renaming\+Strategy}}, and \mbox{\hyperlink{class_fbx_renaming_strategy_number_aaf762d4d2ab243e6868b5d77a3ed8040}{Fbx\+Renaming\+Strategy\+Number}}.
+
+\Hypertarget{class_fbx_renaming_strategy_interface_af21b40aff16d65816a6c361cf7b6fdba}\index{FbxRenamingStrategyInterface@{FbxRenamingStrategyInterface}!Clone@{Clone}}
+\index{Clone@{Clone}!FbxRenamingStrategyInterface@{FbxRenamingStrategyInterface}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \label{class_fbx_renaming_strategy_interface_af21b40aff16d65816a6c361cf7b6fdba} 
+virtual \mbox{\hyperlink{class_fbx_renaming_strategy_interface}{Fbx\+Renaming\+Strategy\+Interface}} \texorpdfstring{$\ast$}{*} Fbx\+Renaming\+Strategy\+Interface\+::\+Clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Create a dynamic renaming strategy instance of the same type as the child class. \begin{DoxyReturn}{Returns}
+New instance. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_fbx_renaming_strategy_a64038fea2fffe7cbc964f18277a1c1d0}{Fbx\+Renaming\+Strategy}}, and \mbox{\hyperlink{class_fbx_renaming_strategy_number_ac3c7c096818a034a3e0dc89a9639c122}{Fbx\+Renaming\+Strategy\+Number}}.
+
+\Hypertarget{class_fbx_renaming_strategy_interface_a1b91016c68dd9c7031624026fd39638a}\index{FbxRenamingStrategyInterface@{FbxRenamingStrategyInterface}!Rename@{Rename}}
+\index{Rename@{Rename}!FbxRenamingStrategyInterface@{FbxRenamingStrategyInterface}}
+\doxysubsubsection{\texorpdfstring{Rename()}{Rename()}}
+{\footnotesize\ttfamily \label{class_fbx_renaming_strategy_interface_a1b91016c68dd9c7031624026fd39638a} 
+virtual bool Fbx\+Renaming\+Strategy\+Interface\+::\+Rename (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_name_handler}{Fbx\+Name\+Handler}} \&}]{p\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Rename a name if necessary to avoid name-\/clash issues. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The name to be renamed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return {\ttfamily true} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_fbx_renaming_strategy_ae998eb51ea3def4cf22a9a6eb63a13a2}{Fbx\+Renaming\+Strategy}}, and \mbox{\hyperlink{class_fbx_renaming_strategy_number_ae619f9e95e3fcb215a12728dfb739659}{Fbx\+Renaming\+Strategy\+Number}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/utils/\mbox{\hyperlink{fbxrenamingstrategy_8h}{fbxrenamingstrategy.\+h}}\end{DoxyCompactItemize}

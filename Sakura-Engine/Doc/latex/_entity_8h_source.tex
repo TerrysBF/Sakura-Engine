@@ -1,0 +1,60 @@
+\doxysection{Entity.\+h}
+\hypertarget{_entity_8h_source}{}\label{_entity_8h_source}\index{include/ECS/Entity.h@{include/ECS/Entity.h}}
+\mbox{\hyperlink{_entity_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00013\ \ \ Entity\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ Entity()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{virtual}}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_entity_ac479d009ddde62dfb378ca0a70d81307}{\string~Entity}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00024\ \ \ \ \ awake()\ =\ 0;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_entity_a31e6183ea44922d54a43be48b8fd4bc0}{init}}()\ =\ 0;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_entity_aadea4a2a3446afb745059373d9b24ca7}{update}}(\textcolor{keywordtype}{float}\ deltaTime,\ \mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext)\ =\ 0;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_entity_a87b5ba15d18505f65312336d38554200}{render}}(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext)\ =\ 0;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_entity_a00e9f22462766408bffd4673e30bf04c}{destroy}}()\ =\ 0;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_entity_a5806de15f47f1d84b7ebe0e2519c8fd1}{addComponent}}(\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU::TSharedPointer<T>}}\ component)\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_base\_of<Component,\ T>::value,\ \textcolor{stringliteral}{"{}T\ must\ be\ derived\ from\ Component"{}});}
+\DoxyCodeLine{00063\ \ \ \ \ m\_components.push\_back(component.template\ dynamic\_pointer\_cast<Component>());}
+\DoxyCodeLine{00064\ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00072\ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU::TSharedPointer<T>}}}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{class_entity_ab4a3dc4747f9b832460231a9a01a9021}{getComponent}}()\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ component\ :\ m\_components)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU::TSharedPointer<T>}}\ specificComponent\ =\ component.template\ dynamic\_pointer\_cast<T>();}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (specificComponent)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ specificComponent;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU::TSharedPointer<T>}}();}
+\DoxyCodeLine{00081\ \ \ \}}
+\DoxyCodeLine{00082\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00083\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{bool}\ m\_isActive;}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{int}\ m\_id;}
+\DoxyCodeLine{00086\ \ \ std::vector<EU::TSharedPointer<Component>>\ m\_components;}
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ }
+
+\end{DoxyCode}

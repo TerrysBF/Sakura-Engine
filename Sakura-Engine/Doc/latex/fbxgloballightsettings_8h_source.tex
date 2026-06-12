@@ -1,0 +1,121 @@
+\doxysection{fbxgloballightsettings.\+h}
+\hypertarget{fbxgloballightsettings_8h_source}{}\label{fbxgloballightsettings_8h_source}\index{include/fbx/fbxsdk/fileio/fbxgloballightsettings.h@{include/fbx/fbxsdk/fileio/fbxgloballightsettings.h}}
+\mbox{\hyperlink{fbxgloballightsettings_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_FILEIO\_GLOBAL\_LIGHT\_SETTINGS\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_FILEIO\_GLOBAL\_LIGHT\_SETTINGS\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpropertytypes_8h}{fbxsdk/core/fbxpropertytypes.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }FbxGlobalLightSettingsProperties;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxGlobalLightSettings}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ FBXSDK\_FRIEND\_NEW();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_light_settings_adad3dc92c22ba63443bf2421e6e257cc}{SetAmbientColor}}(\mbox{\hyperlink{class_fbx_color}{FbxColor}}\ pAmbientColor);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_fbx_color}{FbxColor}}\ \mbox{\hyperlink{class_fbx_global_light_settings_aa57a507a5e0058d481c8a58ba04f11e2}{GetAmbientColor}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_light_settings_a8236e86da20394c673183e762760d6f0}{SetFogEnable}}(\textcolor{keywordtype}{bool}\ pEnable);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_global_light_settings_abceecba4b43b858168125d70c5d451ec}{GetFogEnable}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_light_settings_a021ab12c926a62587c8e97b579f3d1d6}{SetFogColor}}(\mbox{\hyperlink{class_fbx_color}{FbxColor}}\ pColor);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{class_fbx_color}{FbxColor}}\ \mbox{\hyperlink{class_fbx_global_light_settings_a78ab759ac52d0d618eb275a9149feedd}{GetFogColor}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_global_light_settings_a2d6040cb267cbdb092bdf9fb73de8d6d}{EFogMode}}}
+\DoxyCodeLine{00083\ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ eLinear,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_global_light_settings_a2d6040cb267cbdb092bdf9fb73de8d6dac83435f2003c3a89d206f49ce9396562}{eExponential}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_global_light_settings_a2d6040cb267cbdb092bdf9fb73de8d6da498e5d24544400cc9a9c959eadb3064c}{eExponentialSquareRoot}}\ \ \ \ }
+\DoxyCodeLine{00087\ \ \ \ \ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_light_settings_a61010aa498fa159fa6fa91cf77d78501}{SetFogMode}}(\mbox{\hyperlink{class_fbx_global_light_settings_a2d6040cb267cbdb092bdf9fb73de8d6d}{EFogMode}}\ pMode);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{class_fbx_global_light_settings_a2d6040cb267cbdb092bdf9fb73de8d6d}{EFogMode}}\ \mbox{\hyperlink{class_fbx_global_light_settings_a29f90b9f3f5c1a9057cf226c80892df1}{GetFogMode}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_light_settings_a9aa9fb5c44351b8b4ef9caf1968ca32f}{SetFogDensity}}(\textcolor{keywordtype}{double}\ pDensity);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_global_light_settings_ad69be94b5061ada689c5103f8b3c44c2}{GetFogDensity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_light_settings_a5d8cf2b4c90e5cfedcd2169aa8321ebf}{SetFogStart}}(\textcolor{keywordtype}{double}\ pStart);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_global_light_settings_a36162af4c56d06d37ce07ebd7a4d52a6}{GetFogStart}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_light_settings_a3408c6c5b1cf643ebe81cd4daaac82dc}{SetFogEnd}}(\textcolor{keywordtype}{double}\ pEnd);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_global_light_settings_a04ed07f18330b888bd4439038e3dad2a}{GetFogEnd}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{struct\ }FBXSDK\_DLL\ \mbox{\hyperlink{struct_fbx_global_light_settings_1_1_shadow_plane_a1bca8105fa3d43f4ac22480cc68833cc}{ShadowPlane}}}
+\DoxyCodeLine{00148\ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_fbx_global_light_settings_1_1_shadow_plane_a1bca8105fa3d43f4ac22480cc68833cc}{ShadowPlane}}();}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_fbx_global_light_settings_1_1_shadow_plane_a1587089f4329de3c417738e5cf12513d}{mEnable}};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \mbox{\hyperlink{struct_fbx_global_light_settings_1_1_shadow_plane_aab22ea42cde196c6aebce68258f76fd4}{mOrigin}};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \mbox{\hyperlink{struct_fbx_global_light_settings_1_1_shadow_plane_af68d57885d38ed6679a04bea2e663a33}{mNormal}};\ }
+\DoxyCodeLine{00160\ \ \ \ \ \};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_light_settings_a0e50d74c9f7f9be8446dde2e8c42ea31}{SetShadowEnable}}(\textcolor{keywordtype}{bool}\ pShadowEnable);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_global_light_settings_afd139497270cca9fd2deaa03e2ec1fe7}{GetShadowEnable}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_light_settings_a6835a1d9ee52474a1c5c52dc855a1ba9}{SetShadowIntensity}}(\textcolor{keywordtype}{double}\ pShadowIntensity);}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_global_light_settings_a86101dda291ce7b103a7fe77ecb0a876}{GetShadowIntensity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_global_light_settings_ac859310b4945161a224a512b1de5288d}{GetShadowPlaneCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00194\ \ \ \ \ \mbox{\hyperlink{struct_fbx_global_light_settings_1_1_shadow_plane}{ShadowPlane}}*\ \mbox{\hyperlink{class_fbx_global_light_settings_aa59bcae86bdcd6557bacae5e96f77c82}{GetShadowPlane}}(\textcolor{keywordtype}{int}\ pIndex,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_light_settings_aeaceb6574694ab589f88f8a100fea9f0}{AddShadowPlane}}(\mbox{\hyperlink{struct_fbx_global_light_settings_1_1_shadow_plane}{ShadowPlane}}\ pShadowPlane);}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_light_settings_af46551f80ebf82ab4d9d338ba41fce8c}{RemoveAllShadowPlanes}}();}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_light_settings_a9f9a67ac3a66bb905d987a0838c9e30e}{RestoreDefaultSettings}}();}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{const}\ FbxGlobalLightSettings\&\ \mbox{\hyperlink{class_fbx_global_light_settings_a77a9dd01accf8b3aa3d14952c4f21768}{operator=}}(\textcolor{keyword}{const}\ FbxGlobalLightSettings\&\ pGlobalLightSettings);}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00216\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00217\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00219\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00220\ \ \ \ \ FbxGlobalLightSettings();}
+\DoxyCodeLine{00221\ \ \ \ \ \string~FbxGlobalLightSettings();}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ FbxGlobalLightSettingsProperties*\ mPH;}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00225\ \};}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_FILEIO\_GLOBAL\_LIGHT\_SETTINGS\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,523 @@
+\doxysection{fbxproperty.\+h}
+\hypertarget{fbxproperty_8h_source}{}\label{fbxproperty_8h_source}\index{include/fbx/fbxsdk/core/fbxproperty.h@{include/fbx/fbxsdk/core/fbxproperty.h}}
+\mbox{\hyperlink{fbxproperty_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_PROPERTY\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_PROPERTY\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxquery_8h}{fbxsdk/core/fbxquery.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpropertydef_8h}{fbxsdk/core/fbxpropertydef.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpropertytypes_8h}{fbxsdk/core/fbxpropertytypes.h}}>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxdatatypes_8h}{fbxsdk/core/fbxdatatypes.h}}>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmap_8h}{fbxsdk/core/base/fbxmap.h}}>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxset_8h}{fbxsdk/core/base/fbxset.h}}>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_object}{FbxObject}};}
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_anim_stack}{FbxAnimStack}};}
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_anim_layer}{FbxAnimLayer}};}
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_anim_curve_node}{FbxAnimCurveNode}};}
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_anim_curve}{FbxAnimCurve}};}
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_anim_evaluator}{FbxAnimEvaluator}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{fbxproperty_8h_aad47f017660621019bda1aa0efc1b7ae}{EvaluatePropertyValue}}(\mbox{\hyperlink{class_fbx_property}{FbxProperty}}\&\ pProperty,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \textcolor{keywordtype}{bool}\ pForceEval\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_ae4aff3fdfa579d96a06f3f025d710e36}{Create}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pCompoundProperty,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\&\ pDataType,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pLabel=\textcolor{stringliteral}{"{}"{}},\ \textcolor{keywordtype}{bool}\ pCheckForDup=\textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}*\ pWasFound=NULL);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_ae08139931825dd529057d67812928622}{Create}}(FbxObject*\ pObject,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\&\ pDataType,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pLabel=\textcolor{stringliteral}{"{}"{}},\ \textcolor{keywordtype}{bool}\ pCheckForDup=\textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}*\ pWasFound=NULL);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_a333f52b93aca2083c6de7541a3911a65}{CreateFrom}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pCompoundProperty,\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pFromProperty,\ \textcolor{keywordtype}{bool}\ pCheckForDup=\textcolor{keyword}{true});}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_a3a80022746dbee36a37eed53aa19dbe0}{CreateFrom}}(FbxObject*\ pObject,\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pFromProperty,\ \textcolor{keywordtype}{bool}\ pCheckForDup=\textcolor{keyword}{true});}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_a868cb14e3bdafc7e6bb68ffcf003f266}{Destroy}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_acd55a5da5402c12716b5dcda32068456}{DestroyRecursively}}();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_a5dbf74ee7ac5ec07d810d24d58c50ead}{DestroyChildren}}();}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_aaff1233681e54f5e8d70e695c2bdd2ca}{FbxProperty}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_afaf9ebfe81538ea7948fde0d617f3408}{FbxProperty}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle}{FbxPropertyHandle}}\&\ pPropertyHandle);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_aabd3a3fc65f04824f033844223735139}{\string~FbxProperty}}();}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ \mbox{\hyperlink{class_fbx_property_a62565770177152f06d82c745e0811b84}{GetPropertyDataType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{class_fbx_property_ad4505c67d892b22bb40ba5e9c5b4a844}{GetName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_property_a7d59a485b6b2eb7ad242c18583b36e45}{GetNameAsCStr}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{class_fbx_property_a6045fdbb1bbe5a84f44c7f447d2fa52c}{GetHierarchicalName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{class_fbx_property_a6efe7b201b09f1694daa39d32ea2d7e1}{GetLabel}}(\textcolor{keywordtype}{bool}\ pReturnNameIfEmpty=\textcolor{keyword}{true})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_a8ceef24a4b0e5838895962aaf0ad07ae}{SetLabel}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pLabel);}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_property_a77b1eff7b344ac723dd2f7b6ae20d7ce}{GetFbxObject}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_affbc6e79fd35b52606d84d4e6839725c}{SetUserTag}}(\textcolor{keywordtype}{int}\ pTag);}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_a346536ecdb6cc2178105ed4fc30b80fc}{GetUserTag}}();}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_a36506608b92abf21707be1c06a6cac3b}{SetUserDataPtr}}(\textcolor{keywordtype}{void}*\ pUserData);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_fbx_property_a72d5a68873aca677e750713cadc4ba3d}{GetUserDataPtr}}();}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_a16da0381546978afc477b033239f1fc9}{ModifyFlag}}(\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlag,\ \textcolor{keywordtype}{bool}\ pValue);}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a08c9fefe4d1a34c091ff02386462c8d6}{GetFlag}}(\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlag)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ \mbox{\hyperlink{class_fbx_property_a8a6c56ee1afdaac4fd6d750a6677f177}{GetFlags}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8}{FbxPropertyFlags::EInheritType}}\ \mbox{\hyperlink{class_fbx_property_ad2c773361ba216ae0fdd3eb8d10cb4e2}{GetFlagInheritType}}(\ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlag\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a65a521dab6bcd5c3f2570f555dbcaddc}{SetFlagInheritType}}(\ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlag,\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8}{FbxPropertyFlags::EInheritType}}\ pType\ );}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_ab89605d755ba9030d8a03819741dbafb}{ModifiedFlag}}(\ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlag\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ operator=\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty);}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00241\ \ \ \ \ }
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator<\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator>\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00257\ \ \ \ \ }
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator==\ (\textcolor{keywordtype}{int}\ pValue)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (pValue\ ==\ 0)\ ?\ !\mbox{\hyperlink{class_fbx_property_a1c40042c55d1f4a1d4837f06fbc1d764}{IsValid}}()\ :\ \mbox{\hyperlink{class_fbx_property_a1c40042c55d1f4a1d4837f06fbc1d764}{IsValid}}();\ \}}
+\DoxyCodeLine{00263\ \ \ \ \ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator!=\ (\textcolor{keywordtype}{int}\ pValue)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (pValue\ !=\ 0)\ ?\ !\mbox{\hyperlink{class_fbx_property_a1c40042c55d1f4a1d4837f06fbc1d764}{IsValid}}()\ :\ \mbox{\hyperlink{class_fbx_property_a1c40042c55d1f4a1d4837f06fbc1d764}{IsValid}}();\ \}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a41408b250f8d1f15baa0aa358a7cc163}{CompareValue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_aadee6392924e168e7cfea5225148893a}{CopyValue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty);}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{class_fbx_property_a7d3760c0aec45b51823c57f62a08dc46}{Get}}()\textcolor{keyword}{\ const\ }\{\ T\ lValue;\ \mbox{\hyperlink{class_fbx_property_a7d3760c0aec45b51823c57f62a08dc46}{Get}}(\&lValue,\ FbxTypeOf(lValue));\ \textcolor{keywordflow}{return}\ lValue;\ \}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a7854464326c74ce7caee2a4263284a46}{Set}}(\textcolor{keyword}{const}\ T\&\ pValue)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_a7854464326c74ce7caee2a4263284a46}{Set}}(\&pValue,\ FbxTypeOf(pValue));\ \}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a1c40042c55d1f4a1d4837f06fbc1d764}{IsValid}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_aa040d85cda5816e4937a348e47357a61}{HasDefaultValue}}(\mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty);}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8}{FbxPropertyFlags::EInheritType}}\ \mbox{\hyperlink{class_fbx_property_aee557d7603e73430d4034a03b631b75e}{GetValueInheritType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_ad83cb36df88b5c088d955effd462d4be}{SetValueInheritType}}(\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8}{FbxPropertyFlags::EInheritType}}\ pType\ );}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_acea8ef5412320c293dfaca9680bc797b}{Modified}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a7f84a31a453f4e800e4440517418e7fe}{SupportSetLimitAsDouble}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_aa257615c70fd0ff635471216d8aea3ca}{SetMinLimit}}(\textcolor{keywordtype}{double}\ pMin);}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_ae2c3f0688ecfbed568feb2dbe33967c3}{HasMinLimit}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_property_abdc5ccbaea5c1e32d7b1ccfa3fd826af}{GetMinLimit}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a0f55c44acd2069128f85063eb2c04d47}{HasMaxLimit}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_af79f0aa4871176b7ca40e16af233a984}{SetMaxLimit}}(\textcolor{keywordtype}{double}\ pMax);}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_property_a1cdf4161465d3b988b23b9fe05fa22b4}{GetMaxLimit}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_acc29ebadc04e2fdd89f986d3faaff874}{SetLimits}}(\textcolor{keywordtype}{double}\ pMin,\ \textcolor{keywordtype}{double}\ pMax);}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_aa25239a939eb238e2eb239040364e286}{AddEnumValue}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pStringValue);}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_a3e03482059d70c4e86314f8922ae8d22}{InsertEnumValue}}(\textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pStringValue);}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_ac06caf332b2d662a8ad09cff1f397820}{GetEnumCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_ae9dd7a699742397756227ac1dbd9eb13}{SetEnumValue}}(\textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pStringValue);}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_aa652adeb57fa64c60cab63ac1df9efa5}{RemoveEnumValue}}(\textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_property_a62d1fe29415eec0a052e5be23e5dc9c6}{GetEnumValue}}(\textcolor{keywordtype}{int}\ pIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_ac614dd09edb00ac99ce49332a66a597d}{IsRoot}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPropertyHandle.IsRoot();\ \}}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_aa8284deb85f3a324db108291bc42284a}{IsChildOf}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pParent)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPropertyHandle.IsChildOf(pParent.mPropertyHandle);\ \}}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_aa346bfac7ee0847e7fa2a6dc4aba90ac}{IsDescendentOf}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pAncestor)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPropertyHandle.IsDescendentOf(pAncestor.mPropertyHandle);\ \}}
+\DoxyCodeLine{00483\ }
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_a2cafce5b279fd3dd3a01a618538c15ca}{GetParent}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}(mPropertyHandle.GetParent());\ \ \}}
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_a0b677f1fd948cfc645962a91b1ed928f}{GetChild}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}(mPropertyHandle.GetChild());\ \ \ \}}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_ac723c81393df4b2fdedd78863b361ab5}{GetSibling}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}(mPropertyHandle.GetSibling());\ \}}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_ad7f8dea372a3401119e18f23b03691f4}{GetFirstDescendent}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}(mPropertyHandle.GetFirstDescendent());\ \ \ \}}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_a1de724032949fd7a7b21028894adbcce}{GetNextDescendent}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}(mPropertyHandle.GetNextDescendent(pProperty.mPropertyHandle));\ \}}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_af6dc98aa7ae9fd339f5b463845f56b29}{Find}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keywordtype}{bool}\ pCaseSensitive\ =\ \textcolor{keyword}{true})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}(mPropertyHandle.Find(pName,pCaseSensitive));\ \ \}}
+\DoxyCodeLine{00517\ }
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_acd7815414a490b7d6c2fb6bf1d95536e}{Find}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\&\ pDataType,\ \textcolor{keywordtype}{bool}\ pCaseSensitive\ =\ \textcolor{keyword}{true})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}(mPropertyHandle.Find(pName,pDataType.\mbox{\hyperlink{class_fbx_data_type_a1e5a65a6331ead7c3a49f4b972d07655}{GetTypeInfoHandle}}(),pCaseSensitive));\ \ \}}
+\DoxyCodeLine{00526\ }
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_aa3c6cdd5991e086121dc7d724846e444}{FindHierarchical}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keywordtype}{bool}\ pCaseSensitive\ =\ \textcolor{keyword}{true})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}(mPropertyHandle.Find(pName,\mbox{\hyperlink{class_fbx_property_a4b55a5fb0b5e63c3db166e64f38bec1d}{sHierarchicalSeparator}},pCaseSensitive));\ \ \}}
+\DoxyCodeLine{00534\ }
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_a5daed7a38564da53f44bdaa5f71f7837}{FindHierarchical}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\&\ pDataType,\ \textcolor{keywordtype}{bool}\ pCaseSensitive\ =\ \textcolor{keyword}{true})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}(mPropertyHandle.Find(pName,\mbox{\hyperlink{class_fbx_property_a4b55a5fb0b5e63c3db166e64f38bec1d}{sHierarchicalSeparator}},pDataType.\mbox{\hyperlink{class_fbx_data_type_a1e5a65a6331ead7c3a49f4b972d07655}{GetTypeInfoHandle}}(),pCaseSensitive));\ \ \}}
+\DoxyCodeLine{00544\ }
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_a9305ebb4cec09a9a9dea0a36f38e2712}{BeginCreateOrFindProperty}}()\{\ mPropertyHandle.BeginCreateOrFindProperty();\ \}}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_a1af85e75268d31cb28323895ad45d52c}{EndCreateOrFindProperty}}()\{\ mPropertyHandle.EndCreateOrFindProperty();\ \}}
+\DoxyCodeLine{00554\ }
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_property_1_1_fbx_property_name_cache_a5bce2c1df640d45843d80fb2ad3e1ae0}{FbxPropertyNameCache}}}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_1_1_fbx_property_name_cache_a5bce2c1df640d45843d80fb2ad3e1ae0}{FbxPropertyNameCache}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ prop)\ :\ mProp(const\_cast<\mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&>(prop))\{\ mProp.BeginCreateOrFindProperty();\ \}}
+\DoxyCodeLine{00563\ }
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_1_1_fbx_property_name_cache_a4750d4813c1a70064a44718946668f25}{\string~FbxPropertyNameCache}}()\{\ mProp.EndCreateOrFindProperty();\ \}}
+\DoxyCodeLine{00566\ }
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ mProp;}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_1_1_fbx_property_name_cache}{FbxPropertyNameCache}}\&\ \mbox{\hyperlink{class_fbx_property_abdf319c0838e86675f2c24c87425f38a}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_1_1_fbx_property_name_cache}{FbxPropertyNameCache}}\&\ pOther)\{\ mProp\ =\ pOther.mProp;\ mProp.\mbox{\hyperlink{class_fbx_property_a9305ebb4cec09a9a9dea0a36f38e2712}{BeginCreateOrFindProperty}}();\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00572\ }
+\DoxyCodeLine{00577\ }
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_anim_evaluator}{FbxAnimEvaluator}}*\ \mbox{\hyperlink{class_fbx_property_ae8e5b107f41d4a9792a00b820844fa07}{GetAnimationEvaluator}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00580\ }
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a1ae3c41711a9684cb1b3e6cf454c9b12}{IsAnimated}}(\mbox{\hyperlink{class_fbx_anim_layer}{FbxAnimLayer}}*\ pAnimLayer=NULL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00585\ }
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ T\ \mbox{\hyperlink{class_fbx_property_a6256ee462711d9b236f345a4c7eb8a75}{EvaluateValue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_INFINITE,\ \textcolor{keywordtype}{bool}\ pForceEval=\textcolor{keyword}{false});}
+\DoxyCodeLine{00592\ }
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_value}{FbxPropertyValue}}\&\ \mbox{\hyperlink{class_fbx_property_a6d0ec9ddba2aa65367c611948f83a1d5}{EvaluateValue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_INFINITE,\ \textcolor{keywordtype}{bool}\ pForceEval=\textcolor{keyword}{false});}
+\DoxyCodeLine{00598\ }
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_anim_curve_node}{FbxAnimCurveNode}}*\ \mbox{\hyperlink{class_fbx_property_ad8bcd4a365f4a72b3a570cf9c1347c2e}{CreateCurveNode}}(\mbox{\hyperlink{class_fbx_anim_layer}{FbxAnimLayer}}*\ pAnimLayer);}
+\DoxyCodeLine{00607\ }
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_anim_curve_node}{FbxAnimCurveNode}}*\ \mbox{\hyperlink{class_fbx_property_a47ae06c5adc1e03b4571a7ecf3d7e435}{GetCurveNode}}(\textcolor{keywordtype}{bool}\ pCreate=\textcolor{keyword}{false});}
+\DoxyCodeLine{00613\ }
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_anim_curve_node}{FbxAnimCurveNode}}*\ \mbox{\hyperlink{class_fbx_property_a280a0a2e3a41474c49977844915c9f75}{GetCurveNode}}(\mbox{\hyperlink{class_fbx_anim_stack}{FbxAnimStack}}*\ pAnimStack,\ \textcolor{keywordtype}{bool}\ pCreate=\textcolor{keyword}{false});}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_anim_curve_node}{FbxAnimCurveNode}}*\ \mbox{\hyperlink{class_fbx_property_ab03b07a5c6213665b7e2e7df36a9e393}{GetCurveNode}}(\mbox{\hyperlink{class_fbx_anim_layer}{FbxAnimLayer}}*\ pAnimLayer,\ \textcolor{keywordtype}{bool}\ pCreate=\textcolor{keyword}{false});}
+\DoxyCodeLine{00628\ }
+\DoxyCodeLine{00638\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_anim_curve}{FbxAnimCurve}}*\ \mbox{\hyperlink{class_fbx_property_a6c93819a36e71f1d8a713a4f26f7eef7}{GetCurve}}(\mbox{\hyperlink{class_fbx_anim_layer}{FbxAnimLayer}}*\ pAnimLayer,\ \textcolor{keywordtype}{bool}\ pCreate=\textcolor{keyword}{false})}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_a6c93819a36e71f1d8a713a4f26f7eef7}{GetCurve}}(pAnimLayer,\ \mbox{\hyperlink{class_fbx_property_ad4505c67d892b22bb40ba5e9c5b4a844}{GetName}}(),\ NULL,\ pCreate);}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00642\ }
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_anim_curve}{FbxAnimCurve}}*\ \mbox{\hyperlink{class_fbx_property_ad141358704c01d18e529ca296df51f6f}{GetCurve}}(\mbox{\hyperlink{class_fbx_anim_layer}{FbxAnimLayer}}*\ pAnimLayer,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pChannel,\ \textcolor{keywordtype}{bool}\ pCreate=\textcolor{keyword}{false})}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_a6c93819a36e71f1d8a713a4f26f7eef7}{GetCurve}}(pAnimLayer,\ \mbox{\hyperlink{class_fbx_property_ad4505c67d892b22bb40ba5e9c5b4a844}{GetName}}(),\ pChannel,\ pCreate);}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00657\ }
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_anim_curve}{FbxAnimCurve}}*\ \mbox{\hyperlink{class_fbx_property_a34a1cec3a36333781a28f334d95ac56a}{GetCurve}}(\mbox{\hyperlink{class_fbx_anim_layer}{FbxAnimLayer}}*\ pAnimLayer,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pChannel,\ \textcolor{keywordtype}{bool}\ pCreate);}
+\DoxyCodeLine{00673\ }
+\DoxyCodeLine{00678\ }
+\DoxyCodeLine{00683\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_ad6169eb703985c8a77f294442a03703d}{ConnectSrcObject}}(FbxObject*\ pObject,\ FbxConnection::EType\ pType=FbxConnection::eNone);}
+\DoxyCodeLine{00684\ }
+\DoxyCodeLine{00689\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_af4fc85f2c880d813903e158147aeeae4}{IsConnectedSrcObject}}(\textcolor{keyword}{const}\ FbxObject*\ pObject)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00690\ }
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_aaf72d2b89f03e122cea736ca8e060cab}{DisconnectSrcObject}}(FbxObject*\ pObject);}
+\DoxyCodeLine{00696\ }
+\DoxyCodeLine{00700\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a7b9a767f964e705be7436739c5752644}{DisconnectAllSrcObject}}();}
+\DoxyCodeLine{00701\ }
+\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a5535e9be6a48d8fd8fcb3a382067be8d}{DisconnectAllSrcObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria);}
+\DoxyCodeLine{00707\ }
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{class_fbx_property_a4b6d431d87134722800f06e4cb442335}{GetSrcObjectCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00712\ }
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_ad90aa5b8d3fbe78a9bf541dcbcf9c210}{GetSrcObjectCount}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00718\ }
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_property_a4ad677b1772f6af0b294efe2bb31b949}{GetSrcObject}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00724\ }
+\DoxyCodeLine{00730\ \ \ \ \ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_property_abcc11e63ea33ed2154e94540e6b9faa6}{GetSrcObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00731\ }
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_property_a4ca78d98944c1fa36cda843c22193974}{FindSrcObject}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pStartIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00738\ }
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_property_af826ffefb8ca89ee3f6ad691f2624cea}{FindSrcObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pStartIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00746\ }
+\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a70f1adf2711c5bd6f3d7c1f6f9c7ddf2}{DisconnectAllSrcObject}}()\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_a70f1adf2711c5bd6f3d7c1f6f9c7ddf2}{DisconnectAllSrcObject}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId));\ \}}
+\DoxyCodeLine{00752\ }
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_ab176817ac3ddc88c86d28006b066bc26}{DisconnectAllSrcObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_ab176817ac3ddc88c86d28006b066bc26}{DisconnectAllSrcObject}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId)\ \&\&\ pCriteria);\ \}}
+\DoxyCodeLine{00759\ }
+\DoxyCodeLine{00764\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_a876b4f2219a1ca16337f35b27a76eed4}{GetSrcObjectCount}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_a876b4f2219a1ca16337f35b27a76eed4}{GetSrcObjectCount}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId));\ \}}
+\DoxyCodeLine{00765\ }
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_a4a79c28a713cafebad7254bd68b05a2f}{GetSrcObjectCount}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_a4a79c28a713cafebad7254bd68b05a2f}{GetSrcObjectCount}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId)\ \&\&\ pCriteria);\ \}}
+\DoxyCodeLine{00772\ }
+\DoxyCodeLine{00778\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T*\ \mbox{\hyperlink{class_fbx_property_a42997b81a4ee70cd2d07426be34baeb7}{GetSrcObject}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex=0)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (T*)\mbox{\hyperlink{class_fbx_property_a42997b81a4ee70cd2d07426be34baeb7}{GetSrcObject}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId),\ pIndex);\ \}}
+\DoxyCodeLine{00779\ }
+\DoxyCodeLine{00786\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T*\ \mbox{\hyperlink{class_fbx_property_a717be58a254ebf88c8101e06264a9848}{GetSrcObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex=0)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (T*)\mbox{\hyperlink{class_fbx_property_a717be58a254ebf88c8101e06264a9848}{GetSrcObject}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId)\ \&\&\ pCriteria,\ pIndex);\ \}}
+\DoxyCodeLine{00787\ }
+\DoxyCodeLine{00794\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T*\ \mbox{\hyperlink{class_fbx_property_ae51d63057fd7c9ebb280149807dcad80}{FindSrcObject}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pStartIndex=0)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (T*)\mbox{\hyperlink{class_fbx_property_ae51d63057fd7c9ebb280149807dcad80}{FindSrcObject}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId),\ pName,\ pStartIndex);\ \}}
+\DoxyCodeLine{00795\ }
+\DoxyCodeLine{00803\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T*\ \mbox{\hyperlink{class_fbx_property_aec8bebbaf359942c931ab1d089fcc3f1}{FindSrcObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pStartIndex=0)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (T*)\mbox{\hyperlink{class_fbx_property_aec8bebbaf359942c931ab1d089fcc3f1}{FindSrcObject}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId)\ \&\&\ pCriteria,\ pName,\ pStartIndex);\ \}}
+\DoxyCodeLine{00804\ }
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_aa6ba6b487c09e1cecc2eb02440998d1a}{ConnectDstObject}}(FbxObject*\ pObject,\ FbxConnection::EType\ pType=FbxConnection::eNone);}
+\DoxyCodeLine{00811\ }
+\DoxyCodeLine{00816\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a991b94a016bed8e93015e1024596bbef}{IsConnectedDstObject}}(\textcolor{keyword}{const}\ FbxObject*\ pObject)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00817\ }
+\DoxyCodeLine{00822\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a322bdde93bd6716cdeeddd29d735d900}{DisconnectDstObject}}(FbxObject*\ pObject);}
+\DoxyCodeLine{00823\ }
+\DoxyCodeLine{00827\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_ad4205b37ed636ff110565351d82a6468}{DisconnectAllDstObject}}();}
+\DoxyCodeLine{00828\ }
+\DoxyCodeLine{00833\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_aab638ced78a12c068238b538159cf003}{DisconnectAllDstObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria);}
+\DoxyCodeLine{00834\ }
+\DoxyCodeLine{00838\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_a8a87e8b905f4a30eac5d382fa6b95dbc}{GetDstObjectCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00839\ }
+\DoxyCodeLine{00844\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_acfca6ad7f8a1eebfecc838e91b7af100}{GetDstObjectCount}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00845\ }
+\DoxyCodeLine{00850\ \ \ \ \ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_property_ab2035b2767a12b50bc87aa47f62a7e42}{GetDstObject}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00851\ }
+\DoxyCodeLine{00857\ \ \ \ \ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_property_aa98837229654199d3c1222508769b6e0}{GetDstObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00858\ }
+\DoxyCodeLine{00864\ \ \ \ \ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_property_a0e208b47c0758b631a4d273fb9e36c0b}{FindDstObject}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pStartIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00865\ }
+\DoxyCodeLine{00872\ \ \ \ \ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_property_a1928609b0650a7534795ff6925f1dab8}{FindDstObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pStartIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00873\ }
+\DoxyCodeLine{00878\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a9700052b15311bdbdb950fec91fe8ea8}{DisconnectAllDstObject}}()\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_a9700052b15311bdbdb950fec91fe8ea8}{DisconnectAllDstObject}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId));\ \}}
+\DoxyCodeLine{00879\ }
+\DoxyCodeLine{00885\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_aa87d6cc464919a95dd7fd428b28c6e48}{DisconnectAllDstObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_aa87d6cc464919a95dd7fd428b28c6e48}{DisconnectAllDstObject}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId)\ \&\&\ pCriteria);\ \}}
+\DoxyCodeLine{00886\ }
+\DoxyCodeLine{00891\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_a99dd8bf0103c66a7a8bf3a5ea72e41bd}{GetDstObjectCount}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_a99dd8bf0103c66a7a8bf3a5ea72e41bd}{GetDstObjectCount}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId));\ \}}
+\DoxyCodeLine{00892\ }
+\DoxyCodeLine{00898\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_a5ba90af060ad449844816a3234ad0750}{GetDstObjectCount}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_a5ba90af060ad449844816a3234ad0750}{GetDstObjectCount}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId)\ \&\&\ pCriteria);\ \}}
+\DoxyCodeLine{00899\ }
+\DoxyCodeLine{00905\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T*\ \mbox{\hyperlink{class_fbx_property_aec24d653fff5265dae8a58fa98b8ce2e}{GetDstObject}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex=0)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (T*)\mbox{\hyperlink{class_fbx_property_aec24d653fff5265dae8a58fa98b8ce2e}{GetDstObject}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId),\ pIndex);\ \}}
+\DoxyCodeLine{00906\ }
+\DoxyCodeLine{00913\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T*\ \mbox{\hyperlink{class_fbx_property_ab6b13f8ac170ed9a6936249f89d23b7e}{GetDstObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex=0)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (T*)\mbox{\hyperlink{class_fbx_property_ab6b13f8ac170ed9a6936249f89d23b7e}{GetDstObject}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId)\ \&\&\ pCriteria,\ pIndex);\ \}}
+\DoxyCodeLine{00914\ }
+\DoxyCodeLine{00921\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T*\ \mbox{\hyperlink{class_fbx_property_ad1af85aab60ef13ff511ff7337cd1391}{FindDstObject}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pStartIndex=0)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (T*)\mbox{\hyperlink{class_fbx_property_ad1af85aab60ef13ff511ff7337cd1391}{FindDstObject}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId),\ pName,\ pStartIndex);\ \}}
+\DoxyCodeLine{00922\ }
+\DoxyCodeLine{00930\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T*\ \mbox{\hyperlink{class_fbx_property_adc62c2c1631db2ee873f2f2e72eda74e}{FindDstObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_criteria}{FbxCriteria}}\&\ pCriteria,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pStartIndex=0)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (T*)\mbox{\hyperlink{class_fbx_property_adc62c2c1631db2ee873f2f2e72eda74e}{FindDstObject}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(T::ClassId)\ \&\&\ pCriteria,\ pName,\ pStartIndex);\ \}}
+\DoxyCodeLine{00932\ }
+\DoxyCodeLine{00937\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Properties}}
+\DoxyCodeLine{00942\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_aeeed658a70181e4bd6030c516065eb03}{ConnectSrcProperty}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty);}
+\DoxyCodeLine{00943\ }
+\DoxyCodeLine{00948\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_aca4ace4ad256046bc548c54173dab0c1}{IsConnectedSrcProperty}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty);}
+\DoxyCodeLine{00949\ }
+\DoxyCodeLine{00954\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a25e6a00df6d1ec69db93a1d31c38374b}{DisconnectSrcProperty}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty);}
+\DoxyCodeLine{00955\ }
+\DoxyCodeLine{00959\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_a536aec7568f10441cf70045aa8842429}{GetSrcPropertyCount}}()\ \textcolor{keyword}{const};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00960\ }
+\DoxyCodeLine{00965\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a1da4b660e1375970a8fa1dfb09074e3e}{ConnectDstProperty}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ \ pProperty);}
+\DoxyCodeLine{00966\ }
+\DoxyCodeLine{00971\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_aff04371bd84802d5c50c397e5716b604}{IsConnectedDstProperty}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty);}
+\DoxyCodeLine{00972\ }
+\DoxyCodeLine{00977\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_aa7178fdcef5b430fd74b5a1385b18ce7}{DisconnectDstProperty}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty);}
+\DoxyCodeLine{00978\ }
+\DoxyCodeLine{00982\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_property_abfcc52bdbd9853b10806740934b0230a}{GetDstPropertyCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00983\ }
+\DoxyCodeLine{00985\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_abc41950bc933e9bc5454e1b5b39c4d5c}{ClearConnectCache}}();}
+\DoxyCodeLine{00986\ }
+\DoxyCodeLine{00991\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \ \mbox{\hyperlink{class_fbx_property_ad538b18849614ac8d6ec3031bdf8a7ea}{GetSrcProperty}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00992\ }
+\DoxyCodeLine{00998\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_ae3efe1d4750e6e4e5b0a91cde0adb935}{FindSrcProperty}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pStartIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00999\ }
+\DoxyCodeLine{01004\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_ade7a6b86edce76764b6b4cb4854cb9b7}{GetDstProperty}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01005\ }
+\DoxyCodeLine{01011\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ \mbox{\hyperlink{class_fbx_property_ac4658f970d7c354229e1f6fe71d0d250}{FindDstProperty}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pStartIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01013\ }
+\DoxyCodeLine{01015\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_property_a4b55a5fb0b5e63c3db166e64f38bec1d}{sHierarchicalSeparator}};}
+\DoxyCodeLine{01016\ }
+\DoxyCodeLine{01017\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{01018\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{01019\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{01020\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{01021\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{01022\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}(FbxObject*\ pObject,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\&\ pDataType=\mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}(),\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pLabel=\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{01023\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pParent,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\&\ pDataType,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pLabel);}
+\DoxyCodeLine{01024\ }
+\DoxyCodeLine{01025\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a7854464326c74ce7caee2a4263284a46}{Set}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pValue,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\&\ pValueType,\ \textcolor{keywordtype}{bool}\ pCheckForValueEquality=\textcolor{keyword}{true});}
+\DoxyCodeLine{01026\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_property_a7d3760c0aec45b51823c57f62a08dc46}{Get}}(\textcolor{keywordtype}{void}*\ pValue,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\&\ pValueType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01027\ }
+\DoxyCodeLine{01028\ \ \ \ \ \textcolor{keywordtype}{bool}\ NotifySetRequest();}
+\DoxyCodeLine{01029\ \ \ \ \ \textcolor{keywordtype}{bool}\ NotifySet();}
+\DoxyCodeLine{01030\ \ \ \ \ \textcolor{keywordtype}{bool}\ NotifyGet()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01031\ }
+\DoxyCodeLine{01032\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01033\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}*\ \ \ \ \mbox{\hyperlink{class_fbx_property_a7d3760c0aec45b51823c57f62a08dc46}{Get}}()\textcolor{keyword}{\ const\ }\{\ FBX\_ASSERT\_NOW(\textcolor{stringliteral}{"{}Cannot\ get\ property\ value\ as\ void!"{}});\ \textcolor{keywordflow}{return}\ NULL;\ \}}
+\DoxyCodeLine{01034\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \ \ \ \ Set(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ \&)\{\ FBX\_ASSERT\_NOW(\textcolor{stringliteral}{"{}Cannot\ set\ property\ value\ as\ void!"{}});\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{01035\ }
+\DoxyCodeLine{01036\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ ConnectSrc(\textcolor{keyword}{const}\ FbxProperty\&\ pProperty,\ FbxConnection::EType\ pType=FbxConnection::eNone);}
+\DoxyCodeLine{01037\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ DisconnectSrc(\textcolor{keyword}{const}\ FbxProperty\&\ pProperty);}
+\DoxyCodeLine{01038\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ DisconnectAllSrc();}
+\DoxyCodeLine{01039\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ DisconnectAllSrc(\textcolor{keyword}{const}\ FbxCriteria\&\ pCriteria);}
+\DoxyCodeLine{01040\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ IsConnectedSrc(\textcolor{keyword}{const}\ FbxProperty\&\ pProperty)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01041\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ GetSrcCount()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01042\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ GetSrcCount(\textcolor{keyword}{const}\ FbxCriteria\&\ pCriteria)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01043\ \ \ \ \ FbxProperty\ \ \ \ \ GetSrc(\textcolor{keywordtype}{int}\ pIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01044\ \ \ \ \ FbxProperty\ \ \ \ \ GetSrc(\textcolor{keyword}{const}\ FbxCriteria\&\ pCriteria,\ \textcolor{keywordtype}{int}\ pIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01045\ \ \ \ \ FbxProperty\ \ \ \ \ FindSrc(\textcolor{keyword}{const}\ FbxCriteria\&\ pCriteria,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keywordtype}{int}\ pStartIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01046\ }
+\DoxyCodeLine{01047\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ ConnectDst(\textcolor{keyword}{const}\ FbxProperty\&\ pProperty,\ FbxConnection::EType\ pType=FbxConnection::eNone);}
+\DoxyCodeLine{01048\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ DisconnectDst(\textcolor{keyword}{const}\ FbxProperty\&\ pProperty);}
+\DoxyCodeLine{01049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ DisconnectAllDst();}
+\DoxyCodeLine{01050\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ DisconnectAllDst(\textcolor{keyword}{const}\ FbxCriteria\&\ pCriteria);}
+\DoxyCodeLine{01051\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ IsConnectedDst(\textcolor{keyword}{const}\ FbxProperty\&\ pProperty)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01052\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ GetDstCount()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01053\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ GetDstCount(\textcolor{keyword}{const}\ FbxCriteria\&\ pCriteria)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01054\ \ \ \ \ FbxProperty\ \ \ \ \ GetDst(\textcolor{keywordtype}{int}\ pIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01055\ \ \ \ \ FbxProperty\ \ \ \ \ GetDst(\textcolor{keyword}{const}\ FbxCriteria\&\ pCriteria,\ \textcolor{keywordtype}{int}\ pIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01056\ \ \ \ \ FbxProperty\ \ \ \ \ FindDst(\textcolor{keyword}{const}\ FbxCriteria\&\ pCriteria,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keywordtype}{int}\ pStartIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01057\ }
+\DoxyCodeLine{01058\ \ \ \ \ \textcolor{keyword}{mutable}\ FbxPropertyHandle\ mPropertyHandle;}
+\DoxyCodeLine{01059\ }
+\DoxyCodeLine{01060\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxObject;}
+\DoxyCodeLine{01061\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxIOSettings;}
+\DoxyCodeLine{01062\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxBindingOperator;}
+\DoxyCodeLine{01063\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxAnimEvalClassic;}
+\DoxyCodeLine{01064\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{void}\ FbxMarkObject(FbxObject*\ pObject,\ FbxMap<FbxObject*,\ int>\&\ pObjectDstDisconnectCount,\ FbxSet<FbxObject*>\&\ pObjectsToDeleted,\ FbxArray<FbxObject*>\&\ pObjectToDeletedInSequence);}
+\DoxyCodeLine{01065\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{void}\ FbxCleanUpConnectionsAtDestructionBoundary(FbxScene*\ pObject,\ FbxArray<FbxObject*>\&\ pObjectToDeletedInSequence);}
+\DoxyCodeLine{01066\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01067\ \};}
+\DoxyCodeLine{01068\ }
+\DoxyCodeLine{01072\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{class\ }FbxPropertyT\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}}
+\DoxyCodeLine{01073\ \{}
+\DoxyCodeLine{01074\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01076\ \ \ \ \ \textcolor{keyword}{typedef}\ T\ \mbox{\hyperlink{class_fbx_property_t_afa2b21ce421fbdc33229b7b59bd4fbe9}{ValueType}};}
+\DoxyCodeLine{01077\ }
+\DoxyCodeLine{01082\ }
+\DoxyCodeLine{01089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ \mbox{\hyperlink{class_fbx_property_t_a3e16089fe661f1ec064ac976396dfbe2}{StaticInit}}(FbxObject*\ pObject,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ T\&\ pValue,\ \textcolor{keywordtype}{bool}\ pForceSet,\ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlags=\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99ac1b9aab93d40af76eb419be426de17b1}{FbxPropertyFlags::eNone}})}
+\DoxyCodeLine{01090\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_t_a3e16089fe661f1ec064ac976396dfbe2}{StaticInit}}(pObject,\ pName,\ \mbox{\hyperlink{fbxdatatypes_8h_ad7296a6bee443baf46105d65673ef080}{FbxGetDataTypeFromEnum}}(FbxTypeOf(pValue)),\ pValue,\ pForceSet,\ pFlags);}
+\DoxyCodeLine{01092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01093\ }
+\DoxyCodeLine{01102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ \mbox{\hyperlink{class_fbx_property_t_a9ba32411b1f1e6e2aa606fc190c574eb}{StaticInit}}(FbxObject*\ pObject,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\&\ pDataType,\ \textcolor{keyword}{const}\ T\&\ pValue,\ \textcolor{keywordtype}{bool}\ pForceSet,\ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlags=\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99ac1b9aab93d40af76eb419be426de17b1}{FbxPropertyFlags::eNone}})}
+\DoxyCodeLine{01103\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lWasFound\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01105\ \ \ \ \ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ =\ \mbox{\hyperlink{class_fbx_property_ae4aff3fdfa579d96a06f3f025d710e36}{Create}}(pObject,\ pDataType,\ pName,\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keyword}{true},\ \&lWasFound);}
+\DoxyCodeLine{01106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pForceSet\ ||\ !lWasFound\ )}
+\DoxyCodeLine{01107\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_a16da0381546978afc477b033239f1fc9}{ModifyFlag}}(pFlags,\ \textcolor{keyword}{true});\ \textcolor{comment}{//\ modify\ the\ flags\ before\ we\ set\ the\ value}}
+\DoxyCodeLine{01109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_a7854464326c74ce7caee2a4263284a46}{FbxProperty::Set}}(\&pValue,\ FbxTypeOf(pValue),\ \textcolor{keyword}{false});}
+\DoxyCodeLine{01110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01111\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_a16da0381546978afc477b033239f1fc9}{ModifyFlag}}(\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99ad9782b0c0ceb7cc230e2ac64892e0e65}{FbxPropertyFlags::eStatic}},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{01112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{01113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01114\ }
+\DoxyCodeLine{01123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ \mbox{\hyperlink{class_fbx_property_t_a286a52c820cddd8db3dcfdb19ce8fe77}{StaticInit}}(\mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\ pCompound,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\&\ pDataType,\ \textcolor{keyword}{const}\ T\&\ pValue,\ \textcolor{keywordtype}{bool}\ pForceSet=\textcolor{keyword}{true},\ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlags=\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99ac1b9aab93d40af76eb419be426de17b1}{FbxPropertyFlags::eNone}})}
+\DoxyCodeLine{01124\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lWasFound\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01126\ \ \ \ \ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ =\ \mbox{\hyperlink{class_fbx_property_ae4aff3fdfa579d96a06f3f025d710e36}{Create}}(pCompound,\ pDataType,\ pName,\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keyword}{true},\ \&lWasFound);}
+\DoxyCodeLine{01127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pForceSet\ ||\ !lWasFound\ )}
+\DoxyCodeLine{01128\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_a16da0381546978afc477b033239f1fc9}{ModifyFlag}}(pFlags,\ \textcolor{keyword}{true});\ \textcolor{comment}{//\ modify\ the\ flags\ before\ we\ set\ the\ value}}
+\DoxyCodeLine{01130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_a7854464326c74ce7caee2a4263284a46}{FbxProperty::Set}}(\&pValue,\ FbxTypeOf(pValue),\ \textcolor{keyword}{false});}
+\DoxyCodeLine{01131\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01132\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_a16da0381546978afc477b033239f1fc9}{ModifyFlag}}(\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99ad9782b0c0ceb7cc230e2ac64892e0e65}{FbxPropertyFlags::eStatic}},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{01133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{01134\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01136\ }
+\DoxyCodeLine{01139\ }
+\DoxyCodeLine{01142\ \ \ \ \ \ \ \ \ FbxPropertyT\&\ \mbox{\hyperlink{class_fbx_property_t_ae1f58944ee1d2289e0fba622e9cecf6a}{Set}}(\textcolor{keyword}{const}\ T\&\ pValue)\{\ \mbox{\hyperlink{class_fbx_property_a7854464326c74ce7caee2a4263284a46}{FbxProperty::Set}}(\&pValue,\ FbxTypeOf(pValue));\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{01143\ }
+\DoxyCodeLine{01146\ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{class_fbx_property_t_aed683fb109a3a7b1fa4eacd648ae2478}{Get}}()\textcolor{keyword}{\ const\ }\{\ T\ lValue;\ \mbox{\hyperlink{class_fbx_property_a7d3760c0aec45b51823c57f62a08dc46}{FbxProperty::Get}}(\&lValue,\ FbxTypeOf(lValue));\ \textcolor{keywordflow}{return}\ lValue;\ \}}
+\DoxyCodeLine{01147\ }
+\DoxyCodeLine{01151\ \ \ \ \ \ \ \ \ FbxPropertyT\&\ \mbox{\hyperlink{class_fbx_property_t_a9d9029969f0d597531de2e141c733e80}{operator=}}(\textcolor{keyword}{const}\ T\&\ pValue)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_t_ae1f58944ee1d2289e0fba622e9cecf6a}{Set}}(pValue);\ \}}
+\DoxyCodeLine{01152\ }
+\DoxyCodeLine{01155\ \ \ \ \ \ \ \ \ \textcolor{keyword}{operator}\ T()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_t_aed683fb109a3a7b1fa4eacd648ae2478}{Get}}();\ \}}
+\DoxyCodeLine{01157\ }
+\DoxyCodeLine{01160\ }
+\DoxyCodeLine{01164\ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{class_fbx_property_t_a07f3d2e638b5f65838338eb03296c3f9}{EvaluateValue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_INFINITE,\ \textcolor{keywordtype}{bool}\ pForceEval=\textcolor{keyword}{false})}
+\DoxyCodeLine{01165\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxproperty_8h_aad47f017660621019bda1aa0efc1b7ae}{EvaluatePropertyValue<T>}}(*\textcolor{keyword}{this},\ pTime,\ pForceEval);}
+\DoxyCodeLine{01167\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01169\ }
+\DoxyCodeLine{01170\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{01171\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{01172\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{01173\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{01174\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT}}()\ :\ \mbox{\hyperlink{class_fbx_property}{FbxProperty}}()\{\}}
+\DoxyCodeLine{01175\ \ \ \ \ FbxPropertyT(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty)\ :\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}(pProperty)\{\}}
+\DoxyCodeLine{01176\ \ \ \ \ \string~FbxPropertyT()\{\}}
+\DoxyCodeLine{01177\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01178\ \};}
+\DoxyCodeLine{01179\ }
+\DoxyCodeLine{01180\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{01181\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{01182\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{01183\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{01184\ \textcolor{keyword}{template}\ <>\ \textcolor{keyword}{class\ }FbxPropertyT<FbxReference>\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}}
+\DoxyCodeLine{01185\ \{}
+\DoxyCodeLine{01186\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{01187\ \ \ \ \ FbxPropertyT()\ :\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}()\{\}}
+\DoxyCodeLine{01188\ \ \ \ \ FbxPropertyT(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ pProperty)\ :\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}(pProperty)\{\}}
+\DoxyCodeLine{01189\ \ \ \ \ \string~FbxPropertyT()\{\}}
+\DoxyCodeLine{01190\ }
+\DoxyCodeLine{01191\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ \mbox{\hyperlink{class_fbx_property_t_a3e16089fe661f1ec064ac976396dfbe2}{StaticInit}}(FbxObject*\ pObject,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ FbxReference\&\ pValue,\ \textcolor{keywordtype}{bool}\ pForceSet,\ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlags=\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99ac1b9aab93d40af76eb419be426de17b1}{FbxPropertyFlags::eNone}})}
+\DoxyCodeLine{01192\ \ \ \ \ \{}
+\DoxyCodeLine{01193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_t_a3e16089fe661f1ec064ac976396dfbe2}{StaticInit}}(pObject,\ pName,\ \mbox{\hyperlink{fbxdatatypes_8h_ad7296a6bee443baf46105d65673ef080}{FbxGetDataTypeFromEnum}}(\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a65fde6467d18f71452bc975bd8bcc8a8}{eFbxReference}}),\ pValue,\ pForceSet,\ pFlags);}
+\DoxyCodeLine{01194\ \ \ \ \ \}}
+\DoxyCodeLine{01195\ }
+\DoxyCodeLine{01196\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_ac6f4561fd451ab81b93de09dd463e356}{FbxProperty}}\&\ \mbox{\hyperlink{class_fbx_property_t_a3e16089fe661f1ec064ac976396dfbe2}{StaticInit}}(FbxObject*\ pObject,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\&\ pDataType,\ \textcolor{keyword}{const}\ FbxReference\&\ pValue,\ \textcolor{keywordtype}{bool}\ pForceSet,\ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlags=\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99ac1b9aab93d40af76eb419be426de17b1}{FbxPropertyFlags::eNone}})}
+\DoxyCodeLine{01197\ \ \ \ \ \{}
+\DoxyCodeLine{01198\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lWasFound\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01199\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ =\ \mbox{\hyperlink{class_fbx_property_ae4aff3fdfa579d96a06f3f025d710e36}{Create}}(pObject,\ pDataType,\ pName,\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keyword}{true},\ \&lWasFound);}
+\DoxyCodeLine{01200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pForceSet\ ||\ !lWasFound\ )}
+\DoxyCodeLine{01201\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01202\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_a16da0381546978afc477b033239f1fc9}{ModifyFlag}}(pFlags,\ \textcolor{keyword}{true});\ \textcolor{comment}{//\ modify\ the\ flags\ before\ we\ set\ the\ value}}
+\DoxyCodeLine{01203\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t_ae1f58944ee1d2289e0fba622e9cecf6a}{Set}}(pValue);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ since\ we\ will\ trigger\ callbacks\ in\ there!}}
+\DoxyCodeLine{01204\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01205\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_a16da0381546978afc477b033239f1fc9}{ModifyFlag}}(\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99ad9782b0c0ceb7cc230e2ac64892e0e65}{FbxPropertyFlags::eStatic}},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{01206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{01207\ \ \ \ \ \}}
+\DoxyCodeLine{01208\ }
+\DoxyCodeLine{01209\ \ \ \ \ FbxReference\ \mbox{\hyperlink{class_fbx_property_t_aed683fb109a3a7b1fa4eacd648ae2478}{Get}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01210\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01211\ \ \ \ \ \ \ \ \ FbxProperty::NotifyGet();}
+\DoxyCodeLine{01212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_a4ad677b1772f6af0b294efe2bb31b949}{GetSrcObject}}();}
+\DoxyCodeLine{01213\ \ \ \ \ \}}
+\DoxyCodeLine{01214\ }
+\DoxyCodeLine{01215\ \ \ \ \ FbxPropertyT\&\ \mbox{\hyperlink{class_fbx_property_t_ae1f58944ee1d2289e0fba622e9cecf6a}{Set}}(\textcolor{keyword}{const}\ FbxReference\&\ pValue)}
+\DoxyCodeLine{01216\ \ \ \ \ \{}
+\DoxyCodeLine{01217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ FbxProperty::NotifySetRequest()\ )}
+\DoxyCodeLine{01218\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01219\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_a7b9a767f964e705be7436739c5752644}{DisconnectAllSrcObject}}();}
+\DoxyCodeLine{01220\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{class_fbx_property_ad6169eb703985c8a77f294442a03703d}{ConnectSrcObject}}(pValue)\ )\ }
+\DoxyCodeLine{01221\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_ad83cb36df88b5c088d955effd462d4be}{FbxProperty::SetValueInheritType}}(\mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}});}
+\DoxyCodeLine{01223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxProperty::NotifySet();}
+\DoxyCodeLine{01224\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01225\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{01227\ \ \ \ \ \}}
+\DoxyCodeLine{01228\ }
+\DoxyCodeLine{01229\ \ \ \ \ \textcolor{keyword}{operator}\ FbxReference()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01230\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_t_aed683fb109a3a7b1fa4eacd648ae2478}{Get}}();}
+\DoxyCodeLine{01232\ \ \ \ \ \}}
+\DoxyCodeLine{01233\ }
+\DoxyCodeLine{01234\ \ \ \ \ FbxPropertyT\&\ \mbox{\hyperlink{class_fbx_property_t_a9d9029969f0d597531de2e141c733e80}{operator=}}(\textcolor{keyword}{const}\ FbxReference\&\ pValue)}
+\DoxyCodeLine{01235\ \ \ \ \ \{}
+\DoxyCodeLine{01236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_t_ae1f58944ee1d2289e0fba622e9cecf6a}{Set}}(pValue);}
+\DoxyCodeLine{01237\ \ \ \ \ \}}
+\DoxyCodeLine{01238\ \};}
+\DoxyCodeLine{01239\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01240\ }
+\DoxyCodeLine{01241\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{01242\ }
+\DoxyCodeLine{01243\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_PROPERTY\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

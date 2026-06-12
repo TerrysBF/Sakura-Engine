@@ -1,0 +1,459 @@
+\doxysection{fbxreaderfbx6.\+h}
+\hypertarget{fbxreaderfbx6_8h_source}{}\label{fbxreaderfbx6_8h_source}\index{include/fbx/fbxsdk/fileio/fbx/fbxreaderfbx6.h@{include/fbx/fbxsdk/fileio/fbx/fbxreaderfbx6.h}}
+\mbox{\hyperlink{fbxreaderfbx6_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2019\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_FILEIO\_FBX\_READER\_FBX6\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_FILEIO\_FBX\_READER\_FBX6\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk_8h}{fbxsdk.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_anim_stack}{FbxAnimStack}};}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_anim_layer}{FbxAnimLayer}};}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }Fbx6ObjectTypeInfo;}
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }Fbx6TypeReadReferences;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx6_class_template_map_a797c75312154457d38978b6c4046891e}{Fbx6ClassTemplateMap}}}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_fbx6_class_template_map_a797c75312154457d38978b6c4046891e}{Fbx6ClassTemplateMap}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_fbx6_class_template_map_af1b623f6de8fefd4c4515a66e40a2bec}{\string~Fbx6ClassTemplateMap}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ Fbx6ClassTemplateMap\ will\ own\ this\ template\ object.}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx6_class_template_map_a064f7a5f731932c34a257fe9947c3981}{AddClassId}}(\ \mbox{\hyperlink{class_fbx_class_id}{FbxClassId}}\ pId,\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pTemplateObject\ );}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx6_class_template_map_a93b436ce1ce8f65302b675cb3a085134}{MergeWithTemplate}}(\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx6_class_template_map_a522d86033875290b78d0034909997fde}{Clear}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_map}{FbxMap<\ FbxClassId,\ FbxObject*,\ FbxClassIdCompare\ >}}\ MapType;}
+\DoxyCodeLine{00066\ \ \ \ \ MapType\ mClassMap;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ HasModifiedFlags(\mbox{\hyperlink{class_fbx_property}{FbxProperty}}\ lProp)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ IndexToFlag(\ \textcolor{keywordtype}{int}\ i\ )\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\textcolor{keyword}{>}(1\ <<\ i);\ \}}
+\DoxyCodeLine{00074\ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_reader_fbx6_a0b5ae464b6a242ca8f06781f13e41787}{FbxReaderFbx6}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_reader_a00f91923ea112d953f3317dbe80eb816}{FbxReader}}}
+\DoxyCodeLine{00083\ \{}
+\DoxyCodeLine{00084\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{class_fbx_reader_fbx6_a0b5ae464b6a242ca8f06781f13e41787}{FbxReaderFbx6}}(\mbox{\hyperlink{class_fbx_manager}{FbxManager}}\&\ pManager,\ \mbox{\hyperlink{class_fbx_importer}{FbxImporter}}\&\ pImporter,\ \textcolor{keywordtype}{int}\ pID,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}\&\ pStatus);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_reader_fbx6_a08f5cd1b6db11492ff0363a649a1ae7b}{\string~FbxReaderFbx6}}();}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_reader_fbx6_a37c1789fa766b318d08d09878b41e0be}{FileOpen}}(\textcolor{keywordtype}{char}*\ pFileName,\ \mbox{\hyperlink{class_fbx_reader_a1a14bd907bcda7dd48ba9b0a6236b7b8}{EFileOpenSpecialFlags}}\ pFlags)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_reader_fbx6_a790f21b61e87bd2c6cee55bcf92b4a53}{FileOpen}}(\textcolor{keywordtype}{char}*\ pFileName)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_reader_fbx6_aa19d6673d2ac039aa5b14350c94b63e6}{FileOpen}}(\mbox{\hyperlink{class_fbx_file}{FbxFile}}\ *\ pFile)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_reader_fbx6_a0d53df1b8ae508250eb5a05e1fc48849}{FileOpen}}(\mbox{\hyperlink{class_fbx_stream}{FbxStream}}\ *\ pStream,\ \textcolor{keywordtype}{void}*\ pStreamData)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_reader_fbx6_a57eb5f4571fc7e3e5ed8fd4ca43225db}{FileClose}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_reader_fbx6_a1d34fe860876245adc282578837900c6}{IsFileOpen}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00136\ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495a2cd7b49f48411efc36b3b9d095334ced}{eASCII}},\ \ \ \ \ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495ae23324d34805f8659977df8340743af1}{eBINARY}},\ \ \ \ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495af8fb0ae704cf55ad6d0df690c7242b2a}{eENCRYPTED}}\ \ }
+\DoxyCodeLine{00140\ \ \ \ \ \}\ \mbox{\hyperlink{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495}{EImportMode}};}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{class_fbx_reader_fbx6_ac6bc45d165880315e2657abf7ca16495}{EImportMode}}\ \mbox{\hyperlink{class_fbx_reader_fbx6_aeafb8a0b4017c0d20630bc06ed4c08c4}{GetImportMode}}();}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_reader_fbx6_aeb94d7371ed21b9d33d268717ac214c6}{GetVersion}}(\textcolor{keywordtype}{int}\&\ pMajor,\ \textcolor{keywordtype}{int}\&\ pMinor,\ \textcolor{keywordtype}{int}\&\ pRevision)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_reader_fbx6_aaf338a2264b46bb2bc26a0c9447981bd}{GetAxisInfo}}(\mbox{\hyperlink{class_fbx_axis_system}{FbxAxisSystem}}*\ pAxisSystem,\ \mbox{\hyperlink{class_fbx_system_unit}{FbxSystemUnit}}*\ pSystemUnits)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_reader_fbx6_a0cc98260c920fba72fac93d4a8b1ed82}{GetFrameRate}}(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ \&pTimeMode)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_reader_fbx6_af20b253c9a877bda387595a85ad5b7fd}{GetStatistics}}(\mbox{\hyperlink{class_fbx_statistics}{FbxStatistics}}*\ pStats)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_reader_fbx6_a843b4e3af8f28768470b3831b0ee9071}{GetReadOptions}}(\textcolor{keywordtype}{bool}\ pParseFileAsNeeded\ =\ \textcolor{keyword}{true})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_reader_fbx6_aee9e0b093b2403e31d1e28c136c01d31}{Read}}(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}\ *pDocument)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_reader_fbx6_aad5666cba24ae32ea43085227e8497fc}{GetReadOptions}}(\mbox{\hyperlink{class_fbx_i_o}{FbxIO}}*\ pFbx,\ \textcolor{keywordtype}{bool}\ pParseFileAsNeeded\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_reader_fbx6_aaf4d83d83558463da215d522cb1c4503}{Read}}(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}\ *pDocument,\ \mbox{\hyperlink{class_fbx_i_o}{FbxIO}}*\ pFbx);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#ifndef\ FBXSDK\_ENV\_WINSTORE}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_reader_fbx6_ad9c1d5905977fa9edf09a8e3e033a2d7}{PluginReadParameters}}(\mbox{\hyperlink{class_fbx_object}{FbxObject}}\&\ pParams)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !FBXSDK\_ENV\_WINSTORE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00213\ \ \ \ \ \mbox{\hyperlink{class_fbx_document_info}{FbxDocumentInfo}}*\ \ \mbox{\hyperlink{class_fbx_reader_fbx6_a737f6a3063ec64e219bf6cbed889e971}{GetSceneInfo}}()\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ mSceneInfo;\ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00219\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxTakeInfo*>}}*\ \mbox{\hyperlink{class_fbx_reader_fbx6_a1b252955da6d22d370144ce4d33fbcb5}{GetTakeInfo}}()\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ \&mTakeInfo;\ \}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_reader_fbx6_a8e9819270c2f4370408a96490f95e012}{SetProgressHandler}}(\mbox{\hyperlink{class_fbx_progress}{FbxProgress}}\ *pProgress)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{void}\ SetEmbeddingExtractionFolder(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pExtractFolder)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{void}\ SetEmbeddedFileCallback(\mbox{\hyperlink{class_fbx_embedded_file_callback}{FbxEmbeddedFileCallback}}*\ pCallback)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_reader_fbx6_a09a93317c689a31cd77145283e471794}{SupportsStreams}}()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00235\ \ \ \ \ \mbox{\hyperlink{class_fbx_document_info}{FbxDocumentInfo}}*\ ReadSceneInfo();}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00241\ \ \ \ \ \mbox{\hyperlink{class_fbx_document_info}{FbxDocumentInfo}}*\ ReadSceneInfo(\mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pType);}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordtype}{void}\ WriteSceneInfo(\mbox{\hyperlink{class_fbx_document_info}{FbxDocumentInfo}}*);}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{bool}\ WriteThumbnail(\mbox{\hyperlink{class_fbx_thumbnail}{FbxThumbnail}}*);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00266\ \ \ \ \ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ CreateGenericObject(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}\ *pDocument,\ \textcolor{keywordtype}{char}*\ pObjectType,\ \textcolor{keywordtype}{char}*\ pObjectSubType,\ \textcolor{keywordtype}{char}*\ pObjectName,\ \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{FbxObject::EObjectFlag}}\ pFlags=\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a9d477bbe1f04724fcc65b40b0ed25634}{FbxObject::eSavable}});}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadDescriptionSection(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}\ *pDocument,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pDocumentName);}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadReferenceSection(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}\ *pDocument,\ Fbx6TypeReadReferences\&\ pDocReferences);}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadDefinitionSection(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}\ *pDocument,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<Fbx6ObjectTypeInfo*>}}\&\ pObjectContent\ );}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadObjectSection(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}\ *pDocument,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<Fbx6ObjectTypeInfo*>}}\&\ pObjectContent,\ Fbx6TypeReadReferences\&\ pDocReferences\ );}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadObject(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}\ *pDocument,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pObjectType,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pObjectSubType,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pObjectName,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pObjectUniqueId,\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pReferencedObject,\ Fbx6TypeReadReferences\&\ pDocReferences);}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadConnectionSection(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}\ *pDocument\ );}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00320\ \ \ \ \ }
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadDocumentAnimation(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}\ *pDocument);}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadObjectAnimation(\mbox{\hyperlink{class_fbx_i_o}{FbxIO}}\&\ pFileObject,\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pNode,\ \mbox{\hyperlink{class_fbx_anim_stack}{FbxAnimStack}}\&\ pAnimStack,\ \textcolor{keywordtype}{int}\ pExceptionFlag);}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00340\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadPropertyAnimation(\mbox{\hyperlink{class_fbx_i_o}{FbxIO}}\&\ pFileObject,\ \mbox{\hyperlink{class_fbx_property}{FbxProperty}}*\ pProp,\ \mbox{\hyperlink{class_fbx_anim_stack}{FbxAnimStack}}\&\ pAnimStack);}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00347\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadTakeAnimation(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene,\ \mbox{\hyperlink{class_fbx_take_info}{FbxTakeInfo}}*\ pTakeInfo);}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00355\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadNodeAnimation(\mbox{\hyperlink{class_fbx_i_o}{FbxIO}}\&\ pFileObject,\ \mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene,\ \mbox{\hyperlink{class_fbx_anim_stack}{FbxAnimStack}}\&\ pAnimStack,\ \mbox{\hyperlink{class_fbx_take_info}{FbxTakeInfo}}*\ pTakeInfo);}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadLayers(\mbox{\hyperlink{class_fbx_i_o}{FbxIO}}\&\ pFileObject,\ \mbox{\hyperlink{class_fbx_take_info}{FbxTakeInfo}}*\ pTakeInfo);}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadTimeWarps(\mbox{\hyperlink{class_fbx_i_o}{FbxIO}}\&\ pFileObject,\ \mbox{\hyperlink{class_fbx_multi_map}{FbxMultiMap}}\&\ pTimeWarpSet,\ \mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene);}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00374\ \ \ \ \ \mbox{\hyperlink{class_fbx_thumbnail}{FbxThumbnail}}*\ ReadThumbnail();}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordtype}{bool}\ TimeShiftNodeAnimation(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene,\ \mbox{\hyperlink{class_fbx_anim_stack}{FbxAnimStack}}\&\ pAnimStack,\ \textcolor{keywordtype}{int}\ pTimeOffsetType,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pTimeOffset);}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00394\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadCameraSwitcher(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene);}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadCameraSwitcher(\ \mbox{\hyperlink{class_fbx_camera_switcher}{FbxCameraSwitcher}}\&\ pCameraSwitcher\ );}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keywordtype}{void}\ ReorderCameraSwitcherIndices(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene);}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00415\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadGlobalLightSettings(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene);}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadGlobalTimeSettings(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene);}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00425\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadGlobalCameraSettings(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene);}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00430\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadShadowPlane(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene);}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00435\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadAmbientColor(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene);}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00440\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadFogOption(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene);}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadCharacter(\mbox{\hyperlink{class_fbx_character}{FbxCharacter}}\&\ pCharacter,\textcolor{keywordtype}{int}\&\ pInputType,\ \textcolor{keywordtype}{int}\&\ pInputIndex);}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadCharacterLinkGroup(\mbox{\hyperlink{class_fbx_character}{FbxCharacter}}\&\ pCharacter,\ \textcolor{keywordtype}{int}\ pCharacterGroupId);}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00465\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadCharacterLink(\mbox{\hyperlink{class_fbx_character}{FbxCharacter}}\&\ pCharacter,\ \textcolor{keywordtype}{int}\ pCharacterNodeId);}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00470\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadCharacterLinkRotationSpace(\mbox{\hyperlink{class_fbx_character_link}{FbxCharacterLink}}\&\ pCharacterLink);}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00476\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadCharacterPose(\mbox{\hyperlink{class_fbx_character_pose}{FbxCharacterPose}}\&\ pCharacterPose);\ \textcolor{comment}{//\ TBV}}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00483\ }
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadPose(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene,\ \mbox{\hyperlink{class_fbx_pose}{FbxPose}}*\ pPose,\ \textcolor{keywordtype}{bool}\ pAsBindPose);}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadMedia(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}\ *pDocument,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pEmbeddedMediaDirectory\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00497\ }
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadGlobalSettings(\mbox{\hyperlink{class_fbx_global_settings}{FbxGlobalSettings}}\&\ pGlobalSettings);}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00516\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadNode\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}\&\ pNode,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pObjectSubType,\ Fbx6TypeReadReferences\&\ pDocReferences\ );}
+\DoxyCodeLine{00517\ }
+\DoxyCodeLine{00522\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadContainer\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_container}{FbxContainer}}\&\ pContainer\ );}
+\DoxyCodeLine{00523\ }
+\DoxyCodeLine{00528\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadGenericNode\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_generic_node}{FbxGenericNode}}\&\ pNode\ );}
+\DoxyCodeLine{00529\ }
+\DoxyCodeLine{00534\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadNodeShading\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}\&\ pNode\ );}
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00540\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadNodeCullingType\ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}\&\ pNode\ );\ \textcolor{comment}{//\ TBV,\ probablement\ passe\ tout\ en\ property}}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00546\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadNodeTarget\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}\&\ pNode\ );}
+\DoxyCodeLine{00547\ }
+\DoxyCodeLine{00555\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadNodeAttribute\ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}\&\ pNode\ ,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pObjectSubType,\ \textcolor{keywordtype}{bool}\&\ pCreatedAttribute,\ Fbx6TypeReadReferences\&\ pDocReferences);}
+\DoxyCodeLine{00556\ }
+\DoxyCodeLine{00564\ \ \ \ \ \mbox{\hyperlink{class_fbx_node_attribute}{FbxNodeAttribute}}*\ ReadNodeAttribute(\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pObjectSubType,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pObjectName,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pObjectUniqueId,\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pReferencedObject);}
+\DoxyCodeLine{00565\ }
+\DoxyCodeLine{00572\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadNodeProperties\ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}\&\ pNode,\ \textcolor{keywordtype}{bool}\ pReadNodeAttributeProperties\ );}
+\DoxyCodeLine{00573\ }
+\DoxyCodeLine{00578\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayeredTexture\ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_layered_texture}{FbxLayeredTexture}}\&\ pTex\ );}
+\DoxyCodeLine{00579\ }
+\DoxyCodeLine{00584\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadGeometryLinks\ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}\&\ pGeometry\ );}
+\DoxyCodeLine{00585\ }
+\DoxyCodeLine{00590\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadGeometryShapes\ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}\&\ pGeometry\ );}
+\DoxyCodeLine{00591\ }
+\DoxyCodeLine{00596\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadNull\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_null}{FbxNull}}\&\ pNull\ );}
+\DoxyCodeLine{00597\ }
+\DoxyCodeLine{00602\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadMarker\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_marker}{FbxMarker}}\&\ pMarker\ );}
+\DoxyCodeLine{00603\ }
+\DoxyCodeLine{00608\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadCamera\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}\&\ pCamera\ );}
+\DoxyCodeLine{00609\ }
+\DoxyCodeLine{00614\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadCameraStereo\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_camera_stereo}{FbxCameraStereo}}\&\ pCameraStereo\ );}
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00620\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadCameraStereoPrecomp\ \ \ \ \ \ \ \ (\mbox{\hyperlink{class_fbx_camera_stereo}{FbxCameraStereo}}\&\ pCameraStereo);}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00626\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLight\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_light}{FbxLight}}\&\ pLight\ );}
+\DoxyCodeLine{00627\ }
+\DoxyCodeLine{00633\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadBindingTable\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_binding_table}{FbxBindingTable}}\&\ pTable\ );}
+\DoxyCodeLine{00634\ }
+\DoxyCodeLine{00639\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadBindingOperator\ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}\&\ pOperator\ );}
+\DoxyCodeLine{00640\ }
+\DoxyCodeLine{00645\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadMesh\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}\&\ pMesh\ );}
+\DoxyCodeLine{00646\ }
+\DoxyCodeLine{00651\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadMeshSmoothness\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}\&\ pMesh\ );}
+\DoxyCodeLine{00652\ }
+\DoxyCodeLine{00657\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadMeshVertices\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}\&\ pMesh\ );}
+\DoxyCodeLine{00658\ }
+\DoxyCodeLine{00663\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadMeshPolygonIndex\ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}\&\ pMesh\ );}
+\DoxyCodeLine{00664\ }
+\DoxyCodeLine{00669\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadMeshEdges\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}\&\ pMesh\ );}
+\DoxyCodeLine{00670\ }
+\DoxyCodeLine{00671\ \ \ \ \ \textcolor{comment}{//**\ Read\ FBX\ subdiv,\ base\ mesh,\ finest\ mesh,\ current\ subdiv\ level...}}
+\DoxyCodeLine{00672\ \ \ \ \ \textcolor{comment}{//*\ \(\backslash\)param\ pSubdiv\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fbx\ subdiv}}
+\DoxyCodeLine{00673\ \ \ \ \ \textcolor{comment}{//*\ \(\backslash\)param\ pObjectName\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Object\ Name}}
+\DoxyCodeLine{00674\ \ \ \ \ \textcolor{comment}{//*\ \(\backslash\)param\ pReferencedObject\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pointer\ of\ reference\ object}}
+\DoxyCodeLine{00675\ \ \ \ \ \textcolor{comment}{//*\ \(\backslash\)return\ if\ reading\ subdiv\ object\ is\ successful\ return\ \(\backslash\)c\ true,\ otherwise\ return\ \(\backslash\)c\ false.\ }}
+\DoxyCodeLine{00676\ \ \ \ \ \textcolor{comment}{//*/}}
+\DoxyCodeLine{00677\ \ \ \ \ \textcolor{comment}{//bool\ ReadSubdiv(\ FbxSubDiv\&\ pSubdiv,\ FbxString\&\ pObjectName,\ FbxObject*\ pReferencedObject);}}
+\DoxyCodeLine{00678\ }
+\DoxyCodeLine{00683\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadSubdiv(\ \mbox{\hyperlink{class_fbx_sub_div}{FbxSubDiv}}\&\ pSubdiv);}
+\DoxyCodeLine{00684\ }
+\DoxyCodeLine{00689\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadDocument\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_document}{FbxDocument}}\&\ pSubDocument\ );}
+\DoxyCodeLine{00690\ }
+\DoxyCodeLine{00695\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadCollection\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_collection}{FbxCollection}}\&\ pCollection\ );}
+\DoxyCodeLine{00696\ }
+\DoxyCodeLine{00701\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadSelectionSet\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_selection_set}{FbxSelectionSet}}\&\ pSelectionSet);}
+\DoxyCodeLine{00702\ }
+\DoxyCodeLine{00703\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadSelectionNode\ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{class_fbx_selection_node}{FbxSelectionNode}}\&\ pSelectionNode);}
+\DoxyCodeLine{00704\ }
+\DoxyCodeLine{00709\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadNurb\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_nurbs}{FbxNurbs}}\&\ pNurbs\ );}
+\DoxyCodeLine{00710\ }
+\DoxyCodeLine{00715\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadNurbsSurface\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_nurbs_surface}{FbxNurbsSurface}}\&\ pNurbs\ );}
+\DoxyCodeLine{00716\ }
+\DoxyCodeLine{00721\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadPatch\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_patch}{FbxPatch}}\&\ pPatch\ );}
+\DoxyCodeLine{00722\ }
+\DoxyCodeLine{00727\ \ \ \ \ \textcolor{keywordtype}{int}\ \ ReadPatchType\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_patch}{FbxPatch}}\&\ pPatch\ );}
+\DoxyCodeLine{00728\ }
+\DoxyCodeLine{00729\ }
+\DoxyCodeLine{00734\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadNurbsCurve\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_nurbs_curve}{FbxNurbsCurve}}\&\ pNurbsCurve\ );}
+\DoxyCodeLine{00735\ }
+\DoxyCodeLine{00739\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadTrimNurbsSurface\ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_trim_nurbs_surface}{FbxTrimNurbsSurface}}\&\ pNurbs\ );}
+\DoxyCodeLine{00740\ }
+\DoxyCodeLine{00745\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadBoundary\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_boundary}{FbxBoundary}}\&\ pBoundary\ );}
+\DoxyCodeLine{00746\ }
+\DoxyCodeLine{00752\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadShape\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_shape}{FbxShape}}\&\ pShape,\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}\&\ pGeometry);}
+\DoxyCodeLine{00753\ }
+\DoxyCodeLine{00758\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadImplementation\ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{class_fbx_implementation}{FbxImplementation}}\&\ pImplementation\ );}
+\DoxyCodeLine{00759\ }
+\DoxyCodeLine{00764\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadFileTexture\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{class_fbx_file_texture}{FbxFileTexture}}\&\ pTexture);}
+\DoxyCodeLine{00765\ }
+\DoxyCodeLine{00772\ \ \ \ \ \mbox{\hyperlink{class_fbx_surface_material}{FbxSurfaceMaterial}}*\ ReadSurfaceMaterial(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pMaterialType,\ \mbox{\hyperlink{class_fbx_surface_material}{FbxSurfaceMaterial}}*\ pReferencedMaterial);}
+\DoxyCodeLine{00773\ }
+\DoxyCodeLine{00778\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadVideo\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{class_fbx_video}{FbxVideo}}\&\ pVideo);}
+\DoxyCodeLine{00779\ }
+\DoxyCodeLine{00784\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadThumbnail\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{class_fbx_thumbnail}{FbxThumbnail}}\&\ pThumbnail);}
+\DoxyCodeLine{00786\ }
+\DoxyCodeLine{00787\ }
+\DoxyCodeLine{00792\ }
+\DoxyCodeLine{00797\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayerElements\ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}\&\ pGeometry);}
+\DoxyCodeLine{00798\ }
+\DoxyCodeLine{00804\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayerElementsMaterial\ \ \ \ \ \ (\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeometry,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxLayerElement*>}}\&\ pElementsMaterial);}
+\DoxyCodeLine{00805\ }
+\DoxyCodeLine{00811\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayerElementsNormal\ \ \ \ \ \ \ \ (\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeometry,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxLayerElement*>}}\&\ pElementsNormal);}
+\DoxyCodeLine{00812\ }
+\DoxyCodeLine{00818\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayerElementsTangent\ \ \ \ \ \ \ \ (\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeometry,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxLayerElement*>}}\&\ pElementsTangent);\ }
+\DoxyCodeLine{00819\ }
+\DoxyCodeLine{00825\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayerElementsBinormal\ \ \ \ \ \ \ \ (\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeometry,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxLayerElement*>}}\&\ pElementsBinormal);}
+\DoxyCodeLine{00826\ }
+\DoxyCodeLine{00832\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayerElementsVertexColor\ \ \ (\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeometry,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxLayerElement*>}}\&\ pElementsVertexColor);}
+\DoxyCodeLine{00833\ }
+\DoxyCodeLine{00840\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayerElementsTexture\ (\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeometry,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxLayerElement*>}}\&\ pElementsTexture,\ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTextureType);}
+\DoxyCodeLine{00841\ }
+\DoxyCodeLine{00848\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayerElementsChannelUV\ (\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeometry,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxLayerElement*>}}\&\ pElementsUV,\ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTextureType);}
+\DoxyCodeLine{00849\ }
+\DoxyCodeLine{00855\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayerElementsPolygonGroup\ \ (\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeometry,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxLayerElement*>}}\&\ pElementsPolygonGroup);}
+\DoxyCodeLine{00856\ }
+\DoxyCodeLine{00862\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayerElementsSmoothing\ \ \ \ \ (\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeometry,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxLayerElement*>}}\&\ pElementsSmoothing);}
+\DoxyCodeLine{00863\ }
+\DoxyCodeLine{00869\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayerElementsUserData\ \ \ \ \ \ (\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeometry,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxLayerElement*>}}\&\ pElementsUserData);}
+\DoxyCodeLine{00870\ }
+\DoxyCodeLine{00876\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayerElementsVisibility\ \ \ \ (\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeometry,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxLayerElement*>}}\&\ pElementsVisibility);}
+\DoxyCodeLine{00877\ }
+\DoxyCodeLine{00883\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayerElementEdgeCrease\ \ \ \ \ (\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*pGeometry,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxLayerElement*>}}\&\ pElementsEdgeCrease);}
+\DoxyCodeLine{00884\ }
+\DoxyCodeLine{00890\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayerElementVertexCrease\ \ \ (\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*pGeometry,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxLayerElement*>}}\&\ pElementsVertexCrease);}
+\DoxyCodeLine{00891\ }
+\DoxyCodeLine{00897\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLayerElementHole\ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*pGeometry,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxLayerElement*>}}\&\ pElementsHole);}
+\DoxyCodeLine{00899\ }
+\DoxyCodeLine{00904\ }
+\DoxyCodeLine{00909\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadGeometryWeightedMap(\mbox{\hyperlink{class_fbx_geometry_weighted_map}{FbxGeometryWeightedMap}}\&\ pGeometryWeightedMap);}
+\DoxyCodeLine{00911\ }
+\DoxyCodeLine{00916\ }
+\DoxyCodeLine{00921\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadLink(\mbox{\hyperlink{class_fbx_cluster}{FbxCluster}}\&\ pLink);}
+\DoxyCodeLine{00922\ }
+\DoxyCodeLine{00927\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadSkin(\mbox{\hyperlink{class_fbx_skin}{FbxSkin}}\&\ pSkin);}
+\DoxyCodeLine{00928\ }
+\DoxyCodeLine{00933\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadVertexCacheDeformer(\mbox{\hyperlink{class_fbx_vertex_cache_deformer}{FbxVertexCacheDeformer}}\&\ pDeformer);}
+\DoxyCodeLine{00934\ }
+\DoxyCodeLine{00939\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadCluster(\mbox{\hyperlink{class_fbx_cluster}{FbxCluster}}\&\ pCluster);}
+\DoxyCodeLine{00940\ }
+\DoxyCodeLine{00945\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadConstraint(\mbox{\hyperlink{class_fbx_constraint}{FbxConstraint}}\&\ pPosition);}
+\DoxyCodeLine{00947\ }
+\DoxyCodeLine{00948\ \ \ \ \ \textcolor{comment}{//\ Cache}}
+\DoxyCodeLine{00949\ }
+\DoxyCodeLine{00954\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadCache(\mbox{\hyperlink{class_fbx_cache}{FbxCache}}\&\ pCache);}
+\DoxyCodeLine{00955\ }
+\DoxyCodeLine{00960\ }
+\DoxyCodeLine{00967\ \ \ \ \ \textcolor{keywordtype}{bool}\ ResolveCameraBackgrounds(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene);}
+\DoxyCodeLine{00968\ }
+\DoxyCodeLine{00972\ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveDuplicateTextures(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene);}
+\DoxyCodeLine{00973\ }
+\DoxyCodeLine{00980\ \ \ \ \ \textcolor{keywordtype}{void}\ ReplaceTextures(\mbox{\hyperlink{class_fbx_array}{FbxArray<FbxTexture*>}}\ \textcolor{keyword}{const}\&\ pTextureDuplicate,}
+\DoxyCodeLine{00981\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxTexture*>}}\ \textcolor{keyword}{const}\&\ pTextureReplacement,}
+\DoxyCodeLine{00982\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeometry,\ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTextureType);}
+\DoxyCodeLine{00983\ \ \ \ \ }
+\DoxyCodeLine{00987\ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveDuplicateMaterials(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene);}
+\DoxyCodeLine{00988\ }
+\DoxyCodeLine{00993\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ ConvertCameraName(\mbox{\hyperlink{class_fbx_string}{FbxString}}\ pCameraName);}
+\DoxyCodeLine{00994\ }
+\DoxyCodeLine{01000\ \ \ \ \ \textcolor{keywordtype}{int}\ \ FindString(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pString,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxString*>}}\&\ pStringArray);}
+\DoxyCodeLine{01001\ }
+\DoxyCodeLine{01006\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadPassword(\mbox{\hyperlink{class_fbx_string}{FbxString}}\ pPassword);}
+\DoxyCodeLine{01007\ }
+\DoxyCodeLine{01011\ \ \ \ \ \textcolor{keywordtype}{void}\ PublishProperties(\mbox{\hyperlink{class_fbx_object}{FbxObject}}\&\ pObject);}
+\DoxyCodeLine{01012\ }
+\DoxyCodeLine{01018\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadProperties(\mbox{\hyperlink{class_fbx_object}{FbxObject}}\ *pFbxObject,\ \mbox{\hyperlink{class_fbx_i_o}{FbxIO}}\ *pFbxFileObject,\ \textcolor{keywordtype}{bool}\ pReadNodeAttributeProperties=\textcolor{keyword}{true});}
+\DoxyCodeLine{01019\ }
+\DoxyCodeLine{01020\ }
+\DoxyCodeLine{01027\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadPropertiesAndFlags(\mbox{\hyperlink{class_fbx_object}{FbxObject}}\ *pFbxObject,\ \mbox{\hyperlink{class_fbx_i_o}{FbxIO}}\ *pFbxFileObject,\ \textcolor{keywordtype}{bool}\ pReadNodeAttributeProperties=\textcolor{keyword}{true});}
+\DoxyCodeLine{01028\ }
+\DoxyCodeLine{01034\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadFlags(\mbox{\hyperlink{class_fbx_object}{FbxObject}}\ *pFbxObject,\ \mbox{\hyperlink{class_fbx_i_o}{FbxIO}}*\ pFbxFileObject);}
+\DoxyCodeLine{01035\ }
+\DoxyCodeLine{01039\ \ \ \ \ \textcolor{keywordtype}{void}\ RebuildTrimRegions(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01040\ }
+\DoxyCodeLine{01044\ \ \ \ \ \textcolor{keywordtype}{void}\ SetSubdivision(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01045\ }
+\DoxyCodeLine{01049\ \ \ \ \ \textcolor{keywordtype}{void}\ ConvertShapeDeformProperty(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01050\ }
+\DoxyCodeLine{01054\ \ \ \ \ \textcolor{keywordtype}{void}\ RebuildLayeredTextureAlphas(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01055\ }
+\DoxyCodeLine{01056\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ in\ progress\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01057\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadOptionsInMainSection();}
+\DoxyCodeLine{01058\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadTakeOptions();}
+\DoxyCodeLine{01059\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadOptionsInExtensionSection(\textcolor{keywordtype}{int}\&\ pSectionIndex);}
+\DoxyCodeLine{01060\ \ \ \ \ \textcolor{keywordtype}{bool}\ WriteOptionsInExtensionSection(\textcolor{keywordtype}{bool}\ pOverwriteLastExtensionSection=\textcolor{keyword}{false});\ }
+\DoxyCodeLine{01061\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ end\ in\ progress\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01062\ }
+\DoxyCodeLine{01066\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadGlobalSettingsInMainSection();}
+\DoxyCodeLine{01067\ }
+\DoxyCodeLine{01071\ \ \ \ \ \textcolor{keywordtype}{void}\ ReadDefinitionSectionForStats();}
+\DoxyCodeLine{01073\ }
+\DoxyCodeLine{01074\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01075\ }
+\DoxyCodeLine{01076\ \ \ \ \ \mbox{\hyperlink{class_fbx_reader_fbx6}{FbxReaderFbx6}}\&\ operator=(\mbox{\hyperlink{class_fbx_reader_fbx6}{FbxReaderFbx6}}\ \textcolor{keyword}{const}\&)\ \{\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{01077\ }
+\DoxyCodeLine{01078\ \ \ \ \ FbxIO*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mFileObject;}
+\DoxyCodeLine{01079\ \ \ \ \ FbxImporter\&\ \ \ \ \ \ \ \ \ \ \ \ mImporter;}
+\DoxyCodeLine{01080\ \ \ \ \ FbxCharPtrSet\ \ \ \ \ \ \ \ \ \ \ mNodeArrayName;}
+\DoxyCodeLine{01081\ \ \ \ \ FbxObjectStringMap\ \ \ \ \ \ mObjectMap;}
+\DoxyCodeLine{01082\ }
+\DoxyCodeLine{01083\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mParseGlobalSettings;}
+\DoxyCodeLine{01084\ \ \ \ \ FbxAxisSystem\ \ \ \ \ \ \ \ \ \ \ mAxisSystem;}
+\DoxyCodeLine{01085\ \ \ \ \ FbxSystemUnit\ \ \ \ \ \ \ \ \ \ \ mSystemUnit;}
+\DoxyCodeLine{01086\ \ \ \ \ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ \ \ \ \ \ \ \ \ \ \ \ mFrameRate;}
+\DoxyCodeLine{01087\ }
+\DoxyCodeLine{01088\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRetrieveStats;}
+\DoxyCodeLine{01089\ \ \ \ \ FbxStatistics*\ \ \ \ \ \ \ \ \ \ mDefinitionsStatistics;}
+\DoxyCodeLine{01090\ \ \ \ \ FbxArray<FbxTakeInfo\ *>\ mTakeInfo;}
+\DoxyCodeLine{01091\ \ \ \ \ FbxDocumentInfo*\ \ \ \ \ \ \ \ mSceneInfo;}
+\DoxyCodeLine{01092\ \ \ \ \ FbxAnimLayer*\ \ \ \ \ \ \ \ \ \ \ mAnimLayer;}
+\DoxyCodeLine{01093\ \ \ \ \ FbxMultiMap\ \ \ \ \ \ \ \ \ \ \ \ \ mNickToKFCurveNodeTimeWarpsSet;}
+\DoxyCodeLine{01094\ \ \ \ \ FbxMultiMap*\ \ \ \ \ \ \ \ \ \ \ \ mNickToAnimCurveTimeWarpsSet;}
+\DoxyCodeLine{01095\ }
+\DoxyCodeLine{01096\ \ \ \ \ Fbx6ClassTemplateMap\ \ \ \ mClassTemplateMap;}
+\DoxyCodeLine{01097\ \ \ \ \ FbxProgress*\ \ \ \ \ \ \ \ \ \ \ \ mProgress;}
+\DoxyCodeLine{01098\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mProgressPause;}
+\DoxyCodeLine{01099\ }
+\DoxyCodeLine{01100\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mValidateData;}
+\DoxyCodeLine{01101\ \ \ \ \ FbxSceneCheckUtility*\ \ \ mCheckUtility;}
+\DoxyCodeLine{01102\ }
+\DoxyCodeLine{01103\ \ \ \ \ \textcolor{comment}{//\ structure\ used\ to\ cache\ the\ IOS\_REF.GetBool(....)\ for\ when\ we\ have}}
+\DoxyCodeLine{01104\ \ \ \ \ \textcolor{comment}{//\ calls\ of\ the\ GetBool()\ function\ inside\ loops\ that\ would\ get\ executed}}
+\DoxyCodeLine{01105\ \ \ \ \ \textcolor{comment}{//\ often.\ This\ would\ speed\ things\ a\ little\ bit!}}
+\DoxyCodeLine{01106\ \ \ \ \ \textcolor{keyword}{struct\ }CachedIOS\_REF}
+\DoxyCodeLine{01107\ \ \ \ \ \{}
+\DoxyCodeLine{01108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportAnimation;}
+\DoxyCodeLine{01109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportAudio;}
+\DoxyCodeLine{01110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportShape;}
+\DoxyCodeLine{01111\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportNormal;}
+\DoxyCodeLine{01112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportBinormal;}
+\DoxyCodeLine{01113\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportTangent;}
+\DoxyCodeLine{01114\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportVertexColor;}
+\DoxyCodeLine{01115\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportPolyGroup;}
+\DoxyCodeLine{01116\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportSmoothing;}
+\DoxyCodeLine{01117\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportUserData;}
+\DoxyCodeLine{01118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportVisibility;}
+\DoxyCodeLine{01119\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportEdgeCrease;}
+\DoxyCodeLine{01120\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportVertexCrease;}
+\DoxyCodeLine{01121\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportHole;}
+\DoxyCodeLine{01122\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportCalcLegacyShapeNormal;}
+\DoxyCodeLine{01123\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportLinks;}
+\DoxyCodeLine{01124\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mImportConstraint;}
+\DoxyCodeLine{01125\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mExtractEmbedded;}
+\DoxyCodeLine{01126\ \ \ \ \ \};}
+\DoxyCodeLine{01127\ \ \ \ \ CachedIOS\_REF\ mDocFlags;}
+\DoxyCodeLine{01128\ }
+\DoxyCodeLine{01129\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ TriggerProgress(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ label)}
+\DoxyCodeLine{01130\ \ \ \ \ \{}
+\DoxyCodeLine{01131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mProgress\ \&\&\ !mProgressPause)}
+\DoxyCodeLine{01132\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01133\ \ \ \ \ \ \ \ \ \ \ \ \ mProgress-\/>Update(1.0f,\ label);}
+\DoxyCodeLine{01134\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01135\ \ \ \ \ \}}
+\DoxyCodeLine{01136\ \};}
+\DoxyCodeLine{01137\ }
+\DoxyCodeLine{01138\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{01139\ }
+\DoxyCodeLine{01140\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_FILEIO\_FBX\_READER\_FBX6\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,206 @@
+\doxysection{fbximporter.\+h}
+\hypertarget{fbximporter_8h_source}{}\label{fbximporter_8h_source}\index{include/fbx/fbxsdk/fileio/fbximporter.h@{include/fbx/fbxsdk/fileio/fbximporter.h}}
+\mbox{\hyperlink{fbximporter_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2019\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_FILEIO\_IMPORTER\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_FILEIO\_IMPORTER\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsystemunit_8h}{fbxsdk/core/fbxsystemunit.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxtime_8h}{fbxsdk/core/base/fbxtime.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxiobase_8h}{fbxsdk/fileio/fbxiobase.h}}>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxprogress_8h}{fbxsdk/fileio/fbxprogress.h}}>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxiosettings_8h}{fbxsdk/fileio/fbxiosettings.h}}>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxstatistics_8h}{fbxsdk/fileio/fbxstatistics.h}}>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxaxissystem_8h}{fbxsdk/scene/fbxaxissystem.h}}>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_i_o}{FbxIO}};}
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_i_o_file_header_info}{FbxIOFileHeaderInfo}};}
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_document_info}{FbxDocumentInfo}};}
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_take_info}{FbxTakeInfo}};}
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_reader}{FbxReader}};}
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_thread}{FbxThread}};}
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_embedded_file_callback}{FbxEmbeddedFileCallback}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{struct\ }FbxImportThreadArg;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_importer}{FbxImporter}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_i_o_base}{FbxIOBase}}}
+\DoxyCodeLine{00092\ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_importer}{FbxImporter}},\ \mbox{\hyperlink{class_fbx_i_o_base}{FbxIOBase}});}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_importer_a7d3c99b31975895900a0a99a9883890c}{Initialize}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFileName,\ \textcolor{keywordtype}{int}\ pFileFormat=-\/1,\ \mbox{\hyperlink{class_fbx_i_o_settings}{FbxIOSettings}}\ *\ pIOSettings=NULL)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_importer_a2d0a79950f85425d82e135e58aadd8fc}{Initialize}}(\mbox{\hyperlink{class_fbx_stream}{FbxStream}}*\ pStream,\ \textcolor{keywordtype}{void}*\ pStreamData=NULL,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pFileFormat=-\/1,\ \mbox{\hyperlink{class_fbx_i_o_settings}{FbxIOSettings}}*\ pIOSettings=NULL);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_importer_a4f7e10acb75be641cce256bc1f9fd13f}{GetFileVersion}}(\textcolor{keywordtype}{int}\&\ pMajor,\ \textcolor{keywordtype}{int}\&\ pMinor,\ \textcolor{keywordtype}{int}\&\ pRevision);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_importer_a6c3c333c150d14f9bade0a3f7465ba00}{GetDefaultRenderResolution}}(\mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pCamName,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pResolutionMode,\ \textcolor{keywordtype}{double}\&\ pW,\ \textcolor{keywordtype}{double}\&\ pH);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00148\ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_file_header_info}{FbxIOFileHeaderInfo}}*\ \mbox{\hyperlink{class_fbx_importer_a6e0bf4ea416d7eec63053f470ea72523}{GetFileHeaderInfo}}();}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_importer_a5174c9311e7e1295e7bf3338d209def5}{EStreamOptionsGeneration}}}
+\DoxyCodeLine{00155\ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ eParseFile,\ \ \ \ \ \textcolor{comment}{//\ Parse\ the\ file}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ eDoNotParseFile\ \textcolor{comment}{//\ Do\ not\ parse\ the\ file\ (fast)}}
+\DoxyCodeLine{00158\ \ \ \ \ \};}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_importer_a0629fb996e8dfbc147f2ce9dd084eba0}{GetImportOptions}}(\mbox{\hyperlink{class_fbx_importer_a5174c9311e7e1295e7bf3338d209def5}{EStreamOptionsGeneration}}\ pStreamOptionsGeneration\ =\ eParseFile);\ \ \ \ }
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_importer_ab9cedea15a7015b3298e1d28f11d7108}{GetImportOptions}}(\mbox{\hyperlink{class_fbx_i_o}{FbxIO}}*\ pFbxObject);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_importer_a1c5a7f9ee8a6952c1e039065cfa09659}{Import}}(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}*\ pDocument,\ \textcolor{keywordtype}{bool}\ pNonBlocking=\textcolor{keyword}{false});}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#if\ \ !defined(FBXSDK\_ENV\_WINSTORE)\ \&\&\ !defined(FBXSDK\_ENV\_EMSCRIPTEN)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_importer_a8146a9982be07e4e287eb17b1c291c0b}{IsImporting}}(\textcolor{keywordtype}{bool}\&\ pImportResult);}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !FBXSDK\_ENV\_WINSTORE\ \&\&\ !defined(FBXSDK\_ENV\_EMSCRIPTEN)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_fbx_importer_a7b464230d0665b43e6a0617efd75f068}{GetProgress}}(\mbox{\hyperlink{class_fbx_string}{FbxString}}*\ pStatus=NULL);}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_importer_adcb26ff112db465208caefc5c5d8a6e1}{SetProgressCallback}}(FbxProgressCallback\ pCallback,\ \textcolor{keywordtype}{void}*\ pArgs=NULL);}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_importer_a3ba4bf6e00487b45808fa5fe052063f0}{SetEmbeddingExtractionFolder}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pExtractFolder);}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_importer_ab643815aea40afb2b0bf329e2bbf8389}{GetEmbeddingExtractionFolder}}();}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_importer_ac83699586dcd8920e9667b6606f9b495}{SetEmbeddedFileReadCallback}}(\mbox{\hyperlink{class_fbx_embedded_file_callback}{FbxEmbeddedFileCallback}}*\ pCallback);}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00231\ \ \ \ \ \mbox{\hyperlink{class_fbx_embedded_file_callback}{FbxEmbeddedFileCallback}}*\ \mbox{\hyperlink{class_fbx_importer_ad28cccbf2eee6d1a78588d86624ad820}{GetEmbeddedFileReadCallback}}();}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings}{FbxIOSettings}}*\ \mbox{\hyperlink{class_fbx_importer_a01e3e6d7156d1d9057a6074785d7042f}{GetIOSettings}}();}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_importer_a7d601352ed7e7bd9b7f05740573ef09d}{SetIOSettings}}(\mbox{\hyperlink{class_fbx_i_o_settings}{FbxIOSettings}}*\ pIOSettings);}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_importer_a4e3bba6f851555a94ba1eef1030b6503}{SetPassword}}(\textcolor{keywordtype}{char}*\ pPassword);}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00254\ \ \ \ \ }
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_importer_a08165aec1a0ae0ff5f88c5ee8244bd9d}{GetAnimStackCount}}();}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_take_info}{FbxTakeInfo}}*\ \mbox{\hyperlink{class_fbx_importer_a42bc8c2d71a7a278ff2b81526dd520b2}{GetTakeInfo}}(\textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{class_fbx_importer_a7d0e41971469f7fb42fdd0af77a98c2a}{GetActiveAnimStackName}}();}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00286\ \ \ \ \ \mbox{\hyperlink{class_fbx_document_info}{FbxDocumentInfo}}*\ \mbox{\hyperlink{class_fbx_importer_aa6c9df9321940b15535f9454dca66fff}{GetSceneInfo}}();}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_importer_aeb6c0b442442cf1bf55f3de19983df99}{GetFileFormat}}\ ();}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_importer_ad6746e77f928bd4dda0b722f557c6ac1}{IsFBX}}();}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00310\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00311\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00312\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00313\ \ \ \ \ \mbox{\hyperlink{class_fbx_file}{FbxFile}}*\ GetFile();}
+\DoxyCodeLine{00314\ \ \ \ \ \mbox{\hyperlink{class_fbx_stream}{FbxStream}}*\ GetStream();}
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ GetStreamData();}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{keywordtype}{void}\ ParseForGlobalSettings(\textcolor{keywordtype}{bool}\ pState);}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordtype}{void}\ ParseForStatistics(\textcolor{keywordtype}{bool}\ pState);}
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetAxisInfo(\mbox{\hyperlink{class_fbx_axis_system}{FbxAxisSystem}}*\ pAxisSystem,\ \mbox{\hyperlink{class_fbx_system_unit}{FbxSystemUnit}}*\ pSystemUnits);}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetStatistics(\mbox{\hyperlink{class_fbx_statistics}{FbxStatistics}}*\ pStatistics);}
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetFrameRate(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ \&pTimeMode);}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_importer_a51c916598a509904bbbe3d6fd19f5132}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_importer_acb6af2932aab12fba5152fcaf5def856}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ SetOrCreateIOSettings(\mbox{\hyperlink{class_fbx_i_o_settings}{FbxIOSettings}}*\ pIOSettings,\ \textcolor{keywordtype}{bool}\ pAllowNULL);}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ \textcolor{keywordtype}{void}\ Reset();}
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keywordtype}{bool}\ FileOpen(\mbox{\hyperlink{class_fbx_file}{FbxFile}}*\ pFile\ =\ NULL);}
+\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keywordtype}{bool}\ FileOpen(\mbox{\hyperlink{class_fbx_stream}{FbxStream}}*\ pStream,\ \textcolor{keywordtype}{void}*\ pStreamData);}
+\DoxyCodeLine{00331\ \ \ \ \ \textcolor{keywordtype}{void}\ FileClose();}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordtype}{void}\ GetImportOptionsInfo();}
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordtype}{bool}\ IsNativeExtension\ ();}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{comment}{//These\ two\ internal\ functions\ are\ only\ used\ to\ read\ old\ character\ pose\ data}}
+\DoxyCodeLine{00337\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_i_o_base_a01d70175d09a1e791e2ce38a9ae3c265}{Initialize}}(\mbox{\hyperlink{class_fbx_file}{FbxFile}}*\ pFile,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pFileFormat=-\/1,\ \mbox{\hyperlink{class_fbx_i_o_settings}{FbxIOSettings}}*\ pIOSettings=NULL);}
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_importer_a1c5a7f9ee8a6952c1e039065cfa09659}{Import}}(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}*\ pDocument,\ \mbox{\hyperlink{class_fbx_i_o}{FbxIO}}*\ pFbxObject);}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00342\ \ \ \ \ \textcolor{keywordtype}{bool}\ ImportProcess(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}*\ pDocument);}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mFileFormat;}
+\DoxyCodeLine{00345\ \ \ \ \ \mbox{\hyperlink{class_fbx_reader}{FbxReader}}*\ \ \ \ \ \ \ \ \ \ \ \ \ mReader;}
+\DoxyCodeLine{00346\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ mExtractFolder;}
+\DoxyCodeLine{00347\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mParseForGlobalSettings;}
+\DoxyCodeLine{00348\ \ \ \ \ \mbox{\hyperlink{class_fbx_axis_system}{FbxAxisSystem}}\ \ \ \ \ \ \ \ \ \ mAxisSystem;}
+\DoxyCodeLine{00349\ \ \ \ \ \mbox{\hyperlink{class_fbx_system_unit}{FbxSystemUnit}}\ \ \ \ \ \ \ \ \ \ mSystemUnits;}
+\DoxyCodeLine{00350\ \ \ \ \ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ \ \ \ \ \ \ \ \ \ \ \ mFrameRate;}
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mParseForStatistics;}
+\DoxyCodeLine{00352\ \ \ \ \ \mbox{\hyperlink{class_fbx_statistics}{FbxStatistics}}\ \ \ \ \ \ \ \ \ \ mStatistics;}
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\#if\ \ !defined(FBXSDK\_ENV\_WINSTORE)\ \&\&\ !defined(FBXSDK\_ENV\_EMSCRIPTEN)\ }}
+\DoxyCodeLine{00354\ \ \ \ \ \mbox{\hyperlink{class_fbx_thread}{FbxThread}}*\ \ \ \ \ \ \ \ \ \ \ \ \ mImportThread;}
+\DoxyCodeLine{00355\ \ \ \ \ FbxImportThreadArg*\ \ \ \ \ mImportThreadArg;}
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mImportThreadResult;}
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mIsThreadImporting;}
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !FBXSDK\_ENV\_WINSTORE\ \&\&\ !defined(FBXSDK\_ENV\_EMSCRIPTEN)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00359\ \ \ \ \ \mbox{\hyperlink{class_fbx_progress}{FbxProgress}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ mProgress;}
+\DoxyCodeLine{00360\ \ \ \ \ \mbox{\hyperlink{class_fbx_file}{FbxFile}}*\ \ \ \ \ \ \ \ \ \ \ \ \ mFile;}
+\DoxyCodeLine{00361\ \ \ \ \ \mbox{\hyperlink{class_fbx_stream}{FbxStream}}*\ \ \ \ \ \ \ \ \ \ \ \ \ mStream;}
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mStreamData;}
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mImportOptionsDone;}
+\DoxyCodeLine{00364\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxTakeInfo*>}}\ \ \ \ mTakeInfo;}
+\DoxyCodeLine{00365\ \ \ \ \ \mbox{\hyperlink{class_fbx_document_info}{FbxDocumentInfo}}*\ \ \ \ \ mSceneInfo;}
+\DoxyCodeLine{00366\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ mActiveAnimStackName;}
+\DoxyCodeLine{00367\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mMajorVersion;}
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mMinorVersion;}
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRevisionVersion;}
+\DoxyCodeLine{00370\ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_file_header_info}{FbxIOFileHeaderInfo}}*\ mHeaderInfo;}
+\DoxyCodeLine{00371\ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings}{FbxIOSettings}}*\ \ \ \ \ \ \ \ \ mIOSettings;}
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mClientIOSettings;}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ \ \ \ \ \mbox{\hyperlink{class_fbx_embedded_file_callback}{FbxEmbeddedFileCallback}}*\ mEmbeddedFileCallbackObj;}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{comment}{//For\ Initialize\ and\ Import}}
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxReaderFbx5;}
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxReaderFbx6;}
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{struct\ }FbxReaderFbx7\_Impl;}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keywordtype}{void}\ ImportThread(\textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{00382\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00383\ \};}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00386\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxEventPreImport\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_event}{FbxEvent}}<FbxEventPreImport>}
+\DoxyCodeLine{00387\ \{}
+\DoxyCodeLine{00388\ \ \ \ \ FBXSDK\_EVENT\_DECLARE(FbxEventPreImport);}
+\DoxyCodeLine{00389\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keyword}{inline}\ FbxEventPreImport(\ \mbox{\hyperlink{class_fbx_document}{FbxDocument}}*\ pDocument\ )\ :\ \mbox{\hyperlink{class_fbx_event_pre_import_a89b454dc61f00b64cc8a8f951e5e1003}{mDocument}}(pDocument)\ \{\};}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00393\ \ \ \ \ \mbox{\hyperlink{class_fbx_document}{FbxDocument}}*\ \mbox{\hyperlink{class_fbx_event_pre_import_a89b454dc61f00b64cc8a8f951e5e1003}{mDocument}};\ }
+\DoxyCodeLine{00394\ \};}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00397\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxEventPostImport\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_event}{FbxEvent}}<FbxEventPostImport>}
+\DoxyCodeLine{00398\ \{}
+\DoxyCodeLine{00399\ \ \ \ \ FBXSDK\_EVENT\_DECLARE(FbxEventPostImport);}
+\DoxyCodeLine{00400\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keyword}{inline}\ FbxEventPostImport(\ \mbox{\hyperlink{class_fbx_document}{FbxDocument}}*\ pDocument\ )\ :\ \mbox{\hyperlink{class_fbx_event_post_import_a9e7d9e8702a8e82a81409d1393845a1a}{mDocument}}(pDocument)\ \{\};}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00404\ \ \ \ \ \mbox{\hyperlink{class_fbx_document}{FbxDocument}}*\ \mbox{\hyperlink{class_fbx_event_post_import_a9e7d9e8702a8e82a81409d1393845a1a}{mDocument}};\ }
+\DoxyCodeLine{00405\ \};}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00409\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_FILEIO\_IMPORTER\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

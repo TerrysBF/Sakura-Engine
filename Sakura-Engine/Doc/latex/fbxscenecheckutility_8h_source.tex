@@ -1,0 +1,135 @@
+\doxysection{fbxscenecheckutility.\+h}
+\hypertarget{fbxscenecheckutility_8h_source}{}\label{fbxscenecheckutility_8h_source}\index{include/fbx/fbxsdk/utils/fbxscenecheckutility.h@{include/fbx/fbxsdk/utils/fbxscenecheckutility.h}}
+\mbox{\hyperlink{fbxscenecheckutility_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2016\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_CHECK\_UTILITY\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_CHECK\_UTILITY\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxarray_8h}{fbxsdk/core/base/fbxarray.h}}>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxstring_8h}{fbxsdk/core/base/fbxstring.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_scene}{FbxScene}};}
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_status}{FbxStatus}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_scene_check_utility_a2ab66d8e33a476e8191002237bf5a875}{FbxSceneCheckUtility}}\ }
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{enum}\ ECheckMode\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ eCheckCycles\ =\ 0x01,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ eCheckAnimationData\ =\ 0x06,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ eCheckAnimationEmptyLayers\ =\ 0x02,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ eCheckAnimatioCurveData\ =\ 0x04,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ eCheckGeometryData\ =\ 0x7FFF8,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ eCheckPolyVertex\ =\ 0x00008,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ eCheckLayerElems\ =\ 0x0FFF0,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ leave\ room\ for\ more\ granularity}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ eCheckOtherData\ =\ 0xF0000,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ eCheckSkin\ \ \ \ =\ 0x00010000,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ eCheckCluster\ =\ 0x00020000,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ eCheckShape\ \ \ =\ 0x00040000,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ eSelectionNode=\ 0x00080000,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ eCkeckData\ =\ 0x7FFFE\ \textcolor{comment}{//\ includes\ GeometryData,AnimationData\ \&\ OtherData}}
+\DoxyCodeLine{00046\ \ \ \ \ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_fbx_scene_check_utility_a2ab66d8e33a476e8191002237bf5a875}{FbxSceneCheckUtility}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ pScene,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxString*>}}*\ pDetails\ =\ NULL);}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_fbx_scene_check_utility_a2ab66d8e33a476e8191002237bf5a875}{\string~FbxSceneCheckUtility}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_scene_check_utility_a811a842cc8df93e6a34bf5a8c0c9b939}{Validate}}(ECheckMode\ pCheckMode=eCheckCycles,\ \textcolor{keywordtype}{bool}\ pTryToRemoveBadData=\textcolor{keyword}{false});}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00070\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00071\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_scene_check_utility_a811a842cc8df93e6a34bf5a8c0c9b939}{Validate}}(\mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeom,\ \textcolor{keywordtype}{int}\ pCheckMode\ =\ eCheckGeometryData);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{bool}\ ValidateArray(T*\ pData,\ \textcolor{keywordtype}{int}\ pNbItems,\ T\ pMinVal,\ T\ pMaxVal,\ T*\ pFixVal\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ Check\ functions\ return\ true\ if\ valid,\ false\ otherwise}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ ValidateMappingMode(\mbox{\hyperlink{class_fbx_layer_element_a5a40e95db30ae9f94611dc3f1568af26}{FbxLayerElement::EMappingMode}}\ pMappingMode);}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ ValidateReferenceMode(\mbox{\hyperlink{class_fbx_layer_element_a00f04654580ca9b2f5d292c11abd83fc}{FbxLayerElement::EReferenceMode}}\ pReferenceMode);}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ ValidateSurfaceMode(\mbox{\hyperlink{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794db}{FbxGeometry::ESurfaceMode}}\ pSurfaceMode);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//\ Return\ 0\ if\ an\ error\ is\ detected\ or\ the\ expected\ size\ of\ the\ reference\ array\ based\ on\ the\ mapping\ \&\ reference\ modes}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ ExpectedNbItems(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_geometry_base}{FbxGeometryBase}}*\ pGeom,\ \mbox{\hyperlink{class_fbx_layer_element_a5a40e95db30ae9f94611dc3f1568af26}{FbxLayerElement::EMappingMode}}\ pMappingMode);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_scene_check_utility_a3231697b1e6e0905b4772da77a822f28}{ValidateObjectData}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_nurbs}{FbxNurbs}}*\ pNurbs);}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_scene_check_utility_a3231697b1e6e0905b4772da77a822f28}{ValidateObjectData}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_nurbs_curve}{FbxNurbsCurve}}*\ pNurbs);}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_scene_check_utility_a3231697b1e6e0905b4772da77a822f28}{ValidateObjectData}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_nurbs_surface}{FbxNurbsSurface}}*\ pNurbs);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{bool}\ HaveCycles();}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{bool}\ HaveInvalidData(\textcolor{keywordtype}{int}\ pCheckMode);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{class_fbx_scene_check_utility_a2ab66d8e33a476e8191002237bf5a875}{FbxSceneCheckUtility}}();}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{class_fbx_scene_check_utility_a2ab66d8e33a476e8191002237bf5a875}{FbxSceneCheckUtility}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_scene_check_utility_a2ab66d8e33a476e8191002237bf5a875}{FbxSceneCheckUtility}}\&\ pOther);\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{bool}\ CheckMappingMode(\mbox{\hyperlink{class_fbx_layer_element_a5a40e95db30ae9f94611dc3f1568af26}{FbxLayerElement::EMappingMode}}\ pMappingMode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pPrefix);}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{bool}\ CheckReferenceMode(\mbox{\hyperlink{class_fbx_layer_element_a00f04654580ca9b2f5d292c11abd83fc}{FbxLayerElement::EReferenceMode}}\ pReferenceMode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pPrefix);}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{bool}\ CheckSurfaceMode(\mbox{\hyperlink{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794db}{FbxGeometry::ESurfaceMode}}\ pSurfaceMode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pPrefix);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{bool}\ CheckSurfaceType(T\ pSurfaceType,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pPrefix,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pDir);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ eNoRestriction,}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ eDirectOnly,}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ eIndexOnly,}
+\DoxyCodeLine{00113\ \ \ \ \ \};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{bool}\ ResetLayerElement(\mbox{\hyperlink{class_fbx_layer_element_template}{FbxLayerElementTemplate<T>}}*\ pLET,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pMsg);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{bool}\ CheckLayerElement(\mbox{\hyperlink{class_fbx_layer_element_template}{FbxLayerElementTemplate<T>}}*\ pLET,\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pMaxCount,\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pId,\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pPrefix,}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pRestriction\ =\ eNoRestriction);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{bool}\ MeshHaveInvalidData(\textcolor{keywordtype}{int}\ pCheckMode,\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeom,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pName);}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{bool}\ NurbsHaveInvalidData(\textcolor{keywordtype}{int}\ pCheckMode,\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeom,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pName);}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{bool}\ LineHaveInvalidData(\textcolor{keywordtype}{int}\ pCheckMode,\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeom,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pName);}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{bool}\ GeometryHaveInvalidData(\textcolor{keywordtype}{int}\ pCheckMode,\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}*\ pGeom,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pBase);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{bool}\ LayersHaveInvalidData(\mbox{\hyperlink{class_fbx_geometry_base}{FbxGeometryBase}}*\ pGeom,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pBase,\ \textcolor{keywordtype}{int}\ pNbConnectedMaterials=0);}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{bool}\ ClusterHaveInvalidData(\mbox{\hyperlink{class_fbx_cluster}{FbxCluster}}*\ pCluster,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pBase,\ \textcolor{keywordtype}{int}\ lMaxValue=-\/1);}
+\DoxyCodeLine{00132\ \ \ \ \ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{bool}\ ShapeHaveInvalidData();}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{bool}\ SelectionNodeHaveInvalidData();}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{bool}\ GlobalSettingsHaveInvalidData();}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{bool}\ AnimationHaveInvalidData(\textcolor{keywordtype}{int}\ pCheckMode);}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{bool}\ AnimationHaveEmptyLayers();}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{bool}\ AnimationHaveInvalidCurveData();}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ mScene;}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ \ \ \ \ \ \ \ \ \ \ \ mStatus;}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxString*>}}*\ mDetails;}
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \ \ \ \ \ \ \ \ \ \ \ \ mBuffer;}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mCanTryToRecover;}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00149\ \};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_UTILS\_ROOT\_NODE\_UTILITY\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

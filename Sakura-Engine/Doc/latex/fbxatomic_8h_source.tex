@@ -1,0 +1,63 @@
+\doxysection{fbxatomic.\+h}
+\hypertarget{fbxatomic_8h_source}{}\label{fbxatomic_8h_source}\index{include/fbx/fbxsdk/core/sync/fbxatomic.h@{include/fbx/fbxsdk/core/sync/fbxatomic.h}}
+\mbox{\hyperlink{fbxatomic_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_SYNC\_ATOMIC\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_SYNC\_ATOMIC\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#if\ !defined(FBXSDK\_ENV\_WINSTORE)\ \&\&\ !defined(FBXSDK\_ENV\_EMSCRIPTEN)}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_atom_op}{FbxAtomOp}}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ Inc(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ Dec(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ Add(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ Sub(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ And(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ Or(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ Nand(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ Xor(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ CompareAndSwap(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pOld,\ FbxAtomic\ pSwap);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ TestAndSet(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ FetchAndSwap(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pSwap);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ FetchAndInc(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ FetchAndDec(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ FetchAndAdd(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ FetchAndSub(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ FetchAndOr(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ FetchAndAnd(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ FetchAndXor(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ FetchAndNand(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ IncAndFetch(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr);}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ DecAndFetch(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ AddAndFetch(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ SubAndFetch(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ OrAndFetch(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ AndAndFetch(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ XorAndFetch(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{static}\ FbxAtomic\ \ \ \ NandAndFetch(\textcolor{keyword}{volatile}\ FbxAtomic*\ pPtr,\ FbxAtomic\ pVal);}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !FBXSDK\_ENV\_WINSTORE\ \&\&\ !FBXSDK\_ENV\_EMSCRIPTEN\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_SYNC\_ATOMIC\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

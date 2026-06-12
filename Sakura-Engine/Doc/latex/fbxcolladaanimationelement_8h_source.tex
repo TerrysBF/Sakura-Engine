@@ -1,0 +1,67 @@
+\doxysection{fbxcolladaanimationelement.\+h}
+\hypertarget{fbxcolladaanimationelement_8h_source}{}\label{fbxcolladaanimationelement_8h_source}\index{include/fbx/fbxsdk/fileio/collada/fbxcolladaanimationelement.h@{include/fbx/fbxsdk/fileio/collada/fbxcolladaanimationelement.h}}
+\mbox{\hyperlink{fbxcolladaanimationelement_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2016\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_FILEIO\_COLLADA\_ANIMATION\_ELEMENT\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_FILEIO\_COLLADA\_ANIMATION\_ELEMENT\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk_8h}{fbxsdk.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcolladaelement_8h}{fbxsdk/fileio/collada/fbxcolladaelement.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }AnimationElement\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_element_base_a4c7415e032db4a4d1890edd5fed2eb01}{ElementBase}}}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_element_base_a4c7415e032db4a4d1890edd5fed2eb01}{ElementBase}}\ base\_type;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ AnimationElement();}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~AnimationElement();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_animation_element_a2c02d9a40137240eea5c3bc867c59fa3}{GetChannelCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_animation_element_ad0a36ae16945ef4a3027bb8f57452c45}{FromCOLLADA}}(xmlNode\ *\ pElement,\ \textcolor{keyword}{const}\ SourceElementMapType\ \&\ pSourceElements);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_animation_element_a44a774ba612fb2707dee931048231686}{FromFBX}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_anim_curve}{FbxAnimCurve}}\ *\ pCurve,\ \textcolor{keywordtype}{double}\ pUnitConversion\ =\ 1.0);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_animation_element_af26601574516e4a3d05a5e8a611b6ea5}{ToFBX}}(\mbox{\hyperlink{class_fbx_anim_curve}{FbxAnimCurve}}\ *\ pFBXCurve,\ \textcolor{keywordtype}{int}\ pChannelIndex,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ pUnitConversion\ =\ 1.0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_animation_element_a97828e118006d28ad27aae3d3a668b66}{ToFBX}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}\ *\ pFBXNode,\ \mbox{\hyperlink{class_fbx_anim_layer}{FbxAnimLayer}}\ *\ pAnimLayer,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ pUnitConversion\ =\ 1.0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_animation_element_ac697ab978aa85e18c65eaf651db69c6a}{ToCOLLADA}}(xmlNode\ *\ pAnimationLibrary,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pNodeID,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ pAttributeSID);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{int}\ mKeyCount;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{double}\ *\ mInputArray;}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{double}\ *\ mOutputArray;}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{int}\ mOutputStride;}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ *\ mInterpolationArray;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{int}\ mInterpolationStride;}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{double}\ *\ mInTangentArray;}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ mInTangentStride;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{double}\ *\ mOutTangentArray;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{int}\ mOutTangentStride;}
+\DoxyCodeLine{00086\ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_FILEIO\_COLLADA\_ANIMATION\_ELEMENT\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

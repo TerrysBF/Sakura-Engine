@@ -1,0 +1,283 @@
+\doxysection{Fbx\+Clone\+Manager Class Reference}
+\hypertarget{class_fbx_clone_manager}{}\label{class_fbx_clone_manager}\index{FbxCloneManager@{FbxCloneManager}}
+
+
+{\ttfamily \#include $<$fbxclonemanager.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_fbx_clone_manager_1_1_clone_set_element}{Clone\+Set\+Element}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{class_fbx_map}{Fbx\+Map}}$<$ \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{struct_fbx_clone_manager_1_1_clone_set_element}{Clone\+Set\+Element}} $>$ \mbox{\hyperlink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{Clone\+Set}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_clone_manager_a107bf53621e736a37d7a6ead38a4d899}{Fbx\+Clone\+Manager}} ()
+\item 
+virtual \mbox{\hyperlink{class_fbx_clone_manager_a8e2ff57b1e9d8ed1b8edb4274cf1c369}{\texorpdfstring{$\sim$}{\string~}\+Fbx\+Clone\+Manager}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_clone_manager_a2a7f5f060bf0cf0737d0385542e1bc97}{Clone}} (\mbox{\hyperlink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{Clone\+Set}} \&p\+Set, \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Container=NULL) const
+\item 
+virtual void \mbox{\hyperlink{class_fbx_clone_manager_a3a7786f536d8f61f0b84f114e6e870d2}{Add\+Dependents}} (\mbox{\hyperlink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{Clone\+Set}} \&p\+Set, const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object, const \mbox{\hyperlink{struct_fbx_clone_manager_1_1_clone_set_element}{Clone\+Set\+Element}} \&p\+Clone\+Options=\mbox{\hyperlink{struct_fbx_clone_manager_1_1_clone_set_element}{Clone\+Set\+Element}}(), \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} p\+Types=\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{Fbx\+Criteria\+::\+Object\+Type}}(Fbx\+Object\+::\+Class\+Id), int p\+Depth=\mbox{\hyperlink{class_fbx_clone_manager_a1844e81f1b96760b4223024b4c133da7}{s\+Maximum\+Clone\+Depth}}) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_clone_manager_a8a3d0c1c70153d4606cd79d5a22c603c}{Clone}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object, \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Container=NULL)
+\item 
+\Hypertarget{class_fbx_clone_manager_a8f90aa48b05e51d3d7b2deab3ca8bdfe}\label{class_fbx_clone_manager_a8f90aa48b05e51d3d7b2deab3ca8bdfe} 
+static \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} {\bfseries Clone} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object, \mbox{\hyperlink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{Clone\+Set}} \texorpdfstring{$\ast$}{*}p\+Set, \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Container=NULL)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_clone_manager_a1844e81f1b96760b4223024b4c133da7}\label{class_fbx_clone_manager_a1844e81f1b96760b4223024b4c133da7} 
+static const int {\bfseries s\+Maximum\+Clone\+Depth}
+\begin{DoxyCompactList}\small\item\em Maximum depth to clone dependents. \end{DoxyCompactList}\item 
+static const int \mbox{\hyperlink{class_fbx_clone_manager_a5a951074ea2c085555fa95b877c56591}{s\+Connect\+To\+Original}}
+\item 
+static const int \mbox{\hyperlink{class_fbx_clone_manager_ab70c9534523f7e45b21372ff0b2eb109}{s\+Connect\+To\+Clone}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_clone_manager_abcc807c3523609e1c734764de626facc}\label{class_fbx_clone_manager_abcc807c3523609e1c734764de626facc} 
+class {\bfseries Fbx\+Scene}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The clone manager is a utility for cloning entire networks of \doxylink{class_fbx_object}{Fbx\+Object}. Options are available for specifying how the clones inherit the connections of the original.
+
+Networks of \doxylink{class_fbx_object}{Fbx\+Object} (inter-\/connected objects by OO, OP, PO or PP connections) can be cloned. How the connections of clones are handled depends on m\+Src\+Policy and m\+External\+Dst\+Policy.
+
+To clone \doxylink{class_fbx_object}{Fbx\+Object} instances and their dependents, put them into a \doxylink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{Clone\+Set} and pass the \doxylink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{Clone\+Set} to this class\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_fbx_clone_manager_a107bf53621e736a37d7a6ead38a4d899}{FbxCloneManager}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cloneManager;}
+\DoxyCodeLine{\mbox{\hyperlink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{FbxCloneManager::CloneSet}}\ \ \ \ \ \ \ \ cloneSet;}
+\DoxyCodeLine{FbxCloneManager::CloneSetElement\ defaultCloneOptions(\mbox{\hyperlink{class_fbx_clone_manager_ab70c9534523f7e45b21372ff0b2eb109}{FbxCloneManager::sConnectToClone}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_clone_manager_a5a951074ea2c085555fa95b877c56591}{FbxCloneManager::sConnectToOriginal}},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{FbxObject::eDeepClone}});}
+\DoxyCodeLine{cloneSet.\mbox{\hyperlink{class_fbx_map_a9c38f5b6975713764fee8979985fbce0}{Insert}}(someObject,\ defaultCloneOptions);}
+\DoxyCodeLine{cloneManager.\mbox{\hyperlink{class_fbx_clone_manager_a3a7786f536d8f61f0b84f114e6e870d2}{AddDependents}}(cloneSet,\ someObject,\ defaultCloneOptions);}
+\DoxyCodeLine{cloneManager.\mbox{\hyperlink{class_fbx_clone_manager_a8a3d0c1c70153d4606cd79d5a22c603c}{Clone}}(cloneSet,\ scene)}
+
+\end{DoxyCode}
+
+
+\begin{DoxyRemark}{Remarks}
+If cloning occurs on the same scene as the original objects, the system will contain duplicated names. Although this is acceptable in FBX, some applications may not behave correctly with duplicated names. It is the responsability of the caller to resolve any conflicts.
+\end{DoxyRemark}
+\begin{DoxySeeAlso}{See also}
+\doxylink{struct_fbx_clone_manager_1_1_clone_set_element}{Fbx\+Clone\+Manager\+::\+Clone\+Set\+Element} 
+
+\doxylink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{Fbx\+Clone\+Manager\+::\+Clone\+Set} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}\index{FbxCloneManager@{FbxCloneManager}!CloneSet@{CloneSet}}
+\index{CloneSet@{CloneSet}!FbxCloneManager@{FbxCloneManager}}
+\doxysubsubsection{\texorpdfstring{CloneSet}{CloneSet}}
+{\footnotesize\ttfamily \label{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d} 
+typedef \mbox{\hyperlink{class_fbx_map}{Fbx\+Map}}$<$\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}}\texorpdfstring{$\ast$}{*},\mbox{\hyperlink{struct_fbx_clone_manager_1_1_clone_set_element}{Clone\+Set\+Element}}$>$ \mbox{\hyperlink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{Fbx\+Clone\+Manager\+::\+Clone\+Set}}}
+
+The \doxylink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{Clone\+Set} is a collection of pointers to objects that will be cloned in \doxylink{class_fbx_clone_manager_a8a3d0c1c70153d4606cd79d5a22c603c}{Clone()} Attached to each object is a \doxylink{struct_fbx_clone_manager_1_1_clone_set_element}{Clone\+Set\+Element}. Its member variables dictate how the corresponding object will be cloned, and how it will inherit connections on the original object. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_clone_manager_a107bf53621e736a37d7a6ead38a4d899}\index{FbxCloneManager@{FbxCloneManager}!FbxCloneManager@{FbxCloneManager}}
+\index{FbxCloneManager@{FbxCloneManager}!FbxCloneManager@{FbxCloneManager}}
+\doxysubsubsection{\texorpdfstring{FbxCloneManager()}{FbxCloneManager()}}
+{\footnotesize\ttfamily \label{class_fbx_clone_manager_a107bf53621e736a37d7a6ead38a4d899} 
+Fbx\+Clone\+Manager\+::\+Fbx\+Clone\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Constructor \Hypertarget{class_fbx_clone_manager_a8e2ff57b1e9d8ed1b8edb4274cf1c369}\index{FbxCloneManager@{FbxCloneManager}!````~FbxCloneManager@{\texorpdfstring{$\sim$}{\string~}FbxCloneManager}}
+\index{````~FbxCloneManager@{\texorpdfstring{$\sim$}{\string~}FbxCloneManager}!FbxCloneManager@{FbxCloneManager}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FbxCloneManager()}{\string~FbxCloneManager()}}
+{\footnotesize\ttfamily \label{class_fbx_clone_manager_a8e2ff57b1e9d8ed1b8edb4274cf1c369} 
+virtual Fbx\+Clone\+Manager\+::\texorpdfstring{$\sim$}{\string~}\+Fbx\+Clone\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_clone_manager_a3a7786f536d8f61f0b84f114e6e870d2}\index{FbxCloneManager@{FbxCloneManager}!AddDependents@{AddDependents}}
+\index{AddDependents@{AddDependents}!FbxCloneManager@{FbxCloneManager}}
+\doxysubsubsection{\texorpdfstring{AddDependents()}{AddDependents()}}
+{\footnotesize\ttfamily \label{class_fbx_clone_manager_a3a7786f536d8f61f0b84f114e6e870d2} 
+virtual void Fbx\+Clone\+Manager\+::\+Add\+Dependents (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{Clone\+Set}} \&}]{p\+Set}{, }\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{, }\item[{const \mbox{\hyperlink{struct_fbx_clone_manager_1_1_clone_set_element}{Clone\+Set\+Element}} \&}]{p\+Clone\+Options}{ = {\ttfamily \mbox{\hyperlink{struct_fbx_clone_manager_1_1_clone_set_element}{Clone\+Set\+Element}}()}, }\item[{\mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}}}]{p\+Types}{ = {\ttfamily \mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{Fbx\+Criteria\+::\+Object\+Type}}(FbxObject\+:\+:ClassId)}, }\item[{int}]{p\+Depth}{ = {\ttfamily \mbox{\hyperlink{class_fbx_clone_manager_a1844e81f1b96760b4223024b4c133da7}{s\+Maximum\+Clone\+Depth}}}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Add all dependents of the given object to the \doxylink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{Clone\+Set}. Dependents of items already in the set are ignored to prevent infinite recursion on cyclic dependencies. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Set} & The set to add items. \\
+\hline
+{\em p\+Object} & Object to add dependents to \\
+\hline
+{\em p\+Clone\+Options} & ~\newline
+ \\
+\hline
+{\em p\+Types} & Types of dependent objects to consider \\
+\hline
+{\em p\+Depth} & Maximum recursive depth. Valid range is \mbox{[}0,s\+Maximum\+Clone\+Depth\mbox{]}\\
+\hline
+\end{DoxyParams}
+The following example shows how to perform multiple calls to \doxylink{class_fbx_clone_manager_a3a7786f536d8f61f0b84f114e6e870d2}{Add\+Dependents()} to collect several subgraphs to be cloned\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FbxObject*\ lRoot\ =\ ...\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ initialized\ with\ the\ root\ of\ the\ graph\ to\ be\ cloned}}
+\DoxyCodeLine{FbxCharacter*\ lCharacter\ =\ ...\ \ \ \textcolor{comment}{//\ points\ to\ the\ FbxCharacter\ driving\ the\ character\ defined\ by\ "{}lRoot"{}\ graph}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{class_fbx_clone_manager_a107bf53621e736a37d7a6ead38a4d899}{FbxCloneManager}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cloneManager;}
+\DoxyCodeLine{\mbox{\hyperlink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{FbxCloneManager::CloneSet}}\ \ \ \ \ \ \ \ cloneSet;}
+\DoxyCodeLine{}
+\DoxyCodeLine{cloneManager.\mbox{\hyperlink{class_fbx_clone_manager_a3a7786f536d8f61f0b84f114e6e870d2}{AddDependents}}(cloneSet,\ lRoot);}
+\DoxyCodeLine{cloneSet.\mbox{\hyperlink{class_fbx_map_a9c38f5b6975713764fee8979985fbce0}{Insert}}(lRoot,\ defaultCloneOptions);\ }
+\DoxyCodeLine{}
+\DoxyCodeLine{cloneManager.\mbox{\hyperlink{class_fbx_clone_manager_a3a7786f536d8f61f0b84f114e6e870d2}{AddDependents}}(cloneSet,\ lCharacter);}
+\DoxyCodeLine{cloneSet.\mbox{\hyperlink{class_fbx_map_a9c38f5b6975713764fee8979985fbce0}{Insert}}(lCharacter,\ defaultCloneOptions);\ }
+
+\end{DoxyCode}
+ \Hypertarget{class_fbx_clone_manager_a2a7f5f060bf0cf0737d0385542e1bc97}\index{FbxCloneManager@{FbxCloneManager}!Clone@{Clone}}
+\index{Clone@{Clone}!FbxCloneManager@{FbxCloneManager}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_clone_manager_a2a7f5f060bf0cf0737d0385542e1bc97} 
+virtual bool Fbx\+Clone\+Manager\+::\+Clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{Clone\+Set}} \&}]{p\+Set}{, }\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Container}{ = {\ttfamily NULL}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Clone all objects in the set using the given policies for duplication of connections. Each \doxylink{struct_fbx_clone_manager_1_1_clone_set_element}{Clone\+Set\+Element} in the set will have its m\+Object\+Clone pointer set to the newly created clone. The following code shows how to access the cloned objects\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (cloneManager.Clone(cloneSet,\ pContainer))}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ access\ the\ clones}}
+\DoxyCodeLine{\ \ \ \ FbxCloneManager::CloneSet::RecordType*\ lIterator\ =\ cloneSet.Minimum();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}(\ lIterator\ )}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ FbxObject*\ lOriginalObject\ =\ lIterator-\/>GetKey();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ FbxObject*\ lClonedObject\ \ \ =\ lIterator-\/>GetValue().mObjectClone;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ lIterator\ =\ lIterator-\/>Successor();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Set} & Set of objects to clone \\
+\hline
+{\em p\+Container} & This object (typically a scene or document) will contain the new clones \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if all objects were cloned, false otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+It is advised not to use an \doxylink{class_fbx_node}{Fbx\+Node} object for {\itshape p\+Container} to group the cloned dependency graph. Some objects of the FBX SDK are not meant to be connected to \doxylink{class_fbx_node}{Fbx\+Node} objects and if they are, the final scene will not comply to the FBX standard and its behavior cannot be guaranteed. 
+
+If {\itshape p\+Container} is left {\ttfamily NULL} the cloned objects only exists in the Fbx\+Sdk\+Manager and need to be manually connected to the scene in order to be saved to disk. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_clone_manager_a8a3d0c1c70153d4606cd79d5a22c603c}\index{FbxCloneManager@{FbxCloneManager}!Clone@{Clone}}
+\index{Clone@{Clone}!FbxCloneManager@{FbxCloneManager}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_clone_manager_a8a3d0c1c70153d4606cd79d5a22c603c} 
+static \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} Fbx\+Clone\+Manager\+::\+Clone (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{, }\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Container}{ = {\ttfamily NULL}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This function simplifies the process of cloning one object and all its depedency graph by automatically preparing the \doxylink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{Clone\+Set} and calling the Clone method using the code below.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_fbx_clone_manager_a107bf53621e736a37d7a6ead38a4d899}{FbxCloneManager}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cloneManager;}
+\DoxyCodeLine{\mbox{\hyperlink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{FbxCloneManager::CloneSet}}\ \ \ \ \ \ \ \ cloneSet;}
+\DoxyCodeLine{FbxCloneManager::CloneSetElement\ defaultCloneOptions(\mbox{\hyperlink{class_fbx_clone_manager_ab70c9534523f7e45b21372ff0b2eb109}{FbxCloneManager::sConnectToClone}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_clone_manager_a5a951074ea2c085555fa95b877c56591}{FbxCloneManager::sConnectToOriginal}},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{FbxObject::eDeepClone}});}
+\DoxyCodeLine{FbxObject*\ lReturnObj\ =\ (FbxObject*)pObject;}
+\DoxyCodeLine{}
+\DoxyCodeLine{cloneManager.\mbox{\hyperlink{class_fbx_clone_manager_a3a7786f536d8f61f0b84f114e6e870d2}{AddDependents}}(cloneSet,\ pObject,\ defaultCloneOptions,\ \mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(FbxObject::ClassId));\ \ \ \ }
+\DoxyCodeLine{cloneSet.\mbox{\hyperlink{class_fbx_map_a9c38f5b6975713764fee8979985fbce0}{Insert}}((FbxObject*)pObject,\ defaultCloneOptions);\ }
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ collect\ all\ the\ FbxCharacters,\ if\ any\ (these\ are\ indirect\ dependencies\ not\ visible\ by\ the\ AddDependents\ recursion)}}
+\DoxyCodeLine{FbxArray<FbxObject*>\ lExtras;}
+\DoxyCodeLine{FbxCloneManager::CloneSet::RecordType*\ lIterator\ =\ cloneSet.\mbox{\hyperlink{class_fbx_map_a5efef14daf3a1e9f8d718f7ffb75654d}{Minimum}}();}
+\DoxyCodeLine{\textcolor{keywordflow}{while}(\ lIterator\ )}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ FbxObject*\ lObj\ =\ lIterator-\/>GetKey();}
+\DoxyCodeLine{\ \ \ \ cloneManager.LookForIndirectDependent(lObj,\ cloneSet,\ lExtras);}
+\DoxyCodeLine{\ \ \ \ lIterator\ =\ lIterator-\/>Successor();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ and\ add\ them\ to\ cloneSet}}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0,\ c\ =\ lExtras.GetCount();\ i\ <\ c;\ i++)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ FbxObject*\ lObj\ =\ lExtras[i];}
+\DoxyCodeLine{\ \ \ \ cloneManager.\mbox{\hyperlink{class_fbx_clone_manager_a3a7786f536d8f61f0b84f114e6e870d2}{AddDependents}}(cloneSet,\ lObj,\ defaultCloneOptions);}
+\DoxyCodeLine{\ \ \ \ cloneSet.\mbox{\hyperlink{class_fbx_map_a9c38f5b6975713764fee8979985fbce0}{Insert}}(lObj,\ defaultCloneOptions);\ }
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ clone\ everything}}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (cloneManager.\mbox{\hyperlink{class_fbx_clone_manager_a8a3d0c1c70153d4606cd79d5a22c603c}{Clone}}(cloneSet,\ pContainer))}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ get\ the\ clone\ of\ pObject}}
+\DoxyCodeLine{\ \ \ \ CloneSet::RecordType*\ lIterator\ =\ cloneSet.\mbox{\hyperlink{class_fbx_map_a6ea3ce295039b610566947ffc52a8081}{Find}}((FbxObject*\ \textcolor{keyword}{const})pObject);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}(\ lIterator\ )}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ lReturnObj\ =\ lIterator-\/>GetValue().mObjectClone;}
+\DoxyCodeLine{\ \ \ \ \}\ \ \ \ }
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ lReturnObj;}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & Object to clone. \\
+\hline
+{\em p\+Container} & This object (typically a scene or document) will contain the new clones. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The clone of {\itshape p\+Object} if all its depedency graph have been cloned successfully, NULL otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+It is advised not to use an \doxylink{class_fbx_node}{Fbx\+Node} object for {\itshape p\+Container} to group the cloned dependency graph. Some objects of the FBX SDK are not meant to be connected to \doxylink{class_fbx_node}{Fbx\+Node} objects and if they are, the final scene will not comply to the FBX standard and its behavior cannot be guaranteed. 
+
+If {\itshape p\+Container} is left {\ttfamily NULL} the cloned objects only exists in the Fbx\+Sdk\+Manager and need to be manually connected to the scene in order to be saved to disk.
+\end{DoxyRemark}
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FbxObject*\ lObj2BCloned\ =\ ...}
+\DoxyCodeLine{FbxNode*\ myNewParent\ =\ FbxNode::Create(lNewScene,\ \textcolor{stringliteral}{"{}Clone"{}});}
+\DoxyCodeLine{lNewScene-\/>GetRootNode()-\/>AddChild(lN);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{class_fbx_clone_manager_a107bf53621e736a37d7a6ead38a4d899}{FbxCloneManager}}\ cloneManager;}
+\DoxyCodeLine{FbxNode\ *lClone\ =\ (FbxNode*)cloneManager.\mbox{\hyperlink{class_fbx_clone_manager_a8a3d0c1c70153d4606cd79d5a22c603c}{Clone}}(lObj2BCloned);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ make\ sure\ the\ cloned\ object\ is\ connected\ to\ the\ scene}}
+\DoxyCodeLine{lClone-\/>\mbox{\hyperlink{class_fbx_object_a3c7e883121fe1ceb271381146bd52ed0}{ConnectDstObject}}(lNewScene);}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_fbx_clone_manager_ab70c9534523f7e45b21372ff0b2eb109}\index{FbxCloneManager@{FbxCloneManager}!sConnectToClone@{sConnectToClone}}
+\index{sConnectToClone@{sConnectToClone}!FbxCloneManager@{FbxCloneManager}}
+\doxysubsubsection{\texorpdfstring{sConnectToClone}{sConnectToClone}}
+{\footnotesize\ttfamily \label{class_fbx_clone_manager_ab70c9534523f7e45b21372ff0b2eb109} 
+const int Fbx\+Clone\+Manager\+::s\+Connect\+To\+Clone\hspace{0.3cm}{\ttfamily [static]}}
+
+Connect to clones of objects that are connected to original object. (only if those original objects are also in the clone set) This is a flag to m\+Src\+Policy. \Hypertarget{class_fbx_clone_manager_a5a951074ea2c085555fa95b877c56591}\index{FbxCloneManager@{FbxCloneManager}!sConnectToOriginal@{sConnectToOriginal}}
+\index{sConnectToOriginal@{sConnectToOriginal}!FbxCloneManager@{FbxCloneManager}}
+\doxysubsubsection{\texorpdfstring{sConnectToOriginal}{sConnectToOriginal}}
+{\footnotesize\ttfamily \label{class_fbx_clone_manager_a5a951074ea2c085555fa95b877c56591} 
+const int Fbx\+Clone\+Manager\+::s\+Connect\+To\+Original\hspace{0.3cm}{\ttfamily [static]}}
+
+Connect to objects that are connected to original object. This is a flag to m\+Src\+Policy or m\+External\+Dst\+Policy. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/utils/\mbox{\hyperlink{fbxclonemanager_8h}{fbxclonemanager.\+h}}\end{DoxyCompactItemize}

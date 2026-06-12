@@ -1,0 +1,174 @@
+\doxysection{IResource Class Reference}
+\hypertarget{class_i_resource}{}\label{class_i_resource}\index{IResource@{IResource}}
+
+
+Interfaz base para todos los recursos del motor (modelos, texturas, shaders, etc.). Define el ciclo de vida básico\+: inicializar, cargar, descargar y reportar tamaño.  
+
+
+
+
+{\ttfamily \#include $<$IResource.\+h$>$}
+
+Inheritance diagram for IResource\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_resource}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i_resource_a01378dfe489a635001e3c1afded70563}{IResource}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Construye un recurso con un nombre lógico. Inicialmente se marca como tipo desconocido y estado Unloaded. \end{DoxyCompactList}\item 
+\Hypertarget{class_i_resource_ae92fd30872c61db5acaacbe00a672845}\label{class_i_resource_ae92fd30872c61db5acaacbe00a672845} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IResource} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual por defecto. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_i_resource_ae8338623eb79926b74191f767bd920eb}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Crea o inicializa el recurso en GPU (buffers, texturas, etc.). \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_i_resource_a0f82dd9a4aaa6258a7a9e6ace1fe9ec0}{load}} (const std\+::string \&filename)=0
+\begin{DoxyCompactList}\small\item\em Carga el recurso desde disco usando una ruta de archivo. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_resource_ac95808d27eedffc2ceb17f4d7f6885f8}{unload}} ()=0
+\begin{DoxyCompactList}\small\item\em Libera la memoria asociada al recurso (CPU/\+GPU). \end{DoxyCompactList}\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_i_resource_aa6f824e7353d9eaa63eef132324f7265}{get\+Size\+In\+Bytes}} () const =0
+\begin{DoxyCompactList}\small\item\em Devuelve el tamaño estimado del recurso en memoria (en bytes). Útil para profiling o administración de memoria. \end{DoxyCompactList}\item 
+\Hypertarget{class_i_resource_a03acd5e1723b1c6578e6e9bbb1aec4fb}\label{class_i_resource_a03acd5e1723b1c6578e6e9bbb1aec4fb} 
+void {\bfseries Set\+Path} (const std\+::string \&path)
+\item 
+\Hypertarget{class_i_resource_a34f237ab50067039b744b98c777aebcb}\label{class_i_resource_a34f237ab50067039b744b98c777aebcb} 
+void {\bfseries Set\+Type} (Resource\+Type t)
+\item 
+\Hypertarget{class_i_resource_aee94e53e0d9d227dcf3e67b71427092e}\label{class_i_resource_aee94e53e0d9d227dcf3e67b71427092e} 
+void {\bfseries Set\+State} (Resource\+State s)
+\item 
+\Hypertarget{class_i_resource_a21bf49ff165d245ce1e7e030e39560eb}\label{class_i_resource_a21bf49ff165d245ce1e7e030e39560eb} 
+const std\+::string \& {\bfseries Get\+Name} () const
+\item 
+\Hypertarget{class_i_resource_adc8134e50d28c04ec90870a39b6a0351}\label{class_i_resource_adc8134e50d28c04ec90870a39b6a0351} 
+const std\+::string \& {\bfseries Get\+Path} () const
+\item 
+\Hypertarget{class_i_resource_a75a7ecb9871a872cdc0a8fc0839f4855}\label{class_i_resource_a75a7ecb9871a872cdc0a8fc0839f4855} 
+Resource\+Type {\bfseries Get\+Type} () const
+\item 
+\Hypertarget{class_i_resource_afa6f940f1385c45ec87eec5e9fef0321}\label{class_i_resource_afa6f940f1385c45ec87eec5e9fef0321} 
+Resource\+State {\bfseries Get\+State} () const
+\item 
+\Hypertarget{class_i_resource_ad0db86b9591b07926e3806799884d728}\label{class_i_resource_ad0db86b9591b07926e3806799884d728} 
+uint64\+\_\+t {\bfseries Get\+ID} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i_resource_a17e79266eee7c86682d56ad2e22e4894}\label{class_i_resource_a17e79266eee7c86682d56ad2e22e4894} 
+std\+::string {\bfseries m\+\_\+name}
+\item 
+\Hypertarget{class_i_resource_ab275f2f6b74f0f5b391722c8cecf6e59}\label{class_i_resource_ab275f2f6b74f0f5b391722c8cecf6e59} 
+std\+::string {\bfseries m\+\_\+file\+Path}
+\item 
+\Hypertarget{class_i_resource_a83c334f0368e405a520fac2dc318eb25}\label{class_i_resource_a83c334f0368e405a520fac2dc318eb25} 
+Resource\+Type {\bfseries m\+\_\+type}
+\item 
+\Hypertarget{class_i_resource_aec300bf910db95330a2de7d58ecb43f3}\label{class_i_resource_aec300bf910db95330a2de7d58ecb43f3} 
+Resource\+State {\bfseries m\+\_\+state}
+\item 
+\Hypertarget{class_i_resource_ae9214eb5b79b4388372d57ac297fd18c}\label{class_i_resource_ae9214eb5b79b4388372d57ac297fd18c} 
+uint64\+\_\+t {\bfseries m\+\_\+id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfaz base para todos los recursos del motor (modelos, texturas, shaders, etc.). Define el ciclo de vida básico\+: inicializar, cargar, descargar y reportar tamaño. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_i_resource_a01378dfe489a635001e3c1afded70563}\index{IResource@{IResource}!IResource@{IResource}}
+\index{IResource@{IResource}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{IResource()}{IResource()}}
+{\footnotesize\ttfamily \label{class_i_resource_a01378dfe489a635001e3c1afded70563} 
+IResource\+::\+IResource (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construye un recurso con un nombre lógico. Inicialmente se marca como tipo desconocido y estado Unloaded. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nombre lógico del recurso.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_resource_aa6f824e7353d9eaa63eef132324f7265}\index{IResource@{IResource}!getSizeInBytes@{getSizeInBytes}}
+\index{getSizeInBytes@{getSizeInBytes}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{getSizeInBytes()}{getSizeInBytes()}}
+{\footnotesize\ttfamily \label{class_i_resource_aa6f824e7353d9eaa63eef132324f7265} 
+virtual size\+\_\+t IResource\+::get\+Size\+In\+Bytes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Devuelve el tamaño estimado del recurso en memoria (en bytes). Útil para profiling o administración de memoria. 
+
+\begin{DoxyReturn}{Returns}
+Tamaño aproximado en bytes.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_model3_d_a42dbe41a7435885766515c4ebb2bc87b}{Model3D}}.
+
+\Hypertarget{class_i_resource_ae8338623eb79926b74191f767bd920eb}\index{IResource@{IResource}!init@{init}}
+\index{init@{init}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_i_resource_ae8338623eb79926b74191f767bd920eb} 
+virtual bool IResource\+::init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Crea o inicializa el recurso en GPU (buffers, texturas, etc.). 
+
+\begin{DoxyReturn}{Returns}
+true si la inicialización fue exitosa; false en caso contrario.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_model3_d_ac718e514403a19985847deca1d062db7}{Model3D}}.
+
+\Hypertarget{class_i_resource_a0f82dd9a4aaa6258a7a9e6ace1fe9ec0}\index{IResource@{IResource}!load@{load}}
+\index{load@{load}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily \label{class_i_resource_a0f82dd9a4aaa6258a7a9e6ace1fe9ec0} 
+virtual bool IResource\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Carga el recurso desde disco usando una ruta de archivo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Ruta o nombre de archivo del recurso.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si la carga fue exitosa; false en caso contrario.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_model3_d_ad264d3cfd83ad78aba54114601af582a}{Model3D}}.
+
+\Hypertarget{class_i_resource_ac95808d27eedffc2ceb17f4d7f6885f8}\index{IResource@{IResource}!unload@{unload}}
+\index{unload@{unload}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{unload()}{unload()}}
+{\footnotesize\ttfamily \label{class_i_resource_ac95808d27eedffc2ceb17f4d7f6885f8} 
+virtual void IResource\+::unload (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Libera la memoria asociada al recurso (CPU/\+GPU). 
+
+
+
+Implemented in \mbox{\hyperlink{class_model3_d_a61b4891ed430a715e389af5a6fff08c7}{Model3D}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/IResource.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,1687 @@
+\doxysection{Fbx\+Geometry Class Reference}
+\hypertarget{class_fbx_geometry}{}\label{class_fbx_geometry}\index{FbxGeometry@{FbxGeometry}}
+
+
+{\ttfamily \#include $<$fbxgeometry.\+h$>$}
+
+Inheritance diagram for Fbx\+Geometry\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_fbx_geometry}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_node_attribute_a08e1669d3d1a696910756ab17de56d6a}{Fbx\+Node\+Attribute\+::\+EType}} \mbox{\hyperlink{class_fbx_geometry_a8830759d9747a82db1b5e904162068dc}{Get\+Attribute\+Type}} () const override
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Deformer Management}\par
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_a2f7e48a2faaf3893bc28eb8b684da908}{Add\+Deformer}} (\mbox{\hyperlink{class_fbx_deformer}{Fbx\+Deformer}} \texorpdfstring{$\ast$}{*}p\+Deformer)
+\item 
+\mbox{\hyperlink{class_fbx_deformer}{Fbx\+Deformer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_a312e69fbeef969d6422c8ecab5b1e42d}{Remove\+Deformer}} (int p\+Index, \mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}p\+Status=NULL)
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_a8cca6f160b52ee1ffd799c599c36f784}{Get\+Deformer\+Count}} () const
+\item 
+\mbox{\hyperlink{class_fbx_deformer}{Fbx\+Deformer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_acbcf868b5e5813c781a1b3d32127a831}{Get\+Deformer}} (int p\+Index, \mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}p\+Status=NULL) const
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_a3eaf9796d935cd523d0a85a7f0c018fc}{Get\+Deformer\+Count}} (\mbox{\hyperlink{class_fbx_deformer_a07e2cfb767191ba5c8799fdfbfe3eaf6}{Fbx\+Deformer\+::\+EDeformer\+Type}} p\+Type) const
+\item 
+\mbox{\hyperlink{class_fbx_deformer}{Fbx\+Deformer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_a47230cb22188f9987a8150d46ab70a23}{Get\+Deformer}} (int p\+Index, \mbox{\hyperlink{class_fbx_deformer_a07e2cfb767191ba5c8799fdfbfe3eaf6}{Fbx\+Deformer\+::\+EDeformer\+Type}} p\+Type, \mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}p\+Status=NULL) const
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Geometry Weighted Maps Management}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_geometry_weighted_map}{Fbx\+Geometry\+Weighted\+Map}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_aed9963d0005b65b84c508a70fc7a84df}{Get\+Source\+Geometry\+Weighted\+Map}} ()
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_a7bebc9194083c5bacf77389b98ff906f}{Get\+Destination\+Geometry\+Weighted\+Map\+Count}} () const
+\item 
+\mbox{\hyperlink{class_fbx_geometry_weighted_map}{Fbx\+Geometry\+Weighted\+Map}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_a3fc0793d73425ce7a4e6e631e49b4b82}{Get\+Destination\+Geometry\+Weighted\+Map}} (int p\+Index)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Pivot Management}\par
+{\em The geometry pivot is used to specify additional translation, rotation, and scaling information applied to all control points when the model is exported. }\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_a_matrix}{Fbx\+AMatrix}} \& \mbox{\hyperlink{class_fbx_geometry_a413db5cc2749e8c024aa1ce0befe6997}{Get\+Pivot}} (\mbox{\hyperlink{class_fbx_a_matrix}{Fbx\+AMatrix}} \&p\+XMatrix) const
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_a0b6b14186134a64ad55a47bcac865d70}{Set\+Pivot}} (\mbox{\hyperlink{class_fbx_a_matrix}{Fbx\+AMatrix}} \&p\+XMatrix)
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_a34819c9209a0594344780f117bc641e1}{Apply\+Pivot}} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_base_a6c27b53ff81cdcbe4f6da4b1acfd4375}{Compute\+BBox}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_base_a19663a6cd749ec50af203a1b3c91a75f}{Content\+Write\+To}} (\mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \&p\+Stream) const override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_base_a0802770a783a3f32776281e4238ed614}{Content\+Read\+From}} (const \mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \&p\+Stream) override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \mbox{\hyperlink{class_fbx_geometry_base_a858cccba0c319e1ee9160c0d7209bacf}{Memory\+Usage}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \& \mbox{\hyperlink{class_fbx_geometry_base_a6f86362411b0a318ec01ccc7b13c7129}{Copy}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object) override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_base_a9225735a50a6b87095042dba1f0539e4}{Compact}} () override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_geometry_base_ad30d8655b9606f653e9467bb07c8b1f3}\label{class_fbx_geometry_base_ad30d8655b9606f653e9467bb07c8b1f3} 
+bool {\bfseries Get\+Normals} (\mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} $>$ \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Lockable\+Array) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_geometry_base_ace44c4c25817ccabcf32e4c5b3b32936}\label{class_fbx_geometry_base_ace44c4c25817ccabcf32e4c5b3b32936} 
+bool {\bfseries Get\+Normals\+Indices} (\mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ int $>$ \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Lockable\+Array) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_geometry_base_aa8b22c9380e8c8be64855a6409136210}\label{class_fbx_geometry_base_aa8b22c9380e8c8be64855a6409136210} 
+bool {\bfseries Get\+Tangents} (\mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} $>$ \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Lockable\+Array, const int p\+Layer\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_geometry_base_aa1da929bb1905386e98d8e1caff3556e}\label{class_fbx_geometry_base_aa1da929bb1905386e98d8e1caff3556e} 
+bool {\bfseries Get\+Tangents\+Indices} (\mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ int $>$ \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Lockable\+Array, const int p\+Layer\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_geometry_base_a935f60845a0b9a5d484a8540f52ee07d}\label{class_fbx_geometry_base_a935f60845a0b9a5d484a8540f52ee07d} 
+bool {\bfseries Get\+Binormals} (\mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} $>$ \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Lockable\+Array, const int p\+Layer\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_geometry_base_af3b46f6aaa0e79c91ad7a89977413f57}\label{class_fbx_geometry_base_af3b46f6aaa0e79c91ad7a89977413f57} 
+bool {\bfseries Get\+Binormals\+Indices} (\mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ int $>$ \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Lockable\+Array, const int p\+Layer\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_fbx_geometry_base_a471b736f2595c006a338c07a61907127}{Init\+Control\+Points}} (int p\+Count)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_base_a104b6a7408c9c9909862a26e788f2e15}{Init\+Normals}} (int p\+Count=0, EFbx\+Memory\+Clear\+Mode p\+Initialize\+Mode=e\+Clear\+To\+Zero)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_base_ab0eed06f53d189b6c81560b78905c9b0}{Init\+Normals}} (\mbox{\hyperlink{class_fbx_geometry_base}{Fbx\+Geometry\+Base}} \texorpdfstring{$\ast$}{*}p\+Src)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_base_ac5b188a0deba5132de9805538f014799}{Init\+Tangents}} (int p\+Count=0, const int p\+Layer\+Index=0, const char \texorpdfstring{$\ast$}{*}p\+Name="{}"{})
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_base_ac6b469b25670b8a4c7a17042a96eb314}{Init\+Tangents}} (\mbox{\hyperlink{class_fbx_geometry_base}{Fbx\+Geometry\+Base}} \texorpdfstring{$\ast$}{*}p\+Src, const int p\+Layer\+Index=0)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_base_abc912331f01b903dee155a1a3dbff0b8}{Init\+Binormals}} (int p\+Count=0, const int p\+Layer\+Index=0, const char \texorpdfstring{$\ast$}{*}p\+Name="{}"{})
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_base_ac19b7cccc9249484196272c1df43b702}{Init\+Binormals}} (\mbox{\hyperlink{class_fbx_geometry_base}{Fbx\+Geometry\+Base}} \texorpdfstring{$\ast$}{*}p\+Src, const int p\+Layer\+Index=0)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_fbx_geometry_base_a4f54256d4cbc5e7ae0ae533f7b77ace4}{Set\+Control\+Point\+At}} (const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&p\+Ctrl\+Point, const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&p\+Normal, int p\+Index, bool p\+I2\+DSearch=false)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_fbx_geometry_base_ab2d5567b073e6b9f4feb5bb428fa99e4}{Set\+Control\+Point\+At}} (const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&p\+Ctrl\+Point, int p\+Index)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \mbox{\hyperlink{class_fbx_geometry_base_a16c45afeb6008d346593882b979f0ed7}{Get\+Control\+Point\+At}} (int p\+Index) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_fbx_geometry_base_a219c072f0c9a67ddcc928ab3998f9494}{Set\+Control\+Point\+Normal\+At}} (const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&p\+Normal, int p\+Index, bool p\+I2\+DSearch=false)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual int \mbox{\hyperlink{class_fbx_geometry_base_aa9f42ae6a958036722670143fabf3b17}{Get\+Control\+Points\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_aaa38d7db0aa895500d1da98afe2b1b2b}{Get\+Control\+Points}} (\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}p\+Status=NULL) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_fbx_geometry_base_aea3fc519575d88c430221b0e74040b0c}{Set\+Control\+Point\+Count}} (int p\+Count)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_normal}{Fbx\+Geometry\+Element\+Normal}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_af507e46f3fdf6549120710d59968f494}{Create\+Element\+Normal}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_base_a9aadbaa3f50db80b67bd1b3bc9119c7b}{Remove\+Element\+Normal}} (\mbox{\hyperlink{class_fbx_layer_element_normal}{Fbx\+Geometry\+Element\+Normal}} \texorpdfstring{$\ast$}{*}p\+Element\+Normal)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_normal}{Fbx\+Geometry\+Element\+Normal}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a6d65f2458c553fd1ba6e2ef991f03797}{Get\+Element\+Normal}} (int p\+Index=0)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer_element_normal}{Fbx\+Geometry\+Element\+Normal}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a0dd0e92f8ef1d68792bc4a1e88f589cd}{Get\+Element\+Normal}} (int p\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_base_ae8cffdf94daa997de808328579c636c2}{Get\+Element\+Normal\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_binormal}{Fbx\+Geometry\+Element\+Binormal}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_ae9c21420dfd0572c098ec430716b65c9}{Create\+Element\+Binormal}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_base_a07a88ca035b8b21b407a88bef375831f}{Remove\+Element\+Binormal}} (\mbox{\hyperlink{class_fbx_layer_element_binormal}{Fbx\+Geometry\+Element\+Binormal}} \texorpdfstring{$\ast$}{*}p\+Element\+Binormal)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_binormal}{Fbx\+Geometry\+Element\+Binormal}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a6fbd8e41cec7e1357884d9f1c806e4d6}{Get\+Element\+Binormal}} (int p\+Index=0)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer_element_binormal}{Fbx\+Geometry\+Element\+Binormal}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a314931e1e8091fba6920f64862283e9c}{Get\+Element\+Binormal}} (int p\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_base_a04500774d4c9bfc97418f45aff63404e}{Get\+Element\+Binormal\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_tangent}{Fbx\+Geometry\+Element\+Tangent}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_af45d202069646ae44f21843d57a092b7}{Create\+Element\+Tangent}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_base_a9289899568d50f8b60c3a33761c92446}{Remove\+Element\+Tangent}} (\mbox{\hyperlink{class_fbx_layer_element_tangent}{Fbx\+Geometry\+Element\+Tangent}} \texorpdfstring{$\ast$}{*}p\+Element\+Tangent)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_tangent}{Fbx\+Geometry\+Element\+Tangent}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_ac62d2d4df0cb20c454f9e1e17f7a0447}{Get\+Element\+Tangent}} (int p\+Index=0)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer_element_tangent}{Fbx\+Geometry\+Element\+Tangent}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a414cd5ea06fcd50b3d80dd82651bf044}{Get\+Element\+Tangent}} (int p\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_base_ac7a775211507bd51dd804d8e013f625c}{Get\+Element\+Tangent\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_material}{Fbx\+Geometry\+Element\+Material}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a77c58f92264b97f61bea35de82e8500f}{Create\+Element\+Material}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_base_a396c0e3be695dbca3724be1e47e9f7cb}{Remove\+Element\+Material}} (\mbox{\hyperlink{class_fbx_layer_element_material}{Fbx\+Geometry\+Element\+Material}} \texorpdfstring{$\ast$}{*}p\+Element\+Material)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_material}{Fbx\+Geometry\+Element\+Material}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a8f8194de777ceab50c6d1f2053e01446}{Get\+Element\+Material}} (int p\+Index=0)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer_element_material}{Fbx\+Geometry\+Element\+Material}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_ab58c74f07b56ced476195daf0e106bb1}{Get\+Element\+Material}} (int p\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_base_a443797935c203b51edb4004907613017}{Get\+Element\+Material\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_polygon_group}{Fbx\+Geometry\+Element\+Polygon\+Group}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_af138ce20def4a42518df2a6446a64c70}{Create\+Element\+Polygon\+Group}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_base_a0746664cececc19040a011ddbc7c7623}{Remove\+Element\+Polygon\+Group}} (\mbox{\hyperlink{class_fbx_layer_element_polygon_group}{Fbx\+Geometry\+Element\+Polygon\+Group}} \texorpdfstring{$\ast$}{*}p\+Element\+Polygon\+Group)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_polygon_group}{Fbx\+Geometry\+Element\+Polygon\+Group}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a071c9200ccc131dea06fe46e003c5b56}{Get\+Element\+Polygon\+Group}} (int p\+Index=0)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer_element_polygon_group}{Fbx\+Geometry\+Element\+Polygon\+Group}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_aef07f5b27b856ba7d6d2d114d00485ef}{Get\+Element\+Polygon\+Group}} (int p\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_base_a138cf34dd7162a7984a3317d0d4ff03b}{Get\+Element\+Polygon\+Group\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_vertex_color}{Fbx\+Geometry\+Element\+Vertex\+Color}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a279824b9a61f05fdd1dff14bbbffd949}{Create\+Element\+Vertex\+Color}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_base_a123d97fbece214d31199a63c90eb44e1}{Remove\+Element\+Vertex\+Color}} (\mbox{\hyperlink{class_fbx_layer_element_vertex_color}{Fbx\+Geometry\+Element\+Vertex\+Color}} \texorpdfstring{$\ast$}{*}p\+Element\+Vertex\+Color)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_vertex_color}{Fbx\+Geometry\+Element\+Vertex\+Color}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_ad042469624e0834537343f8ea4d981fc}{Get\+Element\+Vertex\+Color}} (int p\+Index=0)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer_element_vertex_color}{Fbx\+Geometry\+Element\+Vertex\+Color}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a23955b3a8ea14101e840dd96ac1c0438}{Get\+Element\+Vertex\+Color}} (int p\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_base_ab0c36aa02e726e017f02802a42705f68}{Get\+Element\+Vertex\+Color\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_smoothing}{Fbx\+Geometry\+Element\+Smoothing}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a1cb1b2bab8154ce4a953ac8e3142a88b}{Create\+Element\+Smoothing}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_base_a55da601b539c3e1c933fb1b3f053e1ca}{Remove\+Element\+Smoothing}} (\mbox{\hyperlink{class_fbx_layer_element_smoothing}{Fbx\+Geometry\+Element\+Smoothing}} \texorpdfstring{$\ast$}{*}p\+Element\+Smoothing)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_smoothing}{Fbx\+Geometry\+Element\+Smoothing}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a8a383f145bac37b6f2822972b1ce201d}{Get\+Element\+Smoothing}} (int p\+Index=0)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer_element_smoothing}{Fbx\+Geometry\+Element\+Smoothing}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a561f920275b69873f57cd087d2f31aaa}{Get\+Element\+Smoothing}} (int p\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_base_a65ce50bb6548a0c1cc3a237b1f953242}{Get\+Element\+Smoothing\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_crease}{Fbx\+Geometry\+Element\+Crease}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a00e25389ad26dec6ccdefff8f2de35fc}{Create\+Element\+Vertex\+Crease}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_base_a01fe726448c9362a399148aceb051f71}{Remove\+Element\+Vertex\+Crease}} (\mbox{\hyperlink{class_fbx_layer_element_crease}{Fbx\+Geometry\+Element\+Crease}} \texorpdfstring{$\ast$}{*}p\+Element\+Crease)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_crease}{Fbx\+Geometry\+Element\+Crease}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_ae0d4fa049dfc966740536198f0f11d6f}{Get\+Element\+Vertex\+Crease}} (int p\+Index=0)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer_element_crease}{Fbx\+Geometry\+Element\+Crease}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a00084af6674636cd69a6a61256c6086c}{Get\+Element\+Vertex\+Crease}} (int p\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_base_afc099f60d6c45cbac000b10d95c83377}{Get\+Element\+Vertex\+Crease\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_crease}{Fbx\+Geometry\+Element\+Crease}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a94cd190f114cd6852f0a84c19f99dc6e}{Create\+Element\+Edge\+Crease}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_base_a91216359c824cc80d113e0760d59e9bb}{Remove\+Element\+Edge\+Crease}} (\mbox{\hyperlink{class_fbx_layer_element_crease}{Fbx\+Geometry\+Element\+Crease}} \texorpdfstring{$\ast$}{*}p\+Element\+Crease)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_crease}{Fbx\+Geometry\+Element\+Crease}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a49acc30708a65ab91e0be9cebf4f7e82}{Get\+Element\+Edge\+Crease}} (int p\+Index=0)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer_element_crease}{Fbx\+Geometry\+Element\+Crease}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a63623dcbbdb2026d11c6507eb42d8b22}{Get\+Element\+Edge\+Crease}} (int p\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_base_aeafa5b8ecd4a424003624e2e35978033}{Get\+Element\+Edge\+Crease\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_hole}{Fbx\+Geometry\+Element\+Hole}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_af848453fd2db4c0aa8e0158c85ae2ceb}{Create\+Element\+Hole}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_base_a26484bbcc3f5a76366fcbe7352c8fefa}{Remove\+Element\+Hole}} (\mbox{\hyperlink{class_fbx_layer_element_hole}{Fbx\+Geometry\+Element\+Hole}} \texorpdfstring{$\ast$}{*}p\+Element\+Hole)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_hole}{Fbx\+Geometry\+Element\+Hole}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a9baaa310010700f1c92387cb91268427}{Get\+Element\+Hole}} (int p\+Index=0)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer_element_hole}{Fbx\+Geometry\+Element\+Hole}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_ab79234a871b1fbed54171bbd41fb544e}{Get\+Element\+Hole}} (int p\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_base_a93f4c298785352d3a8e05596d31d0760}{Get\+Element\+Hole\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_user_data}{Fbx\+Geometry\+Element\+User\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a188b81325085d70ee415947d8775453a}{Create\+Element\+User\+Data}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_base_abf8c753f38229a2b076ec20a17da6807}{Remove\+Element\+User\+Data}} (\mbox{\hyperlink{class_fbx_layer_element_user_data}{Fbx\+Geometry\+Element\+User\+Data}} \texorpdfstring{$\ast$}{*}p\+Element\+User\+Data)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_user_data}{Fbx\+Geometry\+Element\+User\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_acd8ddcd2bcadda14c8bbe7cabec276e7}{Get\+Element\+User\+Data}} (int p\+Index=0)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer_element_user_data}{Fbx\+Geometry\+Element\+User\+Data}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a8dc88e69c7d9f2d7b048b0ec7af0be20}{Get\+Element\+User\+Data}} (int p\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_base_a8ea1964abcfde21f82d576ca07ac7f67}{Get\+Element\+User\+Data\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_visibility}{Fbx\+Geometry\+Element\+Visibility}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_ac561720e44453094e94731f528ccd4a5}{Create\+Element\+Visibility}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_base_a5265ada1a14bc10a5be69719547827b5}{Remove\+Element\+Visibility}} (\mbox{\hyperlink{class_fbx_layer_element_visibility}{Fbx\+Geometry\+Element\+Visibility}} \texorpdfstring{$\ast$}{*}p\+Element\+Visibility)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_visibility}{Fbx\+Geometry\+Element\+Visibility}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a892281b7c35624b6ef6e79be5ee96671}{Get\+Element\+Visibility}} (int p\+Index=0)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer_element_visibility}{Fbx\+Geometry\+Element\+Visibility}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_aa3a575619dbd6532bd7ed2ada99ae6d9}{Get\+Element\+Visibility}} (int p\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_base_a9f41f006fb1545c11e1a06c80312cda9}{Get\+Element\+Visibility\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_u_v}{Fbx\+Geometry\+Element\+UV}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a7208367781cd5dfdc81e2d4445209737}{Create\+Element\+UV}} (const char \texorpdfstring{$\ast$}{*}p\+UVSet\+Name, \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{Fbx\+Layer\+Element\+::\+EType}} p\+Type\+Identifier=Fbx\+Layer\+Element\+::e\+Texture\+Diffuse)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_base_a0f571119663cc96a58d42e0e555a9be6}{Remove\+Element\+UV}} (\mbox{\hyperlink{class_fbx_layer_element_u_v}{Fbx\+Geometry\+Element\+UV}} \texorpdfstring{$\ast$}{*}p\+Element\+UV)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_u_v}{Fbx\+Geometry\+Element\+UV}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a89f8b5a9cd4e932a12ed9a5b4ced0379}{Get\+Element\+UV}} (int p\+Index=0, \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{Fbx\+Layer\+Element\+::\+EType}} p\+Type\+Identifier=Fbx\+Layer\+Element\+::e\+Unknown)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer_element_u_v}{Fbx\+Geometry\+Element\+UV}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a16dd0de51021f2e3b809da4c15ac0ec2}{Get\+Element\+UV}} (int p\+Index=0, \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{Fbx\+Layer\+Element\+::\+EType}} p\+Type\+Identifier=Fbx\+Layer\+Element\+::e\+Unknown) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_base_a617a6e3bcbceb4489e2db1a386f9640b}{Get\+Element\+UVCount}} (\mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{Fbx\+Layer\+Element\+::\+EType}} p\+Type\+Identifier=Fbx\+Layer\+Element\+::e\+Unknown) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_u_v}{Fbx\+Geometry\+Element\+UV}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_a7d07d4b707f5a8d3bfce67b7f2666e64}{Get\+Element\+UV}} (const char \texorpdfstring{$\ast$}{*}p\+UVSet\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer_element_u_v}{Fbx\+Geometry\+Element\+UV}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_base_afa33c96a823828ae95865c4648e7fd7b}{Get\+Element\+UV}} (const char \texorpdfstring{$\ast$}{*}p\+UVSet\+Name) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_base_a65147440e2f577ab7f5b60e228881641}{Get\+UVSet\+Names}} (\mbox{\hyperlink{class_fbx_string_list}{Fbx\+String\+List}} \&p\+UVSet\+Name\+List) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_fbx_layer_container}{Fbx\+Layer\+Container}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_node_attribute_a08e1669d3d1a696910756ab17de56d6a}{Fbx\+Node\+Attribute\+::\+EType}} \mbox{\hyperlink{class_fbx_layer_container_aacd005a1489cac478d012ce580d9bed3}{Get\+Attribute\+Type}} () const override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_layer_container_a6c94199b503304c310274f6d88919cea}{Create\+Layer}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Clear\+Layers} ()
+\begin{DoxyCompactList}\small\item\em Deletes all layers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_layer_container_a6e4b2f8db87dd358a088af464147156b}{Get\+Layer\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_layer_container_abd468a447a9b2175391515a3d038ebce}{Get\+Layer\+Count}} (\mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{Fbx\+Layer\+Element\+::\+EType}} p\+Type, bool p\+UVCount=false) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer}{Fbx\+Layer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_layer_container_aa4c427eba17ba73491b0282651c69031}{Get\+Layer}} (int p\+Index)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer}{Fbx\+Layer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_layer_container_a6ba08bc5499da8c9ffe3e5accfb2f185}{Get\+Layer}} (int p\+Index) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer}{Fbx\+Layer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_layer_container_a8d75ea6c54c026dd399ac5cf106b5bdb}{Get\+Layer}} (int p\+Index, \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{Fbx\+Layer\+Element\+::\+EType}} p\+Type, bool p\+Is\+UV=false)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_layer}{Fbx\+Layer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_layer_container_ae6c37c50f0cfd9004536626d79b5b52a}{Get\+Layer}} (int p\+Index, \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{Fbx\+Layer\+Element\+::\+EType}} p\+Type, bool p\+Is\+UV=false) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_layer_container_aca34de2197e7fde76155d1e5dd5c6e77}{Get\+Layer\+Index}} (int p\+Index, \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{Fbx\+Layer\+Element\+::\+EType}} p\+Type, bool p\+Is\+UV=false) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_layer_container_af65cfa24a4de1035fd9ad461f4a343ce}{Get\+Layer\+Typed\+Index}} (int p\+Global\+Index, \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{Fbx\+Layer\+Element\+::\+EType}} p\+Type, bool p\+Is\+UV=false) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_layer_container_a51f106917fbb0a9558f1f0ee1f7d7059}{Convert\+Direct\+To\+Index\+To\+Direct}} (int p\+Layer)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \& \mbox{\hyperlink{class_fbx_layer_container_a216d870abcb2e91169c10aa6fbeaba23}{Copy}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object) override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries GTC} (Fbx\+UInt i, int j)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} {\bfseries GT} (int i, Fbx\+UInt l, int j)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries AT} (void \texorpdfstring{$\ast$}{*}t, Fbx\+UInt l, int j)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries GTI} (const char \texorpdfstring{$\ast$}{*}n, Fbx\+UInt l, int j)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries GMC} (Fbx\+UInt i, void \texorpdfstring{$\ast$}{*}n=NULL)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} {\bfseries GM} (int i, Fbx\+UInt l, void \texorpdfstring{$\ast$}{*}n=NULL)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries AM} (void \texorpdfstring{$\ast$}{*}m, Fbx\+UInt l, void \texorpdfstring{$\ast$}{*}n=NULL, bool b=false)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries GMI} (const char \texorpdfstring{$\ast$}{*}n, Fbx\+UInt l, void \texorpdfstring{$\ast$}{*}d=NULL)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries Add\+To\+Layer\+Elements\+List} (\mbox{\hyperlink{class_fbx_layer_element}{Fbx\+Layer\+Element}} \texorpdfstring{$\ast$}{*}p\+LEl)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Remove\+From\+Layer\+Elements\+List} (\mbox{\hyperlink{class_fbx_layer_element}{Fbx\+Layer\+Element}} \texorpdfstring{$\ast$}{*}p\+LEl)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_fbx_node_attribute}{Fbx\+Node\+Attribute}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_node_attribute_a72f38adeb0963e61bf5d156e76052370}{Get\+Node\+Count}} () const
+\item 
+\mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_node_attribute_ae69bf0dc2b7d55edd8a51e54b6f9ab42}{Get\+Node}} (int p\+Index=0) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_a65e47d62ed950247cd097b3b505d7b48}{Is}} () const
+\item 
+\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a87421255c4def515760a5b5df656a20f}{Get\+Fbx\+Manager}} () const
+\item 
+\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aa5cf0570302b29cb491322fd030dede9}{Get\+Document}} () const
+\item 
+\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a0ecffb08701519b99478724080a1903b}{Get\+Root\+Document}} () const
+\item 
+\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aab252b8b092953c63e32e5dc1bcf74a2}{Get\+Scene}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_object_a7b49e6a0c17132cd7e2e7e8485a08915}{Destroy}} (bool p\+Recursive=false)
+\item 
+void \mbox{\hyperlink{class_fbx_object_af8626c123cf302297bdecb4c8d62db99}{Reset\+Properties}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_object_ade0dddb02e39f6823d0bea6071ef4410}{Get\+Selected}} ()
+\item 
+virtual void \mbox{\hyperlink{class_fbx_object_ab61c3e576aaf899deda673702c0a1b79}{Set\+Selected}} (bool p\+Selected)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_ac37f77806bfd54d6a41ca6158768deb0}{Set\+User\+Data\+Ptr}} (const Fbx\+UInt64 \&p\+User\+ID, void \texorpdfstring{$\ast$}{*}p\+User\+Data)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a82453a87c2eda4d474c53bbfc6339392}{Get\+User\+Data\+Ptr}} (const Fbx\+UInt64 \&p\+User\+ID) const
+\item 
+void \mbox{\hyperlink{class_fbx_object_af52325b1b5f2f1f5884d5d14d80c1922}{Set\+User\+Data\+Ptr}} (void \texorpdfstring{$\ast$}{*}p\+User\+Data)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a9eb021fc31e60002406980948e7638ad}{Get\+User\+Data\+Ptr}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a1c75d466c5166486787bfa06b4fd221f}{Connect\+Src\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object, Fbx\+Connection\+::\+EType p\+Type=Fbx\+Connection\+::e\+None)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a2ff6d4507136a693622a7d8434b440ed}{Is\+Connected\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a1ff942832a9a9d829988c757899b6655}{Disconnect\+Src\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_af1e035b53794520b66c3240a20660b40}{Disconnect\+All\+Src\+Object}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ad6c02944e76b8d6780e734383f872a7d}{Disconnect\+All\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a5fce56e85d5e0568243a5df99dabb42f}{Get\+Src\+Object\+Count}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_object_aa1fe90887d90288ee0c06121ec79c0a8}{Get\+Src\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae9f5b092a4beb82e14489e2deda32152}{Get\+Src\+Object}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_afc85555fe801a0ba69a0d2df15d95199}{Get\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae2395e360ff9e53e18c99052a41e1156}{Find\+Src\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aa719dc9513cfbfc8767d4c2af367bc44}{Find\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_a17f59548a86067094c17501801e7aa46}{Disconnect\+All\+Src\+Object}} ()
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_ae5b578e810b22bcd8d0df323097ed995}{Disconnect\+All\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_a9da9f905564dc108d1363049eb032fa8}{Get\+Src\+Object\+Count}} () const
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_aabefdc2922a216fb7a1ce864fcf2438a}{Get\+Src\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a8d7e062552be10952806a719b20b3685}{Get\+Src\+Object}} (int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a7eb8cc999af713c9ccf39d726a0317b9}{Get\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ab4e093b55f5361fbc025cf8ea3cb401f}{Find\+Src\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aafb907a917f661eb4a80d1b85d04518d}{Find\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a3c7e883121fe1ceb271381146bd52ed0}{Connect\+Dst\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object, Fbx\+Connection\+::\+EType p\+Type=Fbx\+Connection\+::e\+None)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a06725964170902b4d79453d76326fc5b}{Is\+Connected\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a949fdf817b27505861f293cea4dc3b86}{Disconnect\+Dst\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a5ebe517e8b3f221285b9754009c0660b}{Disconnect\+All\+Dst\+Object}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a5668d54f53f16f5ffad95727f92a8ee6}{Disconnect\+All\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a5be091701bfa94643dc2333768f56866}{Get\+Dst\+Object\+Count}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_object_a46183e2905f10779c57389dc4ec3a5de}{Get\+Dst\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a16e69934f654a544c986a583a59972be}{Get\+Dst\+Object}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a4cdab7b4be2985fd907159ae16e09d2f}{Get\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a83483c85e1431fdb5cdd45dfeb03a6de}{Find\+Dst\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a1b29d3cb822da43e40dd6fdf586bb6df}{Find\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_aa3aab1135cdd8e63c3255e17f926d950}{Disconnect\+All\+Dst\+Object}} ()
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_afd459bbb653d2a31e5c03dfdb64e649b}{Disconnect\+All\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_a1a642124ddabd14884fc0c85793a5c6d}{Get\+Dst\+Object\+Count}} () const
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_a03da9b6768a234550042e0b3a70f081f}{Get\+Dst\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae8a6869c4809e67473b333213f9326fb}{Get\+Dst\+Object}} (int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ad2fea70ba6a29879cefdff5d5c6a2fd0}{Get\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a34db1b17cb89374a13238d7ba4689c53}{Find\+Dst\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a4fdbc988fc39eb5ab3ad74b5134d9fb3}{Find\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_abc7d6efa0f0b7f0037818b8700465077}{Get\+First\+Property}} () const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a34e7ffc0f49a4e3be8db6310efccd020}{Get\+Next\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a697319ff157f50b097f49118f5582f98}{Find\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_aab369c8ec541c9e6994a28015619e510}{Find\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, const \mbox{\hyperlink{class_fbx_data_type}{Fbx\+Data\+Type}} \&p\+Data\+Type, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_ac20a46bd7abf3c09fc2af0df47f4f261}{Find\+Property\+Hierarchical}} (const char \texorpdfstring{$\ast$}{*}p\+Name, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a47b6379edc68313f2b23da3d3b36e5ab}{Find\+Property\+Hierarchical}} (const char \texorpdfstring{$\ast$}{*}p\+Name, const \mbox{\hyperlink{class_fbx_data_type}{Fbx\+Data\+Type}} \&p\+Data\+Type, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a70e190147f28712dee1ec1e00b73c24e}{Get\+Class\+Root\+Property}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_aef0b1c0672a044b6e44c824b9469c7e7}{Connect\+Src\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a7f2c8c668ac8e009584c12f19809be22}{Is\+Connected\+Src\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a545423b1e5060fcad8784bd0aa0432b6}{Disconnect\+Src\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a0c9680063d0f6771dd881cf3950337d6}{Get\+Src\+Property\+Count}} () const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_aa79380869a619b260fd1f861eb224f5e}{Get\+Src\+Property}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_ad87b66288e8308973dc477cda1346a05}{Find\+Src\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a6bd087870ae3d3dc82c89105387e7baa}{Connect\+Dst\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a678e5ccdbf6ab28c1df239fbdcea76d3}{Is\+Connected\+Dst\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a0931b1e490684c4ff0532d69a466b4b2}{Disconnect\+Dst\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a878feb5a29caf3262360037fe4a5c1e6}{Get\+Dst\+Property\+Count}} () const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_aaec1374d8a9a02429ae4eb317438856d}{Get\+Dst\+Property}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a3552b9625640d12db3a9cb70a9fae794}{Find\+Dst\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_object_ac28653a3c65e840498eebfb54276e483}{Content\+Unload}} ()
+\item 
+int \mbox{\hyperlink{class_fbx_object_a296d454c59bd93245dd5e2312dc7f165}{Content\+Load}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ac1e5a81afa5c74aec67c57136b541161}{Content\+Is\+Loaded}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_object_a7720b36c508a8c32c9cf72a7a59f5c3e}{Content\+Decrement\+Lock\+Count}} ()
+\item 
+void \mbox{\hyperlink{class_fbx_object_a83ebb7c4a09328e517a4b5367fcf8c0d}{Content\+Increment\+Lock\+Count}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ad9e3373b45e2fbce5a7a11a09edd96f7}{Content\+Is\+Locked}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_ae2fe13bc65c1ffe2c2338bc2a2740429}{Emit\+Message}} (Fbx\+Message \texorpdfstring{$\ast$}{*}p\+Message) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a61aeb40883053aa206578c2305623a95}{Localize}} (const char \texorpdfstring{$\ast$}{*}p\+ID, const char \texorpdfstring{$\ast$}{*}p\+Default=NULL) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_library}{Fbx\+Library}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a56546e89ab7132ffd52c92257a73c022}{Get\+Parent\+Library}} () const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a83138088781da53eb6fc3e3793ca9171}{Add\+Implementation}} (\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}p\+Implementation)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_af5372f14b186dbd1e69688e899c46081}{Remove\+Implementation}} (\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}p\+Implementation)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a9703e0631381d9bbc91cac102198cf36}{Has\+Default\+Implementation}} (void) const
+\item 
+\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_afa41110ea96c574ad30036bcc91a730e}{Get\+Default\+Implementation}} (void) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ac216eb622d77659c18092b202632aaa9}{Set\+Default\+Implementation}} (\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}p\+Implementation)
+\item 
+int \mbox{\hyperlink{class_fbx_object_add119a7c5623e087101589ebbc0a65ed}{Get\+Implementation\+Count}} (const \mbox{\hyperlink{class_fbx_implementation_filter}{Fbx\+Implementation\+Filter}} \texorpdfstring{$\ast$}{*}p\+Criteria=NULL) const
+\item 
+\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a8e7a39d2b2c3688e44c7222adca4a275}{Get\+Implementation}} (int p\+Index, const \mbox{\hyperlink{class_fbx_implementation_filter}{Fbx\+Implementation\+Filter}} \texorpdfstring{$\ast$}{*}p\+Criteria=NULL) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_acce60f1ae8d6b0ffba2de85c04766194}{Get\+Url}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_object_a308a88953aae8669a93f0202b02a46a9}{Set\+Url}} (const char \texorpdfstring{$\ast$}{*}p\+Url)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_a38333e180ca371f76495267a26cccb08}{Set\+Object\+Flags}} (\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{EObject\+Flag}} p\+Flags, bool p\+Value)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a02d91c1f2930a03cfd0e8c2b1fffa0ee}{Get\+Object\+Flags}} (\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{EObject\+Flag}} p\+Flags) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_aa59f051b6c0be5f93eb88cc2f15b43e5}{Set\+All\+Object\+Flags}} (Fbx\+UInt p\+Flags)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+Fbx\+UInt \mbox{\hyperlink{class_fbx_object_a18b30c43de008570c05f3a6f1e46eb10}{Get\+All\+Object\+Flags}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a5898e582711f3266ac3d0f779d541ef6}{Is\+AReference\+To}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_abafd0f4ab90b2d1090c0c225bc4c3e3a}{Get\+Reference\+To}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_af64184bd9341c8a3300588c818594328}{Is\+Referenced\+By}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_object_a97318ba302685288321f65144063b7c7}{Get\+Referenced\+By\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+FBX\+\_\+\+DEPRECATED \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a5797b48dd0247100a71190e30615e697}{Get\+Referenced\+By}} (int p\+Index) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_object_a553ed0c8a1f00394a11d5123fb040f6c}{Get\+Referenced\+By}} (\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&p\+Referenced\+By) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_af9273215e168b14d12a4a3e393e061c9}{Set\+Runtime\+Class\+Id}} (const \mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \&p\+Class\+Id)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \mbox{\hyperlink{class_fbx_object_ad81de7de1ede009e3d80361450620475}{Get\+Runtime\+Class\+Id}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ac1f9e5981fbf87911d669e078495cb09}{Is\+Runtime}} (const \mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \&p\+Class\+Id) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a4c804ecb85faa0544d305d9f7e98d777}{Is\+Runtime\+Plug}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries Compare} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Other\+Object)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries operator==} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_property_handle}{Fbx\+Property\+Handle}} \& {\bfseries Get\+Property\+Handle} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} {\bfseries Get\+Type\+Name} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_fbx_string_list}{Fbx\+String\+List}} {\bfseries Get\+Type\+Flags} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Wipe\+All\+Connections} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_aceea1c2fdb26784d668d05dd52df0d68}{Set\+Name}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ad292343f61a5c670fb322bf592839bcf}{Get\+Name}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_ae378979d85476e931375e30b6498f8db}{Get\+Name\+Without\+Name\+Space\+Prefix}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a9caa594f866ea3a424f5f6e3676e2799}{Get\+Name\+With\+Name\+Space\+Prefix}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_a97b6469f5877e37d352b6f6224791fb2}{Set\+Initial\+Name}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a23fdcb85828748da9611491f64dcde0a}{Get\+Initial\+Name}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a9cc9873c1d66722b964c04da5ec2001f}{Get\+Name\+Space\+Only}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_a0546604cdd763f630c9ffdf9cfcf8bdc}{Set\+Name\+Space}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} p\+Name\+Space)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_fbx_object_a8e0aeec9b01f961d552315014a36f775}{Get\+Name\+Space\+Array}} (char identifier)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a3a01a4d055e558d322016ce8d7337329}{Get\+Name\+Only}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a8a0b08d810c3451ea912840caab53694}{Get\+Name\+Space\+Prefix}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const Fbx\+UInt64 \& {\bfseries Get\+Unique\+ID} () const
+\begin{DoxyCompactList}\small\item\em Returns the unique ID of this object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_emitter_ab8022a1fd620467f12f493673cfa16a9}{Add\+Listener}} (\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \&p\+Handler)
+\item 
+void \mbox{\hyperlink{class_fbx_emitter_a9d5e8f773a85bd9f7a88d9f01eb5463d}{Remove\+Listener}} (\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \&p\+Handler)
+\item 
+{\footnotesize template$<$typename Event\+Type$>$ }\\void \mbox{\hyperlink{class_fbx_emitter_ad541e3b06c0beeab71fcf066fc44c78d}{Emit}} (const Event\+Type \&p\+Event) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Shape Management}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794db}{ESurface\+Mode}} \{ \newline
+{\bfseries e\+Raw}
+, \mbox{\hyperlink{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794dba81ece06944d07ab68b5a08a1cb084c55}{e\+Low\+No\+Normals}}
+, \mbox{\hyperlink{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794dba6da9dccab2d42ec6361050c2deb070a9}{e\+Low}}
+, \mbox{\hyperlink{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794dbab835bcc45db6e23ee9dc6703614e5300}{e\+High\+No\+Normals}}
+, \newline
+\mbox{\hyperlink{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794dba3f948522e0f01dcacbd6503a3d1e6423}{e\+High}}
+ \}
+\item 
+bool \mbox{\hyperlink{class_fbx_geometry_a4b9464c1f35f6bad8f2f19e427e70c9f}{Add\+Shape}} (int p\+Blend\+Shape\+Index, int p\+Blend\+Shape\+Channel\+Index, \mbox{\hyperlink{class_fbx_shape}{Fbx\+Shape}} \texorpdfstring{$\ast$}{*}p\+Shape, double p\+Percent=100, \mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}p\+Status=NULL)
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_a6f5e46228d45b12e4f513abb56b8226d}{Clear\+Shape}} ()
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_a9aa043cfb8856ef48b53b8cb7c8191b3}{Get\+Shape\+Count}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_geometry_a34b10144646e4788f3702b9ebfa06dc2}{Get\+Shape\+Count}} (int p\+Blend\+Shape\+Index, int p\+Blend\+Shape\+Channel\+Index, \mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}p\+Status=NULL) const
+\item 
+\mbox{\hyperlink{class_fbx_shape}{Fbx\+Shape}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_a0b90da326582f098b8deb6ce9e3dbe47}{Get\+Shape}} (int p\+Blend\+Shape\+Index, int p\+Blend\+Shape\+Channel\+Index, int p\+Shape\+Index, \mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}p\+Status=NULL)
+\item 
+const \mbox{\hyperlink{class_fbx_shape}{Fbx\+Shape}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_aaf83702ecfff5a82fdf09683ecc90533}{Get\+Shape}} (int p\+Blend\+Shape\+Index, int p\+Blend\+Shape\+Channel\+Index, int p\+Shape\+Index, \mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}p\+Status=NULL) const
+\item 
+\mbox{\hyperlink{class_fbx_anim_curve}{Fbx\+Anim\+Curve}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_a960f1538e04f1dc73221f14c7bd82a6e}{Get\+Shape\+Channel}} (int p\+Blend\+Shape\+Index, int p\+Blend\+Shape\+Channel\+Index, \mbox{\hyperlink{class_fbx_anim_layer}{Fbx\+Anim\+Layer}} \texorpdfstring{$\ast$}{*}p\+Layer, bool p\+Create\+As\+Needed=false, \mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}p\+Status=NULL)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Default Animation Values}
+These functions provides direct access to default animation values that are specific to a geometry. These functions only work if the geometry has been associated with a node. \begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_geometry_a7f09646b7a716f58932d9be9c4a34486}\label{class_fbx_geometry_a7f09646b7a716f58932d9be9c4a34486} 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries m\+Shape\+Name\+Array\+V6}
+\item 
+\Hypertarget{class_fbx_geometry_a2a38009f990f6dfa9ca81ee2b24b024b}\label{class_fbx_geometry_a2a38009f990f6dfa9ca81ee2b24b024b} 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries m\+Shape\+Name\+Array\+V5}
+\item 
+\Hypertarget{class_fbx_geometry_a8752a5800b261d678592dc7a81dad4b0}\label{class_fbx_geometry_a8752a5800b261d678592dc7a81dad4b0} 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries m\+Shape\+Channel\+Name\+Array\+V5}
+\item 
+\Hypertarget{class_fbx_geometry_ab9f5852d38a38a9efb0ab63bd74503c0}\label{class_fbx_geometry_ab9f5852d38a38a9efb0ab63bd74503c0} 
+\mbox{\hyperlink{class_fbx_a_matrix}{Fbx\+AMatrix}} \texorpdfstring{$\ast$}{*} {\bfseries m\+Pivot}
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_a6f8337a6336fc2e9bc0ea3d2d04c5ad1}{Set\+Default\+Shape}} (int p\+Blend\+Shape\+Index, int p\+Blend\+Shape\+Channel\+Index, double p\+Percent)
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_a33ac7c5dc4a3001948b18696f47af802}{Set\+Default\+Shape}} (\mbox{\hyperlink{class_fbx_blend_shape_channel}{Fbx\+Blend\+Shape\+Channel}} \texorpdfstring{$\ast$}{*}p\+Blend\+Shape\+Channel, double p\+Percent)
+\item 
+double \mbox{\hyperlink{class_fbx_geometry_ae3dfb076c1d8729413588b4a934b036b}{Get\+Default\+Shape}} (int p\+Blend\+Shape\+Index, int p\+Blend\+Shape\+Channel\+Index) const
+\item 
+double \mbox{\hyperlink{class_fbx_geometry_a178e8125306a0e7bb66f71e5472d381f}{Get\+Default\+Shape}} (\mbox{\hyperlink{class_fbx_blend_shape_channel}{Fbx\+Blend\+Shape\+Channel}} \texorpdfstring{$\ast$}{*}p\+Blend\+Shape\+Channel) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \& \mbox{\hyperlink{class_fbx_geometry_aecc81c07964bc66722a5dd102ccccd51}{Copy}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object) override
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_geometry_a739a109a36488f28780bd536c8385425}{Clone}} (\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}{Fbx\+Object\+::\+EClone\+Type}} p\+Clone\+Type=\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{e\+Deep\+Clone}}, \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Container=NULL, void \texorpdfstring{$\ast$}{*}p\+Set=NULL) const override
+\item 
+\Hypertarget{class_fbx_geometry_ad7d877cff6187c93064395a71b25ecce}\label{class_fbx_geometry_ad7d877cff6187c93064395a71b25ecce} 
+void {\bfseries Clean\+Shape\+Channels} (\mbox{\hyperlink{class_fbx_anim_layer}{Fbx\+Anim\+Layer}} \texorpdfstring{$\ast$}{*}p\+Anim\+Layer)
+\item 
+\Hypertarget{class_fbx_geometry_abd8e2642fa8ca94c88afaeafd0267bd0}\label{class_fbx_geometry_abd8e2642fa8ca94c88afaeafd0267bd0} 
+void {\bfseries Clean\+Shape\+Channel} (\mbox{\hyperlink{class_fbx_anim_layer}{Fbx\+Anim\+Layer}} \texorpdfstring{$\ast$}{*}p\+Anim\+Layer, int p\+Shape\+Index)
+\item 
+\Hypertarget{class_fbx_geometry_ac9c89d3dfee003accd6092682664501b}\label{class_fbx_geometry_ac9c89d3dfee003accd6092682664501b} 
+void {\bfseries Create\+Shape\+Channel\+Properties} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Shape\+Name)
+\item 
+\Hypertarget{class_fbx_geometry_a2b135cea388e72bff364a6fa8714a38b}\label{class_fbx_geometry_a2b135cea388e72bff364a6fa8714a38b} 
+void {\bfseries Convert\+Shape\+Names\+To\+V5\+Format} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} p\+Take\+Node\+Name)
+\item 
+\Hypertarget{class_fbx_geometry_aa1806aadaf07dac7d895e65f731f1679}\label{class_fbx_geometry_aa1806aadaf07dac7d895e65f731f1679} 
+void {\bfseries Convert\+Shape\+Names\+To\+V5\+Format} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} p\+Take\+Node\+Name, int p\+Shape\+Index)
+\item 
+\Hypertarget{class_fbx_geometry_a891f23fed585b15503cdf8a38b424e14}\label{class_fbx_geometry_a891f23fed585b15503cdf8a38b424e14} 
+void {\bfseries Revert\+Shape\+Names\+To\+V6\+Format} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} p\+Take\+Node\+Name)
+\item 
+\Hypertarget{class_fbx_geometry_a408862417553440cefa975d1366985bb}\label{class_fbx_geometry_a408862417553440cefa975d1366985bb} 
+void {\bfseries Revert\+Shape\+Names\+To\+V6\+Format} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} p\+Take\+Node\+Name, int p\+Shape\+Index)
+\item 
+\Hypertarget{class_fbx_geometry_a2959da5506f3499fdb644a82843a64cd}\label{class_fbx_geometry_a2959da5506f3499fdb644a82843a64cd} 
+void {\bfseries Clear\+Temporary\+Shape\+Names} ()
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_ab05c4e444c6422ab57defcfadda33e5d}{Construct}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+From) override
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_a043889ad2c9abba52f25bcee826feb10}{Destruct}} (bool p\+Recursive) override
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_a3cbf754a071f5e82769d39d7293e5149}{Set\+Document}} (\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}p\+Document) override
+\item 
+\Hypertarget{class_fbx_geometry_ad79e9244da135a8fd62e47932ea68112}\label{class_fbx_geometry_ad79e9244da135a8fd62e47932ea68112} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} {\bfseries Create\+Shape\+Channel\+Name} (int p\+Shape\+Index)
+\item 
+\Hypertarget{class_fbx_geometry_a0f8e33ca5bf929614ffba6893079c136}\label{class_fbx_geometry_a0f8e33ca5bf929614ffba6893079c136} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} {\bfseries Create\+Shape\+Channel\+Name} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} p\+Shape\+Name)
+\item 
+\Hypertarget{class_fbx_geometry_a0fa8343b20fb5a9c0b0bc15a83967972}\label{class_fbx_geometry_a0fa8343b20fb5a9c0b0bc15a83967972} 
+void {\bfseries Copy\+Deformers} (const \mbox{\hyperlink{class_fbx_geometry}{Fbx\+Geometry}} \texorpdfstring{$\ast$}{*}p\+Geometry)
+\item 
+\Hypertarget{class_fbx_geometry_a97edd8b50b825e220a2c246936480160}\label{class_fbx_geometry_a97edd8b50b825e220a2c246936480160} 
+void {\bfseries Copy\+Pivot} (const \mbox{\hyperlink{class_fbx_geometry}{Fbx\+Geometry}} \texorpdfstring{$\ast$}{*}p\+Source)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_fbx_node_attribute}{Fbx\+Node\+Attribute}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_node_attribute_a08e1669d3d1a696910756ab17de56d6a}{EType}} \{ \newline
+{\bfseries e\+Unknown}
+, {\bfseries e\+Null}
+, {\bfseries e\+Marker}
+, {\bfseries e\+Skeleton}
+, \newline
+{\bfseries e\+Mesh}
+, {\bfseries e\+Nurbs}
+, {\bfseries e\+Patch}
+, {\bfseries e\+Camera}
+, \newline
+{\bfseries e\+Camera\+Stereo}
+, {\bfseries e\+Camera\+Switcher}
+, {\bfseries e\+Light}
+, {\bfseries e\+Optical\+Reference}
+, \newline
+{\bfseries e\+Optical\+Marker}
+, {\bfseries e\+Nurbs\+Curve}
+, {\bfseries e\+Trim\+Nurbs\+Surface}
+, {\bfseries e\+Boundary}
+, \newline
+{\bfseries e\+Nurbs\+Surface}
+, {\bfseries e\+Shape}
+, {\bfseries e\+LODGroup}
+, {\bfseries e\+Sub\+Div}
+, \newline
+{\bfseries e\+Cached\+Effect}
+, {\bfseries e\+Line}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{EObject\+Flag}} \{ \newline
+\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a1e3be60c132e4128211bcae9151b7394}{e\+None}} = 0
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244aef7e1bffd6a66da3afcef75a5b58099c}{e\+Initialized}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244ab30526fefc7c765c86915837cb78d194}{e\+System}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a9d477bbe1f04724fcc65b40b0ed25634}{e\+Savable}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2
+, \newline
+\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a46eb7a51468eab26cdfaf4ff5ba94f7b}{e\+Selected}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a003e4ca99b413e36199255548e54e0a6}{e\+Hidden}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 4
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244ad4bf6f05e3c50e585dec611288da91c6}{e\+Content\+Loaded}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 5
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244ace826129cda639eeb41fa034268d1f93}{e\+Dont\+Localize}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 6
+, \newline
+\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244aaac8a289575d6365b97978c9b7bb104c}{e\+Copy\+Called\+By\+Clone}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 16
+ \}
+\begin{DoxyCompactList}\small\item\em Flags available to control objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}{EClone\+Type}} \{ \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{e\+Deep\+Clone}}
+, \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbae681cda4dccb3f5ccf260e5ccc47d88c}{e\+Reference\+Clone}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of clones that can be created for \doxylink{class_fbx_object}{Fbx\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_adbd35588cd04556b1a7fc5ffdee8b417}\label{class_fbx_object_adbd35588cd04556b1a7fc5ffdee8b417} 
+static void {\bfseries Set\+Wipe\+Mode} (bool p\+State)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a14b73206429c6b2e9c4d6d934721d43a}\label{class_fbx_object_a14b73206429c6b2e9c4d6d934721d43a} 
+static bool {\bfseries Get\+Wipe\+Mode} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_aa10bc0608457b0e0c13c80686472f4c4}{Remove\+Prefix}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_aef0a016a9b53593f537b68ba47b8dd6e}{Strip\+Prefix}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&l\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a23b53eecb8b6b7d198496392dc987548}{Strip\+Prefix}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_geometry_base_a51e2206786ddb6a94a15be4a8fd9517f}\label{class_fbx_geometry_base_a51e2206786ddb6a94a15be4a8fd9517f} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ Fbx\+Bool $>$ {\bfseries Primary\+Visibility}
+\begin{DoxyCompactList}\small\item\em Control the geometry render state. Geometry can still cast shadows even if this is turned off. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_geometry_base_a64d3184a3bf9bcd97f7069176b0ad4c1}\label{class_fbx_geometry_base_a64d3184a3bf9bcd97f7069176b0ad4c1} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ Fbx\+Bool $>$ {\bfseries Cast\+Shadow}
+\begin{DoxyCompactList}\small\item\em If true, the geometry will produce shadows. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_geometry_base_a38e79ed34812e8b02828ebb5690f4ce8}\label{class_fbx_geometry_base_a38e79ed34812e8b02828ebb5690f4ce8} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ Fbx\+Bool $>$ {\bfseries Receive\+Shadow}
+\begin{DoxyCompactList}\small\item\em If true, the geometry will receive shadows. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_geometry_base_a66d6d410709e83f4f4d0a17651fbb717}\label{class_fbx_geometry_base_a66d6d410709e83f4f4d0a17651fbb717} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}} $>$ {\bfseries BBox\+Min}
+\begin{DoxyCompactList}\small\item\em The minimum value of the control points bounding box. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_geometry_base_a462c10c0d41fe55413e41435e62128c9}\label{class_fbx_geometry_base_a462c10c0d41fe55413e41435e62128c9} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}} $>$ {\bfseries BBox\+Max}
+\begin{DoxyCompactList}\small\item\em The maximum value of the control points bounding box. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_geometry_base_a88c6c0552ceb07b3a638cc3175fbe867}\label{class_fbx_geometry_base_a88c6c0552ceb07b3a638cc3175fbe867} 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} $>$ {\bfseries m\+Control\+Points}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_fbx_node_attribute}{Fbx\+Node\+Attribute}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}} $>$ \mbox{\hyperlink{class_fbx_node_attribute_a31f3a2361406eb670fa6ee3b5dffc864}{Color}}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a865ee4dfaa7a8f9050105d4477288da8}\label{class_fbx_object_a865ee4dfaa7a8f9050105d4477288da8} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} {\bfseries Root\+Property}
+\begin{DoxyCompactList}\small\item\em The root property that holds all children property for this object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{class_fbx_node_attribute}{Fbx\+Node\+Attribute}}}
+\begin{DoxyCompactItemize}
+\item 
+static const char \texorpdfstring{$\ast$}{*} {\bfseries s\+Color}
+\begin{DoxyCompactList}\small\item\em Property Names. \end{DoxyCompactList}\item 
+static const \mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}} {\bfseries s\+Default\+Color}
+\begin{DoxyCompactList}\small\item\em Property Default Values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types inherited from \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a528f1b2c2b7abbd64c525ba3a9a496b8}\label{class_fbx_object_a528f1b2c2b7abbd64c525ba3a9a496b8} 
+enum {\bfseries EProperty\+Notify\+Type} \{ {\bfseries e\+Property\+Set\+Request}
+, {\bfseries e\+Property\+Set}
+, {\bfseries e\+Property\+Get}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types inherited from \mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}}}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{class_fbx_intrusive_list}{Fbx\+Intrusive\+List}}$<$ \mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}}, \mbox{\hyperlink{class_fbx_event_handler_a47139da2cfd5abee91664d75c4fb577cae2c0d7da494cef8d787ee3495e24a6c0}{Fbx\+Event\+Handler\+::e\+Emitter}} $>$ {\bfseries Event\+Handler\+List}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_base_ae6cd36d0cb936ec83126112a245a8cbd}{Construct\+Properties}} (bool p\+Force\+Set) override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_geometry_base_ac7665a9493f7ca62bc2500bf65e0b9f4}{Content\+Clear}} () override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_layer_container_a740d2d40ee5bf783ec2f5588483b394b}{Destruct}} (bool p\+Recursive) override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_layer_container_af17d86b9cd7dc836a7baf86f7292fcb2}\label{class_fbx_layer_container_af17d86b9cd7dc836a7baf86f7292fcb2} 
+void {\bfseries Copy\+Layers} (const \mbox{\hyperlink{class_fbx_layer_container}{Fbx\+Layer\+Container}} \texorpdfstring{$\ast$}{*}p\+Layer\+Container)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_layer_container_a03ac7773c80af829a929b44412848c90}{Set\+Document}} (\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}p\+Document) override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_layer_container_a239efc071fadf31983c728b4f991a139}{Connect\+Notify}} (\mbox{\hyperlink{class_fbx_connect_event}{Fbx\+Connect\+Event}} const \&p\+Event) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_fbx_node_attribute}{Fbx\+Node\+Attribute}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_node_attribute_af39eb37f6177337f1587fca15d7e6bb9}{Construct\+Properties}} (bool p\+Force\+Set) override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_fbx_peripheral}{Fbx\+Peripheral}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae29c652036d35f33cfc8af7449078ed5}{Get\+Peripheral}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a87981fe7a05df318be39146a1493d1cc}\label{class_fbx_object_a87981fe7a05df318be39146a1493d1cc} 
+{\bfseries Fbx\+Object} (\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \&p\+Manager, const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a68b9ad65d98d7be9cb252949bc709385}\label{class_fbx_object_a68b9ad65d98d7be9cb252949bc709385} 
+virtual bool {\bfseries Property\+Notify} (EProperty\+Notify\+Type p\+Type, \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a1044dfc8f3321b2ba23a95076d8ad7f9}\label{class_fbx_object_a1044dfc8f3321b2ba23a95076d8ad7f9} 
+bool {\bfseries Copyable} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_layer_container_afb0f4b99b62fcfa0203831995dc4e274}\label{class_fbx_layer_container_afb0f4b99b62fcfa0203831995dc4e274} 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_layer}{Fbx\+Layer}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries m\+Layer\+Array}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_layer_container_a7f935eeb2435e0b3cfa69bd1b54b5c11}\label{class_fbx_layer_container_a7f935eeb2435e0b3cfa69bd1b54b5c11} 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_layer_element}{Fbx\+Layer\+Element}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries m\+Layer\+Elements\+List}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_fbx_emitter_1_1_event_data}{Event\+Data}} \texorpdfstring{$\ast$}{*} {\bfseries m\+Data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The base class of geometric objects that support control point deformations (e.\+g. \doxylink{class_fbx_mesh}{Fbx\+Mesh}, \doxylink{class_fbx_nurbs}{Fbx\+Nurbs}, and \doxylink{class_fbx_patch}{Fbx\+Patch}). The \doxylink{class_fbx_geometry}{Fbx\+Geometry} provides support for the following kinds of deformations.
+
+\begin{DoxyItemize}
+\item Skin deformation deformers \item Vertex cache deformers \item Geometry weighted maps \item Shapes\end{DoxyItemize}
+Most of the methods of \doxylink{class_fbx_geometry}{Fbx\+Geometry} are wrappers to simplify the access/manipulation of the connections to the deformers. For example, calling the \doxylink{class_fbx_geometry_a8cca6f160b52ee1ffd799c599c36f784}{Get\+Deformer\+Count()} method is the same thing as calling\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{geometry.GetSrcObjectCount(FbxDeformer::ClassId)}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794db}\index{FbxGeometry@{FbxGeometry}!ESurfaceMode@{ESurfaceMode}}
+\index{ESurfaceMode@{ESurfaceMode}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{ESurfaceMode}{ESurfaceMode}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794db} 
+enum \mbox{\hyperlink{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794db}{Fbx\+Geometry\+::\+ESurface\+Mode}}}
+
+NURBS and Patches surface modes. This information is never directly used inside the FBX SDK. Applications can use these values if they wish to carry the "{}rendering"{} details of the NURBS and Patches. The FBX SDK guarantee that the value (member of the \doxylink{class_fbx_nurbs}{Fbx\+Nurbs}, \doxylink{class_fbx_nurbs_surface}{Fbx\+Nurbs\+Surface} and \doxylink{class_fbx_patch}{Fbx\+Patch} classes) is stored to FBX files and retrieved from them. \begin{DoxyRemark}{Remarks}
+The enum has been defined in this class to avoid symbols duplication. 
+\end{DoxyRemark}
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eLowNoNormals@{eLowNoNormals}!FbxGeometry@{FbxGeometry}}\index{FbxGeometry@{FbxGeometry}!eLowNoNormals@{eLowNoNormals}}}\Hypertarget{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794dba81ece06944d07ab68b5a08a1cb084c55}\label{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794dba81ece06944d07ab68b5a08a1cb084c55} 
+e\+Low\+No\+Normals&Raw. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eLow@{eLow}!FbxGeometry@{FbxGeometry}}\index{FbxGeometry@{FbxGeometry}!eLow@{eLow}}}\Hypertarget{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794dba6da9dccab2d42ec6361050c2deb070a9}\label{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794dba6da9dccab2d42ec6361050c2deb070a9} 
+e\+Low&Low and no normals. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eHighNoNormals@{eHighNoNormals}!FbxGeometry@{FbxGeometry}}\index{FbxGeometry@{FbxGeometry}!eHighNoNormals@{eHighNoNormals}}}\Hypertarget{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794dbab835bcc45db6e23ee9dc6703614e5300}\label{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794dbab835bcc45db6e23ee9dc6703614e5300} 
+e\+High\+No\+Normals&Low. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eHigh@{eHigh}!FbxGeometry@{FbxGeometry}}\index{FbxGeometry@{FbxGeometry}!eHigh@{eHigh}}}\Hypertarget{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794dba3f948522e0f01dcacbd6503a3d1e6423}\label{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794dba3f948522e0f01dcacbd6503a3d1e6423} 
+e\+High&High and no normals. High. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_geometry_a2f7e48a2faaf3893bc28eb8b684da908}\index{FbxGeometry@{FbxGeometry}!AddDeformer@{AddDeformer}}
+\index{AddDeformer@{AddDeformer}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{AddDeformer()}{AddDeformer()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a2f7e48a2faaf3893bc28eb8b684da908} 
+int Fbx\+Geometry\+::\+Add\+Deformer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_deformer}{Fbx\+Deformer}} \texorpdfstring{$\ast$}{*}}]{p\+Deformer}{}\end{DoxyParamCaption})}
+
+Adds a deformer to this geometry (as mentioned in the description of this class, adding a deformer is a synonym for "{}connect a deformer"{}). 
+\begin{DoxyParams}{Parameters}
+{\em p\+Deformer} & Pointer to the deformer to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the added deformer. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_a4b9464c1f35f6bad8f2f19e427e70c9f}\index{FbxGeometry@{FbxGeometry}!AddShape@{AddShape}}
+\index{AddShape@{AddShape}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{AddShape()}{AddShape()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a4b9464c1f35f6bad8f2f19e427e70c9f} 
+bool Fbx\+Geometry\+::\+Add\+Shape (\begin{DoxyParamCaption}\item[{int}]{p\+Blend\+Shape\+Index}{, }\item[{int}]{p\+Blend\+Shape\+Channel\+Index}{, }\item[{\mbox{\hyperlink{class_fbx_shape}{Fbx\+Shape}} \texorpdfstring{$\ast$}{*}}]{p\+Shape}{, }\item[{double}]{p\+Percent}{ = {\ttfamily 100}, }\item[{\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}}]{p\+Status}{ = {\ttfamily NULL}}\end{DoxyParamCaption})}
+
+Add a shape to the specified blend shape deformer and blend shape channel of this geometry. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Blend\+Shape\+Index} & The blend shape deformer index. \\
+\hline
+{\em p\+Blend\+Shape\+Channel\+Index} & The blend shape channel index. \\
+\hline
+{\em p\+Shape} & Pointer to the shape object to be added. \\
+\hline
+{\em p\+Percent} & The full deform percentage of this shape. \\
+\hline
+{\em p\+Status} & The \doxylink{class_fbx_status}{Fbx\+Status} object to hold error codes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_a34819c9209a0594344780f117bc641e1}\index{FbxGeometry@{FbxGeometry}!ApplyPivot@{ApplyPivot}}
+\index{ApplyPivot@{ApplyPivot}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{ApplyPivot()}{ApplyPivot()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a34819c9209a0594344780f117bc641e1} 
+void Fbx\+Geometry\+::\+Apply\+Pivot (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Applies the pivot matrix to all vertices/normals of the geometry. \Hypertarget{class_fbx_geometry_a6f5e46228d45b12e4f513abb56b8226d}\index{FbxGeometry@{FbxGeometry}!ClearShape@{ClearShape}}
+\index{ClearShape@{ClearShape}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{ClearShape()}{ClearShape()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a6f5e46228d45b12e4f513abb56b8226d} 
+void Fbx\+Geometry\+::\+Clear\+Shape (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Removes all the shapes without destroying them. If shapes aren\textquotesingle{}t explicitly destroyed before calling this function, they will be destroyed along with the SDK manager that created them. \Hypertarget{class_fbx_geometry_a739a109a36488f28780bd536c8385425}\index{FbxGeometry@{FbxGeometry}!Clone@{Clone}}
+\index{Clone@{Clone}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a739a109a36488f28780bd536c8385425} 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} Fbx\+Geometry\+::\+Clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}{Fbx\+Object\+::\+EClone\+Type}}}]{p\+Clone\+Type}{ = {\ttfamily \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{e\+Deep\+Clone}}}, }\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Container}{ = {\ttfamily NULL}, }\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Set}{ = {\ttfamily NULL}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Creates a clone of this object. By default, the connections are NOT cloned. If the desired effect is to clone the connections as well, you must clone using the \doxylink{class_fbx_clone_manager}{Fbx\+Clone\+Manager} (refer to this class documentation for further details).
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Clone\+Type} & The type of clone to be created. By default, the clone type is e\+Deep\+Clone. \\
+\hline
+{\em p\+Container} & An optional parameter to specify which object will "{}contain"{} the new object. By contain, we mean the new object will become a source to the container, connection-\/wise. \\
+\hline
+{\em p\+Set} & See remark section. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new clone, or NULL (if the specified clone type is not supported). 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+When doing either a "{}deep"{} or "{}reference"{} clone type, the clone will always get its properties values set from the source object properties values. 
+
+Since this is a virtual function, some classes might do additional tasks. 
+
+The {\itshape p\+Set} argument is not used in the default implementation of this method. Specialized implementations should cast this pointer to \doxylink{class_fbx_clone_manager_aeb8a9c04c9c36eb7e551186a0b18f10d}{Fbx\+Clone\+Manager\+::\+Clone\+Set} to have access to the cloned objects so far. Typically, this pointer is set by the clone manager. 
+\end{DoxyRemark}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_object_a0b43f5017582b7167d8447bd9911236e}{Fbx\+Object}}.
+
+\Hypertarget{class_fbx_geometry_ab05c4e444c6422ab57defcfadda33e5d}\index{FbxGeometry@{FbxGeometry}!Construct@{Construct}}
+\index{Construct@{Construct}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{Construct()}{Construct()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_ab05c4e444c6422ab57defcfadda33e5d} 
+void Fbx\+Geometry\+::\+Construct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+From}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Optional constructor override, automatically called by default constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+From} & If not null, the function must take it into account like a copy constructor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+In case it is decided to override this function, do not forget to call Parent\+Class\+::\+Construct(p\+From) at the beginning. 
+\end{DoxyRemark}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_object_a313503bc645af3fdceb4a99ef5cea7eb}{Fbx\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_line_a9ed76b948d296ad1d05694755251c1d9}{Fbx\+Line}}, \mbox{\hyperlink{class_fbx_mesh_a19c239a6a4b66471d258a650796a49a8}{Fbx\+Mesh}}, \mbox{\hyperlink{class_fbx_nurbs_aa12b46bb07426b40c791d43aeb125e1b}{Fbx\+Nurbs}}, \mbox{\hyperlink{class_fbx_nurbs_curve_a6a27120df24a9dad44ae0e5306540755}{Fbx\+Nurbs\+Curve}}, \mbox{\hyperlink{class_fbx_nurbs_surface_aa3df345b86ba1f72df739f80b378c231}{Fbx\+Nurbs\+Surface}}, \mbox{\hyperlink{class_fbx_patch_af47a8a608a35a85fefd645d3c289897f}{Fbx\+Patch}}, \mbox{\hyperlink{class_fbx_sub_div_a717857ed79b0710649b77274e718d9c2}{Fbx\+Sub\+Div}}, and \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a59c98d3cc6047bbc5ecefc800e8e04e2}{Fbx\+Trim\+Nurbs\+Surface}}.
+
+\Hypertarget{class_fbx_geometry_aecc81c07964bc66722a5dd102ccccd51}\index{FbxGeometry@{FbxGeometry}!Copy@{Copy}}
+\index{Copy@{Copy}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_aecc81c07964bc66722a5dd102ccccd51} 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \& Fbx\+Geometry\+::\+Copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&}]{p\+Object}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Copy an object content into this object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The source object to copy data from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the destination object being modified by the source. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+This function replace the assignment operator (operator=). It will copy all property values and the name. Connections are NOT copied. 
+\end{DoxyRemark}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_object_a2753a5e2d57c54efbbf5137cf37c8096}{Fbx\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_line_ad2f9b764860f7be4162d90b572775db1}{Fbx\+Line}}, \mbox{\hyperlink{class_fbx_mesh_ae18b04f306cd7c4441f7589e08e44b09}{Fbx\+Mesh}}, \mbox{\hyperlink{class_fbx_nurbs_afb2103bc95392ce7821c57d923067b83}{Fbx\+Nurbs}}, \mbox{\hyperlink{class_fbx_nurbs_curve_a7110a78d5deb007e00daf5a201a125b9}{Fbx\+Nurbs\+Curve}}, \mbox{\hyperlink{class_fbx_nurbs_surface_ac6ca6f9b7eecb9204a195b7c3ff73b2a}{Fbx\+Nurbs\+Surface}}, \mbox{\hyperlink{class_fbx_patch_a312436fb95ca5312f4dea5c84c8e24bb}{Fbx\+Patch}}, and \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a8b4bdd72178ca087982edd198ba93e07}{Fbx\+Trim\+Nurbs\+Surface}}.
+
+\Hypertarget{class_fbx_geometry_a043889ad2c9abba52f25bcee826feb10}\index{FbxGeometry@{FbxGeometry}!Destruct@{Destruct}}
+\index{Destruct@{Destruct}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{Destruct()}{Destruct()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a043889ad2c9abba52f25bcee826feb10} 
+void Fbx\+Geometry\+::\+Destruct (\begin{DoxyParamCaption}\item[{bool}]{p\+Recursive}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Optional destructor override, automatically called by default destructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Recursive} & If true, children objects should be destroyed as well. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+In case it is decided to override this function, do not forget to call Parent\+Class\+::\+Destruct(p\+Resursive) at the end. 
+\end{DoxyRemark}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_object_a123e084d9b32b29c28af6384b7c3c608}{Fbx\+Object}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_line_a641d30d0128d7a94c398e09454b0a956}{Fbx\+Line}}, \mbox{\hyperlink{class_fbx_mesh_ac62b6ab82c3ec11700c0e07d0bb69f88}{Fbx\+Mesh}}, \mbox{\hyperlink{class_fbx_nurbs_a832fb5ac91441c64d103878c19becdcf}{Fbx\+Nurbs}}, \mbox{\hyperlink{class_fbx_nurbs_curve_ac78c5f59d98a18f2d442bfaf943ef365}{Fbx\+Nurbs\+Curve}}, \mbox{\hyperlink{class_fbx_nurbs_surface_ac4de97f931a8e4004dd6f5e4971e46fc}{Fbx\+Nurbs\+Surface}}, and \mbox{\hyperlink{class_fbx_patch_a4d5687b7b00f0a1ca48bd2420ac39780}{Fbx\+Patch}}.
+
+\Hypertarget{class_fbx_geometry_a8830759d9747a82db1b5e904162068dc}\index{FbxGeometry@{FbxGeometry}!GetAttributeType@{GetAttributeType}}
+\index{GetAttributeType@{GetAttributeType}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetAttributeType()}{GetAttributeType()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a8830759d9747a82db1b5e904162068dc} 
+\mbox{\hyperlink{class_fbx_node_attribute_a08e1669d3d1a696910756ab17de56d6a}{Fbx\+Node\+Attribute\+::\+EType}} Fbx\+Geometry\+::\+Get\+Attribute\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Returns the node attribute type. This method is derived in the more high level classes (\doxylink{class_fbx_mesh}{Fbx\+Mesh}, \doxylink{class_fbx_nurbs}{Fbx\+Nurbs}, etc...) and returns the actual type of the geometry object.
+
+\begin{DoxyReturn}{Returns}
+{\itshape e\+Unknown} 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_node_attribute_a1c2116756906127145a2b8721fc26752}{Fbx\+Node\+Attribute}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_line_a96717a87ccdbf307a7edcacb941b9c90}{Fbx\+Line}}, \mbox{\hyperlink{class_fbx_mesh_a78e5a073cf665699148850718cfa7241}{Fbx\+Mesh}}, \mbox{\hyperlink{class_fbx_nurbs_a2f1e823a35d664b5220e5deea3c69b7b}{Fbx\+Nurbs}}, \mbox{\hyperlink{class_fbx_nurbs_curve_addc47999dd2fc1076ff648d79482f957}{Fbx\+Nurbs\+Curve}}, \mbox{\hyperlink{class_fbx_nurbs_surface_a9f81a243d81b9bc09858bc4e16c4d803}{Fbx\+Nurbs\+Surface}}, \mbox{\hyperlink{class_fbx_patch_a497780bad1e1768998fb0202c0eaf15a}{Fbx\+Patch}}, \mbox{\hyperlink{class_fbx_sub_div_a137a19b2776a8c68805c771b3157d97c}{Fbx\+Sub\+Div}}, and \mbox{\hyperlink{class_fbx_trim_nurbs_surface_a0f99d0d8dc4250473a4823c21914777e}{Fbx\+Trim\+Nurbs\+Surface}}.
+
+\Hypertarget{class_fbx_geometry_a178e8125306a0e7bb66f71e5472d381f}\index{FbxGeometry@{FbxGeometry}!GetDefaultShape@{GetDefaultShape}}
+\index{GetDefaultShape@{GetDefaultShape}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetDefaultShape()}{GetDefaultShape()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a178e8125306a0e7bb66f71e5472d381f} 
+double Fbx\+Geometry\+::\+Get\+Default\+Shape (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_blend_shape_channel}{Fbx\+Blend\+Shape\+Channel}} \texorpdfstring{$\ast$}{*}}]{p\+Blend\+Shape\+Channel}{}\end{DoxyParamCaption}) const}
+
+Returns the default deformation value for the specified channel. The default shape property has a value range from 0 to 100 (with 100 being full shape deformation). The default value is 0. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Blend\+Shape\+Channel} & The blend shape channel. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The deformation value for the specified shape, or 0 if p\+Shape\+Name is invalid. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_ae3dfb076c1d8729413588b4a934b036b}\index{FbxGeometry@{FbxGeometry}!GetDefaultShape@{GetDefaultShape}}
+\index{GetDefaultShape@{GetDefaultShape}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetDefaultShape()}{GetDefaultShape()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_ae3dfb076c1d8729413588b4a934b036b} 
+double Fbx\+Geometry\+::\+Get\+Default\+Shape (\begin{DoxyParamCaption}\item[{int}]{p\+Blend\+Shape\+Index}{, }\item[{int}]{p\+Blend\+Shape\+Channel\+Index}{}\end{DoxyParamCaption}) const}
+
+Returns the default deformation value for the specified shape. The default shape property has a value range from 0 to 100 (with 100 being full shape deformation). The default value is 0. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Blend\+Shape\+Index} & The blend shape deformer index. \\
+\hline
+{\em p\+Blend\+Shape\+Channel\+Index} & The blend shape channel index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The deformation value for the specified shape, or 0 if p\+Index is out of range. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_a47230cb22188f9987a8150d46ab70a23}\index{FbxGeometry@{FbxGeometry}!GetDeformer@{GetDeformer}}
+\index{GetDeformer@{GetDeformer}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetDeformer()}{GetDeformer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a47230cb22188f9987a8150d46ab70a23} 
+\mbox{\hyperlink{class_fbx_deformer}{Fbx\+Deformer}} \texorpdfstring{$\ast$}{*} Fbx\+Geometry\+::\+Get\+Deformer (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{, }\item[{\mbox{\hyperlink{class_fbx_deformer_a07e2cfb767191ba5c8799fdfbfe3eaf6}{Fbx\+Deformer\+::\+EDeformer\+Type}}}]{p\+Type}{, }\item[{\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}}]{p\+Status}{ = {\ttfamily NULL}}\end{DoxyParamCaption}) const}
+
+Returns the deformer of a specified type at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The specified deformer index. \\
+\hline
+{\em p\+Type} & The specified deformer type. \\
+\hline
+{\em p\+Status} & The \doxylink{class_fbx_status}{Fbx\+Status} object to hold error codes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the deformer (or {\ttfamily NULL} if p\+Index is out of range). 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_acbcf868b5e5813c781a1b3d32127a831}\index{FbxGeometry@{FbxGeometry}!GetDeformer@{GetDeformer}}
+\index{GetDeformer@{GetDeformer}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetDeformer()}{GetDeformer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_acbcf868b5e5813c781a1b3d32127a831} 
+\mbox{\hyperlink{class_fbx_deformer}{Fbx\+Deformer}} \texorpdfstring{$\ast$}{*} Fbx\+Geometry\+::\+Get\+Deformer (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{, }\item[{\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}}]{p\+Status}{ = {\ttfamily NULL}}\end{DoxyParamCaption}) const}
+
+Returns the deformer at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The specified deformer index. \\
+\hline
+{\em p\+Status} & The \doxylink{class_fbx_status}{Fbx\+Status} object to hold error codes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the deformer (or {\ttfamily NULL} if p\+Index is out of range). 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_a8cca6f160b52ee1ffd799c599c36f784}\index{FbxGeometry@{FbxGeometry}!GetDeformerCount@{GetDeformerCount}}
+\index{GetDeformerCount@{GetDeformerCount}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetDeformerCount()}{GetDeformerCount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a8cca6f160b52ee1ffd799c599c36f784} 
+int Fbx\+Geometry\+::\+Get\+Deformer\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the number of deformers. \begin{DoxyReturn}{Returns}
+The number of deformers that are connected to this geometry. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_a3eaf9796d935cd523d0a85a7f0c018fc}\index{FbxGeometry@{FbxGeometry}!GetDeformerCount@{GetDeformerCount}}
+\index{GetDeformerCount@{GetDeformerCount}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetDeformerCount()}{GetDeformerCount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a3eaf9796d935cd523d0a85a7f0c018fc} 
+int Fbx\+Geometry\+::\+Get\+Deformer\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_deformer_a07e2cfb767191ba5c8799fdfbfe3eaf6}{Fbx\+Deformer\+::\+EDeformer\+Type}}}]{p\+Type}{}\end{DoxyParamCaption}) const}
+
+Returns the number of deformers of a specified type. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Type} & The specified deformer type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of deformers of the specified type. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_a3fc0793d73425ce7a4e6e631e49b4b82}\index{FbxGeometry@{FbxGeometry}!GetDestinationGeometryWeightedMap@{GetDestinationGeometryWeightedMap}}
+\index{GetDestinationGeometryWeightedMap@{GetDestinationGeometryWeightedMap}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetDestinationGeometryWeightedMap()}{GetDestinationGeometryWeightedMap()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a3fc0793d73425ce7a4e6e631e49b4b82} 
+\mbox{\hyperlink{class_fbx_geometry_weighted_map}{Fbx\+Geometry\+Weighted\+Map}} \texorpdfstring{$\ast$}{*} Fbx\+Geometry\+::\+Get\+Destination\+Geometry\+Weighted\+Map (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{}\end{DoxyParamCaption})}
+
+Returns the destination geometry weighted map at a specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The specified index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the destination geometry weighted map at the specified index (if any). 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_a7bebc9194083c5bacf77389b98ff906f}\index{FbxGeometry@{FbxGeometry}!GetDestinationGeometryWeightedMapCount@{GetDestinationGeometryWeightedMapCount}}
+\index{GetDestinationGeometryWeightedMapCount@{GetDestinationGeometryWeightedMapCount}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetDestinationGeometryWeightedMapCount()}{GetDestinationGeometryWeightedMapCount()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a7bebc9194083c5bacf77389b98ff906f} 
+int Fbx\+Geometry\+::\+Get\+Destination\+Geometry\+Weighted\+Map\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the number of destination geometry weighted map(s) that are connected to this geometry. \begin{DoxyReturn}{Returns}
+The number of destination geometry weighted map(s) that are connected to this geometry. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_a413db5cc2749e8c024aa1ce0befe6997}\index{FbxGeometry@{FbxGeometry}!GetPivot@{GetPivot}}
+\index{GetPivot@{GetPivot}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetPivot()}{GetPivot()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a413db5cc2749e8c024aa1ce0befe6997} 
+\mbox{\hyperlink{class_fbx_a_matrix}{Fbx\+AMatrix}} \& Fbx\+Geometry\+::\+Get\+Pivot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_a_matrix}{Fbx\+AMatrix}} \&}]{p\+XMatrix}{}\end{DoxyParamCaption}) const}
+
+Returns the pivot matrix. 
+\begin{DoxyParams}{Parameters}
+{\em p\+XMatrix} & Placeholder for the returned matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the passed argument. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_a0b90da326582f098b8deb6ce9e3dbe47}\index{FbxGeometry@{FbxGeometry}!GetShape@{GetShape}}
+\index{GetShape@{GetShape}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetShape()}{GetShape()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a0b90da326582f098b8deb6ce9e3dbe47} 
+\mbox{\hyperlink{class_fbx_shape}{Fbx\+Shape}} \texorpdfstring{$\ast$}{*} Fbx\+Geometry\+::\+Get\+Shape (\begin{DoxyParamCaption}\item[{int}]{p\+Blend\+Shape\+Index}{, }\item[{int}]{p\+Blend\+Shape\+Channel\+Index}{, }\item[{int}]{p\+Shape\+Index}{, }\item[{\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}}]{p\+Status}{ = {\ttfamily NULL}}\end{DoxyParamCaption})}
+
+Returns the shape found at the specified index on a blend shape channel of a blend shape deformer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Blend\+Shape\+Index} & The blend shape deformer index. \\
+\hline
+{\em p\+Blend\+Shape\+Channel\+Index} & The blend shape channel index. \\
+\hline
+{\em p\+Shape\+Index} & The specified shape index. \\
+\hline
+{\em p\+Status} & The \doxylink{class_fbx_status}{Fbx\+Status} object to hold error codes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the shape (or {\ttfamily NULL} if p\+Index is out of range). 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_aaf83702ecfff5a82fdf09683ecc90533}\index{FbxGeometry@{FbxGeometry}!GetShape@{GetShape}}
+\index{GetShape@{GetShape}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetShape()}{GetShape()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_aaf83702ecfff5a82fdf09683ecc90533} 
+const \mbox{\hyperlink{class_fbx_shape}{Fbx\+Shape}} \texorpdfstring{$\ast$}{*} Fbx\+Geometry\+::\+Get\+Shape (\begin{DoxyParamCaption}\item[{int}]{p\+Blend\+Shape\+Index}{, }\item[{int}]{p\+Blend\+Shape\+Channel\+Index}{, }\item[{int}]{p\+Shape\+Index}{, }\item[{\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}}]{p\+Status}{ = {\ttfamily NULL}}\end{DoxyParamCaption}) const}
+
+Returns the shape found at the specified index on a blend shape channel of a blend shape deformer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Blend\+Shape\+Index} & The blend shape deformer index. \\
+\hline
+{\em p\+Blend\+Shape\+Channel\+Index} & The blend shape channel index. \\
+\hline
+{\em p\+Shape\+Index} & The specified shape index. \\
+\hline
+{\em p\+Status} & The \doxylink{class_fbx_status}{Fbx\+Status} object to hold error codes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the shape (or {\ttfamily NULL} if p\+Index is out of range). 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_a960f1538e04f1dc73221f14c7bd82a6e}\index{FbxGeometry@{FbxGeometry}!GetShapeChannel@{GetShapeChannel}}
+\index{GetShapeChannel@{GetShapeChannel}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetShapeChannel()}{GetShapeChannel()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a960f1538e04f1dc73221f14c7bd82a6e} 
+\mbox{\hyperlink{class_fbx_anim_curve}{Fbx\+Anim\+Curve}} \texorpdfstring{$\ast$}{*} Fbx\+Geometry\+::\+Get\+Shape\+Channel (\begin{DoxyParamCaption}\item[{int}]{p\+Blend\+Shape\+Index}{, }\item[{int}]{p\+Blend\+Shape\+Channel\+Index}{, }\item[{\mbox{\hyperlink{class_fbx_anim_layer}{Fbx\+Anim\+Layer}} \texorpdfstring{$\ast$}{*}}]{p\+Layer}{, }\item[{bool}]{p\+Create\+As\+Needed}{ = {\ttfamily false}, }\item[{\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}}]{p\+Status}{ = {\ttfamily NULL}}\end{DoxyParamCaption})}
+
+Get the shape animation curve. The shape channel is an animatable property with a value range from 0 to 100 (with 100 being full shape deformation). The default value is 0. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Blend\+Shape\+Index} & The blend shape deformer index. \\
+\hline
+{\em p\+Blend\+Shape\+Channel\+Index} & The blend shape channel index. \\
+\hline
+{\em p\+Layer} & The animation layer from which we want to get the requested animation curve. \\
+\hline
+{\em p\+Create\+As\+Needed} & If {\ttfamily true}, creates the animation curve if it is not already present. \\
+\hline
+{\em p\+Status} & The \doxylink{class_fbx_status}{Fbx\+Status} object to hold error codes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Animation curve (or NULL if an error occurred). 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+If p\+Layer is left at NULL, the method will use the first layer of the Animation stack. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_geometry_a9aa043cfb8856ef48b53b8cb7c8191b3}\index{FbxGeometry@{FbxGeometry}!GetShapeCount@{GetShapeCount}}
+\index{GetShapeCount@{GetShapeCount}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetShapeCount()}{GetShapeCount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a9aa043cfb8856ef48b53b8cb7c8191b3} 
+int Fbx\+Geometry\+::\+Get\+Shape\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the number of shapes. \begin{DoxyReturn}{Returns}
+The number of shapes that have been added to this geometry. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_a34b10144646e4788f3702b9ebfa06dc2}\index{FbxGeometry@{FbxGeometry}!GetShapeCount@{GetShapeCount}}
+\index{GetShapeCount@{GetShapeCount}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetShapeCount()}{GetShapeCount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a34b10144646e4788f3702b9ebfa06dc2} 
+int Fbx\+Geometry\+::\+Get\+Shape\+Count (\begin{DoxyParamCaption}\item[{int}]{p\+Blend\+Shape\+Index}{, }\item[{int}]{p\+Blend\+Shape\+Channel\+Index}{, }\item[{\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}}]{p\+Status}{ = {\ttfamily NULL}}\end{DoxyParamCaption}) const}
+
+Returns the number of shapes. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Blend\+Shape\+Index} & The blend shape deformer index. \\
+\hline
+{\em p\+Blend\+Shape\+Channel\+Index} & The blend shape channel index. \\
+\hline
+{\em p\+Status} & The \doxylink{class_fbx_status}{Fbx\+Status} object to hold error codes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of shapes that have been added to this blend shape channel of this blend shape deformer. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_aed9963d0005b65b84c508a70fc7a84df}\index{FbxGeometry@{FbxGeometry}!GetSourceGeometryWeightedMap@{GetSourceGeometryWeightedMap}}
+\index{GetSourceGeometryWeightedMap@{GetSourceGeometryWeightedMap}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{GetSourceGeometryWeightedMap()}{GetSourceGeometryWeightedMap()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_aed9963d0005b65b84c508a70fc7a84df} 
+\mbox{\hyperlink{class_fbx_geometry_weighted_map}{Fbx\+Geometry\+Weighted\+Map}} \texorpdfstring{$\ast$}{*} Fbx\+Geometry\+::\+Get\+Source\+Geometry\+Weighted\+Map (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Returns the source geometry weighted map that is connected to this geometry. \begin{DoxyReturn}{Returns}
+Pointer to the source geometry weighted map that is connected to this geometry if any. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_a312e69fbeef969d6422c8ecab5b1e42d}\index{FbxGeometry@{FbxGeometry}!RemoveDeformer@{RemoveDeformer}}
+\index{RemoveDeformer@{RemoveDeformer}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{RemoveDeformer()}{RemoveDeformer()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a312e69fbeef969d6422c8ecab5b1e42d} 
+\mbox{\hyperlink{class_fbx_deformer}{Fbx\+Deformer}} \texorpdfstring{$\ast$}{*} Fbx\+Geometry\+::\+Remove\+Deformer (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{, }\item[{\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}}]{p\+Status}{ = {\ttfamily NULL}}\end{DoxyParamCaption})}
+
+Remove a deformer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & Index of deformer to remove. \\
+\hline
+{\em p\+Status} & The \doxylink{class_fbx_status}{Fbx\+Status} object to hold error codes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the removed deformer (or {\ttfamily NULL} if p\+Index is out of range). 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_geometry_a33ac7c5dc4a3001948b18696f47af802}\index{FbxGeometry@{FbxGeometry}!SetDefaultShape@{SetDefaultShape}}
+\index{SetDefaultShape@{SetDefaultShape}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{SetDefaultShape()}{SetDefaultShape()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a33ac7c5dc4a3001948b18696f47af802} 
+void Fbx\+Geometry\+::\+Set\+Default\+Shape (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_blend_shape_channel}{Fbx\+Blend\+Shape\+Channel}} \texorpdfstring{$\ast$}{*}}]{p\+Blend\+Shape\+Channel}{, }\item[{double}]{p\+Percent}{}\end{DoxyParamCaption})}
+
+Sets the default deformation for a specified channel. The default shape property has a value range from 0 to 100 (with 100 being full shape deformation). The default value is 0. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Blend\+Shape\+Channel} & The blend shape channel. \\
+\hline
+{\em p\+Percent} & Deformation percentage (on a scale ranging from 0 to 100). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+This function has no effect if p\+Shape\+Name is invalid. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_geometry_a6f8337a6336fc2e9bc0ea3d2d04c5ad1}\index{FbxGeometry@{FbxGeometry}!SetDefaultShape@{SetDefaultShape}}
+\index{SetDefaultShape@{SetDefaultShape}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{SetDefaultShape()}{SetDefaultShape()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a6f8337a6336fc2e9bc0ea3d2d04c5ad1} 
+void Fbx\+Geometry\+::\+Set\+Default\+Shape (\begin{DoxyParamCaption}\item[{int}]{p\+Blend\+Shape\+Index}{, }\item[{int}]{p\+Blend\+Shape\+Channel\+Index}{, }\item[{double}]{p\+Percent}{}\end{DoxyParamCaption})}
+
+Sets the default deformation for a specified shape. The default shape property has a value range from 0 to 100 (with 100 being full shape deformation). The default value is 0. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Blend\+Shape\+Index} & The blend shape deformer index. \\
+\hline
+{\em p\+Blend\+Shape\+Channel\+Index} & The blend shape channel index. \\
+\hline
+{\em p\+Percent} & Deformation percentage (on a scale ranging from 0 to 100). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+This function has no effect if p\+Index is out of range. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_geometry_a3cbf754a071f5e82769d39d7293e5149}\index{FbxGeometry@{FbxGeometry}!SetDocument@{SetDocument}}
+\index{SetDocument@{SetDocument}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{SetDocument()}{SetDocument()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a3cbf754a071f5e82769d39d7293e5149} 
+void Fbx\+Geometry\+::\+Set\+Document (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}}]{p\+Document}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}}.
+
+\Hypertarget{class_fbx_geometry_a0b6b14186134a64ad55a47bcac865d70}\index{FbxGeometry@{FbxGeometry}!SetPivot@{SetPivot}}
+\index{SetPivot@{SetPivot}!FbxGeometry@{FbxGeometry}}
+\doxysubsubsection{\texorpdfstring{SetPivot()}{SetPivot()}}
+{\footnotesize\ttfamily \label{class_fbx_geometry_a0b6b14186134a64ad55a47bcac865d70} 
+void Fbx\+Geometry\+::\+Set\+Pivot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_a_matrix}{Fbx\+AMatrix}} \&}]{p\+XMatrix}{}\end{DoxyParamCaption})}
+
+Sets the pivot matrix. 
+\begin{DoxyParams}{Parameters}
+{\em p\+XMatrix} & The transformation matrix that is assigned to the pivot matrix. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/scene/geometry/\mbox{\hyperlink{fbxgeometry_8h}{fbxgeometry.\+h}}\end{DoxyCompactItemize}

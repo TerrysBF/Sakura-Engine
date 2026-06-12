@@ -1,0 +1,429 @@
+\doxysection{fbxmesh.\+h}
+\hypertarget{fbxmesh_8h_source}{}\label{fbxmesh_8h_source}\index{include/fbx/fbxsdk/scene/geometry/fbxmesh.h@{include/fbx/fbxsdk/scene/geometry/fbxmesh.h}}
+\mbox{\hyperlink{fbxmesh_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2017\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_GEOMETRY\_MESH\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_GEOMETRY\_MESH\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxarray_8h}{fbxsdk/core/base/fbxarray.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxset_8h}{fbxsdk/core/base/fbxset.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxgeometry_8h}{fbxsdk/scene/geometry/fbxgeometry.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}}
+\DoxyCodeLine{00034\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_mesh}{FbxMesh}},\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}});}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_fbx_node_attribute_a08e1669d3d1a696910756ab17de56d6a}{FbxNodeAttribute::EType}}\ \mbox{\hyperlink{class_fbx_mesh_a78e5a073cf665699148850718cfa7241}{GetAttributeType}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_aebaf7be01966e5a365a0bc49b8d15b3b}{BeginPolygon}}(\textcolor{keywordtype}{int}\ pMaterial=-\/1,\ \textcolor{keywordtype}{int}\ pTexture=-\/1,\ \textcolor{keywordtype}{int}\ pGroup=-\/1,\ \textcolor{keywordtype}{bool}\ pLegacy=\textcolor{keyword}{true});}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a0c81b70dd5b832d34841b7a5111be8b9}{BeginPolygonExt}}(\textcolor{keywordtype}{int}\ pMaterial,\ \textcolor{keywordtype}{int}*\ pTextures);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_ab483f915e44a3a3613da51bcbe1a2ad6}{AddPolygon}}(\textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keywordtype}{int}\ pTextureUVIndex\ =\ -\/1);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a50b65ca7dca5c691bc50db6f55e0d0c9}{EndPolygon}}();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_a0f443f6d64284e6b60bdd52fb1f53ea7}{GetPolygonCount}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPolygons.GetCount();\ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_a775d0e10dc67bbcb9f7368d828588e55}{GetPolygonSize}}(\textcolor{keywordtype}{int}\ pPolygonIndex)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00080\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\ pPolygonIndex\ >=\ 0\ \&\&\ pPolygonIndex\ <\ mPolygons.GetCount()\ )\ ?\ mPolygons[pPolygonIndex].mSize\ :\ -\/1;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_aca17b9c024aa056115bdb173daf25e8c}{GetPolygonGroup}}(\textcolor{keywordtype}{int}\ pPolygonIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_ab7c7d2325c2afa2c7bd0099b9a0f24dc}{SetPolygonGroup}}(\textcolor{keywordtype}{int}\ pPolygonIndex,\ \textcolor{keywordtype}{int}\ pGroup)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00097\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pPolygonIndex\ >=\ 0\ \&\&\ pPolygonIndex<mPolygons.GetCount()\ )\ mPolygons[pPolygonIndex].mGroup\ =\ pGroup;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_ad1875b3c43e44bf960e371cd668734b3}{GetPolygonVertex}}(\textcolor{keywordtype}{int}\ pPolygonIndex,\ \textcolor{keywordtype}{int}\ pPositionInPolygon)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00106\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\ pPolygonIndex\ >=\ 0\ \&\&\ pPolygonIndex\ <\ mPolygons.GetCount()\ \&\&\ pPositionInPolygon\ >=\ 0\ \&\&\ pPositionInPolygon\ <\ mPolygons[pPolygonIndex].mSize\ )\ ?}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mPolygonVertices[mPolygons[pPolygonIndex].mIndex\ +\ pPositionInPolygon]\ :\ -\/1;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a0a761b70353b1ac6ed016fba192ee667}{GetPolygonVertexNormal}}(\textcolor{keywordtype}{int}\ pPolyIndex,\ \textcolor{keywordtype}{int}\ pVertexIndex,\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pNormal)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a84574b6ee629f27da2ca2be6c6f42e80}{GetPolygonVertexNormals}}(\mbox{\hyperlink{class_fbx_array}{FbxArray<FbxVector4>}}\&\ pNormals)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_ab620226c1d138f01121c7bdc16945d92}{GetPolygonVertexUV}}(\textcolor{keywordtype}{int}\ pPolyIndex,\ \textcolor{keywordtype}{int}\ pVertexIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pUVSetName,\ \mbox{\hyperlink{class_fbx_vector2}{FbxVector2}}\&\ pUV,\ \textcolor{keywordtype}{bool}\&\ pUnmapped)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_afb155cdf892fb81276718913eae02e85}{GetPolygonVertexUVs}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pUVSetName,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxVector2>}}\&\ pUVs,\ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}*\ pUnmappedUVId\ =\ NULL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{class_fbx_mesh_af624466d29e5860240b2fb99f211594d}{GetPolygonVertices}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_a46cdb95dfe5052564aeeba288474076e}{GetPolygonVertexCount}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPolygonVertices.Size();\ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_a942e182a7c27fa11464b9adb0c9cdc3b}{GetPolygonVertexIndex}}(\textcolor{keywordtype}{int}\ pPolygonIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_aad5e2768669d5c94e8d96d7d65fcab68}{RemovePolygon}}(\textcolor{keywordtype}{int}\ pPolygonIndex);}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_a5e7104d87f03542c0fc040ae1f7f593d}{RemoveDuplicatedEdges}}(\mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\&\ pEdgeIndexList);}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a40d57aa570c080f2f692728118b5bc04}{InitTextureUV}}(\textcolor{keywordtype}{int}\ pCount,\ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTypeIdentifier=FbxLayerElement::eTextureDiffuse);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a306f0e4f4a05de664327bb4389d0bfbf}{AddTextureUV}}(\mbox{\hyperlink{class_fbx_vector2}{FbxVector2}}\ pUV,\ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTypeIdentifier=FbxLayerElement::eTextureDiffuse);}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_a8a32eaf0ce16becd8e7de6c2783e61b9}{GetTextureUVCount}}(\mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTypeIdentifier=FbxLayerElement::eTextureDiffuse);}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_a1600702ceabd1ab9c36c91019318c6da}{GetUVLayerCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxLayerElement::EType>}}\ \mbox{\hyperlink{class_fbx_mesh_af4f121920047363ddb520e5bb6d7aa51}{GetAllChannelUV}}(\textcolor{keywordtype}{int}\ pLayer);}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_afb22daa8a980e8946abed7cbf39ce4f0}{InitMaterialIndices}}(\mbox{\hyperlink{class_fbx_layer_element_a5a40e95db30ae9f94611dc3f1568af26}{FbxLayerElement::EMappingMode}}\ pMappingMode);}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a7400d37014c8a84a5c356f1deef1761d}{InitTextureIndices}}(\mbox{\hyperlink{class_fbx_layer_element_a5a40e95db30ae9f94611dc3f1568af26}{FbxLayerElement::EMappingMode}}\ pMappingMode,\ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTextureType);}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a1b6a5d5371f59f8cda80f8cbcfefadf7}{InitTextureUVIndices}}(\mbox{\hyperlink{class_fbx_layer_element_a5a40e95db30ae9f94611dc3f1568af26}{FbxLayerElement::EMappingMode}}\ pMappingMode,\ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTypeIdentifier=FbxLayerElement::eTextureDiffuse);}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_aa62de6d7883e85e0efda70d37329d98a}{GetTextureUVIndex}}(\textcolor{keywordtype}{int}\ pPolygonIndex,\ \textcolor{keywordtype}{int}\ pPositionInPolygon,\ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTypeIdentifier=FbxLayerElement::eTextureDiffuse);}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a1e74780d575f601d6e28c52ff36b555d}{SetTextureUVIndex}}(\textcolor{keywordtype}{int}\ pPolygonIndex,\ \textcolor{keywordtype}{int}\ pPositionInPolygon,\ \textcolor{keywordtype}{int}\ pIndex,\ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTypeIdentifier);}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_addb08ad4590a4fcdaf575dbf16c490fd}{Reset}}();}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_abad423b322685ad1c788516e41a3c60f}{GenerateNormals}}(\textcolor{keywordtype}{bool}\ pOverwrite=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ pByCtrlPoint\ =\ \textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ pCW=\textcolor{keyword}{false});}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_ae78fd7bf1ee7986774560ed29915189a}{CheckIfVertexNormalsCCW}}();}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }DuplicateVertex}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ DuplicateVertex()\ :}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_1_1_duplicate_vertex_afe223b4087156f6779fc5883dc56332c}{lVertexPolyIndex}}(0),}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_1_1_duplicate_vertex_a0e9792d44731dde65ead70a148dd478e}{lNewVertexIndex}}(0),}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_1_1_duplicate_vertex_ad8fcfba1eaea34a1090eeb78c0f18b4f}{lNormal}}(0,\ 0,\ 0),}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_1_1_duplicate_vertex_a8788aaa86c459f069d1f90bd27acbee0}{lUV}}(0,\ 0),}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_1_1_duplicate_vertex_aae381ae0863a047fa1e9bd081f137076}{lEdgeIndex}}(0)}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_1_1_duplicate_vertex_afe223b4087156f6779fc5883dc56332c}{lVertexPolyIndex}};\ \ \ }
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_1_1_duplicate_vertex_a0e9792d44731dde65ead70a148dd478e}{lNewVertexIndex}};\ }
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ \mbox{\hyperlink{class_fbx_mesh_1_1_duplicate_vertex_ad8fcfba1eaea34a1090eeb78c0f18b4f}{lNormal}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_vector2}{FbxVector2}}\ \ \ \ \mbox{\hyperlink{class_fbx_mesh_1_1_duplicate_vertex_a8788aaa86c459f069d1f90bd27acbee0}{lUV}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_1_1_duplicate_vertex_aae381ae0863a047fa1e9bd081f137076}{lEdgeIndex}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }VertexNormalInfo}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ VertexNormalInfo()\ :}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_1_1_vertex_normal_info_a449e265248253dbb00e7e7d405a3d330}{mTotalNormal}}(0,\ 0,\ 0),}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_1_1_vertex_normal_info_abae0bef2c0c2e79be52aae93ca73c666}{mNumNormal}}(0)}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ \mbox{\hyperlink{class_fbx_mesh_1_1_vertex_normal_info_a449e265248253dbb00e7e7d405a3d330}{mTotalNormal}};\ \ \ }
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_1_1_vertex_normal_info_abae0bef2c0c2e79be52aae93ca73c666}{mNumNormal}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a4f49af18c3d12d2436b0547a10ebc262}{CheckSamePointTwice}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_a90bd43a9b7cc882a78af1e3ed0cf9171}{RemoveBadPolygons}}();}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a3b2104f5d0942fd1e74bc62ec1bc4d52}{SplitPoints}}(\mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTypeIdentifier=FbxLayerElement::eTextureDiffuse);}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a871e840ef66ef0cf9ab50ca4bceeb53a}{BuildMergeList}}(\mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\&\ pMergeList);}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a77960edb068c0323698bae275281f920}{MergePointsForPolygonVerteNormals}}(\mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\ \&pMergeList);}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_af1c0926731661cbdc52ec90032462ef2}{BuildMeshEdgeArray}}();}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_a74e9f89067b21a959c68d44bea963608}{GetMeshEdgeCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_aa13c433e2d1733a37a74de640d22a13f}{GetMeshEdgeIndex}}(\textcolor{keywordtype}{int}\ pStartVertexIndex,\ \textcolor{keywordtype}{int}\ pEndVertexIndex,\ \textcolor{keywordtype}{bool}\&\ pReversed,\ \textcolor{keywordtype}{int}\ pExistedEdgeCount=-\/1);}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a68a92dfeaad020596eb730c4bba6df26}{BeginGetMeshEdgeIndexForPolygon}}();}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_accc59f6a71fd42bdf4d547c14f98bd90}{EndGetMeshEdgeIndexForPolygon}}();}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_adefa62c43b2d97d5ce122d58542f9cd3}{GetMeshEdgeIndexForPolygon}}(\textcolor{keywordtype}{int}\ pPolygon,\ \textcolor{keywordtype}{int}\ pPositionInPolygon);}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a326d8c17181238499d628ea719531fa3}{GetMeshEdgeVertices}}(\textcolor{keywordtype}{int}\ pEdgeIndex,\ \textcolor{keywordtype}{int}\&\ pStartVertexIndex,\ \textcolor{keywordtype}{int}\&\ pEndVertexIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a7eed368fb6a1e11dc2b1e69271e46252}{BeginGetMeshEdgeVertices}}();}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_ad78469b758835d9ffda31a85df03f35c}{EndGetMeshEdgeVertices}}();}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a8a0ca6b1202ad971d3f504e801bf53ac}{SetMeshEdgeCount}}(\textcolor{keywordtype}{int}\ pEdgeCount);}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_ab10b7b2d096adaa51304a112dc6e2087}{SetMeshEdge}}(\textcolor{keywordtype}{int}\ pEdgeIndex,\ \textcolor{keywordtype}{int}\ pValue)}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pEdgeIndex\ >=\ 0\ \&\&\ pEdgeIndex\ <\ mEdgeArray.GetCount())}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(pValue\ >=\ 0\ \&\&\ pValue\ <\ mPolygonVertices.GetCount());}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pValue\ <\ 0\ ||\ pValue\ >=\ mPolygonVertices.GetCount())}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pValue\ =\ 0;}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mEdgeArray[pEdgeIndex]\ =\ pValue;}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_a16e82b52c2485fcdd2456e1a7e8da197}{AddMeshEdgeIndex}}(\textcolor{keywordtype}{int}\ pStartVertexIndex,\ \textcolor{keywordtype}{int}\ pEndVertexIndex,\ \textcolor{keywordtype}{bool}\ pCheckForDuplicates);}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_aa5b7cc2518716a2718aa4dc74c028bfa}{SetMeshEdgeIndex}}(\textcolor{keywordtype}{int}\ pEdgeIndex,\ \textcolor{keywordtype}{int}\ pStartVertexIndex,\ \textcolor{keywordtype}{int}\ pEndVertexIndex,\ \textcolor{keywordtype}{bool}\ pCheckForDuplicates,\ \textcolor{keywordtype}{int}\ pExistedEdgeCount=-\/1);}
+\DoxyCodeLine{00491\ }
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_ae2f6092e07e43deff8ac6764ba4a3fdd}{BeginAddMeshEdgeIndex}}();}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a933636875bbe11e0a214644d96194079}{EndAddMeshEdgeIndex}}();}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_a59aca5c258a089ef46db51016ccd0621}{AddMeshEdgeIndexForPolygon}}(\textcolor{keywordtype}{int}\ pPolygonIndex,\ \textcolor{keywordtype}{int}\ pPositionInPolygon);}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_aac8b592569f7454ea4a4881e3ce40fed}{SetMeshEdgeIndex}}(\textcolor{keywordtype}{int}\ pEdgeIndex,\ \textcolor{keywordtype}{int}\ pPolygonIndex,\ \textcolor{keywordtype}{int}\ pPositionInPolygon);}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_ac361286e901ffa6a3e651bf8ba71be26}{IsTriangleMesh}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00523\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_ab7d47000aac6c7de0a6fe0ccaff248cd}{ReservePolygonCount}}(\textcolor{keywordtype}{int}\ pCount)\ \{\ mPolygons.Reserve(pCount);\ \}}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00527\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a6cb8ace34a7b945a249a73f5293075e4}{ReservePolygonVertexCount}}(\textcolor{keywordtype}{int}\ pCount)\ \{\ mPolygonVertices.Reserve(pCount);\ \}}
+\DoxyCodeLine{00528\ }
+\DoxyCodeLine{00529\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetTextureUV(\mbox{\hyperlink{class_fbx_layer_element_array_template}{FbxLayerElementArrayTemplate<FbxVector2>}}**\ pLockableArray,\ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTypeIdentifier=FbxLayerElement::eTextureDiffuse)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00530\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetMaterialIndices(\mbox{\hyperlink{class_fbx_layer_element_array_template}{FbxLayerElementArrayTemplate<int>}}**\ pLockableArray)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00531\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetTextureIndices(\mbox{\hyperlink{class_fbx_layer_element_array_template}{FbxLayerElementArrayTemplate<int>}}**\ pLockableArray,\ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTextureType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_mesh_aef4f5b60a40bb28395bc784be6ec1f63}{GetEdgeCreaseInfo}}(\textcolor{keywordtype}{int}\ pEdgeIndex);}
+\DoxyCodeLine{00539\ }
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a5d234684ab39de2e06af7a79a1f7721d}{GetEdgeCreaseInfoArray}}(\mbox{\hyperlink{class_fbx_layer_element_array_template}{FbxLayerElementArrayTemplate<double>}}**\ pCreaseArray);}
+\DoxyCodeLine{00544\ }
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_mesh_a9c74158d50e75f30e82715fde2eca434}{GetVertexCreaseInfo}}(\textcolor{keywordtype}{int}\ pVertexIndex);}
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a4c62415bddc677a16c9794189b23eeba}{GetVertexCreaseInfoArray}}(\mbox{\hyperlink{class_fbx_layer_element_array_template}{FbxLayerElementArrayTemplate<double>}}**\ pCreaseArray);}
+\DoxyCodeLine{00554\ }
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a78f36e935449e10bf16da30f0657d5d5}{SetEdgeCreaseInfo}}(\textcolor{keywordtype}{int}\ pEdgeIndex,\ \textcolor{keywordtype}{double}\ pWeight);}
+\DoxyCodeLine{00560\ }
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a7b6ac7bf75d56cfce591c516c2635936}{SetEdgeCreaseInfoArray}}(\mbox{\hyperlink{class_fbx_array}{FbxArray<double>}}*\ pWeightArray);}
+\DoxyCodeLine{00565\ }
+\DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_aa715baf272e681060762171c9647c543}{SetVertexCreaseInfo}}(\textcolor{keywordtype}{int}\ pVertexIndex,\ \textcolor{keywordtype}{double}\ pWeight);}
+\DoxyCodeLine{00571\ }
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_aef55378b9360b005b736c5e67d19041e}{SetVertexCreaseInfoArray}}(\mbox{\hyperlink{class_fbx_array}{FbxArray<double>}}*\ pWeightArray);}
+\DoxyCodeLine{00577\ }
+\DoxyCodeLine{00580\ }
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_mesh_a7ac812140810290f718863c170279cf3}{ESmoothness}}}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_a7ac812140810290f718863c170279cf3a61535903625ba3bc7ccdc3cc5ee033d2}{eHull}},\ \ \ \ \ }
+\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_a7ac812140810290f718863c170279cf3a9ff959ffb9b9b71b38bfe00b075761e5}{eRough}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_a7ac812140810290f718863c170279cf3a7c2545de5f52e18d4e4710afe3e281f7}{eMedium}},\ }
+\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_a7ac812140810290f718863c170279cf3aec8790ff635fec3367a3b8eedbd9b77b}{eFine}}\ \ \ \ \ \ }
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_mesh_ab9e7d41ffcd49467a374c72e0d6f3561}{EBoundaryRule}}}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_ab9e7d41ffcd49467a374c72e0d6f3561a0501acd66025ba08d7add2fa09805731}{eLegacy}},\ }
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_ab9e7d41ffcd49467a374c72e0d6f3561a796c15aa83f0cd6bf190d963c0c7d728}{eCreaseAll}},\ \ \ }
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_ab9e7d41ffcd49467a374c72e0d6f3561a05e4c2c5eee265c654273b2902f246e1}{eCreaseEdge}}\ \ }
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00598\ }
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_a7ac812140810290f718863c170279cf3}{FbxMesh::ESmoothness}}\ \mbox{\hyperlink{class_fbx_mesh_a6833d3eb2e1fe34a5073149a2eb5544a}{GetMeshSmoothness}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00603\ }
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_ab07446f1c0dd0bae4597bb20a9d27265}{SetMeshSmoothness}}(\mbox{\hyperlink{class_fbx_mesh_a7ac812140810290f718863c170279cf3}{FbxMesh::ESmoothness}}\ pSmoothness);}
+\DoxyCodeLine{00608\ }
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_a59da6ff39a8d5247e1b6d996aecf8dab}{GetMeshPreviewDivisionLevels}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00612\ }
+\DoxyCodeLine{00615\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_ab995458b16288d77cd44487a9f63369a}{SetMeshPreviewDivisionLevels}}(\textcolor{keywordtype}{int}\ pPreviewDivisionLevels);}
+\DoxyCodeLine{00616\ }
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_mesh_adbcf24d50b58f317654fc771f11fe35c}{GetMeshRenderDivisionLevels}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a3926ddbfb4988f931ffdceef555243a6}{SetMeshRenderDivisionLevels}}(\textcolor{keywordtype}{int}\ pRenderDivisionLevels);}
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_ad1eee689b760a6147a2ee8090453ea9b}{GetDisplaySubdivisions}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00629\ }
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_ae9cf093a067ebc761231f1f186695d67}{SetDisplaySubdivisions}}(\textcolor{keywordtype}{bool}\ pDisplySubdivisions);}
+\DoxyCodeLine{00633\ }
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_ab9e7d41ffcd49467a374c72e0d6f3561}{EBoundaryRule}}\ \mbox{\hyperlink{class_fbx_mesh_a14ac6bb49f273e5a57301a22c0957025}{GetBoundaryRule}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00637\ }
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a36ab48a31065c607af8ad8a554fab6c6}{SetBoundaryRule}}(\mbox{\hyperlink{class_fbx_mesh_ab9e7d41ffcd49467a374c72e0d6f3561}{EBoundaryRule}}\ pBoundaryRule);}
+\DoxyCodeLine{00642\ }
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_aa2ee9371868bd2cf625f96e31ef44577}{GetPreserveBorders}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00646\ }
+\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a462b090d01499b85ed9b19f42cdcef76}{SetPreserveBorders}}(\textcolor{keywordtype}{bool}\ pPreserveBorders);}
+\DoxyCodeLine{00651\ }
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a93c3cec3811368e69f968b9e84a96a31}{GetPreserveHardEdges}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00655\ }
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_adfaa804cd76983fc6a2603aef0c25acd}{SetPreserveHardEdges}}(\textcolor{keywordtype}{bool}\ pPreserveHardEdges);}
+\DoxyCodeLine{00660\ }
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a146004786d53607346507bef4bd12101}{GetPropagateEdgeHardness}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00664\ }
+\DoxyCodeLine{00668\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a1908668e29bfe832de7eec520d0d5cba}{SetPropagateEdgeHardness}}(\textcolor{keywordtype}{bool}\ pPropagateEdgeHardness);}
+\DoxyCodeLine{00670\ }
+\DoxyCodeLine{00673\ }
+\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_aefe03c32a3743332101cdcbac963d64b}{GetPolyHoleInfo}}(\textcolor{keywordtype}{int}\ pFaceIndex);}
+\DoxyCodeLine{00677\ }
+\DoxyCodeLine{00681\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a8b512771bbaf8243e24e649d253003a3}{GetPolyHoleInfoArray}}(\mbox{\hyperlink{class_fbx_layer_element_array_template}{FbxLayerElementArrayTemplate<bool>}}**\ pHoleArray);}
+\DoxyCodeLine{00682\ }
+\DoxyCodeLine{00687\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_af13ce6ba20ce1920120a8b7b6d6854ed}{SetPolyHoleInfo}}(\textcolor{keywordtype}{int}\ pFaceIndex,\ \textcolor{keywordtype}{bool}\ pIsHole);}
+\DoxyCodeLine{00688\ }
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_ae1392c998ffe508d66284c5615b17f15}{SetPolyHoleInfoArray}}(\mbox{\hyperlink{class_fbx_array}{FbxArray<bool>}}*\ pHoleArray);}
+\DoxyCodeLine{00694\ }
+\DoxyCodeLine{00697\ }
+\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a69919a175d22e22f3d0bb05d616dfc44}{GenerateTangentsData}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pUVSetName=NULL,\ \textcolor{keywordtype}{bool}\ pOverwrite=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ pIgnoreTangentFlip\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00708\ }
+\DoxyCodeLine{00719\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a4bb7a8b26956254574accd4717409ec5}{GenerateTangentsData}}(\textcolor{keywordtype}{int}\ pUVSetLayerIndex,\ \textcolor{keywordtype}{bool}\ pOverwrite=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ pIgnoreTangentFlip\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00720\ }
+\DoxyCodeLine{00721\ \ \ \ \ }
+\DoxyCodeLine{00731\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a213639044f298dd28a4e6888a26df10a}{GenerateTangentsDataForAllUVSets}}(\textcolor{keywordtype}{bool}\ pOverwrite=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ pIgnoreTangentFlip=\textcolor{keyword}{false});}
+\DoxyCodeLine{00733\ }
+\DoxyCodeLine{00734\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00735\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00736\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00737\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00738\ \ \ \ \ \mbox{\hyperlink{class_fbx_object}{FbxObject}}\&\ \mbox{\hyperlink{class_fbx_mesh_ae18b04f306cd7c4441f7589e08e44b09}{Copy}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00739\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_ab7332d123d349349b9b88b4b78cd9e0c}{Compact}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00740\ }
+\DoxyCodeLine{00741\ \ \ \ \ \textcolor{comment}{//Please\ use\ GetPolygonVertexIndex\ and\ GetPolygonVertices\ to\ access\ these\ arrays.}}
+\DoxyCodeLine{00742\ \ \ \ \ \textcolor{comment}{//DO\ NOT\ MODIFY\ them\ directly,\ otherwise\ unexpected\ behavior\ will\ occur.}}
+\DoxyCodeLine{00743\ \ \ \ \ \textcolor{comment}{//These\ members\ are\ public\ only\ for\ application\ data\ copy\ performance\ reasons.}}
+\DoxyCodeLine{00744\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_mesh_1_1_polygon_def}{PolygonDef}}\{\ \textcolor{keywordtype}{int}\ mIndex;\ \textcolor{keywordtype}{int}\ mSize;\ \textcolor{keywordtype}{int}\ mGroup;\ \};}
+\DoxyCodeLine{00745\ }
+\DoxyCodeLine{00746\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<PolygonDef>}}\ \ \ \ mPolygons;}
+\DoxyCodeLine{00747\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\ \ \ \ \ \ \ \ \ \ mPolygonVertices;}
+\DoxyCodeLine{00748\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\ \ \ \ \ \ \ \ \ \ mEdgeArray;}
+\DoxyCodeLine{00749\ }
+\DoxyCodeLine{00750\ \ \ \ \ \textcolor{comment}{//These\ are\ only\ used\ in\ context\ of\ triangulation\ to\ backup\ original\ polygon\ layout\ necessary\ for\ handling\ mesh\ cache\ after\ triangulation}}
+\DoxyCodeLine{00751\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<PolygonDef>}}*\ \ \ mOriginalPolygons;}
+\DoxyCodeLine{00752\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}*\ \ \ \ \ \ \ \ \ mOriginalPolygonVertices;}
+\DoxyCodeLine{00753\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mOriginalControlPointsCount;}
+\DoxyCodeLine{00754\ }
+\DoxyCodeLine{00755\ \ \ \ \ \textcolor{comment}{//Internal\ structure\ used\ to\ keep\ the\ mapping\ information\ between\ edges\ and\ polygons.}}
+\DoxyCodeLine{00756\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_mesh_1_1_component_map}{ComponentMap}}}
+\DoxyCodeLine{00757\ \ \ \ \ \{}
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\ mData;\ \textcolor{comment}{//\ The\ array\ to\ store\ data.}}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\ mOffsets;\ \textcolor{comment}{//\ The\ array\ to\ store\ the\ offsets\ of\ the\ data\ in\ mData.}}
+\DoxyCodeLine{00760\ }
+\DoxyCodeLine{00761\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ GetDataCount(\textcolor{keywordtype}{int}\ pIndex)\ \{\ \textcolor{keywordflow}{return}\ mOffsets[pIndex\ +\ 1]\ -\/\ mOffsets[pIndex];\ \}}
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ GetData(\textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keywordtype}{int}\ pSubIndex)\ \{\ \textcolor{keywordflow}{return}\ mData[\ mOffsets[pIndex]\ +\ pSubIndex\ ];\ \}}
+\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ GetComponentCount()\ \{\ \textcolor{keywordflow}{return}\ mOffsets.GetCount()\ -\/\ 1;\ \}}
+\DoxyCodeLine{00764\ \ \ \ \ \};}
+\DoxyCodeLine{00765\ \ \ \ \ \textcolor{keywordtype}{void}\ ComputeComponentMaps(\mbox{\hyperlink{struct_fbx_mesh_1_1_component_map}{ComponentMap}}\&\ pEdgeToPolyMap,\ \mbox{\hyperlink{struct_fbx_mesh_1_1_component_map}{ComponentMap}}\&\ pPolyToEdgeMap);}
+\DoxyCodeLine{00766\ }
+\DoxyCodeLine{00767\ \ \ \ \ \textcolor{comment}{//\ Internal\ structure\ used\ to\ keep\ the\ mapping\ information\ between\ the\ control\ points\ and\ the}}
+\DoxyCodeLine{00768\ \ \ \ \ \textcolor{comment}{//\ vertices\ referencing\ them}}
+\DoxyCodeLine{00769\ \ \ \ \ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_mesh_1_1_control_point_to_vertices_map}{ControlPointToVerticesMap}}}
+\DoxyCodeLine{00770\ \ \ \ \ \{}
+\DoxyCodeLine{00771\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00772\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ Valid();}
+\DoxyCodeLine{00773\ }
+\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ FillWithControlPointInfo(\mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}*\ pMesh);}
+\DoxyCodeLine{00775\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ FillWithAdjacencyInfo(\mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}*\ pMesh,\ \textcolor{keywordtype}{int}\ pNbControlPoints);}
+\DoxyCodeLine{00776\ }
+\DoxyCodeLine{00777\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ GetCount();}
+\DoxyCodeLine{00778\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Clear();}
+\DoxyCodeLine{00779\ }
+\DoxyCodeLine{00780\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ GetCount(\textcolor{keywordtype}{int}\ pControlPoint)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00781\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ GetVertex(\textcolor{keywordtype}{int}\ pControlPoint,\ \textcolor{keywordtype}{int}\ pVertex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00782\ }
+\DoxyCodeLine{00783\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00784\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\ mStartIndices;}
+\DoxyCodeLine{00785\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\ mVertexIndices;}
+\DoxyCodeLine{00786\ \ \ \ \ \};}
+\DoxyCodeLine{00787\ \ \ \ \ \textcolor{keywordtype}{void}\ ComputeControlPointToVerticesMap(\mbox{\hyperlink{class_fbx_mesh_1_1_control_point_to_vertices_map}{ControlPointToVerticesMap}}\&\ pMap);}
+\DoxyCodeLine{00788\ }
+\DoxyCodeLine{00789\ \ \ \ \ \textcolor{comment}{//\ this\ function\ will\ compare\ the\ vertex\ normals\ with\ the\ corresponding\ ones\ in\ pMesh\ and\ }}
+\DoxyCodeLine{00790\ \ \ \ \ \textcolor{comment}{//\ make\ them\ similar\ (i.e:\ if\ pMesh(NVi)\ ==\ pMesh(NVj)\ then\ make\ this(NVi)\ ==\ this(NVj))}}
+\DoxyCodeLine{00791\ \ \ \ \ \textcolor{keywordtype}{bool}\ ConformNormalsTo(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}*\ pMesh);}
+\DoxyCodeLine{00792\ }
+\DoxyCodeLine{00793\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00794\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a19c239a6a4b66471d258a650796a49a8}{Construct}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00795\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_ac62b6ab82c3ec11700c0e07d0bb69f88}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00796\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a597236eae9b708d07f276107f33747cd}{ContentClear}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00797\ }
+\DoxyCodeLine{00798\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mesh_a7400d37014c8a84a5c356f1deef1761d}{InitTextureIndices}}(\mbox{\hyperlink{class_fbx_layer_element_texture}{FbxLayerElementTexture}}*\ pLayerElementTexture,\ \mbox{\hyperlink{class_fbx_layer_element_a5a40e95db30ae9f94611dc3f1568af26}{FbxLayerElement::EMappingMode}}\ pMappingMode);}
+\DoxyCodeLine{00799\ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveTextureIndex(\mbox{\hyperlink{class_fbx_layer_element_texture}{FbxLayerElementTexture}}*\ pLayerElementTextures,\ \textcolor{keywordtype}{int}\ pPolygonIndex,\ \textcolor{keywordtype}{int}\ pOffset);}
+\DoxyCodeLine{00800\ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveUVIndex(\mbox{\hyperlink{class_fbx_layer_element_u_v}{FbxLayerElementUV}}*\ pLayerElementUV,\ \textcolor{keywordtype}{int}\ pPolygonIndex,\ \textcolor{keywordtype}{int}\ pOffset);}
+\DoxyCodeLine{00801\ \ \ \ \ }
+\DoxyCodeLine{00802\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetBadPolyIndices(\mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\&\ pArrayBadPolyIndices,\ \textcolor{keywordtype}{bool}\ pCheckOne)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00803\ }
+\DoxyCodeLine{00804\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_mesh_1_1_split_edge_data}{SplitEdgeData}}\ \{\ \textcolor{keywordtype}{int}\ mOriginalEdge;\ \textcolor{keywordtype}{bool}\ mIsNew;\ \};}
+\DoxyCodeLine{00805\ }
+\DoxyCodeLine{00806\ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_a7ac812140810290f718863c170279cf3}{ESmoothness}}\ \ \ \ \ \ mSmoothness;}
+\DoxyCodeLine{00807\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ mPreviewDivisionLevels;}
+\DoxyCodeLine{00808\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ mRenderDivisionLevels;}
+\DoxyCodeLine{00809\ }
+\DoxyCodeLine{00810\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ mDisplaySubdivisions;}
+\DoxyCodeLine{00811\ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh_ab9e7d41ffcd49467a374c72e0d6f3561}{EBoundaryRule}}\ \ mBoundaryRule;}
+\DoxyCodeLine{00812\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ mPreserveBorders;}
+\DoxyCodeLine{00813\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ mPreserveHardEdges;}
+\DoxyCodeLine{00814\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ mPropagateEdgeHardness;}
+\DoxyCodeLine{00815\ }
+\DoxyCodeLine{00816\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_mesh_1_1_polygon_index_def}{PolygonIndexDef}}\ \{\ \textcolor{keywordtype}{int}\ mPolygonIndex;\ \textcolor{keywordtype}{int}\ mSubPolygonIndex;\ \};}
+\DoxyCodeLine{00817\ }
+\DoxyCodeLine{00818\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_mesh_1_1_v2_p_v_map}{V2PVMap}}}
+\DoxyCodeLine{00819\ \ \ \ \ \{}
+\DoxyCodeLine{00820\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_mesh_1_1_v2_p_v_map_1_1_edge_compare}{EdgeCompare}}}
+\DoxyCodeLine{00821\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00822\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ operator()(\mbox{\hyperlink{class_fbx_pair}{FbxPair<int,\ int>}}\ \textcolor{keyword}{const}\&\ pKeyA,\ \mbox{\hyperlink{class_fbx_pair}{FbxPair<int,\ int>}}\ \textcolor{keyword}{const}\&\ pKeyB)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00823\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00824\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lResult\ =\ pKeyA.\mbox{\hyperlink{class_fbx_pair_ade45092061639a0a4256a0df59365d47}{mSecond}}\ -\/\ pKeyB.\mbox{\hyperlink{class_fbx_pair_ade45092061639a0a4256a0df59365d47}{mSecond}};}
+\DoxyCodeLine{00825\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lResult\ ==\ 0)\ \textcolor{keywordflow}{return}\ pKeyA.\mbox{\hyperlink{class_fbx_pair_ae4207e9014fead320362025388c70703}{mFirst}}\ -\/\ pKeyB.\mbox{\hyperlink{class_fbx_pair_ae4207e9014fead320362025388c70703}{mFirst}};}
+\DoxyCodeLine{00826\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{return}\ lResult;}
+\DoxyCodeLine{00827\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00828\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00829\ }
+\DoxyCodeLine{00830\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_fbx_mesh_1_1_polygon_index_def}{PolygonIndexDef}}*\ mV2PV;}
+\DoxyCodeLine{00831\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ mV2PVOffset;}
+\DoxyCodeLine{00832\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ mV2PVCount;}
+\DoxyCodeLine{00833\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_set}{FbxSet<FbxPair<int,\ int>}},\ \mbox{\hyperlink{struct_fbx_mesh_1_1_v2_p_v_map_1_1_edge_compare}{EdgeCompare}},\ \mbox{\hyperlink{class_fbx_hungry_allocator}{FbxHungryAllocator}}>\ mPVEdges;}
+\DoxyCodeLine{00834\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ mValid;}
+\DoxyCodeLine{00835\ }
+\DoxyCodeLine{00836\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Used\ for\ fast\ search\ in\ GetMeshEdgeIndexForPolygon\ this\ array\ does\ not\ follow\ the\ same\ allocation\ as\ the\ above\ ones\ because}}
+\DoxyCodeLine{00837\ \ \ \ \ \ \ \ \ \textcolor{comment}{//it\ is\ not\ used\ in\ the\ normal\ BeginAddMeshEdgeIndex().\ It\ is\ filled\ only\ by\ the\ call\ to\ BeginGetMeshEdgeIndexForPolygon().}}
+\DoxyCodeLine{00838\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\ mV2Edge;}
+\DoxyCodeLine{00839\ \ \ \ \ \}\ mV2PVMap;}
+\DoxyCodeLine{00840\ }
+\DoxyCodeLine{00841\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_mesh_1_1_edge_lookup_def}{EdgeLookupDef}}\ \{\ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\ mPVFlags;\ \textcolor{keywordtype}{bool}\ mValid;\ \}\ mPVEndFlags;}
+\DoxyCodeLine{00842\ }
+\DoxyCodeLine{00843\ \ \ \ \ \textcolor{comment}{//Finds\ the\ polygon\ index\ for\ the\ given\ edge}}
+\DoxyCodeLine{00844\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FindPolygonIndex(\textcolor{keywordtype}{int}\ pEdgeIndex);}
+\DoxyCodeLine{00845\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ PolygonIndexCompare(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ p1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ p2);}
+\DoxyCodeLine{00846\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PolySetTexture(\mbox{\hyperlink{class_fbx_layer}{FbxLayer}}*\ pLayer,\ \textcolor{keywordtype}{int}\ pTextureIndex,\ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTextureType);}
+\DoxyCodeLine{00847\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keywordtype}{bool}\ \ GetPolygonVertexLayerElementIndex(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_layer_element_template}{FbxLayerElementTemplate<T>}}*\ pLayerElement,\ \textcolor{keywordtype}{int}\ pPolyIndex,\ \textcolor{keywordtype}{int}\ pVertexIndex,\ \textcolor{keywordtype}{int}\&\ pIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00848\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keywordtype}{bool}\ \ GetPolygonVertexLayerElementValue(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_layer_element_template}{FbxLayerElementTemplate<T>}}*\ pLayerElement,\ \textcolor{keywordtype}{int}\ pPolyIndex,\ \textcolor{keywordtype}{int}\ pVertexIndex,\ T\&\ pValue,\ \textcolor{keywordtype}{bool}\ pAllowUnmapped)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00849\ }
+\DoxyCodeLine{00850\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxGeometryConverter;}
+\DoxyCodeLine{00851\ }
+\DoxyCodeLine{00852\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00853\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mesh_a69919a175d22e22f3d0bb05d616dfc44}{GenerateTangentsData}}(\mbox{\hyperlink{class_fbx_layer_element_u_v}{FbxLayerElementUV}}*\ pUVSet,\ \textcolor{keywordtype}{int}\ pLayerIndex,\ \textcolor{keywordtype}{bool}\ pOverwrite=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ pIgnoreTangentFlip\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00854\ \ \ \ \ \textcolor{keywordtype}{void}\ FillMeshEdgeTable(\mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\&\ pTable,\ \textcolor{keywordtype}{int}*\ pValue,\ \textcolor{keywordtype}{void}\ (*FillFct)(\mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\&\ pTable,\ \textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keywordtype}{int}*\ pValue));}
+\DoxyCodeLine{00855\ \ \ \ \ \textcolor{keywordtype}{void}\ ComputeNormalsPerCtrlPoint(\mbox{\hyperlink{class_fbx_array}{FbxArray<VertexNormalInfo>}}\&\ lNormalInfo,\ \textcolor{keywordtype}{bool}\ pCW=\textcolor{keyword}{false});}
+\DoxyCodeLine{00856\ \ \ \ \ \textcolor{keywordtype}{void}\ ComputeNormalsPerPolygonVertex(\mbox{\hyperlink{class_fbx_array}{FbxArray<VertexNormalInfo>}}\&\ lNormalInfo,\ \textcolor{keywordtype}{bool}\ pCW=\textcolor{keyword}{false});}
+\DoxyCodeLine{00857\ \ \ \ \ \textcolor{keywordtype}{void}\ GenerateNormalsByCtrlPoint(\textcolor{keywordtype}{bool}\ pCW);}
+\DoxyCodeLine{00858\ }
+\DoxyCodeLine{00859\ \ \ \ \ \textcolor{keywordtype}{int}\ GetIndex(\textcolor{keywordtype}{int}\ index,\ \textcolor{keywordtype}{int}\ capacity)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00860\ }
+\DoxyCodeLine{00861\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00862\ \};}
+\DoxyCodeLine{00863\ }
+\DoxyCodeLine{00864\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00865\ }
+\DoxyCodeLine{00866\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_GEOMETRY\_MESH\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

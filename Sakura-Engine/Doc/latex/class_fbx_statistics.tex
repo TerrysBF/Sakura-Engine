@@ -1,0 +1,129 @@
+\doxysection{Fbx\+Statistics Class Reference}
+\hypertarget{class_fbx_statistics}{}\label{class_fbx_statistics}\index{FbxStatistics@{FbxStatistics}}
+
+
+{\ttfamily \#include $<$fbxstatistics.\+h$>$}
+
+Inheritance diagram for Fbx\+Statistics\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_fbx_statistics}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Constructor and Destructor.}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_statistics_a91d987cd85cf3e567b9c309c9389f02d}\label{class_fbx_statistics_a91d987cd85cf3e567b9c309c9389f02d} 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries m\+Item\+Name}
+\begin{DoxyCompactList}\small\item\em An array to store item\textquotesingle{}s name. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_statistics_a9754af27b7b5d98fb085595e633370e8}\label{class_fbx_statistics_a9754af27b7b5d98fb085595e633370e8} 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ int $>$ {\bfseries m\+Item\+Count}
+\begin{DoxyCompactList}\small\item\em An array to store item\textquotesingle{}s count. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_statistics_ad0cf2f0dafc61cb5c99b8ad63d86f0c7}\label{class_fbx_statistics_ad0cf2f0dafc61cb5c99b8ad63d86f0c7} 
+void {\bfseries Reset} ()
+\begin{DoxyCompactList}\small\item\em Reset the statistics. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_statistics_a6e2b88a54e55a02e714707366fc44cd5}\label{class_fbx_statistics_a6e2b88a54e55a02e714707366fc44cd5} 
+int {\bfseries Get\+Nb\+Items} () const
+\begin{DoxyCompactList}\small\item\em Get the number of items. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_fbx_statistics_a20877448d6ff61b050ea6d94554fa719}{Get\+Item\+Pair}} (int p\+Num, \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Item\+Name, int \&p\+Item\+Count) const
+\item 
+\mbox{\hyperlink{class_fbx_statistics}{Fbx\+Statistics}} \& \mbox{\hyperlink{class_fbx_statistics_a3d8159619522ce534ddb38c80b63bb8d}{operator=}} (const \mbox{\hyperlink{class_fbx_statistics}{Fbx\+Statistics}} \&p\+Statistics)
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_statistics_abd81e5b31d33546ad6ba5fa9af34c792}{Add\+Item}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&, int)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is a basic class to get the quantity of items. User processes the statistics raw data by deriving \doxylink{class_fbx_statistics}{Fbx\+Statistics} class and overrides {\ttfamily Add\+Item} method. When overriding {\ttfamily Add\+Item} method, User must store item\textquotesingle{}s name and item\textquotesingle{}s count by pair which means The index of one item\textquotesingle{}s name in array {\ttfamily m\+Item\+Name} is the same as the index of this item\textquotesingle{}s count in array {\ttfamily m\+Item\+Count}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ Here\ is\ a\ code\ snippet\ to\ show\ how\ it\ used.}
+\DoxyCodeLine{\textcolor{comment}{//Define\ my\ own\ statistics\ class.}}
+\DoxyCodeLine{class\ MyStatistics\ :\ \textcolor{keyword}{public}\ FbxStatistics}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_statistics_abd81e5b31d33546ad6ba5fa9af34c792}{AddItem}}(FbxString\&\ pItemName,\ \textcolor{keywordtype}{int}\ pItemCount)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_statistics_a91d987cd85cf3e567b9c309c9389f02d}{mItemName}}.Add(\ FbxSdkNew<\ FbxString\ >(pItemName)\ );}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_statistics_a9754af27b7b5d98fb085595e633370e8}{mItemCount}}.Add(\ pItemCount);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{FbxManager*\ lSdkManager\ =\ \mbox{\hyperlink{class_fbx_manager_a62f74744ea50dc4118c413e031eddb72}{FbxManager::Create}}();\ }
+\DoxyCodeLine{FbxScene*\ \ \ \ \ \ lScene\ \ \ \ \ \ =\ FbxScene::Create(\ lSdkManager,\ \textcolor{stringliteral}{"{}Scene"{}});}
+\DoxyCodeLine{FbxNode*\ \ \ \ \ \ \ lNode1\ \ \ \ \ \ =\ FbxNode::Create(lScene,\ \textcolor{stringliteral}{"{}Node1"{}});}
+\DoxyCodeLine{FbxNode*\ \ \ \ \ \ \ lNode2\ \ \ \ \ \ =\ FbxNode::Create(lScene,\ \textcolor{stringliteral}{"{}Node2"{}});}
+\DoxyCodeLine{FbxNode*\ \ \ \ \ \ \ lNode3\ \ \ \ \ \ =\ FbxNode::Create(lScene,\ \textcolor{stringliteral}{"{}Node3"{}});}
+\DoxyCodeLine{FbxNode*\ \ \ \ \ \ \ lNode4\ \ \ \ \ \ =\ FbxNode::Create(lScene,\ \textcolor{stringliteral}{"{}Node4"{}});}
+\DoxyCodeLine{lScene.\mbox{\hyperlink{class_fbx_scene_a4da84de06d868fd3542f4688834dff6d}{AddNode}}(lNode1);}
+\DoxyCodeLine{lScene.\mbox{\hyperlink{class_fbx_scene_a4da84de06d868fd3542f4688834dff6d}{AddNode}}(lNode2);}
+\DoxyCodeLine{lScene.\mbox{\hyperlink{class_fbx_scene_a4da84de06d868fd3542f4688834dff6d}{AddNode}}(lNode3);}
+\DoxyCodeLine{MyStatistics\ lStatistics;}
+\DoxyCodeLine{lStatistics.AddItem(\textcolor{stringliteral}{"{}Node\_Count"{}},\ lScene.\mbox{\hyperlink{class_fbx_scene_a0cb1a1464b0fa1b8291c41900879515e}{GetNodeCount}}()\ );}
+\DoxyCodeLine{FbxString\ lItemName;}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \ \ \ \ lItemCount;}
+\DoxyCodeLine{\textcolor{keywordflow}{if}(\ lStatistics.GetItemPair(\ 0,\ lItemName,\ lItemCount))}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//do\ something}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_statistics_abd81e5b31d33546ad6ba5fa9af34c792}\index{FbxStatistics@{FbxStatistics}!AddItem@{AddItem}}
+\index{AddItem@{AddItem}!FbxStatistics@{FbxStatistics}}
+\doxysubsubsection{\texorpdfstring{AddItem()}{AddItem()}}
+{\footnotesize\ttfamily \label{class_fbx_statistics_abd81e5b31d33546ad6ba5fa9af34c792} 
+virtual bool Fbx\+Statistics\+::\+Add\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{}{, }\item[{int}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+virtual function to define the process of the incoming statistics data. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item\+Name} & The item\textquotesingle{}s name \\
+\hline
+{\em p\+Item\+Count} & The item\textquotesingle{}s count. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_statistics_fbx_a572bf7348dca4967ed1b43c7d2e32982}{Fbx\+Statistics\+Fbx}}.
+
+\Hypertarget{class_fbx_statistics_a20877448d6ff61b050ea6d94554fa719}\index{FbxStatistics@{FbxStatistics}!GetItemPair@{GetItemPair}}
+\index{GetItemPair@{GetItemPair}!FbxStatistics@{FbxStatistics}}
+\doxysubsubsection{\texorpdfstring{GetItemPair()}{GetItemPair()}}
+{\footnotesize\ttfamily \label{class_fbx_statistics_a20877448d6ff61b050ea6d94554fa719} 
+bool Fbx\+Statistics\+::\+Get\+Item\+Pair (\begin{DoxyParamCaption}\item[{int}]{p\+Num}{, }\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+Item\+Name}{, }\item[{int \&}]{p\+Item\+Count}{}\end{DoxyParamCaption}) const}
+
+Get the statistics information by pair. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Num} & The index of statistics data to be got. \\
+\hline
+{\em p\+Item\+Name} & Output the item\textquotesingle{}s name. \\
+\hline
+{\em p\+Item\+Count} & Output the item\textquotesingle{}s count. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if successful, {\ttfamily False} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_statistics_a3d8159619522ce534ddb38c80b63bb8d}\index{FbxStatistics@{FbxStatistics}!operator=@{operator=}}
+\index{operator=@{operator=}!FbxStatistics@{FbxStatistics}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_fbx_statistics_a3d8159619522ce534ddb38c80b63bb8d} 
+\mbox{\hyperlink{class_fbx_statistics}{Fbx\+Statistics}} \& Fbx\+Statistics\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_statistics}{Fbx\+Statistics}} \&}]{p\+Statistics}{}\end{DoxyParamCaption})}
+
+Assignment operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Statistics} & \doxylink{class_fbx_statistics}{Fbx\+Statistics} assigned to this one. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/fileio/\mbox{\hyperlink{fbxstatistics_8h}{fbxstatistics.\+h}}\end{DoxyCompactItemize}

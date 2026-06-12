@@ -1,0 +1,91 @@
+\doxysection{Fbx\+Root\+Node\+Utility Class Reference}
+\hypertarget{class_fbx_root_node_utility}{}\label{class_fbx_root_node_utility}\index{FbxRootNodeUtility@{FbxRootNodeUtility}}
+
+
+This class collects static functions for manipulating Fbx\+\_\+\+Root nodes. Fbx\+\_\+\+Root nodes were used to orient and scale scenes from other graphics applications. They have been replaced by the conversion routines in \doxylink{class_fbx_axis_system}{Fbx\+Axis\+System} and \doxylink{class_fbx_system_unit}{Fbx\+System\+Unit}. These methods are provided for backward compatibility only and will eventually be removed. Use the conversion routines in \doxylink{class_fbx_system_unit}{Fbx\+System\+Unit} and \doxylink{class_fbx_axis_system}{Fbx\+Axis\+System} when possible.  
+
+
+
+
+{\ttfamily \#include $<$fbxrootnodeutility.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_fbx_root_node_utility_ac4729d0953e660d3163f22ba02df5092}{Remove\+All\+Fbx\+Roots}} (\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*}p\+Scene)
+\item 
+static bool \mbox{\hyperlink{class_fbx_root_node_utility_a0f691aaa73fe8e6dea97df81ac5e3517}{Insert\+Fbx\+Root}} (\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*}p\+Scene, const \mbox{\hyperlink{class_fbx_axis_system}{Fbx\+Axis\+System}} \&p\+Dst\+Axis, const \mbox{\hyperlink{class_fbx_system_unit}{Fbx\+System\+Unit}} \&p\+Dst\+Unit, const \mbox{\hyperlink{struct_fbx_system_unit_1_1_conversion_options}{Fbx\+System\+Unit\+::\+Conversion\+Options}} \&p\+Unit\+Options=\mbox{\hyperlink{class_fbx_system_unit_ae76376923416767b2a5f6a7e4e663064}{Fbx\+System\+Unit\+::\+Default\+Conversion\+Options}})
+\item 
+static bool \mbox{\hyperlink{class_fbx_root_node_utility_a4f6f1e747f3631fd370f98f3f4a02302}{Is\+Fbx\+Root\+Node}} (\mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*}p\+Node)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_root_node_utility_aa98b95d282380953bafc151c4100fe17}\label{class_fbx_root_node_utility_aa98b95d282380953bafc151c4100fe17} 
+static const char \texorpdfstring{$\ast$}{*} {\bfseries s\+Fbx\+Root\+Node\+Prefix}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_root_node_utility_ac3919124c7800d71e61349e438e6fee1}\label{class_fbx_root_node_utility_ac3919124c7800d71e61349e438e6fee1} 
+{\bfseries Fbx\+Root\+Node\+Utility} (const \mbox{\hyperlink{class_fbx_root_node_utility}{Fbx\+Root\+Node\+Utility}} \&p\+Other)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class collects static functions for manipulating Fbx\+\_\+\+Root nodes. Fbx\+\_\+\+Root nodes were used to orient and scale scenes from other graphics applications. They have been replaced by the conversion routines in \doxylink{class_fbx_axis_system}{Fbx\+Axis\+System} and \doxylink{class_fbx_system_unit}{Fbx\+System\+Unit}. These methods are provided for backward compatibility only and will eventually be removed. Use the conversion routines in \doxylink{class_fbx_system_unit}{Fbx\+System\+Unit} and \doxylink{class_fbx_axis_system}{Fbx\+Axis\+System} when possible. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_root_node_utility_a0f691aaa73fe8e6dea97df81ac5e3517}\index{FbxRootNodeUtility@{FbxRootNodeUtility}!InsertFbxRoot@{InsertFbxRoot}}
+\index{InsertFbxRoot@{InsertFbxRoot}!FbxRootNodeUtility@{FbxRootNodeUtility}}
+\doxysubsubsection{\texorpdfstring{InsertFbxRoot()}{InsertFbxRoot()}}
+{\footnotesize\ttfamily \label{class_fbx_root_node_utility_a0f691aaa73fe8e6dea97df81ac5e3517} 
+static bool Fbx\+Root\+Node\+Utility\+::\+Insert\+Fbx\+Root (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*}}]{p\+Scene}{, }\item[{const \mbox{\hyperlink{class_fbx_axis_system}{Fbx\+Axis\+System}} \&}]{p\+Dst\+Axis}{, }\item[{const \mbox{\hyperlink{class_fbx_system_unit}{Fbx\+System\+Unit}} \&}]{p\+Dst\+Unit}{, }\item[{const \mbox{\hyperlink{struct_fbx_system_unit_1_1_conversion_options}{Fbx\+System\+Unit\+::\+Conversion\+Options}} \&}]{p\+Unit\+Options}{ = {\ttfamily \mbox{\hyperlink{class_fbx_system_unit_ae76376923416767b2a5f6a7e4e663064}{Fbx\+System\+Unit\+::\+Default\+Conversion\+Options}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Inserts an Fbx\+\_\+\+Root node into the scene to orient the scene from its axis and unit systems to the specified ones. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Scene} & The scene to convert \\
+\hline
+{\em p\+Dst\+Axis} & Destination axis. \\
+\hline
+{\em p\+Dst\+Unit} & Destination unit \\
+\hline
+{\em p\+Unit\+Options} & Unit conversion options \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_root_node_utility_a4f6f1e747f3631fd370f98f3f4a02302}\index{FbxRootNodeUtility@{FbxRootNodeUtility}!IsFbxRootNode@{IsFbxRootNode}}
+\index{IsFbxRootNode@{IsFbxRootNode}!FbxRootNodeUtility@{FbxRootNodeUtility}}
+\doxysubsubsection{\texorpdfstring{IsFbxRootNode()}{IsFbxRootNode()}}
+{\footnotesize\ttfamily \label{class_fbx_root_node_utility_a4f6f1e747f3631fd370f98f3f4a02302} 
+static bool Fbx\+Root\+Node\+Utility\+::\+Is\+Fbx\+Root\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Node}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Check if a node is an Fbx\+\_\+\+Root node 
+\begin{DoxyParams}{Parameters}
+{\em p\+Node} & The node to query \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if p\+Node is a Fbx\+\_\+\+Root node, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_root_node_utility_ac4729d0953e660d3163f22ba02df5092}\index{FbxRootNodeUtility@{FbxRootNodeUtility}!RemoveAllFbxRoots@{RemoveAllFbxRoots}}
+\index{RemoveAllFbxRoots@{RemoveAllFbxRoots}!FbxRootNodeUtility@{FbxRootNodeUtility}}
+\doxysubsubsection{\texorpdfstring{RemoveAllFbxRoots()}{RemoveAllFbxRoots()}}
+{\footnotesize\ttfamily \label{class_fbx_root_node_utility_ac4729d0953e660d3163f22ba02df5092} 
+static bool Fbx\+Root\+Node\+Utility\+::\+Remove\+All\+Fbx\+Roots (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*}}]{p\+Scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This method strips the scene of all Fbx\+\_\+\+Root nodes. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Scene} & The scene to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if successful, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+Converts the children of any Fbx\+\_\+\+Roots to the orientation and units that the Fbx\+\_\+\+Root transformation represented. The scene should look unchanged. 
+\end{DoxyRemark}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/utils/\mbox{\hyperlink{fbxrootnodeutility_8h}{fbxrootnodeutility.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,58 @@
+\doxysection{fbxscopedloadingdirectory.\+h}
+\hypertarget{fbxscopedloadingdirectory_8h_source}{}\label{fbxscopedloadingdirectory_8h_source}\index{include/fbx/fbxsdk/core/fbxscopedloadingdirectory.h@{include/fbx/fbxsdk/core/fbxscopedloadingdirectory.h}}
+\mbox{\hyperlink{fbxscopedloadingdirectory_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_SCOPED\_LOADING\_DIRECTORY\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_SCOPED\_LOADING\_DIRECTORY\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifndef\ FBXSDK\_ENV\_WINSTORE}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxloadingstrategy_8h}{fbxsdk/core/fbxloadingstrategy.h}}>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmodule_8h}{fbxsdk/core/fbxmodule.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }FbxPluginHandle;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_scoped_loading_directory_a9679c872ae08e0a76f9b63a7dc899985}{FbxScopedLoadingDirectory}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_loading_strategy}{FbxLoadingStrategy}}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_fbx_scoped_loading_directory_a9679c872ae08e0a76f9b63a7dc899985}{FbxScopedLoadingDirectory}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pDirectoryPath,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pPluginExtension);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_scoped_loading_directory_ae8a3e3331bf58edef910021442af358b}{\string~FbxScopedLoadingDirectory}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00040\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00041\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00043\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_loading_strategy_a5e1fb1dd165eeb5d4670aab41bed1659}{SpecificLoad}}(\mbox{\hyperlink{struct_fbx_plugin_data}{FbxPluginData}}\&\ pData)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_loading_strategy_a22f41510c2741f68ffb96f7c3da79a85}{SpecificUnload}}(\mbox{\hyperlink{struct_fbx_plugin_data}{FbxPluginData}}\&\ pData)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ mDirectoryPath;}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ mExtension;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxModule>}}\ mPluginHandles;}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !FBXSDK\_ENV\_WINSTORE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_SCOPED\_LOADING\_DIRECTORY\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

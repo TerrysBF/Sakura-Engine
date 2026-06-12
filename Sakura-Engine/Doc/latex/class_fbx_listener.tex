@@ -1,0 +1,124 @@
+\doxysection{Fbx\+Listener Class Reference}
+\hypertarget{class_fbx_listener}{}\label{class_fbx_listener}\index{FbxListener@{FbxListener}}
+
+
+{\ttfamily \#include $<$fbxlistener.\+h$>$}
+
+Inheritance diagram for Fbx\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_fbx_listener}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Constructor and Destructor}\par
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_listener_a47f9225b672464b671e7d260fba28fa3}\label{class_fbx_listener_a47f9225b672464b671e7d260fba28fa3} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Fbx\+Listener} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_listener_a8d0059633c0a29709abd105fb4f911ec}\label{class_fbx_listener_a8d0059633c0a29709abd105fb4f911ec} 
+{\bfseries Fbx\+Listener} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Bind and unbind methods}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Event\+Type, typename Listener\+Type$>$ }\\\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_listener_af2771e336fe4b8a9e3e9a7f2598d43a9}{Bind}} (\mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}} \&p\+Emitter, void(Listener\+Type\+::\texorpdfstring{$\ast$}{*}p\+Func)(const Event\+Type \texorpdfstring{$\ast$}{*}))
+\item 
+{\footnotesize template$<$typename Event\+Type, typename Listener\+Type$>$ }\\\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_listener_ad1296e4108c7dc65436e5d53514bdfe4}{Bind}} (\mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}} \&p\+Emitter, void(Listener\+Type\+::\texorpdfstring{$\ast$}{*}p\+Func)(const Event\+Type \texorpdfstring{$\ast$}{*}) const)
+\item 
+{\footnotesize template$<$typename Event\+Type$>$ }\\\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_listener_aec6e910f3cfce09ceffed50c8393dec3}{Bind}} (\mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}} \&p\+Emitter, void(\texorpdfstring{$\ast$}{*}p\+Func)(const Event\+Type \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_fbx_listener}{Fbx\+Listener}} \texorpdfstring{$\ast$}{*}))
+\item 
+void \mbox{\hyperlink{class_fbx_listener_a723ba6f82b533e427d72ab39da3f8aeb}{Unbind}} (const \mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \texorpdfstring{$\ast$}{*}a\+Bind\+Id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+FBX SDK listener class. Once an event is emitted by an emitter, a listener should be created to listen to the event. The listener could receive a signal and take action to process the event data. \begin{DoxyNote}{Note}
+The data will be process by the callback function of \doxylink{class_fbx_listener_af2771e336fe4b8a9e3e9a7f2598d43a9}{Fbx\+Listener\+::\+Bind()}. Plug-\/in could be used as listener, since \doxylink{class_fbx_plugin}{Fbx\+Plugin} is derived from \doxylink{class_fbx_listener}{Fbx\+Listener}. To emit event, you could create an emitter and a listener, and then bind them together via event handler. To listen to an event which is emitted by an emitter, you should bind current listener to the emitter by calling \doxylink{class_fbx_listener_af2771e336fe4b8a9e3e9a7f2598d43a9}{Fbx\+Listener\+::\+Bind()}. Event listener contains a list of event handlers. 
+\end{DoxyNote}
+\begin{DoxyRemark}{Remarks}
+An object(emitter) can emit a certain type of event, the plug-\/in(listener) who are listening to that type of event, will receive a signal and take action to process the event data. 
+\end{DoxyRemark}
+\begin{DoxyParagraph}{The whole process of event is\+:}
+\begin{DoxyItemize}
+\item 1. Create an emitter and a listener, then bind them together via the same event handler. \item 2. Emitter can emit an event at certain conditions. The event could be handled by event handler. \item 3. Once an event is emitted, the listener to this event will receive a signal. \item 4. And then the listener could process the event data according to the types of event, by calling event handler. \end{DoxyItemize}
+
+\end{DoxyParagraph}
+\begin{DoxyNote}{Note}
+The event data is process by the callback function of event handler. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_fbx_emitter}{Fbx\+Emitter} \doxylink{class_fbx_event_handler}{Fbx\+Event\+Handler} \doxylink{class_fbx_event}{Fbx\+Event} \doxylink{class_fbx_event_base}{Fbx\+Event\+Base} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_listener_aec6e910f3cfce09ceffed50c8393dec3}\index{FbxListener@{FbxListener}!Bind@{Bind}}
+\index{Bind@{Bind}!FbxListener@{FbxListener}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_fbx_listener_aec6e910f3cfce09ceffed50c8393dec3} 
+template$<$typename Event\+Type$>$ \\
+\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \texorpdfstring{$\ast$}{*} Fbx\+Listener\+::\+Bind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}} \&}]{p\+Emitter}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{p\+Func~}{)(const Event\+Type \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_fbx_listener}{Fbx\+Listener}} \texorpdfstring{$\ast$}{*})}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Bind current listener and the specified emitter together via an automatically created event handler. An event handler will be created automatically and added to the handlers list of current listener and the specified emitter. After that, the listener can listen to the event which is emitted by the specified emitter. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Emitter} & Event emitter to bind. Current listener can listen to the event which is emitted by p\+Emitter. \\
+\hline
+{\em p\+Func} & The callback function to process event date. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The automatically created event handler. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_listener_ad1296e4108c7dc65436e5d53514bdfe4}\index{FbxListener@{FbxListener}!Bind@{Bind}}
+\index{Bind@{Bind}!FbxListener@{FbxListener}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_fbx_listener_ad1296e4108c7dc65436e5d53514bdfe4} 
+template$<$typename Event\+Type, typename Listener\+Type$>$ \\
+\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \texorpdfstring{$\ast$}{*} Fbx\+Listener\+::\+Bind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}} \&}]{p\+Emitter}{, }\item[{void(Listener\+Type\+::\texorpdfstring{$\ast$}{*}}]{p\+Func~}{)(const Event\+Type \texorpdfstring{$\ast$}{*}) const}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Bind current listener and the specified emitter together via an automatically created event handler. An event handler will be created automatically and added to the handlers list of current listener and the specified emitter. After that, the listener can listen to the event which is emitted by the specified emitter. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Emitter} & Event emitter to bind. Current listener can listen to the event which is emitted by p\+Emitter. \\
+\hline
+{\em p\+Func} & The callback function to process event date. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The automatically created event handler. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_listener_af2771e336fe4b8a9e3e9a7f2598d43a9}\index{FbxListener@{FbxListener}!Bind@{Bind}}
+\index{Bind@{Bind}!FbxListener@{FbxListener}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_fbx_listener_af2771e336fe4b8a9e3e9a7f2598d43a9} 
+template$<$typename Event\+Type, typename Listener\+Type$>$ \\
+\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \texorpdfstring{$\ast$}{*} Fbx\+Listener\+::\+Bind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}} \&}]{p\+Emitter}{, }\item[{void(Listener\+Type\+::\texorpdfstring{$\ast$}{*}}]{p\+Func~}{)(const Event\+Type \texorpdfstring{$\ast$}{*})}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Bind current listener and the specified emitter together via an automatically created event handler. An event handler will be created automatically and added to the handlers list of current listener and the specified emitter. After that, the listener can listen to the event which is emitted by the specified emitter. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Emitter} & Event emitter to bind. Current listener can listen to the event which is emitted by p\+Emitter. \\
+\hline
+{\em p\+Func} & The callback function to process event date. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The automatically created event handler. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_listener_a723ba6f82b533e427d72ab39da3f8aeb}\index{FbxListener@{FbxListener}!Unbind@{Unbind}}
+\index{Unbind@{Unbind}!FbxListener@{FbxListener}}
+\doxysubsubsection{\texorpdfstring{Unbind()}{Unbind()}}
+{\footnotesize\ttfamily \label{class_fbx_listener_a723ba6f82b533e427d72ab39da3f8aeb} 
+void Fbx\+Listener\+::\+Unbind (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \texorpdfstring{$\ast$}{*}}]{a\+Bind\+Id}{}\end{DoxyParamCaption})}
+
+Unbind an event handler. The specified event handler will be removed from the handlers list of current listener. 
+\begin{DoxyParams}{Parameters}
+{\em a\+Bind\+Id} & The event handler to unbind. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/\mbox{\hyperlink{fbxlistener_8h}{fbxlistener.\+h}}\end{DoxyCompactItemize}

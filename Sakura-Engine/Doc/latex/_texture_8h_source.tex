@@ -1,0 +1,83 @@
+\doxysection{Texture.\+h}
+\hypertarget{_texture_8h_source}{}\label{_texture_8h_source}\index{include/Texture.h@{include/Texture.h}}
+\mbox{\hyperlink{_texture_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device}{Device}};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{class_texture_a66179be276016021e80b1c67c047d4ad}{Texture}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{class_texture_a66179be276016021e80b1c67c047d4ad}{Texture}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{class_texture_ad2a9673e810b8c1f8c7dcb9b94fd71e5}{\string~Texture}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00050\ \ \ HRESULT}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_device_context_a9bbeaf8534205198a8e2c36568a6f81f}{init}}(\mbox{\hyperlink{class_device}{Device}}\&\ device,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ textureName,}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ ExtensionType\ extensionType);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00070\ \ \ HRESULT}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{class_device_context_a9bbeaf8534205198a8e2c36568a6f81f}{init}}(\mbox{\hyperlink{class_device}{Device}}\&\ device,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ width,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ height,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ DXGI\_FORMAT\ Format,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ BindFlags,}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ sampleCount\ =\ 1,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ qualityLevels\ =\ 0);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00090\ \ \ HRESULT}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{class_device_context_a9bbeaf8534205198a8e2c36568a6f81f}{init}}(\mbox{\hyperlink{class_device}{Device}}\&\ device,\ \mbox{\hyperlink{class_texture_a66179be276016021e80b1c67c047d4ad}{Texture}}\&\ textureRef,\ DXGI\_FORMAT\ format);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{class_device_context_a6d08e8ddde4580145c5556b2b375e2f0}{update}}();}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00116\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{class_device_context_af51569641f4df1f98e78d4e5bb71577b}{render}}(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ StartSlot,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ NumViews);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00127\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00128\ \ \ \ \ \mbox{\hyperlink{class_device_context_a37a4ea5842700e9c6addac6adca96df2}{destroy}}();}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ HRESULT}
+\DoxyCodeLine{00131\ \ \ \ \ CreateCubemap(\mbox{\hyperlink{class_device}{Device}}\&\ device,}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::string,\ 6>\&\ facePaths,}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ generateMips\ \textcolor{comment}{/*=\ false*/});}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ ID3D11ShaderResourceView*\ CreateCubemapFaceSRV(}
+\DoxyCodeLine{00137\ \ \ \ \ ID3D11Device*\ device,}
+\DoxyCodeLine{00138\ \ \ \ \ ID3D11Texture2D*\ cubemapTex,}
+\DoxyCodeLine{00139\ \ \ \ \ DXGI\_FORMAT\ format,}
+\DoxyCodeLine{00140\ \ \ \ \ UINT\ faceIndex,}
+\DoxyCodeLine{00141\ \ \ \ \ UINT\ mipLevels\ =\ 1}
+\DoxyCodeLine{00142\ \ \ )}
+\DoxyCodeLine{00143\ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ D3D11\_SHADER\_RESOURCE\_VIEW\_DESC\ d\{\};}
+\DoxyCodeLine{00145\ \ \ \ \ d.Format\ =\ format;}
+\DoxyCodeLine{00146\ \ \ \ \ d.ViewDimension\ =\ D3D11\_SRV\_DIMENSION\_TEXTURE2DARRAY;}
+\DoxyCodeLine{00147\ \ \ \ \ d.Texture2DArray.MostDetailedMip\ =\ 0;}
+\DoxyCodeLine{00148\ \ \ \ \ d.Texture2DArray.MipLevels\ =\ mipLevels;\ \ \ \ \ \ \ \textcolor{comment}{//\ usa\ 1\ para\ vista\ simple}}
+\DoxyCodeLine{00149\ \ \ \ \ d.Texture2DArray.FirstArraySlice\ =\ faceIndex;\ \textcolor{comment}{//\ cara}}
+\DoxyCodeLine{00150\ \ \ \ \ d.Texture2DArray.ArraySize\ =\ 1;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ solo\ esa\ cara}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ ID3D11ShaderResourceView*\ srv\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{if}\ (FAILED(device-\/>CreateShaderResourceView(cubemapTex,\ \&d,\ \&srv)))}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{return}\ srv;}
+\DoxyCodeLine{00157\ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00163\ \ \ ID3D11Texture2D*\ \mbox{\hyperlink{class_texture_ac4fff716a8f730618c12857b7e08421d}{m\_texture}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00170\ \ \ ID3D11ShaderResourceView*\ \mbox{\hyperlink{class_texture_add2f7d0ebab7a1d34f6f7b7e00a68875}{m\_textureFromImg}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00175\ \ \ std::string\ \mbox{\hyperlink{class_texture_ac8428ffa114c66c9abc928c7e2a47077}{m\_textureName}};}
+\DoxyCodeLine{00176\ \};}
+\DoxyCodeLine{00177\ }
+
+\end{DoxyCode}

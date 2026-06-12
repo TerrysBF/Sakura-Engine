@@ -1,0 +1,132 @@
+\doxysection{Prerequisites.\+h}
+\hypertarget{_prerequisites_8h_source}{}\label{_prerequisites_8h_source}\index{include/Prerequisites.h@{include/Prerequisites.h}}
+\mbox{\hyperlink{_prerequisites_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \ \textcolor{comment}{//\ Librerias\ STD}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <xnamath.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ Librerias\ DirectX}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <d3d11.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <d3dx11.h>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <d3dcompiler.h>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}Resource.h"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}resource.h"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ Third\ Party\ Libraries}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}EngineUtilities/Vectors/Vector2.h"{}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}EngineUtilities/Vectors/Vector3.h"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}EngineUtilities\(\backslash\)Memory\(\backslash\)TSharedPointer.h"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}EngineUtilities\(\backslash\)Memory\(\backslash\)TWeakPointer.h"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}EngineUtilities\(\backslash\)Memory\(\backslash\)TStaticPtr.h"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}EngineUtilities\(\backslash\)Memory\(\backslash\)TUniquePtr.h"{}}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ MACROS}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ SAFE\_RELEASE(x)\ if(x\ !=\ nullptr)\ x-\/>Release();\ x\ =\ nullptr;}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ MESSAGE(\ classObj,\ method,\ state\ )\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\ \ \ std::wostringstream\ os\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\ \ \ os\_\ <<\ classObj\ <<\ "{}::"{}\ <<\ method\ <<\ "{}\ :\ "{}\ <<\ "{}[CREATION\ OF\ RESOURCE\ "{}\ <<\ "{}:\ "{}\ <<\ state\ <<\ "{}]\ \(\backslash\)n"{};\ \(\backslash\)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\ \ \ OutputDebugStringW(\ os\_.str().c\_str()\ );\ \ \(\backslash\)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ ERROR(classObj,\ method,\ errorMSG)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\ \ \ \ try\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ std::wostringstream\ os\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ os\_\ <<\ L"{}ERROR\ :\ "{}\ <<\ classObj\ <<\ L"{}::"{}\ <<\ method\ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ <<\ L"{}\ :\ "{}\ <<\ errorMSG\ <<\ L"{}\(\backslash\)n"{};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ OutputDebugStringW(os\_.str().c\_str());\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\ \ \ \ \}\ catch\ (...)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ OutputDebugStringW(L"{}Failed\ to\ log\ error\ message.\(\backslash\)n"{});\(\backslash\)}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00057\ \textcolor{comment}{//\ Structures}}
+\DoxyCodeLine{00058\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00059\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_simple_vertex}{SimpleVertex}}}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ Position;}
+\DoxyCodeLine{00062\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ Normal;}
+\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ Tangent;}
+\DoxyCodeLine{00064\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ Bitangent;}
+\DoxyCodeLine{00065\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector2}{EU::Vector2}}\ TextureCoordinate;}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00069\ \ \ \mbox{\hyperlink{struct_skybox_vertex}{SkyboxVertex}}\ \{}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{float}\ x,\ y,\ z;}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_c_b_never_changes}{CBNeverChanges}}}
+\DoxyCodeLine{00075\ \{}
+\DoxyCodeLine{00076\ \ \ XMMATRIX\ mView;}
+\DoxyCodeLine{00077\ \};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_c_b_skybox}{CBSkybox}}}
+\DoxyCodeLine{00080\ \{}
+\DoxyCodeLine{00081\ \ \ XMMATRIX\ mviewProj;}
+\DoxyCodeLine{00082\ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_c_b_change_on_resize}{CBChangeOnResize}}}
+\DoxyCodeLine{00085\ \{}
+\DoxyCodeLine{00086\ \ \ XMMATRIX\ mProjection;}
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{comment}{//\ Constant\ buffer\ used\ in\ the\ vertex\ and\ pixel\ shaders.\ \ Align\ to}}
+\DoxyCodeLine{00090\ \textcolor{comment}{//\ 16?bytes\ as\ required\ by\ Direct3D\ constant\ buffers.}}
+\DoxyCodeLine{00091\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_c_b_main}{CBMain}}}
+\DoxyCodeLine{00092\ \{}
+\DoxyCodeLine{00093\ \ \ \textcolor{comment}{//XMFLOAT4X4\ World;}}
+\DoxyCodeLine{00094\ \ \ XMFLOAT4X4\ View;}
+\DoxyCodeLine{00095\ \ \ XMFLOAT4X4\ Projection;}
+\DoxyCodeLine{00096\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ CameraPos;}
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordtype}{float}\ pad0;}
+\DoxyCodeLine{00098\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ LightDir;}
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{float}\ pad1;}
+\DoxyCodeLine{00100\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ LightColor;}
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordtype}{float}\ pad2;}
+\DoxyCodeLine{00102\ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_c_b_changes_every_frame}{CBChangesEveryFrame}}}
+\DoxyCodeLine{00105\ \{}
+\DoxyCodeLine{00106\ \ \ XMMATRIX\ mWorld;}
+\DoxyCodeLine{00107\ \ \ XMFLOAT4\ vMeshColor;}
+\DoxyCodeLine{00108\ \};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{enum}\ ExtensionType\ \{}
+\DoxyCodeLine{00111\ \ \ DDS\ =\ 0,}
+\DoxyCodeLine{00112\ \ \ PNG\ =\ 1,}
+\DoxyCodeLine{00113\ \ \ JPG\ =\ 2}
+\DoxyCodeLine{00114\ \};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{keyword}{enum}\ ShaderType\ \{}
+\DoxyCodeLine{00117\ \ \ VERTEX\_SHADER\ =\ 0,}
+\DoxyCodeLine{00118\ \ \ PIXEL\_SHADER\ =\ 1}
+\DoxyCodeLine{00119\ \};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00126\ \ \ \mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{ComponentType}}\ \{}
+\DoxyCodeLine{00127\ \ \ \mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0ac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}\ =\ 0,\ \ \ \ \ }
+\DoxyCodeLine{00128\ \ \ \mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a25f73324dc93d9024c0c75b4e6815335}{TRANSFORM}}\ =\ 1,}
+\DoxyCodeLine{00129\ \ \ \mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a0b8403fccaa9b51239c179649c6fcb50}{MESH}}\ =\ 2,\ \ \ \ \ }
+\DoxyCodeLine{00130\ \ \ \mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a23f8f5e62324af5f4d8f899cee8fb70d}{MATERIAL}}\ =\ 3,\ \ }
+\DoxyCodeLine{00131\ \ \ \mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a4919f140b33a2432bd92521d08194fef}{HIERARCHY}}\ =\ 4\ }
+\DoxyCodeLine{00132\ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ }
+
+\end{DoxyCode}

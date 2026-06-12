@@ -1,0 +1,161 @@
+\doxysection{fbxiopluginregistry.\+h}
+\hypertarget{fbxiopluginregistry_8h_source}{}\label{fbxiopluginregistry_8h_source}\index{include/fbx/fbxsdk/fileio/fbxiopluginregistry.h@{include/fbx/fbxsdk/fileio/fbxiopluginregistry.h}}
+\mbox{\hyperlink{fbxiopluginregistry_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_FILEIO\_IO\_PLUGIN\_REGISTRY\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_FILEIO\_IO\_PLUGIN\_REGISTRY\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxreader_8h}{fbxsdk/fileio/fbxreader.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxwriter_8h}{fbxsdk/fileio/fbxwriter.h}}>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a126c1065aa202f7469a54ad465195f9e}{FbxIOPluginRegistry}}}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a126c1065aa202f7469a54ad465195f9e}{FbxIOPluginRegistry}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a0feb5b0aeb86e2f7c981aeb97576c83f}{\string~FbxIOPluginRegistry}}();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#ifndef\ FBXSDK\_ENV\_WINSTORE}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_ae10f86ccbad4d0c3eac81f98c1d880ac}{RegisterReader}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pPluginPath,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ pFirstPluginID,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ pRegisteredCount,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pOverride\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !FBXSDK\_ENV\_WINSTORE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a3ae89a412d7d44ddea5ef3d26105c37d}{RegisterReader}}(FbxReader::CreateFuncType\ pCreateF,\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxReader::GetInfoFuncType\ pInfoF,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ pFirstPluginID,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ pRegisteredCount,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxReader::IOSettingsFillerFuncType\ pIOSettingsFillerF\ =\ NULL,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pOverride\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#ifndef\ FBXSDK\_ENV\_WINSTORE}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_ad3c828b59a5ed63b1d4e37ef8657639d}{RegisterWriter}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pPluginPath,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ pFirstPluginID,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ pRegisteredCount,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pOverride\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !FBXSDK\_ENV\_WINSTORE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a41cfa9410a68bcd77d1fa8181df05703}{RegisterWriter}}(\mbox{\hyperlink{class_fbx_writer_a563e9225bcfc2ef5d1f882368b1c45da}{FbxWriter::CreateFuncType}}\ pCreateF,\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_writer_ab1f25a09d3fe9a6115d0828687c61a48}{FbxWriter::GetInfoFuncType}}\ pInfoF,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ pFirstPluginID,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\&\ pRegisteredCount,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_writer_a43eb86f1aae1a6a424c54bcf294553c5}{FbxWriter::IOSettingsFillerFuncType}}\ pIOSettingsFillerF\ =\ NULL,}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pOverride\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{class_fbx_reader}{FbxReader}}*\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_ac3b88ec1dc7e483d468201d881452c60}{CreateReader}}(\mbox{\hyperlink{class_fbx_manager}{FbxManager}}\&\ pManager,\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_importer}{FbxImporter}}\&\ pImporter,\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pPluginID)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{class_fbx_writer}{FbxWriter}}*\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_af2249ad5e057f6c87304afb2a6f42a68}{CreateWriter}}(\mbox{\hyperlink{class_fbx_manager}{FbxManager}}\&\ pManager,\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_exporter}{FbxExporter}}\&\ pExporter,}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pPluginID)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a49fd69a6818279573cdab5cf86861ca3}{FindReaderIDByExtension}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pExt)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_ad9495307df7b5dc61ceb34d940f6d619}{FindWriterIDByExtension}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pExt)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00134\ \ \ \ \ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_afe4efa15bdb7a8963b77527453222811}{FindReaderIDByDescription}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pDesc)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_afb8a3db5c0234b9a275be784b75e5748}{FindWriterIDByDescription}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pDesc)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00146\ \ \ \ \ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a05eaf29eea6f7b72fd250796dd026791}{ReaderIsFBX}}(\textcolor{keywordtype}{int}\ pFileFormat)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_ab944fef5c7714d9e0996155bfbe18dc6}{WriterIsFBX}}(\textcolor{keywordtype}{int}\ pFileFormat)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_af737d254762b26d85dab9022c4c41986}{ReaderIsGenuine}}(\textcolor{keywordtype}{int}\ pFileFormat)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a97b8717732f20dff6eb8a6c8ae3b29ad}{WriterIsGenuine}}(\textcolor{keywordtype}{int}\ pFileFormat)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a179517469d70cc8736339275b1e8a379}{GetReaderFormatCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a2699c35cb6a8c2f8abab2167b1faa8fb}{GetWriterFormatCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_af544db2e73275262beee273a7193227d}{GetReaderFormatDescription}}(\textcolor{keywordtype}{int}\ pFileFormat)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a5aff2c148607e3b90a74e239a5c87b1c}{GetWriterFormatDescription}}(\textcolor{keywordtype}{int}\ pFileFormat)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a299b67b969767ae5e1cc0f2add7bada0}{GetReaderFormatExtension}}(\textcolor{keywordtype}{int}\ pFileFormat)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00201\ \ \ \ \ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_ad14152b345014f82ebf09d8ac3fea4a1}{GetWriterFormatExtension}}(\textcolor{keywordtype}{int}\ pFileFormat)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ \textcolor{keyword}{const}*\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a5903e593ad0b480e9a528877a2b747ca}{GetWritableVersions}}(\textcolor{keywordtype}{int}\ pFileFormat)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_ae5fe6282bafb2d5dca00b39ad97ee0e7}{DetectReaderFileFormat}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFileName,\ \textcolor{keywordtype}{int}\&\ pFileFormat)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_adcb5757258905fc61f574b877aa55b54}{DetectWriterFileFormat}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFileName,\ \textcolor{keywordtype}{int}\&\ pFileFormat)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00237\ \ \ \ \ }
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a327774f480239422e9fb51a15eee99ce}{GetNativeReaderFormat}}();}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a846db4ae58c80f28d8fd48c6af93ea3e}{GetNativeWriterFormat}}();}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_a92c7a20e1eb9948e83c4915c47fd63dc}{FillIOSettingsForReadersRegistered}}(\mbox{\hyperlink{class_fbx_i_o_settings}{FbxIOSettings}}\ \&\ pIOS);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_i_o_plugin_registry_adbb47a3ba26c90c49988f11cd30b21d8}{FillIOSettingsForWritersRegistered}}(\mbox{\hyperlink{class_fbx_i_o_settings}{FbxIOSettings}}\ \&\ pIOS);}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00260\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00261\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00263\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordtype}{void}\ RegisterInternalIOPlugins();}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keyword}{struct\ }ReaderPluginEntry}
+\DoxyCodeLine{00267\ \ \ \ \ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ ReaderPluginEntry(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pExtension,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pDescription,\ FbxReader::CreateFuncType\ pCreatorFunction,\ \textcolor{keywordtype}{int}\ pBaseID,}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ FbxReader::IOSettingsFillerFuncType\ pIOSettingsFillerFunction=NULL);}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mExtension;}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mDescription;}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ FbxReader::CreateFuncType\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mCreatorFunction;}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ FbxReader::IOSettingsFillerFuncType\ mIOSettingsFillerFunction;}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mBaseID;}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mIsFBX;}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mIsInternalPlugin;}
+\DoxyCodeLine{00278\ \ \ \ \ \};}
+\DoxyCodeLine{00279\ \ \ \ \ }
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keyword}{struct\ }WriterPluginEntry}
+\DoxyCodeLine{00281\ \ \ \ \ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ WriterPluginEntry(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pExtension,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pDescription,\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ \textcolor{keyword}{const}*\ pVersions,\ \mbox{\hyperlink{class_fbx_writer_a563e9225bcfc2ef5d1f882368b1c45da}{FbxWriter::CreateFuncType}}\ pCreatorFunction,\ \textcolor{keywordtype}{int}\ pBaseID,}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_writer_a43eb86f1aae1a6a424c54bcf294553c5}{FbxWriter::IOSettingsFillerFuncType}}\ pIOSettingsFillerFunction=NULL);}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mExtension;}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mDescription;}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ \textcolor{keyword}{const}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mVersions;}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_writer_a563e9225bcfc2ef5d1f882368b1c45da}{FbxWriter::CreateFuncType}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ mCreatorFunction;}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_writer_a43eb86f1aae1a6a424c54bcf294553c5}{FbxWriter::IOSettingsFillerFuncType}}\ \ mIOSettingsFillerFunction;}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mBaseID;}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mIsFBX;}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mIsInternalPlugin;}
+\DoxyCodeLine{00293\ \ \ \ \ \};}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \ \ FbxArray<ReaderPluginEntry*>\ \ \ \ mReaders;}
+\DoxyCodeLine{00296\ \ \ \ \ FbxArray<WriterPluginEntry*>\ \ \ \ mWriters;}
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mNativeReaderFormat;}
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mNativeWriterFormat;}
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mInternalPluginMode;}
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00301\ \};}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_FILEIO\_IO\_PLUGIN\_REGISTRY\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,277 @@
+\doxysection{fbxstringlist.\+h}
+\hypertarget{fbxstringlist_8h_source}{}\label{fbxstringlist_8h_source}\index{include/fbx/fbxsdk/core/base/fbxstringlist.h@{include/fbx/fbxsdk/core/base/fbxstringlist.h}}
+\mbox{\hyperlink{fbxstringlist_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_BASE\_STRING\_LIST\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_BASE\_STRING\_LIST\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxarray_8h}{fbxsdk/core/base/fbxarray.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxstring_8h}{fbxsdk/core/base/fbxstring.h}}>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }FbxStringListItem}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ FbxStringListItem()\{\ mReference\ =\ 0;\ \}}
+\DoxyCodeLine{00028\ \ \ \ \ FbxStringListItem(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pString,\ FbxHandle\ pRef=0)\{\ mString\ =\ pString;\ mReference\ =\ pRef;\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \ mString;\ }
+\DoxyCodeLine{00031\ \ \ \ \ FbxHandle\ \ \ \ \ \ \ mReference;}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ FbxCompareStringListSort(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ E1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ E2)}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ FBXSDK\_stricmp((*(\mbox{\hyperlink{class_fbx_string_list_item}{FbxStringListItem}}**)E1)-\/>mString.Buffer(),\ (*(\mbox{\hyperlink{class_fbx_string_list_item}{FbxStringListItem}}**)E2)-\/>mString.Buffer());}
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ FbxCompareStringListFindEqual(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ E1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ E2)}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ FBXSDK\_stricmp((*(\mbox{\hyperlink{class_fbx_string_list_item}{FbxStringListItem}}*)E1).mString.Buffer(),\ (*(\mbox{\hyperlink{class_fbx_string_list_item}{FbxStringListItem}}**)E2)-\/>mString.Buffer());}
+\DoxyCodeLine{00042\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ FbxCompareCaseSensitiveStringList(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *E1,\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *E2)}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ strcmp((*(\mbox{\hyperlink{class_fbx_string_list_item}{FbxStringListItem}}*)E1).mString.Buffer(),\ (*(\mbox{\hyperlink{class_fbx_string_list_item}{FbxStringListItem}}**)E2)-\/>mString.Buffer());}
+\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00048\ \ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Type>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_string_list_t_a23b6c1e63569190855827463157c6e89}{FbxStringListT}}}
+\DoxyCodeLine{00051\ \{}
+\DoxyCodeLine{00052\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<Type*>}}\ mList;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_t_aa8dfd9f7ca27dafca1f2c80aa8590a19}{AddItem}}(\ Type*\ pItem\ )\ \ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ mList.Add(\ pItem\ );\ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_t_aa9bd662d4638b711c615e37a9038a038}{InsertItemAt}}(\ \textcolor{keywordtype}{int}\ pIndex,\ Type*\ pItem\ )\ \{\ \textcolor{keywordflow}{return}\ mList.InsertAt(\ pIndex,\ pItem\ );\ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00075\ \ \ \ \ Type*\ \ \ \mbox{\hyperlink{class_fbx_string_list_t_a08f7ab2014a76885e58c265e9ec76159}{GetItemAt}}(\ \textcolor{keywordtype}{int}\ pIndex\ )\textcolor{keyword}{\ \ \ \ const\ \ \ }\{\ \textcolor{keywordflow}{return}\ mList[pIndex];\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_t_a9d903a2352e10982c18d3e37fcc58ef6}{FindItem}}(\ Type*\ pItem\ )\textcolor{keyword}{\ const\ \ \ }\{\ \textcolor{keywordflow}{return}\ mList.Find(\ pItem\ );\ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\}@}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ public\ :\ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_t_a23b6c1e63569190855827463157c6e89}{FbxStringListT}}()}
+\DoxyCodeLine{00091\ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_string_list_t_a15d3f55726d1d30f0f87d7ade9bcc2ab}{\string~FbxStringListT}}()\ \{\ \mbox{\hyperlink{class_fbx_string_list_t_ac5bcede97ed831d4fe76f3087a63398e}{Clear}}();\ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\}@}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_string_list_t_aa4a95c08fe634e37cf9ccc41b28a9d11}{RemoveLast}}()\ \{\ \mbox{\hyperlink{class_fbx_string_list_t_afef2030e06b13d23e998cbc6ea6ff9a3}{RemoveAt}}(\ mList.GetCount()-\/1\ );\ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_t_a4b881e2791c4b9a8b1abf5c845c3ddb1}{GetCount}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mList.GetCount();\ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ \ \ \mbox{\hyperlink{class_fbx_string_list_t_a36e55e71fb9e70b2e32a6c4c66ae70c3}{operator[]}}(\textcolor{keywordtype}{int}\ pIndex)\ \{\ \textcolor{keywordflow}{return}\ mList[pIndex]-\/>mString;\ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00110\ \ \ \ \ FbxHandle\ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_t_ae3987a28b37de829cbf0bed42b5b5091}{GetReferenceAt}}(\textcolor{keywordtype}{int}\ pIndex)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mList[pIndex]-\/>mReference;\ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_t_a8ad989bfb74117a2bd948538ae1437ba}{SetReferenceAt}}(\textcolor{keywordtype}{int}\ pIndex,\ FbxHandle\ pRef)\ \{\ mList[pIndex]-\/>mReference\ =\ pRef;\ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_t_a9020b797a4ccd3fdf8e89f6a881d634d}{GetStringAt}}(\textcolor{keywordtype}{int}\ pIndex)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{if}\ (pIndex<mList.GetCount())\ \textcolor{keywordflow}{return}\ mList[pIndex]-\/>mString.Buffer();\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{return}\ NULL;\ \}}
+\DoxyCodeLine{00117\ \ \ \ \ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \ \ \ \mbox{\hyperlink{class_fbx_string_list_t_a4b757a856d12717cfcf854e767af54f1}{SetStringAt}}(\textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pString)\ }
+\DoxyCodeLine{00120\ \ \ \ \ \{\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pIndex<mList.GetCount())\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ mList[pIndex]-\/>mString\ =\ pString;\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_string_list_t_a537eb6d3e7568488280c9cf6fd37899f}{Find}}(\ Type\&\ pItem\ )\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00133\ \textcolor{keyword}{\ \ \ \ }\{\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ Count=0;\ Count<mList.GetCount();\ Count++)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mList[Count]==\&pItem)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Count;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_string_list_t_a96be804ab1570fc90a651cf6e40cda1f}{FindIndex}}(\ FbxHandle\ pReference\ )\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00147\ \textcolor{keyword}{\ \ \ \ }\{\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ Count=0;\ Count<mList.GetCount();\ Count++)\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mList[Count]-\/>mReference==pReference)\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Count;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_string_list_t_a50609bf493c67a131c531409cbfe8f8b}{FindIndex}}(\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pString\ )\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00161\ \textcolor{keyword}{\ \ \ \ }\{\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ lCount=0;\ lCount<mList.GetCount();\ lCount++)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mList[lCount]-\/>mString==pString)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lCount;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00175\ \ \ \ \ FbxHandle\ \mbox{\hyperlink{class_fbx_string_list_t_acb79b34d154663f6f7478bfa823641b4}{FindReference}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pString\ )\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00176\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{int}\ lIndex\ =\ \mbox{\hyperlink{class_fbx_string_list_t_a96be804ab1570fc90a651cf6e40cda1f}{FindIndex}}(\ pString\ );}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lIndex!=-\/1)\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mList[lIndex]-\/>mReference;}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ NULL}}
+\DoxyCodeLine{00182\ \ \ \ \ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_string_list_t_aa9085a3f134422ecebbd406d0ce2025d}{Remove}}\ (\ Type\&\ pItem\ )}
+\DoxyCodeLine{00186\ \ \ \ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{int}\ lIndex\ =\ \mbox{\hyperlink{class_fbx_string_list_t_a537eb6d3e7568488280c9cf6fd37899f}{Find}}(\ pItem\ );}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lIndex>=0)\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_t_afef2030e06b13d23e998cbc6ea6ff9a3}{RemoveAt}}(\ lIndex\ );}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00193\ \ \ \ \ \}}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_string_list_t_ad8581d1b4206633b7c0ccfebe8bb3bdf}{Remove}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pString\ )}
+\DoxyCodeLine{00197\ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordtype}{int}\ lIndex\ =\ \mbox{\hyperlink{class_fbx_string_list_t_a96be804ab1570fc90a651cf6e40cda1f}{FindIndex}}(\ pString\ );}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lIndex>=0)\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_t_afef2030e06b13d23e998cbc6ea6ff9a3}{RemoveAt}}(\ lIndex\ );}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00204\ \ \ \ \ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_string_list_t_a810bce1e1440e69c6e44a657cfe5d2a3}{RemoveIt}}\ (\ Type\&\ pItem\ )}
+\DoxyCodeLine{00208\ \ \ \ \ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordtype}{int}\ lIndex\ =\ \mbox{\hyperlink{class_fbx_string_list_t_a537eb6d3e7568488280c9cf6fd37899f}{Find}}(\ pItem\ );}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lIndex>=0)\ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_t_afef2030e06b13d23e998cbc6ea6ff9a3}{RemoveAt}}(\ lIndex\ );}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_string_list_t_a2fc06dea6d617b78af117cc4b8d97e3b}{Sort}}(\ )}
+\DoxyCodeLine{00219\ \ \ \ \ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ qsort(\ \&(mList.GetArray()[0]),mList.GetCount(),\textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_fbx_string_list_item}{FbxStringListItem}}*),FbxCompareStringListSort\ );}
+\DoxyCodeLine{00221\ \ \ \ \ \}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_fbx_string_list_t_a3173b457a754679d4f1f6f8e9fb1a27a}{FindEqual}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pString)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00229\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00230\ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_item}{FbxStringListItem}}\ Key(pString);\ \ }
+\DoxyCodeLine{00231\ \ \ \ \ }
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mList.GetCount()\ !=\ 0)}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bsearch\ (\ \&Key,\ \&(mList.GetArray()[0]),mList.GetCount(),\textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_fbx_string_list_item}{FbxStringListItem}}*),FbxCompareStringListFindEqual\ );}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL\ ;}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00240\ \ \ \ \ \}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_fbx_string_list_t_ac4ea519ab387ed87bf18abba12bf3330}{FindCaseSensitive}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pString)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00248\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00249\ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_item}{FbxStringListItem}}\ Key(pString);\ \ }
+\DoxyCodeLine{00250\ \ \ \ \ }
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mList.GetCount()\ !=\ 0)}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bsearch\ (\ \&Key,\ \&(mList.GetArray()[0]),mList.GetCount(),\textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_fbx_string_list_item}{FbxStringListItem}}*),\ FbxCompareCaseSensitiveStringList);}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL\ ;}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00259\ \ \ \ \ }
+\DoxyCodeLine{00260\ \ \ \ \ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_string_list_t_ace48eedb25e7393d546c914924355cd2}{Add}}(\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pString,\ FbxHandle\ pItem=0\ )\ }
+\DoxyCodeLine{00265\ \ \ \ \ \{\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ InsertAt(\ mList.GetCount(),pString,pItem\ );\ }
+\DoxyCodeLine{00267\ \ \ \ \ \}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ InsertAt(\ \textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pString,\ FbxHandle\ pItem=0\ )\ }
+\DoxyCodeLine{00270\ \ \ \ \ \{\ }
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mList.\mbox{\hyperlink{class_fbx_array_abe27ea8c62ff35f231103b8cde65b443}{InsertAt}}(\ pIndex,FbxNew<\ Type\ >(\ pString,(FbxHandle)pItem\ ));\ }
+\DoxyCodeLine{00272\ \ \ \ \ \}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_string_list_t_afef2030e06b13d23e998cbc6ea6ff9a3}{RemoveAt}}(\textcolor{keywordtype}{int}\ pIndex)}
+\DoxyCodeLine{00281\ \ \ \ \ \{\ }
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(mList.RemoveAt(pIndex));}
+\DoxyCodeLine{00283\ \ \ \ \ \}}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_string_list_t_ac5bcede97ed831d4fe76f3087a63398e}{Clear}}()}
+\DoxyCodeLine{00287\ \ \ \ \ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxarray_8h_a087cb13ed63535de7247e732dc7228b6}{FbxArrayDelete}}(mList);}
+\DoxyCodeLine{00289\ \ \ \ \ \}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00294\ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_string_list_t_a3b88147898d42dd276a73ff380dbe8d8}{GetText}}(\mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pText)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00295\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lCount;}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (lCount=0;\ lCount<mList.GetCount();\ lCount++)\ }
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ pText\ +=\ mList[lCount]-\/>mString;}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lCount<mList.GetCount()-\/1)\ }
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pText\ +=\ \textcolor{stringliteral}{"{}\string~"{}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00305\ \ \ \ \ \}}
+\DoxyCodeLine{00306\ \ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_string_list_t_a02f67be1bc4175ece4f9aa62efc17441}{SetText}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pList)}
+\DoxyCodeLine{00314\ \ \ \ \ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ lPos=0,\ lOldPos\ =\ 0;}
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ lLastIndex=0;}
+\DoxyCodeLine{00317\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \ lName=pList;}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_t_ac5bcede97ed831d4fe76f3087a63398e}{Clear}}();}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (lPos=0;\ lName.\mbox{\hyperlink{class_fbx_string_aea97f578b083dd83a13364cab3008dd6}{Buffer}}()[lPos]!=0;\ lPos++)\ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lName.\mbox{\hyperlink{class_fbx_string_aea97f578b083dd83a13364cab3008dd6}{Buffer}}()[lPos]==\textcolor{charliteral}{'\string~'})\ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lName.\mbox{\hyperlink{class_fbx_string_aea97f578b083dd83a13364cab3008dd6}{Buffer}}()[lPos]=0;}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lLastIndex\ =\ \mbox{\hyperlink{class_fbx_string_list_t_ace48eedb25e7393d546c914924355cd2}{Add}}(lName.\mbox{\hyperlink{class_fbx_string_aea97f578b083dd83a13364cab3008dd6}{Buffer}}()+lOldPos);}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lOldPos=lPos+1;}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(lOldPos\ !=\ lPos)}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ lLastIndex\ =\ \mbox{\hyperlink{class_fbx_string_list_t_ace48eedb25e7393d546c914924355cd2}{Add}}(lName.\mbox{\hyperlink{class_fbx_string_aea97f578b083dd83a13364cab3008dd6}{Buffer}}()+lOldPos);}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lLastIndex;}
+\DoxyCodeLine{00333\ \ \ \ \ \}\ }
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \};}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00340\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_string_list_a412df9e48bc17c5c1fdfbea296855196}{FbxStringList}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_string_list_t_a23b6c1e63569190855827463157c6e89}{FbxStringListT}}<FbxStringListItem>}
+\DoxyCodeLine{00341\ \{}
+\DoxyCodeLine{00342\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_a412df9e48bc17c5c1fdfbea296855196}{FbxStringList}}();\ }
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_a2bf8796a8d075564468db9aa188b4f31}{FbxStringList}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string_list_a412df9e48bc17c5c1fdfbea296855196}{FbxStringList}}\&\ pOriginal\ );}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_string_list_a7d488c296b284ff595d9ab31b34d4702}{CopyFrom}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string_list_a412df9e48bc17c5c1fdfbea296855196}{FbxStringList}}*\ pOriginal\ \ );}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list_a412df9e48bc17c5c1fdfbea296855196}{FbxStringList}}\&\ \mbox{\hyperlink{class_fbx_string_list_a01969ba88927fb26bca8103915e1fc36}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string_list_a412df9e48bc17c5c1fdfbea296855196}{FbxStringList}}\&\ pOriginal);}
+\DoxyCodeLine{00364\ \};}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ }
+\DoxyCodeLine{00366\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_BASE\_STRING\_LIST\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

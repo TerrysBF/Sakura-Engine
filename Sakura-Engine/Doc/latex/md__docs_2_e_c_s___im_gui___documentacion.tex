@@ -1,0 +1,196 @@
+\chapter{Sakura-\/\+Engine – Diseño del ECS e Integración con Im\+Gui}
+\hypertarget{md__docs_2_e_c_s___im_gui___documentacion}{}\label{md__docs_2_e_c_s___im_gui___documentacion}\index{Sakura-\/Engine – Diseño del ECS e Integración con ImGui@{Sakura-\/Engine – Diseño del ECS e Integración con ImGui}}
+\label{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md0}%
+\Hypertarget{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md0}%
+\hypertarget{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md1}{}\doxysection{\texorpdfstring{1. Objetivo del documento}{1. Objetivo del documento}}\label{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md1}
+Este documento describe el diseño del {\bfseries{ECS (\doxylink{class_entity}{Entity} \doxylink{class_component}{Component} System)}} implementado en Sakura-\/\+Engine y la integración de herramientas de edición en tiempo real mediante {\bfseries{Dear Im\+Gui}}.
+
+Sirve como referencia para la materia de {\bfseries{Gráficas Computacionales 3D}} y como guía rápida para entender cómo se organiza la escena, los componentes y la UI de edición.
+
+\DoxyHorRuler{0}
+\hypertarget{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md3}{}\doxysection{\texorpdfstring{2. Modelo ECS}{2. Modelo ECS}}\label{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md3}
+\hypertarget{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md4}{}\doxysubsection{\texorpdfstring{2.\+1. Entidades}{2.\+1. Entidades}}\label{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md4}
+En Sakura-\/\+Engine las entidades se representan con la clase\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{{\ttfamily \doxylink{class_actor}{Actor}}}} ~\newline
+ Cada {\ttfamily \doxylink{class_actor}{Actor}} es un objeto lógico de la escena (por ejemplo, el modelo Alien). ~\newline
+ Internamente almacena un conjunto de componentes y expone métodos como\+:
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ transform\ =\ actor-\/>getComponent<\mbox{\hyperlink{class_transform}{Transform}}>();}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ mesh\ \ \ \ \ \ =\ actor-\/>getComponent<\mbox{\hyperlink{class_mesh_component}{MeshComponent}}>();}
+
+\end{DoxyCode}
+
+
+Las entidades activas se guardan en un contenedor\+: std\+::vector$<$\+EU\+::\+TShared\+Pointer$<$\+Actor$>$$>$ m\+\_\+actors;\hypertarget{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md5}{}\doxysection{\texorpdfstring{2.\+2. Componentes}{2.\+2. Componentes}}\label{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md5}
+Los componentes encapsulan datos específicos de cada aspecto de la entidad.
+
+Diagrama simple\+:
+
+\mbox{[}\doxylink{class_actor}{Actor}\mbox{]} ├── \doxylink{class_transform}{Transform} ├── \doxylink{class_mesh_component}{Mesh\+Component} └── Camera\+Component (conceptual / futuro)
+
+
+\begin{DoxyItemize}
+\item Camera\+Component puede implementarse como componente dedicado o estar representado en la configuración de cámara manejada por \doxylink{class_base_app}{Base\+App}.
+\end{DoxyItemize}
+
+Ejemplo de uso de \doxylink{class_transform}{Transform} en el código\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{m\_alien-\/>getComponent<\mbox{\hyperlink{class_transform}{Transform}}>()-\/>setTransform(}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}(0.0f,\ -\/1.0f,\ 6.0f),}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}(-\/1.0f,\ 3.0f,\ -\/0.10f),}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}(2.0f,\ 2.0f,\ 2.0f)}
+\DoxyCodeLine{);}
+
+\end{DoxyCode}
+\hypertarget{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md6}{}\doxysection{\texorpdfstring{2.\+3. Sistemas}{2.\+3. Sistemas}}\label{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md6}
+En este proyecto, los sistemas se implementan de forma sencilla dentro de \doxylink{class_base_app}{Base\+App} y clases auxiliares.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sistema   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Responsable   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Función principal    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sistema   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Responsable   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Función principal    }\\\cline{1-3}
+\endhead
+Render System   &{\ttfamily \doxylink{class_base_app_a4002d0cff2225b7b79501aeb17a3e970}{Base\+App\+::render}}   &Recorre {\ttfamily m\+\_\+actors} y dibuja los que tienen {\ttfamily \doxylink{class_mesh_component}{Mesh\+Component}}.    \\\cline{1-3}
+\doxylink{class_camera}{Camera} System   &{\ttfamily \doxylink{class_base_app}{Base\+App}}   &Configura matrices de vista/proyección antes del render.    \\\cline{1-3}
+UI System   &{\ttfamily \doxylink{class_user_interface}{User\+Interface}}   &Dibuja jerarquía, inspector y permite edición en tiempo real vía Im\+Gui.   \\\cline{1-3}
+\end{longtabu}
+
+
+Ejemplo simplificado de sistema de render\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ actor\ :\ m\_actors)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (!actor.isNull())}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ actor-\/>render(m\_deviceContext);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md7}{}\doxysection{\texorpdfstring{3. Integración con Im\+Gui}{3. Integración con Im\+Gui}}\label{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md7}
+La clase \doxylink{class_user_interface}{User\+Interface} encapsula la lógica de Dear Im\+Gui usando los backends\+:
+
+\doxylink{imgui__impl__win32_8h_source}{imgui\+\_\+impl\+\_\+win32.\+h}
+
+\doxylink{imgui__impl__dx11_8h_source}{imgui\+\_\+impl\+\_\+dx11.\+h}\hypertarget{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md8}{}\doxysection{\texorpdfstring{3.\+1. Inicialización}{3.\+1. Inicialización}}\label{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md8}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_interface_a17f4bef607e5ddb739afcb5a502df267}{UserInterface::init}}(\textcolor{keywordtype}{void}*\ hwnd,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ID3D11Device*\ device,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ID3D11DeviceContext*\ context)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ IMGUI\_CHECKVERSION();}
+\DoxyCodeLine{\ \ \ \ ImGui::CreateContext();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ ImGuiIO\&\ io\ =\ ImGui::GetIO();}
+\DoxyCodeLine{\ \ \ \ io.ConfigFlags\ |=\ ImGuiConfigFlags\_NavEnableKeyboard;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ ImGui::StyleColorsDark();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ ImGui\_ImplWin32\_Init((HWND)hwnd);}
+\DoxyCodeLine{\ \ \ \ ImGui\_ImplDX11\_Init(device,\ context);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\doxylink{class_base_app}{Base\+App} pasa el vector de actores a la UI\+:
+
+m\+\_\+ui.\+set\+Scene\+Actors(\&m\+\_\+actors);\hypertarget{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md9}{}\doxysection{\texorpdfstring{3.\+2. Panel de jerarquía (Hierarchy)}{3.\+2. Panel de jerarquía (Hierarchy)}}\label{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md9}
+El panel de jerarquía muestra la lista de entidades activas\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ actorPtr\ :\ m\_actors)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{class_actor}{Actor}}*\ actor\ =\ actorPtr.get();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (!actor)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ std::string\&\ nameStr\ \ \ =\ actor-\/>\mbox{\hyperlink{class_actor_a3774c7733aab5ad0d447db5e32dc9a6c}{getName}}();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ labelText\ =\ nameStr.empty()\ ?\ \textcolor{stringliteral}{"{}Actor"{}}\ :\ nameStr.c\_str();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ ImGui::PushID(actor);\ \textcolor{comment}{//\ ID\ único\ basado\ en\ el\ puntero}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ selected\ =\ (m\_selectedActor\ ==\ actor);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::Selectable(labelText,\ selected))}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ m\_selectedActor\ \ \ \ \ \ =\ actor;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ m\_hasCachedTransform\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ ImGui::PopID();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Al hacer clic en un actor, éste pasa a ser el actor seleccionado para el inspector.\hypertarget{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md10}{}\doxysection{\texorpdfstring{3.\+3. Panel de inspector (Inspector)}{3.\+3. Panel de inspector (Inspector)}}\label{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md10}
+El inspector muestra los componentes del actor seleccionado. En esta versión, se edita principalmente el \doxylink{class_transform}{Transform}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ transform\ =\ m\_selectedActor-\/>getComponent<\mbox{\hyperlink{class_transform}{Transform}}>();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!transform.isNull())}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ changed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\ \ \ \ changed\ |=\ ImGui::DragFloat3(\textcolor{stringliteral}{"{}Position"{}},\ \&m\_cachedPos.x,\ 0.1f);}
+\DoxyCodeLine{\ \ \ \ changed\ |=\ ImGui::DragFloat3(\textcolor{stringliteral}{"{}Rotation"{}},\ \&m\_cachedRot.x,\ 0.1f);}
+\DoxyCodeLine{\ \ \ \ changed\ |=\ ImGui::DragFloat3(\textcolor{stringliteral}{"{}Scale"{}},\ \ \ \ \&m\_cachedScale.x,\ 0.1f);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (changed)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ transform-\/>setTransform(m\_cachedPos,\ m\_cachedRot,\ m\_cachedScale);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Esto permite edición en tiempo real del modelo Alien directamente desde la interfaz.\hypertarget{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md11}{}\doxysection{\texorpdfstring{4. Flujo de ejecución (runtime)}{4. Flujo de ejecución (runtime)}}\label{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md11}
+\hypertarget{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md12}{}\doxysection{\texorpdfstring{4.\+1. Inicialización (Base\+App\+::init)}{4.\+1. Inicialización (Base\+App\+::init)}}\label{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md12}
+
+\begin{DoxyEnumerate}
+\item Crear ventana (\doxylink{class_window}{Window}).
+\item Inicializar DirectX 11 (\doxylink{class_device}{Device}, \doxylink{class_device_context}{Device\+Context}, \doxylink{class_swap_chain}{Swap\+Chain}, \doxylink{class_viewport}{Viewport}).
+\item Cargar modelo y texturas (\doxylink{class_model3_d}{Model3D}, \doxylink{class_mesh_component}{Mesh\+Component}, \doxylink{class_texture}{Texture}).
+\item Crear entidad \doxylink{class_actor}{Actor} para el Alien y configurar su \doxylink{class_transform}{Transform}.
+\item Inicializar \doxylink{class_user_interface}{User\+Interface} y asociar m\+\_\+actors.
+\end{DoxyEnumerate}\hypertarget{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md13}{}\doxysection{\texorpdfstring{4.\+2. Ciclo principal (Base\+App\+::run)}{4.\+2. Ciclo principal (Base\+App\+::run)}}\label{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md13}
+Mientras no se reciba WM\+\_\+\+QUIT\+:
+
+
+\begin{DoxyEnumerate}
+\item Procesar mensajes de Windows.
+\item Llamar a update(delta\+Time) y render().
+\end{DoxyEnumerate}\hypertarget{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md14}{}\doxysection{\texorpdfstring{4.\+3. Por frame}{4.\+3. Por frame}}\label{md__docs_2_e_c_s___im_gui___documentacion_autotoc_md14}
+
+\begin{DoxyItemize}
+\item {\bfseries{{\ttfamily \doxylink{class_base_app_abdc46a4c89b86fd0441615214e19fb4d}{Base\+App\+::update}}}}
+
+Lógica de escena (si se añade).
+
+m\+\_\+ui.\+update() para construir la UI de Im\+Gui.
+\item {\bfseries{{\ttfamily \doxylink{class_base_app_a4002d0cff2225b7b79501aeb17a3e970}{Base\+App\+::render}}}}
+
+Limpiar backbuffer y depth buffer.
+
+Dibujar escena 3D (Alien).
+
+m\+\_\+ui.\+render() para dibujar la interfaz.
+
+Presentar el \doxylink{class_swap_chain}{Swap\+Chain}. 
+\end{DoxyItemize}

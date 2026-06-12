@@ -1,0 +1,159 @@
+\doxysection{TUnique\+Ptr.\+h}
+\hypertarget{_t_unique_ptr_8h_source}{}\label{_t_unique_ptr_8h_source}\index{include/EngineUtilities/Memory/TUniquePtr.h@{include/EngineUtilities/Memory/TUniquePtr.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ MIT\ License}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2025\ Roberto\ Charreton}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ In\ addition,\ any\ project\ or\ software\ that\ uses\ this\ library\ or\ class\ must\ include}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ the\ following\ acknowledgment\ in\ the\ credits:}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ "{}This\ project\ uses\ software\ developed\ by\ Roberto\ Charreton\ and\ Attribute\ Overload."{}}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{00028\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{namespace\ }EU\ \{}
+\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a5de2ff4c60640477782f6252e2f273fa}{TUniquePtr}}\ \{}
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a5de2ff4c60640477782f6252e2f273fa}{TUniquePtr}}()\ :\ ptr(nullptr)\ \{\}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a9c79cfc122f086a95200c395a3eb1413}{TUniquePtr}}(T*\ rawPtr)\ :\ ptr(rawPtr)\ \{\}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_ab73e2431e44f306cd6fc3926032c7ff8}{TUniquePtr}}(\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a5de2ff4c60640477782f6252e2f273fa}{TUniquePtr<T>}}\&\&\ other)\ noexcept\ :\ ptr(other.ptr)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ other.ptr\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{TUniquePtr<T>}}\&}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a16fb84307620a10dc25ccdcc5bb60d6f}{operator=}}(\mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a5de2ff4c60640477782f6252e2f273fa}{TUniquePtr<T>}}\&\&\ other)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Liberar\ el\ objeto\ actual}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ ptr;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Transferir\ los\ datos\ del\ otro\ puntero\ exclusivo}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ ptr\ =\ other.ptr;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ other.ptr\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_ad1fd993e31459e6b4ca3f7a818cd817f}{\string~TUniquePtr}}()\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \textcolor{keyword}{delete}\ ptr;}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ Prohibir\ la\ copia\ de\ TUniquePtr}}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a5de2ff4c60640477782f6252e2f273fa}{TUniquePtr}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{TUniquePtr<T>}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{TUniquePtr<T>}}\&\ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a16fb84307620a10dc25ccdcc5bb60d6f}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr}{TUniquePtr<T>}}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00107\ \ \ \ \ T\&}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a9cdadf052238546697ba200f096c3af1}{operator*}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *ptr;}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00117\ \ \ \ \ T*}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a61444b3f2679f8c1ba4e06ca019510f1}{operator-\/>}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ptr;}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00127\ \ \ \ \ T*}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_affcf77617b3a980490a29876a3a98fe2}{get}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ptr;}
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00139\ \ \ \ \ T*}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a21d934e993ce931d09ca61e984eb77fd}{release}}()\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ T*\ oldPtr\ =\ ptr;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ ptr\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ oldPtr;}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a51fcc7adcb32f4992bad0d0bcbcb8f0a}{reset}}(T*\ rawPtr\ =\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \textcolor{keyword}{delete}\ ptr;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ ptr\ =\ rawPtr;}
+\DoxyCodeLine{00157\ \ \ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_unique_ptr_a898982de8a9142a77c5fc2a8f4020107}{isNull}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ptr\ ==\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00169\ \ \ \ \ T*\ ptr;\ }
+\DoxyCodeLine{00170\ \ \ \};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00180\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00181\ \ \ TUniquePtr<T>}
+\DoxyCodeLine{00182\ \ \ \ \ MakeUnique(Args...\ args)\ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordflow}{return}\ TUniquePtr<T>(\textcolor{keyword}{new}\ T(args...));}
+\DoxyCodeLine{00184\ \ \ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00187\ \textcolor{comment}{\ \ //\ Ejemplo\ de\ uso\ de\ TUniquePtr}}
+\DoxyCodeLine{00188\ \textcolor{comment}{\ \ class\ MyClass}}
+\DoxyCodeLine{00189\ \textcolor{comment}{\ \ \{}}
+\DoxyCodeLine{00190\ \textcolor{comment}{\ \ public:}}
+\DoxyCodeLine{00191\ \textcolor{comment}{\ \ \ \ MyClass(int\ value)\ :\ value(value)}}
+\DoxyCodeLine{00192\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{00193\ \textcolor{comment}{\ \ \ \ \ \ std::cout\ <<\ "{}MyClass\ constructor:\ "{}\ <<\ value\ <<\ std::endl;}}
+\DoxyCodeLine{00194\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00195\ \textcolor{comment}{}}
+\DoxyCodeLine{00196\ \textcolor{comment}{\ \ \ \ \string~MyClass()}}
+\DoxyCodeLine{00197\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{00198\ \textcolor{comment}{\ \ \ \ \ \ std::cout\ <<\ "{}MyClass\ destructor:\ "{}\ <<\ value\ <<\ std::endl;}}
+\DoxyCodeLine{00199\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00200\ \textcolor{comment}{}}
+\DoxyCodeLine{00201\ \textcolor{comment}{}}
+\DoxyCodeLine{00202\ \textcolor{comment}{\ \ \ \ void\ display()\ const}}
+\DoxyCodeLine{00203\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{00204\ \textcolor{comment}{\ \ \ \ \ \ std::cout\ <<\ "{}Value:\ "{}\ <<\ value\ <<\ std::endl;}}
+\DoxyCodeLine{00205\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00206\ \textcolor{comment}{}}
+\DoxyCodeLine{00207\ \textcolor{comment}{\ \ private:}}
+\DoxyCodeLine{00208\ \textcolor{comment}{\ \ \ \ int\ value;\ ///<\ Valor\ del\ objeto\ MyClass.}}
+\DoxyCodeLine{00209\ \textcolor{comment}{\ \ \};}}
+\DoxyCodeLine{00210\ \textcolor{comment}{}}
+\DoxyCodeLine{00211\ \textcolor{comment}{\ \ int\ main()}}
+\DoxyCodeLine{00212\ \textcolor{comment}{\ \ \{}}
+\DoxyCodeLine{00213\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{00214\ \textcolor{comment}{\ \ \ \ \ \ TUniquePtr<MyClass>\ up1\ =\ MakeUnique<MyClass>(10);}}
+\DoxyCodeLine{00215\ \textcolor{comment}{\ \ \ \ \ \ up1-\/>display();}}
+\DoxyCodeLine{00216\ \textcolor{comment}{}}
+\DoxyCodeLine{00217\ \textcolor{comment}{\ \ \ \ \ \ TUniquePtr<MyClass>\ up2\ =\ MakeUnique<MyClass>(20);}}
+\DoxyCodeLine{00218\ \textcolor{comment}{\ \ \ \ \ \ up2-\/>display();}}
+\DoxyCodeLine{00219\ \textcolor{comment}{}}
+\DoxyCodeLine{00220\ \textcolor{comment}{\ \ \ \ \ \ //\ Transferencia\ de\ propiedad}}
+\DoxyCodeLine{00221\ \textcolor{comment}{\ \ \ \ \ \ up2\ =\ std::move(up1);}}
+\DoxyCodeLine{00222\ \textcolor{comment}{\ \ \ \ \ \ up2-\/>display();}}
+\DoxyCodeLine{00223\ \textcolor{comment}{}}
+\DoxyCodeLine{00224\ \textcolor{comment}{\ \ \ \ \ \ //\ Liberar\ propiedad}}
+\DoxyCodeLine{00225\ \textcolor{comment}{\ \ \ \ \ \ MyClass*\ rawPtr\ =\ up2.release();}}
+\DoxyCodeLine{00226\ \textcolor{comment}{\ \ \ \ \ \ rawPtr-\/>display();}}
+\DoxyCodeLine{00227\ \textcolor{comment}{\ \ \ \ \ \ delete\ rawPtr;\ //\ Manualmente\ liberar\ la\ memoria\ ya\ que\ fue\ liberada\ del\ TUniquePtr}}
+\DoxyCodeLine{00228\ \textcolor{comment}{\ \ \ \ \}\ //\ Aquí, up1\ y\ up2\ se\ destruyen\ y\ la\ memoria\ de\ MyClass\ se\ libera\ automáticamente\ si\ no\ fue\ liberada\ antes}}
+\DoxyCodeLine{00229\ \textcolor{comment}{}}
+\DoxyCodeLine{00230\ \textcolor{comment}{\ \ \ \ return\ 0;}}
+\DoxyCodeLine{00231\ \textcolor{comment}{\ \ \}}}
+\DoxyCodeLine{00232\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{00233\ \}}
+
+\end{DoxyCode}

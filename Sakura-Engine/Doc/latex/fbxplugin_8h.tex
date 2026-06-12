@@ -1,0 +1,61 @@
+\doxysection{include/fbx/fbxsdk/core/fbxplugin.h File Reference}
+\hypertarget{fbxplugin_8h}{}\label{fbxplugin_8h}\index{include/fbx/fbxsdk/core/fbxplugin.h@{include/fbx/fbxsdk/core/fbxplugin.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxobject.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxmodule.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxlistener.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_fbx_plugin_def}{Fbx\+Plugin\+Def}}
+\item 
+struct \mbox{\hyperlink{struct_fbx_plugin_data}{Fbx\+Plugin\+Data}}
+\item 
+class \mbox{\hyperlink{class_fbx_plugin}{Fbx\+Plugin}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fbxplugin_8h_a82867e434a2a4a1b8f16632928649b07}{FBXSDK\+\_\+\+PLUGIN\+\_\+\+DECLARE}}(Plugin)
+\begin{DoxyCompactList}\small\item\em Plug-\/in declaration macro that must to be used when defining new \doxylink{class_fbx_plugin}{Fbx\+Plugin} objects. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{fbxplugin_8h_a94a72a1e3b950d4d488f036a4f7f35bb}{FBXSDK\+\_\+\+PLUGIN\+\_\+\+IMPLEMENT}}(Plugin)
+\begin{DoxyCompactList}\small\item\em Plug-\/in implementation macro that must be used when implementing new \doxylink{class_fbx_plugin}{Fbx\+Plugin} objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fbxplugin_8h_a82867e434a2a4a1b8f16632928649b07}\index{fbxplugin.h@{fbxplugin.h}!FBXSDK\_PLUGIN\_DECLARE@{FBXSDK\_PLUGIN\_DECLARE}}
+\index{FBXSDK\_PLUGIN\_DECLARE@{FBXSDK\_PLUGIN\_DECLARE}!fbxplugin.h@{fbxplugin.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_PLUGIN\_DECLARE}{FBXSDK\_PLUGIN\_DECLARE}}
+{\footnotesize\ttfamily \label{fbxplugin_8h_a82867e434a2a4a1b8f16632928649b07} 
+\#define FBXSDK\+\_\+\+PLUGIN\+\_\+\+DECLARE(\begin{DoxyParamCaption}\item[{}]{Plugin}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ FBXSDK\_FRIEND\_NEW();\(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{public}:\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ Plugin\ *\ Create(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_fbx_plugin_def}{FbxPluginDef}}\&\ pDefinition,\ FbxModule\ pModuleHandle);\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{void}\ Destroy();}
+
+\end{DoxyCode}
+
+
+Plug-\/in declaration macro that must to be used when defining new \doxylink{class_fbx_plugin}{Fbx\+Plugin} objects. 
+
+\Hypertarget{fbxplugin_8h_a94a72a1e3b950d4d488f036a4f7f35bb}\index{fbxplugin.h@{fbxplugin.h}!FBXSDK\_PLUGIN\_IMPLEMENT@{FBXSDK\_PLUGIN\_IMPLEMENT}}
+\index{FBXSDK\_PLUGIN\_IMPLEMENT@{FBXSDK\_PLUGIN\_IMPLEMENT}!fbxplugin.h@{fbxplugin.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_PLUGIN\_IMPLEMENT}{FBXSDK\_PLUGIN\_IMPLEMENT}}
+{\footnotesize\ttfamily \label{fbxplugin_8h_a94a72a1e3b950d4d488f036a4f7f35bb} 
+\#define FBXSDK\+\_\+\+PLUGIN\+\_\+\+IMPLEMENT(\begin{DoxyParamCaption}\item[{}]{Plugin}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ Plugin*\ Plugin::Create(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_fbx_plugin_def}{FbxPluginDef}}\&\ pDefinition,\ FbxModule\ pModuleHandle)\{\ \textcolor{keywordflow}{return}\ FbxNew<Plugin>(pDefinition,\ pModuleHandle);\ \}\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{void}\ Plugin::Destroy()\{\ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(\textcolor{keyword}{this});\ \}}
+
+\end{DoxyCode}
+
+
+Plug-\/in implementation macro that must be used when implementing new \doxylink{class_fbx_plugin}{Fbx\+Plugin} objects. 
+

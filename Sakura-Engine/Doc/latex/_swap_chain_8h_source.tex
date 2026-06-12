@@ -1,0 +1,78 @@
+\doxysection{Swap\+Chain.\+h}
+\hypertarget{_swap_chain_8h_source}{}\label{_swap_chain_8h_source}\index{include/SwapChain.h@{include/SwapChain.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device}{Device}};}
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_window}{Window}};}
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_texture}{Texture}};}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Clase\ que\ envuelve\ el\ IDXGISwapChain.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ El\ swap\ chain\ maneja\ los\ buffers\ que\ se\ dibujan\ y\ luego\ se\ muestran\ en\ la\ ventana.}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }SwapChain\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \textcolor{comment}{//\ Constructor\ vacío (no\ hace\ nada\ todavía).}}
+\DoxyCodeLine{00014\ \ \ SwapChain()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \textcolor{comment}{//\ Destructor\ por\ defecto.\ Los\ recursos\ se\ liberan\ con\ destroy().}}
+\DoxyCodeLine{00017\ \ \ \string~SwapChain()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \textcolor{comment}{//\ Crea\ el\ swap\ chain\ y\ obtiene\ el\ back\ buffer.}}
+\DoxyCodeLine{00020\ \ \ \textcolor{comment}{//\ -\/\ device\ y\ deviceContext:\ se\ usan\ para\ crear\ D3D\ y\ el\ contexto.}}
+\DoxyCodeLine{00021\ \ \ \textcolor{comment}{//\ -\/\ backBuffer:\ aquí guardamos\ la\ textura\ del\ back\ buffer.}}
+\DoxyCodeLine{00022\ \ \ \textcolor{comment}{//\ -\/\ window:\ ventana\ donde\ se\ va\ a\ presentar.}}
+\DoxyCodeLine{00023\ \ \ HRESULT\ \mbox{\hyperlink{class_swap_chain_a6602d0a5266b95260492c34e3acddb2c}{init}}(\mbox{\hyperlink{class_device}{Device}}\&\ device,}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_texture}{Texture}}\&\ backBuffer,}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_window}{Window}}\&\ window);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{comment}{//\ Update\ vacío por\ ahora\ (no\ lo\ usamos).}}
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{void}\ update();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{comment}{//\ Render\ vacío por\ ahora\ (solo\ está para\ futura\ lógica).}}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{void}\ render();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{comment}{//\ Libera\ el\ swap\ chain\ y\ las\ interfaces\ DXGI\ relacionadas.}}
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{void}\ destroy();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{comment}{//\ Presenta\ el\ back\ buffer\ en\ la\ ventana\ (llama\ a\ Present).}}
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ Aquí se\ podría activar\ VSync\ cambiando\ los\ parámetros.}}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_swap_chain_a1c88d9c1c3baa507cf1ab13d5af902fc}{present}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{comment}{//\ Devuelve\ cuántas\ muestras\ usa\ el\ MSAA\ (para\ que\ coincida\ con\ depth\ buffer).}}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ getSampleCount()\textcolor{keyword}{\ \ \ const\ }\{\ \textcolor{keywordflow}{return}\ m\_sampleCount;\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{comment}{//\ Devuelve\ los\ niveles\ de\ calidad\ de\ MSAA\ soportados.}}
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ getQualityLevels()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_qualityLevels;\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \textcolor{comment}{//\ Puntero\ al\ swap\ chain\ de\ D3D11.}}
+\DoxyCodeLine{00049\ \ \ IDXGISwapChain*\ m\_swapChain\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{comment}{//\ Tipo\ de\ driver\ que\ se\ usó (HARDWARE,\ WARP,\ etc.).}}
+\DoxyCodeLine{00052\ \ \ D3D\_DRIVER\_TYPE\ m\_driverType\ =\ D3D\_DRIVER\_TYPE\_NULL;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00055\ \ \ \textcolor{comment}{//\ Nivel\ de\ características\ de\ D3D\ que\ se\ consiguió (11.0,\ 10.1,\ etc.).}}
+\DoxyCodeLine{00056\ \ \ D3D\_FEATURE\_LEVEL\ m\_featureLevel\ =\ D3D\_FEATURE\_LEVEL\_11\_0;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{comment}{//\ Número\ de\ samples\ para\ MSAA\ (1\ =\ sin\ MSAA).}}
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_sampleCount\ =\ 1;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{comment}{//\ Niveles\ de\ calidad\ disponibles\ para\ ese\ MSAA.}}
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ m\_qualityLevels\ =\ 0;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{comment}{//\ Interfaz\ DXGI\ del\ device\ (para\ llegar\ al\ adapter/factory).}}
+\DoxyCodeLine{00065\ \ \ IDXGIDevice*\ m\_dxgiDevice\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{comment}{//\ Interfaz\ DXGI\ del\ adaptador\ (GPU).}}
+\DoxyCodeLine{00068\ \ \ IDXGIAdapter*\ m\_dxgiAdapter\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \textcolor{comment}{//\ Interfaz\ DXGI\ de\ la\ factory\ (crea\ el\ swap\ chain).}}
+\DoxyCodeLine{00071\ \ \ IDXGIFactory*\ m\_dxgiFactory\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00072\ \};}
+
+\end{DoxyCode}

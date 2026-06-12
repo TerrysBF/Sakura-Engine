@@ -1,0 +1,358 @@
+\doxysection{include/fbx/fbxsdk/scene/geometry/fbxlayer.h File Reference}
+\hypertarget{fbxlayer_8h}{}\label{fbxlayer_8h}\index{include/fbx/fbxsdk/scene/geometry/fbxlayer.h@{include/fbx/fbxsdk/scene/geometry/fbxlayer.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxdatatypes.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxstream.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/scene/shading/fbxsurfacematerial.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/scene/shading/fbxtexture.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_fbx_layer_element}{Fbx\+Layer\+Element}}
+\item 
+class \mbox{\hyperlink{class_lock_access_status}{Lock\+Access\+Status}}
+\item 
+class \mbox{\hyperlink{class_fbx_layer_element_array}{Fbx\+Layer\+Element\+Array}}
+\item 
+struct \mbox{\hyperlink{struct_fbx_layer_element_array_read_lock}{Fbx\+Layer\+Element\+Array\+Read\+Lock$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{class_fbx_layer_element_template}{Fbx\+Layer\+Element\+Template$<$ Type $>$}}
+\item 
+class \mbox{\hyperlink{class_fbx_layer_element_normal}{Fbx\+Layer\+Element\+Normal}}
+\begin{DoxyCompactList}\small\item\em Layer element for mapping Normals to a geometry. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_layer_element_binormal}{Fbx\+Layer\+Element\+Binormal}}
+\begin{DoxyCompactList}\small\item\em Layer element for mapping Binormals to a geometry. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_layer_element_tangent}{Fbx\+Layer\+Element\+Tangent}}
+\begin{DoxyCompactList}\small\item\em Layer element for mapping Tangents to a geometry. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_layer_element_material}{Fbx\+Layer\+Element\+Material}}
+\item 
+class \mbox{\hyperlink{class_fbx_layer_element_material_1_1_layer_element_array_proxy}{Fbx\+Layer\+Element\+Material\+::\+Layer\+Element\+Array\+Proxy}}
+\item 
+class \mbox{\hyperlink{class_fbx_layer_element_polygon_group}{Fbx\+Layer\+Element\+Polygon\+Group}}
+\begin{DoxyCompactList}\small\item\em Layer element for grouping related polygons together. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_layer_element_u_v}{Fbx\+Layer\+Element\+UV}}
+\begin{DoxyCompactList}\small\item\em Layer element for mapping UVs to a geometry. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_layer_element_vertex_color}{Fbx\+Layer\+Element\+Vertex\+Color}}
+\begin{DoxyCompactList}\small\item\em Layer element for mapping Vertex Colors to a geometry. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_layer_element_user_data}{Fbx\+Layer\+Element\+User\+Data}}
+\begin{DoxyCompactList}\small\item\em Layer element for mapping custom user data to a geometry. This layer element is different from the other types of layer elements in that it has multiple direct arrays. There is one array for each user data attribute. Each array is indexed by the index array. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_layer_element_smoothing}{Fbx\+Layer\+Element\+Smoothing}}
+\item 
+class \mbox{\hyperlink{class_fbx_layer_element_crease}{Fbx\+Layer\+Element\+Crease}}
+\item 
+class \mbox{\hyperlink{class_fbx_layer_element_hole}{Fbx\+Layer\+Element\+Hole}}
+\item 
+class \mbox{\hyperlink{class_fbx_layer_element_visibility}{Fbx\+Layer\+Element\+Visibility}}
+\item 
+class \mbox{\hyperlink{class_fbx_layer_element_texture}{Fbx\+Layer\+Element\+Texture}}
+\begin{DoxyCompactList}\small\item\em Layer element for mapping Textures to a geometry. This class is deprecated. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_layer}{Fbx\+Layer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fbxlayer_8h_adfce7b9de051c86e12762fca61249040}{FBXSDK\+\_\+\+LAYER\+\_\+\+ELEMENT\+\_\+\+CREATE\+\_\+\+DECLARE}}(class\+Desc)
+\item 
+\#define \mbox{\hyperlink{fbxlayer_8h_a42b3680476fe346a09056be080837af4}{FBXSDK\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+TEXTURE}}(l\+Layer\+Index)
+\item 
+\#define \mbox{\hyperlink{fbxlayer_8h_a75554677440241d66a548f956a8ed148}{FBXSDK\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+NON\+\_\+\+TEXTURE}}(l\+Layer\+Index)
+\item 
+\#define \mbox{\hyperlink{fbxlayer_8h_a9f52c42087f7d856f8b5be161b6dffee}{FBXSDK\+\_\+\+TEXTURE\+\_\+\+INDEX}}(Element\+Type)
+\item 
+\#define \mbox{\hyperlink{fbxlayer_8h_a5d1f385ea18f6973a95048199c20af6f}{FBXSDK\+\_\+\+TEXTURE\+\_\+\+TYPE}}(Texture\+Index)
+\item 
+\#define \mbox{\hyperlink{fbxlayer_8h_ac13fd532711238459b40c04c2aa6915e}{FBXSDK\+\_\+\+NON\+\_\+\+TEXTURE\+\_\+\+INDEX}}(Element\+Type)
+\item 
+\#define \mbox{\hyperlink{fbxlayer_8h_abd03639f472f399e34a61ca199fe8cff}{FBXSDK\+\_\+\+NON\+\_\+\+TEXTURE\+\_\+\+TYPE}}(Index)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxlayer_8h_aea897b32af67510deacaf3d1f5d7d99f}\label{fbxlayer_8h_aea897b32af67510deacaf3d1f5d7d99f} 
+typedef Fbx\+Handle \texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Ref\+Ptr}
+\item 
+\Hypertarget{fbxlayer_8h_a16a10f4ba5c3f69afaf2ab2051695c4c}\label{fbxlayer_8h_a16a10f4ba5c3f69afaf2ab2051695c4c} 
+typedef \mbox{\hyperlink{class_fbx_layer_element_array}{Fbx\+Layer\+Element\+Array}} \texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Layer\+Element\+Array\+Ptr}
+\item 
+\Hypertarget{fbxlayer_8h_a0499a668eeb0c50a15e4a420ecb71ccb}\label{fbxlayer_8h_a0499a668eeb0c50a15e4a420ecb71ccb} 
+typedef \mbox{\hyperlink{class_fbx_surface_material}{Fbx\+Surface\+Material}} \texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Surface\+Material\+Ptr}
+\item 
+\Hypertarget{fbxlayer_8h_a8b52560d149732e14eeb059bc4fd22dc}\label{fbxlayer_8h_a8b52560d149732e14eeb059bc4fd22dc} 
+typedef \mbox{\hyperlink{class_fbx_texture}{Fbx\+Texture}} \texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Texture\+Ptr}
+\item 
+typedef \mbox{\hyperlink{class_fbx_layer_element}{Fbx\+Layer\+Element}} \mbox{\hyperlink{fbxlayer_8h_a1d632d51022467acafa043cb8f431daf}{Fbx\+Geometry\+Element}}
+\item 
+\Hypertarget{fbxlayer_8h_a54a5aaec6f1979871fe9d93dd2d246c9}\label{fbxlayer_8h_a54a5aaec6f1979871fe9d93dd2d246c9} 
+typedef \mbox{\hyperlink{class_fbx_layer_element_normal}{Fbx\+Layer\+Element\+Normal}} {\bfseries Fbx\+Geometry\+Element\+Normal}
+\item 
+\Hypertarget{fbxlayer_8h_a066e30a64eb051458583b656a651e90b}\label{fbxlayer_8h_a066e30a64eb051458583b656a651e90b} 
+typedef \mbox{\hyperlink{class_fbx_layer_element_binormal}{Fbx\+Layer\+Element\+Binormal}} {\bfseries Fbx\+Geometry\+Element\+Binormal}
+\item 
+\Hypertarget{fbxlayer_8h_a291cacd8b247483cc24704c8f49087a7}\label{fbxlayer_8h_a291cacd8b247483cc24704c8f49087a7} 
+typedef \mbox{\hyperlink{class_fbx_layer_element_tangent}{Fbx\+Layer\+Element\+Tangent}} {\bfseries Fbx\+Geometry\+Element\+Tangent}
+\item 
+\Hypertarget{fbxlayer_8h_a1a779f3f614dbf0024c07f4a1d8332f4}\label{fbxlayer_8h_a1a779f3f614dbf0024c07f4a1d8332f4} 
+typedef \mbox{\hyperlink{class_fbx_layer_element_material}{Fbx\+Layer\+Element\+Material}} {\bfseries Fbx\+Geometry\+Element\+Material}
+\item 
+\Hypertarget{fbxlayer_8h_aa5c7fb92a1c396014bf2ced7797a95a9}\label{fbxlayer_8h_aa5c7fb92a1c396014bf2ced7797a95a9} 
+typedef \mbox{\hyperlink{class_fbx_layer_element_polygon_group}{Fbx\+Layer\+Element\+Polygon\+Group}} {\bfseries Fbx\+Geometry\+Element\+Polygon\+Group}
+\item 
+\Hypertarget{fbxlayer_8h_a12413531f4bb2c482e3ddbd59e3417e5}\label{fbxlayer_8h_a12413531f4bb2c482e3ddbd59e3417e5} 
+typedef \mbox{\hyperlink{class_fbx_layer_element_u_v}{Fbx\+Layer\+Element\+UV}} {\bfseries Fbx\+Geometry\+Element\+UV}
+\item 
+\Hypertarget{fbxlayer_8h_a4baddeaf720350758d230973d114f593}\label{fbxlayer_8h_a4baddeaf720350758d230973d114f593} 
+typedef \mbox{\hyperlink{class_fbx_layer_element_vertex_color}{Fbx\+Layer\+Element\+Vertex\+Color}} {\bfseries Fbx\+Geometry\+Element\+Vertex\+Color}
+\item 
+\Hypertarget{fbxlayer_8h_acef498b248e323a189b5ccbf478b0b41}\label{fbxlayer_8h_acef498b248e323a189b5ccbf478b0b41} 
+typedef \mbox{\hyperlink{class_fbx_layer_element_user_data}{Fbx\+Layer\+Element\+User\+Data}} {\bfseries Fbx\+Geometry\+Element\+User\+Data}
+\item 
+\Hypertarget{fbxlayer_8h_a6a651170dec994ac83db90645d9ecfd3}\label{fbxlayer_8h_a6a651170dec994ac83db90645d9ecfd3} 
+typedef \mbox{\hyperlink{class_fbx_layer_element_smoothing}{Fbx\+Layer\+Element\+Smoothing}} {\bfseries Fbx\+Geometry\+Element\+Smoothing}
+\item 
+\Hypertarget{fbxlayer_8h_aa1db71d39153856548f192cf52aa2cc5}\label{fbxlayer_8h_aa1db71d39153856548f192cf52aa2cc5} 
+typedef \mbox{\hyperlink{class_fbx_layer_element_crease}{Fbx\+Layer\+Element\+Crease}} {\bfseries Fbx\+Geometry\+Element\+Crease}
+\item 
+\Hypertarget{fbxlayer_8h_ac66f768aa149c016447f88213c374e25}\label{fbxlayer_8h_ac66f768aa149c016447f88213c374e25} 
+typedef \mbox{\hyperlink{class_fbx_layer_element_hole}{Fbx\+Layer\+Element\+Hole}} {\bfseries Fbx\+Geometry\+Element\+Hole}
+\item 
+\Hypertarget{fbxlayer_8h_a98f6c16a3021e9e04b0352f652eac2a1}\label{fbxlayer_8h_a98f6c16a3021e9e04b0352f652eac2a1} 
+typedef \mbox{\hyperlink{class_fbx_layer_element_visibility}{Fbx\+Layer\+Element\+Visibility}} {\bfseries Fbx\+Geometry\+Element\+Visibility}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxlayer_8h_aa463964fcc6b77d3d8c61b2045a4eb2a}\label{fbxlayer_8h_aa463964fcc6b77d3d8c61b2045a4eb2a} 
+enum {\bfseries EFbx\+Memory\+Clear\+Mode} \{ {\bfseries e\+Clear\+To\+Zero}
+, {\bfseries e\+Uninitialized}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxlayer_8h_a729662a11e394d8121317d19cb7c5fab}\label{fbxlayer_8h_a729662a11e394d8121317d19cb7c5fab} 
+\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} {\bfseries Fbx\+Type\+Of} (const Fbx\+Ref\+Ptr \&)
+\item 
+\Hypertarget{fbxlayer_8h_a4933625fa9627b18cb0406ac6e13837f}\label{fbxlayer_8h_a4933625fa9627b18cb0406ac6e13837f} 
+\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} {\bfseries Fbx\+Type\+Of} (const \mbox{\hyperlink{class_fbx_layer_element_array}{Fbx\+Layer\+Element\+Array\+Ptr}} \&)
+\item 
+\Hypertarget{fbxlayer_8h_a9c7873665d8830595ca4ec19b958b54a}\label{fbxlayer_8h_a9c7873665d8830595ca4ec19b958b54a} 
+\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} {\bfseries Fbx\+Type\+Of} (const \mbox{\hyperlink{class_fbx_surface_material}{Fbx\+Surface\+Material\+Ptr}} \&)
+\item 
+\Hypertarget{fbxlayer_8h_a852abf154cf9f86ff38f35032470a3b1}\label{fbxlayer_8h_a852abf154cf9f86ff38f35032470a3b1} 
+\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} {\bfseries Fbx\+Type\+Of} (const \mbox{\hyperlink{class_fbx_texture}{Fbx\+Texture\+Ptr}} \&)
+\item 
+FBXSDK\+\_\+\+DLL int \mbox{\hyperlink{fbxlayer_8h_a22c0aa2b31d2957c72537366f30152db}{Remap\+Index\+Array\+To}} (\mbox{\hyperlink{class_fbx_layer_element}{Fbx\+Layer\+Element}} \texorpdfstring{$\ast$}{*}p\+Layer\+El, \mbox{\hyperlink{class_fbx_layer_element_a5a40e95db30ae9f94611dc3f1568af26}{Fbx\+Layer\+Element\+::\+EMapping\+Mode}} p\+New\+Mapping, \mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ int $>$ \texorpdfstring{$\ast$}{*}p\+Index\+Array)
+\item 
+{\footnotesize template$<$class T$>$ }\\\mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ T $>$ \& \mbox{\hyperlink{fbxlayer_8h_abbdc57428c6f4252c955489e8b8b43dc}{Fbx\+Get\+Direct\+Array}} (\mbox{\hyperlink{class_fbx_layer_element_user_data}{Fbx\+Layer\+Element\+User\+Data}} \texorpdfstring{$\ast$}{*}p\+Layer\+Element, int p\+Index, bool \texorpdfstring{$\ast$}{*}p\+Status=NULL)
+\item 
+{\footnotesize template$<$class T$>$ }\\\mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ T $>$ const \& \mbox{\hyperlink{fbxlayer_8h_a608877488c1de24b1bb9b4fc844203dd}{Fbx\+Get\+Direct\+Array}} (\mbox{\hyperlink{class_fbx_layer_element_user_data}{Fbx\+Layer\+Element\+User\+Data}} const \texorpdfstring{$\ast$}{*}p\+Layer\+Element, int p\+Index, bool \texorpdfstring{$\ast$}{*}p\+Status=NULL)
+\item 
+{\footnotesize template$<$class T$>$ }\\\mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ T $>$ \& \mbox{\hyperlink{fbxlayer_8h_ae006241bf69d4b959ddc7ad9d320186c}{Fbx\+Get\+Direct\+Array}} (\mbox{\hyperlink{class_fbx_layer_element_user_data}{Fbx\+Layer\+Element\+User\+Data}} \texorpdfstring{$\ast$}{*}p\+Layer\+Element, const char \texorpdfstring{$\ast$}{*}p\+Name, bool \texorpdfstring{$\ast$}{*}p\+Status=NULL)
+\item 
+{\footnotesize template$<$class T$>$ }\\\mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ T $>$ const \& \mbox{\hyperlink{fbxlayer_8h_aa92845094255f24faf996ce304c4289c}{Fbx\+Get\+Direct\+Array}} (\mbox{\hyperlink{class_fbx_layer_element_user_data}{Fbx\+Layer\+Element\+User\+Data}} const \texorpdfstring{$\ast$}{*}p\+Layer\+Element, const char \texorpdfstring{$\ast$}{*}p\+Name, bool \texorpdfstring{$\ast$}{*}p\+Status=NULL)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fbxlayer_8h_a75554677440241d66a548f956a8ed148}\index{fbxlayer.h@{fbxlayer.h}!FBXSDK\_FOR\_EACH\_NON\_TEXTURE@{FBXSDK\_FOR\_EACH\_NON\_TEXTURE}}
+\index{FBXSDK\_FOR\_EACH\_NON\_TEXTURE@{FBXSDK\_FOR\_EACH\_NON\_TEXTURE}!fbxlayer.h@{fbxlayer.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_FOR\_EACH\_NON\_TEXTURE}{FBXSDK\_FOR\_EACH\_NON\_TEXTURE}}
+{\footnotesize\ttfamily \label{fbxlayer_8h_a75554677440241d66a548f956a8ed148} 
+\#define FBXSDK\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+NON\+\_\+\+TEXTURE(\begin{DoxyParamCaption}\item[{}]{l\+Layer\+Index}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}((lLayerIndex)=0;(lLayerIndex)<\mbox{\hyperlink{class_fbx_layer_element_a97147949d75646270ceee636624c0bba}{FbxLayerElement::sTypeNonTextureCount}};(lLayerIndex)++)}
+
+\end{DoxyCode}
+Utility macro for iterating over non-\/texture layer elements \Hypertarget{fbxlayer_8h_a42b3680476fe346a09056be080837af4}\index{fbxlayer.h@{fbxlayer.h}!FBXSDK\_FOR\_EACH\_TEXTURE@{FBXSDK\_FOR\_EACH\_TEXTURE}}
+\index{FBXSDK\_FOR\_EACH\_TEXTURE@{FBXSDK\_FOR\_EACH\_TEXTURE}!fbxlayer.h@{fbxlayer.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_FOR\_EACH\_TEXTURE}{FBXSDK\_FOR\_EACH\_TEXTURE}}
+{\footnotesize\ttfamily \label{fbxlayer_8h_a42b3680476fe346a09056be080837af4} 
+\#define FBXSDK\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+TEXTURE(\begin{DoxyParamCaption}\item[{}]{l\+Layer\+Index}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}((lLayerIndex)=0;(lLayerIndex)<\mbox{\hyperlink{class_fbx_layer_element_ae7a09ea6aa90f96d37a9e161b9f54094}{FbxLayerElement::sTypeTextureCount}};(lLayerIndex)++)}
+
+\end{DoxyCode}
+Utility macro for iterating over texture layer elements \Hypertarget{fbxlayer_8h_adfce7b9de051c86e12762fca61249040}\index{fbxlayer.h@{fbxlayer.h}!FBXSDK\_LAYER\_ELEMENT\_CREATE\_DECLARE@{FBXSDK\_LAYER\_ELEMENT\_CREATE\_DECLARE}}
+\index{FBXSDK\_LAYER\_ELEMENT\_CREATE\_DECLARE@{FBXSDK\_LAYER\_ELEMENT\_CREATE\_DECLARE}!fbxlayer.h@{fbxlayer.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_LAYER\_ELEMENT\_CREATE\_DECLARE}{FBXSDK\_LAYER\_ELEMENT\_CREATE\_DECLARE}}
+{\footnotesize\ttfamily \label{fbxlayer_8h_adfce7b9de051c86e12762fca61249040} 
+\#define FBXSDK\+\_\+\+LAYER\+\_\+\+ELEMENT\+\_\+\+CREATE\+\_\+\+DECLARE(\begin{DoxyParamCaption}\item[{}]{class\+Desc}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ FBXSDK\_FRIEND\_NEW();\ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ Fbx\#\#classDesc*\ Create(\mbox{\hyperlink{class_fbx_layer_container}{FbxLayerContainer}}*\ pOwner,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName);}
+
+\end{DoxyCode}
+\Hypertarget{fbxlayer_8h_ac13fd532711238459b40c04c2aa6915e}\index{fbxlayer.h@{fbxlayer.h}!FBXSDK\_NON\_TEXTURE\_INDEX@{FBXSDK\_NON\_TEXTURE\_INDEX}}
+\index{FBXSDK\_NON\_TEXTURE\_INDEX@{FBXSDK\_NON\_TEXTURE\_INDEX}!fbxlayer.h@{fbxlayer.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_NON\_TEXTURE\_INDEX}{FBXSDK\_NON\_TEXTURE\_INDEX}}
+{\footnotesize\ttfamily \label{fbxlayer_8h_ac13fd532711238459b40c04c2aa6915e} 
+\#define FBXSDK\+\_\+\+NON\+\_\+\+TEXTURE\+\_\+\+INDEX(\begin{DoxyParamCaption}\item[{}]{Element\+Type}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(int(ElementType)-\/\mbox{\hyperlink{class_fbx_layer_element_a13fe30eb6e884901f5ce503f095c716e}{FbxLayerElement::sTypeNonTextureStartIndex}})}
+
+\end{DoxyCode}
+Utility macro for getting non-\/texture layer element index by type \Hypertarget{fbxlayer_8h_abd03639f472f399e34a61ca199fe8cff}\index{fbxlayer.h@{fbxlayer.h}!FBXSDK\_NON\_TEXTURE\_TYPE@{FBXSDK\_NON\_TEXTURE\_TYPE}}
+\index{FBXSDK\_NON\_TEXTURE\_TYPE@{FBXSDK\_NON\_TEXTURE\_TYPE}!fbxlayer.h@{fbxlayer.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_NON\_TEXTURE\_TYPE}{FBXSDK\_NON\_TEXTURE\_TYPE}}
+{\footnotesize\ttfamily \label{fbxlayer_8h_abd03639f472f399e34a61ca199fe8cff} 
+\#define FBXSDK\+\_\+\+NON\+\_\+\+TEXTURE\+\_\+\+TYPE(\begin{DoxyParamCaption}\item[{}]{Index}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}((Index)+\mbox{\hyperlink{class_fbx_layer_element_a13fe30eb6e884901f5ce503f095c716e}{FbxLayerElement::sTypeNonTextureStartIndex}}))}
+
+\end{DoxyCode}
+Utility macro for getting non-\/texture layer element type by index \Hypertarget{fbxlayer_8h_a9f52c42087f7d856f8b5be161b6dffee}\index{fbxlayer.h@{fbxlayer.h}!FBXSDK\_TEXTURE\_INDEX@{FBXSDK\_TEXTURE\_INDEX}}
+\index{FBXSDK\_TEXTURE\_INDEX@{FBXSDK\_TEXTURE\_INDEX}!fbxlayer.h@{fbxlayer.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_TEXTURE\_INDEX}{FBXSDK\_TEXTURE\_INDEX}}
+{\footnotesize\ttfamily \label{fbxlayer_8h_a9f52c42087f7d856f8b5be161b6dffee} 
+\#define FBXSDK\+\_\+\+TEXTURE\+\_\+\+INDEX(\begin{DoxyParamCaption}\item[{}]{Element\+Type}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(int(ElementType)-\/\mbox{\hyperlink{class_fbx_layer_element_a207301b1a6ecb7cdbce89cb44093d0b7}{FbxLayerElement::sTypeTextureStartIndex}})}
+
+\end{DoxyCode}
+Utility macro for getting texture layer element index by type \Hypertarget{fbxlayer_8h_a5d1f385ea18f6973a95048199c20af6f}\index{fbxlayer.h@{fbxlayer.h}!FBXSDK\_TEXTURE\_TYPE@{FBXSDK\_TEXTURE\_TYPE}}
+\index{FBXSDK\_TEXTURE\_TYPE@{FBXSDK\_TEXTURE\_TYPE}!fbxlayer.h@{fbxlayer.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_TEXTURE\_TYPE}{FBXSDK\_TEXTURE\_TYPE}}
+{\footnotesize\ttfamily \label{fbxlayer_8h_a5d1f385ea18f6973a95048199c20af6f} 
+\#define FBXSDK\+\_\+\+TEXTURE\+\_\+\+TYPE(\begin{DoxyParamCaption}\item[{}]{Texture\+Index}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}((TextureIndex)+\mbox{\hyperlink{class_fbx_layer_element_a207301b1a6ecb7cdbce89cb44093d0b7}{FbxLayerElement::sTypeTextureStartIndex}}))}
+
+\end{DoxyCode}
+Utility macro for getting texture layer element type by index 
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{fbxlayer_8h_a1d632d51022467acafa043cb8f431daf}\index{fbxlayer.h@{fbxlayer.h}!FbxGeometryElement@{FbxGeometryElement}}
+\index{FbxGeometryElement@{FbxGeometryElement}!fbxlayer.h@{fbxlayer.h}}
+\doxysubsubsection{\texorpdfstring{FbxGeometryElement}{FbxGeometryElement}}
+{\footnotesize\ttfamily \label{fbxlayer_8h_a1d632d51022467acafa043cb8f431daf} 
+typedef \mbox{\hyperlink{class_fbx_layer_element}{Fbx\+Layer\+Element}} \mbox{\hyperlink{fbxlayer_8h_a1d632d51022467acafa043cb8f431daf}{Fbx\+Geometry\+Element}}}
+
+Defines geometry element classes. A geometry element describes how the geometry element is mapped to a geometry surface and how the mapping information is arranged in memory. \begin{DoxyRemark}{Remarks}
+Geometry elements are independent of layer elements and hide the complexity of layers. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FbxGeometryElementUV*\ lUVs\ =\ lMesh-\/>GetElementUV(\textcolor{stringliteral}{"{}map1"{}});}
+\DoxyCodeLine{FbxGeometryElementUV::DirectArrayType\ lDirectArray\ =\ lUVs-\/>\mbox{\hyperlink{class_fbx_layer_element_template_af32dbb868d0d96c1ee1411655a74778f}{GetDirectArray}}();}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ lDirectUVCount\ =\ lDirectArray.\mbox{\hyperlink{class_fbx_layer_element_array_acd195095246f6d886d55fd0aa7129b2d}{GetCount}}();}
+\DoxyCodeLine{\mbox{\hyperlink{class_fbx_vector2}{FbxVector2}}\ lFirstUV\ =\ lDirectArray[0];}
+
+\end{DoxyCode}
+ 
+\end{DoxyRemark}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_fbx_geometry_base}{Fbx\+Geometry\+Base} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fbxlayer_8h_ae006241bf69d4b959ddc7ad9d320186c}\index{fbxlayer.h@{fbxlayer.h}!FbxGetDirectArray@{FbxGetDirectArray}}
+\index{FbxGetDirectArray@{FbxGetDirectArray}!fbxlayer.h@{fbxlayer.h}}
+\doxysubsubsection{\texorpdfstring{FbxGetDirectArray()}{FbxGetDirectArray()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{fbxlayer_8h_ae006241bf69d4b959ddc7ad9d320186c} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ T $>$ \& Fbx\+Get\+Direct\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_layer_element_user_data}{Fbx\+Layer\+Element\+User\+Data}} \texorpdfstring{$\ast$}{*}}]{p\+Layer\+Element}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{bool \texorpdfstring{$\ast$}{*}}]{p\+Status}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the direct array with the given attribute name.\+The template type must match the attribute type with p\+Name. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Layer\+Element} & The layer element whose direct array to return. \\
+\hline
+{\em p\+Name} & The given attribute name. \\
+\hline
+{\em p\+Status} & Will be set to false if accessing the direct array encounters an error. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If p\+Status receives {\ttfamily true}, the direct array at the given index is returned. Otherwise the return value is {\ttfamily undefined}. 
+\end{DoxyReturn}
+\Hypertarget{fbxlayer_8h_abbdc57428c6f4252c955489e8b8b43dc}\index{fbxlayer.h@{fbxlayer.h}!FbxGetDirectArray@{FbxGetDirectArray}}
+\index{FbxGetDirectArray@{FbxGetDirectArray}!fbxlayer.h@{fbxlayer.h}}
+\doxysubsubsection{\texorpdfstring{FbxGetDirectArray()}{FbxGetDirectArray()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{fbxlayer_8h_abbdc57428c6f4252c955489e8b8b43dc} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ T $>$ \& Fbx\+Get\+Direct\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_layer_element_user_data}{Fbx\+Layer\+Element\+User\+Data}} \texorpdfstring{$\ast$}{*}}]{p\+Layer\+Element}{, }\item[{int}]{p\+Index}{, }\item[{bool \texorpdfstring{$\ast$}{*}}]{p\+Status}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the direct array with the given attribute index. The template type must match the attribute type at p\+Index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Layer\+Element} & The layer element whose direct array to return. \\
+\hline
+{\em p\+Index} & The direct array index \\
+\hline
+{\em p\+Status} & Will be set to {\ttfamily false} if accessing the direct array encounters an error. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If p\+Status receives {\ttfamily true}, the direct array at the given index is returned. Otherwise the return value is {\ttfamily undefined}. 
+\end{DoxyReturn}
+\Hypertarget{fbxlayer_8h_aa92845094255f24faf996ce304c4289c}\index{fbxlayer.h@{fbxlayer.h}!FbxGetDirectArray@{FbxGetDirectArray}}
+\index{FbxGetDirectArray@{FbxGetDirectArray}!fbxlayer.h@{fbxlayer.h}}
+\doxysubsubsection{\texorpdfstring{FbxGetDirectArray()}{FbxGetDirectArray()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{fbxlayer_8h_aa92845094255f24faf996ce304c4289c} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ T $>$ const  \& Fbx\+Get\+Direct\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_layer_element_user_data}{Fbx\+Layer\+Element\+User\+Data}} const \texorpdfstring{$\ast$}{*}}]{p\+Layer\+Element}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{bool \texorpdfstring{$\ast$}{*}}]{p\+Status}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the direct array with the given attribute name.\+The template type must match the attribute type with p\+Name. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Layer\+Element} & The layer element whose direct array to return. \\
+\hline
+{\em p\+Name} & The given attribute name. \\
+\hline
+{\em p\+Status} & Will be set to false if accessing the direct array encounters an error. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If p\+Status receives {\ttfamily true}, the direct array at the given index is returned. Otherwise the return value is {\ttfamily undefined}. 
+\end{DoxyReturn}
+\Hypertarget{fbxlayer_8h_a608877488c1de24b1bb9b4fc844203dd}\index{fbxlayer.h@{fbxlayer.h}!FbxGetDirectArray@{FbxGetDirectArray}}
+\index{FbxGetDirectArray@{FbxGetDirectArray}!fbxlayer.h@{fbxlayer.h}}
+\doxysubsubsection{\texorpdfstring{FbxGetDirectArray()}{FbxGetDirectArray()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{fbxlayer_8h_a608877488c1de24b1bb9b4fc844203dd} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ T $>$ const  \& Fbx\+Get\+Direct\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_layer_element_user_data}{Fbx\+Layer\+Element\+User\+Data}} const \texorpdfstring{$\ast$}{*}}]{p\+Layer\+Element}{, }\item[{int}]{p\+Index}{, }\item[{bool \texorpdfstring{$\ast$}{*}}]{p\+Status}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the direct array with the given attribute index. The template type must match the attribute type at p\+Index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Layer\+Element} & The layer element whose direct array to return. \\
+\hline
+{\em p\+Index} & The direct array index \\
+\hline
+{\em p\+Status} & Will be set to {\ttfamily false} if accessing the direct array encounters an error. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If p\+Status receives {\ttfamily true}, the direct array at the given index is returned. Otherwise the return value is {\ttfamily undefined}. 
+\end{DoxyReturn}
+\Hypertarget{fbxlayer_8h_a22c0aa2b31d2957c72537366f30152db}\index{fbxlayer.h@{fbxlayer.h}!RemapIndexArrayTo@{RemapIndexArrayTo}}
+\index{RemapIndexArrayTo@{RemapIndexArrayTo}!fbxlayer.h@{fbxlayer.h}}
+\doxysubsubsection{\texorpdfstring{RemapIndexArrayTo()}{RemapIndexArrayTo()}}
+{\footnotesize\ttfamily \label{fbxlayer_8h_a22c0aa2b31d2957c72537366f30152db} 
+FBXSDK\+\_\+\+DLL int Remap\+Index\+Array\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_layer_element}{Fbx\+Layer\+Element}} \texorpdfstring{$\ast$}{*}}]{p\+Layer\+El}{, }\item[{\mbox{\hyperlink{class_fbx_layer_element_a5a40e95db30ae9f94611dc3f1568af26}{Fbx\+Layer\+Element\+::\+EMapping\+Mode}}}]{p\+New\+Mapping}{, }\item[{\mbox{\hyperlink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}}$<$ int $>$ \texorpdfstring{$\ast$}{*}}]{p\+Index\+Array}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+Remap the index array to a new EMapping\+Mode 
+\begin{DoxyParams}{Parameters}
+{\em p\+Layer\+El} & The layer element to remap \\
+\hline
+{\em p\+New\+Mapping} & The new mapping mode \\
+\hline
+{\em p\+Index\+Array} & The index array to modify \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return -\/1 if the layer element is Fbx\+Layer\+Element\+::e\+Direct 0 if layer element or index array is {\ttfamily NULL} and 1 if the remap is successful 
+\end{DoxyReturn}

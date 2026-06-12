@@ -1,0 +1,52 @@
+\doxysection{Layout\+Builder.\+h}
+\hypertarget{_layout_builder_8h_source}{}\label{_layout_builder_8h_source}\index{include/EngineUtilities/Utilities/LayoutBuilder.h@{include/EngineUtilities/Utilities/LayoutBuilder.h}}
+\mbox{\hyperlink{_layout_builder_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00010\ \ \ \mbox{\hyperlink{class_layout_builder}{LayoutBuilder}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \textcolor{comment}{//\ **Add()\ base**\ (per-\/vertex\ por\ defecto)}}
+\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{class_layout_builder}{LayoutBuilder}}\&}
+\DoxyCodeLine{00014\ \ \ \ \ Add(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ semantic,}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ DXGI\_FORMAT\ format,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ UINT\ semanticIndex\ =\ 0,}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ UINT\ inputSlot\ =\ 0,}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ UINT\ alignedByteOffset\ =\ D3D11\_APPEND\_ALIGNED\_ELEMENT,}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ D3D11\_INPUT\_CLASSIFICATION\ slotClass\ =\ D3D11\_INPUT\_PER\_VERTEX\_DATA,}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ UINT\ instanceStepRate\ =\ 0)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ D3D11\_INPUT\_ELEMENT\_DESC\ d\{\};}
+\DoxyCodeLine{00022\ \ \ \ \ d.SemanticName\ =\ semantic;}
+\DoxyCodeLine{00023\ \ \ \ \ d.SemanticIndex\ =\ semanticIndex;}
+\DoxyCodeLine{00024\ \ \ \ \ d.Format\ =\ format;}
+\DoxyCodeLine{00025\ \ \ \ \ d.InputSlot\ =\ inputSlot;}
+\DoxyCodeLine{00026\ \ \ \ \ d.AlignedByteOffset\ =\ alignedByteOffset;}
+\DoxyCodeLine{00027\ \ \ \ \ d.InputSlotClass\ =\ slotClass;}
+\DoxyCodeLine{00028\ \ \ \ \ d.InstanceDataStepRate\ =\ instanceStepRate;}
+\DoxyCodeLine{00029\ \ \ \ \ m\_elems.push\_back(d);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00031\ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{comment}{//\ **Atajo**\ para\ instancing}}
+\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{class_layout_builder}{LayoutBuilder}}\&}
+\DoxyCodeLine{00035\ \ \ \ \ AddInstance(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ semantic,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ DXGI\_FORMAT\ format,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ UINT\ semanticIndex\ =\ 0,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ UINT\ inputSlot\ =\ 1,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ UINT\ alignedByteOffset\ =\ D3D11\_APPEND\_ALIGNED\_ELEMENT,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ UINT\ instanceStepRate\ =\ 1)\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ Add(semantic,\ format,\ semanticIndex,\ inputSlot,\ alignedByteOffset,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ D3D11\_INPUT\_PER\_INSTANCE\_DATA,\ instanceStepRate);}
+\DoxyCodeLine{00043\ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{const}\ std::vector<D3D11\_INPUT\_ELEMENT\_DESC>\&\ Get()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_elems;\ \}}
+\DoxyCodeLine{00046\ \ \ UINT\ Count()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ (UINT)m\_elems.size();\ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00049\ \ \ std::vector<D3D11\_INPUT\_ELEMENT\_DESC>\ m\_elems;}
+\DoxyCodeLine{00050\ \};}
+
+\end{DoxyCode}

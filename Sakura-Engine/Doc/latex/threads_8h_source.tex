@@ -1,0 +1,89 @@
+\doxysection{threads.\+h}
+\hypertarget{threads_8h_source}{}\label{threads_8h_source}\index{include/fbx/libxml2/libxml/threads.h@{include/fbx/libxml2/libxml/threads.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_THREADS\_H\_\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ \_\_XML\_THREADS\_H\_\_}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <libxml/xmlversion.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ xmlMutex\ are\ a\ simple\ mutual\ exception\ locks.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlMutex\ xmlMutex;}
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ xmlMutex\ *xmlMutexPtr;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ xmlRMutex\ are\ reentrant\ mutual\ exception\ locks.}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlRMutex\ xmlRMutex;}
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ xmlRMutex\ *xmlRMutexPtr;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00033\ \}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <libxml/globals.h>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00039\ XMLPUBFUN\ xmlMutexPtr\ XMLCALL}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNewMutex\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00041\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ xmlMutexLock\ \ \ \ (xmlMutexPtr\ tok);}
+\DoxyCodeLine{00043\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ xmlMutexUnlock\ \ (xmlMutexPtr\ tok);}
+\DoxyCodeLine{00045\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ xmlFreeMutex\ \ \ \ (xmlMutexPtr\ tok);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ XMLPUBFUN\ xmlRMutexPtr\ XMLCALL}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNewRMutex\ \ \ \ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00050\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRMutexLock\ \ \ (xmlRMutexPtr\ tok);}
+\DoxyCodeLine{00052\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRMutexUnlock\ (xmlRMutexPtr\ tok);}
+\DoxyCodeLine{00054\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ xmlFreeRMutex\ \ \ (xmlRMutexPtr\ tok);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *\ Library\ wide\ APIs.}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00060\ XML\_DEPRECATED}
+\DoxyCodeLine{00061\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ xmlInitThreads\ \ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00063\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ xmlLockLibrary\ \ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00065\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ xmlUnlockLibrary(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00067\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ xmlGetThreadId\ \ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00069\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ xmlIsMainThread\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00071\ XML\_DEPRECATED}
+\DoxyCodeLine{00072\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ xmlCleanupThreads(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00074\ XMLPUBFUN\ xmlGlobalStatePtr\ XMLCALL}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ xmlGetGlobalState(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#ifdef\ HAVE\_PTHREAD\_H}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#elif\ defined(HAVE\_WIN32\_THREADS)\ \&\&\ !defined(HAVE\_COMPILER\_TLS)\ \&\&\ (!defined(LIBXML\_STATIC)\ ||\ defined(LIBXML\_STATIC\_FOR\_DLL))}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#if\ defined(LIBXML\_STATIC\_FOR\_DLL)}}
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00081\ xmlDllMain(\textcolor{keywordtype}{void}\ *hinstDLL,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ fdwReason,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *lpvReserved);}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00087\ \}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_XML\_THREADS\_H\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

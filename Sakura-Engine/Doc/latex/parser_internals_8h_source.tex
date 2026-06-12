@@ -1,0 +1,398 @@
+\doxysection{parser\+Internals.\+h}
+\hypertarget{parser_internals_8h_source}{}\label{parser_internals_8h_source}\index{include/fbx/libxml2/libxml/parserInternals.h@{include/fbx/libxml2/libxml/parserInternals.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Summary:\ internals\ routines\ and\ limits\ exported\ by\ the\ parser.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Description:\ this\ module\ exports\ a\ number\ of\ internal\ parsing\ routines}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ they\ are\ not\ really\ all\ intended\ for\ applications\ but}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ can\ prove\ useful\ doing\ low\ level\ processing.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copy:\ See\ Copyright\ for\ the\ status\ of\ this\ software.}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Author:\ Daniel\ Veillard}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_PARSER\_INTERNALS\_H\_\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_\_XML\_PARSER\_INTERNALS\_H\_\_}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <libxml/xmlversion.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <libxml/parser.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <libxml/HTMLparser.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <libxml/chvalid.h>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00021\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00031\ XMLPUBVAR\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ xmlParserMaxDepth;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ XML\_MAX\_TEXT\_LENGTH\ 10000000}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ XML\_MAX\_NAME\_LENGTH\ 50000}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ XML\_MAX\_DICTIONARY\_LIMIT\ 10000000}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ XML\_MAX\_LOOKUP\_LIMIT\ 10000000}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ XML\_MAX\_NAMELEN\ 100}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ INPUT\_CHUNK\ 250}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00093\ \textcolor{comment}{\ *\ UNICODE\ version\ of\ the\ macros.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ ************************************************************************/}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ IS\_BYTE\_CHAR(c)\ \ xmlIsChar\_ch(c)}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ IS\_CHAR(c)\ \ \ xmlIsCharQ(c)}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#define\ IS\_CHAR\_CH(c)\ \ xmlIsChar\_ch(c)}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#define\ IS\_BLANK(c)\ \ xmlIsBlankQ(c)}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ IS\_BLANK\_CH(c)\ \ xmlIsBlank\_ch(c)}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ IS\_BASECHAR(c)\ xmlIsBaseCharQ(c)}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#define\ IS\_DIGIT(c)\ xmlIsDigitQ(c)}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#define\ IS\_DIGIT\_CH(c)\ \ xmlIsDigit\_ch(c)}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#define\ IS\_COMBINING(c)\ xmlIsCombiningQ(c)}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#define\ IS\_COMBINING\_CH(c)\ 0}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#define\ IS\_EXTENDER(c)\ xmlIsExtenderQ(c)}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#define\ IS\_EXTENDER\_CH(c)\ \ xmlIsExtender\_ch(c)}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#define\ IS\_IDEOGRAPHIC(c)\ xmlIsIdeographicQ(c)}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\#define\ IS\_LETTER(c)\ (IS\_BASECHAR(c)\ ||\ IS\_IDEOGRAPHIC(c))}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#define\ IS\_LETTER\_CH(c)\ xmlIsBaseChar\_ch(c)}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#define\ IS\_ASCII\_LETTER(c)\ \ (((0x41\ <=\ (c))\ \&\&\ ((c)\ <=\ 0x5a))\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((0x61\ <=\ (c))\ \&\&\ ((c)\ <=\ 0x7a)))}}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#define\ IS\_ASCII\_DIGIT(c)\ \ \ ((0x30\ <=\ (c))\ \&\&\ ((c)\ <=\ 0x39))}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#define\ IS\_PUBIDCHAR(c)\ xmlIsPubidCharQ(c)}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\#define\ IS\_PUBIDCHAR\_CH(c)\ xmlIsPubidChar\_ch(c)}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#define\ SKIP\_EOL(p)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\ \ \ \ if\ (*(p)\ ==\ 0x13)\ \{\ p++\ ;\ if\ (*(p)\ ==\ 0x10)\ p++;\ \}\ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\ \ \ \ if\ (*(p)\ ==\ 0x10)\ \{\ p++\ ;\ if\ (*(p)\ ==\ 0x13)\ p++;\ \}}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\#define\ MOVETO\_ENDTAG(p)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\ \ \ \ while\ ((*p)\ \&\&\ (*(p)\ !=\ '>'))\ (p)++}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\#define\ MOVETO\_STARTTAG(p)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\ \ \ \ while\ ((*p)\ \&\&\ (*(p)\ !=\ '<'))\ (p)++}}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00312\ XMLPUBVAR\ \textcolor{keyword}{const}\ xmlChar\ xmlStringText[];}
+\DoxyCodeLine{00313\ XMLPUBVAR\ \textcolor{keyword}{const}\ xmlChar\ xmlStringTextNoenc[];}
+\DoxyCodeLine{00314\ XMLPUBVAR\ \textcolor{keyword}{const}\ xmlChar\ xmlStringComment[];}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00317\ \textcolor{comment}{\ *\ Function\ to\ finish\ the\ work\ of\ the\ macros\ where\ needed.}}
+\DoxyCodeLine{00318\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00319\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlIsLetter\ \ \ \ \ (\textcolor{keywordtype}{int}\ c);}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00324\ XMLPUBFUN\ xmlParserCtxtPtr\ XMLCALL}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ xmlCreateFileParserCtxt\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{00326\ XMLPUBFUN\ xmlParserCtxtPtr\ XMLCALL}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ xmlCreateURLParserCtxt\ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename,}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ options);}
+\DoxyCodeLine{00329\ XMLPUBFUN\ xmlParserCtxtPtr\ XMLCALL}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ xmlCreateMemoryParserCtxt(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *buffer,}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00332\ XMLPUBFUN\ xmlParserCtxtPtr\ XMLCALL}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ xmlCreateEntityParserCtxt(\textcolor{keyword}{const}\ xmlChar\ *\mbox{\hyperlink{fbxcolladaelement_8h_a82253dcb098d615368fe4c777c2a9289}{URL}},}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ID,}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *base);}
+\DoxyCodeLine{00336\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ xmlSwitchEncoding\ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlCharEncoding\ enc);}
+\DoxyCodeLine{00339\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ xmlSwitchToEncoding\ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlCharEncodingHandlerPtr\ handler);}
+\DoxyCodeLine{00342\ XML\_DEPRECATED}
+\DoxyCodeLine{00343\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ xmlSwitchInputEncoding\ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlParserInputPtr\ input,}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlCharEncodingHandlerPtr\ handler);}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\#ifdef\ IN\_LIBXML}}
+\DoxyCodeLine{00349\ \textcolor{comment}{/*\ internal\ error\ reporting\ */}}
+\DoxyCodeLine{00350\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \_\_xmlErrEncoding\ \ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlParserErrors\ xmlerr,}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg,}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *\ str1,}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *\ str2)\ LIBXML\_ATTR\_FORMAT(3,0);}
+\DoxyCodeLine{00356\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00361\ XMLPUBFUN\ xmlParserInputPtr\ XMLCALL}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNewStringInputStream\ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *buffer);}
+\DoxyCodeLine{00364\ XMLPUBFUN\ xmlParserInputPtr\ XMLCALL}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNewEntityInputStream\ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlEntityPtr\ entity);}
+\DoxyCodeLine{00367\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ xmlPushInput\ \ \ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlParserInputPtr\ input);}
+\DoxyCodeLine{00370\ XMLPUBFUN\ xmlChar\ XMLCALL}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ \ xmlPopInput\ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00372\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ xmlFreeInputStream\ \ (xmlParserInputPtr\ input);}
+\DoxyCodeLine{00374\ XMLPUBFUN\ xmlParserInputPtr\ XMLCALL}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNewInputFromFile\ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{00377\ XMLPUBFUN\ xmlParserInputPtr\ XMLCALL}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNewInputStream\ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00383\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ xmlSplitQName\ \ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ **prefix);}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00391\ XMLPUBFUN\ \textcolor{keyword}{const}\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseName\ \ \ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00393\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseNmtoken\ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00395\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseEntityValue\ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ **orig);}
+\DoxyCodeLine{00398\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseAttValue\ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00400\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseSystemLiteral\ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00402\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParsePubidLiteral\ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00404\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseCharData\ \ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cdata);}
+\DoxyCodeLine{00407\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseExternalID\ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ **publicID,}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ strict);}
+\DoxyCodeLine{00411\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseComment\ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00413\ XMLPUBFUN\ \textcolor{keyword}{const}\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParsePITarget\ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00415\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParsePI\ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00417\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseNotationDecl\ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00419\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseEntityDecl\ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00421\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseDefaultDecl\ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ **value);}
+\DoxyCodeLine{00424\ XMLPUBFUN\ xmlEnumerationPtr\ XMLCALL}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseNotationType\ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00426\ XMLPUBFUN\ xmlEnumerationPtr\ XMLCALL}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseEnumerationType\ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00428\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseEnumeratedType\ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlEnumerationPtr\ *tree);}
+\DoxyCodeLine{00431\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseAttributeType\ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlEnumerationPtr\ *tree);}
+\DoxyCodeLine{00434\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseAttributeListDecl(xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00436\ XMLPUBFUN\ xmlElementContentPtr\ XMLCALL}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseElementMixedContentDecl}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ inputchk);}
+\DoxyCodeLine{00440\ XMLPUBFUN\ xmlElementContentPtr\ XMLCALL}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseElementChildrenContentDecl}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ inputchk);}
+\DoxyCodeLine{00444\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseElementContentDecl(xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlElementContentPtr\ *result);}
+\DoxyCodeLine{00448\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseElementDecl\ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00450\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseMarkupDecl\ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00452\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseCharRef\ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00454\ XMLPUBFUN\ xmlEntityPtr\ XMLCALL}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseEntityRef\ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00456\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseReference\ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00458\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParsePEReference\ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00460\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseDocTypeDecl\ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00462\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_SAX1\_ENABLED}}
+\DoxyCodeLine{00463\ XMLPUBFUN\ \textcolor{keyword}{const}\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseAttribute\ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ **value);}
+\DoxyCodeLine{00466\ XMLPUBFUN\ \textcolor{keyword}{const}\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseStartTag\ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00468\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseEndTag\ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00470\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_SAX1\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00471\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseCDSect\ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00473\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseContent\ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00475\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseElement\ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00477\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseVersionNum\ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00479\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseVersionInfo\ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00481\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseEncName\ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00483\ XMLPUBFUN\ \textcolor{keyword}{const}\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseEncodingDecl\ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00485\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseSDDecl\ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00487\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseXMLDecl\ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00489\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseTextDecl\ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00491\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseMisc\ \ \ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00493\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseExternalSubset\ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ExternalID,}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *SystemID);}
+\DoxyCodeLine{00502\ \textcolor{preprocessor}{\#define\ XML\_SUBSTITUTE\_NONE\ 0}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00508\ \textcolor{preprocessor}{\#define\ XML\_SUBSTITUTE\_REF\ \ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00514\ \textcolor{preprocessor}{\#define\ XML\_SUBSTITUTE\_PEREF\ \ \ \ 2}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00520\ \textcolor{preprocessor}{\#define\ XML\_SUBSTITUTE\_BOTH\ 3}}
+\DoxyCodeLine{00521\ }
+\DoxyCodeLine{00522\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ xmlStringDecodeEntities\ \ \ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *str,}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ what,}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ end,}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ \ end2,}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ end3);}
+\DoxyCodeLine{00529\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ xmlStringLenDecodeEntities\ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *str,}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ len,}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ what,}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ end,}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ \ end2,}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ end3);}
+\DoxyCodeLine{00537\ }
+\DoxyCodeLine{00538\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00539\ \textcolor{comment}{\ *\ Generated\ by\ MACROS\ on\ top\ of\ parser.c\ c.f.\ PUSH\_AND\_POP.}}
+\DoxyCodeLine{00540\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00541\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ \ \ \ \ \ \ \ \ \ \ nodePush\ \ \ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ value);}
+\DoxyCodeLine{00543\ XMLPUBFUN\ xmlNodePtr\ XMLCALL\ \ \ \ \ \ \ \ nodePop\ \ \ \ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00544\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ \ \ \ \ \ \ \ \ \ \ inputPush\ \ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlParserInputPtr\ value);}
+\DoxyCodeLine{00546\ XMLPUBFUN\ xmlParserInputPtr\ XMLCALL\ inputPop\ \ \ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00547\ XMLPUBFUN\ \textcolor{keyword}{const}\ xmlChar\ *\ XMLCALL\ \ \ namePop\ \ \ \ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00548\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ \ \ \ \ \ \ \ \ \ \ namePush\ \ \ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *value);}
+\DoxyCodeLine{00550\ }
+\DoxyCodeLine{00551\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00552\ \textcolor{comment}{\ *\ other\ commodities\ shared\ between\ parser.c\ and\ parserInternals.}}
+\DoxyCodeLine{00553\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00554\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ \ \ \ \ \ \ \ \ \ \ xmlSkipBlankChars\ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00555\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ \ \ \ \ \ \ \ \ \ \ xmlStringCurrentChar\ \ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *cur,}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *len);}
+\DoxyCodeLine{00558\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ \ \ \ \ \ \ \ \ \ xmlParserHandlePEReference(xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00559\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ \ \ \ \ \ \ \ \ \ \ xmlCheckLanguageID\ \ (\textcolor{keyword}{const}\ xmlChar\ *lang);}
+\DoxyCodeLine{00560\ }
+\DoxyCodeLine{00561\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00562\ \textcolor{comment}{\ *\ Really\ core\ function\ shared\ with\ HTML\ parser.}}
+\DoxyCodeLine{00563\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00564\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ \ \ \ \ \ \ \ \ \ \ xmlCurrentChar\ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *len);}
+\DoxyCodeLine{00566\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ \ \ \ \ \ \ xmlCopyCharMultiByte\ \ \ \ (xmlChar\ *out,}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ val);}
+\DoxyCodeLine{00568\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ \ \ \ \ \ \ \ \ \ \ xmlCopyChar\ \ \ \ \ (\textcolor{keywordtype}{int}\ len,}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ *out,}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ val);}
+\DoxyCodeLine{00571\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ \ \ \ \ \ \ \ \ \ xmlNextChar\ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00572\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ \ \ \ \ \ \ \ \ \ xmlParserInputShrink\ \ \ \ (xmlParserInputPtr\ in);}
+\DoxyCodeLine{00573\ }
+\DoxyCodeLine{00574\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_HTML\_ENABLED}}
+\DoxyCodeLine{00575\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00576\ \textcolor{comment}{\ *\ Actually\ comes\ from\ the\ HTML\ parser\ but\ launched\ from\ the\ init\ stuff.}}
+\DoxyCodeLine{00577\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00578\ XML\_DEPRECATED}
+\DoxyCodeLine{00579\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ \ \ \ \ \ \ \ \ \ htmlInitAutoClose\ \ \ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00580\ XMLPUBFUN\ htmlParserCtxtPtr\ XMLCALL\ htmlCreateFileParserCtxt(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename,}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *encoding);}
+\DoxyCodeLine{00582\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00583\ }
+\DoxyCodeLine{00584\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00585\ \textcolor{comment}{\ *\ Specific\ function\ to\ keep\ track\ of\ entities\ references}}
+\DoxyCodeLine{00586\ \textcolor{comment}{\ *\ and\ used\ by\ the\ XSLT\ debugger.}}
+\DoxyCodeLine{00587\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00588\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_LEGACY\_ENABLED}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00598\ \textcolor{keyword}{typedef}\ void\ \ \ \ (*xmlEntityReferenceFunc)\ \ \ (xmlEntityPtr\ ent,}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ firstNode,}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ lastNode);}
+\DoxyCodeLine{00601\ }
+\DoxyCodeLine{00602\ XML\_DEPRECATED}
+\DoxyCodeLine{00603\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ \ \ \ \ \ xmlSetEntityReferenceFunc\ \ \ (xmlEntityReferenceFunc\ func);}
+\DoxyCodeLine{00604\ }
+\DoxyCodeLine{00605\ XML\_DEPRECATED}
+\DoxyCodeLine{00606\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseQuotedString\ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00608\ XML\_DEPRECATED}
+\DoxyCodeLine{00609\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlParseNamespace\ \ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00611\ XML\_DEPRECATED}
+\DoxyCodeLine{00612\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNamespaceParseNSDef\ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00614\ XML\_DEPRECATED}
+\DoxyCodeLine{00615\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \ \ \ \ xmlScanName\ \ \ \ \ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00617\ XML\_DEPRECATED}
+\DoxyCodeLine{00618\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNamespaceParseNCName\ (xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00620\ XML\_DEPRECATED}
+\DoxyCodeLine{00621\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ \ xmlParserHandleReference(xmlParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00622\ XML\_DEPRECATED}
+\DoxyCodeLine{00623\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNamespaceParseQName\ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ **prefix);}
+\DoxyCodeLine{00629\ XML\_DEPRECATED}
+\DoxyCodeLine{00630\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ xmlDecodeEntities\ \ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ len,}
+\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ what,}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ end,}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ \ end2,}
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ end3);}
+\DoxyCodeLine{00637\ XML\_DEPRECATED}
+\DoxyCodeLine{00638\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \ \ \ \ xmlHandleEntity\ \ \ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlEntityPtr\ entity);}
+\DoxyCodeLine{00641\ }
+\DoxyCodeLine{00642\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_LEGACY\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00643\ }
+\DoxyCodeLine{00644\ \textcolor{preprocessor}{\#ifdef\ IN\_LIBXML}}
+\DoxyCodeLine{00645\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00646\ \textcolor{comment}{\ *\ internal\ only}}
+\DoxyCodeLine{00647\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00648\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00649\ \ \ \ \ xmlErrMemory\ \ \ \ \ \ \ \ (xmlParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *extra);}
+\DoxyCodeLine{00651\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00652\ }
+\DoxyCodeLine{00653\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00654\ \}}
+\DoxyCodeLine{00655\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00656\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_XML\_PARSER\_INTERNALS\_H\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,330 @@
+\doxysection{fbxhashmap.\+h}
+\hypertarget{fbxhashmap_8h_source}{}\label{fbxhashmap_8h_source}\index{include/fbx/fbxsdk/core/base/fbxhashmap.h@{include/fbx/fbxsdk/core/base/fbxhashmap.h}}
+\mbox{\hyperlink{fbxhashmap_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_BASE\_HASHMAP\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_BASE\_HASHMAP\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxarray_8h}{fbxsdk/core/base/fbxarray.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmap_8h}{fbxsdk/core/base/fbxmap.h}}>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_no_op_destruct}{FbxNoOpDestruct}}\ \{\ \textcolor{keyword}{public}:\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ DoIt(T\&)\ \{\}\ \};}
+\DoxyCodeLine{00024\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_ptr_destruct}{FbxPtrDestruct}}\ \ \{\ \textcolor{keyword}{public}:\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ DoIt(T\&\ v)\ \{\ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(v);\ v\ =\ NULL;\ \}\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{//True\ if\ equal,\ false\ otherwise}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_default_comparator}{FbxDefaultComparator}}\{\ \textcolor{keyword}{public}:\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ CompareIt(\ \textcolor{keyword}{const}\ T\&\ t1,\ \textcolor{keyword}{const}\ T\&\ t2\ )\ \{\ \textcolor{keywordflow}{return}\ t1\ ==\ t2;\ \}\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{template}<\ \textcolor{keyword}{typename}\ KEY,\ \textcolor{keyword}{typename}\ VALUE,\ \textcolor{keyword}{typename}\ HASH,\ \textcolor{keyword}{class}\ Destruct\ =\ FbxNoOpDestruct<VALUE>,\ \textcolor{keyword}{class}\ Comparator\ =\ FbxDefaultComparator<KEY>\ >}
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_hash_map_aa7eae049539759ac5dc0e058346da332}{FbxHashMap}}}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{typedef}\ KEY\ KeyType;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{typedef}\ VALUE\ ValueType;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{typedef}\ HASH\ HashFunctorType;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{class\ }ListItem}
+\DoxyCodeLine{00055\ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ ListItem*\ mNext;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ ValueType\ mValue;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ KeyType\ mKey;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ ListItem()}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ mNext(NULL)}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \string~ListItem()}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ Destruct::DoIt(mValue);\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_hash_map_1_1_iterator_a481aed412a6d384dfc6757d6f95e7b23}{Iterator}}}
+\DoxyCodeLine{00078\ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ ListItem\ ListItemType;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_pair}{FbxPair<\ KeyType,\ ValueType\ >}}\ KeyValuePair;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator_a481aed412a6d384dfc6757d6f95e7b23}{Iterator}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator_a481aed412a6d384dfc6757d6f95e7b23}{Iterator}}\&\ pOther\ )}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ mMap(\ pOther.mMap\ ),}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ mBucketIndex(\ pOther.mBucketIndex\ ),}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ mCurrentItem(\ pOther.mCurrentItem\ )}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator_ad8ad3f62e162fecdc73305f0221e54a2}{\string~Iterator}}()\{\};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ KeyValuePair\ \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator_a0ab28ebe60b4c300d3ebf092d80b3ab3}{operator*}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00106\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ KeyValuePair\ lItem;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mCurrentItem\ )}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lItem.\mbox{\hyperlink{class_fbx_pair_ae4207e9014fead320362025388c70703}{mFirst}}\ =\ mCurrentItem-\/>mKey;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lItem.\mbox{\hyperlink{class_fbx_pair_ade45092061639a0a4256a0df59365d47}{mSecond}}\ =\ mCurrentItem-\/>mValue;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lItem;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT\_NOW(\textcolor{stringliteral}{"{}Accessing\ out\ of\ bounds\ iterator"{}});}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lItem;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator_a258bdc83ad94b6b15dae8c8206123fdb}{Next}}()}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !mCurrentItem\ )}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mCurrentItem-\/>mNext\ )}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mCurrentItem\ =\ mCurrentItem-\/>mNext;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mBucketIndex++;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ ;\ mBucketIndex\ <\ mMap-\/>mBuckets.GetCount();\ ++mBucketIndex\ )}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mMap-\/>mBuckets[\ mBucketIndex\ ]\ )}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mCurrentItem\ =\ mMap-\/>mBuckets[\ mBucketIndex\ ];}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mBucketIndex\ >=\ mMap-\/>mBuckets.GetCount()\ )}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ =\ mMap-\/>End();}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator_aeeba00ddc25c531558c29608ef10d478}{operator==}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator_a481aed412a6d384dfc6757d6f95e7b23}{Iterator}}\&\ pOther\ )\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00163\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \ mCurrentItem\ ==\ pOther.mCurrentItem\ \&\&\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mBucketIndex\ ==\ pOther.mBucketIndex\ \&\&}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mMap\ ==\ pOther.mMap;}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator_a092b6ea2a37710015462f1a9ad986741}{operator!=}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator_a481aed412a6d384dfc6757d6f95e7b23}{Iterator}}\&\ pOther\ )\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00174\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ pOther);}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator_a481aed412a6d384dfc6757d6f95e7b23}{Iterator}}\&\ \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator_a32538b51f42378a4ba468409c51cd15b}{operator=}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator_a481aed412a6d384dfc6757d6f95e7b23}{Iterator}}\&\ pOther\ )}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>mBucketIndex\ =\ pOther.mBucketIndex;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>mMap\ =\ pOther.mMap;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>mCurrentItem\ =\ pOther.mCurrentItem;}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_hash_map_aa7eae049539759ac5dc0e058346da332}{FbxHashMap}}*\ mMap;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mBucketIndex;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ ListItemType*\ mCurrentItem;}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator}{Iterator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_hash_map_aa7eae049539759ac5dc0e058346da332}{FbxHashMap}}*\ pMap,\ \textcolor{keywordtype}{int}\ pBucketIndex,\ ListItemType*\ pCurrentItem)}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ mMap(\ pMap\ ),}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ mBucketIndex(pBucketIndex),}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ mCurrentItem(pCurrentItem)}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_hash_map}{FbxHashMap}};}
+\DoxyCodeLine{00207\ \ \ \ \ \};}
+\DoxyCodeLine{00208\ \ \ \ \ }
+\DoxyCodeLine{00213\ \ \ \ \ \mbox{\hyperlink{class_fbx_hash_map_aa7eae049539759ac5dc0e058346da332}{FbxHashMap}}(\ \textcolor{keywordtype}{int}\ pBucketSize\ )}
+\DoxyCodeLine{00214\ \ \ \ \ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ mBuckets.Resize(\ pBucketSize\ );}
+\DoxyCodeLine{00216\ \ \ \ \ \}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00221\ \ \ \ \ \mbox{\hyperlink{class_fbx_hash_map_a398c0d23f439d50d12ff45f04d9c57f2}{FbxHashMap}}()}
+\DoxyCodeLine{00222\ \ \ \ \ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ mBuckets.Resize(30);}
+\DoxyCodeLine{00224\ \ \ \ \ \}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00229\ \ \ \ \ \mbox{\hyperlink{class_fbx_hash_map_a9b75e6940b7ebb7c82628117ce8479e2}{\string~FbxHashMap}}()}
+\DoxyCodeLine{00230\ \ \ \ \ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_hash_map_a93c7f218e1b8b337296b1758fbe962b9}{Clear}}();}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ mBuckets.Clear();}
+\DoxyCodeLine{00233\ \ \ \ \ \}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_hash_map_a93c7f218e1b8b337296b1758fbe962b9}{Clear}}()}
+\DoxyCodeLine{00239\ \ \ \ \ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ mBuckets.GetCount();\ ++i)}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mBuckets[i]\ )}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ListItem*\ lNext\ =\ mBuckets[i]-\/>mNext;}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\ lNext\ )}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ListItem*\ lNextNext\ =\ lNext-\/>mNext;}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(lNext);}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNext\ =\ lNextNext;}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(mBuckets[i]);}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mBuckets[i]\ =\ NULL;}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00256\ \ \ \ \ \}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keyword}{const}\ Iterator\ \mbox{\hyperlink{class_fbx_hash_map_afdedadf0f0aaa2f3a14404515597c399}{Find}}(\ \textcolor{keyword}{const}\ KeyType\&\ pKey\ )\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00265\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ lIndex\ =\ mHashFunctor(pKey);}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ lIndex\ =\ lIndex\ \%\ mBuckets.GetCount();}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ ListItem*\ lItem\ =\ mBuckets[lIndex];}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\ lItem\ )}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ Comparator::CompareIt(\ lItem-\/>mKey,\ pKey\ )\ )}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Iterator\ lIt(\ \textcolor{keyword}{this},\ lIndex,\ lItem\ );}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lIt;}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ lItem\ =\ lItem-\/>mNext;}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_hash_map_a1e7a9c35fff5bc4fb12f5bc49557ebef}{End}}();}
+\DoxyCodeLine{00280\ \ \ \ \ \}}
+\DoxyCodeLine{00281\ \ \ \ \ }
+\DoxyCodeLine{00287\ \ \ \ \ VALUE\ \mbox{\hyperlink{class_fbx_hash_map_abe6d776a5b88b75b82d92e9c9dd5b513}{Remove}}(\ \textcolor{keyword}{const}\ KEY\&\ pKey\ )}
+\DoxyCodeLine{00288\ \ \ \ \ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ lIndex\ =\ mHashFunctor(pKey);}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ lIndex\ =\ lIndex\ \%\ mBuckets.GetCount();}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ ListItem*\ lItem\ =\ mBuckets.GetAt(lIndex);}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ ListItem*\ lLastItem\ =\ NULL;}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\ lItem\ )}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lItem-\/>mKey\ ==\ pKey\ )}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lLastItem\ )}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lLastItem-\/>mNext\ =\ lItem-\/>mNext;}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mBuckets.GetAt(lIndex)\ ==\ lItem\ )\ }
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mBuckets.SetAt(lIndex,\ lItem-\/>mNext\ );}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUE\ lValue\ =\ lItem-\/>mValue;}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(lItem);}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lValue;}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ lLastItem\ =\ lItem;}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ lItem\ =\ lItem-\/>mNext;}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ VALUE();}
+\DoxyCodeLine{00315\ \ \ \ \ \}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00324\ \ \ \ \ ValueType\&\ \mbox{\hyperlink{class_fbx_hash_map_a64bc1c1ef4d4199fb505b1328d268ac5}{operator[]}}(\ \textcolor{keyword}{const}\ KeyType\&\ pKey\ )}
+\DoxyCodeLine{00325\ \ \ \ \ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ lIndex\ =\ 0;}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ Iterator\ lIt\ =\ InternalFind(\ pKey,\ lIndex);}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lIt\ !=\ \mbox{\hyperlink{class_fbx_hash_map_a1e7a9c35fff5bc4fb12f5bc49557ebef}{End}}()\ )}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lIt.mCurrentItem-\/>mValue;}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ lIndex\ =\ lIndex\ \%\ mBuckets.GetCount();}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ ListItem*\ lItem\ =\ FbxNew<\ ListItem\ >();}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ lItem-\/>mNext\ =\ NULL;}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ lItem-\/>mKey\ =\ pKey;}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !mBuckets.GetAt(lIndex)\ )}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ mBuckets.SetAt(lIndex,\ lItem);}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ lItem-\/>mNext\ =\ mBuckets.GetAt(lIndex);}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ mBuckets.SetAt(lIndex,\ lItem);}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lItem-\/>mValue;}
+\DoxyCodeLine{00349\ \ \ \ \ \}}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00354\ \ \ \ \ Iterator\ \mbox{\hyperlink{class_fbx_hash_map_a57577e8a4b29826e68f61e0d086f90d8}{Start}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00355\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ mBuckets.GetCount();\ ++i\ )}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mBuckets[i]\ )}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Iterator\ lIt(\ \textcolor{keyword}{this},\ i,\ mBuckets[i]\ );}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lIt;}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_hash_map_a1e7a9c35fff5bc4fb12f5bc49557ebef}{End}}();}
+\DoxyCodeLine{00366\ \ \ \ \ \}}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00372\ \ \ \ \ Iterator\ \mbox{\hyperlink{class_fbx_hash_map_a1e7a9c35fff5bc4fb12f5bc49557ebef}{End}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00373\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ Iterator\ lIt(\ \textcolor{keyword}{this},\ 0,\ NULL\ );}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lIt;}
+\DoxyCodeLine{00376\ \ \ \ \ \}}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \ \ \ \ \textcolor{comment}{//\ Avoid\ calculating\ the\ hashvalue\ twice}}
+\DoxyCodeLine{00381\ \ \ \ \ \textcolor{keyword}{const}\ Iterator\ InternalFind(\ \textcolor{keyword}{const}\ KeyType\&\ pKey,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&\ pOutCalculatedIndex\ )\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00382\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ pOutCalculatedIndex\ =\ mHashFunctor(pKey);}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ lIndex\ =\ pOutCalculatedIndex\ \%\ mBuckets.GetCount();}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ ListItem*\ lItem\ =\ mBuckets[lIndex];}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\ lItem\ )}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ Comparator::CompareIt(\ lItem-\/>mKey,\ pKey\ )\ )}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Iterator\ lIt(\ \textcolor{keyword}{this},\ lIndex,\ lItem\ );}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lIt;}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ lItem\ =\ lItem-\/>mNext;}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_hash_map_a1e7a9c35fff5bc4fb12f5bc49557ebef}{End}}();}
+\DoxyCodeLine{00397\ \ \ \ \ \}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{comment}{//\ not\ implemented\ yet!}}
+\DoxyCodeLine{00401\ \ \ \ \ \mbox{\hyperlink{class_fbx_hash_map_a398c0d23f439d50d12ff45f04d9c57f2}{FbxHashMap}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_hash_map_aa7eae049539759ac5dc0e058346da332}{FbxHashMap}}\&\ pOther\ )\ \{\};}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \ \ FbxArray<ListItem*>\ mBuckets;}
+\DoxyCodeLine{00404\ \ \ \ \ HashFunctorType\ mHashFunctor;}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_hash_map_1_1_iterator}{Iterator}};}
+\DoxyCodeLine{00407\ \};}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00409\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_BASE\_HASHMAP\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

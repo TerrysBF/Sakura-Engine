@@ -1,0 +1,123 @@
+\doxysection{Forward\+Renderer.\+h}
+\hypertarget{_forward_renderer_8h_source}{}\label{_forward_renderer_8h_source}\index{include/Rendering/ForwardRenderer.h@{include/Rendering/ForwardRenderer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_buffer_8h}{Buffer.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_depth_stencil_state_8h}{DepthStencilState.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_depth_stencil_view_8h}{DepthStencilView.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_rasterizer_state_8h}{RasterizerState.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_render_scene_8h}{Rendering/RenderScene.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_render_types_8h}{Rendering/RenderTypes.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}ShaderProgram.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_texture_8h}{Texture.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_editor_viewport_pass_8h}{EngineUtilities/Utilities/EditorViewportPass.h}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device}{Device}};}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_camera}{Camera}};}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_material}{Material}};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{class_forward_renderer}{ForwardRenderer}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ HRESULT\ \mbox{\hyperlink{class_forward_renderer_a53cad59cfe5c992e5699c977774bd5a4}{init}}(\mbox{\hyperlink{class_device}{Device}}\&\ device);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_forward_renderer_a4c110f519734e28a84c5ed8b1aff33dc}{updatePerFrame}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_camera}{Camera}}\&\ camera,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_render_scene}{RenderScene}}\&\ scene,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_forward_renderer_a7e7b3ad22672a010c11a3dcf68787ab8}{render}}(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_camera}{Camera}}\&\ camera,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \mbox{\hyperlink{class_render_scene}{RenderScene}}\&\ scene,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \mbox{\hyperlink{class_editor_viewport_pass}{EditorViewportPass}}\&\ viewportPass);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ ID3D11ShaderResourceView*\ \mbox{\hyperlink{class_forward_renderer_a606037eab872e04bf068895e0e9e43ed}{getShadowMapSRV}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_shadowDepthSRV.m\_textureFromImg;\ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \ \ ID3D11ShaderResourceView*\ \mbox{\hyperlink{class_forward_renderer_a16749a5bb4296da509afdda2062034d8}{getPreShadowSRV}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_preShadowDebugPass.getSRV();\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00073\ \ \ \ \ buildQueues(\mbox{\hyperlink{class_render_scene}{RenderScene}}\&\ scene,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_camera}{Camera}}\&\ camera);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00079\ \ \ \ \ renderPreShadowDebugPass(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,\ \mbox{\hyperlink{class_render_scene}{RenderScene}}\&\ scene);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00082\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00083\ \ \ \ \ renderShadowPass(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00087\ \ \ \ \ renderOpaquePass(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00090\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00091\ \ \ \ \ renderTransparentPass(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00097\ \ \ \ \ renderSkyboxPass(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,\ \mbox{\hyperlink{class_render_scene}{RenderScene}}\&\ scene);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00103\ \ \ \ \ renderObject(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_render_object}{RenderObject}}\&\ \textcolor{keywordtype}{object},\ \mbox{\hyperlink{_render_types_8h_aa342cea98690a76abdcb92feffddf2f2}{RenderPassType}}\ passType);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00108\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00109\ \ \ \ \ renderShadowObject(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_render_object}{RenderObject}}\&\ \textcolor{keywordtype}{object});}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00114\ \ \ HRESULT\ createShadowResources(\mbox{\hyperlink{class_device}{Device}}\&\ device);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00120\ \ \ \ \ updateLightMatrices(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_camera}{Camera}}\&\ camera,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_render_scene}{RenderScene}}\&\ scene);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00125\ \ \ HRESULT\ createBlendStates(\mbox{\hyperlink{class_device}{Device}}\&\ device);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00130\ \ \ ID3D11BlendState*\ resolveBlendState(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_material}{Material}}*\ material)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00133\ \ \ \textcolor{comment}{//\ Buffers\ principales}}
+\DoxyCodeLine{00134\ \ \ \mbox{\hyperlink{class_buffer}{Buffer}}\ m\_perFrameBuffer;\ \ \ \ \ }
+\DoxyCodeLine{00135\ \ \ \mbox{\hyperlink{class_buffer}{Buffer}}\ m\_perObjectBuffer;\ \ \ \ }
+\DoxyCodeLine{00136\ \ \ \mbox{\hyperlink{class_buffer}{Buffer}}\ m\_perMaterialBuffer;\ \ }
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \textcolor{comment}{//\ Estados\ de\ profundidad}}
+\DoxyCodeLine{00139\ \ \ \mbox{\hyperlink{class_depth_stencil_state}{DepthStencilState}}\ m\_transparentDepthStencil;}
+\DoxyCodeLine{00140\ \ \ \mbox{\hyperlink{class_depth_stencil_state}{DepthStencilState}}\ m\_shadowDepthStencil;\ \ \ \ \ \ }
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \textcolor{comment}{//\ Estados\ de\ blending}}
+\DoxyCodeLine{00143\ \ \ ID3D11BlendState*\ m\_alphaBlendState\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00144\ \ \ ID3D11BlendState*\ m\_opaqueBlendState\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00145\ \ \ ID3D11BlendState*\ m\_additiveBlendState\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00146\ \ \ ID3D11BlendState*\ m\_premultipliedBlendState\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ }
+\DoxyCodeLine{00149\ \ \ \textcolor{keywordtype}{float}}
+\DoxyCodeLine{00150\ \ \ \ \ m\_blendFactor[4]\ =\ \{\ 0.0f,\ 0.0f,\ 0.0f,\ 0.0f\ \};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \textcolor{comment}{//\ Recursos\ de\ sombras}}
+\DoxyCodeLine{00153\ \ \ \mbox{\hyperlink{class_texture}{Texture}}\ m\_shadowDepthTexture;\ \ \ }
+\DoxyCodeLine{00154\ \ \ \mbox{\hyperlink{class_texture}{Texture}}\ m\_shadowDepthSRV;\ \ \ \ \ }
+\DoxyCodeLine{00155\ \ \ \mbox{\hyperlink{class_depth_stencil_view}{DepthStencilView}}\ m\_shadowDSV;\ \ }
+\DoxyCodeLine{00156\ \ \ \mbox{\hyperlink{class_shader_program}{ShaderProgram}}\ m\_shadowShader;\ \ \ }
+\DoxyCodeLine{00157\ \ \ \mbox{\hyperlink{class_rasterizer_state}{RasterizerState}}\ m\_shadowRasterizer;\ }
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \textcolor{keywordtype}{unsigned}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_shadowMapSize\ =\ 2048;\ }
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \mbox{\hyperlink{class_editor_viewport_pass}{EditorViewportPass}}\ m\_preShadowDebugPass;}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ }
+\DoxyCodeLine{00166\ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00167\ \ \ \ \ m\_applyShadows\ =\ \textcolor{keyword}{true};\ }
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \mbox{\hyperlink{struct_c_b_per_frame}{CBPerFrame}}\ m\_cbPerFrame\{\};}
+\DoxyCodeLine{00171\ \ \ \mbox{\hyperlink{struct_c_b_per_object}{CBPerObject}}\ m\_cbPerObject\{\};}
+\DoxyCodeLine{00172\ \ \ \mbox{\hyperlink{struct_c_b_per_material}{CBPerMaterial}}\ m\_cbPerMaterial\{\};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ std::vector<const\ RenderObject*>\ m\_opaqueQueue;\ \ \ \ \ \ }
+\DoxyCodeLine{00176\ \ \ std::vector<const\ RenderObject*>\ m\_transparentQueue;\ }
+\DoxyCodeLine{00177\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,126 @@
+\doxysection{Base\+App.\+h}
+\hypertarget{_base_app_8h_source}{}\label{_base_app_8h_source}\index{include/BaseApp.h@{include/BaseApp.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Window.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_device_8h}{Device.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_device_context_8h}{DeviceContext.h}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}SwapChain.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_texture_8h}{Texture.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}RenderTargetView.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_depth_stencil_view_8h}{DepthStencilView.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_viewport_8h}{Viewport.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}ShaderProgram.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_mesh_component_8h}{MeshComponent.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_buffer_8h}{Buffer.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_sampler_state_8h}{SamplerState.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_model3_d_8h}{Model3D.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_actor_8h}{ECS/Actor.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}UserInterface.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_base_app_af32e9c8881b8a57ee6937deec8499746}{BaseApp}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_base_app_af32e9c8881b8a57ee6937deec8499746}{BaseApp}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_base_app_acd5dea4cb74bc7bbdc200426873723f5}{\string~BaseApp}}()\ \{\ \mbox{\hyperlink{class_base_app_a45e22a14bfc1f98f452b08ebb3386b2b}{destroy}}();\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ run(HINSTANCE\ hInst,\ \textcolor{keywordtype}{int}\ nCmdShow);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00039\ \ \ \ \ HRESULT}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ init();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ update(\textcolor{keywordtype}{float}\ deltaTime);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ render();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ destroy();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{static}\ LRESULT\ CALLBACK}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ WndProc(HWND\ hWnd,\ UINT\ message,\ WPARAM\ wParam,\ LPARAM\ lParam);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \mbox{\hyperlink{class_user_interface}{UserInterface}}\ m\_ui;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ Ventana\ principal\ de\ la\ aplicación.}}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_window}{Window}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_window;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ Dispositivo\ de\ Direct3D\ para\ creación de\ recursos.}}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{class_device}{Device}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_device;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ Contexto\ de\ dispositivo\ para\ emitir\ comandos\ de\ dibujo.}}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{class_device_context}{DeviceContext}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_deviceContext;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ Cadena\ de\ intercambio\ para\ presentar\ el\ back\ buffer.}}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{class_swap_chain}{SwapChain}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_swapChain;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ Textura\ que\ representa\ el\ back\ buffer\ de\ la\ ventana.}}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{class_texture}{Texture}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_backBuffer;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ Vista\ de\ render\ asociada\ al\ back\ buffer.}}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{class_render_target_view}{RenderTargetView}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_renderTargetView;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ Textura\ usada\ como\ depth-\/stencil\ buffer.}}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{class_texture}{Texture}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_depthStencil;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ Vista\ de\ depth-\/stencil\ para\ pruebas\ de\ profundidad\ y\ stencil.}}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{class_depth_stencil_view}{DepthStencilView}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_depthStencilView;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ Configuración del\ área\ de\ dibujo\ (viewport).}}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{class_viewport}{Viewport}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_viewport;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ Programa\ de\ shaders\ usado\ para\ dibujar\ la\ escena.}}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{class_shader_program}{ShaderProgram}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_shaderProgram;}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//MeshComponent\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_mesh;}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//Buffer\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_vertexBuffer;}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//Buffer\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_indexBuffer;}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ Constant\ buffer\ con\ datos\ que\ casi\ no\ cambian.}}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{class_buffer}{Buffer}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_cbNeverChanges;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ Constant\ buffer\ con\ datos\ dependientes\ del\ tamaño de\ la\ ventana.}}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{class_buffer}{Buffer}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_cbChangeOnResize;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//Buffer\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_cbChangesEveryFrame;}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//\ Textura\ aplicada\ al\ modelo\ Alien.}}
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{class_texture}{Texture}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_Alien\_Texture;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//SamplerState\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_samplerState;}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//XMMATRIX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_World;}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ Matriz\ de\ vista\ (posición y\ orientación de\ la\ cámara).}}
+\DoxyCodeLine{00113\ \ \ \ \ XMMATRIX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_View;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ Matriz\ de\ proyección para\ transformar\ a\ espacio\ de\ clip.}}
+\DoxyCodeLine{00116\ \ \ \ \ XMMATRIX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_Projection;}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{//XMFLOAT4\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_vMeshColor;//\ (0.7f,\ 0.7f,\ 0.7f,\ 1.0f);}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ Lista\ de\ actores\ presentes\ en\ la\ escena.}}
+\DoxyCodeLine{00121\ \ \ \ \ std::vector<EU::TSharedPointer<Actor>>\ m\_actors;}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ Actor\ principal\ que\ representa\ al\ modelo\ Alien.}}
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU::TSharedPointer<Actor>}}\ m\_alien;}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ Puntero\ al\ modelo\ 3D\ cargado.}}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{class_model3_d}{Model3D}}*\ m\_model;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ Estructura\ con\ datos\ de\ proyección y\ tamaño del\ viewport.}}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{struct_c_b_change_on_resize}{CBChangeOnResize}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cbChangesOnResize;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ Estructura\ con\ datos\ constantes\ que\ casi\ no\ cambian.}}
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{struct_c_b_never_changes}{CBNeverChanges}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cbNeverChanges;}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//CBChangesEveryFrame\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cb;}}
+\DoxyCodeLine{00136\ \};}
+
+\end{DoxyCode}

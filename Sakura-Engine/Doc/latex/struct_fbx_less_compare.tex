@@ -1,0 +1,55 @@
+\doxysection{Fbx\+Less\+Compare\texorpdfstring{$<$}{<} Type \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{struct_fbx_less_compare}{}\label{struct_fbx_less_compare}\index{FbxLessCompare$<$ Type $>$@{FbxLessCompare$<$ Type $>$}}
+
+
+{\ttfamily \#include $<$fbxmap.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_fbx_less_compare_ae928c1cd53fbd36a8ed7497b4d6accc9}\label{struct_fbx_less_compare_ae928c1cd53fbd36a8ed7497b4d6accc9} 
+int {\bfseries operator()} (const Type \&p\+Left, const Type \&p\+Right) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Type$>$\newline
+struct Fbx\+Less\+Compare$<$ Type $>$}
+Default compare functor for \doxylink{class_fbx_map}{Fbx\+Map} and \doxylink{class_fbx_set}{Fbx\+Set}, which assumes operator \texorpdfstring{$<$}{<} is defined. Here is examples of different compare class implementations\+: With Key = int 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }IntCompare}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ operator()(\textcolor{keywordtype}{int}\ pKeyA,\ \textcolor{keywordtype}{int}\ pKeyB)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pKeyA\ <\ pKeyB\ ?\ -\/1\ :\ (pKeyA\ >\ pKeyB\ ?\ 1\ :\ 0);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+ With Key = Class 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }ClassCompare}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ operator()(\textcolor{keyword}{const}\ Class\&\ pKeyA,\ \textcolor{keyword}{const}\ Class\&\ pKeyB)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pKeyA\ <\ pKeyB\ ?\ -\/1\ :\ (pKeyA\ >\ pKeyB\ ?\ 1\ :\ 0);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+ With Key = char\texorpdfstring{$\ast$}{*} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }StrCompare}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ operator()(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pKeyA,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pKeyB)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ strcmp(pKeyA,\ pKeyB);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+ 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/base/\mbox{\hyperlink{fbxmap_8h}{fbxmap.\+h}}\end{DoxyCompactItemize}

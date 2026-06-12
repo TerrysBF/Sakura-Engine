@@ -1,0 +1,119 @@
+\doxysection{fbxtimecode.\+h}
+\hypertarget{fbxtimecode_8h_source}{}\label{fbxtimecode_8h_source}\index{include/fbx/fbxsdk/core/base/fbxtimecode.h@{include/fbx/fbxsdk/core/base/fbxtimecode.h}}
+\mbox{\hyperlink{fbxtimecode_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2018\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_BASE\_TIMECODE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_BASE\_TIMECODE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_ZERO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBXSDK\_LONGLONG(0)\ \ }}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_EPSILON\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBXSDK\_LONGLONG(1)}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MINFINITY\ \ \ \ \ \ \ \ \ \ \ \ \ FBXSDK\_LONGLONG(-\/0x7fffffffffffffff)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_INFINITY\ \ \ \ \ \ \ \ \ \ \ \ \ \ FBXSDK\_LONGLONG(0x7fffffffffffffff)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_FIX\_DEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBXSDK\_LONGLONG(100000000)}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_LEGACY\_MILLISECOND\ \ \ \ FBXSDK\_LONGLONG(46186158)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_LEGACY\_SECOND\ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_LEGACY\_MILLISECOND*1000)}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MILLISECOND\ \ \ \ \ \ \ \ \ \ \ FBXSDK\_LONGLONG(141120)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_SECOND\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_MILLISECOND*1000)}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MINUTE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_SECOND*60)}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_HOUR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_MINUTE*60)}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_DAY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_HOUR*24)}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ Frame\ @\ 30\ Hz}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_NTSC\_FIELD\ \ \ \ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_SECOND/30/2)}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_NTSC\_FRAME\ \ \ \ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_SECOND/30)}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ Frame\ @\ 29.9700299700\ Hz}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MNTSC\_FIELD\ \ \ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_MNTSC\_FRAME/2)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MNTSC\_FRAME\ \ \ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_SECOND/30*1001/1000)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MNTSC\_2\_FRAMES\ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_MNTSC\_FRAME*2)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MNTSC\_30\_FRAMES\ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_MNTSC\_FRAME*30)}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MNTSC\_1798\_FRAMES\ \ \ \ \ FbxLongLong(FBXSDK\_TC\_MNTSC\_FRAME*1798)\ \ \ \ \ }\textcolor{comment}{//\ leap\ minute}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MNTSC\_1800\_FRAMES\ \ \ \ \ FbxLongLong(FBXSDK\_TC\_MNTSC\_FRAME*1800)\ \ \ \ \ }\textcolor{comment}{//\ \string~1\ minute}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MNTSC\_17982\_FRAMES\ \ \ \ FbxLongLong(FBXSDK\_TC\_MNTSC\_FRAME*17982)\ \ \ \ }\textcolor{comment}{//\ \string~10\ minutes}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MNTSC\_107892\_FRAMES\ \ \ FbxLongLong(FBXSDK\_TC\_MNTSC\_FRAME*107892)\ \ \ }\textcolor{comment}{//\ \string~1\ hour}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MNTSC\_108000\_FRAMES\ \ \ FbxLongLong(FBXSDK\_TC\_MNTSC\_FRAME*108000)}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{comment}{//\ For\ 29.9700299700\ non-\/drop,\ btw\ :\ same\ values\ as\ with\ 23.976}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MNTSC\_1\_SECOND\ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_MNTSC\_FRAME*30)\ \ \ \ \ \ \ }\textcolor{comment}{//\ 1\ frame\ *\ 30}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MNTSC\_1\_MINUTE\ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_MNTSC\_1\_SECOND*60)\ \ \ \ }\textcolor{comment}{//\ 1\ minute\ (1800\ frames)}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MNTSC\_1\_HOUR\ \ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_MNTSC\_1\_SECOND*3600)\ \ }\textcolor{comment}{//\ 1\ hour}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MNTSC\_NUM\ \ \ \ \ \ \ \ \ \ \ \ \ FbxULong(FBXSDK\_TC\_FIX\_DEN*1000*30/1001)}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MNTSC\_DEN\ \ \ \ \ \ \ \ \ \ \ \ \ FBXSDK\_TC\_FIX\_DEN}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{comment}{//\ Frame\ @\ 25\ Hz}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_PAL\_FIELD\ \ \ \ \ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_SECOND/25/2)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_PAL\_FRAME\ \ \ \ \ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_SECOND/25)}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{comment}{//\ Frame\ @\ 24\ Hz}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_FILM\_FRAME\ \ \ \ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_SECOND/24)}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ Frame\ @\ 23.9760239760\ Hz}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MFILM\_FIELD\ \ \ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_MFILM\_FRAME/2)}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MFILM\_FRAME\ \ \ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_SECOND/24*1001/1000)}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MFILM\_1\_SECOND\ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_MFILM\_FRAME*24)\ \ \ \ \ \ \ }\textcolor{comment}{//\ 1\ frame\ *\ 24\ \ \ }}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MFILM\_1\_MINUTE\ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_MFILM\_1\_SECOND*60)\ \ \ \ }\textcolor{comment}{//\ 1\ minute\ (1440\ frames)}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MFILM\_1\_HOUR\ \ \ \ \ \ \ \ \ \ FbxLongLong(FBXSDK\_TC\_MFILM\_1\_SECOND*3600)\ \ }\textcolor{comment}{//\ 1\ hour}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MFILM\_NUM\ \ \ \ \ \ \ \ \ \ \ \ \ FbxULong(FBXSDK\_TC\_FIX\_DEN*1000*24/1001)}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_MFILM\_DEN\ \ \ \ \ \ \ \ \ \ \ \ \ FBXSDK\_TC\_FIX\_DEN}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_REM(quot,\ num,\ den)\ \ \ \ \ \ \ ((quot)\ =\ (num)\ /\ (den),\ (quot)\ *\ (den))}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_HOUR\_REM(quot,\ num,\ den)\ \ ((quot)\ =\ ((num\ -\/\ (-\/FbxLongLong(num\ <\ 0)\ \&\ (den\ -\/\ 1)))\ /\ (den)),\ (quot)\ *\ (den))}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ FBXSDK\_DLL\ FbxLongLong\ FbxTCSeconds(FbxLongLong\ pTime);}
+\DoxyCodeLine{00081\ FBXSDK\_DLL\ FbxLongLong\ FbxTCMinutes(FbxLongLong\ pTime);}
+\DoxyCodeLine{00082\ FBXSDK\_DLL\ FbxLongLong\ FbxTCHours(FbxLongLong\ pTime);}
+\DoxyCodeLine{00083\ FBXSDK\_DLL\ FbxLongLong\ FbxTCSetRate(\textcolor{keywordtype}{int}\ pHour,\ \textcolor{keywordtype}{int}\ pMinute,\ \textcolor{keywordtype}{int}\ pSecond,\ FbxLongLong\ pFrame,\ FbxLongLong\ pPeriod);}
+\DoxyCodeLine{00084\ FBXSDK\_DLL\ FbxLongLong\ FbxTCGetRate(FbxLongLong\ pTime,\ \textcolor{keywordtype}{int}\&\ pHour,\ \textcolor{keywordtype}{int}\&\ pMinute,\ \textcolor{keywordtype}{int}\&\ pSecond,\ \textcolor{keywordtype}{int}\&\ pFrame,\ FbxLongLong\ pPeriod);}
+\DoxyCodeLine{00085\ FBXSDK\_DLL\ FbxLongLong\ FbxTCSetNTSC(\textcolor{keywordtype}{int}\ pHour,\ \textcolor{keywordtype}{int}\ pMinute,\ \textcolor{keywordtype}{int}\ pSecond,\ FbxLongLong\ pFrame,\ \textcolor{keywordtype}{int}\ pField);}
+\DoxyCodeLine{00086\ FBXSDK\_DLL\ FbxLongLong\ FbxTCGetNTSC(FbxLongLong\ pTime,\ \textcolor{keywordtype}{int}\&\ pHour,\ \textcolor{keywordtype}{int}\&\ pMinute,\ \textcolor{keywordtype}{int}\&\ pSecond,\ \textcolor{keywordtype}{int}\&\ pFrame,\ \textcolor{keywordtype}{int}\&\ pField);}
+\DoxyCodeLine{00087\ FBXSDK\_DLL\ FbxLongLong\ FbxTCSetMNTSCnd(\textcolor{keywordtype}{int}\ pHour,\ \textcolor{keywordtype}{int}\ pMinute,\ \textcolor{keywordtype}{int}\ pSecond,\ FbxLongLong\ pFrame,\ \textcolor{keywordtype}{int}\ pField);}
+\DoxyCodeLine{00088\ FBXSDK\_DLL\ FbxLongLong\ FbxTCGetMNTSCnd(FbxLongLong\ pTime,\ \textcolor{keywordtype}{int}\&\ pHour,\ \textcolor{keywordtype}{int}\&\ pMinute,\ \textcolor{keywordtype}{int}\&\ pSecond,\ \textcolor{keywordtype}{int}\&\ pFrame,\ \textcolor{keywordtype}{int}\&\ pField);}
+\DoxyCodeLine{00089\ FBXSDK\_DLL\ FbxLongLong\ FbxTCSetMNTSC\_2Xnd(\textcolor{keywordtype}{int}\ pHour,\ \textcolor{keywordtype}{int}\ pMinute,\ \textcolor{keywordtype}{int}\ pSecond,\ FbxLongLong\ pFrame,\ \textcolor{keywordtype}{int}\ pField);}
+\DoxyCodeLine{00090\ FBXSDK\_DLL\ FbxLongLong\ FbxTCGetMNTSC\_2Xnd(FbxLongLong\ pTime,\ \textcolor{keywordtype}{int}\&\ pHour,\ \textcolor{keywordtype}{int}\&\ pMinute,\ \textcolor{keywordtype}{int}\&\ pSecond,\ \textcolor{keywordtype}{int}\&\ pFrame,\ \textcolor{keywordtype}{int}\&\ pField);}
+\DoxyCodeLine{00091\ FBXSDK\_DLL\ FbxLongLong\ FbxTCSetMNTSC\_4Xnd(\textcolor{keywordtype}{int}\ pHour,\ \textcolor{keywordtype}{int}\ pMinute,\ \textcolor{keywordtype}{int}\ pSecond,\ FbxLongLong\ pFrame,\ \textcolor{keywordtype}{int}\ pField);}
+\DoxyCodeLine{00092\ FBXSDK\_DLL\ FbxLongLong\ FbxTCGetMNTSC\_4Xnd(FbxLongLong\ pTime,\ \textcolor{keywordtype}{int}\&\ pHour,\ \textcolor{keywordtype}{int}\&\ pMinute,\ \textcolor{keywordtype}{int}\&\ pSecond,\ \textcolor{keywordtype}{int}\&\ pFrame,\ \textcolor{keywordtype}{int}\&\ pField);}
+\DoxyCodeLine{00093\ FBXSDK\_DLL\ FbxLongLong\ FbxTCSetMNTSC(\textcolor{keywordtype}{int}\ pHour,\ \textcolor{keywordtype}{int}\ pMinute,\ \textcolor{keywordtype}{int}\ pSecond,\ FbxLongLong\ pFrame,\ \textcolor{keywordtype}{int}\ pField);}
+\DoxyCodeLine{00094\ FBXSDK\_DLL\ FbxLongLong\ FbxTCGetMNTSC(FbxLongLong\ pTime,\ \textcolor{keywordtype}{int}\&\ pHour,\ \textcolor{keywordtype}{int}\&\ pMinute,\ \textcolor{keywordtype}{int}\&\ pSecond,\ \textcolor{keywordtype}{int}\&\ pFrame,\ \textcolor{keywordtype}{int}\&\ pField);}
+\DoxyCodeLine{00095\ FBXSDK\_DLL\ FbxLongLong\ FbxTCSetPAL(\textcolor{keywordtype}{int}\ pHour,\ \textcolor{keywordtype}{int}\ pMinute,\ \textcolor{keywordtype}{int}\ pSecond,\ FbxLongLong\ pFrame,\ \textcolor{keywordtype}{int}\ pField);}
+\DoxyCodeLine{00096\ FBXSDK\_DLL\ FbxLongLong\ FbxTCGetPAL(FbxLongLong\ pTime,\ \textcolor{keywordtype}{int}\&\ pHour,\ \textcolor{keywordtype}{int}\&\ pMinute,\ \textcolor{keywordtype}{int}\&\ pSecond,\ \textcolor{keywordtype}{int}\&\ pFrame,\ \textcolor{keywordtype}{int}\&\ pField);}
+\DoxyCodeLine{00097\ FBXSDK\_DLL\ FbxLongLong\ FbxTCSetFILM(\textcolor{keywordtype}{int}\ pHour,\ \textcolor{keywordtype}{int}\ pMinute,\ \textcolor{keywordtype}{int}\ pSecond,\ FbxLongLong\ pFrame);}
+\DoxyCodeLine{00098\ FBXSDK\_DLL\ FbxLongLong\ FbxTCGetFILM(FbxLongLong\ pTime,\ \textcolor{keywordtype}{int}\&\ pHour,\ \textcolor{keywordtype}{int}\&\ pMinute,\ \textcolor{keywordtype}{int}\&\ pSecond,\ \textcolor{keywordtype}{int}\&\ pFrame);}
+\DoxyCodeLine{00099\ FBXSDK\_DLL\ FbxLongLong\ FbxTCSetFILMND(\textcolor{keywordtype}{int}\ pHour,\ \textcolor{keywordtype}{int}\ pMinute,\ \textcolor{keywordtype}{int}\ pSecond,\ FbxLongLong\ pFrame,\ \textcolor{keywordtype}{int}\ pField);}
+\DoxyCodeLine{00100\ FBXSDK\_DLL\ FbxLongLong\ FbxTCGetFILMND(FbxLongLong\ pTime,\ \textcolor{keywordtype}{int}\&\ pHour,\ \textcolor{keywordtype}{int}\&\ pMinute,\ \textcolor{keywordtype}{int}\&\ pSecond,\ \textcolor{keywordtype}{int}\&\ pFrame,\ \textcolor{keywordtype}{int}\&\ pField);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ FBXSDK\_DLL\ FbxLongLong\ FbxTCFromLegacy(FbxLongLong\ pTime);}
+\DoxyCodeLine{00103\ FBXSDK\_DLL\ FbxLongLong\ FbxTCToLegacy(FbxLongLong\ pTime);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00106\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00107\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_LEGACY\_DEFINITION\ \ \ \ \ \ \ \ \ \ \ 127}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ FBXSDK\_TC\_STANDARD\_DEFINITION\ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00110\ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ \ \ \ \ \ FbxTCSetDefinition(\textcolor{keywordtype}{int}\ pType);}
+\DoxyCodeLine{00111\ FBXSDK\_DLL\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ FbxTCGetDefinition();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_BASE\_TIMECODE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

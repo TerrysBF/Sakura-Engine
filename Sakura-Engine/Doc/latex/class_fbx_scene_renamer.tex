@@ -1,0 +1,122 @@
+\doxysection{Fbx\+Scene\+Renamer Class Reference}
+\hypertarget{class_fbx_scene_renamer}{}\label{class_fbx_scene_renamer}\index{FbxSceneRenamer@{FbxSceneRenamer}}
+
+
+{\ttfamily \#include $<$fbxrenamingstrategy.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_scene_renamer_a9279ee1a645d6499b934adbc376f8678}{ERenaming\+Mode}} \{ \newline
+{\bfseries e\+None}
+, {\bfseries e\+MAYA\+\_\+\+TO\+\_\+\+FBX5}
+, {\bfseries e\+MAYA\+\_\+\+TO\+\_\+\+FBX\+\_\+\+MB75}
+, {\bfseries e\+MAYA\+\_\+\+TO\+\_\+\+FBX\+\_\+\+MB70}
+, \newline
+{\bfseries e\+FBXMB75\+\_\+\+TO\+\_\+\+FBXMB70}
+, {\bfseries e\+FBX\+\_\+\+TO\+\_\+\+FBX}
+, {\bfseries e\+MAYA\+\_\+\+TO\+\_\+\+FBX}
+, {\bfseries e\+FBX\+\_\+\+TO\+\_\+\+MAYA}
+, \newline
+{\bfseries e\+LW\+\_\+\+TO\+\_\+\+FBX}
+, {\bfseries e\+FBX\+\_\+\+TO\+\_\+\+LW}
+, {\bfseries e\+XSI\+\_\+\+TO\+\_\+\+FBX}
+, {\bfseries e\+FBX\+\_\+\+TO\+\_\+\+XSI}
+, \newline
+{\bfseries e\+MAX\+\_\+\+TO\+\_\+\+FBX}
+, {\bfseries e\+FBX\+\_\+\+TO\+\_\+\+MAX}
+, {\bfseries e\+MB\+\_\+\+TO\+\_\+\+FBX}
+, {\bfseries e\+FBX\+\_\+\+TO\+\_\+\+MB}
+, \newline
+{\bfseries e\+DAE\+\_\+\+TO\+\_\+\+FBX}
+, {\bfseries e\+FBX\+\_\+\+TO\+\_\+\+DAE}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_scene_renamer_acb44c3ef9f338d6f55b57882505d9edb}{Fbx\+Scene\+Renamer}} (\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*}p\+Scene)
+\item 
+\Hypertarget{class_fbx_scene_renamer_a68ee26ac24c461b9b11085feec2094f4}\label{class_fbx_scene_renamer_a68ee26ac24c461b9b11085feec2094f4} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Fbx\+Scene\+Renamer} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fbx_scene_renamer_a08a9c3b587efe5422bd5b79f01b42e6d}{Rename\+For}} (\mbox{\hyperlink{class_fbx_scene_renamer_a9279ee1a645d6499b934adbc376f8678}{ERenaming\+Mode}} p\+Mode)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_fbx_scene_renamer}{Fbx\+Scene\+Renamer} provides a way to easily rename objects in a scene without using the \doxylink{class_fbx_renaming_strategy}{Fbx\+Renaming\+Strategy} class. \doxylink{class_fbx_scene_renamer}{Fbx\+Scene\+Renamer} can remove name clashing and illegal characters. It also manages namespaces.
+
+Example\+: Maya only accepts names with letters, digits, or underscores, and we want to convert all the names of a scene from FBX format to Maya format. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_fbx_scene_renamer_acb44c3ef9f338d6f55b57882505d9edb}{FbxSceneRenamer}}\ lSceneRenamer(pScene);}
+\DoxyCodeLine{lSceneRenamer.RenameFor(FbxSceneRenamer::eFBX\_TO\_MAYA);}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_fbx_renaming_strategy}{Fbx\+Renaming\+Strategy} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_fbx_scene_renamer_a9279ee1a645d6499b934adbc376f8678}\index{FbxSceneRenamer@{FbxSceneRenamer}!ERenamingMode@{ERenamingMode}}
+\index{ERenamingMode@{ERenamingMode}!FbxSceneRenamer@{FbxSceneRenamer}}
+\doxysubsubsection{\texorpdfstring{ERenamingMode}{ERenamingMode}}
+{\footnotesize\ttfamily \label{class_fbx_scene_renamer_a9279ee1a645d6499b934adbc376f8678} 
+enum \mbox{\hyperlink{class_fbx_scene_renamer_a9279ee1a645d6499b934adbc376f8678}{Fbx\+Scene\+Renamer\+::\+ERenaming\+Mode}}}
+
+The Mode describing from which format to which format.
+\begin{DoxyItemize}
+\item {\itshape e\+None} 
+\item {\itshape e\+MAYA\+\_\+\+TO\+\_\+\+FBX5} 
+\item {\itshape e\+MAYA\+\_\+\+TO\+\_\+\+FBX\+\_\+\+MB75} 
+\item {\itshape e\+MAYA\+\_\+\+TO\+\_\+\+FBX\+\_\+\+MB70} 
+\item {\itshape e\+FBXMB75\+\_\+\+TO\+\_\+\+FBXMB70} 
+\item {\itshape e\+FBX\+\_\+\+TO\+\_\+\+FBX} 
+\item {\itshape e\+MAYA\+\_\+\+TO\+\_\+\+FBX} 
+\item {\itshape e\+FBX\+\_\+\+TO\+\_\+\+MAYA} 
+\item {\itshape e\+LW\+\_\+\+TO\+\_\+\+FBX} 
+\item {\itshape e\+FBX\+\_\+\+TO\+\_\+\+LW} 
+\item {\itshape e\+XSI\+\_\+\+TO\+\_\+\+FBX} 
+\item {\itshape e\+FBX\+\_\+\+TO\+\_\+\+XSI} 
+\item {\itshape e\+MAX\+\_\+\+TO\+\_\+\+FBX} 
+\item {\itshape e\+FBX\+\_\+\+TO\+\_\+\+MAX} 
+\item {\itshape e\+MB\+\_\+\+TO\+\_\+\+FBX} 
+\item {\itshape e\+FBX\+\_\+\+TO\+\_\+\+MB} 
+\item {\itshape e\+DAE\+\_\+\+TO\+\_\+\+FBX} 
+\item {\itshape e\+FBX\+\_\+\+TO\+\_\+\+DAE} 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_scene_renamer_acb44c3ef9f338d6f55b57882505d9edb}\index{FbxSceneRenamer@{FbxSceneRenamer}!FbxSceneRenamer@{FbxSceneRenamer}}
+\index{FbxSceneRenamer@{FbxSceneRenamer}!FbxSceneRenamer@{FbxSceneRenamer}}
+\doxysubsubsection{\texorpdfstring{FbxSceneRenamer()}{FbxSceneRenamer()}}
+{\footnotesize\ttfamily \label{class_fbx_scene_renamer_acb44c3ef9f338d6f55b57882505d9edb} 
+Fbx\+Scene\+Renamer\+::\+Fbx\+Scene\+Renamer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*}}]{p\+Scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em p\+Scene} & A scene which contains objects to be renamed. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_scene_renamer_a08a9c3b587efe5422bd5b79f01b42e6d}\index{FbxSceneRenamer@{FbxSceneRenamer}!RenameFor@{RenameFor}}
+\index{RenameFor@{RenameFor}!FbxSceneRenamer@{FbxSceneRenamer}}
+\doxysubsubsection{\texorpdfstring{RenameFor()}{RenameFor()}}
+{\footnotesize\ttfamily \label{class_fbx_scene_renamer_a08a9c3b587efe5422bd5b79f01b42e6d} 
+void Fbx\+Scene\+Renamer\+::\+Rename\+For (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_scene_renamer_a9279ee1a645d6499b934adbc376f8678}{ERenaming\+Mode}}}]{p\+Mode}{}\end{DoxyParamCaption})}
+
+Rename the objects of the scene according the specific mode. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Mode} & A mode describing from which format to which format. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/utils/\mbox{\hyperlink{fbxrenamingstrategy_8h}{fbxrenamingstrategy.\+h}}\end{DoxyCompactItemize}

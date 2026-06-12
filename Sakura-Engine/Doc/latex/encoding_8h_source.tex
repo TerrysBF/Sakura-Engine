@@ -1,0 +1,204 @@
+\doxysection{encoding.\+h}
+\hypertarget{encoding_8h_source}{}\label{encoding_8h_source}\index{include/fbx/libxml2/libxml/encoding.h@{include/fbx/libxml2/libxml/encoding.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Summary:\ interface\ for\ the\ encoding\ conversion\ functions}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Description:\ interface\ for\ the\ encoding\ conversion\ functions\ needed\ for}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ XML\ basic\ encoding\ and\ iconv()\ support.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Related\ specs\ are}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ rfc2044\ \ \ \ \ \ \ \ (UTF-\/8\ and\ UTF-\/16)\ F.\ Yergeau\ Alis\ Technologies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ [ISO-\/10646]\ \ \ \ UTF-\/8\ and\ UTF-\/16\ in\ Annexes}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ [ISO-\/8859-\/1]\ \ \ ISO\ Latin-\/1\ characters\ codes.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ [UNICODE]\ \ \ \ \ \ The\ Unicode\ Consortium,\ "{}The\ Unicode\ Standard\ -\/-\/}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Worldwide\ Character\ Encoding\ -\/-\/\ Version\ 1.0"{},\ Addison-\/}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Wesley,\ Volume\ 1,\ 1991,\ Volume\ 2,\ 1992.\ \ UTF-\/8\ is}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ described\ in\ Unicode\ Technical\ Report\ \#4.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ [US-\/ASCII]\ \ \ \ \ Coded\ Character\ Set-\/-\/7-\/bit\ American\ Standard\ Code\ for}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Information\ Interchange,\ ANSI\ X3.4-\/1986.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ Copy:\ See\ Copyright\ for\ the\ status\ of\ this\ software.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ Author:\ Daniel\ Veillard}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_CHAR\_ENCODING\_H\_\_}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ \_\_XML\_CHAR\_ENCODING\_H\_\_}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <libxml/xmlversion.h>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_ICONV\_ENABLED}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <iconv.h>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ *\ xmlCharEncoding:}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *\ Predefined\ values\ for\ some\ standard\ encodings.}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ *\ Libxml\ does\ not\ do\ beforehand\ translation\ on\ UTF8\ and\ ISOLatinX.}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ It\ also\ supports\ ASCII,\ ISO-\/8859-\/1,\ and\ UTF16\ (LE\ and\ BE)\ by\ default.}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *\ Anything\ else\ would\ have\ to\ be\ translated\ to\ UTF8\ before\ being}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ given\ to\ the\ parser\ itself.\ The\ BOM\ for\ UTF16\ and\ the\ encoding}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ declaration\ are\ looked\ at\ and\ a\ converter\ is\ looked\ for\ at\ that}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *\ point.\ If\ not\ found\ the\ parser\ stops\ here\ as\ asked\ by\ the\ XML\ REC.\ A}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ converter\ can\ be\ registered\ by\ the\ user\ using\ xmlRegisterCharEncodingHandler}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ but\ the\ current\ form\ doesn't\ allow\ stateful\ transcoding\ (a\ serious}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ problem\ agreed\ !).\ If\ iconv\ has\ been\ found\ it\ will\ be\ used}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ automatically\ and\ allow\ stateful\ transcoding,\ the\ simplest\ is\ then}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ to\ be\ sure\ to\ enable\ iconv\ and\ to\ provide\ iconv\ libs\ for\ the\ encoding}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ support\ needed.}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ *\ Note\ that\ the\ generic\ "{}UTF-\/16"{}\ is\ not\ a\ predefined\ value.\ \ Instead,\ only}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ *\ the\ specific\ UTF-\/16LE\ and\ UTF-\/16BE\ are\ present.}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00056\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ XML\_CHAR\_ENCODING\_ERROR=\ \ \ -\/1,\ \textcolor{comment}{/*\ No\ char\ encoding\ detected\ */}}
+\DoxyCodeLine{00058\ \ \ \ \ XML\_CHAR\_ENCODING\_NONE=\ 0,\ \textcolor{comment}{/*\ No\ char\ encoding\ detected\ */}}
+\DoxyCodeLine{00059\ \ \ \ \ XML\_CHAR\_ENCODING\_UTF8=\ 1,\ \textcolor{comment}{/*\ UTF-\/8\ */}}
+\DoxyCodeLine{00060\ \ \ \ \ XML\_CHAR\_ENCODING\_UTF16LE=\ \ 2,\ \textcolor{comment}{/*\ UTF-\/16\ little\ endian\ */}}
+\DoxyCodeLine{00061\ \ \ \ \ XML\_CHAR\_ENCODING\_UTF16BE=\ \ 3,\ \textcolor{comment}{/*\ UTF-\/16\ big\ endian\ */}}
+\DoxyCodeLine{00062\ \ \ \ \ XML\_CHAR\_ENCODING\_UCS4LE=\ \ \ 4,\ \textcolor{comment}{/*\ UCS-\/4\ little\ endian\ */}}
+\DoxyCodeLine{00063\ \ \ \ \ XML\_CHAR\_ENCODING\_UCS4BE=\ \ \ 5,\ \textcolor{comment}{/*\ UCS-\/4\ big\ endian\ */}}
+\DoxyCodeLine{00064\ \ \ \ \ XML\_CHAR\_ENCODING\_EBCDIC=\ \ \ 6,\ \textcolor{comment}{/*\ EBCDIC\ uh!\ */}}
+\DoxyCodeLine{00065\ \ \ \ \ XML\_CHAR\_ENCODING\_UCS4\_2143=7,\ \textcolor{comment}{/*\ UCS-\/4\ unusual\ ordering\ */}}
+\DoxyCodeLine{00066\ \ \ \ \ XML\_CHAR\_ENCODING\_UCS4\_3412=8,\ \textcolor{comment}{/*\ UCS-\/4\ unusual\ ordering\ */}}
+\DoxyCodeLine{00067\ \ \ \ \ XML\_CHAR\_ENCODING\_UCS2=\ 9,\ \textcolor{comment}{/*\ UCS-\/2\ */}}
+\DoxyCodeLine{00068\ \ \ \ \ XML\_CHAR\_ENCODING\_8859\_1=\ \ \ 10,\textcolor{comment}{/*\ ISO-\/8859-\/1\ ISO\ Latin\ 1\ */}}
+\DoxyCodeLine{00069\ \ \ \ \ XML\_CHAR\_ENCODING\_8859\_2=\ \ \ 11,\textcolor{comment}{/*\ ISO-\/8859-\/2\ ISO\ Latin\ 2\ */}}
+\DoxyCodeLine{00070\ \ \ \ \ XML\_CHAR\_ENCODING\_8859\_3=\ \ \ 12,\textcolor{comment}{/*\ ISO-\/8859-\/3\ */}}
+\DoxyCodeLine{00071\ \ \ \ \ XML\_CHAR\_ENCODING\_8859\_4=\ \ \ 13,\textcolor{comment}{/*\ ISO-\/8859-\/4\ */}}
+\DoxyCodeLine{00072\ \ \ \ \ XML\_CHAR\_ENCODING\_8859\_5=\ \ \ 14,\textcolor{comment}{/*\ ISO-\/8859-\/5\ */}}
+\DoxyCodeLine{00073\ \ \ \ \ XML\_CHAR\_ENCODING\_8859\_6=\ \ \ 15,\textcolor{comment}{/*\ ISO-\/8859-\/6\ */}}
+\DoxyCodeLine{00074\ \ \ \ \ XML\_CHAR\_ENCODING\_8859\_7=\ \ \ 16,\textcolor{comment}{/*\ ISO-\/8859-\/7\ */}}
+\DoxyCodeLine{00075\ \ \ \ \ XML\_CHAR\_ENCODING\_8859\_8=\ \ \ 17,\textcolor{comment}{/*\ ISO-\/8859-\/8\ */}}
+\DoxyCodeLine{00076\ \ \ \ \ XML\_CHAR\_ENCODING\_8859\_9=\ \ \ 18,\textcolor{comment}{/*\ ISO-\/8859-\/9\ */}}
+\DoxyCodeLine{00077\ \ \ \ \ XML\_CHAR\_ENCODING\_2022\_JP=\ \ 19,\textcolor{comment}{/*\ ISO-\/2022-\/JP\ */}}
+\DoxyCodeLine{00078\ \ \ \ \ XML\_CHAR\_ENCODING\_SHIFT\_JIS=20,\textcolor{comment}{/*\ Shift\_JIS\ */}}
+\DoxyCodeLine{00079\ \ \ \ \ XML\_CHAR\_ENCODING\_EUC\_JP=\ \ \ 21,\textcolor{comment}{/*\ EUC-\/JP\ */}}
+\DoxyCodeLine{00080\ \ \ \ \ XML\_CHAR\_ENCODING\_ASCII=\ \ \ \ 22\ \textcolor{comment}{/*\ pure\ ASCII\ */}}
+\DoxyCodeLine{00081\ \}\ xmlCharEncoding;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{typedef}\ int\ (*\ xmlCharEncodingInputFunc)(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *out,\ \textcolor{keywordtype}{int}\ *outlen,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *in,\ \textcolor{keywordtype}{int}\ *inlen);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00121\ \textcolor{keyword}{typedef}\ int\ (*\ xmlCharEncodingOutputFunc)(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *out,\ \textcolor{keywordtype}{int}\ *outlen,}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *in,\ \textcolor{keywordtype}{int}\ *inlen);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00126\ \textcolor{comment}{\ *\ Block\ defining\ the\ handlers\ for\ non\ UTF-\/8\ encodings.}}
+\DoxyCodeLine{00127\ \textcolor{comment}{\ *\ If\ iconv\ is\ supported,\ there\ are\ two\ extra\ fields.}}
+\DoxyCodeLine{00128\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00129\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__xml_char_encoding_handler}{\_xmlCharEncodingHandler}}\ xmlCharEncodingHandler;}
+\DoxyCodeLine{00130\ \textcolor{keyword}{typedef}\ xmlCharEncodingHandler\ *xmlCharEncodingHandlerPtr;}
+\DoxyCodeLine{00131\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__xml_char_encoding_handler}{\_xmlCharEncodingHandler}}\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{char}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *name;}
+\DoxyCodeLine{00133\ \ \ \ \ xmlCharEncodingInputFunc\ \ \ input;}
+\DoxyCodeLine{00134\ \ \ \ \ xmlCharEncodingOutputFunc\ \ output;}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_ICONV\_ENABLED}}
+\DoxyCodeLine{00136\ \ \ \ \ iconv\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconv\_in;}
+\DoxyCodeLine{00137\ \ \ \ \ iconv\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconv\_out;}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_ICONV\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_ICU\_ENABLED}}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keyword}{struct\ }\_uconv\_t\ \ \ \ \ \ \ \ \ \ \ \ *uconv\_in;}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{struct\ }\_uconv\_t\ \ \ \ \ \ \ \ \ \ \ \ *uconv\_out;}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_ICU\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00143\ \};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00146\ \}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#include\ <libxml/tree.h>}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00150\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00154\ \textcolor{comment}{\ *\ Interfaces\ for\ encoding\ handlers.}}
+\DoxyCodeLine{00155\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00156\ XML\_DEPRECATED}
+\DoxyCodeLine{00157\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00158\ \ \ \ \ xmlInitCharEncodingHandlers\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00159\ XML\_DEPRECATED}
+\DoxyCodeLine{00160\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00161\ \ \ \ \ xmlCleanupCharEncodingHandlers\ \ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00162\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00163\ \ \ \ \ xmlRegisterCharEncodingHandler\ \ (xmlCharEncodingHandlerPtr\ handler);}
+\DoxyCodeLine{00164\ XMLPUBFUN\ xmlCharEncodingHandlerPtr\ XMLCALL}
+\DoxyCodeLine{00165\ \ \ \ \ xmlGetCharEncodingHandler\ \ \ (xmlCharEncoding\ enc);}
+\DoxyCodeLine{00166\ XMLPUBFUN\ xmlCharEncodingHandlerPtr\ XMLCALL}
+\DoxyCodeLine{00167\ \ \ \ \ xmlFindCharEncodingHandler\ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name);}
+\DoxyCodeLine{00168\ XMLPUBFUN\ xmlCharEncodingHandlerPtr\ XMLCALL}
+\DoxyCodeLine{00169\ \ \ \ \ xmlNewCharEncodingHandler\ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlCharEncodingInputFunc\ input,}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlCharEncodingOutputFunc\ output);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00174\ \textcolor{comment}{\ *\ Interfaces\ for\ encoding\ names\ and\ aliases.}}
+\DoxyCodeLine{00175\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00176\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00177\ \ \ \ \ xmlAddEncodingAlias\ \ \ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name,}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *alias);}
+\DoxyCodeLine{00179\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00180\ \ \ \ \ xmlDelEncodingAlias\ \ \ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *alias);}
+\DoxyCodeLine{00181\ XMLPUBFUN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ XMLCALL}
+\DoxyCodeLine{00182\ \ \ \ \ xmlGetEncodingAlias\ \ \ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *alias);}
+\DoxyCodeLine{00183\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00184\ \ \ \ \ xmlCleanupEncodingAliases\ \ \ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00185\ XMLPUBFUN\ xmlCharEncoding\ XMLCALL}
+\DoxyCodeLine{00186\ \ \ \ \ xmlParseCharEncoding\ \ \ \ \ \ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *name);}
+\DoxyCodeLine{00187\ XMLPUBFUN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ XMLCALL}
+\DoxyCodeLine{00188\ \ \ \ \ xmlGetCharEncodingName\ \ \ \ \ \ (xmlCharEncoding\ enc);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00191\ \textcolor{comment}{\ *\ Interfaces\ directly\ used\ by\ the\ parsers.}}
+\DoxyCodeLine{00192\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00193\ XMLPUBFUN\ xmlCharEncoding\ XMLCALL}
+\DoxyCodeLine{00194\ \ \ \ \ xmlDetectCharEncoding\ \ \ \ \ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *in,}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ len);}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00198\ \ \ \ \ xmlCharEncOutFunc\ \ \ \ \ \ \ (xmlCharEncodingHandler\ *handler,}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlBufferPtr\ out,}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlBufferPtr\ in);}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00203\ \ \ \ \ xmlCharEncInFunc\ \ \ \ \ \ \ \ (xmlCharEncodingHandler\ *handler,}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlBufferPtr\ out,}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlBufferPtr\ in);}
+\DoxyCodeLine{00206\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00207\ \ \ \ \ xmlCharEncFirstLine\ \ \ \ \ (xmlCharEncodingHandler\ *handler,}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlBufferPtr\ out,}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlBufferPtr\ in);}
+\DoxyCodeLine{00210\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00211\ \ \ \ \ xmlCharEncCloseFunc\ \ \ \ \ (xmlCharEncodingHandler\ *handler);}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00214\ \textcolor{comment}{\ *\ Export\ a\ few\ useful\ functions}}
+\DoxyCodeLine{00215\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_OUTPUT\_ENABLED}}
+\DoxyCodeLine{00217\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00218\ \ \ \ \ UTF8Toisolat1\ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *out,}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *outlen,}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *in,}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *inlen);}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_OUTPUT\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00223\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00224\ \ \ \ \ isolat1ToUTF8\ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *out,}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *outlen,}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *in,}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *inlen);}
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00229\ \}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_XML\_CHAR\_ENCODING\_H\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

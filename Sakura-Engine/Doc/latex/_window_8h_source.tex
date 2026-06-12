@@ -1,0 +1,50 @@
+\doxysection{Window.\+h}
+\hypertarget{_window_8h_source}{}\label{_window_8h_source}\index{include/Window.h@{include/Window.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Clase\ sencilla\ que\ envuelve\ una\ ventana\ Win32.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Se\ encarga\ de\ crear\ la\ ventana,\ guardar\ el\ handle\ y\ el\ tamaño.}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }Window}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \textcolor{comment}{//\ Constructor\ por\ defecto:\ NO\ crea\ la\ ventana.}}
+\DoxyCodeLine{00010\ \ \ Window()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ Evitamos\ creacion\ de\ copias\ de\ Windows}}
+\DoxyCodeLine{00013\ \ \ \ \ Window(\textcolor{keyword}{const}\ Window\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00014\ \ \ \ \ Window\&\ operator=(\textcolor{keyword}{const}\ Window\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \textcolor{comment}{//\ Destructor:\ destruye\ la\ ventana\ y\ desregistra\ la\ clase.}}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{class_window_a245d821e6016fa1f6970ccbbedd635f6}{\string~Window}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \textcolor{comment}{//\ Crea\ y\ muestra\ la\ ventana.}}
+\DoxyCodeLine{00020\ \ \ \textcolor{comment}{//\ Devuelve\ S\_OK\ si\ todo\ salió\ bien,\ E\_FAIL\ en\ caso\ contrario.}}
+\DoxyCodeLine{00021\ \ \ HRESULT\ \mbox{\hyperlink{class_window_aff10a1b05ac05af6aef3e84a7b0d9b3b}{init}}(HINSTANCE\ hInstance,}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ nCmdShow,}
+\DoxyCodeLine{00023\ \ \ \ \ WNDPROC\ wndProc,}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ width\ =\ 1280,}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ height\ =\ 720,}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{const}\ std::wstring\&\ title\ =\ L\textcolor{stringliteral}{"{}Sakura-\/Engine"{}});}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{comment}{//\ Procesa\ los\ mensajes\ de\ Windows.}}
+\DoxyCodeLine{00029\ \ \ \textcolor{comment}{//\ Devuelve\ false\ cuando\ se\ recibe\ WM\_QUIT.}}
+\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_window_a6282ff116128c88fe5baf23803962e03}{processMessages}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ HWND\ \ \ \ \ getHWND()\textcolor{keyword}{\ \ \ const\ }\{\ \textcolor{keywordflow}{return}\ m\_hWnd;\ \}}
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{unsigned}\ getWidth()\textcolor{keyword}{\ \ const\ }\{\ \textcolor{keywordflow}{return}\ m\_width;\ \}}
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{unsigned}\ getHeight()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_height;\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{//\ Para\ no\ romper\ el\ código\ que\ ya\ usa\ m\_width\ /\ m\_height\ /\ m\_hWnd}}
+\DoxyCodeLine{00037\ \ \ \textcolor{comment}{//\ los\ dejamos\ públicos.}}
+\DoxyCodeLine{00038\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ HWND\ \ \ \ \ \ \ \ m\_hWnd\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00040\ \ \ HINSTANCE\ \ \ m\_hInstance\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{unsigned}\ \ \ \ m\_width\ =\ 0;}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{unsigned}\ \ \ \ m\_height\ =\ 0;}
+\DoxyCodeLine{00043\ \ \ std::wstring\ m\_title;}
+\DoxyCodeLine{00044\ \};}
+
+\end{DoxyCode}

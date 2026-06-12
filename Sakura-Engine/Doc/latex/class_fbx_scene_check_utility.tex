@@ -1,0 +1,138 @@
+\doxysection{Fbx\+Scene\+Check\+Utility Class Reference}
+\hypertarget{class_fbx_scene_check_utility}{}\label{class_fbx_scene_check_utility}\index{FbxSceneCheckUtility@{FbxSceneCheckUtility}}
+
+
+This class defines functions to check the received scene graph for issues. remark This is still an experimental class and it is not expected to validate every single data object.  
+
+
+
+
+{\ttfamily \#include $<$fbxscenecheckutility.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_scene_check_utility_a7ac12a750e93b54d759f01cdf8f8de9a}\label{class_fbx_scene_check_utility_a7ac12a750e93b54d759f01cdf8f8de9a} 
+enum {\bfseries ECheck\+Mode} \{ \newline
+{\bfseries e\+Check\+Cycles} = 0x01
+, {\bfseries e\+Check\+Animation\+Data} = 0x06
+, {\bfseries e\+Check\+Animation\+Empty\+Layers} = 0x02
+, {\bfseries e\+Check\+Animatio\+Curve\+Data} = 0x04
+, \newline
+{\bfseries e\+Check\+Geometry\+Data} = 0x7\+FFF8
+, {\bfseries e\+Check\+Poly\+Vertex} = 0x00008
+, {\bfseries e\+Check\+Layer\+Elems} = 0x0\+FFF0
+, {\bfseries e\+Check\+Other\+Data} = 0x\+F0000
+, \newline
+{\bfseries e\+Check\+Skin} = 0x00010000
+, {\bfseries e\+Check\+Cluster} = 0x00020000
+, {\bfseries e\+Check\+Shape} = 0x00040000
+, {\bfseries e\+Selection\+Node} = 0x00080000
+, \newline
+{\bfseries e\+Ckeck\+Data} = 0x7\+FFFE
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_scene_check_utility_a2ab66d8e33a476e8191002237bf5a875}{Fbx\+Scene\+Check\+Utility}} (const \mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*}p\+Scene, \mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}p\+Status=NULL, \mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*}p\+Details=NULL)
+\item 
+bool \mbox{\hyperlink{class_fbx_scene_check_utility_a811a842cc8df93e6a34bf5a8c0c9b939}{Validate}} (ECheck\+Mode p\+Check\+Mode=e\+Check\+Cycles, bool p\+Try\+To\+Remove\+Bad\+Data=false)
+\item 
+\Hypertarget{class_fbx_scene_check_utility_a0b44438621da5ecfa2d49b491904ff17}\label{class_fbx_scene_check_utility_a0b44438621da5ecfa2d49b491904ff17} 
+bool {\bfseries Validate} (\mbox{\hyperlink{class_fbx_geometry}{Fbx\+Geometry}} \texorpdfstring{$\ast$}{*}p\+Geom, int p\+Check\+Mode=e\+Check\+Geometry\+Data)
+\item 
+\Hypertarget{class_fbx_scene_check_utility_a8b6e855a9a5f4baaa97f16026c74ae0d}\label{class_fbx_scene_check_utility_a8b6e855a9a5f4baaa97f16026c74ae0d} 
+{\footnotesize template$<$typename T$>$ }\\bool {\bfseries Validate\+Array} (T \texorpdfstring{$\ast$}{*}p\+Data, int p\+Nb\+Items, T p\+Min\+Val, T p\+Max\+Val, T \texorpdfstring{$\ast$}{*}p\+Fix\+Val=nullptr)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_scene_check_utility_ac6773e519d33e9d8b8730c8556ba4f13}\label{class_fbx_scene_check_utility_ac6773e519d33e9d8b8730c8556ba4f13} 
+static bool {\bfseries Validate\+Mapping\+Mode} (\mbox{\hyperlink{class_fbx_layer_element_a5a40e95db30ae9f94611dc3f1568af26}{Fbx\+Layer\+Element\+::\+EMapping\+Mode}} p\+Mapping\+Mode)
+\item 
+\Hypertarget{class_fbx_scene_check_utility_a5b18b3455858bc7ecbe1aae41a270dec}\label{class_fbx_scene_check_utility_a5b18b3455858bc7ecbe1aae41a270dec} 
+static bool {\bfseries Validate\+Reference\+Mode} (\mbox{\hyperlink{class_fbx_layer_element_a00f04654580ca9b2f5d292c11abd83fc}{Fbx\+Layer\+Element\+::\+EReference\+Mode}} p\+Reference\+Mode)
+\item 
+\Hypertarget{class_fbx_scene_check_utility_a30d1dad0f532ec78ef675904791f40ce}\label{class_fbx_scene_check_utility_a30d1dad0f532ec78ef675904791f40ce} 
+static bool {\bfseries Validate\+Surface\+Mode} (\mbox{\hyperlink{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794db}{Fbx\+Geometry\+::\+ESurface\+Mode}} p\+Surface\+Mode)
+\item 
+\Hypertarget{class_fbx_scene_check_utility_a73cf0d14f503974f14db0d4508a926a9}\label{class_fbx_scene_check_utility_a73cf0d14f503974f14db0d4508a926a9} 
+static int {\bfseries Expected\+Nb\+Items} (const \mbox{\hyperlink{class_fbx_geometry_base}{Fbx\+Geometry\+Base}} \texorpdfstring{$\ast$}{*}p\+Geom, \mbox{\hyperlink{class_fbx_layer_element_a5a40e95db30ae9f94611dc3f1568af26}{Fbx\+Layer\+Element\+::\+EMapping\+Mode}} p\+Mapping\+Mode)
+\item 
+static bool \mbox{\hyperlink{class_fbx_scene_check_utility_a3231697b1e6e0905b4772da77a822f28}{Validate\+Object\+Data}} (const \mbox{\hyperlink{class_fbx_nurbs}{Fbx\+Nurbs}} \texorpdfstring{$\ast$}{*}p\+Nurbs)
+\item 
+\Hypertarget{class_fbx_scene_check_utility_ae389889e016aea1ec0ddd579f9f91f01}\label{class_fbx_scene_check_utility_ae389889e016aea1ec0ddd579f9f91f01} 
+static bool {\bfseries Validate\+Object\+Data} (const \mbox{\hyperlink{class_fbx_nurbs_curve}{Fbx\+Nurbs\+Curve}} \texorpdfstring{$\ast$}{*}p\+Nurbs)
+\item 
+\Hypertarget{class_fbx_scene_check_utility_a51c08273519a4e00604949689e0b49e4}\label{class_fbx_scene_check_utility_a51c08273519a4e00604949689e0b49e4} 
+static bool {\bfseries Validate\+Object\+Data} (const \mbox{\hyperlink{class_fbx_nurbs_surface}{Fbx\+Nurbs\+Surface}} \texorpdfstring{$\ast$}{*}p\+Nurbs)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_scene_check_utility_a3998b242e9585b74917e7cd081dd9a5e}\label{class_fbx_scene_check_utility_a3998b242e9585b74917e7cd081dd9a5e} 
+bool {\bfseries Have\+Cycles} ()
+\item 
+\Hypertarget{class_fbx_scene_check_utility_aef8e3b6d9d5021c18cca74dd014d6ec1}\label{class_fbx_scene_check_utility_aef8e3b6d9d5021c18cca74dd014d6ec1} 
+bool {\bfseries Have\+Invalid\+Data} (int p\+Check\+Mode)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class defines functions to check the received scene graph for issues. remark This is still an experimental class and it is not expected to validate every single data object. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_scene_check_utility_a2ab66d8e33a476e8191002237bf5a875}\index{FbxSceneCheckUtility@{FbxSceneCheckUtility}!FbxSceneCheckUtility@{FbxSceneCheckUtility}}
+\index{FbxSceneCheckUtility@{FbxSceneCheckUtility}!FbxSceneCheckUtility@{FbxSceneCheckUtility}}
+\doxysubsubsection{\texorpdfstring{FbxSceneCheckUtility()}{FbxSceneCheckUtility()}}
+{\footnotesize\ttfamily \label{class_fbx_scene_check_utility_a2ab66d8e33a476e8191002237bf5a875} 
+Fbx\+Scene\+Check\+Utility\+::\+Fbx\+Scene\+Check\+Utility (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*}}]{p\+Scene}{, }\item[{\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \texorpdfstring{$\ast$}{*}}]{p\+Status}{ = {\ttfamily NULL}, }\item[{\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*} $>$ \texorpdfstring{$\ast$}{*}}]{p\+Details}{ = {\ttfamily NULL}}\end{DoxyParamCaption})}
+
+Construct the object 
+\begin{DoxyParams}{Parameters}
+{\em p\+Scene} & Input scene to check \\
+\hline
+{\em p\+Status} & \doxylink{class_fbx_status}{Fbx\+Status} object to set error codes in (optional) \\
+\hline
+{\em p\+Details} & Details messages of issues found (optional)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The Details array and its content must be cleared by the caller 
+\end{DoxyRemark}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_scene_check_utility_a811a842cc8df93e6a34bf5a8c0c9b939}\index{FbxSceneCheckUtility@{FbxSceneCheckUtility}!Validate@{Validate}}
+\index{Validate@{Validate}!FbxSceneCheckUtility@{FbxSceneCheckUtility}}
+\doxysubsubsection{\texorpdfstring{Validate()}{Validate()}}
+{\footnotesize\ttfamily \label{class_fbx_scene_check_utility_a811a842cc8df93e6a34bf5a8c0c9b939} 
+bool Fbx\+Scene\+Check\+Utility\+::\+Validate (\begin{DoxyParamCaption}\item[{ECheck\+Mode}]{p\+Check\+Mode}{ = {\ttfamily eCheckCycles}, }\item[{bool}]{p\+Try\+To\+Remove\+Bad\+Data}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+Check for issues in the scene 
+\begin{DoxyParams}{Parameters}
+{\em p\+Check\+Mode} & Identify what kind of checks to perform \\
+\hline
+{\em p\+Try\+To\+Remove\+Bad\+Data} & If set, this class will try to destroy the objects that contains bad data as specified by the check mode flags. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textbackslash{}false if any issue is found in the scene 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+Depending on the check mode settings, the processing time can increase dramatically. 
+
+If a status and/or details object is provided, the error code is set and, details info is logged. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_scene_check_utility_a3231697b1e6e0905b4772da77a822f28}\index{FbxSceneCheckUtility@{FbxSceneCheckUtility}!ValidateObjectData@{ValidateObjectData}}
+\index{ValidateObjectData@{ValidateObjectData}!FbxSceneCheckUtility@{FbxSceneCheckUtility}}
+\doxysubsubsection{\texorpdfstring{ValidateObjectData()}{ValidateObjectData()}}
+{\footnotesize\ttfamily \label{class_fbx_scene_check_utility_a3231697b1e6e0905b4772da77a822f28} 
+static bool Fbx\+Scene\+Check\+Utility\+::\+Validate\+Object\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_nurbs}{Fbx\+Nurbs}} \texorpdfstring{$\ast$}{*}}]{p\+Nurbs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Validate that the data in the given structure is within acceptable ranges return \textbackslash{}false if any issue is found 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/utils/\mbox{\hyperlink{fbxscenecheckutility_8h}{fbxscenecheckutility.\+h}}\end{DoxyCompactItemize}

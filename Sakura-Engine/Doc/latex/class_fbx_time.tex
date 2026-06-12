@@ -1,0 +1,913 @@
+\doxysection{Fbx\+Time Class Reference}
+\hypertarget{class_fbx_time}{}\label{class_fbx_time}\index{FbxTime@{FbxTime}}
+
+
+{\ttfamily \#include $<$fbxtime.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{Fbx\+Time}} (const Fbx\+Long\+Long p\+Time=0)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Time Modes and Protocols}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} \{ \newline
+{\bfseries e\+Default\+Mode}
+, {\bfseries e\+Frames120}
+, {\bfseries e\+Frames100}
+, {\bfseries e\+Frames60}
+, \newline
+{\bfseries e\+Frames50}
+, {\bfseries e\+Frames48}
+, {\bfseries e\+Frames30}
+, {\bfseries e\+Frames30\+Drop}
+, \newline
+{\bfseries e\+NTSCDrop\+Frame}
+, {\bfseries e\+NTSCFull\+Frame}
+, {\bfseries e\+PAL}
+, {\bfseries e\+Frames24}
+, \newline
+{\bfseries e\+Frames1000}
+, {\bfseries e\+Film\+Full\+Frame}
+, {\bfseries e\+Custom}
+, {\bfseries e\+Frames96}
+, \newline
+{\bfseries e\+Frames72}
+, {\bfseries e\+Frames59dot94}
+, {\bfseries e\+Frames119dot88}
+, {\bfseries e\+Modes\+Count}
+ \}
+\item 
+enum \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}} \{ {\bfseries e\+SMPTE}
+, {\bfseries e\+Frame\+Count}
+, {\bfseries e\+Default\+Protocol}
+ \}
+\item 
+static void \mbox{\hyperlink{class_fbx_time_a0bd3eab238596b63a1bc8e8ac830844b}{Set\+Global\+Time\+Mode}} (\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode, double p\+Frame\+Rate=0.\+0)
+\item 
+static \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} \mbox{\hyperlink{class_fbx_time_ae5ad30ea14f534b93fb04c2966ef5ae7}{Get\+Global\+Time\+Mode}} ()
+\item 
+static void \mbox{\hyperlink{class_fbx_time_ab455ab67a792cbf5d691db58d988a905}{Set\+Global\+Time\+Protocol}} (\mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}} p\+Time\+Protocol)
+\item 
+static \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}} \mbox{\hyperlink{class_fbx_time_af50c9f37b415366a30a62378d0fd9e0f}{Get\+Global\+Time\+Protocol}} ()
+\item 
+static double \mbox{\hyperlink{class_fbx_time_a583171e7b6351a2ae0468b03d442a1e6}{Get\+Frame\+Rate}} (\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode)
+\item 
+static \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} \mbox{\hyperlink{class_fbx_time_aac990ffad2cf969b6c1003cce20087e5}{Convert\+Frame\+Rate\+To\+Time\+Mode}} (double p\+Frame\+Rate, double p\+Precision=0.\+00000001)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Time Conversion}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_time_aebc9578f91df69fa2937911047893014}\label{class_fbx_time_aebc9578f91df69fa2937911047893014} 
+enum {\bfseries EElement} \{ \newline
+{\bfseries e\+Hours}
+, {\bfseries e\+Minutes}
+, {\bfseries e\+Seconds}
+, {\bfseries e\+Frames}
+, \newline
+{\bfseries e\+Field}
+, {\bfseries e\+Residual}
+ \}
+\item 
+void \mbox{\hyperlink{class_fbx_time_ae5d5d3624a3dc7f24fe991f21df4f91b}{Set}} (Fbx\+Long\+Long p\+Time)
+\item 
+Fbx\+Long\+Long \mbox{\hyperlink{class_fbx_time_a17447886f905390b991a2d48ddb5a375}{Get}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_time_a7105d8b5b0665d82660f5ef749cd6274}{Set\+Milli\+Seconds}} (Fbx\+Long\+Long p\+Milli\+Seconds)
+\item 
+Fbx\+Long\+Long \mbox{\hyperlink{class_fbx_time_a221649a9e998cd387df4116068322553}{Get\+Milli\+Seconds}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_time_aa67980a4f73f7914d0c457384754da0c}{Set\+Second\+Double}} (double p\+Time)
+\item 
+double \mbox{\hyperlink{class_fbx_time_a11db10305535e388b8b2afb1b2bb89e6}{Get\+Second\+Double}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_time_ae57387b2c14de574b1b7d4361babf033}{Set\+Time}} (int p\+Hour, int p\+Minute, int p\+Second, int p\+Frame=0, int p\+Field=0, \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode=e\+Default\+Mode)
+\item 
+void \mbox{\hyperlink{class_fbx_time_a3922d4acd406c43e2d27e16feb1593d0}{Set\+Time}} (int p\+Hour, int p\+Minute, int p\+Second, int p\+Frame, int p\+Field, int p\+Residual, \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode)
+\item 
+bool \mbox{\hyperlink{class_fbx_time_a3d36e985f2da20e855fa23906c97ed35}{Get\+Time}} (int \&p\+Hour, int \&p\+Minute, int \&p\+Second, int \&p\+Frame, int \&p\+Field, int \&p\+Residual, \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode=e\+Default\+Mode) const
+\item 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \mbox{\hyperlink{class_fbx_time_a5bd6ad8a4d3b18167e5350db42680f96}{Get\+Framed\+Time}} (bool p\+Round=true) const
+\item 
+void \mbox{\hyperlink{class_fbx_time_ac695b38f72d522f8d592404b6f301fe4}{Set\+Frame}} (Fbx\+Long\+Long p\+Frames, \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode=e\+Default\+Mode)
+\item 
+void \mbox{\hyperlink{class_fbx_time_aab76f3007f42dbeb80fc552c9e4175be}{Set\+Frame\+Precise}} (Fbx\+Double p\+Frames, \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode=e\+Default\+Mode)
+\item 
+int \mbox{\hyperlink{class_fbx_time_acd535f01e345e54e3f3bb0c12c482d37}{Get\+Hour\+Count}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_time_aa8c9ef48cd8d43e83e1c3bb42d62ca95}{Get\+Minute\+Count}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_time_abccce651a65f2c4232cc238f35c3a5d4}{Get\+Second\+Count}} () const
+\item 
+Fbx\+Long\+Long \mbox{\hyperlink{class_fbx_time_a56cfe7c115f3191ba4a1b908806baf1b}{Get\+Frame\+Count}} (\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode=e\+Default\+Mode) const
+\item 
+Fbx\+Double \mbox{\hyperlink{class_fbx_time_a7f2dcde2ceab2292fd05a8d9575a78ed}{Get\+Frame\+Count\+Precise}} (\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode=e\+Default\+Mode) const
+\item 
+Fbx\+Long\+Long \mbox{\hyperlink{class_fbx_time_a1b8d63fe5fc5c49f0c790bf993707a9e}{Get\+Field\+Count}} (\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode=e\+Default\+Mode) const
+\item 
+int \mbox{\hyperlink{class_fbx_time_aae0607dc725dc17ed4ff8e37dd75e621}{Get\+Residual}} (\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode=e\+Default\+Mode) const
+\item 
+char \mbox{\hyperlink{class_fbx_time_ae82e82b890990a9ad45a6ba5ffbe7fcf}{Get\+Frame\+Separator}} (\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode=e\+Default\+Mode) const
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_time_a6a0807260d65b280f179c211257d241f}{Get\+Time\+String}} (char \texorpdfstring{$\ast$}{*}p\+Time\+String, const Fbx\+UShort \&p\+Time\+String\+Size, int p\+Info=5, \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode=e\+Default\+Mode, \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}} p\+Time\+Format=e\+Default\+Protocol) const
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_time_ad9d512083403040d05690b62b9a592a6}{Get\+Time\+String}} (EElement p\+Start=e\+Hours, EElement p\+End=e\+Residual, \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode=e\+Default\+Mode, \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}} p\+Time\+Format=e\+Default\+Protocol) const
+\item 
+bool \mbox{\hyperlink{class_fbx_time_a89cd0281110c4dee63e5211adb565ead}{Set\+Time\+String}} (const char \texorpdfstring{$\ast$}{*}p\+Time, \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode=e\+Default\+Mode, \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}} p\+Time\+Format=e\+Default\+Protocol)
+\item 
+static bool \mbox{\hyperlink{class_fbx_time_a62b789beb9abedb0f7d100bba3a96d2a}{Is\+Drop\+Frame}} (\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode=e\+Default\+Mode)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Time Operators}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_time_a860c82fe6f93582e1fe66bb204ece65b}\label{class_fbx_time_a860c82fe6f93582e1fe66bb204ece65b} 
+enum {\bfseries EOld\+Mode} \{ \newline
+{\bfseries e\+OLD\+\_\+\+DEFAULT\+\_\+\+MODE}
+, {\bfseries e\+OLD\+\_\+\+CINEMA}
+, {\bfseries e\+OLD\+\_\+\+PAL}
+, {\bfseries e\+OLD\+\_\+\+FRAMES30}
+, \newline
+{\bfseries e\+OLD\+\_\+\+NTSC\+\_\+\+DROP\+\_\+\+FRAME}
+, {\bfseries e\+OLD\+\_\+\+FRAMES50}
+, {\bfseries e\+OLD\+\_\+\+FRAMES60}
+, {\bfseries e\+OLD\+\_\+\+FRAMES100}
+, \newline
+{\bfseries e\+OLD\+\_\+\+FRAMES120}
+, {\bfseries e\+OLD\+\_\+\+NTSC\+\_\+\+FULL\+\_\+\+FRAME}
+, {\bfseries e\+OLD\+\_\+\+FRAMES30\+\_\+\+DROP}
+, {\bfseries e\+OLD\+\_\+\+FRAMES1000}
+ \}
+\item 
+bool \mbox{\hyperlink{class_fbx_time_a9dae81e92ed8d293c22d0d09cc0d3ecc}{operator==}} (const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time) const
+\item 
+bool \mbox{\hyperlink{class_fbx_time_a13ccb17d3a4dfd3bcc9e9272d8a5c853}{operator!=}} (const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time) const
+\item 
+bool \mbox{\hyperlink{class_fbx_time_a58d0eaca01e27c24c35026c9329bf892}{operator$>$=}} (const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time) const
+\item 
+bool \mbox{\hyperlink{class_fbx_time_a8d3937138e25178f4a4308e1d192620b}{operator$<$=}} (const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time) const
+\item 
+bool \mbox{\hyperlink{class_fbx_time_a0cce77e50858f177fa1c11556277010e}{operator$>$}} (const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time) const
+\item 
+bool \mbox{\hyperlink{class_fbx_time_afb7a54c305cd31c35bb0d7f26a86b647}{operator$<$}} (const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time) const
+\item 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \& \mbox{\hyperlink{class_fbx_time_a62cb0298b7ca5104b86f884cf3096208}{operator=}} (const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time)
+\item 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \& \mbox{\hyperlink{class_fbx_time_a976d34acaa067ae9d2f83abe881b7a73}{operator+=}} (const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time)
+\item 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \& \mbox{\hyperlink{class_fbx_time_a77cec5b3b0e846c89bd34551f653c8d7}{operator-\/=}} (const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time)
+\item 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \mbox{\hyperlink{class_fbx_time_a42823b945fc1ccbd550df5a2b1768ca9}{operator+}} (const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time) const
+\item 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \mbox{\hyperlink{class_fbx_time_aea722074dbc93c423fa5b83420f87611}{operator-\/}} (const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time) const
+\item 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \mbox{\hyperlink{class_fbx_time_a5d1dae17adc48edd0e3149a11777ddbb}{operator\texorpdfstring{$\ast$}{*}}} (const int Mult) const
+\item 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \mbox{\hyperlink{class_fbx_time_ad135636b4c52caa325aa174650f33bc0}{operator/}} (const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time) const
+\item 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \mbox{\hyperlink{class_fbx_time_a43c5cf2a3f56dd7d2aab96b45a5473b7}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time) const
+\item 
+static Fbx\+Long\+Long \mbox{\hyperlink{class_fbx_time_a145760264d23eecf6719039fb3d6293f}{Get\+One\+Frame\+Value}} (\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} p\+Time\+Mode=e\+Default\+Mode)
+\item 
+\Hypertarget{class_fbx_time_a1dd5082c49e4cf431a4f0ed108acb9ed}\label{class_fbx_time_a1dd5082c49e4cf431a4f0ed108acb9ed} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{Fbx\+Time\+::\+EMode}} {\bfseries Fbx\+Get\+Global\+Time\+Mode} ()
+\item 
+\Hypertarget{class_fbx_time_a82594290bd721261db286f2156e26253}\label{class_fbx_time_a82594290bd721261db286f2156e26253} 
+FBXSDK\+\_\+\+DLL Fbx\+Time\+Mode\+Object \texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Get\+Global\+Time\+Mode\+Object} ()
+\item 
+\Hypertarget{class_fbx_time_a9780c5449fc7187b48e128c779706a06}\label{class_fbx_time_a9780c5449fc7187b48e128c779706a06} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{Fbx\+Time\+::\+EProtocol}} {\bfseries Fbx\+Get\+Global\+Time\+Format} ()
+\item 
+\Hypertarget{class_fbx_time_a1fa18af7627ebc168d148c4576f2f3d2}\label{class_fbx_time_a1fa18af7627ebc168d148c4576f2f3d2} 
+FBXSDK\+\_\+\+DLL void {\bfseries Fbx\+Set\+Global\+Time\+Mode} (\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{Fbx\+Time\+::\+EMode}} p\+Time\+Mode, double p\+Frame\+Rate=0.\+0)
+\item 
+\Hypertarget{class_fbx_time_a765fa4f060e2aaca17ba5d41ddb72b1f}\label{class_fbx_time_a765fa4f060e2aaca17ba5d41ddb72b1f} 
+FBXSDK\+\_\+\+DLL void {\bfseries Fbx\+Set\+Global\+Time\+Format} (\mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{Fbx\+Time\+::\+EProtocol}} p\+Time\+Format)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to encapsulate time units.
+
+\doxylink{class_fbx_time}{Fbx\+Time} can measure time in hour, minute, second, frame, field, residual and also combination of these units. It is recommended to use \doxylink{class_fbx_time}{Fbx\+Time} for all time related operations. For example, currently it is used in \doxylink{class_fbx_global_settings}{Fbx\+Global\+Settings}, Fbx\+Global\+Time\+Settings, \doxylink{class_fbx_cache}{Fbx\+Cache}, all curve filters and all animation-\/related classes, etc. \doxylink{class_fbx_time}{Fbx\+Time} is just used to represent a moment, to represent a period of time, \doxylink{class_fbx_time_span}{Fbx\+Time\+Span} should be used. \begin{DoxySeeAlso}{See also}
+\doxylink{class_fbx_time_span}{Fbx\+Time\+Span} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}\index{FbxTime@{FbxTime}!EMode@{EMode}}
+\index{EMode@{EMode}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{EMode}{EMode}}
+{\footnotesize\ttfamily \label{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031} 
+enum \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{Fbx\+Time\+::\+EMode}}}
+
+Time modes. \begin{DoxyRemark}{Remarks}
+\doxylink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode} {\ttfamily e\+NTSCDrop\+Frame} is used for broadcasting operations where clock time must be (almost) in sync with time code. To bring back color NTSC time code with clock time, this mode drops 2 frames per minute except for every 10 minutes (00, 10, 20, 30, 40, 50). 108 frames are dropped per hour. Over 24 hours the error is 2 frames and 1/4 of a frame. A time-\/code of 01\+:00\+:03\+:18 equals a clock time of 01\+:00\+:00\+:00
+\end{DoxyRemark}
+\begin{DoxyParagraph}{}
+\doxylink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode} {\ttfamily e\+NTSCFull\+Frame} represents a time address and therefore is NOT IN SYNC with clock time. A time code of 01\+:00\+:00\+:00 equals a clock time of 01\+:00\+:03\+:18.
+\end{DoxyParagraph}
+
+\begin{DoxyItemize}
+\item {\itshape e\+Default\+Mode} ~\newline
+
+\item {\itshape e\+Frames120} 120 frames/s
+\item {\itshape e\+Frames100} 100 frames/s
+\item {\itshape e\+Frames60} 60 frames/s
+\item {\itshape e\+Frames50} 50 frames/s
+\item {\itshape e\+Frames48} 48 frame/s
+\item {\itshape e\+Frames30} 30 frames/s (black and white NTSC)
+\item {\itshape e\+Frames30\+Drop} Kept for legacy reasons. Being equivalent to NTSC drop, use e\+NTSCDrop\+Frame instead.
+\item {\itshape e\+NTSCDrop\+Frame} \texorpdfstring{$\sim$}{\string~}29.97 frames/s drop color NTSC
+\item {\itshape e\+NTSCFull\+Frame} \texorpdfstring{$\sim$}{\string~}29.97 frames/s color NTSC
+\item {\itshape e\+PAL} 25 frames/s PAL/\+SECAM
+\item {\itshape e\+Frames24} 24 frames/s Film/\+Cinema
+\item {\itshape e\+Frames1000} 1000 milli/s (use for date time)
+\item {\itshape e\+Film\+Full\+Frame} \texorpdfstring{$\sim$}{\string~}23.976 frames/s
+\item {\itshape e\+Custom} Custom frame rate value
+\item {\itshape e\+Frames96} 96 frames/s
+\item {\itshape e\+Frames72} 72 frames/s
+\item {\itshape e\+Frames59dot94} \texorpdfstring{$\sim$}{\string~}59.94 frames/s
+\item {\itshape e\+Frames119dot88} \texorpdfstring{$\sim$}{\string~}119.88 frames/s
+\item {\itshape e\+Modes\+Count} Number of time modes 
+\end{DoxyItemize}\Hypertarget{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}\index{FbxTime@{FbxTime}!EProtocol@{EProtocol}}
+\index{EProtocol@{EProtocol}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{EProtocol}{EProtocol}}
+{\footnotesize\ttfamily \label{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b} 
+enum \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{Fbx\+Time\+::\+EProtocol}}}
+
+Time protocols enumaration
+\begin{DoxyItemize}
+\item {\itshape e\+SMPTE} SMPTE \doxylink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}
+\item {\itshape e\+Frame\+Count} Frame count
+\item {\itshape e\+Default\+Protocol} Default protocol (initialized to e\+FRAMES) 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_time_ae4511695181a014b707b2f62f264b070}\index{FbxTime@{FbxTime}!FbxTime@{FbxTime}}
+\index{FbxTime@{FbxTime}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{FbxTime()}{FbxTime()}}
+{\footnotesize\ttfamily \label{class_fbx_time_ae4511695181a014b707b2f62f264b070} 
+Fbx\+Time\+::\+Fbx\+Time (\begin{DoxyParamCaption}\item[{const Fbx\+Long\+Long}]{p\+Time}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Long long constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & Initial value defined as a 64bit integer. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_time_aac990ffad2cf969b6c1003cce20087e5}\index{FbxTime@{FbxTime}!ConvertFrameRateToTimeMode@{ConvertFrameRateToTimeMode}}
+\index{ConvertFrameRateToTimeMode@{ConvertFrameRateToTimeMode}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{ConvertFrameRateToTimeMode()}{ConvertFrameRateToTimeMode()}}
+{\footnotesize\ttfamily \label{class_fbx_time_aac990ffad2cf969b6c1003cce20087e5} 
+static \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} Fbx\+Time\+::\+Convert\+Frame\+Rate\+To\+Time\+Mode (\begin{DoxyParamCaption}\item[{double}]{p\+Frame\+Rate}{, }\item[{double}]{p\+Precision}{ = {\ttfamily 0.00000001}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get time mode associated with frame rate. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Frame\+Rate} & The frame rate value. \\
+\hline
+{\em p\+Precision} & The tolerance value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The corresponding time mode identifier or {\ttfamily e\+Default\+Mode} if no time mode associated to the given frame rate is found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a17447886f905390b991a2d48ddb5a375}\index{FbxTime@{FbxTime}!Get@{Get}}
+\index{Get@{Get}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a17447886f905390b991a2d48ddb5a375} 
+Fbx\+Long\+Long Fbx\+Time\+::\+Get (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get time in internal format. \begin{DoxyReturn}{Returns}
+Time value. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a1b8d63fe5fc5c49f0c790bf993707a9e}\index{FbxTime@{FbxTime}!GetFieldCount@{GetFieldCount}}
+\index{GetFieldCount@{GetFieldCount}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetFieldCount()}{GetFieldCount()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a1b8d63fe5fc5c49f0c790bf993707a9e} 
+Fbx\+Long\+Long Fbx\+Time\+::\+Get\+Field\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{ = {\ttfamily eDefaultMode}}\end{DoxyParamCaption}) const}
+
+Get number of fields in time. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time\+Mode} & Time mode identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Fields value. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a56cfe7c115f3191ba4a1b908806baf1b}\index{FbxTime@{FbxTime}!GetFrameCount@{GetFrameCount}}
+\index{GetFrameCount@{GetFrameCount}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetFrameCount()}{GetFrameCount()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a56cfe7c115f3191ba4a1b908806baf1b} 
+Fbx\+Long\+Long Fbx\+Time\+::\+Get\+Frame\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{ = {\ttfamily eDefaultMode}}\end{DoxyParamCaption}) const}
+
+Get number of frames in time. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time\+Mode} & Time mode identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integer value representing the frame count. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a7f2dcde2ceab2292fd05a8d9575a78ed}\index{FbxTime@{FbxTime}!GetFrameCountPrecise@{GetFrameCountPrecise}}
+\index{GetFrameCountPrecise@{GetFrameCountPrecise}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetFrameCountPrecise()}{GetFrameCountPrecise()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a7f2dcde2ceab2292fd05a8d9575a78ed} 
+Fbx\+Double Fbx\+Time\+::\+Get\+Frame\+Count\+Precise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{ = {\ttfamily eDefaultMode}}\end{DoxyParamCaption}) const}
+
+Get precise number of frames in time, including fractions. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time\+Mode} & Time mode identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Decimal value representing the frame count, including fractions. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a5bd6ad8a4d3b18167e5350db42680f96}\index{FbxTime@{FbxTime}!GetFramedTime@{GetFramedTime}}
+\index{GetFramedTime@{GetFramedTime}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetFramedTime()}{GetFramedTime()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a5bd6ad8a4d3b18167e5350db42680f96} 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} Fbx\+Time\+::\+Get\+Framed\+Time (\begin{DoxyParamCaption}\item[{bool}]{p\+Round}{ = {\ttfamily true}}\end{DoxyParamCaption}) const}
+
+Snaps a time value to the time value associated with the nearest frame. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Round} & If {\ttfamily true} the return value is rounded to the nearest integer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The snapped time value. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a583171e7b6351a2ae0468b03d442a1e6}\index{FbxTime@{FbxTime}!GetFrameRate@{GetFrameRate}}
+\index{GetFrameRate@{GetFrameRate}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetFrameRate()}{GetFrameRate()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a583171e7b6351a2ae0468b03d442a1e6} 
+static double Fbx\+Time\+::\+Get\+Frame\+Rate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get frame rate associated with time mode, in frames per second. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time\+Mode} & Time mode identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Frame rate value. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_ae82e82b890990a9ad45a6ba5ffbe7fcf}\index{FbxTime@{FbxTime}!GetFrameSeparator@{GetFrameSeparator}}
+\index{GetFrameSeparator@{GetFrameSeparator}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetFrameSeparator()}{GetFrameSeparator()}}
+{\footnotesize\ttfamily \label{class_fbx_time_ae82e82b890990a9ad45a6ba5ffbe7fcf} 
+char Fbx\+Time\+::\+Get\+Frame\+Separator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{ = {\ttfamily eDefaultMode}}\end{DoxyParamCaption}) const}
+
+Separator char between second and frame. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time\+Mode} & Time mode identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textquotesingle{};\textquotesingle{} is returned if p\+Time\+Mode is a Drop\+Frame mode otherwise \textquotesingle{}\+:\textquotesingle{}. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_ae5ad30ea14f534b93fb04c2966ef5ae7}\index{FbxTime@{FbxTime}!GetGlobalTimeMode@{GetGlobalTimeMode}}
+\index{GetGlobalTimeMode@{GetGlobalTimeMode}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetGlobalTimeMode()}{GetGlobalTimeMode()}}
+{\footnotesize\ttfamily \label{class_fbx_time_ae5ad30ea14f534b93fb04c2966ef5ae7} 
+static \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}} Fbx\+Time\+::\+Get\+Global\+Time\+Mode (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get default time mode. \begin{DoxyReturn}{Returns}
+Currently set time mode identifier. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+Default time mode initial value is e\+Frames30. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_time_af50c9f37b415366a30a62378d0fd9e0f}\index{FbxTime@{FbxTime}!GetGlobalTimeProtocol@{GetGlobalTimeProtocol}}
+\index{GetGlobalTimeProtocol@{GetGlobalTimeProtocol}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetGlobalTimeProtocol()}{GetGlobalTimeProtocol()}}
+{\footnotesize\ttfamily \label{class_fbx_time_af50c9f37b415366a30a62378d0fd9e0f} 
+static \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}} Fbx\+Time\+::\+Get\+Global\+Time\+Protocol (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get default time protocol. \begin{DoxyReturn}{Returns}
+Currently set time protocol identifier. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+Default time protocol initial value is e\+SMPTE. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_time_acd535f01e345e54e3f3bb0c12c482d37}\index{FbxTime@{FbxTime}!GetHourCount@{GetHourCount}}
+\index{GetHourCount@{GetHourCount}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetHourCount()}{GetHourCount()}}
+{\footnotesize\ttfamily \label{class_fbx_time_acd535f01e345e54e3f3bb0c12c482d37} 
+int Fbx\+Time\+::\+Get\+Hour\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get number of hours in time. \begin{DoxyReturn}{Returns}
+Hours value. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a221649a9e998cd387df4116068322553}\index{FbxTime@{FbxTime}!GetMilliSeconds@{GetMilliSeconds}}
+\index{GetMilliSeconds@{GetMilliSeconds}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetMilliSeconds()}{GetMilliSeconds()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a221649a9e998cd387df4116068322553} 
+Fbx\+Long\+Long Fbx\+Time\+::\+Get\+Milli\+Seconds (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get time in milliseconds. \begin{DoxyReturn}{Returns}
+Time value. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_aa8c9ef48cd8d43e83e1c3bb42d62ca95}\index{FbxTime@{FbxTime}!GetMinuteCount@{GetMinuteCount}}
+\index{GetMinuteCount@{GetMinuteCount}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetMinuteCount()}{GetMinuteCount()}}
+{\footnotesize\ttfamily \label{class_fbx_time_aa8c9ef48cd8d43e83e1c3bb42d62ca95} 
+int Fbx\+Time\+::\+Get\+Minute\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get number of minutes in time. \begin{DoxyReturn}{Returns}
+Minutes value. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a145760264d23eecf6719039fb3d6293f}\index{FbxTime@{FbxTime}!GetOneFrameValue@{GetOneFrameValue}}
+\index{GetOneFrameValue@{GetOneFrameValue}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetOneFrameValue()}{GetOneFrameValue()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a145760264d23eecf6719039fb3d6293f} 
+static Fbx\+Long\+Long Fbx\+Time\+::\+Get\+One\+Frame\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{ = {\ttfamily eDefaultMode}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+One frame value for a specified time mode. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time\+Mode} & Time mode identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the time code of a one frame. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_aae0607dc725dc17ed4ff8e37dd75e621}\index{FbxTime@{FbxTime}!GetResidual@{GetResidual}}
+\index{GetResidual@{GetResidual}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetResidual()}{GetResidual()}}
+{\footnotesize\ttfamily \label{class_fbx_time_aae0607dc725dc17ed4ff8e37dd75e621} 
+int Fbx\+Time\+::\+Get\+Residual (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{ = {\ttfamily eDefaultMode}}\end{DoxyParamCaption}) const}
+
+Get residual time exceeding last full field. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time\+Mode} & Time mode identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Residual value. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_abccce651a65f2c4232cc238f35c3a5d4}\index{FbxTime@{FbxTime}!GetSecondCount@{GetSecondCount}}
+\index{GetSecondCount@{GetSecondCount}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetSecondCount()}{GetSecondCount()}}
+{\footnotesize\ttfamily \label{class_fbx_time_abccce651a65f2c4232cc238f35c3a5d4} 
+int Fbx\+Time\+::\+Get\+Second\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get number of seconds in time. \begin{DoxyReturn}{Returns}
+Seconds value. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a11db10305535e388b8b2afb1b2bb89e6}\index{FbxTime@{FbxTime}!GetSecondDouble@{GetSecondDouble}}
+\index{GetSecondDouble@{GetSecondDouble}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetSecondDouble()}{GetSecondDouble()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a11db10305535e388b8b2afb1b2bb89e6} 
+double Fbx\+Time\+::\+Get\+Second\+Double (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get time in seconds. \begin{DoxyReturn}{Returns}
+Time value. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a3d36e985f2da20e855fa23906c97ed35}\index{FbxTime@{FbxTime}!GetTime@{GetTime}}
+\index{GetTime@{GetTime}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetTime()}{GetTime()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a3d36e985f2da20e855fa23906c97ed35} 
+bool Fbx\+Time\+::\+Get\+Time (\begin{DoxyParamCaption}\item[{int \&}]{p\+Hour}{, }\item[{int \&}]{p\+Minute}{, }\item[{int \&}]{p\+Second}{, }\item[{int \&}]{p\+Frame}{, }\item[{int \&}]{p\+Field}{, }\item[{int \&}]{p\+Residual}{, }\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{ = {\ttfamily eDefaultMode}}\end{DoxyParamCaption}) const}
+
+Get time in hour/minute/second/frame/field/residual format. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Hour} & The returned hours value. \\
+\hline
+{\em p\+Minute} & The returned minutes value. \\
+\hline
+{\em p\+Second} & The returned seconds value. \\
+\hline
+{\em p\+Frame} & The returned frames values. \\
+\hline
+{\em p\+Field} & The returned field value. \\
+\hline
+{\em p\+Residual} & The returned hundredths of frame value. \\
+\hline
+{\em p\+Time\+Mode} & The time mode identifier which will dictate the extraction algorithm. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the p\+Time\+Mode parameter is a valid identifier and thus the extraction succeeded. If the function returns {\ttfamily false}, all the values are set to 0. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a6a0807260d65b280f179c211257d241f}\index{FbxTime@{FbxTime}!GetTimeString@{GetTimeString}}
+\index{GetTimeString@{GetTimeString}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetTimeString()}{GetTimeString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_time_a6a0807260d65b280f179c211257d241f} 
+char \texorpdfstring{$\ast$}{*} Fbx\+Time\+::\+Get\+Time\+String (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{p\+Time\+String}{, }\item[{const Fbx\+UShort \&}]{p\+Time\+String\+Size}{, }\item[{int}]{p\+Info}{ = {\ttfamily 5}, }\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{ = {\ttfamily eDefaultMode}, }\item[{\mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}}}]{p\+Time\+Format}{ = {\ttfamily eDefaultProtocol}}\end{DoxyParamCaption}) const}
+
+Get time in a human readable format. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time\+String} & An array large enough to contain a minimum of 19 characters. \\
+\hline
+{\em p\+Time\+String\+Size} & Size of the p\+Time\+String buffer used with secure functions. \\
+\hline
+{\em p\+Info} & The amount of information if time protocol is {\ttfamily e\+SMPTE\+:} 
+\begin{DoxyItemize}
+\item 1 means hours only 
+\item 2 means hours and minutes 
+\item 3 means hours, minutes and seconds 
+\item 4 means hours, minutes, seconds and frames 
+\item 5 means hours, minutes, seconds, frames and field 
+\item 6 means hours, minutes, seconds, frames, field and residual value
+\end{DoxyItemize}\\
+\hline
+{\em p\+Time\+Mode} & Requested time mode. \\
+\hline
+{\em p\+Time\+Format} & Requested time protocol. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+p\+Time\+String parameter filled with a time value or set to a empty string if parameter p\+Info is not valid. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_ad9d512083403040d05690b62b9a592a6}\index{FbxTime@{FbxTime}!GetTimeString@{GetTimeString}}
+\index{GetTimeString@{GetTimeString}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{GetTimeString()}{GetTimeString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_time_ad9d512083403040d05690b62b9a592a6} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+Time\+::\+Get\+Time\+String (\begin{DoxyParamCaption}\item[{EElement}]{p\+Start}{ = {\ttfamily eHours}, }\item[{EElement}]{p\+End}{ = {\ttfamily eResidual}, }\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{ = {\ttfamily eDefaultMode}, }\item[{\mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}}}]{p\+Time\+Format}{ = {\ttfamily eDefaultProtocol}}\end{DoxyParamCaption}) const}
+
+Get the time in a human readable format. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Start} & The starting element type used to format the time string. \\
+\hline
+{\em p\+End} & The last element type used to format the time string. \\
+\hline
+{\em p\+Time\+Mode} & The time mode requested. \\
+\hline
+{\em p\+Time\+Format} & The time format requested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The human readable time string. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a62b789beb9abedb0f7d100bba3a96d2a}\index{FbxTime@{FbxTime}!IsDropFrame@{IsDropFrame}}
+\index{IsDropFrame@{IsDropFrame}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{IsDropFrame()}{IsDropFrame()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a62b789beb9abedb0f7d100bba3a96d2a} 
+static bool Fbx\+Time\+::\+Is\+Drop\+Frame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{ = {\ttfamily eDefaultMode}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Test for Drop Frame mode 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time\+Mode} & Time mode identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the p\+Time\+Mode is a Drop Frame mode. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a13ccb17d3a4dfd3bcc9e9272d8a5c853}\index{FbxTime@{FbxTime}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a13ccb17d3a4dfd3bcc9e9272d8a5c853} 
+bool Fbx\+Time\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Inequality operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & The \doxylink{class_fbx_time}{Fbx\+Time} to be compared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if unequal, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a43c5cf2a3f56dd7d2aab96b45a5473b7}\index{FbxTime@{FbxTime}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_time_a43c5cf2a3f56dd7d2aab96b45a5473b7} 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} Fbx\+Time\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{}\end{DoxyParamCaption}) const}
+
+Multiplication operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & Multiply this \doxylink{class_fbx_time}{Fbx\+Time} by p\+Time. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A temporary \doxylink{class_fbx_time}{Fbx\+Time} after multiplication. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a5d1dae17adc48edd0e3149a11777ddbb}\index{FbxTime@{FbxTime}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_time_a5d1dae17adc48edd0e3149a11777ddbb} 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} Fbx\+Time\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const int}]{Mult}{}\end{DoxyParamCaption}) const}
+
+Multiplication operator. 
+\begin{DoxyParams}{Parameters}
+{\em Mult} & Multiply this \doxylink{class_fbx_time}{Fbx\+Time} by int Mult. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A temporary \doxylink{class_fbx_time}{Fbx\+Time} after multiplication. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a42823b945fc1ccbd550df5a2b1768ca9}\index{FbxTime@{FbxTime}!operator+@{operator+}}
+\index{operator+@{operator+}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a42823b945fc1ccbd550df5a2b1768ca9} 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} Fbx\+Time\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{}\end{DoxyParamCaption}) const}
+
+Addition operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & The \doxylink{class_fbx_time}{Fbx\+Time} to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A temporary \doxylink{class_fbx_time}{Fbx\+Time} after addition. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a976d34acaa067ae9d2f83abe881b7a73}\index{FbxTime@{FbxTime}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a976d34acaa067ae9d2f83abe881b7a73} 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \& Fbx\+Time\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Addition operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & The \doxylink{class_fbx_time}{Fbx\+Time} to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \doxylink{class_fbx_time}{Fbx\+Time} after addition. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_aea722074dbc93c423fa5b83420f87611}\index{FbxTime@{FbxTime}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \label{class_fbx_time_aea722074dbc93c423fa5b83420f87611} 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} Fbx\+Time\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{}\end{DoxyParamCaption}) const}
+
+Subtraction operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & The \doxylink{class_fbx_time}{Fbx\+Time} to be subtracted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A temporary \doxylink{class_fbx_time}{Fbx\+Time} after subtraction. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a77cec5b3b0e846c89bd34551f653c8d7}\index{FbxTime@{FbxTime}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a77cec5b3b0e846c89bd34551f653c8d7} 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \& Fbx\+Time\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Subtraction operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & The \doxylink{class_fbx_time}{Fbx\+Time} to be subtracted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This \doxylink{class_fbx_time}{Fbx\+Time} after subtraction. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_ad135636b4c52caa325aa174650f33bc0}\index{FbxTime@{FbxTime}!operator/@{operator/}}
+\index{operator/@{operator/}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily \label{class_fbx_time_ad135636b4c52caa325aa174650f33bc0} 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} Fbx\+Time\+::operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{}\end{DoxyParamCaption}) const}
+
+Division operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & Divide this \doxylink{class_fbx_time}{Fbx\+Time} by p\+Time. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A temporary \doxylink{class_fbx_time}{Fbx\+Time} after division. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_afb7a54c305cd31c35bb0d7f26a86b647}\index{FbxTime@{FbxTime}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily \label{class_fbx_time_afb7a54c305cd31c35bb0d7f26a86b647} 
+bool Fbx\+Time\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Inferior to operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & The \doxylink{class_fbx_time}{Fbx\+Time} to be compared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if this \doxylink{class_fbx_time}{Fbx\+Time} is inferior to the passed \doxylink{class_fbx_time}{Fbx\+Time}, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a8d3937138e25178f4a4308e1d192620b}\index{FbxTime@{FbxTime}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a8d3937138e25178f4a4308e1d192620b} 
+bool Fbx\+Time\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Inferior or equal to operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & The \doxylink{class_fbx_time}{Fbx\+Time} to be compared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if this \doxylink{class_fbx_time}{Fbx\+Time} is inferior or equal to the passed \doxylink{class_fbx_time}{Fbx\+Time}, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a62cb0298b7ca5104b86f884cf3096208}\index{FbxTime@{FbxTime}!operator=@{operator=}}
+\index{operator=@{operator=}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a62cb0298b7ca5104b86f884cf3096208} 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \& Fbx\+Time\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Assignment operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & The \doxylink{class_fbx_time}{Fbx\+Time} to be assigned. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_time_a9dae81e92ed8d293c22d0d09cc0d3ecc}\index{FbxTime@{FbxTime}!operator==@{operator==}}
+\index{operator==@{operator==}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a9dae81e92ed8d293c22d0d09cc0d3ecc} 
+bool Fbx\+Time\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Equality operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & The \doxylink{class_fbx_time}{Fbx\+Time} to be compared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if equal, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a0cce77e50858f177fa1c11556277010e}\index{FbxTime@{FbxTime}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a0cce77e50858f177fa1c11556277010e} 
+bool Fbx\+Time\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Superior to operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & The \doxylink{class_fbx_time}{Fbx\+Time} to be compared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if this \doxylink{class_fbx_time}{Fbx\+Time} is superior to the passed \doxylink{class_fbx_time}{Fbx\+Time}, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_a58d0eaca01e27c24c35026c9329bf892}\index{FbxTime@{FbxTime}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a58d0eaca01e27c24c35026c9329bf892} 
+bool Fbx\+Time\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Superior or equal to operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & The \doxylink{class_fbx_time}{Fbx\+Time} to be compared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if this \doxylink{class_fbx_time}{Fbx\+Time} is superior or equal to the passed \doxylink{class_fbx_time}{Fbx\+Time}, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_time_ae5d5d3624a3dc7f24fe991f21df4f91b}\index{FbxTime@{FbxTime}!Set@{Set}}
+\index{Set@{Set}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{Set()}{Set()}}
+{\footnotesize\ttfamily \label{class_fbx_time_ae5d5d3624a3dc7f24fe991f21df4f91b} 
+void Fbx\+Time\+::\+Set (\begin{DoxyParamCaption}\item[{Fbx\+Long\+Long}]{p\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set time in internal format. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & Time value to set. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_time_ac695b38f72d522f8d592404b6f301fe4}\index{FbxTime@{FbxTime}!SetFrame@{SetFrame}}
+\index{SetFrame@{SetFrame}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{SetFrame()}{SetFrame()}}
+{\footnotesize\ttfamily \label{class_fbx_time_ac695b38f72d522f8d592404b6f301fe4} 
+void Fbx\+Time\+::\+Set\+Frame (\begin{DoxyParamCaption}\item[{Fbx\+Long\+Long}]{p\+Frames}{, }\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{ = {\ttfamily eDefaultMode}}\end{DoxyParamCaption})}
+
+Set time in frame format. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Frames} & The number of frames. \\
+\hline
+{\em p\+Time\+Mode} & The time mode identifier which will dictate the extraction algorithm. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_time_aab76f3007f42dbeb80fc552c9e4175be}\index{FbxTime@{FbxTime}!SetFramePrecise@{SetFramePrecise}}
+\index{SetFramePrecise@{SetFramePrecise}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{SetFramePrecise()}{SetFramePrecise()}}
+{\footnotesize\ttfamily \label{class_fbx_time_aab76f3007f42dbeb80fc552c9e4175be} 
+void Fbx\+Time\+::\+Set\+Frame\+Precise (\begin{DoxyParamCaption}\item[{Fbx\+Double}]{p\+Frames}{, }\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{ = {\ttfamily eDefaultMode}}\end{DoxyParamCaption})}
+
+Set time in frame format, including fractions. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Frames} & The number of frames in decimal value. \\
+\hline
+{\em p\+Time\+Mode} & The time mode identifier which will dictate the extraction algorithm. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_time_a0bd3eab238596b63a1bc8e8ac830844b}\index{FbxTime@{FbxTime}!SetGlobalTimeMode@{SetGlobalTimeMode}}
+\index{SetGlobalTimeMode@{SetGlobalTimeMode}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{SetGlobalTimeMode()}{SetGlobalTimeMode()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a0bd3eab238596b63a1bc8e8ac830844b} 
+static void Fbx\+Time\+::\+Set\+Global\+Time\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{, }\item[{double}]{p\+Frame\+Rate}{ = {\ttfamily 0.0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Set default time mode. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time\+Mode} & Time mode identifier. \\
+\hline
+{\em p\+Frame\+Rate} & Custom framerate, only have effect in case of p\+Time\+Mode = Fbx\+Time\+::e\+Custom \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+It is meaningless to set default time mode to {\ttfamily e\+Default\+Mode}. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_time_ab455ab67a792cbf5d691db58d988a905}\index{FbxTime@{FbxTime}!SetGlobalTimeProtocol@{SetGlobalTimeProtocol}}
+\index{SetGlobalTimeProtocol@{SetGlobalTimeProtocol}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{SetGlobalTimeProtocol()}{SetGlobalTimeProtocol()}}
+{\footnotesize\ttfamily \label{class_fbx_time_ab455ab67a792cbf5d691db58d988a905} 
+static void Fbx\+Time\+::\+Set\+Global\+Time\+Protocol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}}}]{p\+Time\+Protocol}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Set default time protocol. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time\+Protocol} & Time protocol identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+It is meaningless to set default time protocol to {\ttfamily e\+Default\+Protocol}. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_time_a7105d8b5b0665d82660f5ef749cd6274}\index{FbxTime@{FbxTime}!SetMilliSeconds@{SetMilliSeconds}}
+\index{SetMilliSeconds@{SetMilliSeconds}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{SetMilliSeconds()}{SetMilliSeconds()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a7105d8b5b0665d82660f5ef749cd6274} 
+void Fbx\+Time\+::\+Set\+Milli\+Seconds (\begin{DoxyParamCaption}\item[{Fbx\+Long\+Long}]{p\+Milli\+Seconds}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Set time in milliseconds. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Milli\+Seconds} & Time value to set. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_time_aa67980a4f73f7914d0c457384754da0c}\index{FbxTime@{FbxTime}!SetSecondDouble@{SetSecondDouble}}
+\index{SetSecondDouble@{SetSecondDouble}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{SetSecondDouble()}{SetSecondDouble()}}
+{\footnotesize\ttfamily \label{class_fbx_time_aa67980a4f73f7914d0c457384754da0c} 
+void Fbx\+Time\+::\+Set\+Second\+Double (\begin{DoxyParamCaption}\item[{double}]{p\+Time}{}\end{DoxyParamCaption})}
+
+Set time in seconds. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & Time value to set. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_time_a3922d4acd406c43e2d27e16feb1593d0}\index{FbxTime@{FbxTime}!SetTime@{SetTime}}
+\index{SetTime@{SetTime}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{SetTime()}{SetTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_time_a3922d4acd406c43e2d27e16feb1593d0} 
+void Fbx\+Time\+::\+Set\+Time (\begin{DoxyParamCaption}\item[{int}]{p\+Hour}{, }\item[{int}]{p\+Minute}{, }\item[{int}]{p\+Second}{, }\item[{int}]{p\+Frame}{, }\item[{int}]{p\+Field}{, }\item[{int}]{p\+Residual}{, }\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{}\end{DoxyParamCaption})}
+
+Set time in hour/minute/second/frame/field/residual format. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Hour} & The hours value. \\
+\hline
+{\em p\+Minute} & The minutes value. \\
+\hline
+{\em p\+Second} & The seconds value. \\
+\hline
+{\em p\+Frame} & The frames values. \\
+\hline
+{\em p\+Field} & The field value. \\
+\hline
+{\em p\+Residual} & The hundredths of frame value. \\
+\hline
+{\em p\+Time\+Mode} & Time mode identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+Parameters p\+Hour, p\+Minute, p\+Second, p\+Frame, p\+Field and p\+Residual are summed together, just like above. p\+Residual represents hundredths of frame, and won\textquotesingle{}t necessarily correspond to an exact internal value.
+
+The time mode can\textquotesingle{}t have a default value, because otherwise Set\+Time(int, int, int, int, int, int) would be ambiguous. Please specify DEFAULT\+\_\+\+MODE. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_time_ae57387b2c14de574b1b7d4361babf033}\index{FbxTime@{FbxTime}!SetTime@{SetTime}}
+\index{SetTime@{SetTime}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{SetTime()}{SetTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_time_ae57387b2c14de574b1b7d4361babf033} 
+void Fbx\+Time\+::\+Set\+Time (\begin{DoxyParamCaption}\item[{int}]{p\+Hour}{, }\item[{int}]{p\+Minute}{, }\item[{int}]{p\+Second}{, }\item[{int}]{p\+Frame}{ = {\ttfamily 0}, }\item[{int}]{p\+Field}{ = {\ttfamily 0}, }\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{ = {\ttfamily eDefaultMode}}\end{DoxyParamCaption})}
+
+Set time in hour/minute/second/frame/field format. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Hour} & The hours value. \\
+\hline
+{\em p\+Minute} & The minutes value. \\
+\hline
+{\em p\+Second} & The seconds value. \\
+\hline
+{\em p\+Frame} & The frames values. \\
+\hline
+{\em p\+Field} & The field value. \\
+\hline
+{\em p\+Time\+Mode} & Time mode identifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+Parameters p\+Hour, p\+Minute, p\+Second, p\+Frame and p\+Field are summed together. For example, it is possible to set the time to 83 seconds in the following ways\+: Set\+Time(0,1,23) or Set\+Time(0,0,83). 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_time_a89cd0281110c4dee63e5211adb565ead}\index{FbxTime@{FbxTime}!SetTimeString@{SetTimeString}}
+\index{SetTimeString@{SetTimeString}!FbxTime@{FbxTime}}
+\doxysubsubsection{\texorpdfstring{SetTimeString()}{SetTimeString()}}
+{\footnotesize\ttfamily \label{class_fbx_time_a89cd0281110c4dee63e5211adb565ead} 
+bool Fbx\+Time\+::\+Set\+Time\+String (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Time}{, }\item[{\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}]{p\+Time\+Mode}{ = {\ttfamily eDefaultMode}, }\item[{\mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}}}]{p\+Time\+Format}{ = {\ttfamily eDefaultProtocol}}\end{DoxyParamCaption})}
+
+Set time in a human readable format. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Time} & An array of a maximum of 18 characters. If time protocol is {\ttfamily e\+SMPTE}, p\+Time\+String must be formatted this way\+: "{}\mbox{[}hours\+:\mbox{]}minutes\mbox{[}\+:seconds\mbox{[}.\+frames\mbox{[}.\+fields\mbox{]}\mbox{]}\mbox{]}"{}. Hours, minutes, seconds, frames and fields are parsed as integers and brackets indicate optional parts. If time protocol is {\ttfamily e\+FRAME}, p\+Time\+String must be formatted this way\+: "{}frames"{}. Frames is parsed as a 64 bits integer. \\
+\hline
+{\em p\+Time\+Mode} & Given time mode. \\
+\hline
+{\em p\+Time\+Format} & Given time protocol. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the set time string succeed, otherwise return false. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/base/\mbox{\hyperlink{fbxtime_8h}{fbxtime.\+h}}\end{DoxyCompactItemize}

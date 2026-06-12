@@ -1,0 +1,130 @@
+\doxysection{fbxmanipulators.\+h}
+\hypertarget{fbxmanipulators_8h_source}{}\label{fbxmanipulators_8h_source}\index{include/fbx/fbxsdk/utils/fbxmanipulators.h@{include/fbx/fbxsdk/utils/fbxmanipulators.h}}
+\mbox{\hyperlink{fbxmanipulators_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_UTILS\_MANIPULATORS\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_UTILS\_MANIPULATORS\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxvector2_8h}{fbxsdk/core/math/fbxvector2.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxvector4_8h}{fbxsdk/core/math/fbxvector4.h}}>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcamera_8h}{fbxsdk/scene/geometry/fbxcamera.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }FbxCameraManipulationState;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_camera_manipulator}{FbxCameraManipulator}}\ :\ \textcolor{keyword}{public}\ FbxObject}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_camera_manipulator}{FbxCameraManipulator}},\ FbxObject);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_manipulator_ada0f93888edb4a1c0140e35f99eba922}{EAction}}}
+\DoxyCodeLine{00037\ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_manipulator_ada0f93888edb4a1c0140e35f99eba922ad7f82cf29963964f19482d8f6e246efe}{eNone}},\ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_manipulator_ada0f93888edb4a1c0140e35f99eba922a172298ef345544e9aa221599bf5fde25}{eOrbit}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_manipulator_ada0f93888edb4a1c0140e35f99eba922a0aa0fccd579ee7ee47658bca13803471}{eDolly}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_manipulator_ada0f93888edb4a1c0140e35f99eba922a14e17787f7b2c85171219544e4f35045}{ePan}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_manipulator_ada0f93888edb4a1c0140e35f99eba922a870b225912367c395c73fb1aae971ec5}{eFreePan}}\ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_manipulator_a67dde46522f0fe7e3e3b10112e7a9c29}{Begin}}(\mbox{\hyperlink{class_fbx_camera_manipulator_ada0f93888edb4a1c0140e35f99eba922}{EAction}}\ pAction,\ \textcolor{keywordtype}{float}\ pX,\ \textcolor{keywordtype}{float}\ pY);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_manipulator_af9008a220ef4a6ececcf46bb171656b4}{Notify}}(\textcolor{keywordtype}{float}\ pX,\ \textcolor{keywordtype}{float}\ pY,\ \textcolor{keywordtype}{float}\ pScale=0);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_manipulator_ae9eef6e3b92ce1b9f2a7da21a2487bb2}{End}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_manipulator_a0753a414b92367037fd96d588b0faba9}{Update}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTimeDelta=FBXSDK\_TIME\_ZERO);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_manipulator_a87d5576928c945640be5414d945feab5}{Action}}(\mbox{\hyperlink{class_fbx_camera_manipulator_ada0f93888edb4a1c0140e35f99eba922}{EAction}}\ pAction,\ \textcolor{keywordtype}{float}\ pX,\ \textcolor{keywordtype}{float}\ pY,\ \textcolor{keywordtype}{float}\ pScale=0);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_manipulator_ada0f93888edb4a1c0140e35f99eba922}{EAction}}\ \mbox{\hyperlink{class_fbx_camera_manipulator_a93f3cd6487e8f10c9accb6db1022e397}{GetCurrentAction}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_manipulator_a78fab2478759b295c01ab4a4e5f716e9}{FrameAll}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_INFINITE);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_manipulator_a7c286fb462b04bc029f72e82e61cdc72}{FrameSelected}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_INFINITE);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_manipulator_a622a6f144dede94c05ed63c80832f25f}{FrameScreenPosition}}(\textcolor{keywordtype}{float}\ pX,\ \textcolor{keywordtype}{float}\ pY,\ \textcolor{keywordtype}{bool}\ pCulling=\textcolor{keyword}{false},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_INFINITE);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxReference>}}\ \mbox{\hyperlink{class_fbx_camera_manipulator_a3914094466ec766c18c0e544431e8060}{Camera}};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxFloat>}}\ \mbox{\hyperlink{class_fbx_camera_manipulator_a03e2795ba49c8bcce02dc786356ab2d5}{ViewportWidth}};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxFloat>}}\ \mbox{\hyperlink{class_fbx_camera_manipulator_afdf345d7e5f01d42da8011bbeb8dc394}{ViewportHeight}};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_camera_manipulator_abdefaf7c5fef50e2c873616099c2a579}{Smooth}};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \mbox{\hyperlink{class_fbx_camera_manipulator_afa0edcbcd8ad9a4de15672c7e8fc0c3d}{SmoothSpeed}};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_camera_manipulator_aebb2e55534a051995499d73cd1742511}{InvertX}};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_camera_manipulator_a9e9a2e653b6ef9f1d3da31110f26fec3}{InvertY}};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_camera_manipulator_aafe0b0e43ecaf16a44a49ae2d55f440a}{Restore}};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00120\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00121\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00123\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_manipulator_a23a478e2be4c93a0712c8e1bc6adbf47}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_manipulator_af88ccd596a01ba16f2abcb634e07205b}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_manipulator_ad5b4b072e55a354048806676a69bb83c}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{bool}\ ConnectNotify(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_connect_event}{FbxConnectEvent}}\&\ pEvent)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{bool}\ PropertyNotify(EPropertyNotifyType\ pType,\ FbxProperty\&\ pProperty)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ Reset();}
+\DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ GetCamera()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ GetCameraNode()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ GetCameraLookAtNode()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ GetCameraTargetUpNode()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ GetCameraPosition()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ SetCameraPosition(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pPosition);}
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ GetCameraRotation()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ SetCameraRotation(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pRotation);}
+\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ GetCameraLookAtPosition()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ SetCameraLookAtPosition(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pPosition);}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ GetCameraTargetUpPosition()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ SetCameraTargetUpPosition(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pPosition);}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\ \ \ \ GetCameraRotationMatrix()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ SetCameraRotationMatrix(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\&\ pRM);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{double}\ \ \ \ \ \ ComputeRotationAxis(\mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pFront,\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pUp,\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pRight,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pEye,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pLookAt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pUpVector)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ ComputeRotationMatrix(\mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\&\ pRM,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pEye,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pLookAt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pUpVector);}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ UpdateCameraRotation();}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ FrameObjects(\textcolor{keywordtype}{bool}\ pSelected,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime);}
+\DoxyCodeLine{00152\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ ComputePositionToFitBBoxInFrustum(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pBBoxMin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pBBoxMax,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pBBoxCenter,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pCameraPosition,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\&\ pCameraRM,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_manipulator_ada0f93888edb4a1c0140e35f99eba922}{EAction}}\ \ \ \ \ \ mCurrentAction;}
+\DoxyCodeLine{00155\ \ \ \ \ FbxFloat\ \ \ \ mBeginMouse[3],\ mLastMouse[3];}
+\DoxyCodeLine{00156\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ mBeginPosition,\ mBeginAxis[3];}
+\DoxyCodeLine{00157\ \ \ \ \ FbxBool\ \ \ \ \ mBeginFlipped;}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ FbxDouble\ \ \ mDestOrthoZoom;}
+\DoxyCodeLine{00160\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ mDestPosition,\ mDestLookAt,\ mDestTargetUp;}
+\DoxyCodeLine{00161\ \ \ \ \ \mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\ \ \ \ mDestRotation;}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \ \ \ mInitialPosition,\ mInitialRotation,\ mInitialLookAt;}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00165\ \};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_UTILS\_MANIPULATORS\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

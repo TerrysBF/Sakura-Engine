@@ -1,0 +1,210 @@
+\doxysection{SAX.\+h}
+\hypertarget{_s_a_x_8h_source}{}\label{_s_a_x_8h_source}\index{include/fbx/libxml2/libxml/SAX.h@{include/fbx/libxml2/libxml/SAX.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Summary:\ Old\ SAX\ version\ 1\ handler,\ deprecated}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Description:\ DEPRECATED\ set\ of\ SAX\ version\ 1\ interfaces\ used\ to}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ build\ the\ DOM\ tree.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Copy:\ See\ Copyright\ for\ the\ status\ of\ this\ software.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Author:\ Daniel\ Veillard}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_SAX\_H\_\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_\_XML\_SAX\_H\_\_}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <libxml/xmlversion.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <libxml/parser.h>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_LEGACY\_ENABLED}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00023\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00025\ XML\_DEPRECATED}
+\DoxyCodeLine{00026\ XMLPUBFUN\ \textcolor{keyword}{const}\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ getPublicId\ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00028\ XML\_DEPRECATED}
+\DoxyCodeLine{00029\ XMLPUBFUN\ \textcolor{keyword}{const}\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ getSystemId\ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00031\ XML\_DEPRECATED}
+\DoxyCodeLine{00032\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ setDocumentLocator\ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlSAXLocatorPtr\ loc);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ XML\_DEPRECATED}
+\DoxyCodeLine{00037\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ getLineNumber\ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00039\ XML\_DEPRECATED}
+\DoxyCodeLine{00040\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ getColumnNumber\ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ XML\_DEPRECATED}
+\DoxyCodeLine{00044\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ isStandalone\ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00046\ XML\_DEPRECATED}
+\DoxyCodeLine{00047\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ hasInternalSubset\ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00049\ XML\_DEPRECATED}
+\DoxyCodeLine{00050\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ hasExternalSubset\ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ XML\_DEPRECATED}
+\DoxyCodeLine{00054\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ internalSubset\ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ExternalID,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *SystemID);}
+\DoxyCodeLine{00059\ XML\_DEPRECATED}
+\DoxyCodeLine{00060\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ externalSubset\ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ExternalID,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *SystemID);}
+\DoxyCodeLine{00065\ XML\_DEPRECATED}
+\DoxyCodeLine{00066\ XMLPUBFUN\ xmlEntityPtr\ XMLCALL}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ getEntity\ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00069\ XML\_DEPRECATED}
+\DoxyCodeLine{00070\ XMLPUBFUN\ xmlEntityPtr\ XMLCALL}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ getParameterEntity\ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00073\ XML\_DEPRECATED}
+\DoxyCodeLine{00074\ XMLPUBFUN\ xmlParserInputPtr\ XMLCALL}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ resolveEntity\ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *publicId,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *systemId);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ XML\_DEPRECATED}
+\DoxyCodeLine{00080\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ entityDecl\ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ type,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *publicId,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *systemId,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ *content);}
+\DoxyCodeLine{00087\ XML\_DEPRECATED}
+\DoxyCodeLine{00088\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ attributeDecl\ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *elem,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *fullname,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ type,}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ def,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *defaultValue,}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlEnumerationPtr\ tree);}
+\DoxyCodeLine{00096\ XML\_DEPRECATED}
+\DoxyCodeLine{00097\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ elementDecl\ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ type,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlElementContentPtr\ content);}
+\DoxyCodeLine{00102\ XML\_DEPRECATED}
+\DoxyCodeLine{00103\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ notationDecl\ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *publicId,}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *systemId);}
+\DoxyCodeLine{00108\ XML\_DEPRECATED}
+\DoxyCodeLine{00109\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ unparsedEntityDecl\ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *publicId,}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *systemId,}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *notationName);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ XML\_DEPRECATED}
+\DoxyCodeLine{00117\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ startDocument\ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00119\ XML\_DEPRECATED}
+\DoxyCodeLine{00120\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ endDocument\ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00122\ XML\_DEPRECATED}
+\DoxyCodeLine{00123\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ attribute\ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *fullname,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *value);}
+\DoxyCodeLine{00127\ XML\_DEPRECATED}
+\DoxyCodeLine{00128\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ startElement\ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *fullname,}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ **atts);}
+\DoxyCodeLine{00132\ XML\_DEPRECATED}
+\DoxyCodeLine{00133\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ endElement\ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00136\ XML\_DEPRECATED}
+\DoxyCodeLine{00137\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ reference\ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00140\ XML\_DEPRECATED}
+\DoxyCodeLine{00141\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ characters\ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ch,}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ len);}
+\DoxyCodeLine{00145\ XML\_DEPRECATED}
+\DoxyCodeLine{00146\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ ignorableWhitespace\ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ch,}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ len);}
+\DoxyCodeLine{00150\ XML\_DEPRECATED}
+\DoxyCodeLine{00151\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ processingInstruction\ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *target,}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *data);}
+\DoxyCodeLine{00155\ XML\_DEPRECATED}
+\DoxyCodeLine{00156\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ globalNamespace\ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *href,}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *prefix);}
+\DoxyCodeLine{00160\ XML\_DEPRECATED}
+\DoxyCodeLine{00161\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ setNamespace\ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00164\ XML\_DEPRECATED}
+\DoxyCodeLine{00165\ XMLPUBFUN\ xmlNsPtr\ XMLCALL}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ getNamespace\ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00167\ XML\_DEPRECATED}
+\DoxyCodeLine{00168\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ checkNamespace\ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlChar\ *nameSpace);}
+\DoxyCodeLine{00171\ XML\_DEPRECATED}
+\DoxyCodeLine{00172\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ namespaceDecl\ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *href,}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *prefix);}
+\DoxyCodeLine{00176\ XML\_DEPRECATED}
+\DoxyCodeLine{00177\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ comment\ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *value);}
+\DoxyCodeLine{00180\ XML\_DEPRECATED}
+\DoxyCodeLine{00181\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ cdataBlock\ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *value,}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ len);}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_SAX1\_ENABLED}}
+\DoxyCodeLine{00187\ XML\_DEPRECATED}
+\DoxyCodeLine{00188\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ initxmlDefaultSAXHandler\ \ \ \ (xmlSAXHandlerV1\ *hdlr,}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ warning);}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_HTML\_ENABLED}}
+\DoxyCodeLine{00192\ XML\_DEPRECATED}
+\DoxyCodeLine{00193\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ inithtmlDefaultSAXHandler\ \ \ (xmlSAXHandlerV1\ *hdlr);}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_SAX1\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00199\ \}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_LEGACY\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_XML\_SAX\_H\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

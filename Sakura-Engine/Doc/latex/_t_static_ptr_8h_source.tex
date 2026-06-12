@@ -1,0 +1,134 @@
+\doxysection{TStatic\+Ptr.\+h}
+\hypertarget{_t_static_ptr_8h_source}{}\label{_t_static_ptr_8h_source}\index{include/EngineUtilities/Memory/TStaticPtr.h@{include/EngineUtilities/Memory/TStaticPtr.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ MIT\ License}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2025\ Roberto\ Charreton}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ In\ addition,\ any\ project\ or\ software\ that\ uses\ this\ library\ or\ class\ must\ include}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ the\ following\ acknowledgment\ in\ the\ credits:}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ "{}This\ project\ uses\ software\ developed\ by\ Roberto\ Charreton\ and\ Attribute\ Overload."{}}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{00028\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{namespace\ }EU\ \{}
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00039\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_e_u_1_1_t_static_ptr_a2bb7d62435a529c1698faf781b05cd02}{TStaticPtr}}\ \{}
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_static_ptr_a2bb7d62435a529c1698faf781b05cd02}{TStaticPtr}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_e_u_1_1_t_static_ptr_a60f595662103a48a465bf0b19adac61d}{TStaticPtr}}(T*\ rawPtr)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (instance\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ instance;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ instance\ =\ rawPtr;}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_static_ptr_aebe444ddcbfd2f227330577517124800}{\string~TStaticPtr}}()\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (instance\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ instance;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ instance\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{static}\ T*}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_static_ptr_a78225c1a51ef34a43f99ad8175ed360d}{get}}()\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ instance;}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_static_ptr_ad51f0273d5c6af341496be64018be104}{isNull}}()\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ instance\ ==\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_static_ptr_a5d1e306f4f75f0ce4d735f259879dd37}{reset}}(T*\ rawPtr\ =\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (instance\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ instance;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ instance\ =\ rawPtr;}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{static}\ T*\ instance;\ }
+\DoxyCodeLine{00109\ \ \ \};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\ \ //\ Inicializar\ el\ puntero\ estático}}
+\DoxyCodeLine{00113\ \textcolor{comment}{\ \ template<typename\ T>}}
+\DoxyCodeLine{00114\ \textcolor{comment}{\ \ T*\ TStaticPtr<T>::instance\ =\ nullptr;}}
+\DoxyCodeLine{00115\ \textcolor{comment}{}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ \ //\ Ejemplo\ de\ uso\ de\ TStaticPtr}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ \ class\ MyClass}}
+\DoxyCodeLine{00118\ \textcolor{comment}{\ \ \{}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ \ public:}}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ \ \ \ MyClass(int\ value)\ :\ value(value)}}
+\DoxyCodeLine{00121\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{00122\ \textcolor{comment}{\ \ \ \ \ \ std::cout\ <<\ "{}MyClass\ constructor:\ "{}\ <<\ value\ <<\ std::endl;}}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00124\ \textcolor{comment}{}}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ \ \ \ \string~MyClass()}}
+\DoxyCodeLine{00126\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{00127\ \textcolor{comment}{\ \ \ \ \ \ std::cout\ <<\ "{}MyClass\ destructor:\ "{}\ <<\ value\ <<\ std::endl;}}
+\DoxyCodeLine{00128\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00129\ \textcolor{comment}{}}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ \ \ \ void\ display()\ const}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ \ \ \ \ \ std::cout\ <<\ "{}Value:\ "{}\ <<\ value\ <<\ std::endl;}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00134\ \textcolor{comment}{}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ \ private:}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ \ \ \ int\ value;}}
+\DoxyCodeLine{00137\ \textcolor{comment}{\ \ \};}}
+\DoxyCodeLine{00138\ \textcolor{comment}{}}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ \ int\ main()}}
+\DoxyCodeLine{00140\ \textcolor{comment}{\ \ \{}}
+\DoxyCodeLine{00141\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{00142\ \textcolor{comment}{\ \ \ \ \ \ //\ Crear\ un\ TStaticPtr\ usando\ un\ puntero\ crudo}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ \ \ \ \ \ TStaticPtr<MyClass>::reset(new\ MyClass(10));}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ \ \ \ \ \ TStaticPtr<MyClass>::get()-\/>display();\ //\ Output:\ Value:\ 10}}
+\DoxyCodeLine{00145\ \textcolor{comment}{}}
+\DoxyCodeLine{00146\ \textcolor{comment}{\ \ \ \ \ \ //\ Comprobar\ si\ el\ puntero\ no\ es\ nulo}}
+\DoxyCodeLine{00147\ \textcolor{comment}{\ \ \ \ \ \ if\ (!TStaticPtr<MyClass>::isNull())}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ \ \ \ \ \ \{}}
+\DoxyCodeLine{00149\ \textcolor{comment}{\ \ \ \ \ \ \ \ std::cout\ <<\ "{}TStaticPtr\ is\ not\ null"{}\ <<\ std::endl;}}
+\DoxyCodeLine{00150\ \textcolor{comment}{\ \ \ \ \ \ \}}}
+\DoxyCodeLine{00151\ \textcolor{comment}{}}
+\DoxyCodeLine{00152\ \textcolor{comment}{\ \ \ \ \ \ //\ Reiniciar\ TStaticPtr\ con\ un\ nuevo\ objeto}}
+\DoxyCodeLine{00153\ \textcolor{comment}{\ \ \ \ \ \ TStaticPtr<MyClass>::reset(new\ MyClass(20));}}
+\DoxyCodeLine{00154\ \textcolor{comment}{\ \ \ \ \ \ TStaticPtr<MyClass>::get()-\/>display();\ //\ Output:\ Value:\ 20}}
+\DoxyCodeLine{00155\ \textcolor{comment}{}}
+\DoxyCodeLine{00156\ \textcolor{comment}{\ \ \ \ \ \ //\ Reiniciar\ con\ nullptr}}
+\DoxyCodeLine{00157\ \textcolor{comment}{\ \ \ \ \ \ TStaticPtr<MyClass>::reset();}}
+\DoxyCodeLine{00158\ \textcolor{comment}{\ \ \ \ \ \ if\ (TStaticPtr<MyClass>::isNull())}}
+\DoxyCodeLine{00159\ \textcolor{comment}{\ \ \ \ \ \ \{}}
+\DoxyCodeLine{00160\ \textcolor{comment}{\ \ \ \ \ \ \ \ std::cout\ <<\ "{}TStaticPtr\ is\ null\ after\ reset"{}\ <<\ std::endl;}}
+\DoxyCodeLine{00161\ \textcolor{comment}{\ \ \ \ \ \ \}}}
+\DoxyCodeLine{00162\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00163\ \textcolor{comment}{}}
+\DoxyCodeLine{00164\ \textcolor{comment}{\ \ \ \ return\ 0;}}
+\DoxyCodeLine{00165\ \textcolor{comment}{\ \ \}}}
+\DoxyCodeLine{00166\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{00167\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,87 @@
+\doxysection{Fbx\+Binding\+Operator\+::Function Class Reference}
+\hypertarget{class_fbx_binding_operator_1_1_function}{}\label{class_fbx_binding_operator_1_1_function}\index{FbxBindingOperator::Function@{FbxBindingOperator::Function}}
+
+
+{\ttfamily \#include $<$fbxbindingoperator.\+h$>$}
+
+Inheritance diagram for Fbx\+Binding\+Operator\+::Function\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_fbx_binding_operator_1_1_function}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_binding_operator_1_1_function_a87c75b7d2a19945c11161104691294c9}\label{class_fbx_binding_operator_1_1_function_a87c75b7d2a19945c11161104691294c9} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Function} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_aa238a63d12508db3cb5c00a4b157524e}{Evaluate}} (const \mbox{\hyperlink{class_fbx_binding_operator}{Fbx\+Binding\+Operator}} \texorpdfstring{$\ast$}{*}p\+Operator, const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} \texorpdfstring{$\ast$}{*}p\+Result\+Type, void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Result) const =0
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_binding_operator_1_1_function_a9bbeec993a6e453a6569e7f40a85fd52}{Reverse\+Evaluate}} (const \mbox{\hyperlink{class_fbx_binding_operator}{Fbx\+Binding\+Operator}} \texorpdfstring{$\ast$}{*}p\+Operator, const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Target, const void \texorpdfstring{$\ast$}{*}p\+In, void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Out, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} \texorpdfstring{$\ast$}{*}p\+Out\+Type, bool set\+Obj, int index) const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+It represents a binding relationship between current object and the target. Any binding operation need to specify a certain kind of binding function. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_binding_operator_1_1_function_aa238a63d12508db3cb5c00a4b157524e}\index{FbxBindingOperator::Function@{FbxBindingOperator::Function}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!FbxBindingOperator::Function@{FbxBindingOperator::Function}}
+\doxysubsubsection{\texorpdfstring{Evaluate()}{Evaluate()}}
+{\footnotesize\ttfamily \label{class_fbx_binding_operator_1_1_function_aa238a63d12508db3cb5c00a4b157524e} 
+virtual bool Fbx\+Binding\+Operator\+::\+Function\+::\+Evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_binding_operator}{Fbx\+Binding\+Operator}} \texorpdfstring{$\ast$}{*}}]{p\+Operator}{, }\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} \texorpdfstring{$\ast$}{*}}]{p\+Result\+Type}{, }\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{p\+Result}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Run the operator on the given object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Operator} & The operator that will be applied. \\
+\hline
+{\em p\+Object} & The object that will be evaluated. \\
+\hline
+{\em p\+Result\+Type} & Will be filled by the type of the result. \\
+\hline
+{\em p\+Result} & Will be filled by a pointer to a buffer that hold the result. The caller must call Free\+Evaluation\+Result() when it is done with this pointer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_fbx_add_b_o_f_a442e11ea20fa24796f67475f9c3b838d}{Fbx\+Add\+BOF}}, \mbox{\hyperlink{class_fbx_assign_b_o_f_a6b2d96e93fd44190399779e36277c1bf}{Fbx\+Assign\+BOF}}, \mbox{\hyperlink{class_fbx_conditional_b_o_f_a2f308b29d7f9137872e5b397091c3afb}{Fbx\+Conditional\+BOF}}, \mbox{\hyperlink{class_fbx_degree_to_radian_b_o_f_a6b7c0af7521d1b8d231d2385edc9bdf5}{Fbx\+Degree\+To\+Radian\+BOF}}, \mbox{\hyperlink{class_fbx_is_yup_b_o_f_a00b09f99e727a45e6434b419a692ade6}{Fbx\+Is\+Yup\+BOF}}, \mbox{\hyperlink{class_fbx_multiply_b_o_f_ae7d0d1eb4ddb0bfb7f8c61f86d1466bc}{Fbx\+Multiply\+BOF}}, \mbox{\hyperlink{class_fbx_multiply_dist_b_o_f_a3b2a4baca7601d218c5e0a4c5a793cfc}{Fbx\+Multiply\+Dist\+BOF}}, \mbox{\hyperlink{class_fbx_node_direction_b_o_f_a62c47929d6ef31dd64b2f8830417b25b}{Fbx\+Node\+Direction\+BOF}}, \mbox{\hyperlink{class_fbx_node_position_b_o_f_a4c13773dd197bddedcfdee90d3dfd9f2}{Fbx\+Node\+Position\+BOF}}, \mbox{\hyperlink{class_fbx_one_over_x_b_o_f_a27bb239389b78f967170815cd04f970b}{Fbx\+One\+Over\+XBOF}}, \mbox{\hyperlink{class_fbx_power_b_o_f_add3ce0af3013bdbe4b45912cc1a8fc5b}{Fbx\+Power\+BOF}}, \mbox{\hyperlink{class_fbx_spherical_to_cartesian_b_o_f_a0cc65167ca6c0d09994236790883e99f}{Fbx\+Spherical\+To\+Cartesian\+BOF}}, \mbox{\hyperlink{class_fbx_spot_distribution_chooser_b_o_f_a1a70a0ddfe289638097e4b987639d485}{Fbx\+Spot\+Distribution\+Chooser\+BOF}}, \mbox{\hyperlink{class_fbx_substract_b_o_f_a6ea2ab8ef548329c6761b836611e85e8}{Fbx\+Substract\+BOF}}, \mbox{\hyperlink{class_fbx_switch_b_o_f_a0209cb9d0d28e22c7e405a7658d00234}{Fbx\+Switch\+BOF}}, \mbox{\hyperlink{class_fbx_symbol_i_d_b_o_f_aad30e0b9e9a8de12a2e9292c51bb3b7a}{Fbx\+Symbol\+IDBOF}}, \mbox{\hyperlink{class_fbx_t_r_s_to_matrix_b_o_f_ab420b015ccb5dcb0baa9a0d01d50b7f3}{Fbx\+TRSTo\+Matrix\+BOF}}, and \mbox{\hyperlink{class_fbx_vector_degree_to_vector_radian_b_o_f_a321d77a7afd21bdf6a36da72f651cb03}{Fbx\+Vector\+Degree\+To\+Vector\+Radian\+BOF}}.
+
+\Hypertarget{class_fbx_binding_operator_1_1_function_a9bbeec993a6e453a6569e7f40a85fd52}\index{FbxBindingOperator::Function@{FbxBindingOperator::Function}!ReverseEvaluate@{ReverseEvaluate}}
+\index{ReverseEvaluate@{ReverseEvaluate}!FbxBindingOperator::Function@{FbxBindingOperator::Function}}
+\doxysubsubsection{\texorpdfstring{ReverseEvaluate()}{ReverseEvaluate()}}
+{\footnotesize\ttfamily \label{class_fbx_binding_operator_1_1_function_a9bbeec993a6e453a6569e7f40a85fd52} 
+virtual bool Fbx\+Binding\+Operator\+::\+Function\+::\+Reverse\+Evaluate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_binding_operator}{Fbx\+Binding\+Operator}} \texorpdfstring{$\ast$}{*}}]{p\+Operator}{, }\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Target}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{p\+In}{, }\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{p\+Out}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} \texorpdfstring{$\ast$}{*}}]{p\+Out\+Type}{, }\item[{bool}]{set\+Obj}{, }\item[{int}]{index}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Run the inverse operator on the given object, assigning the result directly to the object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Operator} & The operator that will be applied. \\
+\hline
+{\em p\+Target} & The object that will be evaluated. \\
+\hline
+{\em p\+In} & \\
+\hline
+{\em p\+Out} & \\
+\hline
+{\em p\+Out\+Type} & Type of value being reversed. \\
+\hline
+{\em set\+Obj} & Control to set the property (only to query by the default ). \\
+\hline
+{\em index} & Used only in \doxylink{class_fbx_multiply_dist_b_o_f}{Fbx\+Multiply\+Dist\+BOF}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} on success, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_fbx_add_b_o_f_a6bb22946b71dad11158e9066448513e9}{Fbx\+Add\+BOF}}, \mbox{\hyperlink{class_fbx_assign_b_o_f_aae12e1bb26166060efe6e179991df941}{Fbx\+Assign\+BOF}}, \mbox{\hyperlink{class_fbx_conditional_b_o_f_afacfd85ba732eea8f30dc92dbde276c2}{Fbx\+Conditional\+BOF}}, \mbox{\hyperlink{class_fbx_degree_to_radian_b_o_f_ad2eb6fcbbfb31f68f5c00f0becf7de2a}{Fbx\+Degree\+To\+Radian\+BOF}}, \mbox{\hyperlink{class_fbx_is_yup_b_o_f_a1c45c8d392965ae9239a4c5239ab8c13}{Fbx\+Is\+Yup\+BOF}}, \mbox{\hyperlink{class_fbx_multiply_b_o_f_a0b750f14da51ff275e3d60324a72cb7e}{Fbx\+Multiply\+BOF}}, \mbox{\hyperlink{class_fbx_multiply_dist_b_o_f_a5c05ec033359b09b856330d647fafe65}{Fbx\+Multiply\+Dist\+BOF}}, \mbox{\hyperlink{class_fbx_node_direction_b_o_f_a1f31d17a7d1ebc20c49d019f9f1dfff2}{Fbx\+Node\+Direction\+BOF}}, \mbox{\hyperlink{class_fbx_node_position_b_o_f_a26a0cb3846aa49334418cd84db1ab162}{Fbx\+Node\+Position\+BOF}}, \mbox{\hyperlink{class_fbx_one_over_x_b_o_f_ab612faf17743e37368ec1fdaf5138136}{Fbx\+One\+Over\+XBOF}}, \mbox{\hyperlink{class_fbx_power_b_o_f_a59eeb1d7053cbdbd582c3c320e4eb9fe}{Fbx\+Power\+BOF}}, \mbox{\hyperlink{class_fbx_spherical_to_cartesian_b_o_f_a5c01c9af323491de93d5df25dc89e321}{Fbx\+Spherical\+To\+Cartesian\+BOF}}, \mbox{\hyperlink{class_fbx_spot_distribution_chooser_b_o_f_a4c45747ba46765e71480d0663b5da510}{Fbx\+Spot\+Distribution\+Chooser\+BOF}}, \mbox{\hyperlink{class_fbx_substract_b_o_f_ab3da7ccd5c672922ee97a94d04b93776}{Fbx\+Substract\+BOF}}, \mbox{\hyperlink{class_fbx_switch_b_o_f_a3fb331467c87cf6c5d01377766660ac0}{Fbx\+Switch\+BOF}}, \mbox{\hyperlink{class_fbx_symbol_i_d_b_o_f_a6afdd41a386c89d208b30020df58ce12}{Fbx\+Symbol\+IDBOF}}, \mbox{\hyperlink{class_fbx_t_r_s_to_matrix_b_o_f_a729c3bb9b6529d620e6f06956ea8e4de}{Fbx\+TRSTo\+Matrix\+BOF}}, and \mbox{\hyperlink{class_fbx_vector_degree_to_vector_radian_b_o_f_a30608af3832d339589be2edfb29623fa}{Fbx\+Vector\+Degree\+To\+Vector\+Radian\+BOF}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/scene/shading/\mbox{\hyperlink{fbxbindingoperator_8h}{fbxbindingoperator.\+h}}\end{DoxyCompactItemize}

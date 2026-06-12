@@ -1,0 +1,52 @@
+\doxysection{include/fbx/fbxsdk/core/sync/fbxclock.h File Reference}
+\hypertarget{fbxclock_8h}{}\label{fbxclock_8h}\index{include/fbx/fbxsdk/core/sync/fbxclock.h@{include/fbx/fbxsdk/core/sync/fbxclock.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+FBXSDK\+\_\+\+DLL void \mbox{\hyperlink{fbxclock_8h_a693e90bbe70844052b885c7df0fe332b}{Fbx\+Sleep}} (int p\+Milliseconds)
+\item 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long \mbox{\hyperlink{fbxclock_8h_a48e1e00e3af91ee198b963bd8d275613}{Fbx\+Get\+High\+Res\+Counter}} ()
+\item 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long \mbox{\hyperlink{fbxclock_8h_ac79f90f3d50506f5bce740aa5ff6e993}{Fbx\+Get\+High\+Res\+Frequency}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fbxclock_8h_a48e1e00e3af91ee198b963bd8d275613}\index{fbxclock.h@{fbxclock.h}!FbxGetHighResCounter@{FbxGetHighResCounter}}
+\index{FbxGetHighResCounter@{FbxGetHighResCounter}!fbxclock.h@{fbxclock.h}}
+\doxysubsubsection{\texorpdfstring{FbxGetHighResCounter()}{FbxGetHighResCounter()}}
+{\footnotesize\ttfamily \label{fbxclock_8h_a48e1e00e3af91ee198b963bd8d275613} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long Fbx\+Get\+High\+Res\+Counter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Retrieves the current value of the high-\/resolution performance counter. \begin{DoxyReturn}{Returns}
+The current value of the high-\/resolution performance counter, in "{}counts"{}. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+To convert "{}counts"{} into time, divide it by the frequency available from \doxylink{fbxclock_8h_ac79f90f3d50506f5bce740aa5ff6e993}{Fbx\+Get\+High\+Res\+Frequency()}. 
+\end{DoxyRemark}
+\Hypertarget{fbxclock_8h_ac79f90f3d50506f5bce740aa5ff6e993}\index{fbxclock.h@{fbxclock.h}!FbxGetHighResFrequency@{FbxGetHighResFrequency}}
+\index{FbxGetHighResFrequency@{FbxGetHighResFrequency}!fbxclock.h@{fbxclock.h}}
+\doxysubsubsection{\texorpdfstring{FbxGetHighResFrequency()}{FbxGetHighResFrequency()}}
+{\footnotesize\ttfamily \label{fbxclock_8h_ac79f90f3d50506f5bce740aa5ff6e993} 
+FBXSDK\+\_\+\+DLL Fbx\+Long\+Long Fbx\+Get\+High\+Res\+Frequency (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Retrieves the frequency of the high-\/resolution performance counter. \begin{DoxyReturn}{Returns}
+The frequency of the high-\/resolution performance counter value, in "{}counts"{} per second. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The first time this function is called, the frequency is queried from the system and then cached so that further requests are fast. This means it is guaranteed to not change during run-\/time. 
+\end{DoxyRemark}
+\Hypertarget{fbxclock_8h_a693e90bbe70844052b885c7df0fe332b}\index{fbxclock.h@{fbxclock.h}!FbxSleep@{FbxSleep}}
+\index{FbxSleep@{FbxSleep}!fbxclock.h@{fbxclock.h}}
+\doxysubsubsection{\texorpdfstring{FbxSleep()}{FbxSleep()}}
+{\footnotesize\ttfamily \label{fbxclock_8h_a693e90bbe70844052b885c7df0fe332b} 
+FBXSDK\+\_\+\+DLL void Fbx\+Sleep (\begin{DoxyParamCaption}\item[{int}]{p\+Milliseconds}{}\end{DoxyParamCaption})}
+
+Put the current thread to sleep. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Milliseconds} & The duration of the sleep in milli-\/seconds. \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,95 @@
+\doxysection{include/fbx/fbxsdk/core/fbxevent.h File Reference}
+\hypertarget{fbxevent_8h}{}\label{fbxevent_8h}\index{include/fbx/fbxsdk/core/fbxevent.h@{include/fbx/fbxsdk/core/fbxevent.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxpropertytypes.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_fbx_event_base}{Fbx\+Event\+Base}}
+\item 
+class \mbox{\hyperlink{class_fbx_event}{Fbx\+Event$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fbxevent_8h_abab53b2d37df507254052aedf199b964}{FBXSDK\+\_\+\+EVENT\+\_\+\+DECLARE}}(Class)
+\item 
+\#define \mbox{\hyperlink{fbxevent_8h_a32d1e5674058de64a4ea389cdfa89302}{FBXSDK\+\_\+\+EVENT\+\_\+\+TYPE\+\_\+\+DECLARE}}(Class,  FBXType)
+\item 
+\#define \mbox{\hyperlink{fbxevent_8h_a447f33a689aa623afd370a1e34f9b0b8}{FBXSDK\+\_\+\+EVENT\+\_\+\+TEMPLATE\+\_\+\+HEADER}}(Class\+Name,  Template\+Name)
+\item 
+\#define \mbox{\hyperlink{fbxevent_8h_a06424633e333256adc5f1db6770ef125}{FBXSDK\+\_\+\+EVENT\+\_\+\+TEMPLATE\+\_\+\+FOOTER}}()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxevent_8h_a2e8651deea501acc1cc2ed077765b066}\label{fbxevent_8h_a2e8651deea501acc1cc2ed077765b066} 
+{\footnotesize template$<$typename T$>$ }\\int {\bfseries Fbx\+Event$<$ T $>$\+::sm\+Type\+Id} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fbxevent_8h_abab53b2d37df507254052aedf199b964}\index{fbxevent.h@{fbxevent.h}!FBXSDK\_EVENT\_DECLARE@{FBXSDK\_EVENT\_DECLARE}}
+\index{FBXSDK\_EVENT\_DECLARE@{FBXSDK\_EVENT\_DECLARE}!fbxevent.h@{fbxevent.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_EVENT\_DECLARE}{FBXSDK\_EVENT\_DECLARE}}
+{\footnotesize\ttfamily \label{fbxevent_8h_abab53b2d37df507254052aedf199b964} 
+\#define FBXSDK\+\_\+\+EVENT\+\_\+\+DECLARE(\begin{DoxyParamCaption}\item[{}]{Class}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}:\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ GetEventName()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ FbxEventName();\ \}\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{private}:\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FbxEventName()\ \{\ \textcolor{keywordflow}{return}\ \#Class;\ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxEvent<Class>;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+
+\end{DoxyCode}
+\Hypertarget{fbxevent_8h_a06424633e333256adc5f1db6770ef125}\index{fbxevent.h@{fbxevent.h}!FBXSDK\_EVENT\_TEMPLATE\_FOOTER@{FBXSDK\_EVENT\_TEMPLATE\_FOOTER}}
+\index{FBXSDK\_EVENT\_TEMPLATE\_FOOTER@{FBXSDK\_EVENT\_TEMPLATE\_FOOTER}!fbxevent.h@{fbxevent.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_EVENT\_TEMPLATE\_FOOTER}{FBXSDK\_EVENT\_TEMPLATE\_FOOTER}}
+{\footnotesize\ttfamily \label{fbxevent_8h_a06424633e333256adc5f1db6770ef125} 
+\#define FBXSDK\+\_\+\+EVENT\+\_\+\+TEMPLATE\+\_\+\+FOOTER(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\Hypertarget{fbxevent_8h_a447f33a689aa623afd370a1e34f9b0b8}\index{fbxevent.h@{fbxevent.h}!FBXSDK\_EVENT\_TEMPLATE\_HEADER@{FBXSDK\_EVENT\_TEMPLATE\_HEADER}}
+\index{FBXSDK\_EVENT\_TEMPLATE\_HEADER@{FBXSDK\_EVENT\_TEMPLATE\_HEADER}!fbxevent.h@{fbxevent.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_EVENT\_TEMPLATE\_HEADER}{FBXSDK\_EVENT\_TEMPLATE\_HEADER}}
+{\footnotesize\ttfamily \label{fbxevent_8h_a447f33a689aa623afd370a1e34f9b0b8} 
+\#define FBXSDK\+\_\+\+EVENT\+\_\+\+TEMPLATE\+\_\+\+HEADER(\begin{DoxyParamCaption}\item[{}]{Class\+Name}{, }\item[{}]{Template\+Name}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\ \textcolor{keyword}{class}\ TemplateName,\ const\ \textcolor{keywordtype}{char}*\ T\ >\ \(\backslash\)}
+\DoxyCodeLine{\textcolor{keyword}{class\ }ClassName:\ \textcolor{keyword}{public}\ \ \mbox{\hyperlink{class_fbx_event}{FbxEvent}}<\ ClassName\ <TemplateName,T>\ >\(\backslash\)}
+\DoxyCodeLine{\{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}:\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_event_base_ae151338ef1903a705e3a7b341712b03d}{GetEventName}}()\textcolor{keyword}{\ const\ override\ }\{\textcolor{keywordflow}{return}\ FbxEventName();\}\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{private}:\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FbxEventName()\ \{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ lEventName\ =\ (\mbox{\hyperlink{class_fbx_string}{FbxString}}(\#ClassName)\ +\textcolor{stringliteral}{"{}<"{}}+\ \mbox{\hyperlink{class_fbx_string}{FbxString}}(T)\ +\textcolor{stringliteral}{"{}>"{}});\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ lEventName.\mbox{\hyperlink{class_fbx_string_aea97f578b083dd83a13364cab3008dd6}{Buffer}}();\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxEvent<\ ClassName<TemplateName,\ T>\ >;}
+
+\end{DoxyCode}
+\Hypertarget{fbxevent_8h_a32d1e5674058de64a4ea389cdfa89302}\index{fbxevent.h@{fbxevent.h}!FBXSDK\_EVENT\_TYPE\_DECLARE@{FBXSDK\_EVENT\_TYPE\_DECLARE}}
+\index{FBXSDK\_EVENT\_TYPE\_DECLARE@{FBXSDK\_EVENT\_TYPE\_DECLARE}!fbxevent.h@{fbxevent.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_EVENT\_TYPE\_DECLARE}{FBXSDK\_EVENT\_TYPE\_DECLARE}}
+{\footnotesize\ttfamily \label{fbxevent_8h_a32d1e5674058de64a4ea389cdfa89302} 
+\#define FBXSDK\+\_\+\+EVENT\+\_\+\+TYPE\+\_\+\+DECLARE(\begin{DoxyParamCaption}\item[{}]{Class}{, }\item[{}]{FBXType}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \textcolor{keyword}{public}:\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ GetEventName()\textcolor{keyword}{\ const\ override\ }\{\ \textcolor{keywordflow}{return}\ FbxEventName();\ \}\ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \textcolor{keyword}{private}:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ FbxEventName()\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ lEventName\ =\ \mbox{\hyperlink{class_fbx_string}{FbxString}}(\#Class)\ +\ \mbox{\hyperlink{class_fbx_string}{FbxString}}(\textcolor{stringliteral}{"{}<"{}})\ +\ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ FbxGetDataTypeFromEnum(FbxTypeOf(FBXType())).GetName()\ +\ \textcolor{stringliteral}{"{}>"{}};\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lEventName.\mbox{\hyperlink{class_fbx_string_aea97f578b083dd83a13364cab3008dd6}{Buffer}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxEvent<\ Class<FBXType>\ >;}
+
+\end{DoxyCode}

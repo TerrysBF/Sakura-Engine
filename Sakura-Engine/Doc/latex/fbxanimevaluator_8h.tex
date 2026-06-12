@@ -1,0 +1,43 @@
+\doxysection{include/fbx/fbxsdk/scene/animation/fbxanimevaluator.h File Reference}
+\hypertarget{fbxanimevaluator_8h}{}\label{fbxanimevaluator_8h}\index{include/fbx/fbxsdk/scene/animation/fbxanimevaluator.h@{include/fbx/fbxsdk/scene/animation/fbxanimevaluator.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/fbxobject.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/scene/animation/fbxanimevalstate.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/scene/animation/fbxanimstack.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_fbx_anim_evaluator}{Fbx\+Anim\+Evaluator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T$>$ }\\T \mbox{\hyperlink{fbxanimevaluator_8h_a179327cfe7a9f9566a396a388f927460}{Evaluate\+Property\+Value}} (\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property, const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time, bool p\+Force\+Eval)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fbxanimevaluator_8h_a179327cfe7a9f9566a396a388f927460}\index{fbxanimevaluator.h@{fbxanimevaluator.h}!EvaluatePropertyValue@{EvaluatePropertyValue}}
+\index{EvaluatePropertyValue@{EvaluatePropertyValue}!fbxanimevaluator.h@{fbxanimevaluator.h}}
+\doxysubsubsection{\texorpdfstring{EvaluatePropertyValue()}{EvaluatePropertyValue()}}
+{\footnotesize\ttfamily \label{fbxanimevaluator_8h_a179327cfe7a9f9566a396a388f927460} 
+template$<$class T$>$ \\
+T Evaluate\+Property\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&}]{p\+Property}{, }\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{, }\item[{bool}]{p\+Force\+Eval}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Evaluate the property at the specified time using the template type provided. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Property} & The property to evaluate. \\
+\hline
+{\em p\+Time} & The time used for evaluate. \\
+\hline
+{\em p\+Force\+Eval} & Force the evaluator to refresh the evaluation state cache even if its already up-\/to-\/date. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The property value at the specified time converted to the template type provided, if possible. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+If the property type versus the template cannot be converted, the result is unknown. 
+\end{DoxyRemark}

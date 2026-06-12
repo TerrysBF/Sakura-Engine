@@ -1,0 +1,77 @@
+\doxysection{Fbx\+Deformations\+Evaluator Class Reference}
+\hypertarget{class_fbx_deformations_evaluator}{}\label{class_fbx_deformations_evaluator}\index{FbxDeformationsEvaluator@{FbxDeformationsEvaluator}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_deformations_evaluator_aab3ae3fd2e05c1f34d19940030bd94ed}{Init}} (const \mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*}p\+Node, const \mbox{\hyperlink{class_fbx_mesh}{Fbx\+Mesh}} \texorpdfstring{$\ast$}{*}p\+Mesh)
+\item 
+bool \mbox{\hyperlink{class_fbx_deformations_evaluator_a7f2053ca983b26ba4991c71663b25778}{Compute\+Shape\+Deformation}} (\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \texorpdfstring{$\ast$}{*}p\+Vertex\+Array, const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time)
+\item 
+bool \mbox{\hyperlink{class_fbx_deformations_evaluator_a0bd5a2a85b36ff78be4739de7cc9918e}{Compute\+Skin\+Deformation}} (\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \texorpdfstring{$\ast$}{*}p\+Vertex\+Array, const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&p\+Time, \mbox{\hyperlink{class_fbx_a_matrix}{Fbx\+AMatrix}} \texorpdfstring{$\ast$}{*}p\+GX=NULL, const \mbox{\hyperlink{class_fbx_pose}{Fbx\+Pose}} \texorpdfstring{$\ast$}{*}p\+Pose=NULL)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_deformations_evaluator_a7f2053ca983b26ba4991c71663b25778}\index{FbxDeformationsEvaluator@{FbxDeformationsEvaluator}!ComputeShapeDeformation@{ComputeShapeDeformation}}
+\index{ComputeShapeDeformation@{ComputeShapeDeformation}!FbxDeformationsEvaluator@{FbxDeformationsEvaluator}}
+\doxysubsubsection{\texorpdfstring{ComputeShapeDeformation()}{ComputeShapeDeformation()}}
+{\footnotesize\ttfamily \label{class_fbx_deformations_evaluator_a7f2053ca983b26ba4991c71663b25778} 
+bool Fbx\+Deformations\+Evaluator\+::\+Compute\+Shape\+Deformation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \texorpdfstring{$\ast$}{*}}]{p\+Vertex\+Array}{, }\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{}\end{DoxyParamCaption})}
+
+If this object is properly configured, evaluates the shape deformation of the mesh at the given time. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Vertex\+Array} & The result of the evaluation. \\
+\hline
+{\em p\+Time} & Current time of the evaluation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the function completed successfully and {\ttfamily false} in case of errors. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+{\itshape p\+Vertex\+Array} must be allocated and be of size\+: {\itshape m\+Mesh-\/\texorpdfstring{$>$}{>}Get\+Control\+Point\+Count()}. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_deformations_evaluator_a0bd5a2a85b36ff78be4739de7cc9918e}\index{FbxDeformationsEvaluator@{FbxDeformationsEvaluator}!ComputeSkinDeformation@{ComputeSkinDeformation}}
+\index{ComputeSkinDeformation@{ComputeSkinDeformation}!FbxDeformationsEvaluator@{FbxDeformationsEvaluator}}
+\doxysubsubsection{\texorpdfstring{ComputeSkinDeformation()}{ComputeSkinDeformation()}}
+{\footnotesize\ttfamily \label{class_fbx_deformations_evaluator_a0bd5a2a85b36ff78be4739de7cc9918e} 
+bool Fbx\+Deformations\+Evaluator\+::\+Compute\+Skin\+Deformation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \texorpdfstring{$\ast$}{*}}]{p\+Vertex\+Array}{, }\item[{const \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \&}]{p\+Time}{, }\item[{\mbox{\hyperlink{class_fbx_a_matrix}{Fbx\+AMatrix}} \texorpdfstring{$\ast$}{*}}]{p\+GX}{ = {\ttfamily NULL}, }\item[{const \mbox{\hyperlink{class_fbx_pose}{Fbx\+Pose}} \texorpdfstring{$\ast$}{*}}]{p\+Pose}{ = {\ttfamily NULL}}\end{DoxyParamCaption})}
+
+If this object is properly configured, evaluates the skin deformation of the received mesh at the given time. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Vertex\+Array} & The result of the evaluation. \\
+\hline
+{\em p\+Time} & Current time of the evaluation. \\
+\hline
+{\em p\+GX} & Local to World matrix to express the returned vertices in World space. \\
+\hline
+{\em p\+Pose} & If defined, use the pose to evaluate the current transform. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the function completed successfully and {\ttfamily false} in case of errors. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+{\itshape p\+Vertex\+Array} must be allocated and be of size\+: {\itshape m\+Mesh-\/\texorpdfstring{$>$}{>}Get\+Control\+Point\+Count()}. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_deformations_evaluator_aab3ae3fd2e05c1f34d19940030bd94ed}\index{FbxDeformationsEvaluator@{FbxDeformationsEvaluator}!Init@{Init}}
+\index{Init@{Init}!FbxDeformationsEvaluator@{FbxDeformationsEvaluator}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{class_fbx_deformations_evaluator_aab3ae3fd2e05c1f34d19940030bd94ed} 
+bool Fbx\+Deformations\+Evaluator\+::\+Init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Node}{, }\item[{const \mbox{\hyperlink{class_fbx_mesh}{Fbx\+Mesh}} \texorpdfstring{$\ast$}{*}}]{p\+Mesh}{}\end{DoxyParamCaption})}
+
+Configure this object to process the given mesh. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Node} & Node object owner of the mesh. \\
+\hline
+{\em p\+Mesh} & Processed object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if {\itshape p\+Mesh} is connected to {\itshape p\+Node} and the internal data allocation succeeded. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/utils/\mbox{\hyperlink{fbxdeformationsevaluator_8h}{fbxdeformationsevaluator.\+h}}\end{DoxyCompactItemize}

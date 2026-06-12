@@ -1,0 +1,268 @@
+\doxysection{include/fbx/fbxsdk/core/arch/fbxalloc.h File Reference}
+\hypertarget{fbxalloc_8h}{}\label{fbxalloc_8h}\index{include/fbx/fbxsdk/core/arch/fbxalloc.h@{include/fbx/fbxsdk/core/arch/fbxalloc.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$malloc.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_fbx_deletion_policy_default}{Fbx\+Deletion\+Policy\+Default$<$ Type $>$}}
+\begin{DoxyCompactList}\small\item\em Deletion policy for pointer template classes that uses the delete operator. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_deletion_policy_array}{Fbx\+Deletion\+Policy\+Array$<$ Type $>$}}
+\begin{DoxyCompactList}\small\item\em Deletion policy for pointer template classes that uses the delete\mbox{[}\mbox{]} operator. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_deletion_policy_delete}{Fbx\+Deletion\+Policy\+Delete$<$ Type $>$}}
+\item 
+class \mbox{\hyperlink{class_fbx_deletion_policy_free}{Fbx\+Deletion\+Policy\+Free$<$ Type $>$}}
+\begin{DoxyCompactList}\small\item\em Deletion policy for pointer template classes that uses the Fbx\+Free() function. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_deletion_policy_object}{Fbx\+Deletion\+Policy\+Object$<$ Type $>$}}
+\begin{DoxyCompactList}\small\item\em Deletion policy for pointer template classes that uses the Destroy() function. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_auto_ptr}{Fbx\+Auto\+Ptr$<$ Type, Policy $>$}}
+\item 
+class \mbox{\hyperlink{class_fbx_auto_free_ptr}{Fbx\+Auto\+Free\+Ptr$<$ Type $>$}}
+\begin{DoxyCompactList}\small\item\em Scoped pointer for Fbx\+Malloc allocations, which call Fbx\+Free() to deallocate. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_auto_delete_ptr}{Fbx\+Auto\+Delete\+Ptr$<$ Type $>$}}
+\begin{DoxyCompactList}\small\item\em Scoped pointer for Fbx\+New allocations, which call \doxylink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{Fbx\+Delete()} to deallocate. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_auto_destroy_ptr}{Fbx\+Auto\+Destroy\+Ptr$<$ Type $>$}}
+\begin{DoxyCompactList}\small\item\em Scoped pointer for \doxylink{class_fbx_object}{Fbx\+Object} derived classes, which call Destroy() to deallocate. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_ref_count}{Ref\+Count}}
+\item 
+class \mbox{\hyperlink{class_fbx_shared_ptr}{Fbx\+Shared\+Ptr$<$ Type, Policy $>$}}
+\item 
+class \mbox{\hyperlink{class_fbx_shared_free_ptr}{Fbx\+Shared\+Free\+Ptr$<$ Type $>$}}
+\begin{DoxyCompactList}\small\item\em Scoped pointer for Fbx\+Malloc allocations, which call Fbx\+Free() to deallocate. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_shared_delete_ptr}{Fbx\+Shared\+Delete\+Ptr$<$ Type $>$}}
+\begin{DoxyCompactList}\small\item\em Scoped pointer for Fbx\+New allocations, which call \doxylink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{Fbx\+Delete()} to deallocate. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_fbx_shared_destroy_ptr}{Fbx\+Shared\+Destroy\+Ptr$<$ Type $>$}}
+\begin{DoxyCompactList}\small\item\em Scoped pointer for \doxylink{class_fbx_object}{Fbx\+Object} derived classes, which call Destroy() to deallocate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxalloc_8h_a0e956da27542441add4010a1bf745776}\label{fbxalloc_8h_a0e956da27542441add4010a1bf745776} 
+\#define {\bfseries FBXSDK\+\_\+\+MEMORY\+\_\+\+ALIGNMENT}~((size\+\_\+t)16U)
+\item 
+\#define \mbox{\hyperlink{fbxalloc_8h_a7a826988f12f5230d6bbd213028eb4a6}{FBXSDK\+\_\+\+MEMORY\+\_\+\+COPY}}(dst,  src,  size)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxalloc_8h_afd03dbd97639dc22a248aa91decfd4d0}\label{fbxalloc_8h_afd03dbd97639dc22a248aa91decfd4d0} 
+typedef void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Malloc\+Proc}) (size\+\_\+t)
+\item 
+\Hypertarget{fbxalloc_8h_afbacc468e54abebbe43ea43a03271eda}\label{fbxalloc_8h_afbacc468e54abebbe43ea43a03271eda} 
+typedef void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Calloc\+Proc}) (size\+\_\+t, size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Function pointer signature used to replace "{}malloc"{}. \end{DoxyCompactList}\item 
+\Hypertarget{fbxalloc_8h_a899717b19fe2400377bd687196149818}\label{fbxalloc_8h_a899717b19fe2400377bd687196149818} 
+typedef void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Realloc\+Proc}) (void \texorpdfstring{$\ast$}{*}, size\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Function pointer signature used to replace "{}calloc"{}. \end{DoxyCompactList}\item 
+\Hypertarget{fbxalloc_8h_afca208375f64d5dd7521fb25cdd5f0a1}\label{fbxalloc_8h_afca208375f64d5dd7521fb25cdd5f0a1} 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Free\+Proc}) (void \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Function pointer signature used to replace "{}realloc"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+FBXSDK\+\_\+\+DLL void \mbox{\hyperlink{fbxalloc_8h_a2ad37389ed00ea52453f9bbdfbe21bf1}{Fbx\+Set\+Malloc\+Handler}} (Fbx\+Malloc\+Proc p\+Handler)
+\begin{DoxyCompactList}\small\item\em Function pointer signature used to replace "{}free"{}. \end{DoxyCompactList}\item 
+FBXSDK\+\_\+\+DLL void \mbox{\hyperlink{fbxalloc_8h_a1b129342da0077e10c027a6d7a1e5eeb}{Fbx\+Set\+Calloc\+Handler}} (\mbox{\hyperlink{fbxalloc_8h_afbacc468e54abebbe43ea43a03271eda}{Fbx\+Calloc\+Proc}} p\+Handler)
+\item 
+FBXSDK\+\_\+\+DLL void \mbox{\hyperlink{fbxalloc_8h_ae387334c73ede7effa5d05c3812a9b5c}{Fbx\+Set\+Realloc\+Handler}} (\mbox{\hyperlink{fbxalloc_8h_a899717b19fe2400377bd687196149818}{Fbx\+Realloc\+Proc}} p\+Handler)
+\item 
+FBXSDK\+\_\+\+DLL void \mbox{\hyperlink{fbxalloc_8h_a70cb4a74c71e880d8e87916aa40c7724}{Fbx\+Set\+Free\+Handler}} (\mbox{\hyperlink{fbxalloc_8h_afca208375f64d5dd7521fb25cdd5f0a1}{Fbx\+Free\+Proc}} p\+Handler)
+\item 
+FBXSDK\+\_\+\+DLL Fbx\+Malloc\+Proc \mbox{\hyperlink{fbxalloc_8h_aea72f44b389f9e24f44c65727bfcf90f}{Fbx\+Get\+Malloc\+Handler}} ()
+\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{fbxalloc_8h_afbacc468e54abebbe43ea43a03271eda}{Fbx\+Calloc\+Proc}} \mbox{\hyperlink{fbxalloc_8h_a5d7235d2a78a3764737d223e624f0b8f}{Fbx\+Get\+Calloc\+Handler}} ()
+\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{fbxalloc_8h_a899717b19fe2400377bd687196149818}{Fbx\+Realloc\+Proc}} \mbox{\hyperlink{fbxalloc_8h_a2c7ea609563a00aa69948643c72eab12}{Fbx\+Get\+Realloc\+Handler}} ()
+\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{fbxalloc_8h_afca208375f64d5dd7521fb25cdd5f0a1}{Fbx\+Free\+Proc}} \mbox{\hyperlink{fbxalloc_8h_a16139607882422ea8eaf30a1eaa4f407}{Fbx\+Get\+Free\+Handler}} ()
+\item 
+FBXSDK\+\_\+\+DLL Fbx\+Malloc\+Proc \mbox{\hyperlink{fbxalloc_8h_afbfaec6094fda3c609f915efcbf9afa7}{Fbx\+Get\+Default\+Malloc\+Handler}} ()
+\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{fbxalloc_8h_afbacc468e54abebbe43ea43a03271eda}{Fbx\+Calloc\+Proc}} \mbox{\hyperlink{fbxalloc_8h_ad6b4d7b4619efb01be17396aa2abf1b2}{Fbx\+Get\+Default\+Calloc\+Handler}} ()
+\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{fbxalloc_8h_a899717b19fe2400377bd687196149818}{Fbx\+Realloc\+Proc}} \mbox{\hyperlink{fbxalloc_8h_a5bd40ba80d9eabb986d4c7e5cc9669b9}{Fbx\+Get\+Default\+Realloc\+Handler}} ()
+\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{fbxalloc_8h_afca208375f64d5dd7521fb25cdd5f0a1}{Fbx\+Free\+Proc}} \mbox{\hyperlink{fbxalloc_8h_afdecb334155627b091b29ca3e10519a8}{Fbx\+Get\+Default\+Free\+Handler}} ()
+\item 
+\Hypertarget{fbxalloc_8h_aad80cc28557b08dcf9f9ef7fee8fe1cb}\label{fbxalloc_8h_aad80cc28557b08dcf9f9ef7fee8fe1cb} 
+FBXSDK\+\_\+\+DLL size\+\_\+t {\bfseries Fbx\+Alloc\+Size} (size\+\_\+t p\+Nb\+Items, size\+\_\+t p\+Item\+Size)
+\item 
+\Hypertarget{fbxalloc_8h_acfef93fbcf5846b866e95110d19ab849}\label{fbxalloc_8h_acfef93fbcf5846b866e95110d19ab849} 
+FBXSDK\+\_\+\+DLL void \texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Malloc} (size\+\_\+t p\+Size)
+\item 
+\Hypertarget{fbxalloc_8h_a4b749654c828c46c1c540163bfbf7a2e}\label{fbxalloc_8h_a4b749654c828c46c1c540163bfbf7a2e} 
+FBXSDK\+\_\+\+DLL void \texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Calloc} (size\+\_\+t p\+Count, size\+\_\+t p\+Size)
+\item 
+\Hypertarget{fbxalloc_8h_a7909cff83a23b0697ee1dd4e24202062}\label{fbxalloc_8h_a7909cff83a23b0697ee1dd4e24202062} 
+FBXSDK\+\_\+\+DLL void \texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Realloc} (void \texorpdfstring{$\ast$}{*}p\+Data, size\+\_\+t p\+Size)
+\item 
+\Hypertarget{fbxalloc_8h_a8252906713d55f4c56e7ba84221d3852}\label{fbxalloc_8h_a8252906713d55f4c56e7ba84221d3852} 
+FBXSDK\+\_\+\+DLL void {\bfseries Fbx\+Free} (void \texorpdfstring{$\ast$}{*}p\+Data)
+\item 
+\Hypertarget{fbxalloc_8h_a0797b186769f27273bc897346ef1949c}\label{fbxalloc_8h_a0797b186769f27273bc897346ef1949c} 
+FBXSDK\+\_\+\+DLL char \texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Str\+Dup} (const char \texorpdfstring{$\ast$}{*}p\+String)
+\item 
+\Hypertarget{fbxalloc_8h_a5219fb97df98ce6df56da2f0196a365e}\label{fbxalloc_8h_a5219fb97df98ce6df56da2f0196a365e} 
+FBXSDK\+\_\+\+DLL wchar\+\_\+t \texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Str\+Dup\+WC} (const wchar\+\_\+t \texorpdfstring{$\ast$}{*}p\+String)
+\item 
+\Hypertarget{fbxalloc_8h_a8f81b0d865eddd8c48ea760902cd2bf5}\label{fbxalloc_8h_a8f81b0d865eddd8c48ea760902cd2bf5} 
+FBXSDK\+\_\+\+DLL void \texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Malloc\+Debug} (size\+\_\+t p\+Size, int p\+Block, const char \texorpdfstring{$\ast$}{*}p\+File, int p\+Line)
+\item 
+\Hypertarget{fbxalloc_8h_a496e6bba654963d23286b6793ab92b72}\label{fbxalloc_8h_a496e6bba654963d23286b6793ab92b72} 
+FBXSDK\+\_\+\+DLL void \texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Calloc\+Debug} (size\+\_\+t p\+Count, size\+\_\+t p\+Size, int p\+Block, const char \texorpdfstring{$\ast$}{*}p\+File, int p\+Line)
+\item 
+\Hypertarget{fbxalloc_8h_abd66a6fd7ac660f5f4b882d47e00feb4}\label{fbxalloc_8h_abd66a6fd7ac660f5f4b882d47e00feb4} 
+FBXSDK\+\_\+\+DLL void \texorpdfstring{$\ast$}{*} {\bfseries Fbx\+Realloc\+Debug} (void \texorpdfstring{$\ast$}{*}p\+Data, size\+\_\+t p\+Size, int p\+Block, const char \texorpdfstring{$\ast$}{*}p\+File, int p\+Line)
+\item 
+\Hypertarget{fbxalloc_8h_adc50fa2763b751114d11009b596c6879}\label{fbxalloc_8h_adc50fa2763b751114d11009b596c6879} 
+FBXSDK\+\_\+\+DLL void {\bfseries Fbx\+Free\+Debug} (void \texorpdfstring{$\ast$}{*}p\+Data, int p\+Block)
+\item 
+\Hypertarget{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}\label{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6} 
+{\footnotesize template$<$typename T$>$ }\\void {\bfseries Fbx\+Delete} (T \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Deletion policy for pointer template classes that uses the \doxylink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{Fbx\+Delete()} function. \end{DoxyCompactList}\item 
+\Hypertarget{fbxalloc_8h_aa786c72511e8e12955ff58c27d413a7f}\label{fbxalloc_8h_aa786c72511e8e12955ff58c27d413a7f} 
+{\footnotesize template$<$typename T$>$ }\\void {\bfseries Fbx\+Delete} (const T \texorpdfstring{$\ast$}{*}p)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Allocation functions definition.
+
+It is possible to override memory allocation functions throughout the FBX SDK by providing system memory allocation functions using the handler set functions below. The Microsoft Windows implementation in debug mode allows to specify where the allocations happen by providing the standard block type, file name and line number. 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fbxalloc_8h_a7a826988f12f5230d6bbd213028eb4a6}\index{fbxalloc.h@{fbxalloc.h}!FBXSDK\_MEMORY\_COPY@{FBXSDK\_MEMORY\_COPY}}
+\index{FBXSDK\_MEMORY\_COPY@{FBXSDK\_MEMORY\_COPY}!fbxalloc.h@{fbxalloc.h}}
+\doxysubsubsection{\texorpdfstring{FBXSDK\_MEMORY\_COPY}{FBXSDK\_MEMORY\_COPY}}
+{\footnotesize\ttfamily \label{fbxalloc_8h_a7a826988f12f5230d6bbd213028eb4a6} 
+\#define FBXSDK\+\_\+\+MEMORY\+\_\+\+COPY(\begin{DoxyParamCaption}\item[{}]{dst}{, }\item[{}]{src}{, }\item[{}]{size}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{memcpy(dst,src,size);\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fbxalloc_8h_a5d7235d2a78a3764737d223e624f0b8f}\index{fbxalloc.h@{fbxalloc.h}!FbxGetCallocHandler@{FbxGetCallocHandler}}
+\index{FbxGetCallocHandler@{FbxGetCallocHandler}!fbxalloc.h@{fbxalloc.h}}
+\doxysubsubsection{\texorpdfstring{FbxGetCallocHandler()}{FbxGetCallocHandler()}}
+{\footnotesize\ttfamily \label{fbxalloc_8h_a5d7235d2a78a3764737d223e624f0b8f} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{fbxalloc_8h_afbacc468e54abebbe43ea43a03271eda}{Fbx\+Calloc\+Proc}} Fbx\+Get\+Calloc\+Handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get the global zero\textquotesingle{}d memory allocation function used internally by the FBX SDK. \begin{DoxyReturn}{Returns}
+p\+Handler Function pointer on FBX\textquotesingle{}s internal calloc 
+\end{DoxyReturn}
+\Hypertarget{fbxalloc_8h_ad6b4d7b4619efb01be17396aa2abf1b2}\index{fbxalloc.h@{fbxalloc.h}!FbxGetDefaultCallocHandler@{FbxGetDefaultCallocHandler}}
+\index{FbxGetDefaultCallocHandler@{FbxGetDefaultCallocHandler}!fbxalloc.h@{fbxalloc.h}}
+\doxysubsubsection{\texorpdfstring{FbxGetDefaultCallocHandler()}{FbxGetDefaultCallocHandler()}}
+{\footnotesize\ttfamily \label{fbxalloc_8h_ad6b4d7b4619efb01be17396aa2abf1b2} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{fbxalloc_8h_afbacc468e54abebbe43ea43a03271eda}{Fbx\+Calloc\+Proc}} Fbx\+Get\+Default\+Calloc\+Handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get the default global zero\textquotesingle{}d memory allocation function used internally by the FBX SDK. \begin{DoxyReturn}{Returns}
+p\+Handler Function pointer on FBX\textquotesingle{}s internal calloc 
+\end{DoxyReturn}
+\Hypertarget{fbxalloc_8h_afdecb334155627b091b29ca3e10519a8}\index{fbxalloc.h@{fbxalloc.h}!FbxGetDefaultFreeHandler@{FbxGetDefaultFreeHandler}}
+\index{FbxGetDefaultFreeHandler@{FbxGetDefaultFreeHandler}!fbxalloc.h@{fbxalloc.h}}
+\doxysubsubsection{\texorpdfstring{FbxGetDefaultFreeHandler()}{FbxGetDefaultFreeHandler()}}
+{\footnotesize\ttfamily \label{fbxalloc_8h_afdecb334155627b091b29ca3e10519a8} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{fbxalloc_8h_afca208375f64d5dd7521fb25cdd5f0a1}{Fbx\+Free\+Proc}} Fbx\+Get\+Default\+Free\+Handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get the default global memory freeing function used internally by the FBX SDK. \begin{DoxyReturn}{Returns}
+p\+Handler Function pointer on FBX\textquotesingle{}s internal free 
+\end{DoxyReturn}
+\Hypertarget{fbxalloc_8h_afbfaec6094fda3c609f915efcbf9afa7}\index{fbxalloc.h@{fbxalloc.h}!FbxGetDefaultMallocHandler@{FbxGetDefaultMallocHandler}}
+\index{FbxGetDefaultMallocHandler@{FbxGetDefaultMallocHandler}!fbxalloc.h@{fbxalloc.h}}
+\doxysubsubsection{\texorpdfstring{FbxGetDefaultMallocHandler()}{FbxGetDefaultMallocHandler()}}
+{\footnotesize\ttfamily \label{fbxalloc_8h_afbfaec6094fda3c609f915efcbf9afa7} 
+FBXSDK\+\_\+\+DLL Fbx\+Malloc\+Proc Fbx\+Get\+Default\+Malloc\+Handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get the default global memory allocation function used internally by the FBX SDK. \begin{DoxyReturn}{Returns}
+p\+Handler Function pointer on FBX\textquotesingle{}s internal malloc 
+\end{DoxyReturn}
+\Hypertarget{fbxalloc_8h_a5bd40ba80d9eabb986d4c7e5cc9669b9}\index{fbxalloc.h@{fbxalloc.h}!FbxGetDefaultReallocHandler@{FbxGetDefaultReallocHandler}}
+\index{FbxGetDefaultReallocHandler@{FbxGetDefaultReallocHandler}!fbxalloc.h@{fbxalloc.h}}
+\doxysubsubsection{\texorpdfstring{FbxGetDefaultReallocHandler()}{FbxGetDefaultReallocHandler()}}
+{\footnotesize\ttfamily \label{fbxalloc_8h_a5bd40ba80d9eabb986d4c7e5cc9669b9} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{fbxalloc_8h_a899717b19fe2400377bd687196149818}{Fbx\+Realloc\+Proc}} Fbx\+Get\+Default\+Realloc\+Handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get the default global memory re-\/allocation function used internally by the FBX SDK. \begin{DoxyReturn}{Returns}
+p\+Handler Function pointer on FBX\textquotesingle{}s internal realloc 
+\end{DoxyReturn}
+\Hypertarget{fbxalloc_8h_a16139607882422ea8eaf30a1eaa4f407}\index{fbxalloc.h@{fbxalloc.h}!FbxGetFreeHandler@{FbxGetFreeHandler}}
+\index{FbxGetFreeHandler@{FbxGetFreeHandler}!fbxalloc.h@{fbxalloc.h}}
+\doxysubsubsection{\texorpdfstring{FbxGetFreeHandler()}{FbxGetFreeHandler()}}
+{\footnotesize\ttfamily \label{fbxalloc_8h_a16139607882422ea8eaf30a1eaa4f407} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{fbxalloc_8h_afca208375f64d5dd7521fb25cdd5f0a1}{Fbx\+Free\+Proc}} Fbx\+Get\+Free\+Handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get the global memory freeing function used internally by the FBX SDK. \begin{DoxyReturn}{Returns}
+p\+Handler Function pointer on FBX\textquotesingle{}s internal free 
+\end{DoxyReturn}
+\Hypertarget{fbxalloc_8h_aea72f44b389f9e24f44c65727bfcf90f}\index{fbxalloc.h@{fbxalloc.h}!FbxGetMallocHandler@{FbxGetMallocHandler}}
+\index{FbxGetMallocHandler@{FbxGetMallocHandler}!fbxalloc.h@{fbxalloc.h}}
+\doxysubsubsection{\texorpdfstring{FbxGetMallocHandler()}{FbxGetMallocHandler()}}
+{\footnotesize\ttfamily \label{fbxalloc_8h_aea72f44b389f9e24f44c65727bfcf90f} 
+FBXSDK\+\_\+\+DLL Fbx\+Malloc\+Proc Fbx\+Get\+Malloc\+Handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get the global memory allocation function used internally by the FBX SDK. \begin{DoxyReturn}{Returns}
+p\+Handler Function pointer on FBX\textquotesingle{}s internal malloc 
+\end{DoxyReturn}
+\Hypertarget{fbxalloc_8h_a2c7ea609563a00aa69948643c72eab12}\index{fbxalloc.h@{fbxalloc.h}!FbxGetReallocHandler@{FbxGetReallocHandler}}
+\index{FbxGetReallocHandler@{FbxGetReallocHandler}!fbxalloc.h@{fbxalloc.h}}
+\doxysubsubsection{\texorpdfstring{FbxGetReallocHandler()}{FbxGetReallocHandler()}}
+{\footnotesize\ttfamily \label{fbxalloc_8h_a2c7ea609563a00aa69948643c72eab12} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{fbxalloc_8h_a899717b19fe2400377bd687196149818}{Fbx\+Realloc\+Proc}} Fbx\+Get\+Realloc\+Handler (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Get the global memory re-\/allocation function used internally by the FBX SDK. \begin{DoxyReturn}{Returns}
+p\+Handler Function pointer on FBX\textquotesingle{}s internal realloc 
+\end{DoxyReturn}
+\Hypertarget{fbxalloc_8h_a1b129342da0077e10c027a6d7a1e5eeb}\index{fbxalloc.h@{fbxalloc.h}!FbxSetCallocHandler@{FbxSetCallocHandler}}
+\index{FbxSetCallocHandler@{FbxSetCallocHandler}!fbxalloc.h@{fbxalloc.h}}
+\doxysubsubsection{\texorpdfstring{FbxSetCallocHandler()}{FbxSetCallocHandler()}}
+{\footnotesize\ttfamily \label{fbxalloc_8h_a1b129342da0077e10c027a6d7a1e5eeb} 
+FBXSDK\+\_\+\+DLL void Fbx\+Set\+Calloc\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fbxalloc_8h_afbacc468e54abebbe43ea43a03271eda}{Fbx\+Calloc\+Proc}}}]{p\+Handler}{}\end{DoxyParamCaption})}
+
+Set the global zero\textquotesingle{}d memory allocation function used internally by the FBX SDK. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Handler} & Function pointer that implements the necessary procedure to allocate zero\textquotesingle{}d memory in the system. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fbxalloc_8h_a70cb4a74c71e880d8e87916aa40c7724}\index{fbxalloc.h@{fbxalloc.h}!FbxSetFreeHandler@{FbxSetFreeHandler}}
+\index{FbxSetFreeHandler@{FbxSetFreeHandler}!fbxalloc.h@{fbxalloc.h}}
+\doxysubsubsection{\texorpdfstring{FbxSetFreeHandler()}{FbxSetFreeHandler()}}
+{\footnotesize\ttfamily \label{fbxalloc_8h_a70cb4a74c71e880d8e87916aa40c7724} 
+FBXSDK\+\_\+\+DLL void Fbx\+Set\+Free\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fbxalloc_8h_afca208375f64d5dd7521fb25cdd5f0a1}{Fbx\+Free\+Proc}}}]{p\+Handler}{}\end{DoxyParamCaption})}
+
+Set the global memory freeing function used internally by the FBX SDK. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Handler} & Function pointer that implements the necessary procedure to free memory in the system. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fbxalloc_8h_a2ad37389ed00ea52453f9bbdfbe21bf1}\index{fbxalloc.h@{fbxalloc.h}!FbxSetMallocHandler@{FbxSetMallocHandler}}
+\index{FbxSetMallocHandler@{FbxSetMallocHandler}!fbxalloc.h@{fbxalloc.h}}
+\doxysubsubsection{\texorpdfstring{FbxSetMallocHandler()}{FbxSetMallocHandler()}}
+{\footnotesize\ttfamily \label{fbxalloc_8h_a2ad37389ed00ea52453f9bbdfbe21bf1} 
+FBXSDK\+\_\+\+DLL void Fbx\+Set\+Malloc\+Handler (\begin{DoxyParamCaption}\item[{Fbx\+Malloc\+Proc}]{p\+Handler}{}\end{DoxyParamCaption})}
+
+
+
+Function pointer signature used to replace "{}free"{}. 
+
+Set the global memory allocation function used internally by the FBX SDK. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Handler} & Function pointer that implements the necessary procedure to allocate memory in the system. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{fbxalloc_8h_ae387334c73ede7effa5d05c3812a9b5c}\index{fbxalloc.h@{fbxalloc.h}!FbxSetReallocHandler@{FbxSetReallocHandler}}
+\index{FbxSetReallocHandler@{FbxSetReallocHandler}!fbxalloc.h@{fbxalloc.h}}
+\doxysubsubsection{\texorpdfstring{FbxSetReallocHandler()}{FbxSetReallocHandler()}}
+{\footnotesize\ttfamily \label{fbxalloc_8h_ae387334c73ede7effa5d05c3812a9b5c} 
+FBXSDK\+\_\+\+DLL void Fbx\+Set\+Realloc\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fbxalloc_8h_a899717b19fe2400377bd687196149818}{Fbx\+Realloc\+Proc}}}]{p\+Handler}{}\end{DoxyParamCaption})}
+
+Set the global memory re-\/allocation function used internally by the FBX SDK. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Handler} & Function pointer that implements the necessary procedure to re-\/allocate memory in the system. \\
+\hline
+\end{DoxyParams}

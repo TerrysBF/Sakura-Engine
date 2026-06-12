@@ -1,0 +1,146 @@
+\doxysection{fbxsubdiv.\+h}
+\hypertarget{fbxsubdiv_8h_source}{}\label{fbxsubdiv_8h_source}\index{include/fbx/fbxsdk/scene/geometry/fbxsubdiv.h@{include/fbx/fbxsdk/scene/geometry/fbxsubdiv.h}}
+\mbox{\hyperlink{fbxsubdiv_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_GEOMETRY\_SUB\_DIV\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_GEOMETRY\_SUB\_DIV\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxarray_8h}{fbxsdk/core/base/fbxarray.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxgeometry_8h}{fbxsdk/scene/geometry/fbxgeometry.h}}>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_mesh}{FbxMesh}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00026\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00027\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_sub_div}{FbxSubDiv}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_sub_div}{FbxSubDiv}},\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{enum}\ EScheme}
+\DoxyCodeLine{00036\ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ eCatmullClark,\ \ \textcolor{comment}{//Catmull\ CClark\ subdivision\ surface}}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ eDooCSabin,\ \ \ \ \ \ \textcolor{comment}{//Doo\ CSabin\ subdivision\ surface}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ eLoop,\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Loop\ subdivision\ surface}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ eLinear,\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Linear\ subdivision\ surface\ }}
+\DoxyCodeLine{00041\ \ \ \ \ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{enum}\ ETesselationPattern}
+\DoxyCodeLine{00044\ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ eOddFractional,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ eEvenFractional,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ eInteger,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ ePower2,\ \ \ \ \ \ \textcolor{comment}{//Max,\ Maya\ use\ this\ one}}
+\DoxyCodeLine{00049\ \ \ \ \ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{enum}\ EDisplaySmoothness}
+\DoxyCodeLine{00052\ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ eHull,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ eRough,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ eMedium,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ eFine,}
+\DoxyCodeLine{00057\ \ \ \ \ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_sub_div_aef825ae0a9a2c6973f0cc632f8f1fe43}{InitSubdivLevel}}(\textcolor{keywordtype}{int}\ pLevelCount,\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ EScheme\ pScheme\ =\ eCatmullClark,\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ ETesselationPattern\ pPattern\ =\ ePower2);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{class_fbx_node_attribute_a08e1669d3d1a696910756ab17de56d6a}{FbxNodeAttribute::EType}}\ \mbox{\hyperlink{class_fbx_sub_div_a137a19b2776a8c68805c771b3157d97c}{GetAttributeType}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//max\ subdivision\ level\ number}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ MAX\_SUBDIV\_LEVEL\ =\ 16;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{comment}{//subdiv\ levels\ in\ subdivision,\ including\ the\ base\ mesh\ and\ each\ subdiv\ levels}}
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxMesh*>}}\ mSubDivLevel;}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//Get\ the\ base\ mesh}}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}*\ GetBaseMesh()\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//Get\ the\ mesh\ from\ finest\ level}}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}*\ GetFinestMesh()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{comment}{//Set\ the\ finest\ mesh}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ SetFinestMesh(\mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}*\ pMesh);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{comment}{//Set\ the\ finest\ mesh}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ SetBaseMesh(\mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}*\ pMesh);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//Get\ the\ mesh\ from\ specific\ level}}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}*\ GetMesh(\textcolor{keywordtype}{int}\ pLevel)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_sub_div_a6185a554b2c8f5718631a62a8f6656b8}{SetSubdivLevelMesh}}(\textcolor{keywordtype}{int}\ pLevel,\ \mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}*\ pMesh);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{int}\ GetLevelCount()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ SetLevelCount(\textcolor{keywordtype}{int}\ pLevelCount);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{int}\ GetCurrentLevel()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ SetCurrentLevel(\textcolor{keywordtype}{int}\ pCurrentLevel);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}*\ GetCurrentMesh()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ FbxSubDiv::EScheme\ GetSubdivScheme()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ FbxSubDiv::ETesselationPattern\ GetTessPattern()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ SetSubdivScheme(FbxSubDiv::EScheme\ pScheme);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ SetTessPattern(FbxSubDiv::ETesselationPattern\ pPattern);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ FbxSubDiv::EDisplaySmoothness\ GetDisplaySmoothness()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ SetDisplaySmoothness(FbxSubDiv::EDisplaySmoothness\ pSmoothness);}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ Reset()\ \{\ \textcolor{comment}{/*\ no-\/op*/}\ \};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_sub_div_a717857ed79b0710649b77274e718d9c2}{Construct}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//base\ geometry\ mesh\ for\ subdivision}}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}*\ mBaseMesh;}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{//finest\ geometry\ mesh\ for\ subdivision}}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{class_fbx_mesh}{FbxMesh}}*\ mFinestMesh;}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//current\ operating\ subdivision\ level}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{int}\ mCurrLevel;}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//number\ of\ subdiv\ level}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{int}\ mLevelCount;}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{comment}{//scheme\ of\ subdiv}}
+\DoxyCodeLine{00138\ \ \ \ \ EScheme\ mScheme;}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//pattern\ of\ subdiv}}
+\DoxyCodeLine{00141\ \ \ \ \ ETesselationPattern\ mPattern;}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//display\ smoothness\ of\ subdiv}}
+\DoxyCodeLine{00144\ \ \ \ \ EDisplaySmoothness\ mSmoothness;}
+\DoxyCodeLine{00145\ \};}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_GEOMETRY\_SUB\_DIV\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

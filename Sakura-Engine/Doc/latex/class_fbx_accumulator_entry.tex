@@ -1,0 +1,140 @@
+\doxysection{Fbx\+Accumulator\+Entry Class Reference}
+\hypertarget{class_fbx_accumulator_entry}{}\label{class_fbx_accumulator_entry}\index{FbxAccumulatorEntry@{FbxAccumulatorEntry}}
+
+
+{\ttfamily \#include $<$fbxusernotification.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2}{EClass}} \{ \mbox{\hyperlink{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2a9e327e2f495f49a576e16f4050231aff}{e\+Error}} =1
+, \mbox{\hyperlink{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2a02238ae4f2cce7a190dad59cfb3e9c19}{e\+Warning}} =2
+, \mbox{\hyperlink{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2ace66165782fe6efde70c8d93361c8ded}{e\+Information}} =4
+, \mbox{\hyperlink{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2a2970874fc582ec77e50a82bb850d983b}{e\+Any}} =7
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_accumulator_entry_a08089894e3d5aed12dfc556553e022c4}{Fbx\+Accumulator\+Entry}} (\mbox{\hyperlink{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2}{EClass}} p\+AEClass, const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Name, const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Descr, \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} p\+Detail="{}"{}, bool p\+Mute\+State=true)
+\item 
+\mbox{\hyperlink{class_fbx_accumulator_entry_a536f3ab8a13cb7037e6f2a39278eb8ca}{Fbx\+Accumulator\+Entry}} (const \mbox{\hyperlink{class_fbx_accumulator_entry}{Fbx\+Accumulator\+Entry}} \&p\+AE, bool p\+Skip\+Details)
+\item 
+\Hypertarget{class_fbx_accumulator_entry_a76e1a283bd8e13c1591b83ed85cb5a10}\label{class_fbx_accumulator_entry_a76e1a283bd8e13c1591b83ed85cb5a10} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Fbx\+Accumulator\+Entry} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_accumulator_entry_a2c6baa9720f96ecf7a9cc69f89b5c430}\label{class_fbx_accumulator_entry_a2c6baa9720f96ecf7a9cc69f89b5c430} 
+\mbox{\hyperlink{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2}{EClass}} {\bfseries Get\+Class} () const
+\begin{DoxyCompactList}\small\item\em Returns the category class of this entry. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_accumulator_entry_a0dbcb9bc95c823b84a8679f781d35317}\label{class_fbx_accumulator_entry_a0dbcb9bc95c823b84a8679f781d35317} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} {\bfseries Get\+Name} () const
+\begin{DoxyCompactList}\small\item\em Returns the name of this entry. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_accumulator_entry_a37cfbde3b74cda66945b948b4d6acd7c}\label{class_fbx_accumulator_entry_a37cfbde3b74cda66945b948b4d6acd7c} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} {\bfseries Get\+Description} () const
+\begin{DoxyCompactList}\small\item\em Returns the description of this entry. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_accumulator_entry_adc709cecc41aa46b5874877c49f99b19}\label{class_fbx_accumulator_entry_adc709cecc41aa46b5874877c49f99b19} 
+int {\bfseries Get\+Details\+Count} () const
+\begin{DoxyCompactList}\small\item\em Returns the number of details stored. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_accumulator_entry_a6ed291d54783addce98862bcd13709ae}{Get\+Detail}} (int id) const
+\item 
+\Hypertarget{class_fbx_accumulator_entry_ac7c575cce1b36df854f30ed8beb82260}\label{class_fbx_accumulator_entry_ac7c575cce1b36df854f30ed8beb82260} 
+bool {\bfseries Is\+Muted} () const
+\begin{DoxyCompactList}\small\item\em Returns True if this entry is muted. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_accumulator_entry_a59b31f76d63ab836d795cdd0188a201a}\label{class_fbx_accumulator_entry_a59b31f76d63ab836d795cdd0188a201a} 
+class {\bfseries Fbx\+User\+Notification}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class defines one entry object held by the \doxylink{class_fbx_user_notification}{Fbx\+User\+Notification} class.
+
+An entry object is a message to show error, warning or information. Direct manipulation of this object should not be required. At most, access to its members can be granted for querying purposes. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2}\index{FbxAccumulatorEntry@{FbxAccumulatorEntry}!EClass@{EClass}}
+\index{EClass@{EClass}!FbxAccumulatorEntry@{FbxAccumulatorEntry}}
+\doxysubsubsection{\texorpdfstring{EClass}{EClass}}
+{\footnotesize\ttfamily \label{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2} 
+enum \mbox{\hyperlink{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2}{Fbx\+Accumulator\+Entry\+::\+EClass}}}
+
+Category of the accumulator entry. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eError@{eError}!FbxAccumulatorEntry@{FbxAccumulatorEntry}}\index{FbxAccumulatorEntry@{FbxAccumulatorEntry}!eError@{eError}}}\Hypertarget{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2a9e327e2f495f49a576e16f4050231aff}\label{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2a9e327e2f495f49a576e16f4050231aff} 
+e\+Error&Error message entry. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eWarning@{eWarning}!FbxAccumulatorEntry@{FbxAccumulatorEntry}}\index{FbxAccumulatorEntry@{FbxAccumulatorEntry}!eWarning@{eWarning}}}\Hypertarget{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2a02238ae4f2cce7a190dad59cfb3e9c19}\label{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2a02238ae4f2cce7a190dad59cfb3e9c19} 
+e\+Warning&Warning message entry. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eInformation@{eInformation}!FbxAccumulatorEntry@{FbxAccumulatorEntry}}\index{FbxAccumulatorEntry@{FbxAccumulatorEntry}!eInformation@{eInformation}}}\Hypertarget{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2ace66165782fe6efde70c8d93361c8ded}\label{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2ace66165782fe6efde70c8d93361c8ded} 
+e\+Information&Information message entry. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eAny@{eAny}!FbxAccumulatorEntry@{FbxAccumulatorEntry}}\index{FbxAccumulatorEntry@{FbxAccumulatorEntry}!eAny@{eAny}}}\Hypertarget{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2a2970874fc582ec77e50a82bb850d983b}\label{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2a2970874fc582ec77e50a82bb850d983b} 
+e\+Any&Entry that does not belong to above class. Cannot be used as a class ID. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_accumulator_entry_a08089894e3d5aed12dfc556553e022c4}\index{FbxAccumulatorEntry@{FbxAccumulatorEntry}!FbxAccumulatorEntry@{FbxAccumulatorEntry}}
+\index{FbxAccumulatorEntry@{FbxAccumulatorEntry}!FbxAccumulatorEntry@{FbxAccumulatorEntry}}
+\doxysubsubsection{\texorpdfstring{FbxAccumulatorEntry()}{FbxAccumulatorEntry()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_accumulator_entry_a08089894e3d5aed12dfc556553e022c4} 
+Fbx\+Accumulator\+Entry\+::\+Fbx\+Accumulator\+Entry (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_accumulator_entry_af08af3ddcbf7e8fe642d7e9ecb4ad0e2}{EClass}}}]{p\+AEClass}{, }\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+Name}{, }\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+Descr}{, }\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}}}]{p\+Detail}{ = {\ttfamily "{}"{}}, }\item[{bool}]{p\+Mute\+State}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+Constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+AEClass} & Specify the category for this entry. \\
+\hline
+{\em p\+Name} & Identifies this entry (more than one object can have the same name). \\
+\hline
+{\em p\+Descr} & The description of the entry. This is the common message. The details are added separately by the \doxylink{class_fbx_user_notification}{Fbx\+User\+Notification} classes. \\
+\hline
+{\em p\+Detail} & A list of detail string that will be copied into the local array. \\
+\hline
+{\em p\+Mute\+State} & Whether this entry is muted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+By default the object is muted so it does not get processed by the low level output routines of the User\+Notification accumulator. The entry gets activated (unmuted) by the calls to Add\+Detail() in the accumulator. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_accumulator_entry_a536f3ab8a13cb7037e6f2a39278eb8ca}\index{FbxAccumulatorEntry@{FbxAccumulatorEntry}!FbxAccumulatorEntry@{FbxAccumulatorEntry}}
+\index{FbxAccumulatorEntry@{FbxAccumulatorEntry}!FbxAccumulatorEntry@{FbxAccumulatorEntry}}
+\doxysubsubsection{\texorpdfstring{FbxAccumulatorEntry()}{FbxAccumulatorEntry()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_accumulator_entry_a536f3ab8a13cb7037e6f2a39278eb8ca} 
+Fbx\+Accumulator\+Entry\+::\+Fbx\+Accumulator\+Entry (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_accumulator_entry}{Fbx\+Accumulator\+Entry}} \&}]{p\+AE}{, }\item[{bool}]{p\+Skip\+Details}{}\end{DoxyParamCaption})}
+
+Copy Constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+AE} & Another \doxylink{class_fbx_accumulator_entry}{Fbx\+Accumulator\+Entry} object to be copied. \\
+\hline
+{\em p\+Skip\+Details} & Flag to skip details. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_accumulator_entry_a6ed291d54783addce98862bcd13709ae}\index{FbxAccumulatorEntry@{FbxAccumulatorEntry}!GetDetail@{GetDetail}}
+\index{GetDetail@{GetDetail}!FbxAccumulatorEntry@{FbxAccumulatorEntry}}
+\doxysubsubsection{\texorpdfstring{GetDetail()}{GetDetail()}}
+{\footnotesize\ttfamily \label{class_fbx_accumulator_entry_a6ed291d54783addce98862bcd13709ae} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*} Fbx\+Accumulator\+Entry\+::\+Get\+Detail (\begin{DoxyParamCaption}\item[{int}]{id}{}\end{DoxyParamCaption}) const}
+
+Returns a pointer to one specific detail string (or NULL if the id is invalid). Detail string is dynamic. One entry can have multiple detail strings to hold extra information. For example, if one entry message is related to many FBX nodes, user can add these nodes\textquotesingle{} name as details. 
+\begin{DoxyParams}{Parameters}
+{\em id} & The detail id. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the specific detail. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/utils/\mbox{\hyperlink{fbxusernotification_8h}{fbxusernotification.\+h}}\end{DoxyCompactItemize}

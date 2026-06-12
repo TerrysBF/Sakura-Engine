@@ -1,0 +1,81 @@
+\doxysection{fbxstream.\+h}
+\hypertarget{fbxstream_8h_source}{}\label{fbxstream_8h_source}\index{include/fbx/fbxsdk/core/fbxstream.h@{include/fbx/fbxsdk/core/fbxstream.h}}
+\mbox{\hyperlink{fbxstream_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_STREAM\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_STREAM\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxfile_8h}{fbxsdk/core/base/fbxfile.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxStream}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7}{EState}}}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7a960b577245aea4e5fb73b4c8430f3830}{eClosed}},\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7a87c8f9d5a45dc6123fadc18e5a6e3195}{eOpen}},\ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7a3187889296102999260bf0cff24078ac}{eEmpty}}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_stream_adc469d38eb30339fa4190eb6c66ec8f7}{EState}}\ \mbox{\hyperlink{class_fbx_stream_a602172d138a0fc5c4cb3443b2b925296}{GetState}}()\ =\ 0;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_stream_ab8b3c6e904344c1b1d74e457ae8a74e7}{Open}}(\textcolor{keywordtype}{void}*\ pStreamData)\ =\ 0;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_stream_a6779ab0ccbe8e14e5cf5cf47f5206519}{Close}}()\ =\ 0;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_stream_a9174d1c9a10e7f0f6f283c6b7f9a1dce}{Flush}}()\ =\ 0;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_fbx_stream_ae05f3cd773c0593115bb57b86d609748}{Write}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ \textcolor{comment}{/*pData*/},\ FbxUInt64\ \textcolor{comment}{/*pSize*/})\ =\ 0;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_fbx_stream_a39f0275e3b157078d35e5739ece93a11}{Read}}(\textcolor{keywordtype}{void}*\ \textcolor{comment}{/*pData*/},\ FbxUInt64\ \textcolor{comment}{/*pSize*/})\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_stream_a47c2a6a595d370bcacbdbe2d42e7eeab}{ReadString}}(\textcolor{keywordtype}{char}*\ pBuffer,\ \textcolor{keywordtype}{int}\ pMaxSize,\ \textcolor{keywordtype}{bool}\ pStopAtFirstWhiteSpace=\textcolor{keyword}{false});}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_stream_ae2a7513a648cde508d00f5172ba2843d}{GetReaderID}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_stream_af39d714bf396c28252772b5d8e7caa47}{GetWriterID}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_stream_a00041c3874c430a77fb7e69a9adc894f}{Seek}}(\textcolor{keyword}{const}\ FbxInt64\&\ pOffset,\ \textcolor{keyword}{const}\ FbxFile::ESeekPos\&\ pSeekPos)=0;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{virtual}\ FbxInt64\ \mbox{\hyperlink{class_fbx_stream_ac8cd5a52fc01823cb9f39307080f2d44}{GetPosition}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_stream_a6a3b3bb793d0f8bf456b3e4da5e38833}{SetPosition}}(FbxInt64\ pPosition)=0;}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_stream_adec0d602a55d05e923980e048b8d5b54}{GetError}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_stream_ad90dfab257677bb8cd62efb9d65d3a02}{ClearError}}()\ =\ 0;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00111\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00112\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00114\ \ \ \ \ FbxStream()\{\};}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_stream}{\string~FbxStream}}()\{\};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ Write(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pData,\ FbxUInt64\ pSize)\{\ \textcolor{keywordflow}{return}\ Write((\textcolor{keywordtype}{void}*)pData,\ pSize);\ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ Write(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}*\ pData,\ FbxUInt64\ pSize)\{\ \textcolor{keywordflow}{return}\ Write((\textcolor{keywordtype}{void}*)pData,\ pSize);\ \}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ Read(\textcolor{keywordtype}{char}*\ pData,\ FbxUInt64\ pSize)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ Read((\textcolor{keywordtype}{void}*)pData,\ pSize);\ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ Read(\textcolor{keywordtype}{int}*\ pData,\ FbxUInt64\ pSize)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ Read((\textcolor{keywordtype}{void}*)pData,\ pSize);\ \}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00122\ \};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_STREAM\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

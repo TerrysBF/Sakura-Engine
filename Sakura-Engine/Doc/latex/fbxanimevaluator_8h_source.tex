@@ -1,0 +1,92 @@
+\doxysection{fbxanimevaluator.\+h}
+\hypertarget{fbxanimevaluator_8h_source}{}\label{fbxanimevaluator_8h_source}\index{include/fbx/fbxsdk/scene/animation/fbxanimevaluator.h@{include/fbx/fbxsdk/scene/animation/fbxanimevaluator.h}}
+\mbox{\hyperlink{fbxanimevaluator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_ANIMATION\_EVALUATOR\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_ANIMATION\_EVALUATOR\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxanimevalstate_8h}{fbxsdk/scene/animation/fbxanimevalstate.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxanimstack_8h}{fbxsdk/scene/animation/fbxanimstack.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_anim_evaluator}{FbxAnimEvaluator}}\ :\ \textcolor{keyword}{public}\ FbxObject}
+\DoxyCodeLine{00062\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a8e970655f5b1f1c91f4887e30fa8379d}{FBXSDK\_ABSTRACT\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_anim_evaluator}{FbxAnimEvaluator}},\ FbxObject);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\&\ \mbox{\hyperlink{class_fbx_anim_evaluator_a6b7286878f02d9eec6d65d4705f8391b}{GetNodeGlobalTransform}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_INFINITE,\ \mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343}{FbxNode::EPivotSet}}\ pPivotSet=\mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343ae8ed37a5c7e41f8d1cec9d3fa8424b69}{FbxNode::eSourcePivot}},\ \textcolor{keywordtype}{bool}\ pApplyTarget=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ pForceEval=\textcolor{keyword}{false});}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\&\ \mbox{\hyperlink{class_fbx_anim_evaluator_a0259444f91331d4bcfdec4316cc7eb66}{GetNodeLocalTransform}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_INFINITE,\ \mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343}{FbxNode::EPivotSet}}\ pPivotSet=\mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343ae8ed37a5c7e41f8d1cec9d3fa8424b69}{FbxNode::eSourcePivot}},\ \textcolor{keywordtype}{bool}\ pApplyTarget=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ pForceEval=\textcolor{keyword}{false});}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ \mbox{\hyperlink{class_fbx_anim_evaluator_aaa2c8f81366bc0efd4d37835a050c494}{GetNodeLocalTranslation}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_INFINITE,\ \mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343}{FbxNode::EPivotSet}}\ pPivotSet=\mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343ae8ed37a5c7e41f8d1cec9d3fa8424b69}{FbxNode::eSourcePivot}},\ \textcolor{keywordtype}{bool}\ pApplyTarget=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ pForceEval=\textcolor{keyword}{false});}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ \mbox{\hyperlink{class_fbx_anim_evaluator_ada4a97ce0ab8174c9ab2a4c67a07899f}{GetNodeLocalRotation}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_INFINITE,\ \mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343}{FbxNode::EPivotSet}}\ pPivotSet=\mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343ae8ed37a5c7e41f8d1cec9d3fa8424b69}{FbxNode::eSourcePivot}},\ \textcolor{keywordtype}{bool}\ pApplyTarget=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ pForceEval=\textcolor{keyword}{false});}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ \mbox{\hyperlink{class_fbx_anim_evaluator_a3f6c4982855d8885c6eba71d5baf0694}{GetNodeLocalScaling}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_INFINITE,\ \mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343}{FbxNode::EPivotSet}}\ pPivotSet=\mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343ae8ed37a5c7e41f8d1cec9d3fa8424b69}{FbxNode::eSourcePivot}},\ \textcolor{keywordtype}{bool}\ pApplyTarget=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ pForceEval=\textcolor{keyword}{false});}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#if\ defined(\_\_GNUC\_\_)\ \&\&\ (\_\_GNUC\_\_\ <\ 4)}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{class_fbx_anim_evaluator_a49b4a647d33b2ce26b27ba35ddb8a0ed}{GetPropertyValue}}(FbxProperty\&\ pProperty,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \textcolor{keywordtype}{bool}\ pForceEval=\textcolor{keyword}{false})\{\ \mbox{\hyperlink{class_fbx_property_eval_state}{FbxPropertyEvalState}}*\ s\ =\ GetPropertyEvalState(pProperty,\ pTime,\ pForceEval);\ \textcolor{keywordflow}{return}\ s-\/>Get<T>();\ \}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{class_fbx_anim_evaluator_a49b4a647d33b2ce26b27ba35ddb8a0ed}{GetPropertyValue}}(FbxProperty\&\ pProperty,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \textcolor{keywordtype}{bool}\ pForceEval=\textcolor{keyword}{false})\{\ \textcolor{keywordflow}{return}\ GetPropertyEvalState(pProperty,\ pTime,\ pForceEval)-\/>Get<T>();\ \}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_value}{FbxPropertyValue}}\&\ \mbox{\hyperlink{class_fbx_anim_evaluator_af801d480a3c1870426f47ec7b4380d31}{GetPropertyValue}}(FbxProperty\&\ pProperty,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \textcolor{keywordtype}{bool}\ pForceEval=\textcolor{keyword}{false});}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{class_fbx_anim_curve_node}{FbxAnimCurveNode}}*\ \mbox{\hyperlink{class_fbx_anim_evaluator_af467780b1126a92b667ac7fe8a7211a3}{GetPropertyCurveNode}}(FbxProperty\&\ pProperty,\ \mbox{\hyperlink{class_fbx_anim_layer}{FbxAnimLayer}}*\ pAnimLayer);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00146\ \ \ \ \ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ \mbox{\hyperlink{class_fbx_anim_evaluator_af5226e1b2bc178417980b746c34888e4}{ValidateTime}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_evaluator_a95c636f04474f350c3a1eda55ded8b29}{Reset}}();}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_evaluator_a17b08c51a766be597aac881807913ea8}{Flush}}(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_evaluator_a2f738a737153248cc988aca609c4bf84}{Flush}}(FbxProperty\&\ pProperty);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_evaluator_a7ffe74bd370dfef23e5c1dd88b334e3d}{ComputeLocalTRSFromGlobal}}(\mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pRetLT,\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pRetLR,\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pRetLS,\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\&\ pGX,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_INFINITE,\ \mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343}{FbxNode::EPivotSet}}\ pPivotSet=\mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343ae8ed37a5c7e41f8d1cec9d3fa8424b69}{FbxNode::eSourcePivot}},\ \textcolor{keywordtype}{bool}\ pApplyTarget=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ pForceEval=\textcolor{keyword}{false});}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00172\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00173\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00175\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_evaluator_afcb2304d207ca21a65dd808938df843d}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_evaluator_a9858fdc258890344e65ec43123d5bb91}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ EvaluateNodeTransform(\mbox{\hyperlink{class_fbx_node_eval_state}{FbxNodeEvalState}}*\ pResult,\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343}{FbxNode::EPivotSet}}\ pPivotSet,\ \textcolor{keywordtype}{bool}\ pApplyTarget)\ =\ 0;}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxproperty_8h_aad47f017660621019bda1aa0efc1b7ae}{EvaluatePropertyValue}}(\mbox{\hyperlink{class_fbx_property_eval_state}{FbxPropertyEvalState}}*\ pResult,\ FbxProperty\&\ pProperty,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime)\ =\ 0;}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \mbox{\hyperlink{class_fbx_anim_eval_state}{FbxAnimEvalState}}*\ \ \ \ \ \ \ GetDefaultEvalState();}
+\DoxyCodeLine{00183\ \ \ \ \ \mbox{\hyperlink{class_fbx_anim_eval_state}{FbxAnimEvalState}}*\ \ \ \ \ \ \ GetEvalState(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime);}
+\DoxyCodeLine{00184\ \ \ \ \ \mbox{\hyperlink{class_fbx_node_eval_state}{FbxNodeEvalState}}*\ \ \ \ \ \ \ GetNodeEvalState(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343}{FbxNode::EPivotSet}}\ pPivotSet,\ \textcolor{keywordtype}{bool}\ pApplyTarget,\ \textcolor{keywordtype}{bool}\ pForceEval);}
+\DoxyCodeLine{00185\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_eval_state}{FbxPropertyEvalState}}*\ \ \ GetPropertyEvalState(FbxProperty\&\ pProperty,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \textcolor{keywordtype}{bool}\ pForceEval);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00188\ \ \ \ \ \mbox{\hyperlink{class_fbx_anim_eval_state}{FbxAnimEvalState}}*\ \ \ \ \ \ \ mEvalState;}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00190\ \};}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00198\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{fbxanimevaluator_8h_a179327cfe7a9f9566a396a388f927460}{EvaluatePropertyValue}}(\mbox{\hyperlink{class_fbx_property}{FbxProperty}}\&\ pProperty,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \textcolor{keywordtype}{bool}\ pForceEval)}
+\DoxyCodeLine{00199\ \{\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordflow}{return}\ pProperty.\mbox{\hyperlink{class_fbx_property_ae8e5b107f41d4a9792a00b820844fa07}{GetAnimationEvaluator}}()-\/>\ \textcolor{keyword}{template}\ GetPropertyValue<T>(pProperty,\ pTime,\ pForceEval);}
+\DoxyCodeLine{00201\ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_ANIMATION\_EVALUATOR\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

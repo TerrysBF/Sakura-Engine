@@ -1,0 +1,212 @@
+\doxysection{fbxarch.\+h}
+\hypertarget{fbxarch_8h_source}{}\label{fbxarch_8h_source}\index{include/fbx/fbxsdk/core/arch/fbxarch.h@{include/fbx/fbxsdk/core/arch/fbxarch.h}}
+\mbox{\hyperlink{fbxarch_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_ARCH\_ARCH\_H\_}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_ARCH\_ARCH\_H\_}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#if\ defined(\_WIN32)\ ||\ defined(\_WIN64)\ }\textcolor{comment}{//Microsoft\ Windows\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_ENV\_WIN\ 1}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(WINAPI\_FAMILY)\ \&\&\ (WINAPI\_FAMILY\ ==\ WINAPI\_FAMILY\_APP)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ENV\_WINSTORE\ 1}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(\_M\_X64)}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ARCH\_AMD64\ 1}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_CPU\_64\ 1}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_M\_IX86)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ARCH\_IX86\ 1}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_CPU\_32\ 1}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_M\_ARM)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ARCH\_ARM\ 1}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_CPU\_32\ 1}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_M\_ARM64)}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ARCH\_ARM\ 1}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_CPU\_64\ 1}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#error\ Unsupported\ architecture!}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_COMPILER\_MSC\ 1}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_COMPILER\_GNU\ 1}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_\_ICL)}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_COMPILER\_INTEL\ 1}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#error\ Unsupported\ compiler!}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#elif\ defined(\_\_APPLE\_\_)\ ||\ defined(\_\_MACH\_\_)\ }\textcolor{comment}{//Apple\ MacOS/X\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}TargetConditionals.h"{}}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_ENV\_MAC\ 1}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\ \ \ \ \#if\ TARGET\_OS\_IPHONE\ ||\ TARGET\_IPHONE\_SIMULATOR}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ENV\_IOS\ 1}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(\_\_i386\_\_)}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ARCH\_IX86\ 1}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_CPU\_32\ 1}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_\_x86\_64\_\_)\ ||\ defined(\_\_x86\_64)}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ARCH\_AMD64\ 1}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_CPU\_64\ 1}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_\_arm\_\_)}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ARCH\_ARM\ 1}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_CPU\_32\ 1}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_\_arm64\_\_)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ARCH\_ARM\ 1}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_CPU\_64\ 1}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#error\ Unsupported\ architecture!}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_COMPILER\_GNU\ 1}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_COMPILER\_CLANG\ 1}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\ \ \ \ \#if\ !defined(FBXSDK\_COMPILER\_GNU)\ \&\&\ !defined(FBXSDK\_COMPILER\_CLANG)}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#error\ Unsupported\ compiler!}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#elif\ defined(\_\_linux\_\_)\ ||\ defined(\_\_CYGWIN\_\_)\ ||\ defined(EMSCRIPTEN)\ ||\ defined(ANDROID)\ }\textcolor{comment}{//Linux\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_ENV\_LINUX\ 1}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(EMSCRIPTEN)}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ENV\_EMSCRIPTEN\ 1}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(ANDROID)}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ENV\_ANDROID\ 1}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(\_\_i386\_\_)}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ARCH\_IX86\ 1}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_CPU\_32\ 1}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_\_x86\_64\_\_)\ ||\ defined(\_\_x86\_64)}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ARCH\_AMD64\ 1}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_CPU\_64\ 1}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(\_\_arm\_\_)}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ARCH\_ARM\ 1}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_CPU\_32\ 1}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(EMSCRIPTEN)}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_ARCH\_AMD64\ 1}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_CPU\_64\ 1}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#error\ Unsupported\ architecture!}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_COMPILER\_GNU\ 1}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(EMSCRIPTEN)}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_COMPILER\_EMSCRIPTEN\ 1\ }}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#error\ Unsupported\ compiler!}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\ \#else}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\ \ \ \ \#error\ Unsupported\ platform!}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00158\ \textcolor{comment}{//Compiler\ Specifics}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_SHARED)}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(FBXSDK\_COMPILER\_MSC)\ ||\ defined(FBXSDK\_COMPILER\_INTEL)}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_DLLIMPORT\ \_\_declspec(dllimport)}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_DLLEXPORT\ \_\_declspec(dllexport)}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\ \ \ \ \#elif\ defined(FBXSDK\_COMPILER\_GNU)\ \&\&\ (\_\_GNUC\_\_\ >=\ 4)}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_DLLIMPORT\ \_\_attribute\_\_((visibility("{}default"{})))}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_DLLEXPORT\ \_\_attribute\_\_((visibility("{}default"{})))}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_DLLIMPORT}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBXSDK\_DLLEXPORT}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_DLLIMPORT}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_DLLEXPORT}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#ifndef\ FBXSDK\_DLL}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_DLL\ FBXSDK\_DLLIMPORT}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_COMPILER\_MSC)}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ warning(disable\ :\ 4251)\ }\textcolor{comment}{//'identifier'\ :\ class\ 'type'\ needs\ to\ have\ dll-\/interface\ to\ be\ used\ by\ clients\ of\ class\ 'type2'}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\ \ \ \ \#if\ \_MSC\_VER\ >=\ 1300\ }\textcolor{comment}{//\ 7.1}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBX\_DEPRECATED\ \_\_declspec(deprecated)}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBX\_DEPRECATED}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#elif\ defined(FBXSDK\_COMPILER\_GNU)\ ||\ defined(FBXSDK\_COMPILER\_EMSCRIPTEN)}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_DEPRECATED\ \_\_attribute\_\_((deprecated))}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#elif\ defined(FBXSDK\_COMPILER\_INTEL)}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\ \ \ \ \#if\ \_\_INTEL\_COMPILER\ >=\ 810}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBX\_DEPRECATED\ \_\_declspec(deprecated)}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FBX\_DEPRECATED}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\ \ \ \ \#error\ Unsupported\ compiler!}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#ifdef\ FBXSDK\_COMPILER\_CLANG}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_UNUSED(p)\ \_Pragma(FBX\_STRINGIFY(unused(p)))}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_UNUSED(p)\ (void)(p)}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00205\ \textcolor{comment}{//Platform\ Standardization}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#ifndef\ NULL}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(\_\_GNUG\_\_)\ \&\&\ (\_\_GNUC\_\_\ >\ 2\ ||\ (\_\_GNUC\_\_\ ==\ 2\ \&\&\ \_\_GNUC\_MINOR\_\_\ >=\ 8))}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ NULL\ (\_\_null)}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\ \ \ \ \#else\ \ \ }}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#if\ defined(\_\_cplusplus)}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#define\ NULL\ 0}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#else}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#define\ NULL\ ((void*)0)}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#if\ !defined(\_MAX\_PATH)}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_MAX\_PATH\ 260}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#if\ !defined(FBXSDK\_COMPILER\_MSC)}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ strcmpi}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ strcmpi\ strcasecmp}}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ stricmp}}
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ stricmp\ strcasecmp}}
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ strncmpi}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ strncmpi\ strncasecmp}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ strnicmp}}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ strnicmp\ strncasecmp}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_ARCH\_ARCH\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

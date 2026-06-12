@@ -1,0 +1,70 @@
+\doxysection{fbxselectionnode.\+h}
+\hypertarget{fbxselectionnode_8h_source}{}\label{fbxselectionnode_8h_source}\index{include/fbx/fbxsdk/scene/fbxselectionnode.h@{include/fbx/fbxsdk/scene/fbxselectionnode.h}}
+\mbox{\hyperlink{fbxselectionnode_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_SELECTION\_NODE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_SELECTION\_NODE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_selection_node}{FbxSelectionNode}}\ :\ \textcolor{keyword}{public}\ FbxObject}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_selection_node}{FbxSelectionNode}},\ FbxObject);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_selection_node_aa24cf47b60ff436a1cce9409da37e78f}{ESelectType}}}
+\DoxyCodeLine{00040\ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ eVertexLevel,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ eEdgeLevel,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ eFaceLevel,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ eObjectLevel,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ eSelectTypeCount}
+\DoxyCodeLine{00046\ \ \ \ \ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_selection_node_a6682d7ec3a7f7b9083962c212e7badd2}{SetSelectionObject}}(FbxObject*\ pObject);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ FbxObject*\ \mbox{\hyperlink{class_fbx_selection_node_a93f3ce6184e03286c9ca8ad73886a94e}{GetSelectionObject}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_selection_node_a600d1609bd33e1453f082a971a9498f9}{IsValid}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_selection_node_abe086e3632a8526188a5c706f3edff0d}{mIsTheNodeInSet}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\ \mbox{\hyperlink{class_fbx_selection_node_ad58af0a699e64661e138fc9c17cb33c2}{mVertexIndexArray}};\ \ }
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\ \mbox{\hyperlink{class_fbx_selection_node_a08402c700791599a3d025a55d52f725e}{mEdgeIndexArray}};\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<int>}}\ \mbox{\hyperlink{class_fbx_selection_node_a542b95a44b33e6b88af56e202612583f}{mPolygonIndexArray}};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00085\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00086\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxArray<int>}}*>\ mSubTypeSelectArray;}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ SELECT\_TYPE\_NAMES[(int)eSelectTypeCount];}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_selection_node_ae195463d7b0841ca415d53caca14766b}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{bool}\ ConnectNotify\ (\mbox{\hyperlink{class_fbx_connect_event}{FbxConnectEvent}}\ \textcolor{keyword}{const}\ \&pEvent)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00095\ \};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_SELECTION\_NODE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

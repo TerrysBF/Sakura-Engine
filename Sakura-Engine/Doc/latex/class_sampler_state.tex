@@ -1,0 +1,159 @@
+\doxysection{Sampler\+State Class Reference}
+\hypertarget{class_sampler_state}{}\label{class_sampler_state}\index{SamplerState@{SamplerState}}
+
+
+Encapsula un {\ttfamily ID3\+D11\+Sampler\+State} para la etapa de muestreo de texturas en Direct3D 11.  
+
+
+
+
+{\ttfamily \#include $<$Sampler\+State.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_sampler_state_ac128af8991d49058402e20faa61b499d}\label{class_sampler_state_ac128af8991d49058402e20faa61b499d} 
+{\bfseries Sampler\+State} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_sampler_state_a2f8903fc77d06f5ecf18e8d0c582bce4}{\texorpdfstring{$\sim$}{\string~}\+Sampler\+State}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor por defecto. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_sampler_state_a21eb1b99b6492b00fbd51ea1dde92a9b}{init}} (\mbox{\hyperlink{class_device}{Device}} \&device)
+\begin{DoxyCompactList}\small\item\em Inicializa el Sampler State con una configuraci?n predeterminada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sampler_state_a9b0c4bc3e9f1ad489edbec874dfae86a}{update}} ()
+\begin{DoxyCompactList}\small\item\em Actualiza par?metros internos del Sampler. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sampler_state_a89622518b3f55cb9ad8bf449fcb46c64}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context, unsigned int Start\+Slot, unsigned int Num\+Samplers)
+\begin{DoxyCompactList}\small\item\em Asigna el Sampler State a la etapa de Pixel Shader. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sampler_state_a8d36030d3bad4033f0063dec4e990309}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Libera el recurso {\ttfamily ID3\+D11\+Sampler\+State}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ID3\+D11\+Sampler\+State \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_sampler_state_a59443fbdd117f52de5fdadd52dc9ce74}{m\+\_\+sampler}} = nullptr
+\begin{DoxyCompactList}\small\item\em Recurso COM de Direct3D 11 para el Sampler State. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encapsula un {\ttfamily ID3\+D11\+Sampler\+State} para la etapa de muestreo de texturas en Direct3D 11. 
+
+Un Sampler State define c?mo se leen las texturas en los shaders\+:
+\begin{DoxyItemize}
+\item Filtrado (point, linear, anisotropic).
+\item Direccionamiento (wrap, mirror, clamp, border).
+\item Nivel de mipmapping.
+\end{DoxyItemize}
+
+Esta clase administra la creaci?n, aplicaci?n y destrucci?n de un {\ttfamily \doxylink{class_sampler_state}{Sampler\+State}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_sampler_state_a2f8903fc77d06f5ecf18e8d0c582bce4}\index{SamplerState@{SamplerState}!````~SamplerState@{\texorpdfstring{$\sim$}{\string~}SamplerState}}
+\index{````~SamplerState@{\texorpdfstring{$\sim$}{\string~}SamplerState}!SamplerState@{SamplerState}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SamplerState()}{\string~SamplerState()}}
+{\footnotesize\ttfamily \label{class_sampler_state_a2f8903fc77d06f5ecf18e8d0c582bce4} 
+Sampler\+State\+::\texorpdfstring{$\sim$}{\string~}\+Sampler\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destructor por defecto. 
+
+No libera autom?ticamente el recurso COM; llamar a \doxylink{class_sampler_state_a8d36030d3bad4033f0063dec4e990309}{destroy()}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_sampler_state_a8d36030d3bad4033f0063dec4e990309}\index{SamplerState@{SamplerState}!destroy@{destroy}}
+\index{destroy@{destroy}!SamplerState@{SamplerState}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{class_sampler_state_a8d36030d3bad4033f0063dec4e990309} 
+void Sampler\+State\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Libera el recurso {\ttfamily ID3\+D11\+Sampler\+State}. 
+
+Idempotente\+: puede llamarse m?ltiples veces de forma segura.
+
+\begin{DoxyPostcond}{Postcondition}
+{\ttfamily m\+\_\+sampler} == nullptr. 
+\end{DoxyPostcond}
+\Hypertarget{class_sampler_state_a21eb1b99b6492b00fbd51ea1dde92a9b}\index{SamplerState@{SamplerState}!init@{init}}
+\index{init@{init}!SamplerState@{SamplerState}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_sampler_state_a21eb1b99b6492b00fbd51ea1dde92a9b} 
+HRESULT Sampler\+State\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa el Sampler State con una configuraci?n predeterminada. 
+
+Crea un {\ttfamily ID3\+D11\+Sampler\+State} configurado seg?n la implementaci?n (ejemplo\+: filtrado lineal, wrap en UV, LOD completo).
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se crear? el recurso. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si fue exitoso; c?digo {\ttfamily HRESULT} en caso de error.
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Si retorna {\ttfamily S\+\_\+\+OK}, {\ttfamily m\+\_\+sampler} != nullptr. 
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_sampler_state_a89622518b3f55cb9ad8bf449fcb46c64}{render()}, \doxylink{class_sampler_state_a8d36030d3bad4033f0063dec4e990309}{destroy()} 
+\end{DoxySeeAlso}
+\Hypertarget{class_sampler_state_a89622518b3f55cb9ad8bf449fcb46c64}\index{SamplerState@{SamplerState}!render@{render}}
+\index{render@{render}!SamplerState@{SamplerState}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_sampler_state_a89622518b3f55cb9ad8bf449fcb46c64} 
+void Sampler\+State\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{, }\item[{unsigned int}]{Start\+Slot}{, }\item[{unsigned int}]{Num\+Samplers}{}\end{DoxyParamCaption})}
+
+
+
+Asigna el Sampler State a la etapa de Pixel Shader. 
+
+Llama a {\ttfamily ID3\+D11\+Device\+Context\+::\+PSSet\+Samplers} para establecer el sampler.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto donde se aplicar? el sampler. \\
+\hline
+{\em Start\+Slot} & Slot inicial en el que se vincular? el sampler. \\
+\hline
+{\em Num\+Samplers} & N?mero de samplers a enlazar (normalmente 1).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily m\+\_\+sampler} debe haberse creado con \doxylink{class_sampler_state_a21eb1b99b6492b00fbd51ea1dde92a9b}{init()}. 
+\end{DoxyPrecond}
+\Hypertarget{class_sampler_state_a9b0c4bc3e9f1ad489edbec874dfae86a}\index{SamplerState@{SamplerState}!update@{update}}
+\index{update@{update}!SamplerState@{SamplerState}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_sampler_state_a9b0c4bc3e9f1ad489edbec874dfae86a} 
+void Sampler\+State\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Actualiza par?metros internos del Sampler. 
+
+M?todo de marcador para recrear o mutar din?micamente la configuraci?n (por ejemplo, cambiar de filtrado linear a anisotr?pico).
+
+\begin{DoxyNote}{Note}
+Actualmente no realiza ninguna operaci?n. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_sampler_state_a59443fbdd117f52de5fdadd52dc9ce74}\index{SamplerState@{SamplerState}!m\_sampler@{m\_sampler}}
+\index{m\_sampler@{m\_sampler}!SamplerState@{SamplerState}}
+\doxysubsubsection{\texorpdfstring{m\_sampler}{m\_sampler}}
+{\footnotesize\ttfamily \label{class_sampler_state_a59443fbdd117f52de5fdadd52dc9ce74} 
+ID3\+D11\+Sampler\+State\texorpdfstring{$\ast$}{*} Sampler\+State\+::m\+\_\+sampler = nullptr}
+
+
+
+Recurso COM de Direct3D 11 para el Sampler State. 
+
+V?lido tras \doxylink{class_sampler_state_a21eb1b99b6492b00fbd51ea1dde92a9b}{init()}; {\ttfamily nullptr} despu?s de \doxylink{class_sampler_state_a8d36030d3bad4033f0063dec4e990309}{destroy()}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_sampler_state_8h}{Sampler\+State.\+h}}\item 
+source/Sampler\+State.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,172 @@
+\doxysection{Fbx\+Semantic\+Entry\+View Class Reference}
+\hypertarget{class_fbx_semantic_entry_view}{}\label{class_fbx_semantic_entry_view}\index{FbxSemanticEntryView@{FbxSemanticEntryView}}
+
+
+{\ttfamily \#include $<$fbxsemanticentryview.\+h$>$}
+
+Inheritance diagram for Fbx\+Semantic\+Entry\+View\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_fbx_semantic_entry_view}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_semantic_entry_view_a971315cc135c67cb4ca164a69fe6f6b2}{s\+Entry\+Type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{class_fbx_entry_view}{Fbx\+Entry\+View}}}
+\begin{DoxyCompactItemize}
+\item 
+static const char \texorpdfstring{$\ast$}{*} {\bfseries s\+Entry\+Type}
+\begin{DoxyCompactList}\small\item\em Entry type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Constructor and Destructor.}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_semantic_entry_view_a9431f63d5fdde94d264056fa3f3b6df1}{Fbx\+Semantic\+Entry\+View}} (\mbox{\hyperlink{class_fbx_binding_table_entry}{Fbx\+Binding\+Table\+Entry}} \texorpdfstring{$\ast$}{*}p\+Entry, bool p\+As\+Source, bool p\+Create=false)
+\item 
+\Hypertarget{class_fbx_semantic_entry_view_a3efcf8b9e3ff9b4d9656910786f88238}\label{class_fbx_semantic_entry_view_a3efcf8b9e3ff9b4d9656910786f88238} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Fbx\+Semantic\+Entry\+View} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fbx_semantic_entry_view_a602f170055f7dc100360d0d11bb88c56}{Set\+Semantic}} (const char \texorpdfstring{$\ast$}{*}p\+Semantic)
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_semantic_entry_view_ac1419433cb4547f9cbd42e4855976e43}{Get\+Semantic}} (bool p\+Append\+Index=true) const
+\item 
+int \mbox{\hyperlink{class_fbx_semantic_entry_view_a9163df1576880dd1fa1922eeeb122dfd}{Get\+Index}} () const
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_semantic_entry_view_a47c40ef95a9c85f43e85b6c08d70bc3a}{Entry\+Type}} () const override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_entry_view_a16e4c36a79ae38f1fc4b31973f43c15c}{Fbx\+Entry\+View}} (\mbox{\hyperlink{class_fbx_binding_table_entry}{Fbx\+Binding\+Table\+Entry}} \texorpdfstring{$\ast$}{*}p\+Entry, bool p\+As\+Source, bool p\+Create=false)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_entry_view_a8adf9f4b899377fef920fd7b5e2bfcbf}\label{class_fbx_entry_view_a8adf9f4b899377fef920fd7b5e2bfcbf} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Fbx\+Entry\+View} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_entry_view_a6bbdad937ef02ffbacd343fd71ed85d7}{Is\+Valid}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_entry_view_aeff9d8adb34fe45d338c65483b52d2fc}{Create}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_entry_view_a274da88dfb87f2725f9c8fdbfe860c75}\label{class_fbx_entry_view_a274da88dfb87f2725f9c8fdbfe860c75} 
+bool {\bfseries m\+As\+Source}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_entry_view_a74afe18ad35e48e7bd6dce480ab49ad7}\label{class_fbx_entry_view_a74afe18ad35e48e7bd6dce480ab49ad7} 
+\mbox{\hyperlink{class_fbx_binding_table_entry}{Fbx\+Binding\+Table\+Entry}} \texorpdfstring{$\ast$}{*} {\bfseries m\+Entry}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_fbx_semantic_entry_view}{Fbx\+Semantic\+Entry\+View} stores a binding corresponding to a semantic within a shader file. A shader semantic is a parameter, a constant or an operator. So a shader semantic could bind with \doxylink{class_fbx_property}{Fbx\+Property} ( parameter, constant) and \doxylink{class_fbx_binding_operator}{Fbx\+Binding\+Operator} (operator).
+
+Here is a code snippet to show how it used. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FbxProperty\ lProp;}
+\DoxyCodeLine{FbxBindingTable\ lTable;}
+\DoxyCodeLine{FbxBindingTableEntry\&\ lEntry\ =\ lBindingTable.AddNewEntry();}
+\DoxyCodeLine{FbxPropertyEntryView\ lSrcView(\ lEntry,\ \textcolor{keyword}{true},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{lSrcView.SetProperty(\ lProp.\mbox{\hyperlink{class_fbx_property_a6045fdbb1bbe5a84f44c7f447d2fa52c}{GetHierarchicalName}}());}
+\DoxyCodeLine{\mbox{\hyperlink{class_fbx_semantic_entry_view_a9431f63d5fdde94d264056fa3f3b6df1}{FbxSemanticEntryView}}\ lDstView(\ \&pEntry,\ \textcolor{keyword}{false},\ \textcolor{keyword}{true}\ );}
+\DoxyCodeLine{lDstView.SetSemantic(\ lProp.Getname());}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_fbx_binding_table_entry}{Fbx\+Binding\+Table\+Entry} and \doxylink{class_fbx_binding_table}{Fbx\+Binding\+Table}. 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_semantic_entry_view_a9431f63d5fdde94d264056fa3f3b6df1}\index{FbxSemanticEntryView@{FbxSemanticEntryView}!FbxSemanticEntryView@{FbxSemanticEntryView}}
+\index{FbxSemanticEntryView@{FbxSemanticEntryView}!FbxSemanticEntryView@{FbxSemanticEntryView}}
+\doxysubsubsection{\texorpdfstring{FbxSemanticEntryView()}{FbxSemanticEntryView()}}
+{\footnotesize\ttfamily \label{class_fbx_semantic_entry_view_a9431f63d5fdde94d264056fa3f3b6df1} 
+Fbx\+Semantic\+Entry\+View\+::\+Fbx\+Semantic\+Entry\+View (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_binding_table_entry}{Fbx\+Binding\+Table\+Entry}} \texorpdfstring{$\ast$}{*}}]{p\+Entry}{, }\item[{bool}]{p\+As\+Source}{, }\item[{bool}]{p\+Create}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+Constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Entry} & The binding table entry to create the entry view for. \\
+\hline
+{\em p\+As\+Source} & {\ttfamily true} to create the entry view as source, {\ttfamily false} as destination. \\
+\hline
+{\em p\+Create} & {\ttfamily true} to create the entry view, {\ttfamily false} otherwise. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_semantic_entry_view_a47c40ef95a9c85f43e85b6c08d70bc3a}\index{FbxSemanticEntryView@{FbxSemanticEntryView}!EntryType@{EntryType}}
+\index{EntryType@{EntryType}!FbxSemanticEntryView@{FbxSemanticEntryView}}
+\doxysubsubsection{\texorpdfstring{EntryType()}{EntryType()}}
+{\footnotesize\ttfamily \label{class_fbx_semantic_entry_view_a47c40ef95a9c85f43e85b6c08d70bc3a} 
+const char \texorpdfstring{$\ast$}{*} Fbx\+Semantic\+Entry\+View\+::\+Entry\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Get the entry type. \begin{DoxyReturn}{Returns}
+Entry type as string "{}\+Fbx\+Semantic\+Entry"{}. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+Always use \doxylink{class_fbx_semantic_entry_view_a47c40ef95a9c85f43e85b6c08d70bc3a}{Entry\+Type()} to get the right entry type. 
+\end{DoxyRemark}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_entry_view_ab999d15bd282f2ea45a99f535dfd86f8}{Fbx\+Entry\+View}}.
+
+\Hypertarget{class_fbx_semantic_entry_view_a9163df1576880dd1fa1922eeeb122dfd}\index{FbxSemanticEntryView@{FbxSemanticEntryView}!GetIndex@{GetIndex}}
+\index{GetIndex@{GetIndex}!FbxSemanticEntryView@{FbxSemanticEntryView}}
+\doxysubsubsection{\texorpdfstring{GetIndex()}{GetIndex()}}
+{\footnotesize\ttfamily \label{class_fbx_semantic_entry_view_a9163df1576880dd1fa1922eeeb122dfd} 
+int Fbx\+Semantic\+Entry\+View\+::\+Get\+Index (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the semantic index suffix. \begin{DoxyReturn}{Returns}
+Semantic index suffix. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_semantic_entry_view_ac1419433cb4547f9cbd42e4855976e43}\index{FbxSemanticEntryView@{FbxSemanticEntryView}!GetSemantic@{GetSemantic}}
+\index{GetSemantic@{GetSemantic}!FbxSemanticEntryView@{FbxSemanticEntryView}}
+\doxysubsubsection{\texorpdfstring{GetSemantic()}{GetSemantic()}}
+{\footnotesize\ttfamily \label{class_fbx_semantic_entry_view_ac1419433cb4547f9cbd42e4855976e43} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+Semantic\+Entry\+View\+::\+Get\+Semantic (\begin{DoxyParamCaption}\item[{bool}]{p\+Append\+Index}{ = {\ttfamily true}}\end{DoxyParamCaption}) const}
+
+Get the semantic from the binding entry. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Append\+Index} & {\ttfamily true} if the returned semantic append a index, {\ttfamily false} otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The semantic. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_semantic_entry_view_a602f170055f7dc100360d0d11bb88c56}\index{FbxSemanticEntryView@{FbxSemanticEntryView}!SetSemantic@{SetSemantic}}
+\index{SetSemantic@{SetSemantic}!FbxSemanticEntryView@{FbxSemanticEntryView}}
+\doxysubsubsection{\texorpdfstring{SetSemantic()}{SetSemantic()}}
+{\footnotesize\ttfamily \label{class_fbx_semantic_entry_view_a602f170055f7dc100360d0d11bb88c56} 
+void Fbx\+Semantic\+Entry\+View\+::\+Set\+Semantic (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Semantic}{}\end{DoxyParamCaption})}
+
+Set the semantic to the binding entry. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Semantic} & The semantic string to set. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_fbx_semantic_entry_view_a971315cc135c67cb4ca164a69fe6f6b2}\index{FbxSemanticEntryView@{FbxSemanticEntryView}!sEntryType@{sEntryType}}
+\index{sEntryType@{sEntryType}!FbxSemanticEntryView@{FbxSemanticEntryView}}
+\doxysubsubsection{\texorpdfstring{sEntryType}{sEntryType}}
+{\footnotesize\ttfamily \label{class_fbx_semantic_entry_view_a971315cc135c67cb4ca164a69fe6f6b2} 
+const char\texorpdfstring{$\ast$}{*} Fbx\+Semantic\+Entry\+View\+::s\+Entry\+Type\hspace{0.3cm}{\ttfamily [static]}}
+
+Name of the entry type used in the binding entry. It should be "{}\+Fbx\+Semantic\+Entry"{} in this case. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/scene/shading/\mbox{\hyperlink{fbxsemanticentryview_8h}{fbxsemanticentryview.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,91 @@
+\doxysection{Scene\+Graph Class Reference}
+\hypertarget{class_scene_graph}{}\label{class_scene_graph}\index{SceneGraph@{SceneGraph}}
+
+
+Administra la jerarquia de entidades y su actualizacion espacial.  
+
+
+
+
+{\ttfamily \#include $<$Scene\+Graph.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_scene_graph_a3362453520f0e0432e944b8c7203b6d4}\label{class_scene_graph_a3362453520f0e0432e944b8c7203b6d4} 
+void {\bfseries init} ()
+\item 
+void \mbox{\hyperlink{class_scene_graph_a65822c5f625bec3ea7ac8f35e1220c68}{add\+Entity}} (\mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*}e)
+\begin{DoxyCompactList}\small\item\em Registra una entidad dentro del grafo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_graph_aafa761e09ad1bb4b62d8d09f0ee5e9c4}{remove\+Entity}} (\mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*}e)
+\begin{DoxyCompactList}\small\item\em Elimina una entidad del grafo si esta registrada. \end{DoxyCompactList}\item 
+\Hypertarget{class_scene_graph_af7d0e3f931f7f54b3d6ba13ddef2d9cc}\label{class_scene_graph_af7d0e3f931f7f54b3d6ba13ddef2d9cc} 
+bool {\bfseries is\+Ancestor} (\mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*}possible\+Ancestor, \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*}node) const
+\item 
+\Hypertarget{class_scene_graph_ac8dfc38cde81ac84fb548647dba161ac}\label{class_scene_graph_ac8dfc38cde81ac84fb548647dba161ac} 
+bool {\bfseries attach} (\mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*}child, \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+\Hypertarget{class_scene_graph_a8da7a744c105ee22a33dad1b13854ad7}\label{class_scene_graph_a8da7a744c105ee22a33dad1b13854ad7} 
+bool {\bfseries detach} (\mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*}child)
+\item 
+\Hypertarget{class_scene_graph_a9de9afe7b3172d4992f5920f7901a599}\label{class_scene_graph_a9de9afe7b3172d4992f5920f7901a599} 
+void {\bfseries update} (float delta\+Time, \mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context)
+\item 
+\Hypertarget{class_scene_graph_a6c9d231d73ea2491e3a916a9d1a0f6eb}\label{class_scene_graph_a6c9d231d73ea2491e3a916a9d1a0f6eb} 
+void {\bfseries render} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context)
+\item 
+\Hypertarget{class_scene_graph_a01d26df09bae103d0dced30c323617fa}\label{class_scene_graph_a01d26df09bae103d0dced30c323617fa} 
+void {\bfseries gather\+Render\+Scene} (\mbox{\hyperlink{class_render_scene}{Render\+Scene}} \&out\+Scene, const \mbox{\hyperlink{class_camera}{Camera}} \&camera)
+\item 
+\Hypertarget{class_scene_graph_a1b02dd4661521042c46020a11321454e}\label{class_scene_graph_a1b02dd4661521042c46020a11321454e} 
+void {\bfseries destroy} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_scene_graph_abaccfc73cb21444ef80b0808da0a2044}\label{class_scene_graph_abaccfc73cb21444ef80b0808da0a2044} 
+std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries m\+\_\+entities}
+\begin{DoxyCompactList}\small\item\em Entidades registradas en el grafo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Administra la jerarquia de entidades y su actualizacion espacial. 
+
+El {\ttfamily \doxylink{class_scene_graph}{Scene\+Graph}} registra entidades, resuelve relaciones padre-\/hijo y actualiza las matrices de mundo antes de generar la informacion necesaria para render. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_scene_graph_a65822c5f625bec3ea7ac8f35e1220c68}\index{SceneGraph@{SceneGraph}!addEntity@{addEntity}}
+\index{addEntity@{addEntity}!SceneGraph@{SceneGraph}}
+\doxysubsubsection{\texorpdfstring{addEntity()}{addEntity()}}
+{\footnotesize\ttfamily \label{class_scene_graph_a65822c5f625bec3ea7ac8f35e1220c68} 
+void Scene\+Graph\+::add\+Entity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*}}]{e}{}\end{DoxyParamCaption})}
+
+
+
+Registra una entidad dentro del grafo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Entidad a registrar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_scene_graph_aafa761e09ad1bb4b62d8d09f0ee5e9c4}\index{SceneGraph@{SceneGraph}!removeEntity@{removeEntity}}
+\index{removeEntity@{removeEntity}!SceneGraph@{SceneGraph}}
+\doxysubsubsection{\texorpdfstring{removeEntity()}{removeEntity()}}
+{\footnotesize\ttfamily \label{class_scene_graph_aafa761e09ad1bb4b62d8d09f0ee5e9c4} 
+void Scene\+Graph\+::remove\+Entity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*}}]{e}{}\end{DoxyParamCaption})}
+
+
+
+Elimina una entidad del grafo si esta registrada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Entidad a retirar. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Scene\+Graph/\mbox{\hyperlink{_scene_graph_8h}{Scene\+Graph.\+h}}\end{DoxyCompactItemize}

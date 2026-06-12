@@ -1,0 +1,824 @@
+\doxysection{Fbx\+Audio Class Reference}
+\hypertarget{class_fbx_audio}{}\label{class_fbx_audio}\index{FbxAudio@{FbxAudio}}
+
+
+{\ttfamily \#include $<$fbxaudio.\+h$>$}
+
+Inheritance diagram for Fbx\+Audio\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_fbx_audio}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Audio attributes Management}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_audio_ae686cf36da9a8d32384ed18be38afec0}\label{class_fbx_audio_ae686cf36da9a8d32384ed18be38afec0} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ Fbx\+Int $>$ {\bfseries Bit\+Rate}
+\begin{DoxyCompactList}\small\item\em Audio file bit rate value (bit/s). \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_audio_a9f8bc554548de94f75cbf617c862f705}\label{class_fbx_audio_a9f8bc554548de94f75cbf617c862f705} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ Fbx\+Int $>$ {\bfseries Sample\+Rate}
+\begin{DoxyCompactList}\small\item\em Audio file sample rate value (Hz). \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_audio_a0c5c4125b0e73a0cc55c10810bc5d78e}\label{class_fbx_audio_a0c5c4125b0e73a0cc55c10810bc5d78e} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ Fbx\+UChar $>$ {\bfseries Channels}
+\begin{DoxyCompactList}\small\item\em Audio file number of channels. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_audio_a7369fc7ecae20e7626fa72500247dc75}\label{class_fbx_audio_a7369fc7ecae20e7626fa72500247dc75} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} $>$ {\bfseries Duration}
+\begin{DoxyCompactList}\small\item\em Audio file length. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_audio_aabdc6836e61f70c4296404d18a6cc0b4}{Anim\+FX}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Utility section}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_audio_a55cb0f553ffc4f1b81345d5daad311c8}{Volume}} ()
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \& \mbox{\hyperlink{class_fbx_audio_ad50d72a9997a2f3c20a46d146aeb1eb8}{Copy}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object) override
+\item 
+void \mbox{\hyperlink{class_fbx_audio_ab47361501326012798b257d3ea9b9121}{Construct}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+From) override
+\item 
+void \mbox{\hyperlink{class_fbx_audio_a94d9cdaf65ab2db36d0bd21ffb8e0e81}{Construct\+Properties}} (bool p\+Force\+Set) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Audio object creation.}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_fbx_audio}{Fbx\+Audio}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_audio_a3185206e96e43cf169d930e589225ba6}{Create}} (\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*}p\+Container, const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Reset audio}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_audio_ac2ce5e5ad6745b3c7edf26491162cd2c}{Reset}} () override
+\begin{DoxyCompactList}\small\item\em Reset the audio to default values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_fbx_media_clip}{Fbx\+Media\+Clip}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_media_clip_a9e0affabdf1342f35884ca4670e69630}{EAccess\+Mode}} \{ {\bfseries e\+Disk}
+, {\bfseries e\+Memory}
+, {\bfseries e\+Disk\+Async}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{EObject\+Flag}} \{ \newline
+\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a1e3be60c132e4128211bcae9151b7394}{e\+None}} = 0
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244aef7e1bffd6a66da3afcef75a5b58099c}{e\+Initialized}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244ab30526fefc7c765c86915837cb78d194}{e\+System}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a9d477bbe1f04724fcc65b40b0ed25634}{e\+Savable}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2
+, \newline
+\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a46eb7a51468eab26cdfaf4ff5ba94f7b}{e\+Selected}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a003e4ca99b413e36199255548e54e0a6}{e\+Hidden}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 4
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244ad4bf6f05e3c50e585dec611288da91c6}{e\+Content\+Loaded}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 5
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244ace826129cda639eeb41fa034268d1f93}{e\+Dont\+Localize}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 6
+, \newline
+\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244aaac8a289575d6365b97978c9b7bb104c}{e\+Copy\+Called\+By\+Clone}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 16
+ \}
+\begin{DoxyCompactList}\small\item\em Flags available to control objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}{EClone\+Type}} \{ \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{e\+Deep\+Clone}}
+, \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbae681cda4dccb3f5ccf260e5ccc47d88c}{e\+Reference\+Clone}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of clones that can be created for \doxylink{class_fbx_object}{Fbx\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_media_clip_aa14ee8313a38020273a68582789b2fa8}{Set\+File\+Name}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_media_clip_a9f38bfdf90aadc67a8ce7b8c0370a2a2}{Get\+File\+Name}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_media_clip_a7806a846229caa802eedecc0cc29bd0e}{Set\+Relative\+File\+Name}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_media_clip_ae22e63484f25aa5a5809ab8164df029d}{Get\+Relative\+File\+Name}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_media_clip_a97d05824ee26cbf83b2f448afc903d78}{Set\+Color}} (\mbox{\hyperlink{class_fbx_color}{Fbx\+Color}} p\+Color)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_color}{Fbx\+Color}} \mbox{\hyperlink{class_fbx_media_clip_aaebf1ce19ac06cc02c97448607bd458f}{Get\+Color}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_media_clip_a68273ec8926162b392ee38ebe9721176}{Set\+Play\+Speed}} (double p\+Play\+Speed)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_fbx_media_clip_a689236ea4897a90df98d85e485e13e18}{Get\+Play\+Speed}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_media_clip_adc3d859a8594f64c037982aa40ca4f2c}{Set\+Clip\+In}} (\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} p\+Time)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \mbox{\hyperlink{class_fbx_media_clip_a4fb8f6bb4d2afa8c5f19b7f8db082d9f}{Get\+Clip\+In}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_media_clip_adb5443f1a9dc10a302e134d562de3713}{Set\+Clip\+Out}} (\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} p\+Time)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} \mbox{\hyperlink{class_fbx_media_clip_a48f9378db92cb4642b70439a6f2aa6d0}{Get\+Clip\+Out}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_media_clip_ab5e25db5db9547c5a1c815f3a59d2374}{Set\+Offset}} (\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} p\+Time)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_a237243031e6856c6db4719cd4822fba0}\label{class_fbx_media_clip_a237243031e6856c6db4719cd4822fba0} 
+\mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} {\bfseries Get\+Offset} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_media_clip_abbbfed6b8d7f6f970b0aa6f6b87cb857}{Set\+Free\+Running}} (bool p\+State)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_media_clip_a829bb205869bba1cec98599288ac3235}{Get\+Free\+Running}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_media_clip_a833c3c43a1c9b6034eeeafa955f66d48}{Set\+Loop}} (bool p\+Loop)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_media_clip_a280152db2ed96d26d4a0993db31b2b86}{Get\+Loop}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_media_clip_a3dd706d2cc406b7829b46dc4fee415d4}{Set\+Mute}} (bool p\+Mute)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_media_clip_a78b331bd62ae83a247e5235b5771f880}{Get\+Mute}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_media_clip_ab6709e2af169ab99a59ee5be9401819d}{Set\+Access\+Mode}} (\mbox{\hyperlink{class_fbx_media_clip_a9e0affabdf1342f35884ca4670e69630}{EAccess\+Mode}} p\+Access\+Mode)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_media_clip_a9e0affabdf1342f35884ca4670e69630}{EAccess\+Mode}} \mbox{\hyperlink{class_fbx_media_clip_a8652da56ce85085f94556f7f991ea65a}{Get\+Access\+Mode}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \& \mbox{\hyperlink{class_fbx_media_clip_a120357bae8a7532deb5e56910c85e1b2}{Copy}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object) override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string_list}{Fbx\+String\+List}} \mbox{\hyperlink{class_fbx_media_clip_a1d0ce6953a640b65b802876849162e0b}{Get\+Type\+Flags}} () const override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_aa0446ac0bcb5d4d38f15ae0743a5d891}\label{class_fbx_media_clip_aa0446ac0bcb5d4d38f15ae0743a5d891} 
+void {\bfseries Set\+Original\+Format} (bool p\+State)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_a17017da63ac6680285b0c844d1278dfe}\label{class_fbx_media_clip_a17017da63ac6680285b0c844d1278dfe} 
+bool {\bfseries Get\+Original\+Format} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_a7c979fa6ff93248fdfcbf710722c11c6}\label{class_fbx_media_clip_a7c979fa6ff93248fdfcbf710722c11c6} 
+void {\bfseries Set\+Original\+Filename} (const char \texorpdfstring{$\ast$}{*}p\+Original\+Filename)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_a554f43fd370f961b60b47c69a878269f}\label{class_fbx_media_clip_a554f43fd370f961b60b47c69a878269f} 
+const char \texorpdfstring{$\ast$}{*} {\bfseries Get\+Original\+Filename} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_a65e47d62ed950247cd097b3b505d7b48}{Is}} () const
+\item 
+\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a87421255c4def515760a5b5df656a20f}{Get\+Fbx\+Manager}} () const
+\item 
+\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aa5cf0570302b29cb491322fd030dede9}{Get\+Document}} () const
+\item 
+\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a0ecffb08701519b99478724080a1903b}{Get\+Root\+Document}} () const
+\item 
+\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aab252b8b092953c63e32e5dc1bcf74a2}{Get\+Scene}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_object_a7b49e6a0c17132cd7e2e7e8485a08915}{Destroy}} (bool p\+Recursive=false)
+\item 
+void \mbox{\hyperlink{class_fbx_object_af8626c123cf302297bdecb4c8d62db99}{Reset\+Properties}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_object_ade0dddb02e39f6823d0bea6071ef4410}{Get\+Selected}} ()
+\item 
+virtual void \mbox{\hyperlink{class_fbx_object_ab61c3e576aaf899deda673702c0a1b79}{Set\+Selected}} (bool p\+Selected)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_ac37f77806bfd54d6a41ca6158768deb0}{Set\+User\+Data\+Ptr}} (const Fbx\+UInt64 \&p\+User\+ID, void \texorpdfstring{$\ast$}{*}p\+User\+Data)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a82453a87c2eda4d474c53bbfc6339392}{Get\+User\+Data\+Ptr}} (const Fbx\+UInt64 \&p\+User\+ID) const
+\item 
+void \mbox{\hyperlink{class_fbx_object_af52325b1b5f2f1f5884d5d14d80c1922}{Set\+User\+Data\+Ptr}} (void \texorpdfstring{$\ast$}{*}p\+User\+Data)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a9eb021fc31e60002406980948e7638ad}{Get\+User\+Data\+Ptr}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a1c75d466c5166486787bfa06b4fd221f}{Connect\+Src\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object, Fbx\+Connection\+::\+EType p\+Type=Fbx\+Connection\+::e\+None)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a2ff6d4507136a693622a7d8434b440ed}{Is\+Connected\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a1ff942832a9a9d829988c757899b6655}{Disconnect\+Src\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_af1e035b53794520b66c3240a20660b40}{Disconnect\+All\+Src\+Object}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ad6c02944e76b8d6780e734383f872a7d}{Disconnect\+All\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a5fce56e85d5e0568243a5df99dabb42f}{Get\+Src\+Object\+Count}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_object_aa1fe90887d90288ee0c06121ec79c0a8}{Get\+Src\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae9f5b092a4beb82e14489e2deda32152}{Get\+Src\+Object}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_afc85555fe801a0ba69a0d2df15d95199}{Get\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae2395e360ff9e53e18c99052a41e1156}{Find\+Src\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aa719dc9513cfbfc8767d4c2af367bc44}{Find\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_a17f59548a86067094c17501801e7aa46}{Disconnect\+All\+Src\+Object}} ()
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_ae5b578e810b22bcd8d0df323097ed995}{Disconnect\+All\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_a9da9f905564dc108d1363049eb032fa8}{Get\+Src\+Object\+Count}} () const
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_aabefdc2922a216fb7a1ce864fcf2438a}{Get\+Src\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a8d7e062552be10952806a719b20b3685}{Get\+Src\+Object}} (int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a7eb8cc999af713c9ccf39d726a0317b9}{Get\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ab4e093b55f5361fbc025cf8ea3cb401f}{Find\+Src\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aafb907a917f661eb4a80d1b85d04518d}{Find\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a3c7e883121fe1ceb271381146bd52ed0}{Connect\+Dst\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object, Fbx\+Connection\+::\+EType p\+Type=Fbx\+Connection\+::e\+None)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a06725964170902b4d79453d76326fc5b}{Is\+Connected\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a949fdf817b27505861f293cea4dc3b86}{Disconnect\+Dst\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a5ebe517e8b3f221285b9754009c0660b}{Disconnect\+All\+Dst\+Object}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a5668d54f53f16f5ffad95727f92a8ee6}{Disconnect\+All\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a5be091701bfa94643dc2333768f56866}{Get\+Dst\+Object\+Count}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_object_a46183e2905f10779c57389dc4ec3a5de}{Get\+Dst\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a16e69934f654a544c986a583a59972be}{Get\+Dst\+Object}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a4cdab7b4be2985fd907159ae16e09d2f}{Get\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a83483c85e1431fdb5cdd45dfeb03a6de}{Find\+Dst\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a1b29d3cb822da43e40dd6fdf586bb6df}{Find\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_aa3aab1135cdd8e63c3255e17f926d950}{Disconnect\+All\+Dst\+Object}} ()
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_afd459bbb653d2a31e5c03dfdb64e649b}{Disconnect\+All\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_a1a642124ddabd14884fc0c85793a5c6d}{Get\+Dst\+Object\+Count}} () const
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_a03da9b6768a234550042e0b3a70f081f}{Get\+Dst\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae8a6869c4809e67473b333213f9326fb}{Get\+Dst\+Object}} (int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ad2fea70ba6a29879cefdff5d5c6a2fd0}{Get\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a34db1b17cb89374a13238d7ba4689c53}{Find\+Dst\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a4fdbc988fc39eb5ab3ad74b5134d9fb3}{Find\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_abc7d6efa0f0b7f0037818b8700465077}{Get\+First\+Property}} () const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a34e7ffc0f49a4e3be8db6310efccd020}{Get\+Next\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a697319ff157f50b097f49118f5582f98}{Find\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_aab369c8ec541c9e6994a28015619e510}{Find\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, const \mbox{\hyperlink{class_fbx_data_type}{Fbx\+Data\+Type}} \&p\+Data\+Type, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_ac20a46bd7abf3c09fc2af0df47f4f261}{Find\+Property\+Hierarchical}} (const char \texorpdfstring{$\ast$}{*}p\+Name, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a47b6379edc68313f2b23da3d3b36e5ab}{Find\+Property\+Hierarchical}} (const char \texorpdfstring{$\ast$}{*}p\+Name, const \mbox{\hyperlink{class_fbx_data_type}{Fbx\+Data\+Type}} \&p\+Data\+Type, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a70e190147f28712dee1ec1e00b73c24e}{Get\+Class\+Root\+Property}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_aef0b1c0672a044b6e44c824b9469c7e7}{Connect\+Src\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a7f2c8c668ac8e009584c12f19809be22}{Is\+Connected\+Src\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a545423b1e5060fcad8784bd0aa0432b6}{Disconnect\+Src\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a0c9680063d0f6771dd881cf3950337d6}{Get\+Src\+Property\+Count}} () const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_aa79380869a619b260fd1f861eb224f5e}{Get\+Src\+Property}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_ad87b66288e8308973dc477cda1346a05}{Find\+Src\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a6bd087870ae3d3dc82c89105387e7baa}{Connect\+Dst\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a678e5ccdbf6ab28c1df239fbdcea76d3}{Is\+Connected\+Dst\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a0931b1e490684c4ff0532d69a466b4b2}{Disconnect\+Dst\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a878feb5a29caf3262360037fe4a5c1e6}{Get\+Dst\+Property\+Count}} () const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_aaec1374d8a9a02429ae4eb317438856d}{Get\+Dst\+Property}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a3552b9625640d12db3a9cb70a9fae794}{Find\+Dst\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_object_ac28653a3c65e840498eebfb54276e483}{Content\+Unload}} ()
+\item 
+int \mbox{\hyperlink{class_fbx_object_a296d454c59bd93245dd5e2312dc7f165}{Content\+Load}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ac1e5a81afa5c74aec67c57136b541161}{Content\+Is\+Loaded}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_object_a7720b36c508a8c32c9cf72a7a59f5c3e}{Content\+Decrement\+Lock\+Count}} ()
+\item 
+void \mbox{\hyperlink{class_fbx_object_a83ebb7c4a09328e517a4b5367fcf8c0d}{Content\+Increment\+Lock\+Count}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ad9e3373b45e2fbce5a7a11a09edd96f7}{Content\+Is\+Locked}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_object_ab8a59df9233cdfeaae05e5b6d15f5101}{Content\+Write\+To}} (\mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \&p\+Stream) const
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_object_aeb4255bda633e1986730748758a7cf6c}{Content\+Read\+From}} (const \mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \&p\+Stream)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_ae2fe13bc65c1ffe2c2338bc2a2740429}{Emit\+Message}} (Fbx\+Message \texorpdfstring{$\ast$}{*}p\+Message) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a61aeb40883053aa206578c2305623a95}{Localize}} (const char \texorpdfstring{$\ast$}{*}p\+ID, const char \texorpdfstring{$\ast$}{*}p\+Default=NULL) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_library}{Fbx\+Library}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a56546e89ab7132ffd52c92257a73c022}{Get\+Parent\+Library}} () const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a83138088781da53eb6fc3e3793ca9171}{Add\+Implementation}} (\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}p\+Implementation)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_af5372f14b186dbd1e69688e899c46081}{Remove\+Implementation}} (\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}p\+Implementation)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a9703e0631381d9bbc91cac102198cf36}{Has\+Default\+Implementation}} (void) const
+\item 
+\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_afa41110ea96c574ad30036bcc91a730e}{Get\+Default\+Implementation}} (void) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ac216eb622d77659c18092b202632aaa9}{Set\+Default\+Implementation}} (\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}p\+Implementation)
+\item 
+int \mbox{\hyperlink{class_fbx_object_add119a7c5623e087101589ebbc0a65ed}{Get\+Implementation\+Count}} (const \mbox{\hyperlink{class_fbx_implementation_filter}{Fbx\+Implementation\+Filter}} \texorpdfstring{$\ast$}{*}p\+Criteria=NULL) const
+\item 
+\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a8e7a39d2b2c3688e44c7222adca4a275}{Get\+Implementation}} (int p\+Index, const \mbox{\hyperlink{class_fbx_implementation_filter}{Fbx\+Implementation\+Filter}} \texorpdfstring{$\ast$}{*}p\+Criteria=NULL) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_acce60f1ae8d6b0ffba2de85c04766194}{Get\+Url}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_object_a308a88953aae8669a93f0202b02a46a9}{Set\+Url}} (const char \texorpdfstring{$\ast$}{*}p\+Url)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_a38333e180ca371f76495267a26cccb08}{Set\+Object\+Flags}} (\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{EObject\+Flag}} p\+Flags, bool p\+Value)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a02d91c1f2930a03cfd0e8c2b1fffa0ee}{Get\+Object\+Flags}} (\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{EObject\+Flag}} p\+Flags) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_aa59f051b6c0be5f93eb88cc2f15b43e5}{Set\+All\+Object\+Flags}} (Fbx\+UInt p\+Flags)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+Fbx\+UInt \mbox{\hyperlink{class_fbx_object_a18b30c43de008570c05f3a6f1e46eb10}{Get\+All\+Object\+Flags}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a0b43f5017582b7167d8447bd9911236e}{Clone}} (\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}{Fbx\+Object\+::\+EClone\+Type}} p\+Clone\+Type=\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{e\+Deep\+Clone}}, \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Container=NULL, void \texorpdfstring{$\ast$}{*}p\+Set=NULL) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a5898e582711f3266ac3d0f779d541ef6}{Is\+AReference\+To}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_abafd0f4ab90b2d1090c0c225bc4c3e3a}{Get\+Reference\+To}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_af64184bd9341c8a3300588c818594328}{Is\+Referenced\+By}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_object_a97318ba302685288321f65144063b7c7}{Get\+Referenced\+By\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+FBX\+\_\+\+DEPRECATED \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a5797b48dd0247100a71190e30615e697}{Get\+Referenced\+By}} (int p\+Index) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_object_a553ed0c8a1f00394a11d5123fb040f6c}{Get\+Referenced\+By}} (\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&p\+Referenced\+By) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_af9273215e168b14d12a4a3e393e061c9}{Set\+Runtime\+Class\+Id}} (const \mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \&p\+Class\+Id)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \mbox{\hyperlink{class_fbx_object_ad81de7de1ede009e3d80361450620475}{Get\+Runtime\+Class\+Id}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ac1f9e5981fbf87911d669e078495cb09}{Is\+Runtime}} (const \mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \&p\+Class\+Id) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a4c804ecb85faa0544d305d9f7e98d777}{Is\+Runtime\+Plug}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_fbx_object_a2720f16a08150d162242b0c59f58c3dc}{Compact}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries Compare} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Other\+Object)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries operator==} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bfseries Set\+Document} (\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}p\+Document)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_property_handle}{Fbx\+Property\+Handle}} \& {\bfseries Get\+Property\+Handle} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} {\bfseries Get\+Type\+Name} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Wipe\+All\+Connections} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_aceea1c2fdb26784d668d05dd52df0d68}{Set\+Name}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ad292343f61a5c670fb322bf592839bcf}{Get\+Name}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_ae378979d85476e931375e30b6498f8db}{Get\+Name\+Without\+Name\+Space\+Prefix}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a9caa594f866ea3a424f5f6e3676e2799}{Get\+Name\+With\+Name\+Space\+Prefix}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_a97b6469f5877e37d352b6f6224791fb2}{Set\+Initial\+Name}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a23fdcb85828748da9611491f64dcde0a}{Get\+Initial\+Name}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a9cc9873c1d66722b964c04da5ec2001f}{Get\+Name\+Space\+Only}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_a0546604cdd763f630c9ffdf9cfcf8bdc}{Set\+Name\+Space}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} p\+Name\+Space)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_fbx_object_a8e0aeec9b01f961d552315014a36f775}{Get\+Name\+Space\+Array}} (char identifier)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a3a01a4d055e558d322016ce8d7337329}{Get\+Name\+Only}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a8a0b08d810c3451ea912840caab53694}{Get\+Name\+Space\+Prefix}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const Fbx\+UInt64 \& {\bfseries Get\+Unique\+ID} () const
+\begin{DoxyCompactList}\small\item\em Returns the unique ID of this object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_emitter_ab8022a1fd620467f12f493673cfa16a9}{Add\+Listener}} (\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \&p\+Handler)
+\item 
+void \mbox{\hyperlink{class_fbx_emitter_a9d5e8f773a85bd9f7a88d9f01eb5463d}{Remove\+Listener}} (\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \&p\+Handler)
+\item 
+{\footnotesize template$<$typename Event\+Type$>$ }\\void \mbox{\hyperlink{class_fbx_emitter_ad541e3b06c0beeab71fcf066fc44c78d}{Emit}} (const Event\+Type \&p\+Event) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_adbd35588cd04556b1a7fc5ffdee8b417}\label{class_fbx_object_adbd35588cd04556b1a7fc5ffdee8b417} 
+static void {\bfseries Set\+Wipe\+Mode} (bool p\+State)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a14b73206429c6b2e9c4d6d934721d43a}\label{class_fbx_object_a14b73206429c6b2e9c4d6d934721d43a} 
+static bool {\bfseries Get\+Wipe\+Mode} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_aa10bc0608457b0e0c13c80686472f4c4}{Remove\+Prefix}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_aef0a016a9b53593f537b68ba47b8dd6e}{Strip\+Prefix}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&l\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a23b53eecb8b6b7d198496392dc987548}{Strip\+Prefix}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_a85a4ca6101fc5c7381404065e6d65355}\label{class_fbx_media_clip_a85a4ca6101fc5c7381404065e6d65355} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}} $>$ {\bfseries Color}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_aa8bb85fbe6489ee46e9fa6a45199742d}\label{class_fbx_media_clip_aa8bb85fbe6489ee46e9fa6a45199742d} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} $>$ {\bfseries Clip\+In}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_a846cbd100380d9b062dc1287f05ff869}\label{class_fbx_media_clip_a846cbd100380d9b062dc1287f05ff869} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} $>$ {\bfseries Clip\+Out}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_a95c8741441abc91cea4ca56813289157}\label{class_fbx_media_clip_a95c8741441abc91cea4ca56813289157} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_time}{Fbx\+Time}} $>$ {\bfseries Offset}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_a47877fd369e8c9a2962f516ade3f99c1}\label{class_fbx_media_clip_a47877fd369e8c9a2962f516ade3f99c1} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ Fbx\+Double $>$ {\bfseries Play\+Speed}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_a7df22c173830c7bb291f0d02fcd530c4}\label{class_fbx_media_clip_a7df22c173830c7bb291f0d02fcd530c4} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ Fbx\+Bool $>$ {\bfseries Free\+Running}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_ab1938502682199dcfb3f99b4bbb8b979}\label{class_fbx_media_clip_ab1938502682199dcfb3f99b4bbb8b979} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ Fbx\+Bool $>$ {\bfseries Loop}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_a39c58141d3e13374486787fc5e1e55f4}\label{class_fbx_media_clip_a39c58141d3e13374486787fc5e1e55f4} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ Fbx\+Bool $>$ {\bfseries Mute}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_a7d32c349d4b84014c790753a4409e950}\label{class_fbx_media_clip_a7d32c349d4b84014c790753a4409e950} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_media_clip_a9e0affabdf1342f35884ca4670e69630}{EAccess\+Mode}} $>$ {\bfseries Access\+Mode}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a865ee4dfaa7a8f9050105d4477288da8}\label{class_fbx_object_a865ee4dfaa7a8f9050105d4477288da8} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} {\bfseries Root\+Property}
+\begin{DoxyCompactList}\small\item\em The root property that holds all children property for this object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types inherited from \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a528f1b2c2b7abbd64c525ba3a9a496b8}\label{class_fbx_object_a528f1b2c2b7abbd64c525ba3a9a496b8} 
+enum {\bfseries EProperty\+Notify\+Type} \{ {\bfseries e\+Property\+Set\+Request}
+, {\bfseries e\+Property\+Set}
+, {\bfseries e\+Property\+Get}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types inherited from \mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}}}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{class_fbx_intrusive_list}{Fbx\+Intrusive\+List}}$<$ \mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}}, \mbox{\hyperlink{class_fbx_event_handler_a47139da2cfd5abee91664d75c4fb577cae2c0d7da494cef8d787ee3495e24a6c0}{Fbx\+Event\+Handler\+::e\+Emitter}} $>$ {\bfseries Event\+Handler\+List}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_media_clip_ab7bdca62f3a65df4404b92e90e47dd76}{Construct}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+From) override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_media_clip_a7a4599f7a6d04365f1150c8fdea0c275}{Construct\+Properties}} (bool p\+Force\+Set) override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_a72aa577e37e886814406db67c4c56c4e}\label{class_fbx_media_clip_a72aa577e37e886814406db67c4c56c4e} 
+void {\bfseries Init} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_fbx_object_a123e084d9b32b29c28af6384b7c3c608}{Destruct}} (bool p\+Recursive)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_fbx_object_a284f2a438579fcacd8bffd85f556dde2}{Content\+Clear}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_fbx_peripheral}{Fbx\+Peripheral}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae29c652036d35f33cfc8af7449078ed5}{Get\+Peripheral}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a87981fe7a05df318be39146a1493d1cc}\label{class_fbx_object_a87981fe7a05df318be39146a1493d1cc} 
+{\bfseries Fbx\+Object} (\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \&p\+Manager, const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_ab7a400f3829d1f0da57d3d78c8168dd0}\label{class_fbx_object_ab7a400f3829d1f0da57d3d78c8168dd0} 
+virtual bool {\bfseries Connect\+Notify} (const \mbox{\hyperlink{class_fbx_connect_event}{Fbx\+Connect\+Event}} \&p\+Event)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a68b9ad65d98d7be9cb252949bc709385}\label{class_fbx_object_a68b9ad65d98d7be9cb252949bc709385} 
+virtual bool {\bfseries Property\+Notify} (EProperty\+Notify\+Type p\+Type, \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a1044dfc8f3321b2ba23a95076d8ad7f9}\label{class_fbx_object_a1044dfc8f3321b2ba23a95076d8ad7f9} 
+bool {\bfseries Copyable} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_a9fde000efd9cf1ce780ef70918263961}\label{class_fbx_media_clip_a9fde000efd9cf1ce780ef70918263961} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} $>$ {\bfseries Path}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_abdbbe26c1949bb62dae225f8cc734606}\label{class_fbx_media_clip_abdbbe26c1949bb62dae225f8cc734606} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} $>$ {\bfseries Rel\+Path}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_a1248320b108e5f297c8935a48447995b}\label{class_fbx_media_clip_a1248320b108e5f297c8935a48447995b} 
+bool {\bfseries m\+Original\+Format}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_media_clip_aba90be114867814335c4f10613f2a9f2}\label{class_fbx_media_clip_aba90be114867814335c4f10613f2a9f2} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} {\bfseries m\+Original\+Filename}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_fbx_emitter_1_1_event_data}{Event\+Data}} \texorpdfstring{$\ast$}{*} {\bfseries m\+Data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+FBX SDK audio class. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_audio_ab47361501326012798b257d3ea9b9121}\index{FbxAudio@{FbxAudio}!Construct@{Construct}}
+\index{Construct@{Construct}!FbxAudio@{FbxAudio}}
+\doxysubsubsection{\texorpdfstring{Construct()}{Construct()}}
+{\footnotesize\ttfamily \label{class_fbx_audio_ab47361501326012798b257d3ea9b9121} 
+void Fbx\+Audio\+::\+Construct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+From}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Optional constructor override, automatically called by default constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+From} & If not null, the function must take it into account like a copy constructor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+In case it is decided to override this function, do not forget to call Parent\+Class\+::\+Construct(p\+From) at the beginning. 
+\end{DoxyRemark}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_object_a313503bc645af3fdceb4a99ef5cea7eb}{Fbx\+Object}}.
+
+\Hypertarget{class_fbx_audio_a94d9cdaf65ab2db36d0bd21ffb8e0e81}\index{FbxAudio@{FbxAudio}!ConstructProperties@{ConstructProperties}}
+\index{ConstructProperties@{ConstructProperties}!FbxAudio@{FbxAudio}}
+\doxysubsubsection{\texorpdfstring{ConstructProperties()}{ConstructProperties()}}
+{\footnotesize\ttfamily \label{class_fbx_audio_a94d9cdaf65ab2db36d0bd21ffb8e0e81} 
+void Fbx\+Audio\+::\+Construct\+Properties (\begin{DoxyParamCaption}\item[{bool}]{p\+Force\+Set}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Optional property constructor override, automatically called by default constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Force\+Set} & If the property value must be set regardless of default value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+If your object have properties, they must be initialized in this function. 
+\end{DoxyRemark}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_object_ad44f814323dc1b5e78bff1bfc608b4bb}{Fbx\+Object}}.
+
+\Hypertarget{class_fbx_audio_ad50d72a9997a2f3c20a46d146aeb1eb8}\index{FbxAudio@{FbxAudio}!Copy@{Copy}}
+\index{Copy@{Copy}!FbxAudio@{FbxAudio}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily \label{class_fbx_audio_ad50d72a9997a2f3c20a46d146aeb1eb8} 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \& Fbx\+Audio\+::\+Copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&}]{p\+Object}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Copy an object content into this object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The source object to copy data from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the destination object being modified by the source. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+This function replace the assignment operator (operator=). It will copy all property values and the name. Connections are NOT copied. 
+\end{DoxyRemark}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_object_a2753a5e2d57c54efbbf5137cf37c8096}{Fbx\+Object}}.
+
+\Hypertarget{class_fbx_audio_a3185206e96e43cf169d930e589225ba6}\index{FbxAudio@{FbxAudio}!Create@{Create}}
+\index{Create@{Create}!FbxAudio@{FbxAudio}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily \label{class_fbx_audio_a3185206e96e43cf169d930e589225ba6} 
+static \mbox{\hyperlink{class_fbx_audio}{Fbx\+Audio}} \texorpdfstring{$\ast$}{*} Fbx\+Audio\+::\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*}}]{p\+Container}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Create a \doxylink{class_fbx_anim_curve}{Fbx\+Anim\+Curve}. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Container} & Scene to which the created audio clip belongs. \\
+\hline
+{\em p\+Name} & Name of the audio clip. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly created audio clip 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_audio_ac2ce5e5ad6745b3c7edf26491162cd2c}\index{FbxAudio@{FbxAudio}!Reset@{Reset}}
+\index{Reset@{Reset}!FbxAudio@{FbxAudio}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily \label{class_fbx_audio_ac2ce5e5ad6745b3c7edf26491162cd2c} 
+void Fbx\+Audio\+::\+Reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reset the audio to default values. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_media_clip_ae65caded2e7861ad39f1abe3f978f43b}{Fbx\+Media\+Clip}}.
+
+\Hypertarget{class_fbx_audio_a55cb0f553ffc4f1b81345d5daad311c8}\index{FbxAudio@{FbxAudio}!Volume@{Volume}}
+\index{Volume@{Volume}!FbxAudio@{FbxAudio}}
+\doxysubsubsection{\texorpdfstring{Volume()}{Volume()}}
+{\footnotesize\ttfamily \label{class_fbx_audio_a55cb0f553ffc4f1b81345d5daad311c8} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} Fbx\+Audio\+::\+Volume (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Access the Volume child property of the Anim\+FX. \begin{DoxyReturn}{Returns}
+The volume property if it exists or an invalid property. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_fbx_audio_aabdc6836e61f70c4296404d18a6cc0b4}\index{FbxAudio@{FbxAudio}!AnimFX@{AnimFX}}
+\index{AnimFX@{AnimFX}!FbxAudio@{FbxAudio}}
+\doxysubsubsection{\texorpdfstring{AnimFX}{AnimFX}}
+{\footnotesize\ttfamily \label{class_fbx_audio_aabdc6836e61f70c4296404d18a6cc0b4} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} Fbx\+Audio\+::\+Anim\+FX}
+
+Compound property to be used if animation data needs to be connected. In this case, specific properties should be added to this one with the Animatable flag set. \begin{DoxyRemark}{Remarks}
+By default, the Volume property is always created first and, unless explicitily removed by a "{}client"{}, will always exist. 
+\end{DoxyRemark}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/scene/fbxaudio.\+h\end{DoxyCompactItemize}

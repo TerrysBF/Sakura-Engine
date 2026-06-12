@@ -1,0 +1,147 @@
+\doxysection{fbxnurbs.\+h}
+\hypertarget{fbxnurbs_8h_source}{}\label{fbxnurbs_8h_source}\index{include/fbx/fbxsdk/scene/geometry/fbxnurbs.h@{include/fbx/fbxsdk/scene/geometry/fbxnurbs.h}}
+\mbox{\hyperlink{fbxnurbs_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_GEOMETRY\_NURBS\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_GEOMETRY\_NURBS\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxgeometry_8h}{fbxsdk/scene/geometry/fbxgeometry.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_nurbs}{FbxNurbs}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}}}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_nurbs}{FbxNurbs}},\ \mbox{\hyperlink{class_fbx_geometry}{FbxGeometry}});}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_fbx_node_attribute_a08e1669d3d1a696910756ab17de56d6a}{FbxNodeAttribute::EType}}\ \mbox{\hyperlink{class_fbx_nurbs_a2f1e823a35d664b5220e5deea3c69b7b}{GetAttributeType}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_nurbs_a2796c708ff8e01b1fd7d1f4d0a02cb5f}{Reset}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_nurbs_a6687f58ab39b07a3ce686992e5d8c9f8}{SetSurfaceMode}}(\mbox{\hyperlink{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794db}{FbxGeometry::ESurfaceMode}}\ pMode);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794db}{ESurfaceMode}}\ \mbox{\hyperlink{class_fbx_nurbs_a9b482acc4ada0ebd438e8fde99c54b7e}{GetSurfaceMode}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ mSurfaceMode;\}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_nurbs_a16d9562676c9d3511503551790c55643}{EType}}}
+\DoxyCodeLine{00060\ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_nurbs_a16d9562676c9d3511503551790c55643a74db20646f0e36e6a96fddbf76f4bacd}{ePeriodic}},\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_nurbs_a16d9562676c9d3511503551790c55643a14f1b70767443212f08948e5fbb59946}{eClosed}},\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_nurbs_a16d9562676c9d3511503551790c55643a7a7a84326a724c57e0878258c9b25864}{eOpen}}\ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_nurbs_a96a933ed29981ac358b4d3ed63ed3b72}{InitControlPoints}}(\textcolor{keywordtype}{int}\ pUCount,\ \mbox{\hyperlink{class_fbx_nurbs_a16d9562676c9d3511503551790c55643}{EType}}\ pUType,\ \textcolor{keywordtype}{int}\ pVCount,\ \mbox{\hyperlink{class_fbx_nurbs_a16d9562676c9d3511503551790c55643}{EType}}\ pVType);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_nurbs_aa1b6891345f56dd4e30780853ec4721a}{GetUCount}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ mUCount;\}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_nurbs_a0592be67af1b1e3f663964f932f12df4}{GetVCount}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ mVCount;\}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_nurbs_a16d9562676c9d3511503551790c55643}{EType}}\ \mbox{\hyperlink{class_fbx_nurbs_a3e11b91a48634ca8a7e082f80aae9013}{GetNurbsUType}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ mUType;\}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_nurbs_a16d9562676c9d3511503551790c55643}{EType}}\ \mbox{\hyperlink{class_fbx_nurbs_a07928e9890078aa451609132d263167c}{GetNurbsVType}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ mVType;\}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_nurbs_aea79ac3dfc5c0d5071cb7cc1d97f5a70}{GetUKnotCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{double}*\ \mbox{\hyperlink{class_fbx_nurbs_a16147f51f2cc4d1a3fbe123e6cace730}{GetUKnotVector}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_nurbs_afd3187f4ef9e1e02b41f14bdb1a4bcbc}{GetVKnotCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{double}*\ \mbox{\hyperlink{class_fbx_nurbs_ab28e6851bc2fa1e473e62814fb62291e}{GetVKnotVector}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{class_fbx_nurbs_a030523d9b972712de506e40f7304680f}{GetUMultiplicityVector}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{class_fbx_nurbs_aace92a7dadeeb65305bd8b3e6a84e2aa}{GetVMultiplicityVector}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_nurbs_a50b478b4c7feab9bf41b805f9893c598}{SetOrder}}(FbxUInt\ pUOrder,\ FbxUInt\ pVOrder);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_nurbs_a7312be9277b3ca4bf10a723585bd6663}{GetUOrder}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ mUOrder;\}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_nurbs_a7c7aff46a8e42db3d788f5a4c4d50797}{GetVOrder}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ mVOrder;\}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_nurbs_a4b60585e7190d50e95947ddfcafd39a7}{SetStep}}(\textcolor{keywordtype}{int}\ pUStep,\ \textcolor{keywordtype}{int}\ pVStep);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_nurbs_a99382e737bd84391f67b00ed6866e1dd}{GetUStep}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ mUStep;\}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_nurbs_abd23a5b818a3227b9de8a4aec12d2e1b}{GetVStep}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ mVStep;\}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_nurbs_aeac9fe4b1bd0deeb34854a968c852e0e}{GetUSpanCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_nurbs_a7e3517eab37efde3ed70789fdfc62dfe}{GetVSpanCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_nurbs_ab5f463575449cbc5734258f061f3c9ba}{SetApplyFlipUV}}(\textcolor{keywordtype}{bool}\ pFlag);}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_nurbs_a1ad0c6471229c9e67da843f0895cb055}{GetApplyFlipUV}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_nurbs_a9e251f61538745bef6ebd5560f52a61f}{SetApplyFlipLinks}}(\textcolor{keywordtype}{bool}\ pFlag);}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_nurbs_a7b3adc47808af1078b0d3865cc464b4a}{GetApplyFlipLinks}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_nurbs_a5078e2c4f27160149e19cac9c0352ceb}{GetApplyFlip}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_nurbs_a1ad0c6471229c9e67da843f0895cb055}{GetApplyFlipUV}}()\ ||\ \mbox{\hyperlink{class_fbx_nurbs_a7b3adc47808af1078b0d3865cc464b4a}{GetApplyFlipLinks}}();\ \}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00212\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00213\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{comment}{//\ Error\ identifiers,\ these\ are\ only\ used\ internally.}}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{enum}\ EErrorCode}
+\DoxyCodeLine{00217\ \ \ \ \ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ eNurbsTypeUnknown,}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ eWrongNumberOfControlPoint,}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ eWeightTooSmall,}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ eUMultiplicityVectorError,}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ eVMultiplicityVectorError,}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ eUKnotVectorError,}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ eVKnotVectorError,}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ eErrorCount}
+\DoxyCodeLine{00226\ \ \ \ \ \};}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \mbox{\hyperlink{class_fbx_object}{FbxObject}}\&\ \mbox{\hyperlink{class_fbx_nurbs_afb2103bc95392ce7821c57d923067b83}{Copy}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_nurbs_a99895bb9eba194b278121e32d88cf550}{SetControlPointAt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \&pCtrlPoint\ ,\ \textcolor{keywordtype}{int}\ pIndex)\textcolor{keyword}{\ override\ }\{\ ParentClass::SetControlPointAt(pCtrlPoint,\ pIndex);\ \}}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_nurbs_a8150219096b5be63028bc3070c96180c}{InitControlPoints}}(\textcolor{keywordtype}{int}\ pCount)\textcolor{keyword}{\ override\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\{\ ParentClass::InitControlPoints(pCount);\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_nurbs_aa12b46bb07426b40c791d43aeb125e1b}{Construct}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_nurbs_a832fb5ac91441c64d103878c19becdcf}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ FbxUInt\ mUOrder,\ mVOrder;}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordtype}{int}\ mUCount,\ mVCount;}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordtype}{int}\ mUStep,\ mVStep;}
+\DoxyCodeLine{00239\ \ \ \ \ \mbox{\hyperlink{class_fbx_nurbs_a16d9562676c9d3511503551790c55643}{EType}}\ mUType,\ mVType;}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordtype}{double}*\ mUKnotVector;}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordtype}{double}*\ mVKnotVector;}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordtype}{int}*\ mUMultiplicityVector;}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keywordtype}{int}*\ mVMultiplicityVector;}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \ \ \ \ \mbox{\hyperlink{class_fbx_geometry_adb9d2e34481a2cb40f1d783c665794db}{ESurfaceMode}}\ mSurfaceMode;}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{comment}{//\ Export\ flags.}}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordtype}{bool}\ mApplyFlipUV;}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{bool}\ mApplyFlipLinks;}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxGeometryConverter;}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00255\ \};}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_GEOMETRY\_NURBS\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

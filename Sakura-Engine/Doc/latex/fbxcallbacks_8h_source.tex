@@ -1,0 +1,96 @@
+\doxysection{fbxcallbacks.\+h}
+\hypertarget{fbxcallbacks_8h_source}{}\label{fbxcallbacks_8h_source}\index{include/fbx/fbxsdk/fileio/fbxcallbacks.h@{include/fbx/fbxsdk/fileio/fbxcallbacks.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2019\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_FILEIO\_CALLBACKS\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_FILEIO\_CALLBACKS\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxclassid_8h}{fbxsdk/core/fbxclassid.h}}>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ FBXCALLBACK\_FUNCTION(x)\ FbxHandle(x)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ FBXCALLBACK\_USERDATA(x)\ FbxHandle((void*)(x))}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_callback}{FbxCallback}}\ :\ \textcolor{keyword}{public}\ FbxObject}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a8e970655f5b1f1c91f4887e30fa8379d}{FBXSDK\_ABSTRACT\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_callback}{FbxCallback}},\ FbxObject);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{enum}\ State\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ eFailure\ =\ 0,\ \ \ \ \ \ \textcolor{comment}{//\ The\ callback\ function\ failed\ for\ whatever\ reason}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ eNotHandled\ =\ 1,\ \ \ \textcolor{comment}{//\ The\ callback\ function\ did\ not\ handled\ the\ data}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ eHandled\ =\ 2\ \ \ \ \ \ \ \textcolor{comment}{//\ The\ callback\ function\ handled\ the\ data}}
+\DoxyCodeLine{00033\ \ \ \ \ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_callback_ac94eea3824b68c4ac76b79540fc9d6c6}{SetDataHint}}(\mbox{\hyperlink{class_fbx_class_id}{FbxClassId}}\ pDataHint);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_callback_a5213e30252633c5bc05db0113ede91db}{GetCallback}}(\textcolor{keywordtype}{int}\ pId,\ FbxHandle\&\ pFunction,\ FbxHandle\&\ pUserData);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_callback_ae08eea5b9a79f3e9abc9cf6e9b26cc14}{AddCallback}}(FbxHandle\ pFunction,\ FbxHandle\ pUserData\ =\ FBXCALLBACK\_USERDATA(\textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{\ \ \ \ /*****************************************************************************************************************************}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ \ \ \ **\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ \ \ \ *****************************************************************************************************************************/}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00063\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxHandle>}}\ \ mCallbackFunctions;}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxHandle>}}\ \ mUserData;}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{class_fbx_class_id}{FbxClassId}}\ mDataHint;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_callback_add98dbdb74e10c9f81e4a24cb474feb6}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_callback_a9e6670fc3852825f1d1442ba4755bfe6}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00166\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_embedded_file_callback}{FbxEmbeddedFileCallback}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_callback}{FbxCallback}}}
+\DoxyCodeLine{00167\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_embedded_file_callback}{FbxEmbeddedFileCallback}},\ \mbox{\hyperlink{class_fbx_callback}{FbxCallback}});}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxCallback::State\ (*\mbox{\hyperlink{class_fbx_embedded_file_callback_afa06203e52154162f6ef27007c6f1e25}{ReadCBFunction}})(\textcolor{keywordtype}{void}*\ pUserData,\ \mbox{\hyperlink{class_fbx_class_id}{FbxClassId}}\ pDataHint,}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFileName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pFileBuffer,\ \textcolor{keywordtype}{size\_t}\ pSizeInBytes);}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_embedded_file_callback_a7117599d6dcdb9ab3d1c08f3ded7f381}{RegisterReadFunction}}(\mbox{\hyperlink{class_fbx_embedded_file_callback_afa06203e52154162f6ef27007c6f1e25}{ReadCBFunction}}\ pFunction,\ \textcolor{keywordtype}{void}*\ pUserData\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00201\ \ \ \ \ FbxCallback::State\ \mbox{\hyperlink{class_fbx_embedded_file_callback_a9aa870949d728a19829b532938ed92cb}{Trigger}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFileName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pFileBuffer,\ \textcolor{keywordtype}{size\_t}\ pSizeInBytes);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxCallback::State\ (*\mbox{\hyperlink{class_fbx_embedded_file_callback_a9bb49b1278f79315d80d46bb173735ee}{WriteCBFunction}})(\textcolor{keywordtype}{void}*\ pUserData,\ \mbox{\hyperlink{class_fbx_class_id}{FbxClassId}}\ pDataHint,}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFileName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}**\ pFileBuffer,\ \textcolor{keywordtype}{size\_t}*\ pSizeInBytes);}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_embedded_file_callback_a4d388d023b1cf563121cb08fdb16b601}{RegisterWriteFunction}}(\mbox{\hyperlink{class_fbx_embedded_file_callback_a9bb49b1278f79315d80d46bb173735ee}{WriteCBFunction}}\ pFunction,\ \textcolor{keywordtype}{void}*\ pUserData\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00236\ \ \ \ \ FbxCallback::State\ \mbox{\hyperlink{class_fbx_embedded_file_callback_a4f9f3754af1bd6ccb7bfd20ef01adcd7}{Trigger}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFileName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}**\ pFileBuffer,\ \textcolor{keywordtype}{size\_t}*\ pSizeInBytes);}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \textcolor{comment}{\ \ \ \ /*****************************************************************************************************************************}}
+\DoxyCodeLine{00239\ \textcolor{comment}{\ \ \ \ **\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00240\ \textcolor{comment}{\ \ \ \ *****************************************************************************************************************************/}}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00242\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_embedded_file_callback_ac0880f05c5356f0bbbf301ff34352e3a}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00244\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keywordtype}{int}\ mReadFctId;}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordtype}{int}\ mWriteFctId;}
+\DoxyCodeLine{00247\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00248\ \ \ \ \ FbxObject\&\ \mbox{\hyperlink{class_fbx_embedded_file_callback_af621444dffb6cbd591adf556e6796810}{Copy}}(\textcolor{keyword}{const}\ FbxObject\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00250\ \};}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_FILEIO\_CALLBACKS\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

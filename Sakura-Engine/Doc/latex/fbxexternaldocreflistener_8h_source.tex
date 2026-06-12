@@ -1,0 +1,84 @@
+\doxysection{fbxexternaldocreflistener.\+h}
+\hypertarget{fbxexternaldocreflistener_8h_source}{}\label{fbxexternaldocreflistener_8h_source}\index{include/fbx/fbxsdk/fileio/fbxexternaldocreflistener.h@{include/fbx/fbxsdk/fileio/fbxexternaldocreflistener.h}}
+\mbox{\hyperlink{fbxexternaldocreflistener_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_FILEIO\_EXTERNAL\_DOCREF\_LISTENER\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_FILEIO\_EXTERNAL\_DOCREF\_LISTENER\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxlistener_8h}{fbxsdk/core/fbxlistener.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{struct\ }FBXSDK\_DLL\ \mbox{\hyperlink{struct_fbx_external_document_info}{FbxExternalDocumentInfo}}}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{struct_fbx_external_document_info_a3744e27dd1ba48aa66b36c7e896cde89}{mDocumentName}};\ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{struct_fbx_external_document_info_a0dcde2cfd81d268f174c54c7eed46b8b}{mClassName}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{struct_fbx_external_document_info_ae677004de679e0106dcfea163f36079c}{mParentFullName}};\ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{struct_fbx_external_document_info_a65b555c9b2dc44bc63d65b3ae2c24cac}{mFilePathUrl}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxEventReferencedDocument\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_event}{FbxEvent}}<FbxEventReferencedDocument>,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_fbx_external_document_info}{FbxExternalDocumentInfo}}}
+\DoxyCodeLine{00037\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ FBXSDK\_EVENT\_DECLARE(FbxEventReferencedDocument);}
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ FbxEventReferencedDocument()\ \{\}}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }FbxExternalDocRefListenerData;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_external_doc_ref_listener_a9118825e2ee04df01ee6117ab55fd175}{FbxExternalDocRefListener}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_listener_a8d0059633c0a29709abd105fb4f911ec}{FbxListener}}}
+\DoxyCodeLine{00057\ \{}
+\DoxyCodeLine{00058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_fbx_external_doc_ref_listener_a9118825e2ee04df01ee6117ab55fd175}{FbxExternalDocRefListener}}(\ \mbox{\hyperlink{class_fbx_manager}{FbxManager}}\ \&\ pManager,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \&\ pDocFilePath\ );}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_external_doc_ref_listener_a9118825e2ee04df01ee6117ab55fd175}{\string~FbxExternalDocRefListener}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_external_doc_ref_listener_aac019a58c4fda8ce675fb67edb340cbf}{SetDocumentFilePath}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \&\ pDocFilePath\ );}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_external_doc_ref_listener_a3bed051aad3654a8e71b31175dc0a51d}{AreAllExternalDocumentsStillValid}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\ }}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_external_doc_ref_listener_a7a7e4947b7f4a250365a8761fb71cd1e}{WereAllExternalDocumentsValid}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_external_doc_ref_listener_a0d2e5c292d9aad7263cb16b9008851f2}{UnloadExternalDocuments}}();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ External\ document\ reference\ event\ handler.}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{comment}{//\ Operation:\ calls\ FindDocument()\ to\ find\ the\ specified\ external\ document}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ and\ if\ not\ found\ calls\ LoadDocument()\ either\ directly,}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ if\ it\ has\ not\ parent,\ or\ via\ ConnectToParentLibrary().}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ If\ its\ parent\ cannot\ be\ found,\ it's\ added\ to\ the\ dangling}}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ document\ list\ (and\ it\ is\ not\ loaded\ until\ it's\ parent\ is\ found).}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ After,\ it\ tries\ to\ resolve\ dangling\ documents\ by\ calling}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ TryConnectingDanglingLibraries().}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_external_doc_ref_listener_ab1517a34510c213bad2750763b502a88}{HandleEvent}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_event_referenced_document}{FbxEventReferencedDocument}}\ *\ pEvent);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{class_fbx_external_doc_ref_listener_a0ccdcffe94bdebb645b119cbb8b8e452}{MakeFilenameAbsolute}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \&\ pFilename)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_document}{FbxDocument}}\ *\ \mbox{\hyperlink{class_fbx_external_doc_ref_listener_a763b2891d95a53537e93b66c3a88f7aa}{FindDocument}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \&\ pPathToDoc\ );}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_document}{FbxDocument}}\ *\ \mbox{\hyperlink{class_fbx_external_doc_ref_listener_a5f0ce2b7bd27cc397d93f8de9885f38e}{LoadDocument}}(\mbox{\hyperlink{class_fbx_object}{FbxObject}}\ *\ pParent,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \&\ pClassName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \&\ pFilename);}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_external_doc_ref_listener_a68443ac6cc93f33279eaac41e7b23d7f}{ConnectToParentLibrary}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_fbx_external_document_info}{FbxExternalDocumentInfo}}\ \&);}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_external_doc_ref_listener_a38eb0370ac40ed398430223cc2e9de5e}{TryConnectingDanglingLibraries}}();}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00128\ \ \ \ \ FbxExternalDocRefListenerData\ *\ mData;}
+\DoxyCodeLine{00129\ \};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_FILEIO\_EXTERNAL\_DOCREF\_LISTENER\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

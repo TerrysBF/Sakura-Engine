@@ -1,0 +1,80 @@
+\doxysection{fbxweightedmapping.\+h}
+\hypertarget{fbxweightedmapping_8h_source}{}\label{fbxweightedmapping_8h_source}\index{include/fbx/fbxsdk/scene/geometry/fbxweightedmapping.h@{include/fbx/fbxsdk/scene/geometry/fbxweightedmapping.h}}
+\mbox{\hyperlink{fbxweightedmapping_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_GEOMETRY\_WEIGHTED\_MAPPING\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_GEOMETRY\_WEIGHTED\_MAPPING\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxarray_8h}{fbxsdk/core/base/fbxarray.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_weighted_mapping_a2ba4f4ee1f96910ed1931d83eee5fcaa}{FbxWeightedMapping}}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_weighted_mapping_a3fb59c162b0c5b278f00e7bad4c578c6}{ESet}}}
+\DoxyCodeLine{00034\ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_weighted_mapping_a3fb59c162b0c5b278f00e7bad4c578c6a9b018f20eabb78c563fc6ba8dfbc2e80}{eSource}},\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_weighted_mapping_a3fb59c162b0c5b278f00e7bad4c578c6a1ac5282e4d3bea4d16503bc5e0c021a8}{eDestination}}\ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_weighted_mapping_1_1_element}{Element}}}
+\DoxyCodeLine{00041\ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_fbx_weighted_mapping_1_1_element_a7ae86aad8539b57b926ac5c5c56c5a04}{mIndex}};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_fbx_weighted_mapping_1_1_element_aa078b1f7b0a995f487530342dc9b0038}{mWeight}};}
+\DoxyCodeLine{00046\ \ \ \ \ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{class_fbx_weighted_mapping_a2ba4f4ee1f96910ed1931d83eee5fcaa}{FbxWeightedMapping}}(\textcolor{keywordtype}{int}\ pSourceSize,\ \textcolor{keywordtype}{int}\ pDestinationSize);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_fbx_weighted_mapping_a30ea1b9d4a140bb8689c01619b5a0e93}{\string~FbxWeightedMapping}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_weighted_mapping_ae0bba66321c38e91d5910cfb0306dc57}{Reset}}(\textcolor{keywordtype}{int}\ pSourceSize,\ \textcolor{keywordtype}{int}\ pDestinationSize);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_weighted_mapping_a371482b940f4616b6f255309ed6be0aa}{Add}}(\textcolor{keywordtype}{int}\ pSourceIndex,\ \textcolor{keywordtype}{int}\ pDestinationIndex,\ \textcolor{keywordtype}{double}\ pWeight);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_weighted_mapping_a5037a5d025ca8544e453508e12aab6fb}{GetElementCount}}(\mbox{\hyperlink{class_fbx_weighted_mapping_a3fb59c162b0c5b278f00e7bad4c578c6}{ESet}}\ pSet)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_weighted_mapping_aa7886f54860c52c0530a3813f99da400}{GetRelationCount}}(\mbox{\hyperlink{class_fbx_weighted_mapping_a3fb59c162b0c5b278f00e7bad4c578c6}{ESet}}\ pSet,\ \textcolor{keywordtype}{int}\ pElement)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{struct_fbx_weighted_mapping_1_1_element}{Element}}\&\ \mbox{\hyperlink{class_fbx_weighted_mapping_a38c40dcb9d0320ce2a728c5d81f6b948}{GetRelation}}(\mbox{\hyperlink{class_fbx_weighted_mapping_a3fb59c162b0c5b278f00e7bad4c578c6}{ESet}}\ pSet,\ \textcolor{keywordtype}{int}\ pElement,\ \textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_weighted_mapping_a0903c7af1875b82c0c1edcc315d0ad3b}{GetRelationIndex}}(\mbox{\hyperlink{class_fbx_weighted_mapping_a3fb59c162b0c5b278f00e7bad4c578c6}{ESet}}\ pSet,\ \textcolor{keywordtype}{int}\ pElementInSet,\ \textcolor{keywordtype}{int}\ pElementInOtherSet)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_weighted_mapping_a85e417a74b9c1cc40c04ff95ba0c0b5d}{GetRelationSum}}(\mbox{\hyperlink{class_fbx_weighted_mapping_a3fb59c162b0c5b278f00e7bad4c578c6}{ESet}}\ pSet,\ \textcolor{keywordtype}{int}\ pElement,\ \textcolor{keywordtype}{bool}\ pAbsoluteValue)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00115\ \ \ \ \ }
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_weighted_mapping_a874bbc1592ffd77932008e3ea79cbdf8}{Normalize}}(\mbox{\hyperlink{class_fbx_weighted_mapping_a3fb59c162b0c5b278f00e7bad4c578c6}{ESet}}\ pSet,\ \textcolor{keywordtype}{bool}\ pAbsoluteValue);}
+\DoxyCodeLine{00122\ \ \ \ \ }
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{class_fbx_weighted_mapping_a2ba4f4ee1f96910ed1931d83eee5fcaa}{FbxWeightedMapping}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_weighted_mapping_a2ba4f4ee1f96910ed1931d83eee5fcaa}{FbxWeightedMapping}}\&\ pWMap);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ Clear();}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxArray<Element>}}*>\ mElements[2];}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \};\ \ \ \ \ \ }
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_array}{FbxArray}}<\mbox{\hyperlink{class_fbx_weighted_mapping}{FbxWeightedMapping}}::Element>\ FbxArrayTemplateElement;}
+\DoxyCodeLine{00135\ typedef\ class\ \mbox{\hyperlink{class_fbx_array}{FbxArray}}<FbxArray<FbxWeightedMapping::Element>*>\ FbxArrayTemplateArrayTemplateElement;}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#include\ <fbxsdk/fbxsdk\_nsend.h>}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_GEOMETRY\_WEIGHTED\_MAPPING\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

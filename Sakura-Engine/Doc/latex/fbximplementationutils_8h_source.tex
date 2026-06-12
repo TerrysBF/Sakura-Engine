@@ -1,0 +1,71 @@
+\doxysection{fbximplementationutils.\+h}
+\hypertarget{fbximplementationutils_8h_source}{}\label{fbximplementationutils_8h_source}\index{include/fbx/fbxsdk/scene/shading/fbximplementationutils.h@{include/fbx/fbxsdk/scene/shading/fbximplementationutils.h}}
+\mbox{\hyperlink{fbximplementationutils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_SHADING\_IMPLEMENTATION\_UTILS\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_SHADING\_IMPLEMENTATION\_UTILS\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbximplementation_8h}{fbxsdk/scene/shading/fbximplementation.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxbindingoperator_8h}{fbxsdk/scene/shading/fbxbindingoperator.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxoperatorentryview_8h}{fbxsdk/scene/shading/fbxoperatorentryview.h}}>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpropertyentryview_8h}{fbxsdk/scene/shading/fbxpropertyentryview.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00030\ FBXSDK\_DLL\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_implementation}{FbxImplementation}}*\ \mbox{\hyperlink{fbximplementationutils_8h_a59ba98813bca802cfe130971406ee6ce}{GetImplementation}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pObject,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pImplementationTarget\ );}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{fbximplementationutils_8h_a096e79a1c0fe368971a2e2eea8031a37}{GetBoundPropertyValue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_table}{FbxBindingTable}}*\ pBindingTable,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pEntryName,\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_implementation}{FbxImplementation}}*\ pImplementation,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pBoundObject,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\&\ pValue)}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{if}\ ((NULL\ !=\ pImplementation)\ \&\&\ (NULL\ !=\ pBindingTable)\ \&\&\ (NULL\ !=\ pBoundObject)\ \&\&\ (NULL\ !=\ pEntryName))}
+\DoxyCodeLine{00047\ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_table_entry}{FbxBindingTableEntry}}*\ lEntry\ =\ pBindingTable-\/>\mbox{\hyperlink{class_fbx_binding_table_base_ae6d7b05ce6dc20faee090ce5b8066317}{GetEntryForDestination}}(pEntryName);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ !=\ lEntry)}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(lEntry-\/>\mbox{\hyperlink{class_fbx_binding_table_entry_a461b8707351d15aeccb8e391f23b94cd}{GetEntryType}}(\textcolor{keyword}{true}),\ \mbox{\hyperlink{class_fbx_property_entry_view_a862b7d0e633c2cb246b5b63a48ffd706}{FbxPropertyEntryView::sEntryType}})\ ==\ 0)}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ lPropName\ =\ lEntry-\/>\mbox{\hyperlink{class_fbx_binding_table_entry_ac960fb42dbe9fdf157bad2f482a9ec59}{GetSource}}();}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property}{FbxProperty}}\ lProp\ =\ pBoundObject-\/>\mbox{\hyperlink{class_fbx_object_ac20a46bd7abf3c09fc2af0df47f4f261}{FindPropertyHierarchical}}(lPropName);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lProp.\mbox{\hyperlink{class_fbx_property_a1c40042c55d1f4a1d4837f06fbc1d764}{IsValid}}())}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pValue\ =\ lProp.\mbox{\hyperlink{class_fbx_property_a7d3760c0aec45b51823c57f62a08dc46}{Get}}<T>();}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(lEntry-\/>\mbox{\hyperlink{class_fbx_binding_table_entry_a461b8707351d15aeccb8e391f23b94cd}{GetEntryType}}(\textcolor{keyword}{true}),\ \mbox{\hyperlink{class_fbx_operator_entry_view_aff3745ef35e5025550d54e7c2343ea95}{FbxOperatorEntryView::sEntryType}})\ ==\ 0)}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ lOperatorName\ =\ lEntry-\/>\mbox{\hyperlink{class_fbx_binding_table_entry_ac960fb42dbe9fdf157bad2f482a9ec59}{GetSource}}();}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_operator}{FbxBindingOperator}}*\ lOp\ =\ pImplementation-\/>\mbox{\hyperlink{class_fbx_implementation_aab9dabb0463dfd1cb7d99d8884da997a}{GetOperatorByTargetName}}(lOperatorName);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lOp)}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lOp-\/>\mbox{\hyperlink{class_fbx_binding_operator_a1487485be07b04ef755f8831912d2709}{Evaluate}}(pBoundObject,\ \&pValue);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00075\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_SHADING\_IMPLEMENTATION\_UTILS\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

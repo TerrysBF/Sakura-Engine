@@ -1,0 +1,58 @@
+\doxysection{include/fbx/fbxsdk/scene/shading/fbximplementationutils.h File Reference}
+\hypertarget{fbximplementationutils_8h}{}\label{fbximplementationutils_8h}\index{include/fbx/fbxsdk/scene/shading/fbximplementationutils.h@{include/fbx/fbxsdk/scene/shading/fbximplementationutils.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/scene/shading/fbximplementation.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/scene/shading/fbxbindingoperator.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/scene/shading/fbxoperatorentryview.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/scene/shading/fbxpropertyentryview.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+FBXSDK\+\_\+\+DLL const \mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fbximplementationutils_8h_a59ba98813bca802cfe130971406ee6ce}{Get\+Implementation}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object, const char \texorpdfstring{$\ast$}{*}p\+Implementation\+Target)
+\item 
+{\footnotesize template$<$typename T$>$ }\\bool \mbox{\hyperlink{fbximplementationutils_8h_a096e79a1c0fe368971a2e2eea8031a37}{Get\+Bound\+Property\+Value}} (const \mbox{\hyperlink{class_fbx_binding_table}{Fbx\+Binding\+Table}} \texorpdfstring{$\ast$}{*}p\+Binding\+Table, const char \texorpdfstring{$\ast$}{*}p\+Entry\+Name, const \mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}p\+Implementation, const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Bound\+Object, T \&p\+Value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fbximplementationutils_8h_a096e79a1c0fe368971a2e2eea8031a37}\index{fbximplementationutils.h@{fbximplementationutils.h}!GetBoundPropertyValue@{GetBoundPropertyValue}}
+\index{GetBoundPropertyValue@{GetBoundPropertyValue}!fbximplementationutils.h@{fbximplementationutils.h}}
+\doxysubsubsection{\texorpdfstring{GetBoundPropertyValue()}{GetBoundPropertyValue()}}
+{\footnotesize\ttfamily \label{fbximplementationutils_8h_a096e79a1c0fe368971a2e2eea8031a37} 
+template$<$typename T$>$ \\
+bool Get\+Bound\+Property\+Value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_binding_table}{Fbx\+Binding\+Table}} \texorpdfstring{$\ast$}{*}}]{p\+Binding\+Table}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Entry\+Name}{, }\item[{const \mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}}]{p\+Implementation}{, }\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Bound\+Object}{, }\item[{T \&}]{p\+Value}{}\end{DoxyParamCaption})}
+
+Get bound property value from \doxylink{class_fbx_binding_table}{Fbx\+Binding\+Table}. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Binding\+Table} & \doxylink{class_fbx_binding_table}{Fbx\+Binding\+Table} to get bound property value. \\
+\hline
+{\em p\+Entry\+Name} & Name of the Entry type to get. \\
+\hline
+{\em p\+Implementation} & \doxylink{class_fbx_implementation}{Fbx\+Implementation} of the bound property value to get if the Entry type is \doxylink{class_fbx_operator_entry_view_aff3745ef35e5025550d54e7c2343ea95}{Fbx\+Operator\+Entry\+View\+::s\+Entry\+Type}. \\
+\hline
+{\em p\+Bound\+Object} & \doxylink{class_fbx_object}{Fbx\+Object} of the bound property value to get if the Entry type is \doxylink{class_fbx_property_entry_view_a862b7d0e633c2cb246b5b63a48ffd706}{Fbx\+Property\+Entry\+View\+::s\+Entry\+Type}. \\
+\hline
+{\em p\+Value} & Pointer to bound property value from \doxylink{class_fbx_binding_table}{Fbx\+Binding\+Table}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether get bound property value success or not. 
+\end{DoxyReturn}
+\Hypertarget{fbximplementationutils_8h_a59ba98813bca802cfe130971406ee6ce}\index{fbximplementationutils.h@{fbximplementationutils.h}!GetImplementation@{GetImplementation}}
+\index{GetImplementation@{GetImplementation}!fbximplementationutils.h@{fbximplementationutils.h}}
+\doxysubsubsection{\texorpdfstring{GetImplementation()}{GetImplementation()}}
+{\footnotesize\ttfamily \label{fbximplementationutils_8h_a59ba98813bca802cfe130971406ee6ce} 
+FBXSDK\+\_\+\+DLL const \mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*} Get\+Implementation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Implementation\+Target}{}\end{DoxyParamCaption})}
+
+Get \doxylink{class_fbx_implementation}{Fbx\+Implementation} from \doxylink{class_fbx_object}{Fbx\+Object}. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & \doxylink{class_fbx_object}{Fbx\+Object} to get \doxylink{class_fbx_implementation}{Fbx\+Implementation}. \\
+\hline
+{\em p\+Implementation\+Target} & Name of the implementation property to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_fbx_implementation}{Fbx\+Implementation} Pointer to \doxylink{class_fbx_implementation}{Fbx\+Implementation}. 
+\end{DoxyReturn}

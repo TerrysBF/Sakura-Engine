@@ -1,0 +1,51 @@
+\doxysection{User\+Interface.\+h}
+\hypertarget{_user_interface_8h_source}{}\label{_user_interface_8h_source}\index{include/UserInterface.h@{include/UserInterface.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_actor_8h}{ECS/Actor.h}}"{}}\ \ \ \ \ \textcolor{comment}{//\ Actor,\ getComponent,\ etc.}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Forward\ declarations\ para\ no\ depender\ de\ d3d11.h\ aquí}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{struct\ }ID3D11Device;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }ID3D11DeviceContext;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }UserInterface}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ UserInterface()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00023\ \ \ \string~UserInterface()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_interface_a17f4bef607e5ddb739afcb5a502df267}{init}}(\textcolor{keywordtype}{void}*\ hwnd,\ ID3D11Device*\ device,\ ID3D11DeviceContext*\ context);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_interface_a52ec3c0bcd2f444e8d344d40708bbe2a}{setSceneActors}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU::TSharedPointer<Actor>}}>*\ actors);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_interface_a7c9acd9ad089bbd6d0ca371a14cd82fa}{update}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_interface_af2389f2be34dbb906255bc53fd4e1d54}{render}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_interface_a1e4349fe8dd7858692a7f5b2afa343c5}{destroy}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00057\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00058\ \ \ \textcolor{comment}{//\ Datos\ de\ escena}}
+\DoxyCodeLine{00059\ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00060\ \ \ \textcolor{keyword}{const}\ std::vector<EU::TSharedPointer<Actor>>*\ m\_actors\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00061\ \ \ \mbox{\hyperlink{class_actor}{Actor}}*\ m\_selectedActor\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{comment}{//\ Cache\ sencillo\ para\ editar\ el\ Transform\ del\ actor\ seleccionado.}}
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ m\_hasCachedTransform\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00065\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ m\_cachedPos\{\ 0.0f,\ 0.0f,\ 0.0f\ \};}
+\DoxyCodeLine{00066\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ m\_cachedRot\{\ 0.0f,\ 0.0f,\ 0.0f\ \};}
+\DoxyCodeLine{00067\ \ \ \mbox{\hyperlink{class_e_u_1_1_vector3}{EU::Vector3}}\ m\_cachedScale\{\ 1.0f,\ 1.0f,\ 1.0f\ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00070\ \ \ \textcolor{comment}{//\ Ventanas\ internas\ de\ ImGui}}
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{void}\ drawMainMenuBar\_();}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{void}\ drawHierarchy\_();}
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{void}\ drawInspector\_();}
+\DoxyCodeLine{00074\ \};}
+
+\end{DoxyCode}

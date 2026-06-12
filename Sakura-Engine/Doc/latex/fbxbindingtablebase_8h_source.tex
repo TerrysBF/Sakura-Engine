@@ -1,0 +1,61 @@
+\doxysection{fbxbindingtablebase.\+h}
+\hypertarget{fbxbindingtablebase_8h_source}{}\label{fbxbindingtablebase_8h_source}\index{include/fbx/fbxsdk/scene/shading/fbxbindingtablebase.h@{include/fbx/fbxsdk/scene/shading/fbxbindingtablebase.h}}
+\mbox{\hyperlink{fbxbindingtablebase_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_SHADING\_BINDING\_TABLE\_BASE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_SHADING\_BINDING\_TABLE\_BASE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxbindingtableentry_8h}{fbxsdk/scene/shading/fbxbindingtableentry.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxdynamicarray_8h}{fbxsdk/core/base/fbxdynamicarray.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_binding_table_base}{FbxBindingTableBase}}\ :\ \textcolor{keyword}{public}\ FbxObject}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a8e970655f5b1f1c91f4887e30fa8379d}{FBXSDK\_ABSTRACT\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_binding_table_base}{FbxBindingTableBase}},FbxObject);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_fbx_binding_table_entry}{FbxBindingTableEntry}}\&\ \mbox{\hyperlink{class_fbx_binding_table_base_af72e06246928352826d0ee59d11c7559}{AddNewEntry}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_fbx_binding_table_base_a0a5379cd46e7e6dcf6f48bbd262034d8}{GetEntryCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_fbx_binding_table_entry}{FbxBindingTableEntry}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{class_fbx_binding_table_base_af456624e14d0a08edb288b745b2dcd42}{GetEntry}}(\ \textcolor{keywordtype}{size\_t}\ pIndex\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_fbx_binding_table_entry}{FbxBindingTableEntry}}\&\ \mbox{\hyperlink{class_fbx_binding_table_base_a86f0c2af7eaabbbecf8e6592de52d9f4}{GetEntry}}(\ \textcolor{keywordtype}{size\_t}\ pIndex\ );}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_table_entry}{FbxBindingTableEntry}}*\ \mbox{\hyperlink{class_fbx_binding_table_base_ad14212417045a3ba29d5e7f24dbeabfa}{GetEntryForSource}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pSrcName)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_binding_table_entry}{FbxBindingTableEntry}}*\ \mbox{\hyperlink{class_fbx_binding_table_base_ae6d7b05ce6dc20faee090ce5b8066317}{GetEntryForDestination}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pDestName)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00072\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00073\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ Remark:\ This\ method\ copies\ the\ mEntries\ table\ AND\ clears\ the\ UserData\ on\ the\ resulting\ copy\ to\ prevent\ shared\ memory}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{comment}{//\ data\ between\ clones/copies.}}
+\DoxyCodeLine{00077\ \ \ \ \ FbxObject\&\ \mbox{\hyperlink{class_fbx_binding_table_base_a1504b72b22c789825169da4936609af9}{Copy}}(\textcolor{keyword}{const}\ FbxObject\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{class_fbx_dynamic_array}{FbxDynamicArray<FbxBindingTableEntry>}}\ mEntries;}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00082\ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_SHADING\_BINDING\_TABLE\_BASE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

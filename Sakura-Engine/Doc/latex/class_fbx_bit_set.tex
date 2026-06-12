@@ -1,0 +1,150 @@
+\doxysection{Fbx\+Bit\+Set Class Reference}
+\hypertarget{class_fbx_bit_set}{}\label{class_fbx_bit_set}\index{FbxBitSet@{FbxBitSet}}
+
+
+{\ttfamily \#include $<$fbxbitset.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_bit_set_ad2f5e43f377d1382c847befddb386710}{Fbx\+Bit\+Set}} (const Fbx\+UInt p\+Initial\+Size=0)
+\item 
+\Hypertarget{class_fbx_bit_set_af1b946280a865ffe296f72d0a7648c18}\label{class_fbx_bit_set_af1b946280a865ffe296f72d0a7648c18} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Fbx\+Bit\+Set} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fbx_bit_set_a1aa861ea6719807763a3faf01d9a8fd5}{Set\+Bit}} (const Fbx\+UInt p\+Bit\+Index)
+\item 
+void \mbox{\hyperlink{class_fbx_bit_set_a1386fb2e41b67394008e63e445dc079e}{Set\+All\+Bits}} (const bool p\+Value)
+\item 
+void \mbox{\hyperlink{class_fbx_bit_set_ade99ba2a4fc49743b4d2e2037a5d4e28}{Unset\+Bit}} (const Fbx\+UInt p\+Bit\+Index)
+\item 
+bool \mbox{\hyperlink{class_fbx_bit_set_a79b538f2c893476457eac2b11d1d7e28}{Get\+Bit}} (const Fbx\+UInt p\+Bit\+Index) const
+\item 
+Fbx\+UInt \mbox{\hyperlink{class_fbx_bit_set_ac7747c0ffab8b6d63d931e52548a0f2a}{Get\+First\+Set\+Bit\+Index}} () const
+\item 
+Fbx\+UInt \mbox{\hyperlink{class_fbx_bit_set_af7459511dca956e445c733e1b1b43ef9}{Get\+Last\+Set\+Bit\+Index}} () const
+\item 
+Fbx\+UInt \mbox{\hyperlink{class_fbx_bit_set_a95f7f4e88d181f4ce61cc24bef217cc4}{Get\+Next\+Set\+Bit\+Index}} (const Fbx\+UInt p\+Bit\+Index) const
+\item 
+Fbx\+UInt \mbox{\hyperlink{class_fbx_bit_set_a4a254f2f2906494c4c23452f03a1c399}{Get\+Previous\+Set\+Bit\+Index}} (const Fbx\+UInt p\+Bit\+Index) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An automatic growing array of bit.
+
+The bit array will automatically grow when specifying bit indexes that are greater than the array size when calling Set\+Bit or Unset\+Bit. Indexes can vary from 0 to FBXSDK\+\_\+\+UINT\+\_\+\+MAX-\/1. When an invalid index is returned from any functions, FBXSDK\+\_\+\+UINT\+\_\+\+MAX is returned. The bit array is not thread safe. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_bit_set_ad2f5e43f377d1382c847befddb386710}\index{FbxBitSet@{FbxBitSet}!FbxBitSet@{FbxBitSet}}
+\index{FbxBitSet@{FbxBitSet}!FbxBitSet@{FbxBitSet}}
+\doxysubsubsection{\texorpdfstring{FbxBitSet()}{FbxBitSet()}}
+{\footnotesize\ttfamily \label{class_fbx_bit_set_ad2f5e43f377d1382c847befddb386710} 
+Fbx\+Bit\+Set\+::\+Fbx\+Bit\+Set (\begin{DoxyParamCaption}\item[{const Fbx\+UInt}]{p\+Initial\+Size}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+Constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Initial\+Size} & Initial bit array size in bit count (not in byte count!). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_bit_set_a79b538f2c893476457eac2b11d1d7e28}\index{FbxBitSet@{FbxBitSet}!GetBit@{GetBit}}
+\index{GetBit@{GetBit}!FbxBitSet@{FbxBitSet}}
+\doxysubsubsection{\texorpdfstring{GetBit()}{GetBit()}}
+{\footnotesize\ttfamily \label{class_fbx_bit_set_a79b538f2c893476457eac2b11d1d7e28} 
+bool Fbx\+Bit\+Set\+::\+Get\+Bit (\begin{DoxyParamCaption}\item[{const Fbx\+UInt}]{p\+Bit\+Index}{}\end{DoxyParamCaption}) const}
+
+Get the bit boolean value at the specified bit index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Bit\+Index} & The bit index in the array in the range of \mbox{[}0, FBXSDK\+\_\+\+UINT\+\_\+\+MAX-\/1\mbox{]}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the bit is set, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_bit_set_ac7747c0ffab8b6d63d931e52548a0f2a}\index{FbxBitSet@{FbxBitSet}!GetFirstSetBitIndex@{GetFirstSetBitIndex}}
+\index{GetFirstSetBitIndex@{GetFirstSetBitIndex}!FbxBitSet@{FbxBitSet}}
+\doxysubsubsection{\texorpdfstring{GetFirstSetBitIndex()}{GetFirstSetBitIndex()}}
+{\footnotesize\ttfamily \label{class_fbx_bit_set_ac7747c0ffab8b6d63d931e52548a0f2a} 
+Fbx\+UInt Fbx\+Bit\+Set\+::\+Get\+First\+Set\+Bit\+Index (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the bit index of the first bit that is currently set. \begin{DoxyReturn}{Returns}
+The bit index of the first set bit, FBXSDK\+\_\+\+UINT\+\_\+\+MAX if none found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_bit_set_af7459511dca956e445c733e1b1b43ef9}\index{FbxBitSet@{FbxBitSet}!GetLastSetBitIndex@{GetLastSetBitIndex}}
+\index{GetLastSetBitIndex@{GetLastSetBitIndex}!FbxBitSet@{FbxBitSet}}
+\doxysubsubsection{\texorpdfstring{GetLastSetBitIndex()}{GetLastSetBitIndex()}}
+{\footnotesize\ttfamily \label{class_fbx_bit_set_af7459511dca956e445c733e1b1b43ef9} 
+Fbx\+UInt Fbx\+Bit\+Set\+::\+Get\+Last\+Set\+Bit\+Index (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the bit index of the last bit that is currently set. \begin{DoxyReturn}{Returns}
+The bit index of the last set bit, FBXSDK\+\_\+\+UINT\+\_\+\+MAX if none found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_bit_set_a95f7f4e88d181f4ce61cc24bef217cc4}\index{FbxBitSet@{FbxBitSet}!GetNextSetBitIndex@{GetNextSetBitIndex}}
+\index{GetNextSetBitIndex@{GetNextSetBitIndex}!FbxBitSet@{FbxBitSet}}
+\doxysubsubsection{\texorpdfstring{GetNextSetBitIndex()}{GetNextSetBitIndex()}}
+{\footnotesize\ttfamily \label{class_fbx_bit_set_a95f7f4e88d181f4ce61cc24bef217cc4} 
+Fbx\+UInt Fbx\+Bit\+Set\+::\+Get\+Next\+Set\+Bit\+Index (\begin{DoxyParamCaption}\item[{const Fbx\+UInt}]{p\+Bit\+Index}{}\end{DoxyParamCaption}) const}
+
+Get the bit index of the next set bit after the specified bit index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Bit\+Index} & The start bit index in the array in the range of \mbox{[}0, FBXSDK\+\_\+\+UINT\+\_\+\+MAX-\/1\mbox{]}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The bit index of the next set bit, FBXSDK\+\_\+\+UINT\+\_\+\+MAX if none found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_bit_set_a4a254f2f2906494c4c23452f03a1c399}\index{FbxBitSet@{FbxBitSet}!GetPreviousSetBitIndex@{GetPreviousSetBitIndex}}
+\index{GetPreviousSetBitIndex@{GetPreviousSetBitIndex}!FbxBitSet@{FbxBitSet}}
+\doxysubsubsection{\texorpdfstring{GetPreviousSetBitIndex()}{GetPreviousSetBitIndex()}}
+{\footnotesize\ttfamily \label{class_fbx_bit_set_a4a254f2f2906494c4c23452f03a1c399} 
+Fbx\+UInt Fbx\+Bit\+Set\+::\+Get\+Previous\+Set\+Bit\+Index (\begin{DoxyParamCaption}\item[{const Fbx\+UInt}]{p\+Bit\+Index}{}\end{DoxyParamCaption}) const}
+
+Get the bit index of the previous set bit before the specified bit index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Bit\+Index} & The start bit index in the array in the range of \mbox{[}0, FBXSDK\+\_\+\+UINT\+\_\+\+MAX-\/1\mbox{]}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The bit index of the previous set bit, FBXSDK\+\_\+\+UINT\+\_\+\+MAX if none found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_bit_set_a1386fb2e41b67394008e63e445dc079e}\index{FbxBitSet@{FbxBitSet}!SetAllBits@{SetAllBits}}
+\index{SetAllBits@{SetAllBits}!FbxBitSet@{FbxBitSet}}
+\doxysubsubsection{\texorpdfstring{SetAllBits()}{SetAllBits()}}
+{\footnotesize\ttfamily \label{class_fbx_bit_set_a1386fb2e41b67394008e63e445dc079e} 
+void Fbx\+Bit\+Set\+::\+Set\+All\+Bits (\begin{DoxyParamCaption}\item[{const bool}]{p\+Value}{}\end{DoxyParamCaption})}
+
+Set all the bits to the specified value regardless of their current value. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Value} & The boolean value to set to all bits. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_bit_set_a1aa861ea6719807763a3faf01d9a8fd5}\index{FbxBitSet@{FbxBitSet}!SetBit@{SetBit}}
+\index{SetBit@{SetBit}!FbxBitSet@{FbxBitSet}}
+\doxysubsubsection{\texorpdfstring{SetBit()}{SetBit()}}
+{\footnotesize\ttfamily \label{class_fbx_bit_set_a1aa861ea6719807763a3faf01d9a8fd5} 
+void Fbx\+Bit\+Set\+::\+Set\+Bit (\begin{DoxyParamCaption}\item[{const Fbx\+UInt}]{p\+Bit\+Index}{}\end{DoxyParamCaption})}
+
+Set the bit at the specified bit index to true regardless of its current value. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Bit\+Index} & The bit index in the array in the range of \mbox{[}0, FBXSDK\+\_\+\+UINT\+\_\+\+MAX-\/1\mbox{]}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_bit_set_ade99ba2a4fc49743b4d2e2037a5d4e28}\index{FbxBitSet@{FbxBitSet}!UnsetBit@{UnsetBit}}
+\index{UnsetBit@{UnsetBit}!FbxBitSet@{FbxBitSet}}
+\doxysubsubsection{\texorpdfstring{UnsetBit()}{UnsetBit()}}
+{\footnotesize\ttfamily \label{class_fbx_bit_set_ade99ba2a4fc49743b4d2e2037a5d4e28} 
+void Fbx\+Bit\+Set\+::\+Unset\+Bit (\begin{DoxyParamCaption}\item[{const Fbx\+UInt}]{p\+Bit\+Index}{}\end{DoxyParamCaption})}
+
+Set the bit at the specified bit index to false regardless of its current value. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Bit\+Index} & The bit index in the array in the range of \mbox{[}0, FBXSDK\+\_\+\+UINT\+\_\+\+MAX-\/1\mbox{]}. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/base/\mbox{\hyperlink{fbxbitset_8h}{fbxbitset.\+h}}\end{DoxyCompactItemize}

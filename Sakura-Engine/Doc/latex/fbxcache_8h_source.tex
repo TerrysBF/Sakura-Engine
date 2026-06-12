@@ -1,0 +1,213 @@
+\doxysection{fbxcache.\+h}
+\hypertarget{fbxcache_8h_source}{}\label{fbxcache_8h_source}\index{include/fbx/fbxsdk/scene/geometry/fbxcache.h@{include/fbx/fbxsdk/scene/geometry/fbxcache.h}}
+\mbox{\hyperlink{fbxcache_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_GEOMETRY\_CACHE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_GEOMETRY\_CACHE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxstatus_8h}{fbxsdk/core/base/fbxstatus.h}}>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }FbxCache\_internal;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_cache}{FbxCache}}\ :\ \textcolor{keyword}{public}\ FbxObject}
+\DoxyCodeLine{00034\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_cache}{FbxCache}},\ FbxObject);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_cache_ab8202edfb74969539e92a4d1734df3e7}{EFileFormat}}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_ab8202edfb74969539e92a4d1734df3e7a0a10dbb146bdcf65a3ac98a03b3b4e48}{eUnknownFileFormat}},\ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_ab8202edfb74969539e92a4d1734df3e7a8ea5aa8db1a5a30035f4bb1bee8ff3a7}{eMaxPointCacheV2}},\ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_ab8202edfb74969539e92a4d1734df3e7a71f041c2c787346355e8ced9c3f29127}{eMayaCache}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_ab8202edfb74969539e92a4d1734df3e7a1d9f43b0ddf3da5ec418c50f1d1b5549}{eAlembic}}\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_cache_a334522b228cbf7b5eb488e15606bf622}{SetCacheFileFormat}}(\mbox{\hyperlink{class_fbx_cache_ab8202edfb74969539e92a4d1734df3e7}{EFileFormat}}\ pFileFormat,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_ab8202edfb74969539e92a4d1734df3e7}{EFileFormat}}\ \mbox{\hyperlink{class_fbx_cache_adabf432059b20e05cda5f3ddfab8f767}{GetCacheFileFormat}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_cache_a4adc82174046fe9bce5b0a415b6e6963}{SetCacheFileName}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pRelativeFileName\_UTF8,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pAbsoluteFileName\_UTF8,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_cache_af1eb7de2d7a8ccb387d37f1c6da55c51}{GetCacheFileName}}(\mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pRelativeFileName\_UTF8,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pAbsoluteFileName\_UTF8)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_afb4370a1e87dbf36b92f0fa61ea64db8}{OpenFileForRead}}(\mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_af2ca87b431feef6ad4e106271f774672}{IsOpen}}(\mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a077130baffaab6448fbc984fec82f338}{Read}}(\textcolor{keywordtype}{float}**\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&\ pBufferLength,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pChannel=0);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a5964ea31f7b94da6ece571748da74d95}{CloseFile}}(\mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_cache_a2b18922a125946be8ff89940f21ee3f2}{GetSamplingFrameRate}}(\mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ \mbox{\hyperlink{class_fbx_cache_ab4407b29da65a695454e04731ba04200}{GetCacheTimePerFrame}}(\mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_cache_a1e2a07637eec39ae1eefb85fa29bc552}{GetChannelCount}}(\mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a9a9f0069551a1445ea4856580123ea9a}{GetChannelName}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pChannelName,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_cache_afa5d133385fbd74b59e619c692a9cc36}{EMCFileCount}}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_afa5d133385fbd74b59e619c692a9cc36accc8c423e169fc778550575dcbd79bcc}{eMCOneFile}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_afa5d133385fbd74b59e619c692a9cc36a443acbc8142a8e4fa3eeb2e4c3fea327}{eMCOneFilePerFrame}}\ \ \ \ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_cache_a80f82fa5f485ff6c46565ffb151998b3}{EMCDataType}}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_a80f82fa5f485ff6c46565ffb151998b3a8b26bb731da16a3dbab5e918598872b8}{eUnknownData}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_a80f82fa5f485ff6c46565ffb151998b3a09e5d7151cf86e037c15b41af0d65e9d}{eDouble}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_a80f82fa5f485ff6c46565ffb151998b3ae39b52564972de1cdcfde5ee56c5d4f2}{eDoubleArray}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_a80f82fa5f485ff6c46565ffb151998b3a650d3bda5d6886776bee42118f711cb3}{eDoubleVectorArray}},\ \ \ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_a80f82fa5f485ff6c46565ffb151998b3a0d06622346b6fc69daf634a1233217c7}{eInt32Array}},\ \ \ \ \ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_a80f82fa5f485ff6c46565ffb151998b3ae331b4603d8eea0b4917d022530f7d07}{eFloatArray}},\ \ \ \ \ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_a80f82fa5f485ff6c46565ffb151998b3a67596d008f526a50a8f0d888d3f5dd6a}{eFloatVectorArray}}\ \ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_cache_af3afea849dd371f0b5ecbe135d34b829}{EMCBinaryFormat}}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_af3afea849dd371f0b5ecbe135d34b829af019bf2bf0ab0788673f38da0364570c}{eMCC}},\ \ \ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_af3afea849dd371f0b5ecbe135d34b829a9f9f7cbd770451b48ea473902dd04568}{eMCX}}\ \ \ \ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_cache_a9d4d8e73c5e2f510b7884ceaee13a173}{EMCSamplingType}}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_a9d4d8e73c5e2f510b7884ceaee13a173ab7d871fa76cb0e28a77bfa48858637f2}{eSamplingRegular}},\ \ \ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_cache_a9d4d8e73c5e2f510b7884ceaee13a173afa23e18952e41deafe9237381018d023}{eSamplingIrregular}}\ \ \ \ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a430c418e921a876f442c064b301418be}{OpenFileForWrite}}(\mbox{\hyperlink{class_fbx_cache_afa5d133385fbd74b59e619c692a9cc36}{EMCFileCount}}\ pFileCount,\ \textcolor{keywordtype}{double}\ pSamplingFrameRate,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pChannelName,\ \mbox{\hyperlink{class_fbx_cache_af3afea849dd371f0b5ecbe135d34b829}{EMCBinaryFormat}}\ pBinaryFormat,\ \mbox{\hyperlink{class_fbx_cache_a80f82fa5f485ff6c46565ffb151998b3}{EMCDataType}}\ pMCDataType=\mbox{\hyperlink{class_fbx_cache_a80f82fa5f485ff6c46565ffb151998b3a650d3bda5d6886776bee42118f711cb3}{eDoubleVectorArray}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pInterpretation=\textcolor{stringliteral}{"{}Points"{}},\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a5cc3311b704a1405aae637cd8a30e1c8}{AddChannel}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pChannelName,\ \mbox{\hyperlink{class_fbx_cache_a80f82fa5f485ff6c46565ffb151998b3}{EMCDataType}}\ pMCDataType,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pInterpretation,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);\ \ \ \ \ }
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a9d9df7b63fda0e41676187395c325b9b}{GetChannelDataType}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_cache_a80f82fa5f485ff6c46565ffb151998b3}{EMCDataType}}\&\ pChannelType,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \mbox{\hyperlink{class_fbx_cache_a1fb8b5cea553cd7e03278700279efc90}{GetChannelIndex}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pChannelName,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_ac31fdd1b306da04cebdb51a6b1fd8521}{Read}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \textcolor{keywordtype}{double}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pPointCount,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a518383cfd39385e077ffc53be85aa728}{Read}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \textcolor{keywordtype}{float}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pPointCount,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a513dbb2b726eaf353528c8c6900ec77b}{Read}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \textcolor{keywordtype}{int}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pPointCount,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_ade715322780a6993e218251092f3c5c8}{BeginWriteAt}}(\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL\ );}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a9144c3dfd8441a1e73c759259fe1b9d9}{Write}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \textcolor{keywordtype}{double}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pPointCount,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a6a8522f9c661337e4a458c67bcf1f659}{Write}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \textcolor{keywordtype}{float}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pPointCount,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a4d1a6dbd1d65fa381ded138b7edbc219}{Write}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \textcolor{keywordtype}{int}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pPointCount,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a3df95a880da51b2ad2a957f212d76ba6}{EndWriteAt}}(\mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a974f809c072c4e71c4ff506259474aed}{GetAnimationRange}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ \&pTimeStart,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ \&pTimeEnd,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a587ab185d45dbd55ed042f5f0a01f30b}{GetCacheType}}(\mbox{\hyperlink{class_fbx_cache_afa5d133385fbd74b59e619c692a9cc36}{EMCFileCount}}\&\ pFileCount,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a7eaddf9e8f0f583c4573f7f3203e226d}{GetChannelInterpretation}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pInterpretation,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a5a2763e150c2687f989f1cf69a08cbc8}{GetChannelSamplingType}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_cache_a9d4d8e73c5e2f510b7884ceaee13a173}{EMCSamplingType}}\&\ pSamplingType,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a31d16dc4cc821fe13021991579632002}{GetChannelSamplingRate}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pSamplingRate,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a2d0d0bd08638ef945a2e3aadcb26dee8}{GetChannelSampleCount}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&\ pSampleCount,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a347e4b40780ae2ae0511d62350a806f7}{GetChannelPointCount}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pTime,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&\ pPointCount,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_cache_ab7f00992af7a2f0179184cba81d890a2}{GetCacheDataFileCount}}(\mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_aa4e5178a3f2a3b76ca96fcf24e326d3b}{GetCacheDataFileName}}(\textcolor{keywordtype}{int}\ pIndex,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pRelativeFileName,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pAbsoluteFileName,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a7dadad5c92261dc4a87638385b49b921}{EnableMultiChannelFetching}}(\textcolor{keywordtype}{bool}\ pMultiChannelFetching,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_ae79158c3d2966623035e6cb27f5f17fe}{GetNextTimeWithData}}(\mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pCurTime,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pNextTime,\ \textcolor{keywordtype}{int}\ pChannelIndex\ =\ -\/1,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_cache_a983233fa5f9e457651e3bc0f6dfde219}{GetDataCount}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a75e249b339bf5a2b1d4f713ee6697e2a}{GetDataTime}}(\textcolor{keywordtype}{int}\ pChannelIndex,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pDataIndex,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a94fc2a702ee5c53cd41938c54cd4befd}{OpenFileForWrite}}(\textcolor{keywordtype}{double}\ pFrameStartOffset,\ \textcolor{keywordtype}{double}\ pSamplingFrameRate,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pSampleCount,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pPointCount,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_cache_a1aaeb41671716ea531a0b6402c59c878}{GetSampleCount}}(\mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_cache_a944e876d22843e5aec776cf9c11d80ad}{GetPointCount}}(\mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_cache_a73f12c006cfc12b696785c00df3fee58}{GetFrameStartOffset}}(\mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a91700888943ba42ce063617516f1159d}{Read}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pFrameIndex,\ \textcolor{keywordtype}{double}*\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pPointCount,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_ac83fc721f7eb4dbcb09dbb13efea76ce}{Write}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pFrameIndex,\ \textcolor{keywordtype}{double}*\ pBuffer,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a6ead5beab13a47d8ccfbc3730a6fb2fa}{ConvertFromPC2ToMC}}(\mbox{\hyperlink{class_fbx_cache_afa5d133385fbd74b59e619c692a9cc36}{EMCFileCount}}\ pFileCount,\ \textcolor{keywordtype}{double}\ pSamplingFrameRate,\ \mbox{\hyperlink{class_fbx_cache_af3afea849dd371f0b5ecbe135d34b829}{EMCBinaryFormat}}\ pBinaryFormat,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_cache_a2710bc7d786f60e90d54c192c02af938}{ConvertFromMCToPC2}}(\textcolor{keywordtype}{double}\ pSamplingFrameRate,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pChannelIndex,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00419\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00420\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keyword}{enum}\ EOpenFlag}
+\DoxyCodeLine{00423\ \ \ \ \ \{}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ eReadOnly,}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ eWriteOnly}
+\DoxyCodeLine{00426\ \ \ \ \ \};}
+\DoxyCodeLine{00427\ }
+\DoxyCodeLine{00428\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keywordtype}{bool}\ OpenFile(EOpenFlag\ pFlag,\ EMCFileCount\ pFileCount,\ \textcolor{keywordtype}{double}\ pSamplingFrameRate,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pChannelName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pInterpretation,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pSampleCount,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pPointCount,\ \textcolor{keywordtype}{double}\ pFrameStartOffset,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus,\ EMCDataType\ pMCDataType\ =\ eDoubleVectorArray,\ EMCBinaryFormat\ pBinaryFormat\ =\ eMCX);\ }
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_cache_ab657d22bd4736b458aeaa45724840108}{Construct}}(\ \textcolor{keyword}{const}\ FbxObject*\ pFrom\ )\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_cache_a7e2aebce96ed2a2138a220e4624ea0aa}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_cache_aae66dc4e401c2b6812a3a1ef962a32d5}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \ \ \ \ FbxCache\_internal*\ mData;}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{keywordtype}{bool}\ AllocateReadBuffer(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pTypeSize,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pTypeLength,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pLength,\ \textcolor{keywordtype}{bool}\ pAllocateConvertBuffer);}
+\DoxyCodeLine{00439\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadMayaCache(\textcolor{keywordtype}{float}**\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&\ pBufferLength,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pChannel);}
+\DoxyCodeLine{00440\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadMaxCache(\textcolor{keywordtype}{float}**\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&\ pBufferLength,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime);}
+\DoxyCodeLine{00441\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadAlembicCache(\textcolor{keywordtype}{float}**\ pBuffer,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\&\ pBufferLength,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pChannel);}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxString>}}\ CacheFile;}
+\DoxyCodeLine{00444\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxString>}}\ CacheFileAbsolutePath;}
+\DoxyCodeLine{00445\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxEnum>}}\ CacheFileType;}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00447\ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ mReadBuffer;}
+\DoxyCodeLine{00448\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ mReadBufferLength;}
+\DoxyCodeLine{00449\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ mReadBufferSize;}
+\DoxyCodeLine{00450\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ mReadTypeSize;}
+\DoxyCodeLine{00451\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ mReadTypeLength;}
+\DoxyCodeLine{00452\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ mReadLength;}
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ mConvertBuffer;}
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00455\ \};}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_cache_ab8202edfb74969539e92a4d1734df3e7}{FbxCache::EFileFormat}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_GEOMETRY\_CACHE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

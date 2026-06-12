@@ -1,0 +1,89 @@
+\doxysection{fbxthumbnail.\+h}
+\hypertarget{fbxthumbnail_8h_source}{}\label{fbxthumbnail_8h_source}\index{include/fbx/fbxsdk/scene/fbxthumbnail.h@{include/fbx/fbxsdk/scene/fbxthumbnail.h}}
+\mbox{\hyperlink{fbxthumbnail_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_THUMBNAIL\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_THUMBNAIL\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }FbxThumbnailMembers;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_thumbnail}{FbxThumbnail}}\ :\ \textcolor{keyword}{public}\ FbxObject}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_thumbnail}{FbxThumbnail}},\ FbxObject);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxInt>}}\ \mbox{\hyperlink{class_fbx_thumbnail_a42a590e1eb6e45788e3afb50d81824ec}{CustomHeight}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxInt>}}\ \mbox{\hyperlink{class_fbx_thumbnail_a791822f52e133326b3a366ab6cda9757}{CustomWidth}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_thumbnail_a60bdaa7e6f78e26f4a8810c552958a0a}{EDataFormat}}}
+\DoxyCodeLine{00048\ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ eRGB\_24,\ \textcolor{comment}{//\ 3\ components}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ eRGBA\_32\ \textcolor{comment}{//\ 4\ components}}
+\DoxyCodeLine{00051\ \ \ \ \ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_thumbnail_aa0da5afd782261ee47d9322bacf9a619}{SetDataFormat}}(\mbox{\hyperlink{class_fbx_thumbnail_a60bdaa7e6f78e26f4a8810c552958a0a}{EDataFormat}}\ pDataFormat);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_fbx_thumbnail_a60bdaa7e6f78e26f4a8810c552958a0a}{EDataFormat}}\ \mbox{\hyperlink{class_fbx_thumbnail_afa2145d5bf482d2200bb6324a1a717bb}{GetDataFormat}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_thumbnail_a3d57568544f878eadd9889770443c234}{EImageSize}}}
+\DoxyCodeLine{00071\ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ eNotSet\ =\ 0,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ e64x64\ =\ 64,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ e128x128\ =\ 128,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ eCustomSize\ =\ -\/1}
+\DoxyCodeLine{00076\ \ \ \ \ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_thumbnail_a9e4c845718d00e6d133806d13e332059}{SetSize}}(\mbox{\hyperlink{class_fbx_thumbnail_a3d57568544f878eadd9889770443c234}{EImageSize}}\ pImageSize);\ \ \ }
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{class_fbx_thumbnail_a3d57568544f878eadd9889770443c234}{EImageSize}}\ \mbox{\hyperlink{class_fbx_thumbnail_a3cda3700f5acd6d80060fc5f7282ffcf}{GetSize}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_fbx_thumbnail_ae1e5944721bf5e835b67767c734fc74a}{GetSizeInBytes}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_thumbnail_a44c5615f4a4428a158787f3cd4e02997}{SetThumbnailImage}}(\textcolor{keyword}{const}\ FbxUChar*\ pImage);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00121\ \ \ \ \ FbxUChar*\ \mbox{\hyperlink{class_fbx_thumbnail_a2bf85b2caca4c3e7a09f0de888ba4789}{GetThumbnailImage}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00126\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00127\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00129\ \ \ \ \ FbxObject\&\ \ \mbox{\hyperlink{class_fbx_thumbnail_a62afcde1aad5fc4894433c4e28307b2e}{Copy}}(\textcolor{keyword}{const}\ FbxObject\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_thumbnail_a69cd43f319fed899c77d329218f39ab6}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_thumbnail_aff976920d9d08cafd6f7b15daef80f8a}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_thumbnail_ab69c9f0cce95048dcc7eface533d66b1}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ FbxThumbnailMembers*\ mMembers;}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00138\ \};}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_THUMBNAIL\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

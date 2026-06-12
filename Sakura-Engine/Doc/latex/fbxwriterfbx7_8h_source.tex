@@ -1,0 +1,79 @@
+\doxysection{fbxwriterfbx7.\+h}
+\hypertarget{fbxwriterfbx7_8h_source}{}\label{fbxwriterfbx7_8h_source}\index{include/fbx/fbxsdk/fileio/fbx/fbxwriterfbx7.h@{include/fbx/fbxsdk/fileio/fbx/fbxwriterfbx7.h}}
+\mbox{\hyperlink{fbxwriterfbx7_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2019\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_FILEIO\_FBX\_WRITER\_FBX7\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_FILEIO\_FBX\_WRITER\_FBX7\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk_8h}{fbxsdk.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{struct\ }FbxWriterFbx7\_Impl;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }FbxWriterFbx7\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_writer_ac33ec77f3dce1ab1b25eeb5dda1efbeb}{FbxWriter}}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00026\ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ eASCII,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ eBINARY,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ eENCRYPTED}
+\DoxyCodeLine{00030\ \ \ \ \ \}\ EExportMode;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ FbxWriterFbx7(\mbox{\hyperlink{class_fbx_manager}{FbxManager}}\&\ pManager,\ \mbox{\hyperlink{class_fbx_exporter}{FbxExporter}}\&\ pExporter,\ \textcolor{keywordtype}{int}\ pID,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}\&\ pStatus);}
+\DoxyCodeLine{00033\ \ \ \ \ FbxWriterFbx7(\mbox{\hyperlink{class_fbx_manager}{FbxManager}}\&\ pManager,\ \mbox{\hyperlink{class_fbx_exporter}{FbxExporter}}\&\ pExporter,\ EExportMode\ pMode,\ \textcolor{keywordtype}{int}\ pID,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}\&\ pStatus);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxWriterFbx7();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_writer_fbx7_ae31fcf56e6240adf94da8feb78091d04}{FileCreate}}(\textcolor{keywordtype}{char}*\ pFileName)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_writer_fbx7_ab3e55a57302271d5823fe6451d8c5b65}{FileCreate}}(\mbox{\hyperlink{class_fbx_stream}{FbxStream}}*\ pStream,\ \textcolor{keywordtype}{void}*\ pStreamData)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_writer_fbx7_a609351a2bf1aed4da4298062d18a8858}{FileClose}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_writer_fbx7_a3ab3f1f27d9316d37383e8ba84c5c928}{IsFileOpen}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_writer_fbx7_a76b3dd89666049d41007f4e5ecaf4591}{GetWriteOptions}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_writer_fbx7_a85fc6256fc826d27b94950eb0af2a607}{Write}}(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}*\ pDocument)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_writer_fbx7_afb9dca6ffaaa74a8f0d6389eb32c40c4}{PreprocessScene}}(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\ \&pScene)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_writer_fbx7_a217b47c0e2a76e5c182907a518734d36}{PostprocessScene}}(\mbox{\hyperlink{class_fbx_scene}{FbxScene}}\ \&pScene)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_writer_fbx7_a85fc6256fc826d27b94950eb0af2a607}{Write}}(\mbox{\hyperlink{class_fbx_document}{FbxDocument}}*\ pDocument,\ \mbox{\hyperlink{class_fbx_i_o}{FbxIO}}*\ pFbx);}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#ifndef\ FBXSDK\_ENV\_WINSTORE}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_writer_fbx7_aae0a4b8ae64eea27e5f1c2c13fd6cd07}{PluginWriteParameters}}(\mbox{\hyperlink{class_fbx_object}{FbxObject}}\&\ pParams)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FBXSDK\_ENV\_WINSTORE}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_writer_fbx7_aff15dd1af84de1484f9e3e2f492c210b}{SetProgressHandler}}(\mbox{\hyperlink{class_fbx_progress}{FbxProgress}}\ *pProgress)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ SetEmbeddedFileCallback(\mbox{\hyperlink{class_fbx_embedded_file_callback}{FbxEmbeddedFileCallback}}*\ pCallback)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ SetExportMode(EExportMode\ pMode);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_writer_fbx7_a3efbd1c10ac234afab11df942ae24f37}{SupportsStreams}}()\textcolor{keyword}{\ const\ \ override\ \ \ \ \ \ \ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ Declared,\ not\ defined.}}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_fbx_writer_fbx7}{FbxWriterFbx7}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_writer_fbx7}{FbxWriterFbx7}}\&);}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{class_fbx_writer_fbx7}{FbxWriterFbx7}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_writer_fbx7}{FbxWriterFbx7}}\&);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{struct\ }ModifiedPropertyInfo\{\ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ mObj;\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ mPropName;\ \};}
+\DoxyCodeLine{00061\ \ \ \ \ FbxArray<ModifiedPropertyInfo*>\ mModifiedProperties;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ StoreUnsupportedProperty(FbxObject*\ pObject,\ FbxProperty\&\ pProperty);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ MakeNonSavableAndRemember(FbxObject*\ pObj);}
+\DoxyCodeLine{00065\ \ \ \ \ FbxArray<FbxObject*>\ mSwitchedToNonSavablesObjects;}
+\DoxyCodeLine{00066\ \ \ \ \ FbxArray<FbxAnimLayer*>\ mAnimLayerInternallyAdded;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00069\ \ \ \ \ FbxWriterFbx7\_Impl*\ mImpl;}
+\DoxyCodeLine{00070\ \};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_FILEIO\_FBX\_WRITER\_FBX7\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

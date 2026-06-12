@@ -1,0 +1,462 @@
+\doxysection{Fbx\+Writer Class Reference}
+\hypertarget{class_fbx_writer}{}\label{class_fbx_writer}\index{FbxWriter@{FbxWriter}}
+
+
+{\ttfamily \#include $<$fbxwriter.\+h$>$}
+
+Inheritance diagram for Fbx\+Writer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_fbx_writer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2a}{EInfo\+Request}} \{ \newline
+\mbox{\hyperlink{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2aa685ae092e9d1dd70ee474474e6709ef1}{e\+Info\+Extension}}
+, \mbox{\hyperlink{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2aaa784d31d1a1b64f8806e2bf08a7357ad}{e\+Info\+Descriptions}}
+, \mbox{\hyperlink{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2aa5f280243592cee085c8955019a55e3a0}{e\+Info\+Versions}}
+, \mbox{\hyperlink{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2aa91a4948dc9ea8e95d12c6b11800b8b4c}{e\+Info\+Compatible\+Desc}}
+, \newline
+\mbox{\hyperlink{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2aad8a61c4aecfefa09584a0aa66a31b4ba}{e\+Info\+UILabel}}
+, {\bfseries e\+Reserved1} = 0x\+FBFB
+ \}
+\item 
+\Hypertarget{class_fbx_writer_a563e9225bcfc2ef5d1f882368b1c45da}\label{class_fbx_writer_a563e9225bcfc2ef5d1f882368b1c45da} 
+typedef \mbox{\hyperlink{class_fbx_writer}{Fbx\+Writer}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} {\bfseries Create\+Func\+Type}) (\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \&p\+Manager, \mbox{\hyperlink{class_fbx_exporter}{Fbx\+Exporter}} \&p\+Exporter, int p\+Sub\+ID, int p\+Plugin\+ID)
+\begin{DoxyCompactList}\small\item\em Helper typedef for passing \doxylink{class_fbx_writer}{Fbx\+Writer} creator function as argument (used internally). \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_writer_a43eb86f1aae1a6a424c54bcf294553c5}\label{class_fbx_writer_a43eb86f1aae1a6a424c54bcf294553c5} 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries IOSettings\+Filler\+Func\+Type}) (\mbox{\hyperlink{class_fbx_i_o_settings}{Fbx\+IOSettings}} \&p\+IOS)
+\begin{DoxyCompactList}\small\item\em Helper typedef for passing \doxylink{class_fbx_i_o_settings}{Fbx\+IOSettings} creator function as argument (used internally). \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_writer_ab1f25a09d3fe9a6115d0828687c61a48}\label{class_fbx_writer_ab1f25a09d3fe9a6115d0828687c61a48} 
+typedef void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} {\bfseries Get\+Info\+Func\+Type}) (\mbox{\hyperlink{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2a}{EInfo\+Request}} p\+Request, int p\+Writer\+Type\+Id)
+\begin{DoxyCompactList}\small\item\em Helper typedef for passing \doxylink{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2a}{EInfo\+Request} function as argument (used internally). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_writer_ac33ec77f3dce1ab1b25eeb5dda1efbeb}{Fbx\+Writer}} (\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \&p\+Manager, int p\+ID, \mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \&p\+Status)
+\item 
+virtual \mbox{\hyperlink{class_fbx_writer_a4b6ae3b6648c00ec98e4ff62fb0383b0}{\texorpdfstring{$\sim$}{\string~}\+Fbx\+Writer}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_writer_abe6729227cd6e3be5ee3ab0c1b8b0eda}{File\+Create}} (char \texorpdfstring{$\ast$}{*}p\+File\+Name)=0
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_writer_a9b64b6230b05e64a83b78b36d1667da7}{File\+Create}} (\mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \texorpdfstring{$\ast$}{*}p\+Stream, void \texorpdfstring{$\ast$}{*}p\+Stream\+Data)
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_writer_a0387142f55d0020fd5360759c12aa121}{File\+Close}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_writer_ab70be3aaebd304af11cdce5e225cce68}{Is\+File\+Open}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_fbx_writer_ad237f5cd183ae29f744aee32b7aa5525}{Get\+Write\+Options}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_writer_aa8c0277611da0fdb0b9a184c55c30c2c}{Write}} (\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}p\+Document)=0
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_writer_a0fd62ec785e7108924975591ee8fbf30}{Preprocess\+Scene}} (\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \&p\+Scene)=0
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_writer_a1cfdf59f72ebe777484862e4b64b5d65}{Postprocess\+Scene}} (\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \&p\+Scene)=0
+\item 
+virtual void \mbox{\hyperlink{class_fbx_writer_a851219ad904ebdce34acd3b8699cb0c8}{Plugin\+Write\+Parameters}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Params)
+\item 
+virtual \mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_writer_a0fa0ae7039bb3caf7ba5f7aabdd451f1}{Find\+Root\+Node}} (\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \&p\+Scene)
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_writer_a9db05cf879a056dce01c960559cee27b}{Check\+Space\+In\+Node\+Name\+Recursive}} (\mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*}p\+Node, \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Node\+Name\+List)
+\item 
+bool \mbox{\hyperlink{class_fbx_writer_a7f792c49a3550deb39aa994db188c47f}{Set\+File\+Export\+Version}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} p\+Version)
+\item 
+void \mbox{\hyperlink{class_fbx_writer_aba927b8b74b98fae0074662a2924a6b0}{Set\+Renaming\+Mode}} (\mbox{\hyperlink{class_fbx_scene_renamer_a9279ee1a645d6499b934adbc376f8678}{Fbx\+Scene\+Renamer\+::\+ERenaming\+Mode}} p\+Renaming\+Mode)
+\item 
+void \mbox{\hyperlink{class_fbx_writer_aeed0e237cbed7c5ae6c29aa78932dbe6}{Set\+Resampling\+Rate}} (double p\+Resampling\+Rate)
+\item 
+bool \mbox{\hyperlink{class_fbx_writer_a030c374bcc699993ea32225a4624532a}{Is\+Genuine}} ()
+\item 
+virtual \mbox{\hyperlink{class_fbx_i_o_settings}{Fbx\+IOSettings}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_writer_ae5b5b36e6680879fb1d53e0f91985405}{Get\+IOSettings}} ()
+\item 
+virtual void \mbox{\hyperlink{class_fbx_writer_acdc632472e0252b6087fd55ef05a7e2a}{Set\+IOSettings}} (\mbox{\hyperlink{class_fbx_i_o_settings}{Fbx\+IOSettings}} \texorpdfstring{$\ast$}{*}p\+IOSettings)
+\item 
+virtual void \mbox{\hyperlink{class_fbx_writer_a1a3cf241a0c11364981ebd23be59fd8f}{Set\+Progress\+Handler}} (\mbox{\hyperlink{class_fbx_progress}{Fbx\+Progress}} \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{class_fbx_writer_a4de69755e63b9e7e57c750a55ef4e7f7}\label{class_fbx_writer_a4de69755e63b9e7e57c750a55ef4e7f7} 
+virtual void {\bfseries Set\+Embedded\+File\+Callback} (\mbox{\hyperlink{class_fbx_embedded_file_callback}{Fbx\+Embedded\+File\+Callback}} \texorpdfstring{$\ast$}{*})
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_writer_aa79a285227d113ee6d64aee6a84986cd}{Supports\+Streams}} () const
+\item 
+\Hypertarget{class_fbx_writer_affaffb21761b343712fe087c460d21ae}\label{class_fbx_writer_affaffb21761b343712fe087c460d21ae} 
+\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \& {\bfseries Get\+Status} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_writer_a33b44e856c07510bddf658fd446789d1}\label{class_fbx_writer_a33b44e856c07510bddf658fd446789d1} 
+void {\bfseries Plugins\+Write\+Begin} (\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \&p\+Scene)
+\begin{DoxyCompactList}\small\item\em Function called by FBX before writing out the scene (\doxylink{class_fbx_scene}{Fbx\+Scene}). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fbx_writer_aeca3bf711e9fb1815c90b3423773010d}{Plugins\+Write}} (\mbox{\hyperlink{class_fbx_i_o}{Fbx\+IO}} \&p\+Fbx, bool p\+Write\+Object\+Id)
+\item 
+\Hypertarget{class_fbx_writer_a85e89b71d39755ef0a426aa7b35221d6}\label{class_fbx_writer_a85e89b71d39755ef0a426aa7b35221d6} 
+void {\bfseries Plugins\+Write\+End} (\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \&p\+Scene)
+\begin{DoxyCompactList}\small\item\em Function called by FBX after writing out the scene (\doxylink{class_fbx_scene}{Fbx\+Scene}). \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_writer_a1d6f5c8aa98dc7db21796d3385a56998}\label{class_fbx_writer_a1d6f5c8aa98dc7db21796d3385a56998} 
+\mbox{\hyperlink{class_fbx_writer}{Fbx\+Writer}} \& {\bfseries operator=} (\mbox{\hyperlink{class_fbx_writer}{Fbx\+Writer}} const \&)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_writer_a57ea7c7d264738b21442e7abb19c4e14}\label{class_fbx_writer_a57ea7c7d264738b21442e7abb19c4e14} 
+\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \& {\bfseries m\+Status}
+\item 
+\Hypertarget{class_fbx_writer_acd9ad280af8eef03970ed9ada774a731}\label{class_fbx_writer_acd9ad280af8eef03970ed9ada774a731} 
+\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \& {\bfseries m\+Manager}
+\item 
+\Hypertarget{class_fbx_writer_a134d9a05d8c34cae98d3c782b98ea801}\label{class_fbx_writer_a134d9a05d8c34cae98d3c782b98ea801} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} {\bfseries m\+File\+Version}
+\item 
+\Hypertarget{class_fbx_writer_a9fac62b1b3e302d2c690cea379df3d33}\label{class_fbx_writer_a9fac62b1b3e302d2c690cea379df3d33} 
+double {\bfseries m\+Resampling\+Rate}
+\begin{DoxyCompactList}\small\item\em Resample rate for animation. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_writer_a473140b1c3e8af555f5e51ff883420eb}\label{class_fbx_writer_a473140b1c3e8af555f5e51ff883420eb} 
+\mbox{\hyperlink{class_fbx_scene_renamer_a9279ee1a645d6499b934adbc376f8678}{Fbx\+Scene\+Renamer\+::\+ERenaming\+Mode}} {\bfseries m\+Renaming\+Mode}
+\begin{DoxyCompactList}\small\item\em The mode describing from which format to which format when write FBX file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_writer_af1c8c15ac15cf43655af7772383daefd}\label{class_fbx_writer_af1c8c15ac15cf43655af7772383daefd} 
+struct {\bfseries Fbx\+Writer\+Fbx7\+\_\+\+Impl}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class of other writers used internally. This class provides the interfaces for writing files.
+
+The role of the writer is to effectively "{}write"{} specific file data vs the role of the exporter is to select a specific writer and launch the writing of a file through that writer. \begin{DoxySeeAlso}{See also}
+\doxylink{class_fbx_exporter}{Fbx\+Exporter}
+\end{DoxySeeAlso}
+ex\+:
+\begin{DoxyItemize}
+\item \doxylink{class_fbx_writer_fbx5}{Fbx\+Writer\+Fbx5} can write FBX 5 format files
+\item \doxylink{class_fbx_writer_fbx6}{Fbx\+Writer\+Fbx6} can write FBX 6 format files
+\item \doxylink{class_fbx_writer_fbx7}{Fbx\+Writer\+Fbx7} can write FBX 7 format files
+\item \doxylink{class_fbx_writer_collada}{Fbx\+Writer\+Collada} can write Collada files
+\item Fbx\+Writer\+Dxf can write Dxf files
+\item ... etc.
+\end{DoxyItemize}
+
+A SDK user should -\/ normally -\/ not use this class, except if a custom writer must be created for plug-\/in extension, then \doxylink{class_fbx_writer}{Fbx\+Writer} must be the base class for the new custom writer in that particular situation. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2a}\index{FbxWriter@{FbxWriter}!EInfoRequest@{EInfoRequest}}
+\index{EInfoRequest@{EInfoRequest}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{EInfoRequest}{EInfoRequest}}
+{\footnotesize\ttfamily \label{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2a} 
+enum \mbox{\hyperlink{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2a}{Fbx\+Writer\+::\+EInfo\+Request}}}
+
+Information type to request. \begin{DoxyRemark}{Remarks}
+Used internally to get writer file information. 
+\end{DoxyRemark}
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eInfoExtension@{eInfoExtension}!FbxWriter@{FbxWriter}}\index{FbxWriter@{FbxWriter}!eInfoExtension@{eInfoExtension}}}\Hypertarget{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2aa685ae092e9d1dd70ee474474e6709ef1}\label{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2aa685ae092e9d1dd70ee474474e6709ef1} 
+e\+Info\+Extension&To get the file ext for a writer ex\+: "{}\+FBX"{}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eInfoDescriptions@{eInfoDescriptions}!FbxWriter@{FbxWriter}}\index{FbxWriter@{FbxWriter}!eInfoDescriptions@{eInfoDescriptions}}}\Hypertarget{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2aaa784d31d1a1b64f8806e2bf08a7357ad}\label{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2aaa784d31d1a1b64f8806e2bf08a7357ad} 
+e\+Info\+Descriptions&To get the file description for a writer ex\+:"{}\+Autodesk FBX (\texorpdfstring{$\ast$}{*}.\+fbx)"{}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eInfoVersions@{eInfoVersions}!FbxWriter@{FbxWriter}}\index{FbxWriter@{FbxWriter}!eInfoVersions@{eInfoVersions}}}\Hypertarget{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2aa5f280243592cee085c8955019a55e3a0}\label{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2aa5f280243592cee085c8955019a55e3a0} 
+e\+Info\+Versions&To get the file version for a writer ex\+: 7100. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eInfoCompatibleDesc@{eInfoCompatibleDesc}!FbxWriter@{FbxWriter}}\index{FbxWriter@{FbxWriter}!eInfoCompatibleDesc@{eInfoCompatibleDesc}}}\Hypertarget{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2aa91a4948dc9ea8e95d12c6b11800b8b4c}\label{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2aa91a4948dc9ea8e95d12c6b11800b8b4c} 
+e\+Info\+Compatible\+Desc&To get the file compatible description for a writer. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eInfoUILabel@{eInfoUILabel}!FbxWriter@{FbxWriter}}\index{FbxWriter@{FbxWriter}!eInfoUILabel@{eInfoUILabel}}}\Hypertarget{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2aad8a61c4aecfefa09584a0aa66a31b4ba}\label{class_fbx_writer_a250cda8a59afd8e6be01c89cdd914e2aad8a61c4aecfefa09584a0aa66a31b4ba} 
+e\+Info\+UILabel&To get the file UI label to show for a writer ex\+: file labels shown in "{}\+Open file dialog"{}. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_writer_ac33ec77f3dce1ab1b25eeb5dda1efbeb}\index{FbxWriter@{FbxWriter}!FbxWriter@{FbxWriter}}
+\index{FbxWriter@{FbxWriter}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{FbxWriter()}{FbxWriter()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_ac33ec77f3dce1ab1b25eeb5dda1efbeb} 
+Fbx\+Writer\+::\+Fbx\+Writer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \&}]{p\+Manager}{, }\item[{int}]{p\+ID}{, }\item[{\mbox{\hyperlink{class_fbx_status}{Fbx\+Status}} \&}]{p\+Status}{}\end{DoxyParamCaption})}
+
+Constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Manager} & The \doxylink{class_fbx_manager}{Fbx\+Manager} Object. \\
+\hline
+{\em p\+ID} & Id for current writer. \\
+\hline
+{\em p\+Status} & The \doxylink{class_fbx_status}{Fbx\+Status} object to hold error codes. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_writer_a4b6ae3b6648c00ec98e4ff62fb0383b0}\index{FbxWriter@{FbxWriter}!````~FbxWriter@{\texorpdfstring{$\sim$}{\string~}FbxWriter}}
+\index{````~FbxWriter@{\texorpdfstring{$\sim$}{\string~}FbxWriter}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FbxWriter()}{\string~FbxWriter()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_a4b6ae3b6648c00ec98e4ff62fb0383b0} 
+virtual Fbx\+Writer\+::\texorpdfstring{$\sim$}{\string~}\+Fbx\+Writer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Destructor. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_writer_a9db05cf879a056dce01c960559cee27b}\index{FbxWriter@{FbxWriter}!CheckSpaceInNodeNameRecursive@{CheckSpaceInNodeNameRecursive}}
+\index{CheckSpaceInNodeNameRecursive@{CheckSpaceInNodeNameRecursive}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{CheckSpaceInNodeNameRecursive()}{CheckSpaceInNodeNameRecursive()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_a9db05cf879a056dce01c960559cee27b} 
+virtual bool Fbx\+Writer\+::\+Check\+Space\+In\+Node\+Name\+Recursive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Node}{, }\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+Node\+Name\+List}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Checks if there are spaces in the names of specified node (and its children nodes), and writes the returned node\textquotesingle{}s name in the specified string list. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Node} & Specifies the node to check. \\
+\hline
+{\em p\+Node\+Name\+List} & Specifies the string list where the node name that has spaces in it is recorded. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} If there are no spaces in the name of specified node (and its children nodes), {\ttfamily false} If spaces are found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_writer_a0387142f55d0020fd5360759c12aa121}\index{FbxWriter@{FbxWriter}!FileClose@{FileClose}}
+\index{FileClose@{FileClose}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{FileClose()}{FileClose()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_a0387142f55d0020fd5360759c12aa121} 
+virtual bool Fbx\+Writer\+::\+File\+Close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Closes the file. 
+
+Implemented in \mbox{\hyperlink{class_fbx_writer_collada_a666ff5e80f74e6677bca084078311560}{Fbx\+Writer\+Collada}}, \mbox{\hyperlink{class_fbx_writer_fbx5_abddfd046cf80bb7d75c39a9ef7e9a3ea}{Fbx\+Writer\+Fbx5}}, \mbox{\hyperlink{class_fbx_writer_fbx6_adcb91b5df9f1f9f71429252f62b899e0}{Fbx\+Writer\+Fbx6}}, and \mbox{\hyperlink{class_fbx_writer_fbx7_a609351a2bf1aed4da4298062d18a8858}{Fbx\+Writer\+Fbx7}}.
+
+\Hypertarget{class_fbx_writer_abe6729227cd6e3be5ee3ab0c1b8b0eda}\index{FbxWriter@{FbxWriter}!FileCreate@{FileCreate}}
+\index{FileCreate@{FileCreate}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{FileCreate()}{FileCreate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_writer_abe6729227cd6e3be5ee3ab0c1b8b0eda} 
+virtual bool Fbx\+Writer\+::\+File\+Create (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{p\+File\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Creates a new file. 
+\begin{DoxyParams}{Parameters}
+{\em p\+File\+Name} & The name of the newly created file. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_fbx_writer_collada_a93265ea39cba3223efc3cb360bbd9459}{Fbx\+Writer\+Collada}}, \mbox{\hyperlink{class_fbx_writer_fbx5_a69fc47f06b9293ad31da7752f6526e5c}{Fbx\+Writer\+Fbx5}}, \mbox{\hyperlink{class_fbx_writer_fbx6_aa93842c9e31e03025183bf0f719d3bda}{Fbx\+Writer\+Fbx6}}, and \mbox{\hyperlink{class_fbx_writer_fbx7_ae31fcf56e6240adf94da8feb78091d04}{Fbx\+Writer\+Fbx7}}.
+
+\Hypertarget{class_fbx_writer_a9b64b6230b05e64a83b78b36d1667da7}\index{FbxWriter@{FbxWriter}!FileCreate@{FileCreate}}
+\index{FileCreate@{FileCreate}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{FileCreate()}{FileCreate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_writer_a9b64b6230b05e64a83b78b36d1667da7} 
+virtual bool Fbx\+Writer\+::\+File\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \texorpdfstring{$\ast$}{*}}]{p\+Stream}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Stream\+Data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Creates a new file via a stream. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Stream} & The stream to write to. \\
+\hline
+{\em p\+Stream\+Data} & the user-\/defined stream data to be written. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_writer_fbx5_a74dd5ee93115fe36e541e0d925ce943d}{Fbx\+Writer\+Fbx5}}, \mbox{\hyperlink{class_fbx_writer_fbx6_a0129a8116db6edffe28b82aeb479cdd0}{Fbx\+Writer\+Fbx6}}, and \mbox{\hyperlink{class_fbx_writer_fbx7_ab3e55a57302271d5823fe6451d8c5b65}{Fbx\+Writer\+Fbx7}}.
+
+\Hypertarget{class_fbx_writer_a0fa0ae7039bb3caf7ba5f7aabdd451f1}\index{FbxWriter@{FbxWriter}!FindRootNode@{FindRootNode}}
+\index{FindRootNode@{FindRootNode}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{FindRootNode()}{FindRootNode()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_a0fa0ae7039bb3caf7ba5f7aabdd451f1} 
+virtual \mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*} Fbx\+Writer\+::\+Find\+Root\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \&}]{p\+Scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Finds the selected root node in the specified scene. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Scene} & The scene in which the selected root node is found. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The located root node.{\ttfamily NULL} if the selected root node cannot be found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_writer_ae5b5b36e6680879fb1d53e0f91985405}\index{FbxWriter@{FbxWriter}!GetIOSettings@{GetIOSettings}}
+\index{GetIOSettings@{GetIOSettings}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{GetIOSettings()}{GetIOSettings()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_ae5b5b36e6680879fb1d53e0f91985405} 
+virtual \mbox{\hyperlink{class_fbx_i_o_settings}{Fbx\+IOSettings}} \texorpdfstring{$\ast$}{*} Fbx\+Writer\+::\+Get\+IOSettings (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Access to a IOSettings object. \begin{DoxyReturn}{Returns}
+The pointer to IOSettings or {\ttfamily NULL} {\ttfamily if} the object has not been allocated. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_writer_ad237f5cd183ae29f744aee32b7aa5525}\index{FbxWriter@{FbxWriter}!GetWriteOptions@{GetWriteOptions}}
+\index{GetWriteOptions@{GetWriteOptions}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{GetWriteOptions()}{GetWriteOptions()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_ad237f5cd183ae29f744aee32b7aa5525} 
+virtual void Fbx\+Writer\+::\+Get\+Write\+Options (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Setup write options. 
+
+Implemented in \mbox{\hyperlink{class_fbx_writer_collada_abcd95609b43e3705ea2d4c3dcb1194ab}{Fbx\+Writer\+Collada}}, \mbox{\hyperlink{class_fbx_writer_fbx5_a365d2ec23745dc8ccfc22d9a5be0123b}{Fbx\+Writer\+Fbx5}}, \mbox{\hyperlink{class_fbx_writer_fbx6_a3282935ed38a5297406e165029f516d0}{Fbx\+Writer\+Fbx6}}, and \mbox{\hyperlink{class_fbx_writer_fbx7_a76b3dd89666049d41007f4e5ecaf4591}{Fbx\+Writer\+Fbx7}}.
+
+\Hypertarget{class_fbx_writer_ab70be3aaebd304af11cdce5e225cce68}\index{FbxWriter@{FbxWriter}!IsFileOpen@{IsFileOpen}}
+\index{IsFileOpen@{IsFileOpen}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{IsFileOpen()}{IsFileOpen()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_ab70be3aaebd304af11cdce5e225cce68} 
+virtual bool Fbx\+Writer\+::\+Is\+File\+Open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Test if the file is open. 
+
+Implemented in \mbox{\hyperlink{class_fbx_writer_collada_a6313ce18ed25aa5833159546fb574b43}{Fbx\+Writer\+Collada}}, \mbox{\hyperlink{class_fbx_writer_fbx5_a014cdb5ca71518ee691978082724dd12}{Fbx\+Writer\+Fbx5}}, \mbox{\hyperlink{class_fbx_writer_fbx6_adc0ba82e827cabf952387327080ab2a1}{Fbx\+Writer\+Fbx6}}, and \mbox{\hyperlink{class_fbx_writer_fbx7_a3ab3f1f27d9316d37383e8ba84c5c928}{Fbx\+Writer\+Fbx7}}.
+
+\Hypertarget{class_fbx_writer_a030c374bcc699993ea32225a4624532a}\index{FbxWriter@{FbxWriter}!IsGenuine@{IsGenuine}}
+\index{IsGenuine@{IsGenuine}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{IsGenuine()}{IsGenuine()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_a030c374bcc699993ea32225a4624532a} 
+bool Fbx\+Writer\+::\+Is\+Genuine (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Test if file format is an internal plug-\/in . A non genuine plug-\/in is a plug-\/in made by someone external to Autodesk FBX SDK group. \begin{DoxyReturn}{Returns}
+{\ttfamily true} If the file format is an internal plug-\/in ,{\ttfamily false} Otherwise . 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_writer_aeca3bf711e9fb1815c90b3423773010d}\index{FbxWriter@{FbxWriter}!PluginsWrite@{PluginsWrite}}
+\index{PluginsWrite@{PluginsWrite}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{PluginsWrite()}{PluginsWrite()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_aeca3bf711e9fb1815c90b3423773010d} 
+void Fbx\+Writer\+::\+Plugins\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_i_o}{Fbx\+IO}} \&}]{p\+Fbx}{, }\item[{bool}]{p\+Write\+Object\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Function called by FBX before writing out any FBX object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Fbx} & File object. \\
+\hline
+{\em p\+Write\+Object\+Id} & Flag to write out object id. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_writer_a851219ad904ebdce34acd3b8699cb0c8}\index{FbxWriter@{FbxWriter}!PluginWriteParameters@{PluginWriteParameters}}
+\index{PluginWriteParameters@{PluginWriteParameters}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{PluginWriteParameters()}{PluginWriteParameters()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_a851219ad904ebdce34acd3b8699cb0c8} 
+virtual void Fbx\+Writer\+::\+Plugin\+Write\+Parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&}]{p\+Params}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Writes extension plug-\/ins name, version and parameters, so that we can remember if a plug-\/in was used during export. This is especially useful for extension plug-\/ins that modify the scene and also to warn users during import if an extension plug-\/in was used that could be missing. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Params} & The parameters of the extension plug-\/in. The properties of the objects are used as the parameters of the extension plug-\/in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+This function has no implementation in this class. Only sub-\/class should implement it as needed. For example, FBX 6 and FBX 7 does implement it. 
+\end{DoxyRemark}
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_writer_fbx6_ad577cf5deef5e6278df70fa4ce931b07}{Fbx\+Writer\+Fbx6}}, and \mbox{\hyperlink{class_fbx_writer_fbx7_aae0a4b8ae64eea27e5f1c2c13fd6cd07}{Fbx\+Writer\+Fbx7}}.
+
+\Hypertarget{class_fbx_writer_a1cfdf59f72ebe777484862e4b64b5d65}\index{FbxWriter@{FbxWriter}!PostprocessScene@{PostprocessScene}}
+\index{PostprocessScene@{PostprocessScene}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{PostprocessScene()}{PostprocessScene()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_a1cfdf59f72ebe777484862e4b64b5d65} 
+virtual bool Fbx\+Writer\+::\+Postprocess\+Scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \&}]{p\+Scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Post-\/processes the scene. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Scene} & The scene needs to be post-\/processed. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_fbx_writer_collada_a0244d999f99a853a287a9803d8b0e451}{Fbx\+Writer\+Collada}}, \mbox{\hyperlink{class_fbx_writer_fbx5_aa3c2ce1111cfe528b0b4929e69238507}{Fbx\+Writer\+Fbx5}}, \mbox{\hyperlink{class_fbx_writer_fbx6_a2b7157464d675adabc72e4022686be2c}{Fbx\+Writer\+Fbx6}}, and \mbox{\hyperlink{class_fbx_writer_fbx7_a217b47c0e2a76e5c182907a518734d36}{Fbx\+Writer\+Fbx7}}.
+
+\Hypertarget{class_fbx_writer_a0fd62ec785e7108924975591ee8fbf30}\index{FbxWriter@{FbxWriter}!PreprocessScene@{PreprocessScene}}
+\index{PreprocessScene@{PreprocessScene}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{PreprocessScene()}{PreprocessScene()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_a0fd62ec785e7108924975591ee8fbf30} 
+virtual bool Fbx\+Writer\+::\+Preprocess\+Scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \&}]{p\+Scene}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Pre-\/processes the scene. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Scene} & The scene needs to be pre-\/processed. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_fbx_writer_collada_ada0874fe626350cc7c26bc68a5436b19}{Fbx\+Writer\+Collada}}, \mbox{\hyperlink{class_fbx_writer_fbx5_a6eb063dd8565fdc32271e579c0e61602}{Fbx\+Writer\+Fbx5}}, \mbox{\hyperlink{class_fbx_writer_fbx6_afc698b857a05421014d512235b4e3a2b}{Fbx\+Writer\+Fbx6}}, and \mbox{\hyperlink{class_fbx_writer_fbx7_afb9dca6ffaaa74a8f0d6389eb32c40c4}{Fbx\+Writer\+Fbx7}}.
+
+\Hypertarget{class_fbx_writer_a7f792c49a3550deb39aa994db188c47f}\index{FbxWriter@{FbxWriter}!SetFileExportVersion@{SetFileExportVersion}}
+\index{SetFileExportVersion@{SetFileExportVersion}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{SetFileExportVersion()}{SetFileExportVersion()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_a7f792c49a3550deb39aa994db188c47f} 
+bool Fbx\+Writer\+::\+Set\+File\+Export\+Version (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}}}]{p\+Version}{}\end{DoxyParamCaption})}
+
+Sets the file export version as specified. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Version} & The specified file export version. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_writer_acdc632472e0252b6087fd55ef05a7e2a}\index{FbxWriter@{FbxWriter}!SetIOSettings@{SetIOSettings}}
+\index{SetIOSettings@{SetIOSettings}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{SetIOSettings()}{SetIOSettings()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_acdc632472e0252b6087fd55ef05a7e2a} 
+virtual void Fbx\+Writer\+::\+Set\+IOSettings (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_i_o_settings}{Fbx\+IOSettings}} \texorpdfstring{$\ast$}{*}}]{p\+IOSettings}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Set the IOSettings pointer to be used for this writer instance. 
+\begin{DoxyParams}{Parameters}
+{\em p\+IOSettings} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_writer_a1a3cf241a0c11364981ebd23be59fd8f}\index{FbxWriter@{FbxWriter}!SetProgressHandler@{SetProgressHandler}}
+\index{SetProgressHandler@{SetProgressHandler}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{SetProgressHandler()}{SetProgressHandler()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_a1a3cf241a0c11364981ebd23be59fd8f} 
+virtual void Fbx\+Writer\+::\+Set\+Progress\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_progress}{Fbx\+Progress}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Pass a progress handler to the writer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Progress} & \doxylink{class_fbx_progress}{Fbx\+Progress} to store the progress information. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_fbx_writer_fbx6_af009064e0d27f9dfbc7259a52d8fd118}{Fbx\+Writer\+Fbx6}}, and \mbox{\hyperlink{class_fbx_writer_fbx7_aff15dd1af84de1484f9e3e2f492c210b}{Fbx\+Writer\+Fbx7}}.
+
+\Hypertarget{class_fbx_writer_aba927b8b74b98fae0074662a2924a6b0}\index{FbxWriter@{FbxWriter}!SetRenamingMode@{SetRenamingMode}}
+\index{SetRenamingMode@{SetRenamingMode}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{SetRenamingMode()}{SetRenamingMode()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_aba927b8b74b98fae0074662a2924a6b0} 
+void Fbx\+Writer\+::\+Set\+Renaming\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_scene_renamer_a9279ee1a645d6499b934adbc376f8678}{Fbx\+Scene\+Renamer\+::\+ERenaming\+Mode}}}]{p\+Renaming\+Mode}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the renaming mode as specified. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Renaming\+Mode} & The specified renaming mode. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_writer_aeed0e237cbed7c5ae6c29aa78932dbe6}\index{FbxWriter@{FbxWriter}!SetResamplingRate@{SetResamplingRate}}
+\index{SetResamplingRate@{SetResamplingRate}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{SetResamplingRate()}{SetResamplingRate()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_aeed0e237cbed7c5ae6c29aa78932dbe6} 
+void Fbx\+Writer\+::\+Set\+Resampling\+Rate (\begin{DoxyParamCaption}\item[{double}]{p\+Resampling\+Rate}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the resampling rate as specified. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Resampling\+Rate} & The specified resampling rate. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_writer_aa79a285227d113ee6d64aee6a84986cd}\index{FbxWriter@{FbxWriter}!SupportsStreams@{SupportsStreams}}
+\index{SupportsStreams@{SupportsStreams}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{SupportsStreams()}{SupportsStreams()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_aa79a285227d113ee6d64aee6a84986cd} 
+virtual bool Fbx\+Writer\+::\+Supports\+Streams (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns true if this writer supports \doxylink{class_fbx_stream}{Fbx\+Stream} I/O. Default value is false. 
+
+Reimplemented in \mbox{\hyperlink{class_fbx_writer_fbx5_aa328277667d52f26a24e509affe61e0f}{Fbx\+Writer\+Fbx5}}, \mbox{\hyperlink{class_fbx_writer_fbx6_a6a15f5a5c2f43ac201991c8efed72f85}{Fbx\+Writer\+Fbx6}}, and \mbox{\hyperlink{class_fbx_writer_fbx7_a3efbd1c10ac234afab11df942ae24f37}{Fbx\+Writer\+Fbx7}}.
+
+\Hypertarget{class_fbx_writer_aa8c0277611da0fdb0b9a184c55c30c2c}\index{FbxWriter@{FbxWriter}!Write@{Write}}
+\index{Write@{Write}!FbxWriter@{FbxWriter}}
+\doxysubsubsection{\texorpdfstring{Write()}{Write()}}
+{\footnotesize\ttfamily \label{class_fbx_writer_aa8c0277611da0fdb0b9a184c55c30c2c} 
+virtual bool Fbx\+Writer\+::\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}}]{p\+Document}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Writes content to the specified file with given stream options 
+\begin{DoxyParams}{Parameters}
+{\em p\+Document} & \doxylink{class_fbx_document}{Fbx\+Document} to write file data to. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_fbx_writer_collada_a1426eaaf7e3a70960caa4521f0b799e3}{Fbx\+Writer\+Collada}}, \mbox{\hyperlink{class_fbx_writer_fbx5_ab9a8b578e8212dd22655e48b146b1b34}{Fbx\+Writer\+Fbx5}}, \mbox{\hyperlink{class_fbx_writer_fbx6_aedc2eaa2276fc16eb303adc0a680842f}{Fbx\+Writer\+Fbx6}}, and \mbox{\hyperlink{class_fbx_writer_fbx7_a85fc6256fc826d27b94950eb0af2a607}{Fbx\+Writer\+Fbx7}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/fileio/\mbox{\hyperlink{fbxwriter_8h}{fbxwriter.\+h}}\end{DoxyCompactItemize}

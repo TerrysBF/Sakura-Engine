@@ -1,0 +1,1044 @@
+\doxysection{Fbx\+String Class Reference}
+\hypertarget{class_fbx_string}{}\label{class_fbx_string}\index{FbxString@{FbxString}}
+
+
+{\ttfamily \#include $<$fbxstring.\+h$>$}
+
+\doxysubsubsection*{Padding}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_string_aad7bebc948b8205ded9d750ea098ba21}{EPadding\+Type}} \{ {\bfseries e\+Right}
+, {\bfseries e\+Left}
+, {\bfseries e\+Both}
+ \}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_a941a76b41dc91d4dfccd447e73567902}{Pad}} (\mbox{\hyperlink{class_fbx_string_aad7bebc948b8205ded9d750ea098ba21}{EPadding\+Type}} p\+Padding, size\+\_\+t p\+Len, char p\+Car=\textquotesingle{} \textquotesingle{}) const
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_aa8884e0a5e912d0f1c3a3c157d4787ff}{Un\+Pad}} (\mbox{\hyperlink{class_fbx_string_aad7bebc948b8205ded9d750ea098ba21}{EPadding\+Type}} p\+Padding, char p\+Car=\textquotesingle{}\textbackslash{}0\textquotesingle{}) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Token Extraction}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_string_a6ac1ce41710e19cf01a3db4f82fecbe0}{Get\+Token\+Count}} (const char \texorpdfstring{$\ast$}{*}p\+Spans) const
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_a1836040bac11746d73e7c665216e0292}{Get\+Token}} (int p\+Token\+Index, const char \texorpdfstring{$\ast$}{*}p\+Spans) const
+\item 
+static int \mbox{\hyperlink{class_fbx_string_aef89caed321fc457e0f6a6e008d5a017}{Get\+Token\+Count}} (const char \texorpdfstring{$\ast$}{*}p\+String, size\+\_\+t p\+String\+Length, char p\+Span)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Constructors and Destructor}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_string_af7a39b49d5e2238203b42c830a6a28f3}\label{class_fbx_string_af7a39b49d5e2238203b42c830a6a28f3} 
+{\bfseries Fbx\+String} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_fbx_string_a7d4974cb96793041faf74947ddebd4ce}{Fbx\+String}} (const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String)
+\item 
+\mbox{\hyperlink{class_fbx_string_ac13dc02cce30f3c297a7f38019dc38ab}{Fbx\+String}} (const char \texorpdfstring{$\ast$}{*}p\+String)
+\item 
+\mbox{\hyperlink{class_fbx_string_a84c809ef712c772fedff9a295378893e}{Fbx\+String}} (char p\+Char, size\+\_\+t p\+Nb\+Repeat=1)
+\item 
+\mbox{\hyperlink{class_fbx_string_a2aa49fbace620d2bb3ac76e01e02673d}{Fbx\+String}} (const char \texorpdfstring{$\ast$}{*}p\+Char\+Ptr, size\+\_\+t p\+Length)
+\item 
+\mbox{\hyperlink{class_fbx_string_a8db1298a9f9580d2511fa28ac8cd2f0f}{Fbx\+String}} (const int p\+Value)
+\item 
+\mbox{\hyperlink{class_fbx_string_ada766330be76ca59b423fbb11adf2181}{Fbx\+String}} (const float p\+Value)
+\item 
+\mbox{\hyperlink{class_fbx_string_a9430a89dc9eac29f35291de87491691b}{Fbx\+String}} (const double p\+Value)
+\item 
+\Hypertarget{class_fbx_string_a36df0b9249f7987f157291b6246b7662}\label{class_fbx_string_a36df0b9249f7987f157291b6246b7662} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Fbx\+String} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Buffer Access and Validation}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_string_aeeead7b16201dd92aa3353c131f40c28}\label{class_fbx_string_aeeead7b16201dd92aa3353c131f40c28} 
+size\+\_\+t {\bfseries Get\+Len} () const
+\begin{DoxyCompactList}\small\item\em Get string length like "{}\+C"{} strlen(). \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_string_afe2befa6b6caf1a4b0ceda5cebb9cb39}\label{class_fbx_string_afe2befa6b6caf1a4b0ceda5cebb9cb39} 
+size\+\_\+t {\bfseries Size} () const
+\begin{DoxyCompactList}\small\item\em Get string length like "{}\+C"{} strlen(). \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_string_af765fdc2a9878ae3474839ac6f6db525}\label{class_fbx_string_af765fdc2a9878ae3474839ac6f6db525} 
+bool {\bfseries Is\+Empty} () const
+\begin{DoxyCompactList}\small\item\em Return {\ttfamily true} if string length equal zero. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_string_a6199988b6e03d8a7a5b2456bf9e05e97}\label{class_fbx_string_a6199988b6e03d8a7a5b2456bf9e05e97} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& {\bfseries Clear} ()
+\begin{DoxyCompactList}\small\item\em Discard the content of the string. \end{DoxyCompactList}\item 
+char \& \mbox{\hyperlink{class_fbx_string_a6be20d3f1a87a2c0027571a40db22e0e}{operator\mbox{[}$\,$\mbox{]}}} (int p\+Index)
+\item 
+char \mbox{\hyperlink{class_fbx_string_a8c9dc4db6de88fef3281566da81d74e7}{operator\mbox{[}$\,$\mbox{]}}} (int p\+Index) const
+\item 
+\Hypertarget{class_fbx_string_aea97f578b083dd83a13364cab3008dd6}\label{class_fbx_string_aea97f578b083dd83a13364cab3008dd6} 
+char \texorpdfstring{$\ast$}{*} {\bfseries Buffer} ()
+\begin{DoxyCompactList}\small\item\em Non-\/const buffer access. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_string_a8687dc311b732179df2e2e5b6ecce169}\label{class_fbx_string_a8687dc311b732179df2e2e5b6ecce169} 
+const char \texorpdfstring{$\ast$}{*} {\bfseries Buffer} () const
+\begin{DoxyCompactList}\small\item\em Const buffer access. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{String Operations}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& \mbox{\hyperlink{class_fbx_string_a0613becea958476aeb9b2ea8e5703ba3}{operator=}} (const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& \mbox{\hyperlink{class_fbx_string_af0339b70360996e0c21f14f8c391e4ae}{operator=}} (char p\+Char)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& \mbox{\hyperlink{class_fbx_string_afa04312befd3e6244a17f0ee4efbdb6e}{operator=}} (const char \texorpdfstring{$\ast$}{*}p\+String)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& \mbox{\hyperlink{class_fbx_string_a28ffa67abf9cc4e8e239c9583787584f}{operator=}} (int p\+Value)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& \mbox{\hyperlink{class_fbx_string_aba4a464d3b5cfc692b8ab66fe7f589c2}{operator=}} (float p\+Value)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& \mbox{\hyperlink{class_fbx_string_a41ee0d09a13fe38c3108ac9b3dbb790f}{operator=}} (double p\+Value)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& \mbox{\hyperlink{class_fbx_string_a560c39566077f2fdd7ad810363a57dc8}{operator+=}} (const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& \mbox{\hyperlink{class_fbx_string_a17c7d5fbadbc599ffef117911f9cd2e0}{operator+=}} (char p\+Char)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& \mbox{\hyperlink{class_fbx_string_aa05f086c792c5bd0beeec5e5ec8a1db0}{operator+=}} (const char \texorpdfstring{$\ast$}{*}p\+String)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& \mbox{\hyperlink{class_fbx_string_a31c52c269b9f49fab6cca1e9192caa1a}{operator+=}} (int p\+Value)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& \mbox{\hyperlink{class_fbx_string_aa15552f2fa1353612a0bc4ca6bad1064}{operator+=}} (float p\+Value)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& \mbox{\hyperlink{class_fbx_string_ad5bb109a6faf2a10b4f0e28259470a2a}{operator+=}} (double p\+Value)
+\item 
+bool \mbox{\hyperlink{class_fbx_string_aafbaa4e17d510d9027431cc94ac383ce}{operator==}} (const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String) const
+\item 
+bool \mbox{\hyperlink{class_fbx_string_a882e2129d8e793e6594260e748db5553}{operator!=}} (const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String) const
+\item 
+bool \mbox{\hyperlink{class_fbx_string_a96940463f18a845a15580a1b90890677}{operator$<$}} (const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String) const
+\item 
+bool \mbox{\hyperlink{class_fbx_string_a6154ef9580e5cc38e8672f28834c6540}{operator$<$=}} (const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String) const
+\item 
+bool \mbox{\hyperlink{class_fbx_string_a8e6107be9189058c44856cc971152f65}{operator$>$=}} (const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String) const
+\item 
+bool \mbox{\hyperlink{class_fbx_string_ae21fb26fd94ff4ba33d0fc181d26c807}{operator$>$}} (const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String) const
+\item 
+bool \mbox{\hyperlink{class_fbx_string_a292bdfc5c4bd13a7dd05c3660974f7d6}{operator==}} (const char \texorpdfstring{$\ast$}{*}p\+String) const
+\item 
+bool \mbox{\hyperlink{class_fbx_string_acbf3d5ae883d8a17d61b316c420fc94b}{operator!=}} (const char \texorpdfstring{$\ast$}{*}p\+String) const
+\item 
+bool \mbox{\hyperlink{class_fbx_string_a690101be9e73d2296074a688646c9619}{operator$<$}} (const char \texorpdfstring{$\ast$}{*}p\+String) const
+\item 
+bool \mbox{\hyperlink{class_fbx_string_ab20ec27bf61855ed5906220fd4f9e4d4}{operator$<$=}} (const char \texorpdfstring{$\ast$}{*}p\+String) const
+\item 
+bool \mbox{\hyperlink{class_fbx_string_ace37c7b32e99f8c7099014058870d4d6}{operator$>$=}} (const char \texorpdfstring{$\ast$}{*}p\+String) const
+\item 
+bool \mbox{\hyperlink{class_fbx_string_a67a9187d6ea2ee056a2d1b6acac6ad03}{operator$>$}} (const char \texorpdfstring{$\ast$}{*}p\+String) const
+\item 
+\Hypertarget{class_fbx_string_a53f82ee512ae5c6f17a3907c1373d62e}\label{class_fbx_string_a53f82ee512ae5c6f17a3907c1373d62e} 
+{\bfseries operator const char \texorpdfstring{$\ast$}{*}} () const
+\begin{DoxyCompactList}\small\item\em Cast operator. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& \mbox{\hyperlink{class_fbx_string_af596b72408adc0df6ed89f9b517ca49a}{Copy}} (const char \texorpdfstring{$\ast$}{*}p\+String, size\+\_\+t p\+Length)
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& \mbox{\hyperlink{class_fbx_string_ad84951fd4cb26f97ac88b8816102b177}{Append}} (const char \texorpdfstring{$\ast$}{*}p\+String, size\+\_\+t p\+Length)
+\item 
+int \mbox{\hyperlink{class_fbx_string_a42ed521019bea60f8bc77079c41adc06}{Compare}} (const char \texorpdfstring{$\ast$}{*}p\+String) const
+\item 
+int \mbox{\hyperlink{class_fbx_string_a8c7068a46cd93a53b982a97026cde255}{Compare\+No\+Case}} (const char \texorpdfstring{$\ast$}{*}p\+String) const
+\item 
+void \mbox{\hyperlink{class_fbx_string_a12d620f75a2e54100374dbedfc786ae8}{Swap}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String)
+\item 
+\Hypertarget{class_fbx_string_ac8b1171ab4e292c7911f862ed7cc0939}\label{class_fbx_string_ac8b1171ab4e292c7911f862ed7cc0939} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} {\bfseries Upper} () const
+\begin{DoxyCompactList}\small\item\em Uppercase conversion. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_string_ad4ee2f69df02ceb7614910cf32b04653}\label{class_fbx_string_ad4ee2f69df02ceb7614910cf32b04653} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} {\bfseries Lower} () const
+\begin{DoxyCompactList}\small\item\em Lowercase conversion. \end{DoxyCompactList}\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_a2d28339557e99afdfe33ae62c80016c7}{operator+}} (const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String1, const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String2)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_fbx_string}{Fbx\+String} concatenation. \end{DoxyCompactList}\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_a900b603cd32d01c50eb97c3accdca223}{operator+}} (const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String, char p\+Char)
+\begin{DoxyCompactList}\small\item\em Character concatenation. \end{DoxyCompactList}\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_ab5928d3d3a3b0d6e39136a02c7b7014e}{operator+}} (char p\+Char, const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String)
+\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_a1711d58fcd5d75ee4e66ff08f3bcda05}{operator+}} (const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String1, const char \texorpdfstring{$\ast$}{*}p\+String2)
+\begin{DoxyCompactList}\small\item\em String concatenation. \end{DoxyCompactList}\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_a743035bdca2dc41d72054a797b5ab609}{operator+}} (const char \texorpdfstring{$\ast$}{*}p\+String1, const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String2)
+\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_a47e12177b25793bc4dbee111b17b433d}{operator+}} (const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String, int p\+Value)
+\begin{DoxyCompactList}\small\item\em Integer concatenation. \end{DoxyCompactList}\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_ac72b5d26f6740fac673665c33ae9ac7f}{operator+}} (int p\+Value, const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String)
+\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_aac0e3ec29f0758f9359132067e1f9bf7}{operator+}} (const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String, float p\+Value)
+\begin{DoxyCompactList}\small\item\em Float concatenation. \end{DoxyCompactList}\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_ad24f53b332e3ad680ee80783e39fd554}{operator+}} (float p\+Value, const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String)
+\item 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_a358d5e7bed17720e4310db397dbcbf53}{operator+}} (const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String, double p\+Value)
+\begin{DoxyCompactList}\small\item\em Double concatenation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Substring Extraction}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_a308c70f64a1f9504e550438af97a3eeb}{Mid}} (size\+\_\+t p\+First, size\+\_\+t p\+Count) const
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_abec59547bba055c6f339e77be28feb0a}{Mid}} (size\+\_\+t p\+First) const
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_a61c3156aa112a9b2a2eba59b37db1feb}{Left}} (size\+\_\+t p\+Count) const
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_string_a48148b426b07c11495d981e026b25857}{Right}} (size\+\_\+t p\+Count) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Search}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_string_a6089c51dcf07542e8ac5401a2883d81d}{Find}} (char p\+Char, size\+\_\+t p\+Start\+Position=0) const
+\item 
+int \mbox{\hyperlink{class_fbx_string_a1e8f4ebd8ffd89a77b093071cad9bd2c}{Find}} (const char \texorpdfstring{$\ast$}{*}p\+Str\+Sub, size\+\_\+t p\+Start\+Position=0) const
+\item 
+int \mbox{\hyperlink{class_fbx_string_ace5a9c1f1e86a44c5ee70ff7fa70a4a2}{Reverse\+Find}} (char p\+Char) const
+\item 
+int \mbox{\hyperlink{class_fbx_string_a9bca9f3f617dbb8f00969d0554f3204e}{Find\+One\+Of}} (const char \texorpdfstring{$\ast$}{*}p\+Str\+Char\+Set, size\+\_\+t p\+Start\+Position=0) const
+\item 
+bool \mbox{\hyperlink{class_fbx_string_a5ace1d727a05548db34a3bfb79e336d1}{Find\+And\+Replace}} (const char \texorpdfstring{$\ast$}{*}p\+Find, const char \texorpdfstring{$\ast$}{*}p\+Replace\+By, size\+\_\+t p\+Start\+Position=0)
+\item 
+bool \mbox{\hyperlink{class_fbx_string_af4d66e188f7c62145125a1414c36f627}{Replace\+All}} (const char \texorpdfstring{$\ast$}{*}p\+Find, const char \texorpdfstring{$\ast$}{*}p\+Replace\+By)
+\item 
+bool \mbox{\hyperlink{class_fbx_string_ad6b80193fddfef2c2c42117c7891322e}{Replace\+All}} (char p\+Find, char p\+Replace\+By)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility class to manipulate strings. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_fbx_string_aad7bebc948b8205ded9d750ea098ba21}\index{FbxString@{FbxString}!EPaddingType@{EPaddingType}}
+\index{EPaddingType@{EPaddingType}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{EPaddingType}{EPaddingType}}
+{\footnotesize\ttfamily \label{class_fbx_string_aad7bebc948b8205ded9d750ea098ba21} 
+enum \mbox{\hyperlink{class_fbx_string_aad7bebc948b8205ded9d750ea098ba21}{Fbx\+String\+::\+EPadding\+Type}}}
+
+Padding types.
+\begin{DoxyItemize}
+\item {\itshape e\+Right} 
+\item {\itshape e\+Left} 
+\item {\itshape e\+Both} 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_string_a7d4974cb96793041faf74947ddebd4ce}\index{FbxString@{FbxString}!FbxString@{FbxString}}
+\index{FbxString@{FbxString}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{FbxString()}{FbxString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a7d4974cb96793041faf74947ddebd4ce} 
+Fbx\+String\+::\+Fbx\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption})}
+
+Copy constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The \doxylink{class_fbx_string}{Fbx\+String} to be copied. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_ac13dc02cce30f3c297a7f38019dc38ab}\index{FbxString@{FbxString}!FbxString@{FbxString}}
+\index{FbxString@{FbxString}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{FbxString()}{FbxString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily \label{class_fbx_string_ac13dc02cce30f3c297a7f38019dc38ab} 
+Fbx\+String\+::\+Fbx\+String (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String}{}\end{DoxyParamCaption})}
+
+String constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The string used to construct \doxylink{class_fbx_string}{Fbx\+String}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a84c809ef712c772fedff9a295378893e}\index{FbxString@{FbxString}!FbxString@{FbxString}}
+\index{FbxString@{FbxString}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{FbxString()}{FbxString()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a84c809ef712c772fedff9a295378893e} 
+Fbx\+String\+::\+Fbx\+String (\begin{DoxyParamCaption}\item[{char}]{p\+Char}{, }\item[{size\+\_\+t}]{p\+Nb\+Repeat}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+Character constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Char} & The character used to construct \doxylink{class_fbx_string}{Fbx\+String}. \\
+\hline
+{\em p\+Nb\+Repeat} & The number of times to repeat the character. Default value is 1 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a2aa49fbace620d2bb3ac76e01e02673d}\index{FbxString@{FbxString}!FbxString@{FbxString}}
+\index{FbxString@{FbxString}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{FbxString()}{FbxString()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a2aa49fbace620d2bb3ac76e01e02673d} 
+Fbx\+String\+::\+Fbx\+String (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Char\+Ptr}{, }\item[{size\+\_\+t}]{p\+Length}{}\end{DoxyParamCaption})}
+
+String constructor with maximum length. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Char\+Ptr} & The string used to construct \doxylink{class_fbx_string}{Fbx\+String}. \\
+\hline
+{\em p\+Length} & Maximum length. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a8db1298a9f9580d2511fa28ac8cd2f0f}\index{FbxString@{FbxString}!FbxString@{FbxString}}
+\index{FbxString@{FbxString}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{FbxString()}{FbxString()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a8db1298a9f9580d2511fa28ac8cd2f0f} 
+Fbx\+String\+::\+Fbx\+String (\begin{DoxyParamCaption}\item[{const int}]{p\+Value}{}\end{DoxyParamCaption})}
+
+Integer constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Value} & The int value used to construct \doxylink{class_fbx_string}{Fbx\+String}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_ada766330be76ca59b423fbb11adf2181}\index{FbxString@{FbxString}!FbxString@{FbxString}}
+\index{FbxString@{FbxString}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{FbxString()}{FbxString()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily \label{class_fbx_string_ada766330be76ca59b423fbb11adf2181} 
+Fbx\+String\+::\+Fbx\+String (\begin{DoxyParamCaption}\item[{const float}]{p\+Value}{}\end{DoxyParamCaption})}
+
+Float constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Value} & The float value used to construct \doxylink{class_fbx_string}{Fbx\+String}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a9430a89dc9eac29f35291de87491691b}\index{FbxString@{FbxString}!FbxString@{FbxString}}
+\index{FbxString@{FbxString}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{FbxString()}{FbxString()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a9430a89dc9eac29f35291de87491691b} 
+Fbx\+String\+::\+Fbx\+String (\begin{DoxyParamCaption}\item[{const double}]{p\+Value}{}\end{DoxyParamCaption})}
+
+Double constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Value} & The double value used to construct \doxylink{class_fbx_string}{Fbx\+String}. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_string_ad84951fd4cb26f97ac88b8816102b177}\index{FbxString@{FbxString}!Append@{Append}}
+\index{Append@{Append}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{Append()}{Append()}}
+{\footnotesize\ttfamily \label{class_fbx_string_ad84951fd4cb26f97ac88b8816102b177} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& Fbx\+String\+::\+Append (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String}{, }\item[{size\+\_\+t}]{p\+Length}{}\end{DoxyParamCaption})}
+
+Append as "{}\+C"{} strncat(). 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The string to be appended. \\
+\hline
+{\em p\+Length} & The length of chars to be appended. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a42ed521019bea60f8bc77079c41adc06}\index{FbxString@{FbxString}!Compare@{Compare}}
+\index{Compare@{Compare}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{Compare()}{Compare()}}
+{\footnotesize\ttfamily \label{class_fbx_string_a42ed521019bea60f8bc77079c41adc06} 
+int Fbx\+String\+::\+Compare (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String}{}\end{DoxyParamCaption}) const}
+
+Compare as "{}\+C"{} strcmp(). 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The string to be compared. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a8c7068a46cd93a53b982a97026cde255}\index{FbxString@{FbxString}!CompareNoCase@{CompareNoCase}}
+\index{CompareNoCase@{CompareNoCase}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{CompareNoCase()}{CompareNoCase()}}
+{\footnotesize\ttfamily \label{class_fbx_string_a8c7068a46cd93a53b982a97026cde255} 
+int Fbx\+String\+::\+Compare\+No\+Case (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String}{}\end{DoxyParamCaption}) const}
+
+Compare as "{}\+C"{} stricmp(). 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The string to be compared. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_af596b72408adc0df6ed89f9b517ca49a}\index{FbxString@{FbxString}!Copy@{Copy}}
+\index{Copy@{Copy}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily \label{class_fbx_string_af596b72408adc0df6ed89f9b517ca49a} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& Fbx\+String\+::\+Copy (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String}{, }\item[{size\+\_\+t}]{p\+Length}{}\end{DoxyParamCaption})}
+
+String assignment function with maximum length. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The string to be assigned. \\
+\hline
+{\em p\+Length} & The maximum length of string to be assigned. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a6089c51dcf07542e8ac5401a2883d81d}\index{FbxString@{FbxString}!Find@{Find}}
+\index{Find@{Find}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{Find()}{Find()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a6089c51dcf07542e8ac5401a2883d81d} 
+int Fbx\+String\+::\+Find (\begin{DoxyParamCaption}\item[{char}]{p\+Char}{, }\item[{size\+\_\+t}]{p\+Start\+Position}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const}
+
+Look for a single character match, like "{}\+C"{} strchr(). 
+\begin{DoxyParams}{Parameters}
+{\em p\+Char} & The character to look for. \\
+\hline
+{\em p\+Start\+Position} & Start position to look for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index or -\/1 if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_string_a1e8f4ebd8ffd89a77b093071cad9bd2c}\index{FbxString@{FbxString}!Find@{Find}}
+\index{Find@{Find}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{Find()}{Find()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a1e8f4ebd8ffd89a77b093071cad9bd2c} 
+int Fbx\+String\+::\+Find (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Str\+Sub}{, }\item[{size\+\_\+t}]{p\+Start\+Position}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const}
+
+Look for a substring match, like "{}\+C"{} strstr(). 
+\begin{DoxyParams}{Parameters}
+{\em p\+Str\+Sub} & The substring to look for. \\
+\hline
+{\em p\+Start\+Position} & Start position to look for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Starting index or -\/1 if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_string_a5ace1d727a05548db34a3bfb79e336d1}\index{FbxString@{FbxString}!FindAndReplace@{FindAndReplace}}
+\index{FindAndReplace@{FindAndReplace}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{FindAndReplace()}{FindAndReplace()}}
+{\footnotesize\ttfamily \label{class_fbx_string_a5ace1d727a05548db34a3bfb79e336d1} 
+bool Fbx\+String\+::\+Find\+And\+Replace (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Find}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Replace\+By}{, }\item[{size\+\_\+t}]{p\+Start\+Position}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+Replace a substring. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Find} & The substring to look for. \\
+\hline
+{\em p\+Replace\+By} & The string to replace by. \\
+\hline
+{\em p\+Start\+Position} & The start position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if substring found and replaced. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_string_a9bca9f3f617dbb8f00969d0554f3204e}\index{FbxString@{FbxString}!FindOneOf@{FindOneOf}}
+\index{FindOneOf@{FindOneOf}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{FindOneOf()}{FindOneOf()}}
+{\footnotesize\ttfamily \label{class_fbx_string_a9bca9f3f617dbb8f00969d0554f3204e} 
+int Fbx\+String\+::\+Find\+One\+Of (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Str\+Char\+Set}{, }\item[{size\+\_\+t}]{p\+Start\+Position}{ = {\ttfamily 0}}\end{DoxyParamCaption}) const}
+
+Look for a single character match, like "{}\+C"{} strpbrk(). 
+\begin{DoxyParams}{Parameters}
+{\em p\+Str\+Char\+Set} & The character set. \\
+\hline
+{\em p\+Start\+Position} & The start position. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index or -\/1 if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_string_a1836040bac11746d73e7c665216e0292}\index{FbxString@{FbxString}!GetToken@{GetToken}}
+\index{GetToken@{GetToken}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{GetToken()}{GetToken()}}
+{\footnotesize\ttfamily \label{class_fbx_string_a1836040bac11746d73e7c665216e0292} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+String\+::\+Get\+Token (\begin{DoxyParamCaption}\item[{int}]{p\+Token\+Index}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Spans}{}\end{DoxyParamCaption}) const}
+
+Get token at given index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Token\+Index} & The token index. \\
+\hline
+{\em p\+Spans} & The span \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a6ac1ce41710e19cf01a3db4f82fecbe0}\index{FbxString@{FbxString}!GetTokenCount@{GetTokenCount}}
+\index{GetTokenCount@{GetTokenCount}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{GetTokenCount()}{GetTokenCount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a6ac1ce41710e19cf01a3db4f82fecbe0} 
+int Fbx\+String\+::\+Get\+Token\+Count (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Spans}{}\end{DoxyParamCaption}) const}
+
+Get number of tokens. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Spans} & The span \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of tokens. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_string_aef89caed321fc457e0f6a6e008d5a017}\index{FbxString@{FbxString}!GetTokenCount@{GetTokenCount}}
+\index{GetTokenCount@{GetTokenCount}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{GetTokenCount()}{GetTokenCount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_aef89caed321fc457e0f6a6e008d5a017} 
+static int Fbx\+String\+::\+Get\+Token\+Count (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String}{, }\item[{size\+\_\+t}]{p\+String\+Length}{, }\item[{char}]{p\+Span}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get number of tokens. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The string \\
+\hline
+{\em p\+String\+Length} & The length of the string \\
+\hline
+{\em p\+Span} & The span \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of tokens. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_string_a61c3156aa112a9b2a2eba59b37db1feb}\index{FbxString@{FbxString}!Left@{Left}}
+\index{Left@{Left}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{Left()}{Left()}}
+{\footnotesize\ttfamily \label{class_fbx_string_a61c3156aa112a9b2a2eba59b37db1feb} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+String\+::\+Left (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{p\+Count}{}\end{DoxyParamCaption}) const}
+
+Extract left string. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Count} & The length of sub-\/string to be extracted. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_abec59547bba055c6f339e77be28feb0a}\index{FbxString@{FbxString}!Mid@{Mid}}
+\index{Mid@{Mid}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{Mid()}{Mid()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_abec59547bba055c6f339e77be28feb0a} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+String\+::\+Mid (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{p\+First}{}\end{DoxyParamCaption}) const}
+
+Extract middle string up to the end. 
+\begin{DoxyParams}{Parameters}
+{\em p\+First} & The start index of \doxylink{class_fbx_string}{Fbx\+String} to be extracted. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a308c70f64a1f9504e550438af97a3eeb}\index{FbxString@{FbxString}!Mid@{Mid}}
+\index{Mid@{Mid}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{Mid()}{Mid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a308c70f64a1f9504e550438af97a3eeb} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+String\+::\+Mid (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{p\+First}{, }\item[{size\+\_\+t}]{p\+Count}{}\end{DoxyParamCaption}) const}
+
+Extract middle string for a given length. 
+\begin{DoxyParams}{Parameters}
+{\em p\+First} & The start index of \doxylink{class_fbx_string}{Fbx\+String} to be extracted. \\
+\hline
+{\em p\+Count} & The length of sub-\/string to be extracted. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_acbf3d5ae883d8a17d61b316c420fc94b}\index{FbxString@{FbxString}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_acbf3d5ae883d8a17d61b316c420fc94b} 
+bool Fbx\+String\+::operator!= (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String}{}\end{DoxyParamCaption}) const}
+
+Inequality operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The string to be compared. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a882e2129d8e793e6594260e748db5553}\index{FbxString@{FbxString}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a882e2129d8e793e6594260e748db5553} 
+bool Fbx\+String\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption}) const}
+
+Inequality operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The \doxylink{class_fbx_string}{Fbx\+String} to be compared. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a17c7d5fbadbc599ffef117911f9cd2e0}\index{FbxString@{FbxString}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a17c7d5fbadbc599ffef117911f9cd2e0} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& Fbx\+String\+::operator+= (\begin{DoxyParamCaption}\item[{char}]{p\+Char}{}\end{DoxyParamCaption})}
+
+Character append. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Char} & The character to be appended. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_aa05f086c792c5bd0beeec5e5ec8a1db0}\index{FbxString@{FbxString}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily \label{class_fbx_string_aa05f086c792c5bd0beeec5e5ec8a1db0} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& Fbx\+String\+::operator+= (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String}{}\end{DoxyParamCaption})}
+
+String append. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The string to be appended. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a560c39566077f2fdd7ad810363a57dc8}\index{FbxString@{FbxString}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a560c39566077f2fdd7ad810363a57dc8} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& Fbx\+String\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption})}
+
+\doxylink{class_fbx_string}{Fbx\+String} append. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The \doxylink{class_fbx_string}{Fbx\+String} to be appended. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_ad5bb109a6faf2a10b4f0e28259470a2a}\index{FbxString@{FbxString}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily \label{class_fbx_string_ad5bb109a6faf2a10b4f0e28259470a2a} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& Fbx\+String\+::operator+= (\begin{DoxyParamCaption}\item[{double}]{p\+Value}{}\end{DoxyParamCaption})}
+
+Double append. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Value} & The double value to be appended. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_aa15552f2fa1353612a0bc4ca6bad1064}\index{FbxString@{FbxString}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily \label{class_fbx_string_aa15552f2fa1353612a0bc4ca6bad1064} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& Fbx\+String\+::operator+= (\begin{DoxyParamCaption}\item[{float}]{p\+Value}{}\end{DoxyParamCaption})}
+
+Float append. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Value} & The float value to be appended. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a31c52c269b9f49fab6cca1e9192caa1a}\index{FbxString@{FbxString}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a31c52c269b9f49fab6cca1e9192caa1a} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& Fbx\+String\+::operator+= (\begin{DoxyParamCaption}\item[{int}]{p\+Value}{}\end{DoxyParamCaption})}
+
+Integer append. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Value} & The int value to be appended. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a690101be9e73d2296074a688646c9619}\index{FbxString@{FbxString}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a690101be9e73d2296074a688646c9619} 
+bool Fbx\+String\+::operator$<$ (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String}{}\end{DoxyParamCaption}) const}
+
+Inferior to operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The string to be compared. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a96940463f18a845a15580a1b90890677}\index{FbxString@{FbxString}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a96940463f18a845a15580a1b90890677} 
+bool Fbx\+String\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption}) const}
+
+Inferior to operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The \doxylink{class_fbx_string}{Fbx\+String} to be compared. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_ab20ec27bf61855ed5906220fd4f9e4d4}\index{FbxString@{FbxString}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_ab20ec27bf61855ed5906220fd4f9e4d4} 
+bool Fbx\+String\+::operator$<$= (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String}{}\end{DoxyParamCaption}) const}
+
+Inferior or equal to operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The string to be compared. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a6154ef9580e5cc38e8672f28834c6540}\index{FbxString@{FbxString}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a6154ef9580e5cc38e8672f28834c6540} 
+bool Fbx\+String\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption}) const}
+
+Inferior or equal to operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The \doxylink{class_fbx_string}{Fbx\+String} to be compared. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_af0339b70360996e0c21f14f8c391e4ae}\index{FbxString@{FbxString}!operator=@{operator=}}
+\index{operator=@{operator=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily \label{class_fbx_string_af0339b70360996e0c21f14f8c391e4ae} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& Fbx\+String\+::operator= (\begin{DoxyParamCaption}\item[{char}]{p\+Char}{}\end{DoxyParamCaption})}
+
+Character assignment operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Char} & The character to be assigned. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_afa04312befd3e6244a17f0ee4efbdb6e}\index{FbxString@{FbxString}!operator=@{operator=}}
+\index{operator=@{operator=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily \label{class_fbx_string_afa04312befd3e6244a17f0ee4efbdb6e} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& Fbx\+String\+::operator= (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String}{}\end{DoxyParamCaption})}
+
+String assignment operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The string to be assigned. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a0613becea958476aeb9b2ea8e5703ba3}\index{FbxString@{FbxString}!operator=@{operator=}}
+\index{operator=@{operator=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a0613becea958476aeb9b2ea8e5703ba3} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& Fbx\+String\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption})}
+
+\doxylink{class_fbx_string}{Fbx\+String} assignment operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The \doxylink{class_fbx_string}{Fbx\+String} to be assigned. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a41ee0d09a13fe38c3108ac9b3dbb790f}\index{FbxString@{FbxString}!operator=@{operator=}}
+\index{operator=@{operator=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a41ee0d09a13fe38c3108ac9b3dbb790f} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& Fbx\+String\+::operator= (\begin{DoxyParamCaption}\item[{double}]{p\+Value}{}\end{DoxyParamCaption})}
+
+Double assignment operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Value} & The double value to be assigned. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_aba4a464d3b5cfc692b8ab66fe7f589c2}\index{FbxString@{FbxString}!operator=@{operator=}}
+\index{operator=@{operator=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily \label{class_fbx_string_aba4a464d3b5cfc692b8ab66fe7f589c2} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& Fbx\+String\+::operator= (\begin{DoxyParamCaption}\item[{float}]{p\+Value}{}\end{DoxyParamCaption})}
+
+Float assignment operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Value} & The float value to be assigned. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a28ffa67abf9cc4e8e239c9583787584f}\index{FbxString@{FbxString}!operator=@{operator=}}
+\index{operator=@{operator=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a28ffa67abf9cc4e8e239c9583787584f} 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& Fbx\+String\+::operator= (\begin{DoxyParamCaption}\item[{int}]{p\+Value}{}\end{DoxyParamCaption})}
+
+Int assignment operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Value} & The int value to be assigned. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a292bdfc5c4bd13a7dd05c3660974f7d6}\index{FbxString@{FbxString}!operator==@{operator==}}
+\index{operator==@{operator==}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a292bdfc5c4bd13a7dd05c3660974f7d6} 
+bool Fbx\+String\+::operator== (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String}{}\end{DoxyParamCaption}) const}
+
+Equality operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The string to be compared. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_aafbaa4e17d510d9027431cc94ac383ce}\index{FbxString@{FbxString}!operator==@{operator==}}
+\index{operator==@{operator==}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_aafbaa4e17d510d9027431cc94ac383ce} 
+bool Fbx\+String\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption}) const}
+
+Equality operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The \doxylink{class_fbx_string}{Fbx\+String} to be compared. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a67a9187d6ea2ee056a2d1b6acac6ad03}\index{FbxString@{FbxString}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a67a9187d6ea2ee056a2d1b6acac6ad03} 
+bool Fbx\+String\+::operator$>$ (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String}{}\end{DoxyParamCaption}) const}
+
+Superior to operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The string to be compared. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_ae21fb26fd94ff4ba33d0fc181d26c807}\index{FbxString@{FbxString}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_ae21fb26fd94ff4ba33d0fc181d26c807} 
+bool Fbx\+String\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption}) const}
+
+Superior to operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The \doxylink{class_fbx_string}{Fbx\+String} to be compared. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_ace37c7b32e99f8c7099014058870d4d6}\index{FbxString@{FbxString}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_ace37c7b32e99f8c7099014058870d4d6} 
+bool Fbx\+String\+::operator$>$= (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String}{}\end{DoxyParamCaption}) const}
+
+Superior or equal to operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The string to be compared. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a8e6107be9189058c44856cc971152f65}\index{FbxString@{FbxString}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a8e6107be9189058c44856cc971152f65} 
+bool Fbx\+String\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption}) const}
+
+Superior or equal to operator. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The \doxylink{class_fbx_string}{Fbx\+String} to be compared. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a6be20d3f1a87a2c0027571a40db22e0e}\index{FbxString@{FbxString}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a6be20d3f1a87a2c0027571a40db22e0e} 
+char \& Fbx\+String\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{}\end{DoxyParamCaption})}
+
+Access by reference. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The reference of the char at p\+Index. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_string_a8c9dc4db6de88fef3281566da81d74e7}\index{FbxString@{FbxString}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a8c9dc4db6de88fef3281566da81d74e7} 
+char Fbx\+String\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{}\end{DoxyParamCaption}) const}
+
+Access by copy. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The char at p\+Index. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_string_a941a76b41dc91d4dfccd447e73567902}\index{FbxString@{FbxString}!Pad@{Pad}}
+\index{Pad@{Pad}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{Pad()}{Pad()}}
+{\footnotesize\ttfamily \label{class_fbx_string_a941a76b41dc91d4dfccd447e73567902} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+String\+::\+Pad (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string_aad7bebc948b8205ded9d750ea098ba21}{EPadding\+Type}}}]{p\+Padding}{, }\item[{size\+\_\+t}]{p\+Len}{, }\item[{char}]{p\+Car}{ = {\ttfamily \textquotesingle{}~\textquotesingle{}}}\end{DoxyParamCaption}) const}
+
+Add padding characters. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Padding} & The padding type. \\
+\hline
+{\em p\+Len} & The length limit of \doxylink{class_fbx_string}{Fbx\+String} after padding. \\
+\hline
+{\em p\+Car} & The character to be padded. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_ad6b80193fddfef2c2c42117c7891322e}\index{FbxString@{FbxString}!ReplaceAll@{ReplaceAll}}
+\index{ReplaceAll@{ReplaceAll}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{ReplaceAll()}{ReplaceAll()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_ad6b80193fddfef2c2c42117c7891322e} 
+bool Fbx\+String\+::\+Replace\+All (\begin{DoxyParamCaption}\item[{char}]{p\+Find}{, }\item[{char}]{p\+Replace\+By}{}\end{DoxyParamCaption})}
+
+Replace all occurrence of character to find by replacement character. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Find} & The character to look for. \\
+\hline
+{\em p\+Replace\+By} & The character to replace by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if character found and replaced. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_string_af4d66e188f7c62145125a1414c36f627}\index{FbxString@{FbxString}!ReplaceAll@{ReplaceAll}}
+\index{ReplaceAll@{ReplaceAll}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{ReplaceAll()}{ReplaceAll()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_string_af4d66e188f7c62145125a1414c36f627} 
+bool Fbx\+String\+::\+Replace\+All (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Find}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Replace\+By}{}\end{DoxyParamCaption})}
+
+Replace all occurrence of a substring. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Find} & The substring to look for. \\
+\hline
+{\em p\+Replace\+By} & The string to replace by. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if something got replaced. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_string_ace5a9c1f1e86a44c5ee70ff7fa70a4a2}\index{FbxString@{FbxString}!ReverseFind@{ReverseFind}}
+\index{ReverseFind@{ReverseFind}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{ReverseFind()}{ReverseFind()}}
+{\footnotesize\ttfamily \label{class_fbx_string_ace5a9c1f1e86a44c5ee70ff7fa70a4a2} 
+int Fbx\+String\+::\+Reverse\+Find (\begin{DoxyParamCaption}\item[{char}]{p\+Char}{}\end{DoxyParamCaption}) const}
+
+Look for the last occurrence of character in string, like "{}\+C"{} strrchr(). 
+\begin{DoxyParams}{Parameters}
+{\em p\+Char} & The character to look for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index or -\/1 if not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_string_a48148b426b07c11495d981e026b25857}\index{FbxString@{FbxString}!Right@{Right}}
+\index{Right@{Right}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{Right()}{Right()}}
+{\footnotesize\ttfamily \label{class_fbx_string_a48148b426b07c11495d981e026b25857} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+String\+::\+Right (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{p\+Count}{}\end{DoxyParamCaption}) const}
+
+Extract right string. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Count} & The length of sub-\/string to be extracted. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a12d620f75a2e54100374dbedfc786ae8}\index{FbxString@{FbxString}!Swap@{Swap}}
+\index{Swap@{Swap}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{Swap()}{Swap()}}
+{\footnotesize\ttfamily \label{class_fbx_string_a12d620f75a2e54100374dbedfc786ae8} 
+void Fbx\+String\+::\+Swap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption})}
+
+Swap the contents of two strings. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & The \doxylink{class_fbx_string}{Fbx\+String} to be swapped. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_aa8884e0a5e912d0f1c3a3c157d4787ff}\index{FbxString@{FbxString}!UnPad@{UnPad}}
+\index{UnPad@{UnPad}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{UnPad()}{UnPad()}}
+{\footnotesize\ttfamily \label{class_fbx_string_aa8884e0a5e912d0f1c3a3c157d4787ff} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+String\+::\+Un\+Pad (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string_aad7bebc948b8205ded9d750ea098ba21}{EPadding\+Type}}}]{p\+Padding}{, }\item[{char}]{p\+Car}{ = {\ttfamily \textquotesingle{}\textbackslash{}0\textquotesingle{}}}\end{DoxyParamCaption}) const}
+
+Remove padding characters. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Padding} & The padding type. \\
+\hline
+{\em p\+Car} & The character to be padded. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+If p\+Car == \textquotesingle{}\textbackslash{}0\textquotesingle{} the function will remove all the characters that are tested by isspace(). 
+\end{DoxyRemark}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_fbx_string_ab5928d3d3a3b0d6e39136a02c7b7014e}\index{FbxString@{FbxString}!operator+@{operator+}}
+\index{operator+@{operator+}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [1/10]}}
+{\footnotesize\ttfamily \label{class_fbx_string_ab5928d3d3a3b0d6e39136a02c7b7014e} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} operator+ (\begin{DoxyParamCaption}\item[{char}]{p\+Char}{, }\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Character concatenation. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Char} & Character to be concatenated to \doxylink{class_fbx_string}{Fbx\+String} \\
+\hline
+{\em p\+String} & \doxylink{class_fbx_string}{Fbx\+String} to be concatenated to Character. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a743035bdca2dc41d72054a797b5ab609}\index{FbxString@{FbxString}!operator+@{operator+}}
+\index{operator+@{operator+}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [2/10]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a743035bdca2dc41d72054a797b5ab609} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} operator+ (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String1}{, }\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+String concatenation. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String1} & String to be concatenated to \doxylink{class_fbx_string}{Fbx\+String} \\
+\hline
+{\em p\+String2} & \doxylink{class_fbx_string}{Fbx\+String} to be concatenated to String. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a900b603cd32d01c50eb97c3accdca223}\index{FbxString@{FbxString}!operator+@{operator+}}
+\index{operator+@{operator+}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [3/10]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a900b603cd32d01c50eb97c3accdca223} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{, }\item[{char}]{p\+Char}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Character concatenation. 
+
+Character concatenation. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & \doxylink{class_fbx_string}{Fbx\+String} to be concatenated to Character. \\
+\hline
+{\em p\+Char} & Character to be concatenated to \doxylink{class_fbx_string}{Fbx\+String} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a358d5e7bed17720e4310db397dbcbf53}\index{FbxString@{FbxString}!operator+@{operator+}}
+\index{operator+@{operator+}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [4/10]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a358d5e7bed17720e4310db397dbcbf53} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{, }\item[{double}]{p\+Value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Double concatenation. 
+
+Double concatenation. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & \doxylink{class_fbx_string}{Fbx\+String} to be concatenated to Double. \\
+\hline
+{\em p\+Value} & Double to be concatenated to \doxylink{class_fbx_string}{Fbx\+String} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_aac0e3ec29f0758f9359132067e1f9bf7}\index{FbxString@{FbxString}!operator+@{operator+}}
+\index{operator+@{operator+}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [5/10]}}
+{\footnotesize\ttfamily \label{class_fbx_string_aac0e3ec29f0758f9359132067e1f9bf7} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{, }\item[{float}]{p\+Value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Float concatenation. 
+
+Float concatenation. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & \doxylink{class_fbx_string}{Fbx\+String} to be concatenated to Float. \\
+\hline
+{\em p\+Value} & Float to be concatenated to \doxylink{class_fbx_string}{Fbx\+String} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a47e12177b25793bc4dbee111b17b433d}\index{FbxString@{FbxString}!operator+@{operator+}}
+\index{operator+@{operator+}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [6/10]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a47e12177b25793bc4dbee111b17b433d} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{, }\item[{int}]{p\+Value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Integer concatenation. 
+
+Integer concatenation. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & \doxylink{class_fbx_string}{Fbx\+String} to be concatenated to Integer. \\
+\hline
+{\em p\+Value} & Integer to be concatenated to \doxylink{class_fbx_string}{Fbx\+String} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a1711d58fcd5d75ee4e66ff08f3bcda05}\index{FbxString@{FbxString}!operator+@{operator+}}
+\index{operator+@{operator+}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [7/10]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a1711d58fcd5d75ee4e66ff08f3bcda05} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String1}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+String2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+String concatenation. 
+
+String concatenation. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String1} & \doxylink{class_fbx_string}{Fbx\+String} to be concatenated to String. \\
+\hline
+{\em p\+String2} & String to be concatenated to \doxylink{class_fbx_string}{Fbx\+String} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_a2d28339557e99afdfe33ae62c80016c7}\index{FbxString@{FbxString}!operator+@{operator+}}
+\index{operator+@{operator+}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [8/10]}}
+{\footnotesize\ttfamily \label{class_fbx_string_a2d28339557e99afdfe33ae62c80016c7} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String1}{, }\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxylink{class_fbx_string}{Fbx\+String} concatenation. 
+
+\doxylink{class_fbx_string}{Fbx\+String} concatenation. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String1} & \doxylink{class_fbx_string}{Fbx\+String} 1 to be concatenated to \doxylink{class_fbx_string}{Fbx\+String} 2. \\
+\hline
+{\em p\+String2} & \doxylink{class_fbx_string}{Fbx\+String} 2 to be concatenated to \doxylink{class_fbx_string}{Fbx\+String} 1 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_ad24f53b332e3ad680ee80783e39fd554}\index{FbxString@{FbxString}!operator+@{operator+}}
+\index{operator+@{operator+}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [9/10]}}
+{\footnotesize\ttfamily \label{class_fbx_string_ad24f53b332e3ad680ee80783e39fd554} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} operator+ (\begin{DoxyParamCaption}\item[{float}]{p\+Value}{, }\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Float concatenation. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Value} & Float to be concatenated to \doxylink{class_fbx_string}{Fbx\+String} \\
+\hline
+{\em p\+String} & \doxylink{class_fbx_string}{Fbx\+String} to be concatenated to Float. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_string_ac72b5d26f6740fac673665c33ae9ac7f}\index{FbxString@{FbxString}!operator+@{operator+}}
+\index{operator+@{operator+}!FbxString@{FbxString}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}\hspace{0.1cm}{\footnotesize\ttfamily [10/10]}}
+{\footnotesize\ttfamily \label{class_fbx_string_ac72b5d26f6740fac673665c33ae9ac7f} 
+FBXSDK\+\_\+\+DLL \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} operator+ (\begin{DoxyParamCaption}\item[{int}]{p\+Value}{, }\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Integer concatenation. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Value} & Integer to be concatenated to \doxylink{class_fbx_string}{Fbx\+String} \\
+\hline
+{\em p\+String} & \doxylink{class_fbx_string}{Fbx\+String} to be concatenated to Integer. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/base/\mbox{\hyperlink{fbxstring_8h}{fbxstring.\+h}}\end{DoxyCompactItemize}

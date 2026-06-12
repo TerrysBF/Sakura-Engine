@@ -1,0 +1,205 @@
+\doxysection{relaxng.\+h}
+\hypertarget{relaxng_8h_source}{}\label{relaxng_8h_source}\index{include/fbx/libxml2/libxml/relaxng.h@{include/fbx/libxml2/libxml/relaxng.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Summary:\ implementation\ of\ the\ Relax-\/NG\ validation}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Description:\ implementation\ of\ the\ Relax-\/NG\ validation}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Copy:\ See\ Copyright\ for\ the\ status\ of\ this\ software.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Author:\ Daniel\ Veillard}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_RELAX\_NG\_\_}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ \_\_XML\_RELAX\_NG\_\_}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <libxml/xmlversion.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <libxml/hash.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <libxml/xmlstring.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_SCHEMAS\_ENABLED}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlRelaxNG\ xmlRelaxNG;}
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ xmlRelaxNG\ *xmlRelaxNGPtr;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ void\ (XMLCDECL\ *xmlRelaxNGValidityErrorFunc)\ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ...)\ LIBXML\_ATTR\_FORMAT(2,3);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ void\ (XMLCDECL\ *xmlRelaxNGValidityWarningFunc)\ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ...)\ LIBXML\_ATTR\_FORMAT(2,3);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlRelaxNGParserCtxt\ xmlRelaxNGParserCtxt;}
+\DoxyCodeLine{00055\ \textcolor{keyword}{typedef}\ xmlRelaxNGParserCtxt\ *xmlRelaxNGParserCtxtPtr;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlRelaxNGValidCtxt\ xmlRelaxNGValidCtxt;}
+\DoxyCodeLine{00058\ \textcolor{keyword}{typedef}\ xmlRelaxNGValidCtxt\ *xmlRelaxNGValidCtxtPtr;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ *\ xmlRelaxNGValidErr:}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ *\ List\ of\ possible\ Relax\ NG\ validation\ errors}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00065\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ XML\_RELAXNG\_OK\ =\ 0,}
+\DoxyCodeLine{00067\ \ \ \ \ XML\_RELAXNG\_ERR\_MEMORY,}
+\DoxyCodeLine{00068\ \ \ \ \ XML\_RELAXNG\_ERR\_TYPE,}
+\DoxyCodeLine{00069\ \ \ \ \ XML\_RELAXNG\_ERR\_TYPEVAL,}
+\DoxyCodeLine{00070\ \ \ \ \ XML\_RELAXNG\_ERR\_DUPID,}
+\DoxyCodeLine{00071\ \ \ \ \ XML\_RELAXNG\_ERR\_TYPECMP,}
+\DoxyCodeLine{00072\ \ \ \ \ XML\_RELAXNG\_ERR\_NOSTATE,}
+\DoxyCodeLine{00073\ \ \ \ \ XML\_RELAXNG\_ERR\_NODEFINE,}
+\DoxyCodeLine{00074\ \ \ \ \ XML\_RELAXNG\_ERR\_LISTEXTRA,}
+\DoxyCodeLine{00075\ \ \ \ \ XML\_RELAXNG\_ERR\_LISTEMPTY,}
+\DoxyCodeLine{00076\ \ \ \ \ XML\_RELAXNG\_ERR\_INTERNODATA,}
+\DoxyCodeLine{00077\ \ \ \ \ XML\_RELAXNG\_ERR\_INTERSEQ,}
+\DoxyCodeLine{00078\ \ \ \ \ XML\_RELAXNG\_ERR\_INTEREXTRA,}
+\DoxyCodeLine{00079\ \ \ \ \ XML\_RELAXNG\_ERR\_ELEMNAME,}
+\DoxyCodeLine{00080\ \ \ \ \ XML\_RELAXNG\_ERR\_ATTRNAME,}
+\DoxyCodeLine{00081\ \ \ \ \ XML\_RELAXNG\_ERR\_ELEMNONS,}
+\DoxyCodeLine{00082\ \ \ \ \ XML\_RELAXNG\_ERR\_ATTRNONS,}
+\DoxyCodeLine{00083\ \ \ \ \ XML\_RELAXNG\_ERR\_ELEMWRONGNS,}
+\DoxyCodeLine{00084\ \ \ \ \ XML\_RELAXNG\_ERR\_ATTRWRONGNS,}
+\DoxyCodeLine{00085\ \ \ \ \ XML\_RELAXNG\_ERR\_ELEMEXTRANS,}
+\DoxyCodeLine{00086\ \ \ \ \ XML\_RELAXNG\_ERR\_ATTREXTRANS,}
+\DoxyCodeLine{00087\ \ \ \ \ XML\_RELAXNG\_ERR\_ELEMNOTEMPTY,}
+\DoxyCodeLine{00088\ \ \ \ \ XML\_RELAXNG\_ERR\_NOELEM,}
+\DoxyCodeLine{00089\ \ \ \ \ XML\_RELAXNG\_ERR\_NOTELEM,}
+\DoxyCodeLine{00090\ \ \ \ \ XML\_RELAXNG\_ERR\_ATTRVALID,}
+\DoxyCodeLine{00091\ \ \ \ \ XML\_RELAXNG\_ERR\_CONTENTVALID,}
+\DoxyCodeLine{00092\ \ \ \ \ XML\_RELAXNG\_ERR\_EXTRACONTENT,}
+\DoxyCodeLine{00093\ \ \ \ \ XML\_RELAXNG\_ERR\_INVALIDATTR,}
+\DoxyCodeLine{00094\ \ \ \ \ XML\_RELAXNG\_ERR\_DATAELEM,}
+\DoxyCodeLine{00095\ \ \ \ \ XML\_RELAXNG\_ERR\_VALELEM,}
+\DoxyCodeLine{00096\ \ \ \ \ XML\_RELAXNG\_ERR\_LISTELEM,}
+\DoxyCodeLine{00097\ \ \ \ \ XML\_RELAXNG\_ERR\_DATATYPE,}
+\DoxyCodeLine{00098\ \ \ \ \ XML\_RELAXNG\_ERR\_VALUE,}
+\DoxyCodeLine{00099\ \ \ \ \ XML\_RELAXNG\_ERR\_LIST,}
+\DoxyCodeLine{00100\ \ \ \ \ XML\_RELAXNG\_ERR\_NOGRAMMAR,}
+\DoxyCodeLine{00101\ \ \ \ \ XML\_RELAXNG\_ERR\_EXTRADATA,}
+\DoxyCodeLine{00102\ \ \ \ \ XML\_RELAXNG\_ERR\_LACKDATA,}
+\DoxyCodeLine{00103\ \ \ \ \ XML\_RELAXNG\_ERR\_INTERNAL,}
+\DoxyCodeLine{00104\ \ \ \ \ XML\_RELAXNG\_ERR\_ELEMWRONG,}
+\DoxyCodeLine{00105\ \ \ \ \ XML\_RELAXNG\_ERR\_TEXTWRONG}
+\DoxyCodeLine{00106\ \}\ xmlRelaxNGValidErr;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00109\ \textcolor{comment}{\ *\ xmlRelaxNGParserFlags:}}
+\DoxyCodeLine{00110\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ *\ List\ of\ possible\ Relax\ NG\ Parser\ flags}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00113\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ XML\_RELAXNGP\_NONE\ =\ 0,}
+\DoxyCodeLine{00115\ \ \ \ \ XML\_RELAXNGP\_FREE\_DOC\ =\ 1,}
+\DoxyCodeLine{00116\ \ \ \ \ XML\_RELAXNGP\_CRNG\ =\ 2}
+\DoxyCodeLine{00117\ \}\ xmlRelaxNGParserFlag;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGInitTypes\ \ \ \ \ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00121\ XML\_DEPRECATED}
+\DoxyCodeLine{00122\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGCleanupTypes\ \ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00126\ \textcolor{comment}{\ *\ Interfaces\ for\ parsing.}}
+\DoxyCodeLine{00127\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00128\ XMLPUBFUN\ xmlRelaxNGParserCtxtPtr\ XMLCALL}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGNewParserCtxt\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{fbxcolladaelement_8h_a82253dcb098d615368fe4c777c2a9289}{URL}});}
+\DoxyCodeLine{00130\ XMLPUBFUN\ xmlRelaxNGParserCtxtPtr\ XMLCALL}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGNewMemParserCtxt\ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *buffer,}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00133\ XMLPUBFUN\ xmlRelaxNGParserCtxtPtr\ XMLCALL}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGNewDocParserCtxt\ \ (xmlDocPtr\ doc);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxParserSetFlag\ \ \ (xmlRelaxNGParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ flag);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGFreeParserCtxt\ \ \ \ (xmlRelaxNGParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00142\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGSetParserErrors(xmlRelaxNGParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGValidityErrorFunc\ err,}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGValidityWarningFunc\ warn,}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00147\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGGetParserErrors(xmlRelaxNGParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGValidityErrorFunc\ *err,}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGValidityWarningFunc\ *warn,}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ **ctx);}
+\DoxyCodeLine{00152\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGSetParserStructuredErrors(}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlStructuredErrorFunc\ serror,}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00157\ XMLPUBFUN\ xmlRelaxNGPtr\ XMLCALL}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGParse\ \ \ \ \ (xmlRelaxNGParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00159\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGFree\ \ \ \ \ \ (xmlRelaxNGPtr\ schema);}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_OUTPUT\_ENABLED}}
+\DoxyCodeLine{00162\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGDump\ \ \ \ \ \ (FILE\ *output,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGPtr\ schema);}
+\DoxyCodeLine{00165\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGDumpTree\ \ (FILE\ *\ output,}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGPtr\ schema);}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_OUTPUT\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00169\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00170\ \textcolor{comment}{\ *\ Interfaces\ for\ validating}}
+\DoxyCodeLine{00171\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00172\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGSetValidErrors(xmlRelaxNGValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGValidityErrorFunc\ err,}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGValidityWarningFunc\ warn,}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00177\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGGetValidErrors(xmlRelaxNGValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGValidityErrorFunc\ *err,}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGValidityWarningFunc\ *warn,}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ **ctx);}
+\DoxyCodeLine{00182\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGSetValidStructuredErrors(xmlRelaxNGValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlStructuredErrorFunc\ serror,\ \textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00185\ XMLPUBFUN\ xmlRelaxNGValidCtxtPtr\ XMLCALL}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGNewValidCtxt\ \ (xmlRelaxNGPtr\ schema);}
+\DoxyCodeLine{00187\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGFreeValidCtxt\ (xmlRelaxNGValidCtxtPtr\ ctxt);}
+\DoxyCodeLine{00189\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGValidateDoc\ \ \ (xmlRelaxNGValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlDocPtr\ doc);}
+\DoxyCodeLine{00192\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00193\ \textcolor{comment}{\ *\ Interfaces\ for\ progressive\ validation\ when\ possible}}
+\DoxyCodeLine{00194\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00195\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGValidatePushElement\ \ \ (xmlRelaxNGValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlDocPtr\ doc,}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ elem);}
+\DoxyCodeLine{00199\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGValidatePushCData\ (xmlRelaxNGValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *data,}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ len);}
+\DoxyCodeLine{00203\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGValidatePopElement\ \ \ \ (xmlRelaxNGValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlDocPtr\ doc,}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ elem);}
+\DoxyCodeLine{00207\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ xmlRelaxNGValidateFullElement\ \ \ (xmlRelaxNGValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlDocPtr\ doc,}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ elem);}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00213\ \}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_SCHEMAS\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_XML\_RELAX\_NG\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

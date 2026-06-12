@@ -1,0 +1,1736 @@
+\doxysection{fbxpropertypage.\+h}
+\hypertarget{fbxpropertypage_8h_source}{}\label{fbxpropertypage_8h_source}\index{include/fbx/fbxsdk/core/fbxpropertypage.h@{include/fbx/fbxsdk/core/fbxpropertypage.h}}
+\mbox{\hyperlink{fbxpropertypage_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_PROPERTY\_PAGE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_PROPERTY\_PAGE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxset_8h}{fbxsdk/core/base/fbxset.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxstringlist_8h}{fbxsdk/core/base/fbxstringlist.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsymbol_8h}{fbxsdk/core/fbxsymbol.h}}>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpropertydef_8h}{fbxsdk/core/fbxpropertydef.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_pair}{FbxPair<FbxInt,\ const\ char*>}}\ FbxNameMapKey;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_name_map_compare}{FbxNameMapCompare}}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ operator()(\textcolor{keyword}{const}\ FbxNameMapKey\&\ pKeyA,\ \textcolor{keyword}{const}\ FbxNameMapKey\&\ pKeyB)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00031\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pKeyA.\mbox{\hyperlink{class_fbx_pair_ae4207e9014fead320362025388c70703}{mFirst}}\ <\ pKeyB.\mbox{\hyperlink{class_fbx_pair_ae4207e9014fead320362025388c70703}{mFirst}}\ )\ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\ pKeyA.\mbox{\hyperlink{class_fbx_pair_ae4207e9014fead320362025388c70703}{mFirst}}\ >\ pKeyB.\mbox{\hyperlink{class_fbx_pair_ae4207e9014fead320362025388c70703}{mFirst}}\ )\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ strcmp(pKeyA.\mbox{\hyperlink{class_fbx_pair_ade45092061639a0a4256a0df59365d47}{mSecond}},\ pKeyB.\mbox{\hyperlink{class_fbx_pair_ade45092061639a0a4256a0df59365d47}{mSecond}});}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxPropertyInfo}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \ \ FBXSDK\_FRIEND\_NEW();}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{static}\ FbxPropertyInfo*\ Create(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{class_fbx_property_page}{FbxPropertyPage}}*\ pTypeInfo)\ \ \ \ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ FbxNew<\ FbxPropertyInfo\ >(pName,pTypeInfo);\ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{static}\ FbxPropertyInfo*\ Create(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ \ \ pType=\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a150b400dddd0f8b5c7e22a1bba0721d8}{eFbxUndefined}})\ \ \{\ \textcolor{keywordflow}{return}\ FbxNew<\ FbxPropertyInfo\ >(pName,pType);\ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Destroy()\ \ \{\ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(\textcolor{keyword}{this});\ \}}
+\DoxyCodeLine{00045\ \ \ \ \ FbxPropertyInfo*\ \ \ \ \ \ \ \ Clone(\mbox{\hyperlink{class_fbx_property_page}{FbxPropertyPage}}*\ \textcolor{comment}{/*pPage*/})}
+\DoxyCodeLine{00046\ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ @@@@@\ Filter\ is\ missing}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ @@@@@\ Clone\ is\ incomplete}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mTypeInfo)\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FbxNew<\ FbxPropertyInfo\ >(mName,mTypeInfo);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \}\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FbxNew<\ FbxPropertyInfo\ >(mName,mType);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ IncRef()\ \{\ mRef++;\ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ DecRef()\ \{\ mRef-\/-\/;\ \textcolor{keywordflow}{if}\ (mRef==0)\ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(\textcolor{keyword}{this});\ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \ GetRef()\ \{\ \textcolor{keywordflow}{return}\ mRef;\ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ Labels\ and\ Types}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_string_symbol}{FbxStringSymbol}}\ GetName()\textcolor{keyword}{\ const\ \ \ \ \ \ \ \ \ \ \ \ \ }\{\ \textcolor{keywordflow}{return}\ mName;\ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ \ \ \ \ \ \ \ \ \ \ \ GetType()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_page}{FbxPropertyPage}}*\ \ \ \ \ \ \ GetTypeInfo()\textcolor{keyword}{\ const\ \ \ \ \ \ \ \ \ \ \ \ \ }\{\ \textcolor{keywordflow}{return}\ mTypeInfo;\ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ SetLabel(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pLabel)\ \ \ \ \{\ mLabel=pLabel;\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \ GetLabel()\textcolor{keyword}{\ const\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\{\ \textcolor{keywordflow}{return}\ mLabel.IsEmpty()\ ?\ \textcolor{stringliteral}{"{}"{}}\ :\ ((\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*)mLabel);\ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \ \ \ \ SetUserTag(\textcolor{keywordtype}{int}\ pUserTag)\ \ \ \ \ \ \ \ \ \ \ \ \{\ mUserTag=pUserTag;\ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ GetUserTag()\textcolor{keyword}{\ const\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\{\ \textcolor{keywordflow}{return}\ mUserTag;\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \ \ \ \ SetUserData(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pUserData)\ \ \{\ mUserData=(\textcolor{keywordtype}{void}*)pUserData;\ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}*\ \ \ GetUserData()\textcolor{keyword}{\ const\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\{\ \textcolor{keywordflow}{return}\ mUserData;\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ Enum\ list\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{int}\ AddEnumValue(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pStringValue)}
+\DoxyCodeLine{00080\ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ lType\ =\ GetType();}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lType\ ==\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}}\ ||\ lType\ ==\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a3d62294f6396fde1b3750ba2e829ba4e}{eFbxEnumM}})}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!mEnumList)}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mEnumList.Reset(FbxNew<\ FbxStringList\ >());}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lCanAdd\ =\ (lType\ ==\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a3d62294f6396fde1b3750ba2e829ba4e}{eFbxEnumM}}\ ||\ mEnumList-\/>FindIndex(\ pStringValue\ )\ ==\ -\/1);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lCanAdd\ )}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mEnumList-\/>Add((\textcolor{keywordtype}{char}*)pStringValue);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ InsertEnumValue(\textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pStringValue)}
+\DoxyCodeLine{00095\ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ lType\ =\ GetType();}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lType\ ==\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}}\ ||\ lType\ ==\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a3d62294f6396fde1b3750ba2e829ba4e}{eFbxEnumM}})}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!mEnumList)}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mEnumList.Reset(FbxNew<\ FbxStringList\ >());}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lCanAdd\ =\ (lType\ ==\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a3d62294f6396fde1b3750ba2e829ba4e}{eFbxEnumM}}\ ||\ mEnumList-\/>FindIndex(\ pStringValue\ )\ ==\ -\/1);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lCanAdd\ )}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mEnumList-\/>InsertAt(pIndex,(\textcolor{keywordtype}{char}*)pStringValue);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{int}\ GetEnumCount()}
+\DoxyCodeLine{00109\ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mEnumList\ ?\ mEnumList-\/>GetCount()\ :\ 0;}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ SetEnumValue(\textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pStringValue)}
+\DoxyCodeLine{00114\ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ lType\ =\ GetType();}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lType\ ==\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}}\ ||\ lType\ ==\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a3d62294f6396fde1b3750ba2e829ba4e}{eFbxEnumM}})}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!mEnumList)}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mEnumList.Reset(FbxNew<\ FbxStringList\ >());}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lCanAdd\ =\ (lType\ ==\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a3d62294f6396fde1b3750ba2e829ba4e}{eFbxEnumM}}\ ||\ mEnumList-\/>FindIndex(\ pStringValue\ )\ ==\ -\/1);}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lCanAdd)}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mEnumList-\/>SetStringAt(pIndex,(\textcolor{keywordtype}{char}*)pStringValue);}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveEnumValue(\textcolor{keywordtype}{int}\ pIndex)}
+\DoxyCodeLine{00128\ \ \ \ \ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ lType\ =\ GetType();}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lType\ ==\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}}\ ||\ lType\ ==\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a3d62294f6396fde1b3750ba2e829ba4e}{eFbxEnumM}})}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!mEnumList)}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mEnumList.Reset(FbxNew<\ FbxStringList\ >());}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ mEnumList-\/>RemoveAt(pIndex);}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{char}*\ GetEnumValue(\textcolor{keywordtype}{int}\ pIndex)}
+\DoxyCodeLine{00140\ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ lValue\ =\ NULL;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ lType\ =\ GetType();}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lType\ ==\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}}\ ||\ lType\ ==\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a3d62294f6396fde1b3750ba2e829ba4e}{eFbxEnumM}})}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ lValue\ =\ mEnumList\ ?\ mEnumList-\/>GetStringAt(pIndex)\ :\ 0;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lValue;}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{comment}{//\ Min\ and\ Max\ values\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{enum}\ EValueIndex\ \{eValueMin,\ eValueSoftMin,\ eValueMax,\ eValueSoftMax,\ eValueCount\};}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{bool}\ HasMinMax(EValueIndex\ pId)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00155\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mMinMaxValue[pId]\ !=\ NULL;}
+\DoxyCodeLine{00157\ \ \ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetMinMax(EValueIndex\ pId,\ \textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00160\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mMinMaxValue[pId])\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FbxTypeCopy(pValue,\ pValueType,\ mMinMaxValue[pId],\ GetType());}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00165\ \ \ \ \ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{bool}\ SetMinMax(EValueIndex\ pId,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType)}
+\DoxyCodeLine{00168\ \ \ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!mMinMaxValue[pId])\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ lSize\ =\ \mbox{\hyperlink{fbxpropertytypes_8h_afedd3e81c7fd2086096ba832917a1b82}{FbxTypeSizeOf}}(GetType());}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lSize)\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mMinMaxValue[pId]\ =\ FbxMalloc(lSize);}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mMinMaxValue[pId])\ \{}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FbxTypeCopy(mMinMaxValue[pId],\ GetType(),\ pValue,\ pValueType);}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00179\ \ \ \ \ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00182\ \ \ \ \ \ FbxPropertyInfo(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{class_fbx_property_page}{FbxPropertyPage}}*\ pTypeInfo)}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ :\ mRef(0)}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ ,\ mName(pName)}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ ,\ mType(\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a150b400dddd0f8b5c7e22a1bba0721d8}{eFbxUndefined}})}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ ,\ mTypeInfo(pTypeInfo)}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ ,\ mUserTag(0)}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ ,\ mUserData(0)}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ ,\ mFilter(0)}
+\DoxyCodeLine{00190\ \ \ \ \ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<eValueCount;\ i++)\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ mMinMaxValue[i]\ =\ 0;}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ FbxPropertyInfo(\mbox{\hyperlink{class_fbx_string_symbol}{FbxStringSymbol}}\ pName,\mbox{\hyperlink{class_fbx_property_page}{FbxPropertyPage}}\ *pTypeInfo)}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ :\ mRef(0)}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ ,\ mName(pName)}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ ,\ mType(\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a150b400dddd0f8b5c7e22a1bba0721d8}{eFbxUndefined}})}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ ,\ mTypeInfo(pTypeInfo)}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ ,\ mUserTag(0)}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ ,\ mUserData(0)}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ ,\ mFilter(0)}
+\DoxyCodeLine{00204\ \ \ \ \ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<eValueCount;\ i++)\ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ mMinMaxValue[i]\ =\ 0;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ FbxPropertyInfo(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pType)}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ :\ mRef(0)}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ ,\ mName(pName)}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ ,\ mType(pType)}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ ,\ mTypeInfo(0)}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ ,\ mUserTag(0)}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ ,\ mUserData(0)}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ ,\ mFilter(0)}
+\DoxyCodeLine{00218\ \ \ \ \ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<eValueCount;\ i++)\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ mMinMaxValue[i]\ =\ 0;}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00222\ \ \ \ \ \}}
+\DoxyCodeLine{00223\ \ \ \ \ \string~FbxPropertyInfo()}
+\DoxyCodeLine{00224\ \ \ \ \ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=eValueMin;\ i<eValueCount;\ i++)\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ FbxFree(mMinMaxValue[i]);}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00228\ \ \ \ \ \}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRef;}
+\DoxyCodeLine{00231\ \ \ \ \ \mbox{\hyperlink{class_fbx_string_symbol}{FbxStringSymbol}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mName;}
+\DoxyCodeLine{00232\ \ \ \ \ \mbox{\hyperlink{class_fbx_string_symbol}{FbxStringSymbol}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mLabel;}
+\DoxyCodeLine{00233\ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mType;}
+\DoxyCodeLine{00234\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_page}{FbxPropertyPage}}*\ \ \ \ \ \ \ \ \ \ \ \ \ mTypeInfo;}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mUserTag;}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mMinMaxValue[eValueCount];\ \ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mUserData;}
+\DoxyCodeLine{00238\ \ \ \ \ \mbox{\hyperlink{class_fbx_connection_point_filter}{FbxConnectionPointFilter}}*\ \ \ \ \ \ \ mFilter;}
+\DoxyCodeLine{00239\ \ \ \ \ \mbox{\hyperlink{class_fbx_auto_delete_ptr}{FbxAutoDeletePtr<FbxStringList>}}\ \ mEnumList;}
+\DoxyCodeLine{00240\ \};}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_COMPILER\_MSC)}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ warning\ (push)}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ warning\ (disable:\ 4355)}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxPropertyConnect}
+\DoxyCodeLine{00248\ \{}
+\DoxyCodeLine{00249\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00250\ \ \ \ \ FBXSDK\_FRIEND\_NEW();}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keyword}{static}\ FbxPropertyConnect*\ Create(\mbox{\hyperlink{class_fbx_property_page}{FbxPropertyPage}}*\ pPage,FbxInt\ pId)\ \ \{\ \textcolor{keywordflow}{return}\ FbxNew<\ FbxPropertyConnect\ >(pPage,pId);\ \}}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Destroy()\ \{\ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(\textcolor{keyword}{this});\ \}}
+\DoxyCodeLine{00253\ \ \ \ \ FbxPropertyConnect*\ \ \ \ \ \ \ \ Clone(\mbox{\hyperlink{class_fbx_property_page}{FbxPropertyPage}}*\ pPage)}
+\DoxyCodeLine{00254\ \ \ \ \ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FbxNew<\ FbxPropertyConnect\ >(pPage,mId);}
+\DoxyCodeLine{00256\ \ \ \ \ \}}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ IncRef()\ \{\ mRef++;\ \}}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ DecRef()\ \{\ mRef-\/-\/;\ \textcolor{keywordflow}{if}\ (mRef==0)\ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(\textcolor{keyword}{this});\ \}}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \ GetRef()\ \{\ \textcolor{keywordflow}{return}\ mRef;\ \}}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{comment}{//\ Properties\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00263\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_page}{FbxPropertyPage}}*\ \ \ GetPage()\ \ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ mPage;\ \}}
+\DoxyCodeLine{00264\ \ \ \ \ FbxInt\ \ \ \ \ \ GetPropertyId()\ \{\ \textcolor{keywordflow}{return}\ mId;\ \}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \textcolor{comment}{//\ ClearConnectCache()}}
+\DoxyCodeLine{00267\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ClearConnectCache()}
+\DoxyCodeLine{00269\ \ \ \ \ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ mConnectionPoint.SubConnectRemoveAll();}
+\DoxyCodeLine{00271\ \ \ \ \ \}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_property_connect_a56ae82d708c6c05c82a8e98d565f986b}{WipeAllConnections}}()}
+\DoxyCodeLine{00275\ \ \ \ \ \{}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ mConnectionPoint.WipeConnectionList();}
+\DoxyCodeLine{00277\ \ \ \ \ \}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \textcolor{comment}{//\ Properties\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ ConnectSrc(\mbox{\hyperlink{class_fbx_property_connect}{FbxPropertyConnect}}*\ pSrc,\ FbxConnection::EType\ pType)}
+\DoxyCodeLine{00281\ \ \ \ \ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mConnectionPoint.ConnectSrc(\&pSrc-\/>mConnectionPoint,pType);}
+\DoxyCodeLine{00283\ \ \ \ \ \}}
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ DisconnectSrc(FbxPropertyConnect*\ pSrc)}
+\DoxyCodeLine{00285\ \ \ \ \ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mConnectionPoint.DisconnectSrc(\&pSrc-\/>mConnectionPoint);}
+\DoxyCodeLine{00287\ \ \ \ \ \}}
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ IsConnectedSrc(FbxPropertyConnect*\ pSrc)}
+\DoxyCodeLine{00289\ \ \ \ \ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mConnectionPoint.IsConnectedSrc(\&pSrc-\/>mConnectionPoint);}
+\DoxyCodeLine{00291\ \ \ \ \ \}}
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ GetSrcCount(FbxConnectionPointFilter*\ pFilter)}
+\DoxyCodeLine{00293\ \ \ \ \ \{}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mConnectionPoint.GetSrcCount(pFilter);}
+\DoxyCodeLine{00295\ \ \ \ \ \}}
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keyword}{inline}\ FbxPropertyConnect*\ GetSrc(FbxConnectionPointFilter*\ pFilter,\ \textcolor{keywordtype}{int}\ pIndex)}
+\DoxyCodeLine{00297\ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ FbxConnectionPoint\ *lCP\ =\ mConnectionPoint.GetSrc(pIndex,pFilter);}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lCP\ ?\ (FbxPropertyConnect\ *\ )lCP-\/>GetData()\ :\ 0;}
+\DoxyCodeLine{00300\ \ \ \ \ \}}
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ ConnectDst(FbxPropertyConnect*\ pDst,\ FbxConnection::EType\ pType)}
+\DoxyCodeLine{00302\ \ \ \ \ \{}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mConnectionPoint.ConnectDst(\&pDst-\/>mConnectionPoint,pType);}
+\DoxyCodeLine{00304\ \ \ \ \ \}}
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ IsConnectedDst(FbxPropertyConnect*\ pSrc)}
+\DoxyCodeLine{00306\ \ \ \ \ \{}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mConnectionPoint.IsConnectedSrc(\&pSrc-\/>mConnectionPoint);}
+\DoxyCodeLine{00308\ \ \ \ \ \}}
+\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ DisconnectDst(FbxPropertyConnect*\ pDst)}
+\DoxyCodeLine{00310\ \ \ \ \ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mConnectionPoint.DisconnectDst(\&pDst-\/>mConnectionPoint);}
+\DoxyCodeLine{00312\ \ \ \ \ \}}
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ GetDstCount(FbxConnectionPointFilter*\ pFilter)}
+\DoxyCodeLine{00314\ \ \ \ \ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mConnectionPoint.GetDstCount(pFilter);}
+\DoxyCodeLine{00316\ \ \ \ \ \}}
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{keyword}{inline}\ FbxPropertyConnect*\ GetDst(FbxConnectionPointFilter*\ pFilter,\ \textcolor{keywordtype}{int}\ pIndex)}
+\DoxyCodeLine{00318\ \ \ \ \ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ FbxConnectionPoint\ *lCP\ =\ mConnectionPoint.GetDst(pIndex,pFilter);}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lCP\ ?\ (FbxPropertyConnect\ *\ )lCP-\/>GetData()\ :\ 0;}
+\DoxyCodeLine{00321\ \ \ \ \ \}}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRef;}
+\DoxyCodeLine{00324\ \ \ \ \ FbxConnectionPoint\ \ mConnectionPoint;}
+\DoxyCodeLine{00325\ \ \ \ \ FbxPropertyPage*\ \ \ \ mPage;}
+\DoxyCodeLine{00326\ \ \ \ \ FbxInt\ \ \ \ \ \ \ \ \ \ \ \ \ \ mId;}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00329\ \ \ \ \ FbxPropertyConnect(FbxPropertyPage*\ pPage,FbxInt\ pId)\ :}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ mRef(0),}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ mConnectionPoint(this),}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ mPage(pPage),}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ mId(pId)}
+\DoxyCodeLine{00334\ \ \ \ \ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \}}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \ \ \ \ \string~FbxPropertyConnect()\{\ \textcolor{keywordflow}{if}(\ FbxObject::GetWipeMode()\ )\ mConnectionPoint.\mbox{\hyperlink{class_fbx_connection_point_a9b1d6c109c6d2894aecbe9649660c4fd}{WipeConnectionList}}();\ \}}
+\DoxyCodeLine{00338\ \};}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_COMPILER\_MSC)}}
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ warning\ (pop)}}
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxPropertyEntry}
+\DoxyCodeLine{00345\ \{}
+\DoxyCodeLine{00346\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00347\ \ \ \ \ \textcolor{keyword}{static}\ FbxPropertyEntry*\ Create(FbxInt\ pParentId,\ \mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}*\ pInfo,\ \mbox{\hyperlink{class_fbx_property_value}{FbxPropertyValue}}*\ pValue,\ \mbox{\hyperlink{class_fbx_property_connect}{FbxPropertyConnect}}*\ pConnect)\{\ \textcolor{keywordflow}{return}\ FbxNew<FbxPropertyEntry>(pParentId,\ pInfo,\ pValue,\ pConnect);\ \}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordtype}{void}\ Destroy()\ \{\ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(\textcolor{keyword}{this});\ \}}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keyword}{inline}\ FbxInt\ GetParentId()\{\ \textcolor{keywordflow}{return}\ mParentId;\ \}}
+\DoxyCodeLine{00352\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ IsEmpty()\{\ \textcolor{keywordflow}{return}\ (mInfo\ ||\ mValue\ ||\ mConnect\ ||\ mFlags.GetMask()\ !=\ 0)\ ?\ false\ :\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}*\ Get(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}*\ \textcolor{comment}{/*pType*/})\{\ \textcolor{keywordflow}{return}\ mInfo;\ \}}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordtype}{void}\ Set(\mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}*\ pInfo)}
+\DoxyCodeLine{00357\ \ \ \ \ \{}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}*\ lInfo\ =\ mInfo;}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pInfo\ )\ pInfo-\/>IncRef();}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ mInfo\ =\ pInfo;}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lInfo\ )\ lInfo-\/>DecRef();}
+\DoxyCodeLine{00362\ \ \ \ \ \}}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_property_value}{FbxPropertyValue}}*\ Get(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_value}{FbxPropertyValue}}*\ \textcolor{comment}{/*pType*/})\{\ \textcolor{keywordflow}{return}\ mValue;\ \}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keywordtype}{void}\ Set(\mbox{\hyperlink{class_fbx_property_value}{FbxPropertyValue}}*\ pValue)}
+\DoxyCodeLine{00367\ \ \ \ \ \{}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_value}{FbxPropertyValue}}*\ lValue\ =\ mValue;}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pValue\ )\ pValue-\/>IncRef();}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ mValue\ =\ pValue;}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lValue\ )\ lValue-\/>DecRef();}
+\DoxyCodeLine{00372\ \ \ \ \ \}}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_property_connect}{FbxPropertyConnect}}*\ Get(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_connect}{FbxPropertyConnect}}*\ \textcolor{comment}{/*pType*/})\{\ \textcolor{keywordflow}{return}\ mConnect;\ \}}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordtype}{void}\ Set(\mbox{\hyperlink{class_fbx_property_connect}{FbxPropertyConnect}}*\ pConnect)}
+\DoxyCodeLine{00377\ \ \ \ \ \{}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_connect}{FbxPropertyConnect}}*\ lConnect\ =\ mConnect;}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pConnect\ )\ pConnect-\/>IncRef();}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ mConnect\ =\ pConnect;}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lConnect\ )\ lConnect-\/>DecRef();}
+\DoxyCodeLine{00382\ \ \ \ \ \}}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_property_flags}{FbxPropertyFlags}}*\ Get(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_flags}{FbxPropertyFlags}}*\ \textcolor{comment}{/*pType*/})\{\ \textcolor{keywordflow}{return}\ \&mFlags;\ \}}
+\DoxyCodeLine{00385\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Set(\mbox{\hyperlink{class_fbx_property_flags}{FbxPropertyFlags}}\ pType)\{\ mFlags\ =\ pType;\ \}}
+\DoxyCodeLine{00386\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Set(\mbox{\hyperlink{class_fbx_property_flags}{FbxPropertyFlags}}*\ pType)\{\ mFlags\ =\ pType\ ?\ *pType\ :\ \mbox{\hyperlink{class_fbx_property_flags}{FbxPropertyFlags}}(\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99ac1b9aab93d40af76eb419be426de17b1}{FbxPropertyFlags::eNone}});\ \}}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00389\ \ \ \ \ FbxPropertyEntry(FbxInt\ pParentId,\mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}\ *pInfo,\mbox{\hyperlink{class_fbx_property_value}{FbxPropertyValue}}\ *pValue,\mbox{\hyperlink{class_fbx_property_connect}{FbxPropertyConnect}}\ *pConnect)\ :}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ mInfo(pInfo),}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ mValue(pValue),}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ mConnect(pConnect),}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ mParentId(pParentId),}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ mFlags(\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99ac1b9aab93d40af76eb419be426de17b1}{FbxPropertyFlags::eNone}})}
+\DoxyCodeLine{00395\ \ \ \ \ \{}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mInfo\ )\ mInfo-\/>IncRef();}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mValue\ )\ mValue-\/>IncRef();}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mConnect\ )\ mConnect-\/>IncRef();}
+\DoxyCodeLine{00399\ \ \ \ \ \}}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \ \ \ \ \string~FbxPropertyEntry()}
+\DoxyCodeLine{00402\ \ \ \ \ \{}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mInfo\ )\ mInfo-\/>DecRef();}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mValue\ )\ mValue-\/>DecRef();}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mConnect\ )\ mConnect-\/>DecRef();}
+\DoxyCodeLine{00406\ \ \ \ \ \}}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}*\ mInfo;}
+\DoxyCodeLine{00409\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_value}{FbxPropertyValue}}*\ \ \ mValue;}
+\DoxyCodeLine{00410\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_connect}{FbxPropertyConnect}}*\ \ \ mConnect;}
+\DoxyCodeLine{00411\ \ \ \ \ FbxInt\ \ \ \ \ \ \ \ \ \ \ \ \ \ mParentId;}
+\DoxyCodeLine{00412\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_flags}{FbxPropertyFlags}}\ \ \ \ mFlags;}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00414\ \ \ \ \ FBXSDK\_FRIEND\_NEW();}
+\DoxyCodeLine{00415\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxPropertyPage;}
+\DoxyCodeLine{00416\ \};}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxPropertyIdGenerator}
+\DoxyCodeLine{00419\ \{}
+\DoxyCodeLine{00420\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00421\ \ \ \ \ FbxPropertyIdGenerator()\ :\ mRef(0),\ mNextId(0)\ \{\}}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ \ \ \ \ \textcolor{keyword}{inline}\ FbxInt\ GetNextId()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mNextId;\ \}}
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keyword}{inline}\ FbxInt\ GetNextIdAndInc()\ \{\ \textcolor{keywordflow}{return}\ mNextId++;\ \}}
+\DoxyCodeLine{00425\ }
+\DoxyCodeLine{00426\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ IncRef()\ \{\ mRef++;\ \}}
+\DoxyCodeLine{00427\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ DecRef()\ \{\ mRef-\/-\/;\ \textcolor{keywordflow}{if}(\ mRef\ ==\ 0\ )\ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(\textcolor{keyword}{this});\ \}}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00429\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00430\ \ \ \ \ FbxInt\ mRef,\ mNextId;}
+\DoxyCodeLine{00431\ \};}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxPropertyPage}
+\DoxyCodeLine{00434\ \{}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00437\ \ \ \ \ FBXSDK\_FRIEND\_NEW();}
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{keyword}{static}\ FbxPropertyPage*\ Create\ (FbxPropertyPage*\ pInstanceOf=0)\ \ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ FbxNew<\ FbxPropertyPage\ >(pInstanceOf);\ \ \ \ \ \}}
+\DoxyCodeLine{00439\ \ \ \ \ \textcolor{keyword}{static}\ FbxPropertyPage*\ \ \ \ \ Create\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ FbxPropertyPage*\ pTypeInfo)\ \ \ \ \{\ \textcolor{keywordflow}{return}\ FbxNew<\ FbxPropertyPage\ >(pName,pTypeInfo);\ \}}
+\DoxyCodeLine{00440\ \ \ \ \ \textcolor{keyword}{static}\ FbxPropertyPage*\ \ \ \ \ Create\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ \ \ \ pType=\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a150b400dddd0f8b5c7e22a1bba0721d8}{eFbxUndefined}})\ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ FbxNew<\ FbxPropertyPage\ >(pName,pType);\ \ \ \ \ \}}
+\DoxyCodeLine{00441\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Destroy()\ \{\ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(\textcolor{keyword}{this});\ \}}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T*\ GetPropertyItem(\textcolor{keyword}{const}\ T*\ pItemType,FbxInt\ pIndex,FbxPropertyPage\ **pFoundIn=0)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00444\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ FbxPropertyPage*\ \ \ \ \ lReferencePage\ =\ 0;}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_entry}{FbxPropertyEntry}}*\ \ \ \ lReferenceEntry\ =\ GetPropertyEntry(pIndex,\&lReferencePage);}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pFoundIn)\ *pFoundIn\ =\ 0;}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lReferenceEntry)\ \{}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ T*\ lItem\ =\ lReferenceEntry-\/>Get(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(T)\ );}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lItem)\ \{}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pFoundIn)\ *pFoundIn\ =\ lReferencePage;}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lItem;}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lReferencePage-\/>mInstanceOf\ ?\ lReferencePage-\/>mInstanceOf-\/>GetPropertyItem(pItemType,pIndex,pFoundIn)\ :\ 0\ ;}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00458\ \ \ \ \ \}}
+\DoxyCodeLine{00459\ }
+\DoxyCodeLine{00460\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T*\ ChangePropertyItemState(\textcolor{keyword}{const}\ T*\ pItemType,\ FbxInt\ pIndex,\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8}{FbxPropertyFlags::EInheritType}}\ pInheritType)}
+\DoxyCodeLine{00461\ \ \ \ \ \{}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ \ \ \ lReferencePage\ =\ NULL;}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ T*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lItem\ =\ GetPropertyItem(pItemType,\ pIndex,\ \&lReferencePage);}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pInheritType\ ==\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}}\ )}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lReferencePage\ ==\ \textcolor{keyword}{this}\ )}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lItem;}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\ lItem\ )}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_entry}{FbxPropertyEntry}}*\ lEntry\ =\ ChangePropertyEntryState(pIndex,\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}});}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lEntry-\/>Set(lItem-\/>Clone(\textcolor{keyword}{this}));}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lEntry-\/>Get(\mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(T));}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ can't\ inherit\ entries\ that\ were\ created\ on\ our\ page.}}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lOwnEntry\ =\ !mInstanceOf\ ||\ (mInstanceOf-\/>GetPropertyItem(pItemType,\ pIndex)\ ==\ NULL);}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lOwnEntry\ \&\&\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8a51d4e0da5672ca51938febe9e132c1cc}{FbxPropertyFlags::eInherit}}\ ==\ pInheritType)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lItem\ \&\&\ (lReferencePage\ ==\ \textcolor{keyword}{this})\ )}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_entry}{FbxPropertyEntry}}*\ lEntry\ =\ GetPropertyEntry(pIndex);}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lEntry-\/>Set((T*)0);}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lEntry-\/>IsEmpty()\ )}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ChangePropertyEntryState(pIndex,\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8a51d4e0da5672ca51938febe9e132c1cc}{FbxPropertyFlags::eInherit}});}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00495\ \ \ \ \ \}}
+\DoxyCodeLine{00496\ }
+\DoxyCodeLine{00497\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ FbxPropertyPage*\ GetFirstPropertyItem(FbxInt\ pId,\ \textcolor{keyword}{const}\ T*\ pItem)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00498\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ lReferencePage\ =\ NULL;}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ GetPropertyItem(\mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(T),\ pId,\ \&lReferencePage);}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lReferencePage\ \&\&\ lReferencePage-\/>mInstanceOf\ )}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyPage*\ lReferencePage2\ =\ lReferencePage-\/>mInstanceOf-\/>GetFirstPropertyItem(pId,\ pItem);}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lReferencePage2\ ?\ lReferencePage2\ :\ lReferencePage;}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lReferencePage;}
+\DoxyCodeLine{00507\ \ \ \ \ \}}
+\DoxyCodeLine{00508\ }
+\DoxyCodeLine{00509\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ GetName(FbxInt\ pId=FBXSDK\_PROPERTY\_ID\_ROOT)}
+\DoxyCodeLine{00510\ \ \ \ \ \{}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(\mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}),pId\ );}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyInfo\ ?\ ((\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*)lPropertyInfo-\/>GetName())\ :\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00513\ \ \ \ \ \}}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00515\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ GetLabel(FbxInt\ pId=FBXSDK\_PROPERTY\_ID\_ROOT)}
+\DoxyCodeLine{00516\ \ \ \ \ \{}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(\mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}),pId\ );}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyInfo\ ?\ ((\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*)lPropertyInfo-\/>GetLabel())\ :\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00519\ \ \ \ \ \}}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \ \ \ \ \textcolor{keywordtype}{bool}\ SetLabel(FbxInt\ pId=FBXSDK\_PROPERTY\_ID\_ROOT,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pLabel=\textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{00522\ \ \ \ \ \{}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(\mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}),pId\ );}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ make\ it\ writeable\ (Keep\ it\ shared)}}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lPropertyInfo)\ \{}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \ \ \ \ lPropertyInfo-\/>SetLabel(pLabel);}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00531\ \ \ \ \ \}}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00533\ \ \ \ \ \textcolor{keywordtype}{void}*\ GetUserData(FbxInt\ pId=FBXSDK\_PROPERTY\_ID\_ROOT)}
+\DoxyCodeLine{00534\ \ \ \ \ \{}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(\mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}),pId\ );}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyInfo\ ?\ lPropertyInfo-\/>GetUserData()\ :\ 0;}
+\DoxyCodeLine{00537\ \ \ \ \ \}}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00539\ \ \ \ \ \textcolor{keywordtype}{bool}\ SetUserData(FbxInt\ pId=FBXSDK\_PROPERTY\_ID\_ROOT,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pUserData=0)}
+\DoxyCodeLine{00540\ \ \ \ \ \{}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(\mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}),pId\ );}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ make\ it\ writeable\ (Keep\ it\ shared)}}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lPropertyInfo)\ \{}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lPropertyInfo-\/>SetUserData(pUserData);}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00549\ \ \ \ \ \}}
+\DoxyCodeLine{00550\ }
+\DoxyCodeLine{00551\ \ \ \ \ \textcolor{keywordtype}{int}\ GetUserTag(FbxInt\ pId=FBXSDK\_PROPERTY\_ID\_ROOT)}
+\DoxyCodeLine{00552\ \ \ \ \ \{}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(\mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}),pId\ );}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyInfo\ ?\ lPropertyInfo-\/>GetUserTag()\ :\ 0;}
+\DoxyCodeLine{00555\ \ \ \ \ \}}
+\DoxyCodeLine{00556\ }
+\DoxyCodeLine{00557\ \ \ \ \ \textcolor{keywordtype}{bool}\ SetUserTag(FbxInt\ pId=FBXSDK\_PROPERTY\_ID\_ROOT,\textcolor{keywordtype}{int}\ pUserTag=0)}
+\DoxyCodeLine{00558\ \ \ \ \ \{}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(\mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}),pId\ );}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ make\ it\ writeable\ (Keep\ it\ shared)}}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lPropertyInfo)\ \{}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \ \ \ \ lPropertyInfo-\/>SetUserTag(pUserTag);}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00567\ \ \ \ \ \}}
+\DoxyCodeLine{00568\ }
+\DoxyCodeLine{00569\ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ GetType(FbxInt\ pId=FBXSDK\_PROPERTY\_ID\_ROOT)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00570\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00571\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(\mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}),pId\ );}
+\DoxyCodeLine{00572\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyInfo\ ?\ lPropertyInfo-\/>GetType()\ :\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a150b400dddd0f8b5c7e22a1bba0721d8}{eFbxUndefined}};}
+\DoxyCodeLine{00573\ \ \ \ \ \}}
+\DoxyCodeLine{00574\ }
+\DoxyCodeLine{00575\ \ \ \ \ FbxInt\ GetParent(FbxInt\ pId=FBXSDK\_PROPERTY\_ID\_ROOT)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00576\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_entry}{FbxPropertyEntry}}*\ lPropertyEntry\ =\ GetPropertyEntry(\ pId\ );}
+\DoxyCodeLine{00578\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyEntry\ ?\ lPropertyEntry-\/>GetParentId()\ :\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00579\ \ \ \ \ \}}
+\DoxyCodeLine{00580\ }
+\DoxyCodeLine{00581\ \ \ \ \ FbxPropertyPage*\ GetTypeInfo(FbxInt\ pId=FBXSDK\_PROPERTY\_ID\_ROOT)}
+\DoxyCodeLine{00582\ \ \ \ \ \{}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(\mbox{\hyperlink{class_fbx_property_info}{FbxPropertyInfo}}),pId\ );}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyInfo\ ?\ lPropertyInfo-\/>GetTypeInfo()\ :\ 0;}
+\DoxyCodeLine{00585\ \ \ \ \ \}}
+\DoxyCodeLine{00586\ \ \ \ \ FbxInt\ Add(FbxInt\ pParentId,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pType)}
+\DoxyCodeLine{00587\ \ \ \ \ \{}
+\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Add(pParentId,FbxPropertyInfo::Create(pName,pType),FbxPropertyValue::Create(0,pType),0);}
+\DoxyCodeLine{00589\ \ \ \ \ \}}
+\DoxyCodeLine{00590\ \ \ \ \ FbxInt\ Add(FbxInt\ pParentId,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ FbxPropertyPage*\ pTypeInfo)}
+\DoxyCodeLine{00591\ \ \ \ \ \{}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Add(pParentId,FbxPropertyInfo::Create(pName,pTypeInfo),FbxPropertyValue::Create(0,pTypeInfo-\/>GetType()),0);}
+\DoxyCodeLine{00593\ \ \ \ \ \}}
+\DoxyCodeLine{00594\ }
+\DoxyCodeLine{00595\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ Reparent(\ FbxInt\ \textcolor{comment}{/*pChildId*/},\ FbxInt\ \textcolor{comment}{/*pNewParentId*/}\ )}
+\DoxyCodeLine{00596\ \ \ \ \ \{}
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Not\ implemented.}}
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00599\ \textcolor{comment}{\ \ \ \ \ \ \ \ if(\ GetParent(pChildId)\ !=\ pNewParentId\ \ \&\&\ pChildId\ <\ mEntries.GetCount()\ )}}
+\DoxyCodeLine{00600\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{00601\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyEntry*\ lChildEntry\ =\ mEntries[pChildId];}}
+\DoxyCodeLine{00602\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ lChildEntry-\/>mParentId\ =\ pNewParentId;}}
+\DoxyCodeLine{00603\ \textcolor{comment}{}}
+\DoxyCodeLine{00604\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ //@@@@@\ TODO:\ propagate\ to\ instances}}
+\DoxyCodeLine{00605\ \textcolor{comment}{}}
+\DoxyCodeLine{00606\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ true;}}
+\DoxyCodeLine{00607\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00608\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00610\ \ \ \ \ \}}
+\DoxyCodeLine{00611\ }
+\DoxyCodeLine{00612\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ IsChildOf(FbxInt\ pId,FbxInt\ pParentId)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00613\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GetParent(pId)==pParentId;}
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00616\ \ \ \ \ \}}
+\DoxyCodeLine{00617\ }
+\DoxyCodeLine{00618\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ IsDescendentOf(FbxInt\ pId,FbxInt\ pAncestorId)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00619\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pAncestorId>0)\ \{}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \ \ \ \ FbxInt\ lParentId\ =\ GetParent(pId);}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lParentId\ !=\ FBXSDK\_PROPERTY\_ID\_NULL\ )\ \{}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lParentId==pAncestorId)\ \{}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParentId\ =\ GetParent(lParentId);}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00632\ }
+\DoxyCodeLine{00633\ \ \ \ \ \}}
+\DoxyCodeLine{00634\ }
+\DoxyCodeLine{00635\ \ \ \ \ \textcolor{comment}{//\#define\ PROPERTY\_PAGE\_SANITY\_CHECK\ \ //\ Debug\ purpose\ only.\ Never\ enable\ it\ in\ a\ production\ release.}}
+\DoxyCodeLine{00636\ }
+\DoxyCodeLine{00641\ \ \ \ \ FbxInt\ \mbox{\hyperlink{class_fbx_property_page_ad81e99053d530929db810ddb3ffc7637}{GetChild}}(FbxInt\ pParentId=FBXSDK\_PROPERTY\_ID\_ROOT)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00642\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00643\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ PROPERTY\_PAGE\_SANITY\_CHECK}}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ FbxInt\ ret0\ =\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pParentId!=FBXSDK\_PROPERTY\_ID\_NULL)\ \{}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ \ \ \ \ FbxInt\ \ \ \ \ \ \ lId\ \ \ \ \ \ \ \ =\ GetMinimumPropertyId(pParentId);}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ \ \ \ \ FbxInt\ \ \ \ \ \ \ lParentId\ \ =\ GetParent(lId);}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ FbxInt\ lLastId\ \ \ \ =\ GetPropertyEntryCount();}
+\DoxyCodeLine{00649\ }
+\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lId<lLastId\ \&\&\ lParentId!=pParentId)\ lParentId=GetParent(++lId);}
+\DoxyCodeLine{00651\ \ \ \ \ \ \ \ \ \ \ \ \ ret0\ =\ lId<lLastId\ ?\ lId\ :\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ \ \ \ \ ret0\ =\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00655\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ FbxInt\ ret1\ =\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pParentId\ !=\ FBXSDK\_PROPERTY\_ID\_NULL)}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_entry}{FbxPropertyEntry}}*\ lEntry;}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ \ \ \ \ FbxInt\ lId\ =\ pParentId;}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ }
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lId\ =\ GetMinimumPropertyIdAndEntry(lId,\ \&lEntry);}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (lId\ !=\ FBXSDK\_PROPERTY\_ID\_NULL\ \&\&\ lEntry-\/>GetParentId()\ !=\ pParentId);}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \ \ \ \ ret1\ =\ lId;}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00667\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ PROPERTY\_PAGE\_SANITY\_CHECK}}
+\DoxyCodeLine{00668\ \ \ \ \ \ \ \ \ FBX\_ASSERT(ret0==ret1);}
+\DoxyCodeLine{00669\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret1;}
+\DoxyCodeLine{00671\ \ \ \ \ \}}
+\DoxyCodeLine{00672\ }
+\DoxyCodeLine{00677\ \ \ \ \ FbxInt\ \mbox{\hyperlink{class_fbx_property_page_afdfaca9fe375ee1254478340f707f7c5}{GetSibling}}(FbxInt\ pId)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00678\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00679\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ PROPERTY\_PAGE\_SANITY\_CHECK}}
+\DoxyCodeLine{00680\ \ \ \ \ \ \ \ \ FbxInt\ pIdBackup\ =\ pId;}
+\DoxyCodeLine{00681\ \ \ \ \ \ \ \ \ FbxInt\ ret0\ =\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00682\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pId!=FBXSDK\_PROPERTY\_ID\_NULL)\ \{}
+\DoxyCodeLine{00683\ \ \ \ \ \ \ \ \ \ \ \ \ FbxInt\ \ \ \ \ \ \ lReferenceParentId\ =\ GetParent(pId);}
+\DoxyCodeLine{00684\ \ \ \ \ \ \ \ \ \ \ \ \ FbxInt\ \ \ \ \ \ \ lParentId\ \ \ \ \ \ \ \ \ \ =\ GetParent(++pId);}
+\DoxyCodeLine{00685\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ FbxInt\ lLastId\ \ \ \ \ \ \ \ \ \ \ \ =\ GetPropertyEntryCount();}
+\DoxyCodeLine{00686\ }
+\DoxyCodeLine{00687\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (pId<lLastId\ \&\&\ lReferenceParentId!=FBXSDK\_PROPERTY\_ID\_NULL\ \&\&\ lParentId!=lReferenceParentId)}
+\DoxyCodeLine{00688\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParentId=GetParent(++pId);}
+\DoxyCodeLine{00689\ \ \ \ \ \ \ \ \ \ \ \ \ ret0\ =\ pId<lLastId\ ?\ pId\ :\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ \ \ \ \ ret0\ =\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \ pId\ =\ pIdBackup;}
+\DoxyCodeLine{00694\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ FbxInt\ ret1\ =\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pId\ !=\ FBXSDK\_PROPERTY\_ID\_NULL)}
+\DoxyCodeLine{00697\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \ \ \ \ FbxInt\ lReferenceParentId\ =\ GetParent(pId);}
+\DoxyCodeLine{00699\ }
+\DoxyCodeLine{00700\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lReferenceParentId\ !=\ FBXSDK\_PROPERTY\_ID\_NULL)}
+\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_entry}{FbxPropertyEntry}}\ *lEntry;}
+\DoxyCodeLine{00703\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ }
+\DoxyCodeLine{00704\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00705\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pId\ =\ GetMinimumPropertyIdAndEntry(pId,\ \&lEntry);}
+\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (pId\ !=\ FBXSDK\_PROPERTY\_ID\_NULL\ \&\&\ lEntry-\/>GetParentId()\ !=\ lReferenceParentId);}
+\DoxyCodeLine{00707\ }
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ret1\ =\ pId;}
+\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00710\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00711\ }
+\DoxyCodeLine{00712\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ PROPERTY\_PAGE\_SANITY\_CHECK}}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ FBX\_ASSERT(ret0==ret1);}
+\DoxyCodeLine{00714\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret1;}
+\DoxyCodeLine{00716\ \ \ \ \ \}}
+\DoxyCodeLine{00717\ }
+\DoxyCodeLine{00722\ \ \ \ \ FbxInt\ \mbox{\hyperlink{class_fbx_property_page_a307bd938d79a626298b70f93ba5f2d7d}{GetFirstDescendent}}(FbxInt\ pAnscestorId=FBXSDK\_PROPERTY\_ID\_ROOT)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00723\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00724\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ PROPERTY\_PAGE\_SANITY\_CHECK}}
+\DoxyCodeLine{00725\ \ \ \ \ \ \ \ \ FbxInt\ ret0\ =\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00726\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pAnscestorId!=FBXSDK\_PROPERTY\_ID\_NULL)\ \{}
+\DoxyCodeLine{00727\ \ \ \ \ \ \ \ \ \ \ \ \ FbxInt\ \ \ \ \ \ \ lId\ \ \ \ \ \ \ \ =\ GetMinimumPropertyId(pAnscestorId);}
+\DoxyCodeLine{00728\ \ \ \ \ \ \ \ \ \ \ \ \ FbxInt\ \ \ \ \ \ \ lParentId\ \ =\ GetParent(lId);}
+\DoxyCodeLine{00729\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ FbxInt\ lLastId\ \ \ \ =\ GetPropertyEntryCount();}
+\DoxyCodeLine{00730\ }
+\DoxyCodeLine{00731\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lId<lLastId)\ \{}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lParentId!=FBXSDK\_PROPERTY\_ID\_NULL\ \&\&\ IsDescendentOf(lId,pAnscestorId)\ )}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ret0\ =\ lId;}
+\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParentId\ =\ GetParent(++lId);}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00740\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ FbxInt\ ret1\ =\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ FbxInt\ lId\ =\ pAnscestorId;}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_entry}{FbxPropertyEntry}}*\ lEntry;}
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pAnscestorId\ !=\ FBXSDK\_PROPERTY\_ID\_NULL)}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(;;)}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00748\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lId\ \ =\ GetMinimumPropertyIdAndEntry(lId,\ \&lEntry);}
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lId\ ==\ FBXSDK\_PROPERTY\_ID\_NULL)}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(lEntry-\/>GetParentId()\ !=\ FBXSDK\_PROPERTY\_ID\_NULL\ \&\&\ IsDescendentOf(lId,\ pAnscestorId))}
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00753\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ret1\ =\ lId;}
+\DoxyCodeLine{00754\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00756\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00758\ }
+\DoxyCodeLine{00759\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ PROPERTY\_PAGE\_SANITY\_CHECK}}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ FBX\_ASSERT(ret0==ret1);}
+\DoxyCodeLine{00761\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret1;}
+\DoxyCodeLine{00763\ \ \ \ \ \}}
+\DoxyCodeLine{00764\ }
+\DoxyCodeLine{00770\ \ \ \ \ FbxInt\ \mbox{\hyperlink{class_fbx_property_page_a744acca1287e5b3efe2fb43407cd3025}{GetNextDescendent}}(FbxInt\ pAnscestorId,\ FbxInt\ pId)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00771\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00772\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ PROPERTY\_PAGE\_SANITY\_CHECK}}
+\DoxyCodeLine{00773\ \ \ \ \ \ \ \ \ FbxInt\ pIdBackup\ =\ pId;}
+\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ FbxInt\ ret0\ =\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00775\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pId!=FBXSDK\_PROPERTY\_ID\_NULL)\ \{}
+\DoxyCodeLine{00776\ \ \ \ \ \ \ \ \ \ \ \ \ FbxInt\ \ \ \ \ \ \ lParentId\ \ =\ GetParent(++pId);}
+\DoxyCodeLine{00777\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ FbxInt\ lLastId\ \ \ \ =\ GetPropertyEntryCount();}
+\DoxyCodeLine{00778\ }
+\DoxyCodeLine{00779\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (pId<lLastId)\ \{}
+\DoxyCodeLine{00780\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ GetParent\ returns\ null\ when\ the\ given\ id\ isn't\ in\ our\ page,}}
+\DoxyCodeLine{00781\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ or\ our\ ancestor's\ page.}}
+\DoxyCodeLine{00782\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lParentId\ !=\ FBXSDK\_PROPERTY\_ID\_NULL\ \&\&\ IsDescendentOf(pId,\ pAnscestorId)\ )}
+\DoxyCodeLine{00783\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00784\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ret0\ =\ pId;}
+\DoxyCodeLine{00785\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00786\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00787\ }
+\DoxyCodeLine{00788\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParentId\ =\ GetParent(++pId);}
+\DoxyCodeLine{00789\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00790\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00791\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00792\ \ \ \ \ \ \ \ \ pId\ =\ pIdBackup;}
+\DoxyCodeLine{00793\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00794\ \ \ \ \ \ \ \ \ FbxInt\ ret1\ =\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00795\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pId\ !=\ FBXSDK\_PROPERTY\_ID\_NULL)}
+\DoxyCodeLine{00796\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00797\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_entry}{FbxPropertyEntry}}*\ lEntry;}
+\DoxyCodeLine{00798\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(;;)}
+\DoxyCodeLine{00799\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00800\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pId\ =\ GetMinimumPropertyIdAndEntry(pId,\ \&lEntry);}
+\DoxyCodeLine{00801\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pId\ ==\ FBXSDK\_PROPERTY\_ID\_NULL)}
+\DoxyCodeLine{00802\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00803\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(lEntry-\/>GetParentId()\ !=\ FBXSDK\_PROPERTY\_ID\_NULL\ \&\&\ IsDescendentOf(pId,\ pAnscestorId)\ )}
+\DoxyCodeLine{00804\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00805\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ret1\ =\ pId;}
+\DoxyCodeLine{00806\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00807\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00808\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00809\ }
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00811\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ PROPERTY\_PAGE\_SANITY\_CHECK}}
+\DoxyCodeLine{00812\ \ \ \ \ \ \ \ \ FBX\_ASSERT(ret0==ret1);}
+\DoxyCodeLine{00813\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00814\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret1;}
+\DoxyCodeLine{00815\ }
+\DoxyCodeLine{00816\ \ \ \ \ \}}
+\DoxyCodeLine{00817\ }
+\DoxyCodeLine{00818\ \ \ \ \ FbxInt\ FastFind\ (FbxInt\ pId,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{class_fbx_property_page}{FbxPropertyPage}}*\ pTypeInfo,\ \textcolor{keywordtype}{bool}\ pCaseSensitive)}
+\DoxyCodeLine{00819\ \ \ \ \ \{}
+\DoxyCodeLine{00820\ \ \ \ \ \ \ \ \ FbxInt\ lId\ =\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00821\ }
+\DoxyCodeLine{00822\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lSlowQuery\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00823\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mNameMap.mSecond.GetSize()\ >\ 0\ )}
+\DoxyCodeLine{00824\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00825\ \ \ \ \ \ \ \ \ \ \ \ \ lSlowQuery\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00826\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ try\ to\ use\ the\ map\ if\ we've\ got\ it}}
+\DoxyCodeLine{00827\ \ \ \ \ \ \ \ \ \ \ \ \ NameMap::RecordType*\ lIterator\ =\ mNameMap.mSecond.Find(\ FbxNameMapKey(\ pId,\ pName\ )\ );}
+\DoxyCodeLine{00828\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !lIterator\ )}
+\DoxyCodeLine{00829\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00830\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lId\ =\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00831\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00832\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00833\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00834\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lId\ =\ lIterator-\/>GetValue();}
+\DoxyCodeLine{00835\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lId\ !=\ FBXSDK\_PROPERTY\_ID\_NULL\ \&\&\ pTypeInfo)}
+\DoxyCodeLine{00836\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00837\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lSlowQuery\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00838\ }
+\DoxyCodeLine{00839\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Try\ to\ match\ types.}}
+\DoxyCodeLine{00840\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ they\ are\ mismatched,\ fall\ back\ to\ the\ slow\ query,}}
+\DoxyCodeLine{00841\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ since\ we\ might\ have\ multiple\ property\ with\ the\ same\ name\ but\ different\ types}}
+\DoxyCodeLine{00842\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyInfo*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo),\ lId\ );}
+\DoxyCodeLine{00843\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lPropertyInfo)}
+\DoxyCodeLine{00844\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00845\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyPage*\ lTypeInfo2\ =\ lPropertyInfo-\/>GetTypeInfo();}
+\DoxyCodeLine{00846\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ lTypeInfo2\ \&\&\ lTypeInfo2-\/>Is(pTypeInfo)\ )}
+\DoxyCodeLine{00847\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00848\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lSlowQuery\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00849\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00850\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00851\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00852\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00853\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00854\ }
+\DoxyCodeLine{00855\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!lSlowQuery)}
+\DoxyCodeLine{00856\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lId;}
+\DoxyCodeLine{00857\ }
+\DoxyCodeLine{00858\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ fall\ back\ if\ there's\ no\ map\ or\ we\ got\ one\ with\ a\ different\ type}}
+\DoxyCodeLine{00859\ }
+\DoxyCodeLine{00860\ \ \ \ \ \ \ \ \ lId\ =\ GetChild(pId);}
+\DoxyCodeLine{00861\ \ \ \ \ \ \ \ \ FbxStringSymbol\ lSearchSymbol(\ pName\ );}
+\DoxyCodeLine{00862\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\ lId\ !=\ FBXSDK\_PROPERTY\_ID\_NULL\ )\ \{}
+\DoxyCodeLine{00863\ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyInfo*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo),\ lId\ );}
+\DoxyCodeLine{00864\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \ (\ (!pTypeInfo\ ||\ lPropertyInfo-\/>GetTypeInfo()-\/>Is(pTypeInfo))\ \&\&}
+\DoxyCodeLine{00865\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((!pCaseSensitive\ \&\&\ FBXSDK\_stricmp(lPropertyInfo-\/>GetName(),pName)==0)\ ||}
+\DoxyCodeLine{00866\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (pCaseSensitive\ \&\&\ lPropertyInfo-\/>GetName()\ ==\ lSearchSymbol))\ )\ \{}
+\DoxyCodeLine{00867\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lId;}
+\DoxyCodeLine{00868\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00869\ \ \ \ \ \ \ \ \ \ \ \ \ lId\ =\ GetSibling(lId);}
+\DoxyCodeLine{00870\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00871\ }
+\DoxyCodeLine{00872\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{00873\ \ \ \ \ \}}
+\DoxyCodeLine{00874\ }
+\DoxyCodeLine{00875\ \ \ \ \ FbxInt\ Find\ (FbxInt\ pId,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ FbxPropertyPage*\ pTypeInfo,\ \textcolor{keywordtype}{bool}\ pCaseSensitive,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pChildrenSeparators\ )}
+\DoxyCodeLine{00876\ \ \ \ \ \{}
+\DoxyCodeLine{00877\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pChildrenSeparators)\ }
+\DoxyCodeLine{00878\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00879\ \ \ \ \ \ \ \ \ \ \ \ \ FbxInt\ \ lId;}
+\DoxyCodeLine{00880\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ lFoundIndex\ =\ strcspn(pName,pChildrenSeparators);}
+\DoxyCodeLine{00881\ }
+\DoxyCodeLine{00882\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Strip\ the\ first\ part\ of\ the\ name\ and\ search}}
+\DoxyCodeLine{00883\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lFoundIndex<strlen(pName))\ }
+\DoxyCodeLine{00884\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00885\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxString\ \ \ pRootName;}
+\DoxyCodeLine{00886\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pRootName.\mbox{\hyperlink{class_fbx_string_ad84951fd4cb26f97ac88b8816102b177}{Append}}(pName,lFoundIndex);}
+\DoxyCodeLine{00887\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lId\ =\ FastFind(pId,pRootName.\mbox{\hyperlink{class_fbx_string_aea97f578b083dd83a13364cab3008dd6}{Buffer}}(),NULL,pCaseSensitive);}
+\DoxyCodeLine{00888\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lId\ !=\ FBXSDK\_PROPERTY\_ID\_NULL\ ?\ Find(lId,pName+lFoundIndex+1,pTypeInfo,pCaseSensitive,pChildrenSeparators)\ :\ lId;}
+\DoxyCodeLine{00889\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00890\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FastFind(pId,pName,pTypeInfo,pCaseSensitive);}
+\DoxyCodeLine{00891\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00892\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00893\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FastFind(pId,pName,pTypeInfo,pCaseSensitive);}
+\DoxyCodeLine{00894\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00895\ \ \ \ \ \}}
+\DoxyCodeLine{00896\ }
+\DoxyCodeLine{00897\ \textcolor{comment}{//\ Enum\ list\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00898\ \ \ \ \ \textcolor{keywordtype}{int}\ AddEnumValue(FbxInt\ pId,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pStringValue)}
+\DoxyCodeLine{00899\ \ \ \ \ \{}
+\DoxyCodeLine{00900\ \ \ \ \ \ \ \ \ FbxPropertyInfo*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo),pId\ );}
+\DoxyCodeLine{00901\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ make\ it\ writeable\ (Keep\ it\ shared)}}
+\DoxyCodeLine{00902\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyInfo\ ?\ lPropertyInfo-\/>AddEnumValue(pStringValue)\ :\ -\/\ 1;}
+\DoxyCodeLine{00903\ \ \ \ \ \}}
+\DoxyCodeLine{00904\ }
+\DoxyCodeLine{00905\ \ \ \ \ \textcolor{keywordtype}{void}\ InsertEnumValue(FbxInt\ pId,\ \textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pStringValue)}
+\DoxyCodeLine{00906\ \ \ \ \ \{}
+\DoxyCodeLine{00907\ \ \ \ \ \ \ \ \ FbxPropertyInfo*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo),pId\ );}
+\DoxyCodeLine{00908\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ make\ it\ writeable\ (Keep\ it\ shared)}}
+\DoxyCodeLine{00909\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lPropertyInfo)\ lPropertyInfo-\/>InsertEnumValue(pIndex,pStringValue);}
+\DoxyCodeLine{00910\ \ \ \ \ \}}
+\DoxyCodeLine{00911\ }
+\DoxyCodeLine{00912\ \ \ \ \ \textcolor{keywordtype}{int}\ GetEnumCount(FbxInt\ pId)}
+\DoxyCodeLine{00913\ \ \ \ \ \{}
+\DoxyCodeLine{00914\ \ \ \ \ \ \ \ \ FbxPropertyInfo*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo),pId\ );}
+\DoxyCodeLine{00915\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ make\ it\ writeable\ (Keep\ it\ shared)}}
+\DoxyCodeLine{00916\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyInfo\ ?\ lPropertyInfo-\/>GetEnumCount()\ :\ 0;}
+\DoxyCodeLine{00917\ \ \ \ \ \}}
+\DoxyCodeLine{00918\ }
+\DoxyCodeLine{00919\ \ \ \ \ \textcolor{keywordtype}{void}\ SetEnumValue(FbxInt\ pId,\ \textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pStringValue)}
+\DoxyCodeLine{00920\ \ \ \ \ \{}
+\DoxyCodeLine{00921\ \ \ \ \ \ \ \ \ FbxPropertyInfo*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo),pId\ );}
+\DoxyCodeLine{00922\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ make\ it\ writeable\ (Keep\ it\ shared)}}
+\DoxyCodeLine{00923\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lPropertyInfo)\ lPropertyInfo-\/>SetEnumValue(pIndex,pStringValue);}
+\DoxyCodeLine{00924\ \ \ \ \ \}}
+\DoxyCodeLine{00925\ }
+\DoxyCodeLine{00926\ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveEnumValue(FbxInt\ pId,\ \textcolor{keywordtype}{int}\ pIndex)}
+\DoxyCodeLine{00927\ \ \ \ \ \{}
+\DoxyCodeLine{00928\ \ \ \ \ \ \ \ \ \ FbxPropertyInfo*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo),pId\ );}
+\DoxyCodeLine{00929\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ make\ it\ writeable\ (Keep\ it\ shared)}}
+\DoxyCodeLine{00930\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lPropertyInfo)\ lPropertyInfo-\/>RemoveEnumValue(pIndex);}
+\DoxyCodeLine{00931\ \ \ \ \ \}}
+\DoxyCodeLine{00932\ }
+\DoxyCodeLine{00933\ \ \ \ \ \textcolor{keywordtype}{char}*\ GetEnumValue(FbxInt\ pId,\textcolor{keywordtype}{int}\ pIndex)}
+\DoxyCodeLine{00934\ \ \ \ \ \{}
+\DoxyCodeLine{00935\ \ \ \ \ \ \ \ \ FbxPropertyInfo*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo),pId\ );}
+\DoxyCodeLine{00936\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyInfo\ ?\ lPropertyInfo-\/>GetEnumValue(pIndex)\ :\ (\textcolor{keywordtype}{char}*)\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00937\ \ \ \ \ \}}
+\DoxyCodeLine{00938\ }
+\DoxyCodeLine{00939\ \ \ \ \ \textcolor{comment}{//\ Connection}}
+\DoxyCodeLine{00940\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00941\ \ \ \ \ \textcolor{keywordtype}{void}\ ClearConnectCache(FbxInt\ pId)}
+\DoxyCodeLine{00942\ \ \ \ \ \{}
+\DoxyCodeLine{00943\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ \ \ \ \ lReferencePage\ =\ 0;}
+\DoxyCodeLine{00944\ \ \ \ \ \ \ \ \ FbxPropertyConnect*\ lPropertyConnect\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyConnect),pId,\&lReferencePage\ );}
+\DoxyCodeLine{00945\ }
+\DoxyCodeLine{00946\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Connections\ are\ not\ considered\ propagated\ so}}
+\DoxyCodeLine{00947\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ make\ sure\ that\ we\ own\ the\ FbxPropertyConnect\ objects}}
+\DoxyCodeLine{00948\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lPropertyConnect)\ \{}
+\DoxyCodeLine{00949\ \ \ \ \ \ \ \ \ \ \ \ \ lPropertyConnect-\/>ClearConnectCache();}
+\DoxyCodeLine{00950\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00951\ \ \ \ \ \}}
+\DoxyCodeLine{00952\ }
+\DoxyCodeLine{00953\ \ \ \ \ \textcolor{keywordtype}{void}\ WipeAllConnections(FbxInt\ pId)}
+\DoxyCodeLine{00954\ \ \ \ \ \{}
+\DoxyCodeLine{00955\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ \ \ \ \ \ \ \ lReferencePage\ =\ 0;}
+\DoxyCodeLine{00956\ \ \ \ \ \ \ \ \ FbxPropertyConnect*\ lPropertyConnect\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyConnect),pId,\&lReferencePage\ );}
+\DoxyCodeLine{00957\ }
+\DoxyCodeLine{00958\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lPropertyConnect)\ \{}
+\DoxyCodeLine{00959\ \ \ \ \ \ \ \ \ \ \ \ \ lPropertyConnect-\/>\mbox{\hyperlink{class_fbx_property_connect_a56ae82d708c6c05c82a8e98d565f986b}{WipeAllConnections}}();}
+\DoxyCodeLine{00960\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00961\ \ \ \ \ \}}
+\DoxyCodeLine{00962\ }
+\DoxyCodeLine{00963\ \ \ \ \ \textcolor{keywordtype}{bool}\ ConnectSrc(FbxInt\ pDstId,\ FbxPropertyPage*\ pSrcPage,\ FbxInt\ pSrcId,\ FbxConnection::EType\ pType)}
+\DoxyCodeLine{00964\ \ \ \ \ \{}
+\DoxyCodeLine{00965\ \ \ \ \ \ \ \ \ FbxPropertyEntry*\ \ \ \ lDstEntry\ =\ ChangePropertyEntryState(pDstId,\mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}});}
+\DoxyCodeLine{00966\ \ \ \ \ \ \ \ \ FbxPropertyEntry*\ \ \ \ lSrcEntry\ =\ pSrcPage-\/>ChangePropertyEntryState(pSrcId,\mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}});}
+\DoxyCodeLine{00967\ }
+\DoxyCodeLine{00968\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Make\ sure\ we\ have\ a\ connection\ point\ on\ both\ sides\ of\ the\ connection.}}
+\DoxyCodeLine{00969\ \ \ \ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00970\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ In\ the\ case\ lDstEntry\ ==\ lSrcEntry,\ we\ don't\ want\ to\ create\ different}}
+\DoxyCodeLine{00971\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ connection\ points\ (FbxPropertyConnect)\ since\ the\ call\ to\ lSrcEntry-\/>Set(...)\ }}
+\DoxyCodeLine{00972\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ would\ delete\ the\ lDstConnect\ and\ we\ can't\ test\ for\ the\ validity\ of\ lDstConnect}}
+\DoxyCodeLine{00973\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ because\ the\ pointer\ is\ !=\ nullptr\ but\ its\ content\ have\ already\ been\ destroyed.}}
+\DoxyCodeLine{00974\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ }}
+\DoxyCodeLine{00975\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Having\ lDstEntry\ ==\ lSrcEntry\ is\ not\ a\ valid\ operation\ anyway\ and\ is\ "{}trapped"{}\ }}
+\DoxyCodeLine{00976\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ by\ the\ call\ lDstConnect-\/>ConnectSrc(lSrcConnect,\ pType);\ so\ we\ just\ need\ to}}
+\DoxyCodeLine{00977\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ make\ sure\ we\ can\ call\ it!}}
+\DoxyCodeLine{00978\ }
+\DoxyCodeLine{00979\ \ \ \ \ \ \ \ \ FbxPropertyConnect*\ \ lDstConnect=\ lDstEntry-\/>Get(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyConnect)\ );}
+\DoxyCodeLine{00980\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!lDstConnect)\ \{}
+\DoxyCodeLine{00981\ \ \ \ \ \ \ \ \ \ \ \ \ lDstConnect\ =\ FbxPropertyConnect::Create(\ \textcolor{keyword}{this},pDstId\ );}
+\DoxyCodeLine{00982\ \ \ \ \ \ \ \ \ \ \ \ \ lDstEntry-\/>Set(\ lDstConnect\ );}
+\DoxyCodeLine{00983\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00984\ }
+\DoxyCodeLine{00985\ \ \ \ \ \ \ \ \ FbxPropertyConnect*\ lSrcConnect\ =\ lSrcEntry-\/>Get(\mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyConnect));}
+\DoxyCodeLine{00986\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!lSrcConnect)\ \{}
+\DoxyCodeLine{00987\ \ \ \ \ \ \ \ \ \ \ \ \ lSrcConnect\ =\ FbxPropertyConnect::Create(\ pSrcPage,pSrcId\ );}
+\DoxyCodeLine{00988\ \ \ \ \ \ \ \ \ \ \ \ \ lSrcEntry-\/>Set(\ lSrcConnect\ );}
+\DoxyCodeLine{00989\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00990\ }
+\DoxyCodeLine{00991\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Must\ @@@@@@@\ Propagate\ to\ inherited\ children}}
+\DoxyCodeLine{00992\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (lDstConnect)\ ?\ lDstConnect-\/>ConnectSrc(lSrcConnect,\ pType)\ :\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00993\ }
+\DoxyCodeLine{00994\ \ \ \ \ \}}
+\DoxyCodeLine{00995\ }
+\DoxyCodeLine{00996\ \ \ \ \ \textcolor{keywordtype}{bool}\ DisconnectSrc(FbxInt\ pDstId,FbxPropertyPage*\ pSrcPage,FbxInt\ pSrcId)}
+\DoxyCodeLine{00997\ \ \ \ \ \{}
+\DoxyCodeLine{00998\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ \ \ \ \ \ \ \ lDstReferencePage\ \ \ =\ 0;}
+\DoxyCodeLine{00999\ \ \ \ \ \ \ \ \ FbxPropertyConnect*\ lDstConnect\ \ \ \ \ \ \ \ \ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyConnect),pDstId,\&lDstReferencePage\ );}
+\DoxyCodeLine{01000\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ \ \ \ \ \ \ \ lSrcReferencePage\ \ \ =\ 0;}
+\DoxyCodeLine{01001\ \ \ \ \ \ \ \ \ FbxPropertyConnect*\ lSrcConnect\ \ \ \ \ \ \ \ \ =\ pSrcPage-\/>GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyConnect),pSrcId,\&lSrcReferencePage\ );}
+\DoxyCodeLine{01002\ }
+\DoxyCodeLine{01003\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Make\ sure\ we\ have\ a\ connection\ point\ on\ both\ sides\ of\ the\ connection}}
+\DoxyCodeLine{01004\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lDstConnect\ \&\&\ lSrcConnect\ \&\&\ lDstReferencePage==\textcolor{keyword}{this}\ \&\&\ lSrcReferencePage==pSrcPage)\ \{}
+\DoxyCodeLine{01005\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Must\ @@@@@@@\ Remove\ unused\ connections}}
+\DoxyCodeLine{01006\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lDstConnect-\/>DisconnectSrc(lSrcConnect);}
+\DoxyCodeLine{01007\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01009\ \ \ \ \ \}}
+\DoxyCodeLine{01010\ }
+\DoxyCodeLine{01011\ \ \ \ \ \textcolor{keywordtype}{bool}\ IsConnectedSrc(FbxInt\ pDstId,\ FbxPropertyPage*\ pSrcPage,\ FbxInt\ pSrcId)}
+\DoxyCodeLine{01012\ \ \ \ \ \{}
+\DoxyCodeLine{01013\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ \ \ \ \ \ \ \ lDstReferencePage\ \ \ =\ 0;}
+\DoxyCodeLine{01014\ \ \ \ \ \ \ \ \ FbxPropertyConnect*\ lDstConnect\ \ \ \ \ \ \ \ \ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyConnect),pDstId,\&lDstReferencePage\ );}
+\DoxyCodeLine{01015\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ \ \ \ \ \ \ \ lSrcReferencePage\ \ \ =\ 0;}
+\DoxyCodeLine{01016\ \ \ \ \ \ \ \ \ FbxPropertyConnect*\ lSrcConnect\ \ \ \ \ \ \ \ \ =\ pSrcPage-\/>GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyConnect),pSrcId,\&lSrcReferencePage\ );}
+\DoxyCodeLine{01017\ }
+\DoxyCodeLine{01018\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Make\ sure\ we\ have\ a\ connection\ point\ on\ both\ sides\ of\ the\ connection}}
+\DoxyCodeLine{01019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lDstConnect\ \&\&\ lSrcConnect\ \&\&\ lDstReferencePage==\textcolor{keyword}{this}\ \&\&\ lSrcReferencePage==pSrcPage)\ \{}
+\DoxyCodeLine{01020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Must\ @@@@@@@\ Remove\ unused\ connections}}
+\DoxyCodeLine{01021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lDstConnect-\/>IsConnectedSrc(lSrcConnect);}
+\DoxyCodeLine{01022\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01024\ \ \ \ \ \}}
+\DoxyCodeLine{01025\ }
+\DoxyCodeLine{01026\ \ \ \ \ \textcolor{keywordtype}{int}\ GetSrcCount(FbxInt\ pId,\ FbxConnectionPointFilter*\ pFilter)}
+\DoxyCodeLine{01027\ \ \ \ \ \{}
+\DoxyCodeLine{01028\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ \ \ \ \ \ \ \ lReferencePage\ \ \ \ \ \ =\ 0;}
+\DoxyCodeLine{01029\ \ \ \ \ \ \ \ \ FbxPropertyConnect*\ lPropertyConnect\ \ \ \ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyConnect),pId,\&lReferencePage\ );}
+\DoxyCodeLine{01030\ }
+\DoxyCodeLine{01031\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Connections\ are\ not\ considered\ propagated\ so}}
+\DoxyCodeLine{01032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ make\ sure\ that\ we\ own\ the\ FbxPropertyConnect\ objects}}
+\DoxyCodeLine{01033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (lPropertyConnect\ \&\&\ lReferencePage==\textcolor{keyword}{this})\ ?\ lPropertyConnect-\/>GetSrcCount(pFilter)\ :\ 0;}
+\DoxyCodeLine{01034\ \ \ \ \ \}}
+\DoxyCodeLine{01035\ }
+\DoxyCodeLine{01036\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetSrc(FbxInt\ pId,\ \textcolor{keywordtype}{int}\ pIndex,\ FbxConnectionPointFilter*\ pFilter,\ FbxPropertyPage**\ pSrcPage,\ FbxInt*\ pSrcId)}
+\DoxyCodeLine{01037\ \ \ \ \ \{}
+\DoxyCodeLine{01038\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ \ \ \ \ \ \ \ lReferencePage\ \ \ \ \ \ =\ 0;}
+\DoxyCodeLine{01039\ \ \ \ \ \ \ \ \ FbxPropertyConnect*\ lPropertyConnect\ \ \ \ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyConnect),pId,\&lReferencePage\ );}
+\DoxyCodeLine{01040\ }
+\DoxyCodeLine{01041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Connections\ are\ always\ overridden}}
+\DoxyCodeLine{01042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ make\ sure\ that\ we\ own\ the\ FbxPropertyConnect\ Item}}
+\DoxyCodeLine{01043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lPropertyConnect\ \&\&\ lReferencePage==\textcolor{keyword}{this})\ }
+\DoxyCodeLine{01044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01045\ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyConnect*\ lSrc\ =\ lPropertyConnect-\/>GetSrc(pFilter,pIndex);}
+\DoxyCodeLine{01046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lSrc)\ }
+\DoxyCodeLine{01047\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pSrcPage)\ \ \ *pSrcPage\ =\ lSrc-\/>GetPage();}
+\DoxyCodeLine{01049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pSrcId)\ \ \ \ \ *pSrcId\ \ \ =\ lSrc-\/>GetPropertyId();}
+\DoxyCodeLine{01050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01051\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01054\ \ \ \ \ \}}
+\DoxyCodeLine{01055\ }
+\DoxyCodeLine{01056\ \ \ \ \ \textcolor{keywordtype}{bool}\ ConnectDst(FbxInt\ pSrcId,\ FbxPropertyPage*\ pDstPage,\ FbxInt\ pDstId,\ FbxConnection::EType\ pType)}
+\DoxyCodeLine{01057\ \ \ \ \ \{}
+\DoxyCodeLine{01058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pDstPage-\/>ConnectSrc(pDstId,\textcolor{keyword}{this},pSrcId,pType);}
+\DoxyCodeLine{01059\ \ \ \ \ \}}
+\DoxyCodeLine{01060\ }
+\DoxyCodeLine{01061\ \ \ \ \ \textcolor{keywordtype}{bool}\ DisconnectDst(FbxInt\ pSrcId,\ FbxPropertyPage*\ pDstPage,\ FbxInt\ pDstId)}
+\DoxyCodeLine{01062\ \ \ \ \ \{}
+\DoxyCodeLine{01063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pDstPage-\/>DisconnectSrc(pDstId,\textcolor{keyword}{this},pSrcId);}
+\DoxyCodeLine{01064\ \ \ \ \ \}}
+\DoxyCodeLine{01065\ }
+\DoxyCodeLine{01066\ \ \ \ \ \textcolor{keywordtype}{bool}\ IsConnectedDst(FbxInt\ pSrcId,\ FbxPropertyPage*\ pDstPage,\ FbxInt\ pDstId)}
+\DoxyCodeLine{01067\ \ \ \ \ \{}
+\DoxyCodeLine{01068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pDstPage-\/>IsConnectedSrc(pDstId,\textcolor{keyword}{this},pSrcId);}
+\DoxyCodeLine{01069\ \ \ \ \ \}}
+\DoxyCodeLine{01070\ }
+\DoxyCodeLine{01071\ \ \ \ \ \textcolor{keywordtype}{int}\ GetDstCount(FbxInt\ pId,\ FbxConnectionPointFilter*\ pFilter)}
+\DoxyCodeLine{01072\ \ \ \ \ \{}
+\DoxyCodeLine{01073\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ \ \ \ \ \ \ \ lReferencePage\ \ \ =\ 0;}
+\DoxyCodeLine{01074\ \ \ \ \ \ \ \ \ FbxPropertyConnect*\ lPropertyConnect\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyConnect),pId,\&lReferencePage\ );}
+\DoxyCodeLine{01075\ }
+\DoxyCodeLine{01076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Connections\ are\ not\ considered\ propagated\ so}}
+\DoxyCodeLine{01077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ make\ sure\ that\ we\ own\ the\ FbxPropertyConnect\ objects}}
+\DoxyCodeLine{01078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (lPropertyConnect\ \&\&\ lReferencePage==\textcolor{keyword}{this})\ ?\ lPropertyConnect-\/>GetDstCount(pFilter)\ :\ 0;}
+\DoxyCodeLine{01079\ \ \ \ \ \}}
+\DoxyCodeLine{01080\ }
+\DoxyCodeLine{01081\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetDst(FbxInt\ pId,\ \textcolor{keywordtype}{int}\ pIndex,\ FbxConnectionPointFilter*\ pFilter,\ FbxPropertyPage**\ pDstPage,\ FbxInt*\ pDstId)}
+\DoxyCodeLine{01082\ \ \ \ \ \{}
+\DoxyCodeLine{01083\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ \ \ \ \ \ \ \ lReferencePage\ \ \ =\ 0;}
+\DoxyCodeLine{01084\ \ \ \ \ \ \ \ \ FbxPropertyConnect*\ lPropertyConnect\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyConnect),pId,\&lReferencePage\ );}
+\DoxyCodeLine{01085\ }
+\DoxyCodeLine{01086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Connections\ are\ always\ overridden}}
+\DoxyCodeLine{01087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ make\ sure\ that\ we\ own\ the\ FbxPropertyConnect\ Item}}
+\DoxyCodeLine{01088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lPropertyConnect\ \&\&\ lReferencePage==\textcolor{keyword}{this})}
+\DoxyCodeLine{01089\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01090\ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyConnect*\ lDst\ =\ lPropertyConnect-\/>GetDst(pFilter,pIndex);}
+\DoxyCodeLine{01091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lDst)\ }
+\DoxyCodeLine{01092\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pDstPage)\ \ \ *pDstPage\ =\ lDst-\/>GetPage();}
+\DoxyCodeLine{01094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pDstId)\ \ \ \ \ *pDstId\ \ \ =\ lDst-\/>GetPropertyId();}
+\DoxyCodeLine{01095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01096\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01099\ \ \ \ \ \}}
+\DoxyCodeLine{01100\ }
+\DoxyCodeLine{01101\ \ \ \ \ \textcolor{comment}{//\ Min\ and\ Max}}
+\DoxyCodeLine{01102\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01103\ \ \ \ \ \textcolor{keyword}{enum}\ EValueIndex\ \{\ eValueMin,eValueSoftMin,eValueMax,eValueSoftMax,eValueCount\ \};}
+\DoxyCodeLine{01104\ }
+\DoxyCodeLine{01105\ \ \ \ \ \textcolor{keywordtype}{bool}\ HasMinMax(FbxInt\ pId,\ FbxPropertyInfo::EValueIndex\ pValueId)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01106\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01107\ \ \ \ \ \ \ \ \ FbxPropertyInfo*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo),pId\ );}
+\DoxyCodeLine{01108\ \ \ \ \ }
+\DoxyCodeLine{01109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyInfo\ ?\ lPropertyInfo-\/>HasMinMax(pValueId)\ :\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01110\ \ \ \ \ \}}
+\DoxyCodeLine{01111\ }
+\DoxyCodeLine{01112\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetMinMax(FbxInt\ pId,\ FbxPropertyInfo::EValueIndex\ pValueId,\ \textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType)}
+\DoxyCodeLine{01113\ \ \ \ \ \{}
+\DoxyCodeLine{01114\ \ \ \ \ \ \ \ \ FbxPropertyInfo*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo),pId\ );}
+\DoxyCodeLine{01115\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ make\ it\ writeable\ (Keep\ it\ shared)}}
+\DoxyCodeLine{01116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyInfo\ ?\ lPropertyInfo-\/>GetMinMax(pValueId,pValue,pValueType)\ :\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01117\ \ \ \ \ \}}
+\DoxyCodeLine{01118\ }
+\DoxyCodeLine{01119\ \ \ \ \ \textcolor{keywordtype}{bool}\ SetMinMax(FbxInt\ pId,\ FbxPropertyInfo::EValueIndex\ pValueId,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType)}
+\DoxyCodeLine{01120\ \ \ \ \ \{}
+\DoxyCodeLine{01121\ \ \ \ \ \ \ \ \ FbxPropertyInfo*\ lPropertyInfo\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo),pId\ );}
+\DoxyCodeLine{01122\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ make\ it\ writeable\ (Keep\ it\ shared)}}
+\DoxyCodeLine{01123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyInfo\ ?\ lPropertyInfo-\/>SetMinMax(pValueId,pValue,pValueType)\ :\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01124\ \ \ \ \ \}}
+\DoxyCodeLine{01125\ }
+\DoxyCodeLine{01126\ \ \ \ \ \textcolor{comment}{//\ Value}}
+\DoxyCodeLine{01127\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01128\ \ \ \ \ \textcolor{keywordtype}{bool}\ Get(FbxInt\ pId,\ \textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType)}
+\DoxyCodeLine{01129\ \ \ \ \ \{}
+\DoxyCodeLine{01130\ \ \ \ \ \ \ \ \ FbxPropertyValue*\ lPropertyValue\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyValue),pId\ );}
+\DoxyCodeLine{01131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyValue\ ?\ lPropertyValue-\/>Get(pValue,pValueType)\ :\ 0;}
+\DoxyCodeLine{01132\ \ \ \ \ \}}
+\DoxyCodeLine{01133\ }
+\DoxyCodeLine{01134\ \ \ \ \ \textcolor{keywordtype}{bool}\ Set(FbxInt\ pId,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType,\ \textcolor{keywordtype}{bool}\ pCheckValueEquality)}
+\DoxyCodeLine{01135\ \ \ \ \ \{}
+\DoxyCodeLine{01136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pCheckValueEquality\ )}
+\DoxyCodeLine{01137\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01138\ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyPage*\ \ \ lReferencePage\ \ =\ NULL;}
+\DoxyCodeLine{01139\ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyValue*\ \ lPropertyValue\ \ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyValue),pId,\&lReferencePage\ );}
+\DoxyCodeLine{01140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{01141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ lCurrentValue;}
+\DoxyCodeLine{01142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[\textcolor{keyword}{sizeof}(FbxDouble4x4)];}
+\DoxyCodeLine{01143\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{01144\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(\textcolor{keyword}{sizeof}(buffer)\ >=\ \mbox{\hyperlink{fbxpropertytypes_8h_afedd3e81c7fd2086096ba832917a1b82}{FbxTypeSizeOf}}(pValueType));}
+\DoxyCodeLine{01145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lValuesEqual\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lValueChanged\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lReferencePage\ \&\&\ lReferencePage\ !=\ \textcolor{keyword}{this}\ )}
+\DoxyCodeLine{01148\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ page\ inherits,\ so\ check\ if\ we\ have\ to\ override\ the\ value.}}
+\DoxyCodeLine{01150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lPropertyValue\ )}
+\DoxyCodeLine{01151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a7044b549edc78619622ce0a8a46091ad}{FbxTypeAllocate}}(pValueType,\ lCurrentValue,\ \textcolor{keyword}{sizeof}(buffer));}
+\DoxyCodeLine{01153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lPropertyValue-\/>Get(\ \&lCurrentValue,\ pValueType\ );}
+\DoxyCodeLine{01154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lValuesEqual\ =\ \mbox{\hyperlink{fbxpropertytypes_8h_a42e03ce549d7946a64cf9d8e2dda9e91}{FbxTypeCompare}}(\ pValue,\ \&lCurrentValue,\ pValueType\ );}
+\DoxyCodeLine{01155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a21e43301a039aa1410240d0f7c8534b3}{FbxTypeDeallocate}}(pValueType,\ lCurrentValue,\ \textcolor{keyword}{sizeof}(buffer));}
+\DoxyCodeLine{01156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01157\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01159\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyPage*\ lReferencePage2\ =\ NULL;}
+\DoxyCodeLine{01161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyValue*\ \ lPropertyValue2\ =\ mInstanceOf\ ?\ mInstanceOf-\/>GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyValue),pId,\&lReferencePage2\ )\ :\ NULL;}
+\DoxyCodeLine{01162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lReferencePage2\ \&\&\ lPropertyValue2\ )}
+\DoxyCodeLine{01163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a7044b549edc78619622ce0a8a46091ad}{FbxTypeAllocate}}(pValueType,\ lCurrentValue,\ \textcolor{keyword}{sizeof}(buffer));}
+\DoxyCodeLine{01165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ page\ is\ an\ override,\ but\ there\ is\ another\ page\ before\ us\ that\ overrides\ the\ value}}
+\DoxyCodeLine{01166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lPropertyValue2-\/>Get(\ \&lCurrentValue,\ pValueType\ );}
+\DoxyCodeLine{01167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lValuesEqual\ =\ \mbox{\hyperlink{fbxpropertytypes_8h_a42e03ce549d7946a64cf9d8e2dda9e91}{FbxTypeCompare}}(\ pValue,\ \&lCurrentValue,\ pValueType\ );}
+\DoxyCodeLine{01168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a21e43301a039aa1410240d0f7c8534b3}{FbxTypeDeallocate}}(pValueType,\ lCurrentValue,\ \textcolor{keyword}{sizeof}(buffer));}
+\DoxyCodeLine{01169\ }
+\DoxyCodeLine{01170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lValuesEqual\ )}
+\DoxyCodeLine{01171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ChangePropertyItemState(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyValue),\ pId,\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8a51d4e0da5672ca51938febe9e132c1cc}{FbxPropertyFlags::eInherit}}\ );}
+\DoxyCodeLine{01173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lValueChanged\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01175\ }
+\DoxyCodeLine{01176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ else\ this\ page\ is\ the\ originator\ of\ the\ property,\ so\ no\ need\ to\ check,}}
+\DoxyCodeLine{01178\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01179\ }
+\DoxyCodeLine{01180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lValuesEqual\ )}
+\DoxyCodeLine{01181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lValueChanged;}
+\DoxyCodeLine{01182\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01183\ }
+\DoxyCodeLine{01184\ \ \ \ \ \ \ \ \ FbxPropertyValue*\ lPropertyValue\ =\ ChangePropertyItemState(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyValue),pId,\mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}}\ );}
+\DoxyCodeLine{01185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyValue\ ?\ lPropertyValue-\/>Set(pValue,pValueType)\ :\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01186\ \ \ \ \ \}}
+\DoxyCodeLine{01187\ }
+\DoxyCodeLine{01188\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8}{FbxPropertyFlags::EInheritType}}\ GetValueInherit(FbxInt\ pId,\ \textcolor{keywordtype}{bool}\ pCheckInstanceOf)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01189\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01190\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ lReferencePage\ =\ NULL;}
+\DoxyCodeLine{01191\ \ \ \ \ \ \ \ \ GetPropertyItem(\mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyValue),\ pId,\ \&lReferencePage);}
+\DoxyCodeLine{01192\ }
+\DoxyCodeLine{01193\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ one\ level}}
+\DoxyCodeLine{01194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !pCheckInstanceOf\ )}
+\DoxyCodeLine{01195\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lReferencePage\ ==\ \textcolor{keyword}{this}\ ?\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}}\ :\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8a51d4e0da5672ca51938febe9e132c1cc}{FbxPropertyFlags::eInherit}};}
+\DoxyCodeLine{01197\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01199\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lReferencePage\ ==\ \textcolor{keyword}{this}\ )\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ page\ is\ either\ an\ override,\ or\ the\ originator}}
+\DoxyCodeLine{01201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\ !lReferencePage-\/>mInstanceOf\ )\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8a51d4e0da5672ca51938febe9e132c1cc}{FbxPropertyFlags::eInherit}};\ \ \ \ \textcolor{comment}{//\ the\ reference\ is\ the\ class\ root,\ so\ we\ must\ be\ inheriting}}
+\DoxyCodeLine{01202\ }
+\DoxyCodeLine{01203\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ reference\ page\ is\ not\ the\ class\ root,\ might\ be\ another\ override,\ or\ the\ originator.}}
+\DoxyCodeLine{01204\ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyValue*\ lPropertyValue\ =\ lReferencePage-\/>mInstanceOf-\/>GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyValue),\ pId\ );}
+\DoxyCodeLine{01205\ }
+\DoxyCodeLine{01206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ lReferencePage-\/>mInstanceOf\ has\ the\ property\ value,}}
+\DoxyCodeLine{01207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ lReferencePage\ is\ an\ override}}
+\DoxyCodeLine{01208\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ else}}
+\DoxyCodeLine{01209\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ its\ the\ originator,\ so\ this\ page\ inherits\ from\ it.}}
+\DoxyCodeLine{01210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyValue\ ?\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}}\ :\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8a51d4e0da5672ca51938febe9e132c1cc}{FbxPropertyFlags::eInherit}};}
+\DoxyCodeLine{01211\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01212\ \ \ \ \ \}}
+\DoxyCodeLine{01213\ }
+\DoxyCodeLine{01214\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ SetValueInherit(FbxInt\ pId,\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8}{FbxPropertyFlags::EInheritType}}\ pType)}
+\DoxyCodeLine{01215\ \ \ \ \ \{}
+\DoxyCodeLine{01216\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ no\ support\ for\ this\ mode\ yet}}
+\DoxyCodeLine{01217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8ac5f760693c25af70c506b5880d015947}{FbxPropertyFlags::eDeleted}}\ ==\ pType\ )}
+\DoxyCodeLine{01218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01219\ }
+\DoxyCodeLine{01220\ \ \ \ \ \ \ \ \ ChangePropertyItemState(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyValue),\ pId,\ pType\ );}
+\DoxyCodeLine{01221\ }
+\DoxyCodeLine{01222\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Above\ call\ doesn't\ return\ error\ codes,\ so\ just\ check\ that\ we\ match\ types.}}
+\DoxyCodeLine{01223\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GetValueInherit(pId,\ \textcolor{keyword}{false})\ ==\ pType;}
+\DoxyCodeLine{01224\ \ \ \ \ \}}
+\DoxyCodeLine{01225\ }
+\DoxyCodeLine{01226\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ GetDefaultValue(FbxInt\ pId,\ \textcolor{keywordtype}{void}*\ pValue,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pValueType)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01227\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01228\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ \ \ \ lReferencePage\ =\ GetFirstPropertyItem(\ pId,\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyValue)\ );}
+\DoxyCodeLine{01229\ \ \ \ \ \ \ \ \ FbxPropertyValue*\ \ \ lPropertyValue\ =\ lReferencePage\ ?\ lReferencePage-\/>GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyValue),\ pId\ )\ :\ NULL;}
+\DoxyCodeLine{01230\ }
+\DoxyCodeLine{01231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyValue\ ?\ lPropertyValue-\/>Get(\ pValue,\ pValueType\ )\ :\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01232\ \ \ \ \ \}}
+\DoxyCodeLine{01233\ }
+\DoxyCodeLine{01234\ }
+\DoxyCodeLine{01235\ \ \ \ \ \textcolor{comment}{//\ useful\ set\ and\ get\ functions}}
+\DoxyCodeLine{01236\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \ Set(\ FbxInt\ pId,\ \textcolor{keyword}{const}\ T\&\ pValue\ )\ \ \ \ \{\ \textcolor{keywordflow}{return}\ Set(\ pId,\&pValue,FbxTypeOf(pValue),\textcolor{keyword}{true}\ );\ \}}
+\DoxyCodeLine{01237\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ T\ \ \ \ \ Get(\ FbxInt\ pId,\ \textcolor{keyword}{const}\ T*\ pFBX\_TYPE)\ \ \{\ T\ lValue;\ Get(\ pId,\&lValue,FbxTypeOf(lValue)\ );\ \textcolor{keywordflow}{return}\ lValue;\ \}}
+\DoxyCodeLine{01238\ }
+\DoxyCodeLine{01239\ }
+\DoxyCodeLine{01240\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ SetDataPtr(\textcolor{keywordtype}{void}*\ pDataPtr)\ \ \{\ mDataPtr\ =\ pDataPtr;\ \}}
+\DoxyCodeLine{01241\ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ GetDataPtr()\textcolor{keyword}{\ const\ \ \ \ \ \ \ \ \ \ }\{\ \textcolor{keywordflow}{return}\ mDataPtr;\ \}}
+\DoxyCodeLine{01242\ }
+\DoxyCodeLine{01243\ \ \ \ \ \textcolor{comment}{//\ Instance\ and\ override\ management}}
+\DoxyCodeLine{01244\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01245\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ PushPropertiesToParentInstance()}
+\DoxyCodeLine{01246\ \ \ \ \ \{}
+\DoxyCodeLine{01247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mInstanceOf)\ \{}
+\DoxyCodeLine{01248\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ lCount\ =\ GetPropertyEntryCount();}
+\DoxyCodeLine{01249\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ push\ the\ existing\ properties\ into\ the\ parent}}
+\DoxyCodeLine{01250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01251\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ lCount;\ ++i\ )}
+\DoxyCodeLine{01252\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyEntry*\ lParentEntry\ =\ mInstanceOf-\/>ChangePropertyEntryState(\ (FbxInt)i,\mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}}\ );}
+\DoxyCodeLine{01254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyEntry*\ lEntry\ \ \ \ \ \ \ =\ GetPropertyEntry(\ (FbxInt)i\ );}
+\DoxyCodeLine{01255\ }
+\DoxyCodeLine{01256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !lParentEntry\ )}
+\DoxyCodeLine{01257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParentEntry\ =\ FbxPropertyEntry::Create(\ lEntry-\/>GetParentId(),\ 0,\ 0,\ 0\ );}
+\DoxyCodeLine{01259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mInstanceOf-\/>mEntryMap.Insert(\ i,\ lParentEntry\ );}
+\DoxyCodeLine{01260\ }
+\DoxyCodeLine{01261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//mInstanceOf-\/>AddChild(i);}}
+\DoxyCodeLine{01262\ }
+\DoxyCodeLine{01263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01264\ }
+\DoxyCodeLine{01265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ lParentEntry\ );}
+\DoxyCodeLine{01266\ }
+\DoxyCodeLine{01267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ it\ to\ the\ parent}}
+\DoxyCodeLine{01268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ touch\ the\ connections}}
+\DoxyCodeLine{01269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lParentEntry)\ \{}
+\DoxyCodeLine{01271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParentEntry-\/>Set(\ lEntry-\/>Get(\mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo))\ \ );}
+\DoxyCodeLine{01272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParentEntry-\/>Set(\ lEntry-\/>Get(\mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyValue))\ );}
+\DoxyCodeLine{01273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParentEntry-\/>Set(\ lEntry-\/>Get(\mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyFlags))\ );}
+\DoxyCodeLine{01274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01275\ }
+\DoxyCodeLine{01276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{01277\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ else\ \{}}
+\DoxyCodeLine{01278\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mInstanceOf-\/>Add(}}
+\DoxyCodeLine{01279\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lEntry-\/>GetParentId(),}}
+\DoxyCodeLine{01280\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lEntry-\/>Get(FBX\_TYPE(FbxPropertyInfo)),\ \ \ \ \ \ \ \ //\ The\ info}}
+\DoxyCodeLine{01281\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lEntry-\/>Get(FBX\_TYPE(FbxPropertyValue)),\ \ \ \ \ \ \ //\ The\ Value}}
+\DoxyCodeLine{01282\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ The\ connections}}
+\DoxyCodeLine{01283\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ false,}}
+\DoxyCodeLine{01284\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ false}}
+\DoxyCodeLine{01285\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}}
+\DoxyCodeLine{01286\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{01287\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{01288\ }
+\DoxyCodeLine{01289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Empty\ the\ current\ entry}}
+\DoxyCodeLine{01290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Don't\ touch\ the\ connections}}
+\DoxyCodeLine{01291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ChangePropertyItemState(\mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo),\ \ i,\mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8a51d4e0da5672ca51938febe9e132c1cc}{FbxPropertyFlags::eInherit}});}
+\DoxyCodeLine{01293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ChangePropertyItemState(\mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyValue),\ i,\mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8a51d4e0da5672ca51938febe9e132c1cc}{FbxPropertyFlags::eInherit}});}
+\DoxyCodeLine{01294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ChangePropertyItemState(\mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyFlags),\ i,\mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8a51d4e0da5672ca51938febe9e132c1cc}{FbxPropertyFlags::eInherit}});}
+\DoxyCodeLine{01295\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01296\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01297\ \ \ \ \ \}}
+\DoxyCodeLine{01298\ }
+\DoxyCodeLine{01299\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ FbxPropertyPage*\ \ GetInstanceOf()\textcolor{keyword}{\ const\ \ \ }\{\ \textcolor{keywordflow}{return}\ mInstanceOf;\ \}}
+\DoxyCodeLine{01300\ \ \ \ \ \textcolor{keyword}{inline}\ FbxPropertyPage*\ \ \ \ \ \ \ \ GetInstanceOf()\ \ \ \ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ mInstanceOf;\ \}}
+\DoxyCodeLine{01301\ }
+\DoxyCodeLine{01302\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ FbxSet<FbxPropertyPage*>\&\ \ \ \ \ GetInstances()\textcolor{keyword}{\ const\ \ \ \ }\{\ \textcolor{keywordflow}{return}\ mInstances;\ \}}
+\DoxyCodeLine{01303\ }
+\DoxyCodeLine{01304\ \ \ \ \ \textcolor{comment}{//\ Flags}}
+\DoxyCodeLine{01305\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01306\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ GetFlags(FbxInt\ pId=FBXSDK\_PROPERTY\_ID\_ROOT)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01307\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01308\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ lFoundIn\ =\ NULL;}
+\DoxyCodeLine{01309\ \ \ \ \ \ \ \ \ FbxPropertyFlags*\ \ lPropertyFlags\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyFlags),\ pId,\ \&lFoundIn\ );}
+\DoxyCodeLine{01310\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ lFlags\ =\ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99ac1b9aab93d40af76eb419be426de17b1}{FbxPropertyFlags::eNone}};}
+\DoxyCodeLine{01311\ }
+\DoxyCodeLine{01312\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lPropertyFlags\ )}
+\DoxyCodeLine{01313\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01314\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !mInstanceOf\ )\ \textcolor{comment}{//\ no\ inheritance.}}
+\DoxyCodeLine{01315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lFlags\ =\ lPropertyFlags-\/>GetFlags();}
+\DoxyCodeLine{01316\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01317\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lFlags\ =\ mInstanceOf-\/>GetFlags(pId);}
+\DoxyCodeLine{01319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lFlags\ =\ lPropertyFlags-\/>GetMergedFlags(lFlags);}
+\DoxyCodeLine{01320\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01321\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lFlags;}
+\DoxyCodeLine{01323\ \ \ \ \ \}}
+\DoxyCodeLine{01324\ }
+\DoxyCodeLine{01325\ \ \ \ \ \textcolor{keywordtype}{bool}\ ModifyFlags(FbxInt\ pId=FBXSDK\_PROPERTY\_ID\_ROOT,\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlags=\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99ac1b9aab93d40af76eb419be426de17b1}{FbxPropertyFlags::eNone}},\textcolor{keywordtype}{bool}\ pValue=\textcolor{keyword}{true},\textcolor{keywordtype}{bool}\ pCheckFlagEquality=\textcolor{keyword}{true})}
+\DoxyCodeLine{01326\ \ \ \ \ \{}
+\DoxyCodeLine{01327\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pCheckFlagEquality\ )}
+\DoxyCodeLine{01328\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01329\ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyPage*\ lFoundIn\ =\ NULL;}
+\DoxyCodeLine{01330\ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyFlags*\ lFlag\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyFlags),\ pId,\ \&lFoundIn\ );}
+\DoxyCodeLine{01331\ }
+\DoxyCodeLine{01332\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lFlag\ )}
+\DoxyCodeLine{01333\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lFoundIn\ ==\ \textcolor{keyword}{this}\ )}
+\DoxyCodeLine{01335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ set\ them\ in\ us.}}
+\DoxyCodeLine{01337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lFlag-\/>ModifyFlags(\ pFlags,\ pValue\ );}
+\DoxyCodeLine{01338\ }
+\DoxyCodeLine{01339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ override\ this\ entry,\ check\ if\ we\ need\ to\ revert}}
+\DoxyCodeLine{01340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyFlags*\ lInheritedFlags\ =\ mInstanceOf\ ?\ mInstanceOf-\/>GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyFlags),\ pId\ )\ :\ NULL;}
+\DoxyCodeLine{01341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lInheritedFlags\ \&\&\ lInheritedFlags-\/>Equal(\ *lFlag,\ pFlags\ )\ )}
+\DoxyCodeLine{01342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lFlag-\/>UnsetMask(\ pFlags\ );}
+\DoxyCodeLine{01344\ }
+\DoxyCodeLine{01345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lFlag-\/>GetMask()\ ==\ 0\ )}
+\DoxyCodeLine{01346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ChangePropertyItemState(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyFlags),\ pId,\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8a51d4e0da5672ca51938febe9e132c1cc}{FbxPropertyFlags::eInherit}}\ );}
+\DoxyCodeLine{01347\ }
+\DoxyCodeLine{01348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ its\ not\ us.\ Just\ check\ if\ we\ need\ to\ set.}}
+\DoxyCodeLine{01354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyFlags\ lNewValues(\ pFlags\ );}
+\DoxyCodeLine{01355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lFlag-\/>Equal(\ lNewValues,\ pFlags\ )\ )}
+\DoxyCodeLine{01356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01358\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01359\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01360\ }
+\DoxyCodeLine{01361\ \ \ \ \ \ \ \ \ FbxPropertyFlags*\ lPropertyFlags\ =\ ChangePropertyItemState(\mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyFlags),\ pId,\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}});}
+\DoxyCodeLine{01362\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyFlags\ ?\ lPropertyFlags-\/>ModifyFlags(\ pFlags,\ pValue\ )\ :\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01363\ \ \ \ \ \}}
+\DoxyCodeLine{01364\ }
+\DoxyCodeLine{01365\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8}{FbxPropertyFlags::EInheritType}}\ GetFlagsInheritType(\mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlags,\ \textcolor{keywordtype}{bool}\ pCheckInstanceOf,\ FbxInt\ pId=FBXSDK\_PROPERTY\_ID\_ROOT)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01366\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01367\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ lFoundIn\ =\ NULL;}
+\DoxyCodeLine{01368\ \ \ \ \ \ \ \ \ FbxPropertyFlags*\ \ lPropertyFlags\ =\ GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyFlags),\ pId,\ \&lFoundIn\ );}
+\DoxyCodeLine{01369\ }
+\DoxyCodeLine{01370\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !pCheckInstanceOf\ )}
+\DoxyCodeLine{01371\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lFoundIn\ !=\ \textcolor{keyword}{this}\ ?\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8a51d4e0da5672ca51938febe9e132c1cc}{FbxPropertyFlags::eInherit}}\ :\ (\ lPropertyFlags\ ?\ lPropertyFlags-\/>GetFlagsInheritType(pFlags)\ :\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8a51d4e0da5672ca51938febe9e132c1cc}{FbxPropertyFlags::eInherit}}\ );}
+\DoxyCodeLine{01372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01373\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01374\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ This\ code\ basically\ counts\ the\ number\ of\ overrides\ for\ the}}
+\DoxyCodeLine{01375\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ given\ flags.\ The\ original\ entry\ is\ always\ considered\ an\ override.}}
+\DoxyCodeLine{01376\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ so\ if\ we\ see\ more\ than\ one,\ something\ overrode\ the\ original.}}
+\DoxyCodeLine{01377\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ thus\ we\ are\ an\ override.}}
+\DoxyCodeLine{01378\ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyPage*\ lRefPage\ =\ lFoundIn;}
+\DoxyCodeLine{01379\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lFoundOverride\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01380\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\ lRefPage\ )}
+\DoxyCodeLine{01381\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lPropertyFlags\ =\ lRefPage-\/>GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyFlags),\ pId\ );}
+\DoxyCodeLine{01383\ }
+\DoxyCodeLine{01384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !lPropertyFlags\ )}
+\DoxyCodeLine{01385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \ \textcolor{comment}{//\ gone\ too\ far,\ break.}}
+\DoxyCodeLine{01386\ }
+\DoxyCodeLine{01387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lPropertyFlags-\/>GetFlagsInheritType(\ pFlags\ )\ ==\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}}\ )}
+\DoxyCodeLine{01388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \textcolor{keyword}{this}\ ==\ lRefPage\ ||\ lFoundOverride\ )}
+\DoxyCodeLine{01390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}};\ \ \ \ \textcolor{comment}{//\ found\ two\ overrides\ or\ this\ page\ is\ the\ override.}}
+\DoxyCodeLine{01391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lFoundOverride\ =\ \textcolor{keyword}{true};\ \ \textcolor{comment}{//\ signal\ that\ we\ found\ the\ first\ override.}}
+\DoxyCodeLine{01393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lRefPage\ =\ lRefPage-\/>mInstanceOf;}
+\DoxyCodeLine{01395\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01396\ }
+\DoxyCodeLine{01397\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8a51d4e0da5672ca51938febe9e132c1cc}{FbxPropertyFlags::eInherit}};}
+\DoxyCodeLine{01398\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01399\ \ \ \ \ \}}
+\DoxyCodeLine{01400\ }
+\DoxyCodeLine{01401\ \ \ \ \ \textcolor{keywordtype}{bool}\ SetFlagsInheritType(\mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8}{FbxPropertyFlags::EInheritType}}\ pInheritType,\ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ pFlags,\ FbxInt\ pId=FBXSDK\_PROPERTY\_ID\_ROOT)}
+\DoxyCodeLine{01402\ \ \ \ \ \{}
+\DoxyCodeLine{01403\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ lFoundIn\ =\ NULL;}
+\DoxyCodeLine{01404\ \ \ \ \ \ \ \ \ FbxPropertyFlags*\ lPropertyFlags\ =\ NULL;}
+\DoxyCodeLine{01405\ }
+\DoxyCodeLine{01406\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}}\ ==\ pInheritType\ )}
+\DoxyCodeLine{01407\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01408\ \ \ \ \ \ \ \ \ \ \ \ \ lPropertyFlags\ =\ ChangePropertyItemState(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyFlags),\ pId,\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}}\ );}
+\DoxyCodeLine{01409\ }
+\DoxyCodeLine{01410\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ should\ initialize\ our\ flag\ to\ the\ inherited\ value,\ if\ any.}}
+\DoxyCodeLine{01411\ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyFlags*\ lParentFlags\ =\ mInstanceOf\ ?\ mInstanceOf-\/>GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyFlags),\ pId\ )\ :\ NULL;}
+\DoxyCodeLine{01412\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lParentFlags\ \&\&\ lPropertyFlags\ )}
+\DoxyCodeLine{01413\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ lParentValues\ =\ lParentFlags-\/>GetFlags();}
+\DoxyCodeLine{01415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lPropertyFlags-\/>SetFlags(\ pFlags,\ lParentValues\ );}
+\DoxyCodeLine{01416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lPropertyFlags-\/>SetMask(\ pFlags\ );}
+\DoxyCodeLine{01417\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01418\ }
+\DoxyCodeLine{01419\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01420\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01421\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8a51d4e0da5672ca51938febe9e132c1cc}{FbxPropertyFlags::eInherit}}\ ==\ pInheritType\ )}
+\DoxyCodeLine{01422\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01423\ \ \ \ \ \ \ \ \ \ \ \ \ lPropertyFlags\ =\ GetPropertyItem(\mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyFlags),\ pId,\ \&lFoundIn);}
+\DoxyCodeLine{01424\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !lPropertyFlags\ )\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01425\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lFoundIn\ !=\ \textcolor{keyword}{this}\ )\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ not\ us}}
+\DoxyCodeLine{01426\ \ \ \ \ \ \ \ \ \ \ \ \ lPropertyFlags-\/>UnsetMask(\ pFlags\ );}
+\DoxyCodeLine{01427\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lPropertyFlags-\/>GetMask()\ ==\ 0\ )\ \ \ \ \textcolor{comment}{//\ revert}}
+\DoxyCodeLine{01428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ChangePropertyItemState(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyFlags),\ pId,\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8a51d4e0da5672ca51938febe9e132c1cc}{FbxPropertyFlags::eInherit}}\ );}
+\DoxyCodeLine{01429\ }
+\DoxyCodeLine{01430\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01431\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01432\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01433\ \ \ \ \ \}}
+\DoxyCodeLine{01434\ }
+\DoxyCodeLine{01435\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ BeginCreateOrFindProperty()}
+\DoxyCodeLine{01436\ \ \ \ \ \{}
+\DoxyCodeLine{01437\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ 0\ ==\ mNameMap.mFirst\ )}
+\DoxyCodeLine{01438\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01439\ \ \ \ \ \ \ \ \ \ \ \ \ mNameMap.mSecond.Reserve(20);}
+\DoxyCodeLine{01440\ }
+\DoxyCodeLine{01441\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ push\ the\ existing\ properties\ into\ the\ map.\ Note:\ this\ includes\ the\ root\ property!}}
+\DoxyCodeLine{01442\ \ \ \ \ \ \ \ \ \ \ \ \ FbxInt\ lFoundId\ =\ FBXSDK\_PROPERTY\_ID\_ROOT;}
+\DoxyCodeLine{01443\ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyEntry*\ lEntry\ =\ GetPropertyEntry(lFoundId);}
+\DoxyCodeLine{01444\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(lFoundId\ !=\ FBXSDK\_PROPERTY\_ID\_NULL)}
+\DoxyCodeLine{01445\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyInfo*\ lInfo\ =\ lEntry-\/>Get(\mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo));}
+\DoxyCodeLine{01447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//FBX\_ASSERT(\ lInfo\ );}}
+\DoxyCodeLine{01448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lInfo)}
+\DoxyCodeLine{01449\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01450\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mNameMap.mSecond.Insert(FbxNameMapKey(lEntry-\/>GetParentId(),\ lInfo-\/>GetName()),\ lFoundId);}
+\DoxyCodeLine{01451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lFoundId\ =\ GetMinimumPropertyIdAndEntry(lFoundId,\ \&lEntry);}
+\DoxyCodeLine{01453\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01454\ \ \ \ \ \ \ \ \ \ \ \ \ mNameMap.mFirst++;}
+\DoxyCodeLine{01455\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01456\ \ \ \ \ \}}
+\DoxyCodeLine{01457\ }
+\DoxyCodeLine{01458\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ EndCreateOrFindProperty()}
+\DoxyCodeLine{01459\ \ \ \ \ \{}
+\DoxyCodeLine{01460\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mNameMap.mFirst\ >\ 0\ )}
+\DoxyCodeLine{01461\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01462\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ -\/-\/(mNameMap.mFirst)\ ==\ 0\ )}
+\DoxyCodeLine{01463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mNameMap.mSecond.Clear();}
+\DoxyCodeLine{01464\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01465\ \ \ \ \ \}}
+\DoxyCodeLine{01466\ }
+\DoxyCodeLine{01467\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{01468\ \ \ \ \ FbxPropertyPage(FbxPropertyPage*\ pInstanceOf=0)}
+\DoxyCodeLine{01469\ \ \ \ \ \ \ \ \ :\ mInstanceOf(0)}
+\DoxyCodeLine{01470\ \ \ \ \ \ \ \ \ ,\ mDataPtr(0)}
+\DoxyCodeLine{01471\ \ \ \ \ \ \ \ \ ,\ mPropNextId(0)}
+\DoxyCodeLine{01472\ \ \ \ \ \{}
+\DoxyCodeLine{01473\ \ \ \ \ \ \ \ \ mEntryMap.Reserve(32);}
+\DoxyCodeLine{01474\ \ \ \ \ \ \ \ \ mNameMap.mFirst\ =\ 0;}
+\DoxyCodeLine{01475\ }
+\DoxyCodeLine{01476\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ instances\ don't\ need\ to\ create\ a\ root\ property}}
+\DoxyCodeLine{01477\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !pInstanceOf\ )}
+\DoxyCodeLine{01478\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01479\ \ \ \ \ \ \ \ \ \ \ \ \ mPropNextId\ =\ FbxNew<\ FbxPropertyIdGenerator\ >();}
+\DoxyCodeLine{01480\ \ \ \ \ \ \ \ \ \ \ \ \ mPropNextId-\/>IncRef();}
+\DoxyCodeLine{01481\ }
+\DoxyCodeLine{01482\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ item\ is\ the\ root\ information}}
+\DoxyCodeLine{01483\ \ \ \ \ \ \ \ \ \ \ \ \ Add(FBXSDK\_PROPERTY\_ID\_NULL,\textcolor{stringliteral}{"{}"{}},\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92a150b400dddd0f8b5c7e22a1bba0721d8}{eFbxUndefined}});}
+\DoxyCodeLine{01484\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01485\ }
+\DoxyCodeLine{01486\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Hook\ the\ instances}}
+\DoxyCodeLine{01487\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01488\ \ \ \ \ \ \ \ \ mInstanceOf\ =\ pInstanceOf;}
+\DoxyCodeLine{01489\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mInstanceOf)\ \{}
+\DoxyCodeLine{01490\ \ \ \ \ \ \ \ \ \ \ \ \ mInstanceOf-\/>mInstances.Insert(\textcolor{keyword}{this});}
+\DoxyCodeLine{01491\ }
+\DoxyCodeLine{01492\ \ \ \ \ \ \ \ \ \ \ \ \ mPropNextId\ =\ mInstanceOf-\/>mPropNextId;}
+\DoxyCodeLine{01493\ \ \ \ \ \ \ \ \ \ \ \ \ mPropNextId-\/>IncRef();}
+\DoxyCodeLine{01494\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01495\ \ \ \ \ \}}
+\DoxyCodeLine{01496\ \ \ \ \ FbxPropertyPage(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pType)}
+\DoxyCodeLine{01497\ \ \ \ \ \ \ \ \ :\ mInstanceOf(0)}
+\DoxyCodeLine{01498\ \ \ \ \ \ \ \ \ ,\ mDataPtr(0)}
+\DoxyCodeLine{01499\ \ \ \ \ \ \ \ \ ,\ mPropNextId(0)}
+\DoxyCodeLine{01500\ \ \ \ \ \{}
+\DoxyCodeLine{01501\ \ \ \ \ \ \ \ \ mEntryMap.Reserve(32);}
+\DoxyCodeLine{01502\ \ \ \ \ \ \ \ \ mNameMap.mFirst\ =\ 0;}
+\DoxyCodeLine{01503\ }
+\DoxyCodeLine{01504\ \ \ \ \ \ \ \ \ mPropNextId\ =\ FbxNew<\ FbxPropertyIdGenerator\ >();}
+\DoxyCodeLine{01505\ \ \ \ \ \ \ \ \ mPropNextId-\/>IncRef();}
+\DoxyCodeLine{01506\ }
+\DoxyCodeLine{01507\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ item\ is\ the\ root\ information}}
+\DoxyCodeLine{01508\ \ \ \ \ \ \ \ \ Add(FBXSDK\_PROPERTY\_ID\_NULL,pName,pType);}
+\DoxyCodeLine{01509\ \ \ \ \ \}}
+\DoxyCodeLine{01510\ \ \ \ \ FbxPropertyPage(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ FbxPropertyPage*\ pTypeInfo)}
+\DoxyCodeLine{01511\ \ \ \ \ \ \ \ \ :\ mInstanceOf(0)}
+\DoxyCodeLine{01512\ \ \ \ \ \ \ \ \ ,\ mDataPtr(0)}
+\DoxyCodeLine{01513\ \ \ \ \ \ \ \ \ ,\ mPropNextId(0)}
+\DoxyCodeLine{01514\ \ \ \ \ \{}
+\DoxyCodeLine{01515\ \ \ \ \ \ \ \ \ mEntryMap.Reserve(32);}
+\DoxyCodeLine{01516\ \ \ \ \ \ \ \ \ mNameMap.mFirst\ =\ 0;}
+\DoxyCodeLine{01517\ }
+\DoxyCodeLine{01518\ \ \ \ \ \ \ \ \ mPropNextId\ =\ FbxNew<\ FbxPropertyIdGenerator\ >();}
+\DoxyCodeLine{01519\ \ \ \ \ \ \ \ \ mPropNextId-\/>IncRef();}
+\DoxyCodeLine{01520\ }
+\DoxyCodeLine{01521\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ item\ is\ the\ root\ information}}
+\DoxyCodeLine{01522\ \ \ \ \ \ \ \ \ Add(FBXSDK\_PROPERTY\_ID\_NULL,pName,pTypeInfo);}
+\DoxyCodeLine{01523\ \ \ \ \ \}}
+\DoxyCodeLine{01524\ \ \ \ \ \string~FbxPropertyPage()}
+\DoxyCodeLine{01525\ \ \ \ \ \{}
+\DoxyCodeLine{01526\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Propagate\ our\ property\ entries.}}
+\DoxyCodeLine{01527\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (FbxSet<FbxPropertyPage*>::Iterator\ iter\ =\ mInstances.Begin();\ iter\ !=\ mInstances.End();\ ++iter)}
+\DoxyCodeLine{01528\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01529\ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyPage*\ lPage\ =\ iter-\/>GetValue();}
+\DoxyCodeLine{01530\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ GetPropertyEntryCount();\ ++j)}
+\DoxyCodeLine{01531\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01532\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lPage-\/>ChangePropertyEntryState((FbxInt)j,\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}}))}
+\DoxyCodeLine{01533\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01534\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Clone\ the\ info\ and\ values.\ Don't\ clone\ the\ connections,}}
+\DoxyCodeLine{01535\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ since\ they\ aren't\ propagated.}}
+\DoxyCodeLine{01536\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lPage-\/>ChangePropertyItemState(\mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo),\ (FbxInt)j,\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}});}
+\DoxyCodeLine{01537\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lPage-\/>ChangePropertyItemState(\mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyValue),\ (FbxInt)j,\ \mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}});}
+\DoxyCodeLine{01538\ }
+\DoxyCodeLine{01539\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Since\ all\ entries\ have\ their\ own\ flags,\ just\ override\ the\ ones\ in\ the\ instance.}}
+\DoxyCodeLine{01540\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lPage-\/>SetFlagsInheritType(\mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}},\ FbxPropertyFlags::eAllFlags,\ (FbxInt)j);}
+\DoxyCodeLine{01541\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01542\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01543\ }
+\DoxyCodeLine{01544\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Instances\ become\ their\ own\ copies.}}
+\DoxyCodeLine{01545\ \ \ \ \ \ \ \ \ \ \ \ \ lPage-\/>mInstanceOf\ =\ NULL;}
+\DoxyCodeLine{01546\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01547\ }
+\DoxyCodeLine{01548\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxmap_8h_a7b3fa45c368ef3d89301db42e3147792}{FbxMapDestroy}}(mEntryMap);}
+\DoxyCodeLine{01549\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01550\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mInstanceOf)}
+\DoxyCodeLine{01551\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01552\ \ \ \ \ \ \ \ \ \ \ \ \ mInstanceOf-\/>mInstances.Remove(\textcolor{keyword}{this});}
+\DoxyCodeLine{01553\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01554\ }
+\DoxyCodeLine{01555\ \ \ \ \ \ \ \ \ mPropNextId-\/>DecRef();}
+\DoxyCodeLine{01556\ \ \ \ \ \ \ \ \ mPropNextId\ =\ NULL;}
+\DoxyCodeLine{01557\ }
+\DoxyCodeLine{01558\ \ \ \ \ \ \ \ \ mInstanceOf\ =\ NULL;}
+\DoxyCodeLine{01559\ \ \ \ \ \ \ \ \ mInstances.Clear();}
+\DoxyCodeLine{01560\ \ \ \ \ \}}
+\DoxyCodeLine{01561\ }
+\DoxyCodeLine{01562\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ Is(FbxPropertyPage*\ pPage)}
+\DoxyCodeLine{01563\ \ \ \ \ \{}
+\DoxyCodeLine{01564\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ @@@@@@@@@@@@@@@\ Must\ complete\ for\ sub\ types}}
+\DoxyCodeLine{01565\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{this}==pPage;}
+\DoxyCodeLine{01566\ \ \ \ \ \}}
+\DoxyCodeLine{01567\ }
+\DoxyCodeLine{01568\ \textcolor{comment}{//\ Internal\ entry\ management}}
+\DoxyCodeLine{01569\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01570\ }
+\DoxyCodeLine{01576\ \ \ \ \ FbxInt\ GetMinimumPropertyId(FbxInt\ pId,\ \textcolor{keywordtype}{bool}\ pIncrementIfNone\ =\ \textcolor{keyword}{true})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01577\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01578\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pId\ ==\ FBXSDK\_PROPERTY\_ID\_NULL\ )}
+\DoxyCodeLine{01579\ \ \ \ \ \ \ \ \ \ \ \ \ pId\ =\ FBXSDK\_PROPERTY\_ID\_ROOT;}
+\DoxyCodeLine{01580\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01581\ \ \ \ \ \ \ \ \ FbxInt\ lMin\ =\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{01582\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EntryMap::RecordType*\ lElement\ =\ mEntryMap.UpperBound(pId);}
+\DoxyCodeLine{01583\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ !=\ lElement)}
+\DoxyCodeLine{01584\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01585\ \ \ \ \ \ \ \ \ \ \ \ \ lMin\ =\ lElement-\/>GetKey();}
+\DoxyCodeLine{01586\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01587\ }
+\DoxyCodeLine{01588\ \ \ \ \ \ \ \ \ FbxInt\ lParentMin\ =\ mInstanceOf\ ?\ mInstanceOf-\/>GetMinimumPropertyId(pId,\textcolor{keyword}{false})\ :\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{01589\ }
+\DoxyCodeLine{01590\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lParentNull\ =\ lParentMin\ ==\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{01591\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lMinNull\ =\ lMin\ ==\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{01592\ }
+\DoxyCodeLine{01593\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lParentNull\ \&\&\ lMinNull\ )\ \ \ \textcolor{keywordflow}{return}\ pIncrementIfNone\ ?\ pId+1\ :\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{01594\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\ lMinNull\ )\ \ \ \ \ \ \ \ \ \ \ \ \ lMin\ =\ lParentMin;}
+\DoxyCodeLine{01595\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\ !lParentNull\ )\ \ \ \ \ \ \ \ \ lMin\ =\ lMin\ <\ lParentMin\ ?\ lMin\ :\ lParentMin;}
+\DoxyCodeLine{01596\ }
+\DoxyCodeLine{01597\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lMin;}
+\DoxyCodeLine{01598\ \ \ \ \ \}}
+\DoxyCodeLine{01599\ }
+\DoxyCodeLine{01605\ \ \ \ \ FbxInt\ GetMinimumPropertyIdAndEntry(FbxInt\ pId,\ FbxPropertyEntry**\ pEntry)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01606\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01607\ \ \ \ \ \ \ \ \ FbxInt\ lFoundId\ =\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{01608\ \ \ \ \ \ \ \ \ FbxPropertyEntry*\ lFoundEntry\ =\ NULL;}
+\DoxyCodeLine{01609\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pId\ ==\ FBXSDK\_PROPERTY\_ID\_NULL\ )}
+\DoxyCodeLine{01610\ \ \ \ \ \ \ \ \ \ \ \ \ pId\ =\ FBXSDK\_PROPERTY\_ID\_ROOT;}
+\DoxyCodeLine{01611\ }
+\DoxyCodeLine{01612\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EntryMap::RecordType*\ lElement\ =\ mEntryMap.UpperBound(pId);}
+\DoxyCodeLine{01613\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ !=\ lElement)}
+\DoxyCodeLine{01614\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01615\ \ \ \ \ \ \ \ \ \ \ \ \ lFoundId\ =\ lElement-\/>GetKey();}
+\DoxyCodeLine{01616\ \ \ \ \ \ \ \ \ \ \ \ \ lFoundEntry\ =\ lElement-\/>GetValue();}
+\DoxyCodeLine{01617\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01618\ }
+\DoxyCodeLine{01619\ \ \ \ \ \ \ \ \ FbxPropertyEntry*\ lParentEntry\ =\ NULL;}
+\DoxyCodeLine{01620\ \ \ \ \ \ \ \ \ FbxInt\ lParentMin\ =\ mInstanceOf\ ?\ mInstanceOf-\/>GetMinimumPropertyIdAndEntry(pId,\ \&lParentEntry)\ :\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{01621\ }
+\DoxyCodeLine{01622\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lParentNull\ =\ lParentMin\ ==\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{01623\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lMinNull\ =\ lFoundId\ ==\ FBXSDK\_PROPERTY\_ID\_NULL;}
+\DoxyCodeLine{01624\ }
+\DoxyCodeLine{01625\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lMinNull\ \&\&\ !lParentNull\ )}
+\DoxyCodeLine{01626\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01627\ \ \ \ \ \ \ \ \ \ \ \ \ lFoundId\ =\ lParentMin;}
+\DoxyCodeLine{01628\ \ \ \ \ \ \ \ \ \ \ \ \ lFoundEntry\ =\ lParentEntry;}
+\DoxyCodeLine{01629\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01630\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\ !lMinNull\ \&\&\ !lParentNull\ )}
+\DoxyCodeLine{01631\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01632\ \ \ \ \ \ \ \ \ \ \ \ \ lFoundId\ =\ lFoundId\ <\ lParentMin\ ?\ lFoundId\ :\ lParentMin;}
+\DoxyCodeLine{01633\ \ \ \ \ \ \ \ \ \ \ \ \ lFoundEntry\ =\ lFoundId\ <\ lParentMin\ ?\ lFoundEntry\ :\ lParentEntry;}
+\DoxyCodeLine{01634\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01635\ }
+\DoxyCodeLine{01636\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pEntry)}
+\DoxyCodeLine{01637\ \ \ \ \ \ \ \ \ \ \ \ \ *pEntry\ =\ lFoundEntry;}
+\DoxyCodeLine{01638\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lFoundId;}
+\DoxyCodeLine{01639\ \ \ \ \ \}}
+\DoxyCodeLine{01640\ }
+\DoxyCodeLine{01641\ \ \ \ \ \textcolor{keywordtype}{int}\ GetPropertyEntryCount()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01642\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01643\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lCount\ =\ 0;}
+\DoxyCodeLine{01644\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EntryMap::RecordType*\ lElement\ =\ mEntryMap.Maximum();}
+\DoxyCodeLine{01645\ }
+\DoxyCodeLine{01646\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ !=\ lElement)}
+\DoxyCodeLine{01647\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01648\ \ \ \ \ \ \ \ \ \ \ \ \ lCount\ =\ lElement-\/>GetKey()\ +\ 1;}
+\DoxyCodeLine{01649\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01650\ }
+\DoxyCodeLine{01651\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lParentCount\ =\ mInstanceOf\ ?\ mInstanceOf-\/>GetPropertyEntryCount()\ :\ 0;}
+\DoxyCodeLine{01652\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lParentCount\ >\ lCount\ ?\ lParentCount\ :\ lCount;}
+\DoxyCodeLine{01653\ \ \ \ \ \}}
+\DoxyCodeLine{01654\ }
+\DoxyCodeLine{01655\ \ \ \ \ FbxPropertyEntry*\ GetPropertyEntry(FbxInt\ pIndex,FbxPropertyPage\ **pFoundIn=0)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01656\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01657\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ EntryMap::RecordType*\ lElement\ =\ mEntryMap.Find(pIndex);}
+\DoxyCodeLine{01658\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ !=\ lElement)}
+\DoxyCodeLine{01659\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01660\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pFoundIn\ )}
+\DoxyCodeLine{01661\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01662\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *pFoundIn\ =\ \textcolor{keyword}{const\_cast<}FbxPropertyPage*\textcolor{keyword}{>}(\textcolor{keyword}{this});}
+\DoxyCodeLine{01663\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01664\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lElement-\/>GetValue();}
+\DoxyCodeLine{01665\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01666\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01667\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pFoundIn\ )}
+\DoxyCodeLine{01668\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01669\ \ \ \ \ \ \ \ \ \ \ \ \ *pFoundIn\ =\ 0;}
+\DoxyCodeLine{01670\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01671\ }
+\DoxyCodeLine{01672\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mInstanceOf\ ?\ mInstanceOf-\/>GetPropertyEntry(pIndex,pFoundIn)\ :\ 0;}
+\DoxyCodeLine{01673\ \ \ \ \ \}}
+\DoxyCodeLine{01674\ }
+\DoxyCodeLine{01675\ \ \ \ \ FbxPropertyEntry*\ ChangePropertyEntryState(FbxInt\ pIndex,\mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8}{FbxPropertyFlags::EInheritType}}\ pInheritType)}
+\DoxyCodeLine{01676\ \ \ \ \ \{}
+\DoxyCodeLine{01677\ \ \ \ \ \ \ \ \ FbxPropertyPage*\ \ \ \ \ lReferencePage\ \ \ \ \ \ =\ 0;}
+\DoxyCodeLine{01678\ \ \ \ \ \ \ \ \ FbxPropertyEntry*\ \ \ \ lReferenceEntry\ \ \ \ \ =\ GetPropertyEntry(pIndex,\&lReferencePage);}
+\DoxyCodeLine{01679\ }
+\DoxyCodeLine{01680\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pInheritType==\mbox{\hyperlink{class_fbx_property_flags_ae3b667a4fcac4b827fa186a698fec2f8af805230f7dd0e5f3c733869ab709f817}{FbxPropertyFlags::eOverride}})\ \{}
+\DoxyCodeLine{01681\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lReferencePage==\textcolor{keyword}{this})\ \{}
+\DoxyCodeLine{01682\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lReferenceEntry;}
+\DoxyCodeLine{01683\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (lReferenceEntry)\ \{}
+\DoxyCodeLine{01684\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ must\ create\ an\ entry}}
+\DoxyCodeLine{01685\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyEntry*\ lEntry\ =\ FbxPropertyEntry::Create(lReferenceEntry-\/>GetParentId(),0,0,0);}
+\DoxyCodeLine{01686\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mEntryMap.Insert(\ pIndex,\ lEntry\ );}
+\DoxyCodeLine{01687\ }
+\DoxyCodeLine{01688\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lEntry;}
+\DoxyCodeLine{01689\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01690\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01691\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lReferenceEntry\ \&\&\ (lReferencePage==\textcolor{keyword}{this}))\ \{}
+\DoxyCodeLine{01692\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mEntryMap.Remove(pIndex);}
+\DoxyCodeLine{01693\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lReferenceEntry-\/>Destroy();}
+\DoxyCodeLine{01694\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01695\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01696\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{01697\ \ \ \ \ \}}
+\DoxyCodeLine{01698\ }
+\DoxyCodeLine{01699\ \ \ \ \ FbxInt\ Add(FbxInt\ pParentId,FbxPropertyInfo*\ pInfo,FbxPropertyValue*\ pValue,FbxPropertyConnect*\ pConnect,\textcolor{keywordtype}{bool}\ pRecursive=\textcolor{keyword}{true})}
+\DoxyCodeLine{01700\ \ \ \ \ \{}
+\DoxyCodeLine{01701\ \ \ \ \ \ \ \ \ FbxInt\ lId\ =\ mPropNextId-\/>GetNextIdAndInc();}
+\DoxyCodeLine{01702\ \ \ \ \ \ \ \ \ FbxPropertyEntry*\ lEntry\ =\ FbxPropertyEntry::Create(pParentId,pInfo,pValue,pConnect);}
+\DoxyCodeLine{01703\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{01704\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ entries\ created\ through\ Add()\ are\ not\ overrides\ of\ another\ entry.}}
+\DoxyCodeLine{01705\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Thus,\ set\ all\ of\ their\ flags\ by\ default.}}
+\DoxyCodeLine{01706\ \ \ \ \ \ \ \ \ FbxPropertyFlags*\ lFlags\ =\ lEntry-\/>Get(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyFlags)\ );}
+\DoxyCodeLine{01707\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lFlags\ )\ lFlags-\/>ModifyFlags(\ FbxPropertyFlags::eAllFlags,\ \textcolor{keyword}{false}\ );}
+\DoxyCodeLine{01708\ }
+\DoxyCodeLine{01709\ \ \ \ \ \ \ \ \ mEntryMap.Insert(\ lId,\ lEntry\ );}
+\DoxyCodeLine{01710\ }
+\DoxyCodeLine{01711\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ only\ add\ to\ the\ map\ if\ this\ Add\ is\ called\ after\ BeginCreateOrFindProperty()}}
+\DoxyCodeLine{01712\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ in\ which\ case\ the\ size\ is\ always\ >\ 0\ because\ it\ includes\ the\ root\ property}}
+\DoxyCodeLine{01713\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mNameMap.mSecond.GetSize()\ >\ 0\ )}
+\DoxyCodeLine{01714\ \ \ \ \ \ \ \ \ \ \ \ \ mNameMap.mSecond.Insert(\ FbxNameMapKey(\ pParentId,\ pInfo-\/>GetName()),\ lId\ );}
+\DoxyCodeLine{01715\ }
+\DoxyCodeLine{01716\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ the\ entry\ has\ multiple\ children(Struct\ Datatype)}}
+\DoxyCodeLine{01717\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Recurse\ for\ the\ entries\ and\ create\ an\ entry\ in\ this\ structure}}
+\DoxyCodeLine{01718\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pRecursive)\ \{}
+\DoxyCodeLine{01719\ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyPage*\ lTypeInfo\ =\ pInfo-\/>GetTypeInfo();}
+\DoxyCodeLine{01720\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lTypeInfo)\ \{}
+\DoxyCodeLine{01721\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxInt\ lChildId;}
+\DoxyCodeLine{01722\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lChildId\ =\ lTypeInfo-\/>\mbox{\hyperlink{class_fbx_property_page_ad81e99053d530929db810ddb3ffc7637}{GetChild}}();}
+\DoxyCodeLine{01723\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lChildId!=FBXSDK\_PROPERTY\_ID\_NULL)\ \{}
+\DoxyCodeLine{01724\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyInfo*\ \ \ \ \ \ \ \ lPropertyInfo\ \ \ \ =\ lTypeInfo-\/>GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyInfo),lChildId\ );}
+\DoxyCodeLine{01725\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyValue*\ \ \ lPropertyValue\ \ \ =\ lTypeInfo-\/>GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyValue),lChildId\ );}
+\DoxyCodeLine{01726\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxPropertyConnect*\ lPropertyConnect\ =\ lTypeInfo-\/>GetPropertyItem(\ \mbox{\hyperlink{fbxobject_8h_a5d7afc748adbd02b6e42e01ec252f29e}{FBX\_TYPE}}(FbxPropertyConnect),lChildId\ );}
+\DoxyCodeLine{01727\ }
+\DoxyCodeLine{01728\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Add\ (\ lId,\ lPropertyInfo\ ?\ lPropertyInfo-\/>Clone(\textcolor{keyword}{this})\ :\ 0\ ,\ lPropertyValue\ ?\ lPropertyValue-\/>Clone(\textcolor{keyword}{this})\ :\ 0,}
+\DoxyCodeLine{01729\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lPropertyConnect\ ?\ lPropertyConnect-\/>Clone(\textcolor{keyword}{this})\ :\ 0\ );}
+\DoxyCodeLine{01730\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lChildId\ =\ lTypeInfo-\/>\mbox{\hyperlink{class_fbx_property_page_afdfaca9fe375ee1254478340f707f7c5}{GetSibling}}(lChildId\ );}
+\DoxyCodeLine{01731\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01732\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01733\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01734\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lId;}
+\DoxyCodeLine{01735\ \ \ \ \ \}\ \ \ \ \ \ \ }
+\DoxyCodeLine{01736\ }
+\DoxyCodeLine{01737\ \ \ \ \ \textcolor{comment}{//\ Property\ management}}
+\DoxyCodeLine{01738\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxMap<FbxInt,\ FbxPropertyEntry*,\ FbxLessCompare<FbxInt>,\ FbxHungryAllocator>\ EntryMap;}
+\DoxyCodeLine{01739\ \ \ \ \ EntryMap\ mEntryMap;}
+\DoxyCodeLine{01740\ }
+\DoxyCodeLine{01741\ \ \ \ \ \textcolor{comment}{//\ instance\ management}}
+\DoxyCodeLine{01742\ \ \ \ \ FbxPropertyPage*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mInstanceOf;}
+\DoxyCodeLine{01743\ \ \ \ \ FbxSet<FbxPropertyPage*>\ \ \ \ \ \ \ \ mInstances;}
+\DoxyCodeLine{01744\ }
+\DoxyCodeLine{01745\ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mDataPtr;}
+\DoxyCodeLine{01746\ }
+\DoxyCodeLine{01747\ \ \ \ \ \textcolor{comment}{//\ speed\ up\ structure}}
+\DoxyCodeLine{01748\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxMap<FbxNameMapKey,\ FbxInt,\ FbxNameMapCompare\ >\ NameMap;}
+\DoxyCodeLine{01749\ \ \ \ \ \textcolor{keyword}{typedef}\ FbxPair<unsigned\ int,\ NameMap\ >\ NameLookupPair;}
+\DoxyCodeLine{01750\ \ \ \ \ NameLookupPair\ \ \ \ \ mNameMap;}
+\DoxyCodeLine{01751\ }
+\DoxyCodeLine{01752\ \ \ \ \ FbxPropertyIdGenerator*\ mPropNextId;}
+\DoxyCodeLine{01753\ }
+\DoxyCodeLine{01754\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxPropertyHandle;}
+\DoxyCodeLine{01755\ \};}
+\DoxyCodeLine{01756\ }
+\DoxyCodeLine{01757\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{01758\ }
+\DoxyCodeLine{01759\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_PROPERTY\_PAGE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

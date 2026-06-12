@@ -1,0 +1,159 @@
+\doxysection{entities.\+h}
+\hypertarget{entities_8h_source}{}\label{entities_8h_source}\index{include/fbx/libxml2/libxml/entities.h@{include/fbx/libxml2/libxml/entities.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Summary:\ interface\ for\ the\ XML\ entities\ handling}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Description:\ this\ module\ provides\ some\ of\ the\ entity\ API\ needed}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ for\ the\ parser\ and\ applications.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Copy:\ See\ Copyright\ for\ the\ status\ of\ this\ software.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Author:\ Daniel\ Veillard}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_ENTITIES\_H\_\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ \_\_XML\_ENTITIES\_H\_\_}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <libxml/xmlversion.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <libxml/tree.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ The\ different\ valid\ entity\ types.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ XML\_INTERNAL\_GENERAL\_ENTITY\ =\ 1,}
+\DoxyCodeLine{00026\ \ \ \ \ XML\_EXTERNAL\_GENERAL\_PARSED\_ENTITY\ =\ 2,}
+\DoxyCodeLine{00027\ \ \ \ \ XML\_EXTERNAL\_GENERAL\_UNPARSED\_ENTITY\ =\ 3,}
+\DoxyCodeLine{00028\ \ \ \ \ XML\_INTERNAL\_PARAMETER\_ENTITY\ =\ 4,}
+\DoxyCodeLine{00029\ \ \ \ \ XML\_EXTERNAL\_PARAMETER\_ENTITY\ =\ 5,}
+\DoxyCodeLine{00030\ \ \ \ \ XML\_INTERNAL\_PREDEFINED\_ENTITY\ =\ 6}
+\DoxyCodeLine{00031\ \}\ xmlEntityType;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ An\ unit\ of\ storage\ for\ an\ entity,\ contains\ the\ string,\ the\ value}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ *\ and\ the\ linkind\ data\ needed\ for\ the\ linking\ in\ the\ hash\ table.}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__xml_entity}{\_xmlEntity}}\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ *\_private;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ application\ data\ */}}
+\DoxyCodeLine{00040\ \ \ \ \ xmlElementType\ \ \ \ \ \ \ \ \ \ type;\ \ \ \ \ \ \ \textcolor{comment}{/*\ XML\_ENTITY\_DECL,\ must\ be\ second\ !\ */}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ \ \ \ \ \ \ \ \ \ *name;\ \ \ \textcolor{comment}{/*\ Entity\ name\ */}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__xml_node}{\_xmlNode}}\ \ \ \ *children;\ \ \ \textcolor{comment}{/*\ First\ child\ link\ */}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__xml_node}{\_xmlNode}}\ \ \ \ \ \ \ \ *last;\ \ \ \textcolor{comment}{/*\ Last\ child\ link\ */}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__xml_dtd}{\_xmlDtd}}\ \ \ \ \ \ \ *parent;\ \ \ \ \textcolor{comment}{/*\ -\/>\ DTD\ */}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__xml_node}{\_xmlNode}}\ \ \ \ \ \ \ \ *next;\ \ \ \textcolor{comment}{/*\ next\ sibling\ link\ \ */}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__xml_node}{\_xmlNode}}\ \ \ \ \ \ \ \ *prev;\ \ \ \textcolor{comment}{/*\ previous\ sibling\ link\ \ */}}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__xml_doc}{\_xmlDoc}}\ \ \ \ \ \ \ \ \ \ *doc;\ \ \ \ \ \ \ \textcolor{comment}{/*\ the\ containing\ document\ */}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ xmlChar\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *orig;\ \ \ \textcolor{comment}{/*\ content\ without\ ref\ substitution\ */}}
+\DoxyCodeLine{00050\ \ \ \ \ xmlChar\ \ \ \ \ \ \ \ \ \ \ \ \ *content;\ \ \ \textcolor{comment}{/*\ content\ or\ ndata\ if\ unparsed\ */}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ length;\ \ \ \textcolor{comment}{/*\ the\ content\ length\ */}}
+\DoxyCodeLine{00052\ \ \ \ \ xmlEntityType\ \ \ \ \ \ \ \ \ \ etype;\ \ \ \textcolor{comment}{/*\ The\ entity\ type\ */}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ \ \ \ *ExternalID;\ \ \ \textcolor{comment}{/*\ External\ identifier\ for\ PUBLIC\ */}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ \ \ \ \ \ *SystemID;\ \ \ \textcolor{comment}{/*\ URI\ for\ a\ SYSTEM\ or\ PUBLIC\ Entity\ */}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__xml_entity}{\_xmlEntity}}\ \ \ \ \ *nexte;\ \textcolor{comment}{/*\ unused\ */}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ \ \ \ \ \ \ \ \ \ \ *URI;\ \ \ \textcolor{comment}{/*\ the\ full\ URI\ as\ computed\ */}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ owner;\ \ \ \textcolor{comment}{/*\ does\ the\ entity\ own\ the\ childrens\ */}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ checked;\ \ \ \textcolor{comment}{/*\ was\ the\ entity\ content\ checked\ */}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ this\ is\ also\ used\ to\ count\ entities}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ references\ done\ from\ that\ entity}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ and\ if\ it\ contains\ '<'\ */}}
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ *\ All\ entities\ are\ stored\ in\ an\ hash\ table.}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ *\ There\ is\ 2\ separate\ hash\ tables\ for\ global\ and\ parameter\ entities.}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlHashTable\ xmlEntitiesTable;}
+\DoxyCodeLine{00071\ \textcolor{keyword}{typedef}\ xmlEntitiesTable\ *xmlEntitiesTablePtr;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ *\ External\ functions:}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_LEGACY\_ENABLED}}
+\DoxyCodeLine{00078\ XML\_DEPRECATED}
+\DoxyCodeLine{00079\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ xmlInitializePredefinedEntities\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_LEGACY\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ XMLPUBFUN\ xmlEntityPtr\ XMLCALL}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNewEntity\ \ \ \ \ \ \ \ (xmlDocPtr\ doc,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ type,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ExternalID,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *SystemID,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *content);}
+\DoxyCodeLine{00090\ XMLPUBFUN\ xmlEntityPtr\ XMLCALL}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ xmlAddDocEntity\ \ \ \ \ (xmlDocPtr\ doc,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ type,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ExternalID,}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *SystemID,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *content);}
+\DoxyCodeLine{00097\ XMLPUBFUN\ xmlEntityPtr\ XMLCALL}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ xmlAddDtdEntity\ \ \ \ \ (xmlDocPtr\ doc,}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ type,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ExternalID,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *SystemID,}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *content);}
+\DoxyCodeLine{00104\ XMLPUBFUN\ xmlEntityPtr\ XMLCALL}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ xmlGetPredefinedEntity\ \ (\textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00106\ XMLPUBFUN\ xmlEntityPtr\ XMLCALL}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ xmlGetDocEntity\ \ \ \ \ (\textcolor{keyword}{const}\ xmlDoc\ *doc,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00109\ XMLPUBFUN\ xmlEntityPtr\ XMLCALL}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ xmlGetDtdEntity\ \ \ \ \ (xmlDocPtr\ doc,}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00112\ XMLPUBFUN\ xmlEntityPtr\ XMLCALL}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ xmlGetParameterEntity\ \ \ (xmlDocPtr\ doc,}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_LEGACY\_ENABLED}}
+\DoxyCodeLine{00116\ XML\_DEPRECATED}
+\DoxyCodeLine{00117\ XMLPUBFUN\ \textcolor{keyword}{const}\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ xmlEncodeEntities\ \ \ (xmlDocPtr\ doc,}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *input);}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_LEGACY\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00121\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ xmlEncodeEntitiesReentrant(xmlDocPtr\ doc,}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *input);}
+\DoxyCodeLine{00124\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ xmlEncodeSpecialChars\ \ \ (\textcolor{keyword}{const}\ xmlDoc\ *doc,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *input);}
+\DoxyCodeLine{00127\ XMLPUBFUN\ xmlEntitiesTablePtr\ XMLCALL}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ xmlCreateEntitiesTable\ \ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_TREE\_ENABLED}}
+\DoxyCodeLine{00130\ XMLPUBFUN\ xmlEntitiesTablePtr\ XMLCALL}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ xmlCopyEntitiesTable\ \ \ \ (xmlEntitiesTablePtr\ table);}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_TREE\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00133\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ xmlFreeEntitiesTable\ \ \ \ (xmlEntitiesTablePtr\ table);}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_OUTPUT\_ENABLED}}
+\DoxyCodeLine{00136\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ xmlDumpEntitiesTable\ \ \ \ (xmlBufferPtr\ buf,}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlEntitiesTablePtr\ table);}
+\DoxyCodeLine{00139\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ xmlDumpEntityDecl\ \ \ (xmlBufferPtr\ buf,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlEntityPtr\ ent);}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_OUTPUT\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_LEGACY\_ENABLED}}
+\DoxyCodeLine{00144\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ xmlCleanupPredefinedEntities(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_LEGACY\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00150\ \}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#\ endif\ }\textcolor{comment}{/*\ \_\_XML\_ENTITIES\_H\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

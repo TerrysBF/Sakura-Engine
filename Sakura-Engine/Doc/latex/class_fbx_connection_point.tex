@@ -1,0 +1,339 @@
+\doxysection{Fbx\+Connection\+Point Class Reference}
+\hypertarget{class_fbx_connection_point}{}\label{class_fbx_connection_point}\index{FbxConnectionPoint@{FbxConnectionPoint}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_fbx_connection_point_1_1_connection_list}{Connection\+List}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_connection_point_a39937aa7b1e2137db6384c1e5756dfff}\label{class_fbx_connection_point_a39937aa7b1e2137db6384c1e5756dfff} 
+enum {\bfseries EDirection} \{ \newline
+{\bfseries e\+Dir\+Src} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, {\bfseries e\+Dir\+Dst} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, {\bfseries e\+Dir\+Uni} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2
+, {\bfseries e\+Dir\+Both} = e\+Dir\+Src \texorpdfstring{$\vert$}{|} e\+Dir\+Dst
+, \newline
+{\bfseries e\+Dir\+Mask} = e\+Dir\+Src \texorpdfstring{$\vert$}{|} e\+Dir\+Dst \texorpdfstring{$\vert$}{|} e\+Dir\+Uni
+ \}
+\item 
+\Hypertarget{class_fbx_connection_point_a152767d2d289717698ab68d808f979b5}\label{class_fbx_connection_point_a152767d2d289717698ab68d808f979b5} 
+enum {\bfseries EType} \{ {\bfseries e\+Standard} = 0
+, {\bfseries e\+Sub\+Connection} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3
+, {\bfseries e\+Type\+Mask} = e\+Sub\+Connection
+ \}
+\item 
+\Hypertarget{class_fbx_connection_point_a599eb600e5927fb0e7aaea2ee0b999a3}\label{class_fbx_connection_point_a599eb600e5927fb0e7aaea2ee0b999a3} 
+enum {\bfseries EAttribute} \{ {\bfseries e\+Default} = 0
+, {\bfseries e\+Cache} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 4
+, {\bfseries e\+Attribute\+Mask} = e\+Cache
+ \}
+\item 
+\Hypertarget{class_fbx_connection_point_aab31d193025c9dacc8e95c63aae12531}\label{class_fbx_connection_point_aab31d193025c9dacc8e95c63aae12531} 
+enum {\bfseries EAlloc\+Flag} \{ {\bfseries e\+Not\+Allocated} = 0
+, {\bfseries e\+Allocated} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 5
+, {\bfseries e\+Alloc\+Flag\+Mask} = e\+Allocated
+ \}
+\item 
+\Hypertarget{class_fbx_connection_point_ad60820ac28db9ba516eea96750e76583}\label{class_fbx_connection_point_ad60820ac28db9ba516eea96750e76583} 
+enum {\bfseries ECleaned\+Flag} \{ {\bfseries e\+Not\+Cleaned} = 0
+, {\bfseries e\+Cleaned} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 6
+, {\bfseries e\+Cleaned\+Flag\+Mask} = e\+Cleaned
+ \}
+\item 
+\Hypertarget{class_fbx_connection_point_a48ba0c39363bb20be251626acdc6ae5d}\label{class_fbx_connection_point_a48ba0c39363bb20be251626acdc6ae5d} 
+enum {\bfseries EEvent} \{ \newline
+{\bfseries e\+Src\+Connect\+Request}
+, {\bfseries e\+Dst\+Connect\+Request}
+, {\bfseries e\+Src\+Connect}
+, {\bfseries e\+Dst\+Connect}
+, \newline
+{\bfseries e\+Src\+Connected}
+, {\bfseries e\+Dst\+Connected}
+, {\bfseries e\+Src\+Disconnect}
+, {\bfseries e\+Dst\+Disconnect}
+, \newline
+{\bfseries e\+Src\+Disconnected}
+, {\bfseries e\+Dst\+Disconnected}
+, {\bfseries e\+Src\+Replace\+Begin}
+, {\bfseries e\+Src\+Replace\+End}
+, \newline
+{\bfseries e\+Dst\+Replace\+Begin}
+, {\bfseries e\+Dst\+Replace\+End}
+, {\bfseries e\+Src\+Reorder}
+, {\bfseries e\+Src\+Reordered}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_connection_point_ae226082145ad765084955854f7302698}\label{class_fbx_connection_point_ae226082145ad765084955854f7302698} 
+{\bfseries Fbx\+Connection\+Point} (void \texorpdfstring{$\ast$}{*}p\+Data=0)
+\item 
+\Hypertarget{class_fbx_connection_point_a06c3718eb58d2fb0c027bebc85a78753}\label{class_fbx_connection_point_a06c3718eb58d2fb0c027bebc85a78753} 
+void {\bfseries Set\+Filter} (\mbox{\hyperlink{class_fbx_connection_point_filter}{Fbx\+Connection\+Point\+Filter}} \texorpdfstring{$\ast$}{*}p\+Connect\+Filter, EType p\+Type=e\+Standard)
+\item 
+\Hypertarget{class_fbx_connection_point_aadd7e4cb8e392a559373c72411df55bb}\label{class_fbx_connection_point_aadd7e4cb8e392a559373c72411df55bb} 
+void {\bfseries Internal\+Clear} ()
+\item 
+\Hypertarget{class_fbx_connection_point_a9b1d6c109c6d2894aecbe9649660c4fd}\label{class_fbx_connection_point_a9b1d6c109c6d2894aecbe9649660c4fd} 
+void {\bfseries Wipe\+Connection\+List} ()
+\begin{DoxyCompactList}\small\item\em Clear the Connect\+List without any regards to what is connected. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_connection_point_a7876b4333d80ee35bef564a461b23003}\label{class_fbx_connection_point_a7876b4333d80ee35bef564a461b23003} 
+void {\bfseries Destroy} ()
+\item 
+\Hypertarget{class_fbx_connection_point_aa5708ef478f7a32fcf0a74dc2d11ca90}\label{class_fbx_connection_point_aa5708ef478f7a32fcf0a74dc2d11ca90} 
+void {\bfseries Sub\+Connect\+Remove\+All} ()
+\item 
+\Hypertarget{class_fbx_connection_point_af7cbdc7a07254b185df409b03d2527da}\label{class_fbx_connection_point_af7cbdc7a07254b185df409b03d2527da} 
+\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Sub\+Owner\+Connect} ()
+\item 
+\Hypertarget{class_fbx_connection_point_a1a4b53980b6f13dcd86b5e8618bd30af}\label{class_fbx_connection_point_a1a4b53980b6f13dcd86b5e8618bd30af} 
+\mbox{\hyperlink{class_fbx_connection_point_filter}{Fbx\+Connection\+Point\+Filter}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Filter} ()
+\item 
+\Hypertarget{class_fbx_connection_point_a7be04c356de5cd97c7c3f1c63b2830f1}\label{class_fbx_connection_point_a7be04c356de5cd97c7c3f1c63b2830f1} 
+virtual bool {\bfseries Is\+In\+Replace} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p1, \mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p2)
+\item 
+\Hypertarget{class_fbx_connection_point_a9cfa16bd93ff0f631ccd8d6de77b05c3}\label{class_fbx_connection_point_a9cfa16bd93ff0f631ccd8d6de77b05c3} 
+void {\bfseries Set\+Connect\+Type} (EType p\+Type)
+\item 
+\Hypertarget{class_fbx_connection_point_a16e84c648b97cdb86c5615c2a9a50c68}\label{class_fbx_connection_point_a16e84c648b97cdb86c5615c2a9a50c68} 
+EType {\bfseries Get\+Connect\+Type} ()
+\item 
+\Hypertarget{class_fbx_connection_point_a9cf7e52c6dfab9bb7a3d9242635a42c9}\label{class_fbx_connection_point_a9cf7e52c6dfab9bb7a3d9242635a42c9} 
+void {\bfseries Set\+Direction} (int p\+Directions)
+\item 
+\Hypertarget{class_fbx_connection_point_a542ebd55ef536a8dbad04ff8c097e007}\label{class_fbx_connection_point_a542ebd55ef536a8dbad04ff8c097e007} 
+EDirection {\bfseries Get\+Direction} ()
+\item 
+\Hypertarget{class_fbx_connection_point_a06b3412adfa8dc6ef96fa65214f6f843}\label{class_fbx_connection_point_a06b3412adfa8dc6ef96fa65214f6f843} 
+void {\bfseries Set\+Attribute} (int p\+Attributes)
+\item 
+\Hypertarget{class_fbx_connection_point_aff1e26fd64fbb4e46cea583678a9ba5c}\label{class_fbx_connection_point_aff1e26fd64fbb4e46cea583678a9ba5c} 
+EAttribute {\bfseries Get\+Attribute} ()
+\item 
+\Hypertarget{class_fbx_connection_point_ac026ad6f5ce4a258fe83007e17b0860e}\label{class_fbx_connection_point_ac026ad6f5ce4a258fe83007e17b0860e} 
+void {\bfseries Set\+Allocated\+Flag} (bool p\+Bool)
+\item 
+\Hypertarget{class_fbx_connection_point_a8c13e1874629e6c535e0051dba26b256}\label{class_fbx_connection_point_a8c13e1874629e6c535e0051dba26b256} 
+bool {\bfseries Get\+Allocated\+Flag} ()
+\item 
+\Hypertarget{class_fbx_connection_point_a0d2010007894dd64e5399b4f473740a7}\label{class_fbx_connection_point_a0d2010007894dd64e5399b4f473740a7} 
+void {\bfseries Set\+Cleaned\+Flag} (bool p\+Bool)
+\item 
+\Hypertarget{class_fbx_connection_point_a0413ccec6fb43355582468dfd6b195b9}\label{class_fbx_connection_point_a0413ccec6fb43355582468dfd6b195b9} 
+bool {\bfseries Get\+Cleaned\+Flag} ()
+\item 
+\Hypertarget{class_fbx_connection_point_aed1556396073c8704ea98a6012ae1207}\label{class_fbx_connection_point_aed1556396073c8704ea98a6012ae1207} 
+bool {\bfseries Is\+Valid\+Src} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Connect)
+\item 
+\Hypertarget{class_fbx_connection_point_af2fc3a91ca6a8afd4c51ff40bf505ba6}\label{class_fbx_connection_point_af2fc3a91ca6a8afd4c51ff40bf505ba6} 
+bool {\bfseries Is\+Valid\+Dst} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Connect)
+\item 
+\Hypertarget{class_fbx_connection_point_a8a1d3ca37e0bd5aba348746142689127}\label{class_fbx_connection_point_a8a1d3ca37e0bd5aba348746142689127} 
+bool {\bfseries Is\+Valid\+Src\+Connection} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Connect, Fbx\+Connection\+::\+EType p\+Connection\+Type)
+\item 
+\Hypertarget{class_fbx_connection_point_a29090e1e331e55a1cf68c5c742dfd771}\label{class_fbx_connection_point_a29090e1e331e55a1cf68c5c742dfd771} 
+bool {\bfseries Is\+Valid\+Dst\+Connection} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Connect, Fbx\+Connection\+::\+EType p\+Connection\+Type)
+\item 
+\Hypertarget{class_fbx_connection_point_ada52c319af35d52a72af8038e0040c36}\label{class_fbx_connection_point_ada52c319af35d52a72af8038e0040c36} 
+bool {\bfseries Request\+Valid\+Src\+Connection} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Connect, Fbx\+Connection\+::\+EType p\+Connection\+Type)
+\item 
+\Hypertarget{class_fbx_connection_point_a4c231f5b089de01510b94cdbd8036e46}\label{class_fbx_connection_point_a4c231f5b089de01510b94cdbd8036e46} 
+bool {\bfseries Request\+Valid\+Dst\+Connection} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Connect, Fbx\+Connection\+::\+EType p\+Connection\+Type)
+\item 
+\Hypertarget{class_fbx_connection_point_aaae11491b7cd90fbbf9075f98f594e56}\label{class_fbx_connection_point_aaae11491b7cd90fbbf9075f98f594e56} 
+bool {\bfseries Connect\+Src} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Src, Fbx\+Connection\+::\+EType p\+Connection\+Type=Fbx\+Connection\+::e\+None)
+\item 
+\Hypertarget{class_fbx_connection_point_a1cc755165b835c7ae2b5f4073477cef0}\label{class_fbx_connection_point_a1cc755165b835c7ae2b5f4073477cef0} 
+bool {\bfseries Connect\+Dst} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Dst, Fbx\+Connection\+::\+EType p\+Connection\+Type=Fbx\+Connection\+::e\+None)
+\item 
+\Hypertarget{class_fbx_connection_point_a51d906d43b8596a3cf021ff2a37a35c3}\label{class_fbx_connection_point_a51d906d43b8596a3cf021ff2a37a35c3} 
+bool {\bfseries Connect\+Src\+At} (int p\+Dst\+\_\+\+Src\+Index, \mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Src, Fbx\+Connection\+::\+EType p\+Connection\+Type=Fbx\+Connection\+::e\+None)
+\item 
+\Hypertarget{class_fbx_connection_point_a9ae5fee9358b0d3b107ea9dbd4447e81}\label{class_fbx_connection_point_a9ae5fee9358b0d3b107ea9dbd4447e81} 
+bool {\bfseries Connect\+Dst\+At} (int p\+Src\+\_\+\+Dst\+Index, \mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Dst, Fbx\+Connection\+::\+EType p\+Connection\+Type=Fbx\+Connection\+::e\+None)
+\item 
+\Hypertarget{class_fbx_connection_point_ade6b167741d19d0604d66647aa5d3b15}\label{class_fbx_connection_point_ade6b167741d19d0604d66647aa5d3b15} 
+bool {\bfseries Disconnect\+Dst} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Src)
+\item 
+\Hypertarget{class_fbx_connection_point_a7580e157a26caa41ab27db4d99901275}\label{class_fbx_connection_point_a7580e157a26caa41ab27db4d99901275} 
+bool {\bfseries Disconnect\+Src} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Src)
+\item 
+\Hypertarget{class_fbx_connection_point_a94f160e3009bde0af455acb8e9e6fd0e}\label{class_fbx_connection_point_a94f160e3009bde0af455acb8e9e6fd0e} 
+void {\bfseries Disconnect\+All\+Src} ()
+\item 
+\Hypertarget{class_fbx_connection_point_abae6ad96d1a36e83d2eb870ca121b885}\label{class_fbx_connection_point_abae6ad96d1a36e83d2eb870ca121b885} 
+void {\bfseries Disconnect\+All\+Dst} ()
+\item 
+\Hypertarget{class_fbx_connection_point_a28702487dafda6125019c00ad801a476}\label{class_fbx_connection_point_a28702487dafda6125019c00ad801a476} 
+bool {\bfseries Disconnect\+Dst\+At} (int p\+Index)
+\item 
+\Hypertarget{class_fbx_connection_point_a65c3abd9aa504a3067529412fa4f1350}\label{class_fbx_connection_point_a65c3abd9aa504a3067529412fa4f1350} 
+bool {\bfseries Disconnect\+Src\+At} (int p\+Index)
+\item 
+\Hypertarget{class_fbx_connection_point_ae1d8edf287d969906c1dd1cc4e666df9}\label{class_fbx_connection_point_ae1d8edf287d969906c1dd1cc4e666df9} 
+bool {\bfseries Replace\+In\+Dst} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Dst\+Old, \mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Dst\+New, int p\+Index\+In\+New)
+\item 
+\Hypertarget{class_fbx_connection_point_a89908a3270dbf639a9973c8271d7a6ad}\label{class_fbx_connection_point_a89908a3270dbf639a9973c8271d7a6ad} 
+bool {\bfseries Replace\+In\+Src} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Src\+Old, \mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Src\+New, int p\+Index\+In\+New)
+\item 
+\Hypertarget{class_fbx_connection_point_ad7a2a088589958e0f7d85eb39c1fc173}\label{class_fbx_connection_point_ad7a2a088589958e0f7d85eb39c1fc173} 
+bool {\bfseries Replace\+Dst\+At} (int p\+Index, \mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Dst)
+\item 
+\Hypertarget{class_fbx_connection_point_af8ba06b0d09dd64c237a88c99caa5ff6}\label{class_fbx_connection_point_af8ba06b0d09dd64c237a88c99caa5ff6} 
+bool {\bfseries Replace\+Src\+At} (int p\+Index, \mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Src)
+\item 
+\Hypertarget{class_fbx_connection_point_a0a26176bfcdd1edaf60a64afa3aa4f16}\label{class_fbx_connection_point_a0a26176bfcdd1edaf60a64afa3aa4f16} 
+bool {\bfseries Swap\+Src} (int p\+IndexA, int p\+IndexB)
+\item 
+bool \mbox{\hyperlink{class_fbx_connection_point_abc82c5b4c5c5c9b1d4ab59662cb13e7e}{Move\+Src\+At}} (int p\+Index, int p\+At\+Index)
+\item 
+bool \mbox{\hyperlink{class_fbx_connection_point_a23302c72f75632bec8b48f3f3fe8e783}{Move\+Src\+At}} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+At\+Src)
+\item 
+\Hypertarget{class_fbx_connection_point_accccefb83ec8fa6eda6bdab0d1b927f9}\label{class_fbx_connection_point_accccefb83ec8fa6eda6bdab0d1b927f9} 
+bool {\bfseries Is\+Connected\+Src} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{class_fbx_connection_point_a2912fa4a5e115ba7a3945bd7c75c6c0c}\label{class_fbx_connection_point_a2912fa4a5e115ba7a3945bd7c75c6c0c} 
+bool {\bfseries Is\+Connected\+Dst} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{class_fbx_connection_point_ae56a50c64319e5ada97945990539c0ac}\label{class_fbx_connection_point_ae56a50c64319e5ada97945990539c0ac} 
+bool {\bfseries Is\+Connected} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Connect)
+\item 
+\Hypertarget{class_fbx_connection_point_ad75a1c4144fdfaf7e8bdf4537708ea7c}\label{class_fbx_connection_point_ad75a1c4144fdfaf7e8bdf4537708ea7c} 
+int {\bfseries Get\+Src\+Count} () const
+\item 
+\Hypertarget{class_fbx_connection_point_a5d03bd53f23bc2d6dc8b29ef02bf0c97}\label{class_fbx_connection_point_a5d03bd53f23bc2d6dc8b29ef02bf0c97} 
+\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Src} (int p\+Index) const
+\item 
+\Hypertarget{class_fbx_connection_point_ab7147b771ece407b567b68743e53d96f}\label{class_fbx_connection_point_ab7147b771ece407b567b68743e53d96f} 
+Fbx\+Connection\+::\+EType {\bfseries Get\+Src\+Type} (int p\+Index) const
+\item 
+\Hypertarget{class_fbx_connection_point_a79f98c92a9b781bf056865632c2b4db7}\label{class_fbx_connection_point_a79f98c92a9b781bf056865632c2b4db7} 
+int {\bfseries Get\+Dst\+Count} () const
+\item 
+\Hypertarget{class_fbx_connection_point_a555d99292e38b44a45b146441d53c7bb}\label{class_fbx_connection_point_a555d99292e38b44a45b146441d53c7bb} 
+\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Dst} (int p\+Index) const
+\item 
+\Hypertarget{class_fbx_connection_point_af328bd58235b6255226320b9d69a606f}\label{class_fbx_connection_point_af328bd58235b6255226320b9d69a606f} 
+Fbx\+Connection\+::\+EType {\bfseries Get\+Dst\+Type} (int p\+Index) const
+\item 
+\Hypertarget{class_fbx_connection_point_ae9ca592d1619b4674b4372f89e9b390a}\label{class_fbx_connection_point_ae9ca592d1619b4674b4372f89e9b390a} 
+int {\bfseries Find\+Src} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Connect)
+\item 
+\Hypertarget{class_fbx_connection_point_a3ac484764349d3616dfcbe2c07d4fc27}\label{class_fbx_connection_point_a3ac484764349d3616dfcbe2c07d4fc27} 
+int {\bfseries Find\+Dst} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Connect)
+\item 
+\Hypertarget{class_fbx_connection_point_a9030ce8968862af50b096d1be9c6e394}\label{class_fbx_connection_point_a9030ce8968862af50b096d1be9c6e394} 
+int {\bfseries Get\+Src\+Count} (\mbox{\hyperlink{class_fbx_connection_point_filter}{Fbx\+Connection\+Point\+Filter}} \texorpdfstring{$\ast$}{*}p\+Filter)
+\item 
+\Hypertarget{class_fbx_connection_point_a3243abfbb9f080b9d3f39f41c25919db}\label{class_fbx_connection_point_a3243abfbb9f080b9d3f39f41c25919db} 
+\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Src} (int p\+Index, \mbox{\hyperlink{class_fbx_connection_point_filter}{Fbx\+Connection\+Point\+Filter}} \texorpdfstring{$\ast$}{*}p\+Filter)
+\item 
+\Hypertarget{class_fbx_connection_point_a9eea3bf9fe36a61533e575b730ce7a47}\label{class_fbx_connection_point_a9eea3bf9fe36a61533e575b730ce7a47} 
+Fbx\+Connection\+::\+EType {\bfseries Get\+Src\+Type} (int p\+Index, \mbox{\hyperlink{class_fbx_connection_point_filter}{Fbx\+Connection\+Point\+Filter}} \texorpdfstring{$\ast$}{*}p\+Filter)
+\item 
+\Hypertarget{class_fbx_connection_point_ae2dca593c5c5a527e10a98f25795ecc8}\label{class_fbx_connection_point_ae2dca593c5c5a527e10a98f25795ecc8} 
+int {\bfseries Get\+Dst\+Count} (\mbox{\hyperlink{class_fbx_connection_point_filter}{Fbx\+Connection\+Point\+Filter}} \texorpdfstring{$\ast$}{*}p\+Filter)
+\item 
+\Hypertarget{class_fbx_connection_point_a7c5fdea14c2ce98030b4cc081a644385}\label{class_fbx_connection_point_a7c5fdea14c2ce98030b4cc081a644385} 
+\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+Dst} (int p\+Index, \mbox{\hyperlink{class_fbx_connection_point_filter}{Fbx\+Connection\+Point\+Filter}} \texorpdfstring{$\ast$}{*}p\+Filter)
+\item 
+\Hypertarget{class_fbx_connection_point_a5319469d7eaadf57f569a91218620ba9}\label{class_fbx_connection_point_a5319469d7eaadf57f569a91218620ba9} 
+Fbx\+Connection\+::\+EType {\bfseries Get\+Dst\+Type} (int p\+Index, \mbox{\hyperlink{class_fbx_connection_point_filter}{Fbx\+Connection\+Point\+Filter}} \texorpdfstring{$\ast$}{*}p\+Filter)
+\item 
+\Hypertarget{class_fbx_connection_point_a0c38a94903e7af4206c739b0a7083991}\label{class_fbx_connection_point_a0c38a94903e7af4206c739b0a7083991} 
+void \texorpdfstring{$\ast$}{*} {\bfseries Get\+Data} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_connection_point_a31037bc6920c4391972e0293ff48d757}\label{class_fbx_connection_point_a31037bc6920c4391972e0293ff48d757} 
+static bool {\bfseries Connect\+Connect} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Dst, Fbx\+Connection\+::\+EType p\+Connection\+Type)
+\item 
+\Hypertarget{class_fbx_connection_point_ac02d782e45f10a7b0961d24097e5dcbd}\label{class_fbx_connection_point_ac02d782e45f10a7b0961d24097e5dcbd} 
+static bool {\bfseries Connect\+At} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Src, int p\+Src\+\_\+\+Dst\+Index, \mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Dst, int p\+Dst\+\_\+\+Src\+Index, Fbx\+Connection\+::\+EType p\+Connection\+Type)
+\item 
+\Hypertarget{class_fbx_connection_point_a6cc6b689ebbba86de7f144a2b1be5a9e}\label{class_fbx_connection_point_a6cc6b689ebbba86de7f144a2b1be5a9e} 
+static bool {\bfseries Disconnect\+Connect} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Src, \mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Dst)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_connection_point_a00b7c81a489585571eceabf08890fa86}\label{class_fbx_connection_point_a00b7c81a489585571eceabf08890fa86} 
+void {\bfseries Sub\+Connect\+Add} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Connect)
+\item 
+\Hypertarget{class_fbx_connection_point_a3c2464f3030fdbc4978ca8e0333af596}\label{class_fbx_connection_point_a3c2464f3030fdbc4978ca8e0333af596} 
+void {\bfseries Sub\+Connect\+Remove} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Connect)
+\item 
+\Hypertarget{class_fbx_connection_point_a73ff7dbdeb50c39c5963ef5622427756}\label{class_fbx_connection_point_a73ff7dbdeb50c39c5963ef5622427756} 
+\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*} {\bfseries Sub\+Connect\+Find} (\mbox{\hyperlink{class_fbx_connection_point_filter}{Fbx\+Connection\+Point\+Filter}} \texorpdfstring{$\ast$}{*}p\+Filter)
+\item 
+\Hypertarget{class_fbx_connection_point_afea67be3df7498ddeb3984f8d11343e7}\label{class_fbx_connection_point_afea67be3df7498ddeb3984f8d11343e7} 
+\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*} {\bfseries Sub\+Connect\+Get\+Or\+Create} (\mbox{\hyperlink{class_fbx_connection_point_filter}{Fbx\+Connection\+Point\+Filter}} \texorpdfstring{$\ast$}{*}p\+Filter)
+\item 
+\Hypertarget{class_fbx_connection_point_aaad43b803b8051e8b154bceabdd309a2}\label{class_fbx_connection_point_aaad43b803b8051e8b154bceabdd309a2} 
+void {\bfseries Sub\+Connect\+Fill} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Connect)
+\item 
+\Hypertarget{class_fbx_connection_point_a67f4175670b447cc8d1362905ad79ac6}\label{class_fbx_connection_point_a67f4175670b447cc8d1362905ad79ac6} 
+virtual bool {\bfseries Connect\+Notify} (EEvent p\+Action, \mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+This, int p\+Index, \mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Connect=NULL, Fbx\+Connection\+::\+EType p\+Connection\+Type=Fbx\+Connection\+::e\+None, \mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+New\+Connect=NULL)
+\item 
+\Hypertarget{class_fbx_connection_point_a70d121e5f4200dade54c1f0746f4d540}\label{class_fbx_connection_point_a70d121e5f4200dade54c1f0746f4d540} 
+virtual void {\bfseries Connect\+Clean\+Up} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+This)
+\item 
+\Hypertarget{class_fbx_connection_point_a5161119d009ab1ab080bd896f0d40346}\label{class_fbx_connection_point_a5161119d009ab1ab080bd896f0d40346} 
+int {\bfseries Find\+Src\+Index\+From\+Owner\+Connect\+Index} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Owner, int p\+Owner\+Index)
+\item 
+\Hypertarget{class_fbx_connection_point_a6e597c9de1c85034ada54d94bca5a734}\label{class_fbx_connection_point_a6e597c9de1c85034ada54d94bca5a734} 
+int {\bfseries Find\+Dst\+Index\+From\+Owner\+Connect\+Index} (\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}p\+Owner, int p\+Owner\+Index)
+\item 
+\Hypertarget{class_fbx_connection_point_a90bfb6707fe58f15cd81b9140dc2a8aa}\label{class_fbx_connection_point_a90bfb6707fe58f15cd81b9140dc2a8aa} 
+bool {\bfseries Internal\+Move\+Src\+Before} (int p\+Index, int p\+Before\+Index)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_connection_point_a23302c72f75632bec8b48f3f3fe8e783}\index{FbxConnectionPoint@{FbxConnectionPoint}!MoveSrcAt@{MoveSrcAt}}
+\index{MoveSrcAt@{MoveSrcAt}!FbxConnectionPoint@{FbxConnectionPoint}}
+\doxysubsubsection{\texorpdfstring{MoveSrcAt()}{MoveSrcAt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_connection_point_a23302c72f75632bec8b48f3f3fe8e783} 
+bool Fbx\+Connection\+Point\+::\+Move\+Src\+At (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}}]{p\+Src}{, }\item[{\mbox{\hyperlink{class_fbx_connection_point}{Fbx\+Connection\+Point}} \texorpdfstring{$\ast$}{*}}]{p\+At\+Src}{}\end{DoxyParamCaption})}
+
+Change the position of a source Connect. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Src} & Connect to move. \\
+\hline
+{\em p\+At\+Src} & Connect at which position to move. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the Connect was moved. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+After the move, the Connect will be precisely at the position where p\+At\+Src was before the move. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_connection_point_abc82c5b4c5c5c9b1d4ab59662cb13e7e}\index{FbxConnectionPoint@{FbxConnectionPoint}!MoveSrcAt@{MoveSrcAt}}
+\index{MoveSrcAt@{MoveSrcAt}!FbxConnectionPoint@{FbxConnectionPoint}}
+\doxysubsubsection{\texorpdfstring{MoveSrcAt()}{MoveSrcAt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_connection_point_abc82c5b4c5c5c9b1d4ab59662cb13e7e} 
+bool Fbx\+Connection\+Point\+::\+Move\+Src\+At (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{, }\item[{int}]{p\+At\+Index}{}\end{DoxyParamCaption})}
+
+Change the position of a source Connect. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & Position of the Connect to move. \\
+\hline
+{\em p\+At\+Index} & Position where to move the Connect. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the Connect was moved. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+After the move, the Connect will be precisely at position p\+At\+Index. 
+\end{DoxyRemark}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/\mbox{\hyperlink{fbxconnectionpoint_8h}{fbxconnectionpoint.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,118 @@
+\doxysection{fbxglobalcamerasettings.\+h}
+\hypertarget{fbxglobalcamerasettings_8h_source}{}\label{fbxglobalcamerasettings_8h_source}\index{include/fbx/fbxsdk/fileio/fbxglobalcamerasettings.h@{include/fbx/fbxsdk/fileio/fbxglobalcamerasettings.h}}
+\mbox{\hyperlink{fbxglobalcamerasettings_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_FILEIO\_GLOBAL\_CAMERA\_SETTINGS\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_FILEIO\_GLOBAL\_CAMERA\_SETTINGS\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxstring_8h}{fbxsdk/core/base/fbxstring.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_status}{FbxStatus}};}
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_manager}{FbxManager}};}
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_scene}{FbxScene}};}
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_camera}{FbxCamera}};}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_camera_switcher}{FbxCameraSwitcher}};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ FBXSDK\_CAMERA\_PERSPECTIVE\ \ \ "{}Producer\ Perspective"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ FBXSDK\_CAMERA\_TOP\ \ \ \ \ \ \ \ \ \ \ "{}Producer\ Top"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ FBXSDK\_CAMERA\_FRONT\ \ \ \ \ \ \ \ \ "{}Producer\ Front"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ FBXSDK\_CAMERA\_BACK\ \ \ \ \ \ \ \ \ \ "{}Producer\ Back"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ FBXSDK\_CAMERA\_RIGHT\ \ \ \ \ \ \ \ \ "{}Producer\ Right"{}}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ FBXSDK\_CAMERA\_LEFT\ \ \ \ \ \ \ \ \ \ "{}Producer\ Left"{}}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ FBXSDK\_CAMERA\_BOTTOM\ \ \ \ \ \ \ \ "{}Producer\ Bottom"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ FBXSDK\_CAMERA\_SWITCHER\ \ \ \ \ \ "{}Camera\ Switcher"{}}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxGlobalCameraSettings}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ FBXSDK\_FRIEND\_NEW();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_global_camera_settings_aaa674f8b39e4cd57d7cc07f381f11858}{EViewingMode}}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ eStandard,\ \ \textcolor{comment}{//<!\ Standard\ view\ mode.}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ eXRay,\ \ \ \ \ \ \textcolor{comment}{//<!\ X\ ray\ view\ mode.}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ eModelsOnly\ \textcolor{comment}{//<!\ Model\ only\ view\ mode.}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_global_camera_settings_a6069976325cb9983f6ed75e1884f1981}{SetDefaultCamera}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pCameraName,\ \mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_global_camera_settings_a595d45ffdbd4fedc1d91baeca0e0c828}{GetDefaultCamera}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_camera_settings_a1024ebc19b9641163a74a4cc457f8c0d}{RestoreDefaultSettings}}();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_camera_settings_a15790cd057733254a0e82b172b644122}{SetDefaultViewingMode}}(\mbox{\hyperlink{class_fbx_global_camera_settings_aaa674f8b39e4cd57d7cc07f381f11858}{EViewingMode}}\ pViewingMode);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_global_camera_settings_aaa674f8b39e4cd57d7cc07f381f11858}{EViewingMode}}\ \mbox{\hyperlink{class_fbx_global_camera_settings_a458ad62da44fe9f580550162832edbb9}{GetDefaultViewingMode}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_camera_settings_a2b2e508928ea3b21b25574635089f025}{CreateProducerCameras}}();}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_camera_settings_a083cbc9ad5466346559025508aed6dc6}{DestroyProducerCameras}}();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_global_camera_settings_abcabe0a434ecb96f58711e16f6f7abc5}{IsProducerCamera}}(\mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ pCamera)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ \mbox{\hyperlink{class_fbx_global_camera_settings_afcdcd44b80541f5d3da1aee566c9f2dc}{GetCameraProducerPerspective}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ \mbox{\hyperlink{class_fbx_global_camera_settings_a223f95cfcee9df98f680aeca95e766d3}{GetCameraProducerFront}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ \mbox{\hyperlink{class_fbx_global_camera_settings_abb1f117f00fbcd45dd330bc77db2297b}{GetCameraProducerBack}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ \mbox{\hyperlink{class_fbx_global_camera_settings_adab4174ff77b3f4a702dd76386e61366}{GetCameraProducerLeft}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ \mbox{\hyperlink{class_fbx_global_camera_settings_a3499e02bd1f49261e1562223798a4849}{GetCameraProducerRight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ \mbox{\hyperlink{class_fbx_global_camera_settings_abbe3a9eff4e41fcb4f71b774177f37be}{GetCameraProducerTop}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ \mbox{\hyperlink{class_fbx_global_camera_settings_acc0f1847dea1dd161c02fa22d732ca36}{GetCameraProducerBottom}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_switcher}{FbxCameraSwitcher}}*\ \mbox{\hyperlink{class_fbx_global_camera_settings_a0396c8454daaefefc42f3c5b14e435cb}{GetCameraSwitcher}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_global_camera_settings_ac5828573eccccf2e76529ad21f77ff3c}{SetCameraSwitcher}}(\mbox{\hyperlink{class_fbx_camera_switcher}{FbxCameraSwitcher}}*\ pSwitcher);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keyword}{const}\ FbxGlobalCameraSettings\&\ \mbox{\hyperlink{class_fbx_global_camera_settings_a34c88f06a068416fee7a7f36dc445185}{operator=}}(\textcolor{keyword}{const}\ FbxGlobalCameraSettings\&\ pGlobalCameraSettings);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00143\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00144\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{bool}\ CopyProducerCamera(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pCameraName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ pCamera,\ \textcolor{keywordtype}{bool}\ pIncludeConnections\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00149\ \ \ \ \ FbxGlobalCameraSettings(\mbox{\hyperlink{class_fbx_manager}{FbxManager}}\&\ pManager,\ \mbox{\hyperlink{class_fbx_scene}{FbxScene}}\&\ pScene);}
+\DoxyCodeLine{00150\ \ \ \ \ \string~FbxGlobalCameraSettings();}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ \ \ \ \ \ \ \ \ \ \ mScene;}
+\DoxyCodeLine{00153\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \ \ \ \ \ \ \ \ \ mDefaultCamera;}
+\DoxyCodeLine{00154\ \ \ \ \ \mbox{\hyperlink{class_fbx_global_camera_settings_aaa674f8b39e4cd57d7cc07f381f11858}{EViewingMode}}\ \ \ \ \ \ \ \ mDefaultViewingMode;}
+\DoxyCodeLine{00155\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ \ \ \ \ \ \ \ \ mCameraPerspective;}
+\DoxyCodeLine{00156\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ \ \ \ \ \ \ \ \ mCameraFront;}
+\DoxyCodeLine{00157\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ \ \ \ \ \ \ \ \ mCameraBack;}
+\DoxyCodeLine{00158\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ \ \ \ \ \ \ \ \ mCameraLeft;}
+\DoxyCodeLine{00159\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ \ \ \ \ \ \ \ \ mCameraRight;}
+\DoxyCodeLine{00160\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ \ \ \ \ \ \ \ \ mCameraTop;}
+\DoxyCodeLine{00161\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}*\ \ \ \ \ \ \ \ \ mCameraBottom;}
+\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_switcher}{FbxCameraSwitcher}}*\ mCameraSwitcher;}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00164\ \};}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_FILEIO\_GLOBAL\_CAMERA\_SETTINGS\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

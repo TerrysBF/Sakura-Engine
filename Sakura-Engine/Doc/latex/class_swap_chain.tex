@@ -1,0 +1,54 @@
+\doxysection{Swap\+Chain Class Reference}
+\hypertarget{class_swap_chain}{}\label{class_swap_chain}\index{SwapChain@{SwapChain}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+HRESULT \mbox{\hyperlink{class_swap_chain_a6602d0a5266b95260492c34e3acddb2c}{init}} (\mbox{\hyperlink{class_device}{Device}} \&device, \mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context, \mbox{\hyperlink{class_texture}{Texture}} \&back\+Buffer, \mbox{\hyperlink{class_window}{Window}} \&window)
+\item 
+\Hypertarget{class_swap_chain_aa2699480acf4fa5b44b4966c55da7c4c}\label{class_swap_chain_aa2699480acf4fa5b44b4966c55da7c4c} 
+void {\bfseries update} ()
+\item 
+\Hypertarget{class_swap_chain_a0ed916f089d45681c0eaf4474053bdbd}\label{class_swap_chain_a0ed916f089d45681c0eaf4474053bdbd} 
+void {\bfseries render} ()
+\item 
+\Hypertarget{class_swap_chain_a492d4bf86eae9e273068dee33056eed1}\label{class_swap_chain_a492d4bf86eae9e273068dee33056eed1} 
+void {\bfseries destroy} ()
+\item 
+void \mbox{\hyperlink{class_swap_chain_a1c88d9c1c3baa507cf1ab13d5af902fc}{present}} ()
+\item 
+\Hypertarget{class_swap_chain_a874016af13f8cd6a605734471f1a16e7}\label{class_swap_chain_a874016af13f8cd6a605734471f1a16e7} 
+unsigned int {\bfseries get\+Sample\+Count} () const
+\item 
+\Hypertarget{class_swap_chain_ac8175c9a142034fb91679014594148f4}\label{class_swap_chain_ac8175c9a142034fb91679014594148f4} 
+unsigned int {\bfseries get\+Quality\+Levels} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_swap_chain_a31b575ec300f4915b7d16dbee7191bac}\label{class_swap_chain_a31b575ec300f4915b7d16dbee7191bac} 
+IDXGISwap\+Chain \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+swap\+Chain} = nullptr
+\item 
+\Hypertarget{class_swap_chain_a7825f454282109e0b47afe287de4ab1c}\label{class_swap_chain_a7825f454282109e0b47afe287de4ab1c} 
+D3\+D\+\_\+\+DRIVER\+\_\+\+TYPE {\bfseries m\+\_\+driver\+Type} = D3\+D\+\_\+\+DRIVER\+\_\+\+TYPE\+\_\+\+NULL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_swap_chain_a6602d0a5266b95260492c34e3acddb2c}\index{SwapChain@{SwapChain}!init@{init}}
+\index{init@{init}!SwapChain@{SwapChain}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_swap_chain_a6602d0a5266b95260492c34e3acddb2c} 
+HRESULT Swap\+Chain\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{, }\item[{\mbox{\hyperlink{class_texture}{Texture}} \&}]{back\+Buffer}{, }\item[{\mbox{\hyperlink{class_window}{Window}} \&}]{window}{}\end{DoxyParamCaption})}
+
+Crea el swap chain y asocia el back buffer a una \doxylink{class_texture}{Texture}. Aquí también se crea el device y el device context y se configura MSAA. \Hypertarget{class_swap_chain_a1c88d9c1c3baa507cf1ab13d5af902fc}\index{SwapChain@{SwapChain}!present@{present}}
+\index{present@{present}!SwapChain@{SwapChain}}
+\doxysubsubsection{\texorpdfstring{present()}{present()}}
+{\footnotesize\ttfamily \label{class_swap_chain_a1c88d9c1c3baa507cf1ab13d5af902fc} 
+void Swap\+Chain\+::present (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Presenta el back buffer en la ventana. Present(0, 0) significa sin sincronización con VSync. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Swap\+Chain.\+h\item 
+source/\mbox{\hyperlink{_swap_chain_8cpp}{Swap\+Chain.\+cpp}}\end{DoxyCompactItemize}

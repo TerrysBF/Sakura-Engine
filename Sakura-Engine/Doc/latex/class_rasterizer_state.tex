@@ -1,0 +1,119 @@
+\doxysection{Rasterizer\+State Class Reference}
+\hypertarget{class_rasterizer_state}{}\label{class_rasterizer_state}\index{RasterizerState@{RasterizerState}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_rasterizer_state_ace720ec69fc113ae93d891a0be176c1d}\label{class_rasterizer_state_ace720ec69fc113ae93d891a0be176c1d} 
+{\bfseries Rasterizer\+State} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_rasterizer_state_afaa9943d0e99d7120998a98ed0eb93a3}{\texorpdfstring{$\sim$}{\string~}\+Rasterizer\+State}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor por defecto. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_rasterizer_state_ad60c03ef5129e6fc62c8c6100fc25e4d}{init}} (\mbox{\hyperlink{class_device}{Device}} device)
+\begin{DoxyCompactList}\small\item\em Inicializa el \doxylink{class_rasterizer}{Rasterizer} State. \end{DoxyCompactList}\item 
+\Hypertarget{class_rasterizer_state_a5d061bd5dc2df9d7e302621056edd913}\label{class_rasterizer_state_a5d061bd5dc2df9d7e302621056edd913} 
+HRESULT {\bfseries init} (\mbox{\hyperlink{class_device}{Device}} \&device, D3\+D11\+\_\+\+FILL\+\_\+\+MODE fill, D3\+D11\+\_\+\+CULL\+\_\+\+MODE cull, bool front\+CCW, bool depth\+Clip)
+\item 
+void \mbox{\hyperlink{class_rasterizer_state_aa0aaa159f1630af9c48c16c68f4539fa}{update}} ()
+\begin{DoxyCompactList}\small\item\em Actualiza par?metros internos del \doxylink{class_rasterizer}{Rasterizer}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rasterizer_state_ad5585d68274c5a5bf5a4ed3aa6806ea1}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context)
+\begin{DoxyCompactList}\small\item\em Aplica el \doxylink{class_rasterizer}{Rasterizer} State al contexto de dispositivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_rasterizer_state_abd2c671a85bf9e904ba6d1770223a873}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Libera el recurso {\ttfamily ID3\+D11\+Rasterizer\+State}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_rasterizer_state_afaa9943d0e99d7120998a98ed0eb93a3}\index{RasterizerState@{RasterizerState}!````~RasterizerState@{\texorpdfstring{$\sim$}{\string~}RasterizerState}}
+\index{````~RasterizerState@{\texorpdfstring{$\sim$}{\string~}RasterizerState}!RasterizerState@{RasterizerState}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}RasterizerState()}{\string~RasterizerState()}}
+{\footnotesize\ttfamily \label{class_rasterizer_state_afaa9943d0e99d7120998a98ed0eb93a3} 
+Rasterizer\+State\+::\texorpdfstring{$\sim$}{\string~}\+Rasterizer\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destructor por defecto. 
+
+No libera autom?ticamente el recurso COM; llamar a \doxylink{class_rasterizer_state_abd2c671a85bf9e904ba6d1770223a873}{destroy()}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rasterizer_state_abd2c671a85bf9e904ba6d1770223a873}\index{RasterizerState@{RasterizerState}!destroy@{destroy}}
+\index{destroy@{destroy}!RasterizerState@{RasterizerState}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{class_rasterizer_state_abd2c671a85bf9e904ba6d1770223a873} 
+void Rasterizer\+State\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Libera el recurso {\ttfamily ID3\+D11\+Rasterizer\+State}. 
+
+Idempotente\+: puede llamarse m?ltiples veces de forma segura.
+
+\begin{DoxyPostcond}{Postcondition}
+{\ttfamily m\+\_\+rasterizer\+State} == nullptr. 
+\end{DoxyPostcond}
+\Hypertarget{class_rasterizer_state_ad60c03ef5129e6fc62c8c6100fc25e4d}\index{RasterizerState@{RasterizerState}!init@{init}}
+\index{init@{init}!RasterizerState@{RasterizerState}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_rasterizer_state_ad60c03ef5129e6fc62c8c6100fc25e4d} 
+HRESULT Rasterizer\+State\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}}}]{device}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa el \doxylink{class_rasterizer}{Rasterizer} State. 
+
+Crea un {\ttfamily ID3\+D11\+Rasterizer\+State} con una configuraci?n determinada (por ejemplo, {\ttfamily D3\+D11\+\_\+\+FILL\+\_\+\+SOLID} y {\ttfamily D3\+D11\+\_\+\+CULL\+\_\+\+BACK}). La configuraci?n exacta debe definirse en la implementaci?n del m?todo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se crear? el recurso. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si la creaci?n fue exitosa; c?digo {\ttfamily HRESULT} en caso de error.
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Si retorna {\ttfamily S\+\_\+\+OK}, {\ttfamily m\+\_\+rasterizer\+State} != nullptr. 
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_rasterizer_state_ad5585d68274c5a5bf5a4ed3aa6806ea1}{render()}, \doxylink{class_rasterizer_state_abd2c671a85bf9e904ba6d1770223a873}{destroy()} 
+\end{DoxySeeAlso}
+\Hypertarget{class_rasterizer_state_ad5585d68274c5a5bf5a4ed3aa6806ea1}\index{RasterizerState@{RasterizerState}!render@{render}}
+\index{render@{render}!RasterizerState@{RasterizerState}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_rasterizer_state_ad5585d68274c5a5bf5a4ed3aa6806ea1} 
+void Rasterizer\+State\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{}\end{DoxyParamCaption})}
+
+
+
+Aplica el \doxylink{class_rasterizer}{Rasterizer} State al contexto de dispositivo. 
+
+Llama a {\ttfamily ID3\+D11\+Device\+Context\+::\+RSSet\+State} para establecer el rasterizador activo.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto donde se aplicar? el rasterizer state.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily m\+\_\+rasterizer\+State} debe haberse creado con \doxylink{class_rasterizer_state_ad60c03ef5129e6fc62c8c6100fc25e4d}{init()}. 
+\end{DoxyPrecond}
+\Hypertarget{class_rasterizer_state_aa0aaa159f1630af9c48c16c68f4539fa}\index{RasterizerState@{RasterizerState}!update@{update}}
+\index{update@{update}!RasterizerState@{RasterizerState}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_rasterizer_state_aa0aaa159f1630af9c48c16c68f4539fa} 
+void Rasterizer\+State\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Actualiza par?metros internos del \doxylink{class_rasterizer}{Rasterizer}. 
+
+M?todo de marcador para recrear o modificar din?micamente la configuraci?n del rasterizador.
+
+\begin{DoxyNote}{Note}
+Actualmente no realiza ninguna operaci?n. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_rasterizer_state_8h}{Rasterizer\+State.\+h}}\item 
+source/\mbox{\hyperlink{_rasterizer_state_8cpp}{Rasterizer\+State.\+cpp}}\end{DoxyCompactItemize}

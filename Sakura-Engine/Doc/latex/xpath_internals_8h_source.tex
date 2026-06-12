@@ -1,0 +1,434 @@
+\doxysection{xpath\+Internals.\+h}
+\hypertarget{xpath_internals_8h_source}{}\label{xpath_internals_8h_source}\index{include/fbx/libxml2/libxml/xpathInternals.h@{include/fbx/libxml2/libxml/xpathInternals.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Summary:\ internal\ interfaces\ for\ XML\ Path\ Language\ implementation}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Description:\ internal\ interfaces\ for\ XML\ Path\ Language\ implementation}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ used\ to\ build\ new\ modules\ on\ top\ of\ XPath\ like\ XPointer\ and}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ XSLT}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copy:\ See\ Copyright\ for\ the\ status\ of\ this\ software.}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Author:\ Daniel\ Veillard}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_XPATH\_INTERNALS\_H\_\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_\_XML\_XPATH\_INTERNALS\_H\_\_}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <libxml/xmlversion.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <libxml/xpath.h>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_XPATH\_ENABLED}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00021\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ Helpers\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ ************************************************************************/}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ Many\ of\ these\ macros\ may\ later\ turn\ into\ functions.\ They}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ shouldn't\ be\ used\ in\ \#ifdef's\ preprocessor\ instructions.}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ xmlXPathSetError(ctxt,\ err)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\ \ \ \ \{\ xmlXPatherror((ctxt),\ \_\_FILE\_\_,\ \_\_LINE\_\_,\ (err));\ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\ \ \ \ \ \ if\ ((ctxt)\ !=\ NULL)\ (ctxt)-\/>error\ =\ (err);\ \}}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ xmlXPathSetArityError(ctxt)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\ \ \ \ xmlXPathSetError((ctxt),\ XPATH\_INVALID\_ARITY)}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ xmlXPathSetTypeError(ctxt)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\ \ \ \ xmlXPathSetError((ctxt),\ XPATH\_INVALID\_TYPE)}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ xmlXPathGetError(ctxt)\ \ \ \ ((ctxt)-\/>error)}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ xmlXPathCheckError(ctxt)\ \ ((ctxt)-\/>error\ !=\ XPATH\_EXPRESSION\_OK)}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ xmlXPathGetDocument(ctxt)\ \ \ ((ctxt)-\/>context-\/>doc)}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ xmlXPathGetContextNode(ctxt)\ \ \ \ ((ctxt)-\/>context-\/>node)}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ xmlXPathPopBoolean\ \ (xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00105\ XMLPUBFUN\ \textcolor{keywordtype}{double}\ XMLCALL}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ xmlXPathPopNumber\ \ \ (xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00107\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ xmlXPathPopString\ \ \ (xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00109\ XMLPUBFUN\ xmlNodeSetPtr\ XMLCALL}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ xmlXPathPopNodeSet\ \ (xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00111\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ *\ XMLCALL}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ xmlXPathPopExternal\ (xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ xmlXPathReturnBoolean(ctxt,\ val)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\ \ \ \ valuePush((ctxt),\ xmlXPathNewBoolean(val))}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ xmlXPathReturnTrue(ctxt)\ \ \ xmlXPathReturnBoolean((ctxt),\ 1)}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ xmlXPathReturnFalse(ctxt)\ \ xmlXPathReturnBoolean((ctxt),\ 0)}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#define\ xmlXPathReturnNumber(ctxt,\ val)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\ \ \ \ valuePush((ctxt),\ xmlXPathNewFloat(val))}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#define\ xmlXPathReturnString(ctxt,\ str)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\ \ \ \ valuePush((ctxt),\ xmlXPathWrapString(str))}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#define\ xmlXPathReturnEmptyString(ctxt)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\ \ \ \ valuePush((ctxt),\ xmlXPathNewCString("{}"{}))}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#define\ xmlXPathReturnNodeSet(ctxt,\ ns)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\ \ \ \ valuePush((ctxt),\ xmlXPathWrapNodeSet(ns))}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#define\ xmlXPathReturnEmptyNodeSet(ctxt)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\ \ \ \ valuePush((ctxt),\ xmlXPathNewNodeSet(NULL))}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\#define\ xmlXPathReturnExternal(ctxt,\ val)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\ \ \ \ valuePush((ctxt),\ xmlXPathWrapExternal(val))}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#define\ xmlXPathStackIsNodeSet(ctxt)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\ \ \ \ (((ctxt)-\/>value\ !=\ NULL)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\ \ \ \ \ \&\&\ (((ctxt)-\/>value-\/>type\ ==\ XPATH\_NODESET)\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ ||\ ((ctxt)-\/>value-\/>type\ ==\ XPATH\_XSLT\_TREE)))}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#define\ xmlXPathStackIsExternal(ctxt)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\ \ \ \ ((ctxt-\/>value\ !=\ NULL)\ \&\&\ (ctxt-\/>value-\/>type\ ==\ XPATH\_USERS))}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\#define\ xmlXPathEmptyNodeSet(ns)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\ \ \ \ \{\ while\ ((ns)-\/>nodeNr\ >\ 0)\ (ns)-\/>nodeTab[-\/-\/(ns)-\/>nodeNr]\ =\ NULL;\ \}}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#define\ CHECK\_ERROR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\ \ \ \ if\ (ctxt-\/>error\ !=\ XPATH\_EXPRESSION\_OK)\ return}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#define\ CHECK\_ERROR0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\ \ \ \ if\ (ctxt-\/>error\ !=\ XPATH\_EXPRESSION\_OK)\ return(0)}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#define\ XP\_ERROR(X)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\ \ \ \ \{\ xmlXPathErr(ctxt,\ X);\ return;\ \}}}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#define\ XP\_ERROR0(X)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\ \ \ \ \{\ xmlXPathErr(ctxt,\ X);\ return(0);\ \}}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#define\ CHECK\_TYPE(typeval)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\ \ \ \ if\ ((ctxt-\/>value\ ==\ NULL)\ ||\ (ctxt-\/>value-\/>type\ !=\ typeval))\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ XP\_ERROR(XPATH\_INVALID\_TYPE)}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#define\ CHECK\_TYPE0(typeval)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\ \ \ \ if\ ((ctxt-\/>value\ ==\ NULL)\ ||\ (ctxt-\/>value-\/>type\ !=\ typeval))\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ XP\_ERROR0(XPATH\_INVALID\_TYPE)}}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00296\ \textcolor{preprocessor}{\#define\ CHECK\_ARITY(x)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\ \ \ \ if\ (ctxt\ ==\ NULL)\ return;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\ \ \ \ if\ (nargs\ !=\ (x))\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00299\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ XP\_ERROR(XPATH\_INVALID\_ARITY);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\ \ \ \ if\ (ctxt-\/>valueNr\ <\ ctxt-\/>valueFrame\ +\ (x))\ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ XP\_ERROR(XPATH\_STACK\_ERROR);}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#define\ CAST\_TO\_STRING\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\ \ \ \ if\ ((ctxt-\/>value\ !=\ NULL)\ \&\&\ (ctxt-\/>value-\/>type\ !=\ XPATH\_STRING))\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ xmlXPathStringFunction(ctxt,\ 1);}}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\#define\ CAST\_TO\_NUMBER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\ \ \ \ if\ ((ctxt-\/>value\ !=\ NULL)\ \&\&\ (ctxt-\/>value-\/>type\ !=\ XPATH\_NUMBER))\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ xmlXPathNumberFunction(ctxt,\ 1);}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00326\ \textcolor{preprocessor}{\#define\ CAST\_TO\_BOOLEAN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00327\ \textcolor{preprocessor}{\ \ \ \ if\ ((ctxt-\/>value\ !=\ NULL)\ \&\&\ (ctxt-\/>value-\/>type\ !=\ XPATH\_BOOLEAN))\ \ \(\backslash\)}}
+\DoxyCodeLine{00328\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ xmlXPathBooleanFunction(ctxt,\ 1);}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00331\ \textcolor{comment}{\ *\ Variable\ Lookup\ forwarding.}}
+\DoxyCodeLine{00332\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00335\ \ \ \ \ xmlXPathRegisterVariableLookup\ \ (xmlXPathContextPtr\ ctxt,}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlXPathVariableLookupFunc\ f,}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *data);}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00340\ \textcolor{comment}{\ *\ Function\ Lookup\ forwarding.}}
+\DoxyCodeLine{00341\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ xmlXPathRegisterFuncLookup\ \ (xmlXPathContextPtr\ ctxt,}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlXPathFuncLookupFunc\ f,}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *funcCtxt);}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00349\ \textcolor{comment}{\ *\ Error\ reporting.}}
+\DoxyCodeLine{00350\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00351\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ xmlXPatherror\ \ \ (xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *file,}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ line,}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ no);}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ xmlXPathErr\ (xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ error);}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_DEBUG\_ENABLED}}
+\DoxyCodeLine{00362\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ xmlXPathDebugDumpObject\ (FILE\ *output,}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlXPathObjectPtr\ cur,}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ depth);}
+\DoxyCodeLine{00366\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ xmlXPathDebugDumpCompExpr(FILE\ *output,}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlXPathCompExprPtr\ comp,}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ depth);}
+\DoxyCodeLine{00370\ \textcolor{preprocessor}{\#endif}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00374\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ xmlXPathNodeSetContains\ \ \ \ \ (xmlNodeSetPtr\ cur,}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ val);}
+\DoxyCodeLine{00377\ XMLPUBFUN\ xmlNodeSetPtr\ XMLCALL}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ xmlXPathDifference\ \ \ \ \ \ (xmlNodeSetPtr\ nodes1,}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodeSetPtr\ nodes2);}
+\DoxyCodeLine{00380\ XMLPUBFUN\ xmlNodeSetPtr\ XMLCALL}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ xmlXPathIntersection\ \ \ \ \ \ \ \ (xmlNodeSetPtr\ nodes1,}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodeSetPtr\ nodes2);}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ XMLPUBFUN\ xmlNodeSetPtr\ XMLCALL}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ xmlXPathDistinctSorted\ \ \ \ \ \ (xmlNodeSetPtr\ nodes);}
+\DoxyCodeLine{00386\ XMLPUBFUN\ xmlNodeSetPtr\ XMLCALL}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ xmlXPathDistinct\ \ \ \ \ \ \ \ (xmlNodeSetPtr\ nodes);}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ xmlXPathHasSameNodes\ \ \ \ \ \ \ \ (xmlNodeSetPtr\ nodes1,}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodeSetPtr\ nodes2);}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ XMLPUBFUN\ xmlNodeSetPtr\ XMLCALL}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ xmlXPathNodeLeadingSorted\ \ \ (xmlNodeSetPtr\ nodes,}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ node);}
+\DoxyCodeLine{00396\ XMLPUBFUN\ xmlNodeSetPtr\ XMLCALL}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ xmlXPathLeadingSorted\ \ \ \ \ \ \ (xmlNodeSetPtr\ nodes1,}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodeSetPtr\ nodes2);}
+\DoxyCodeLine{00399\ XMLPUBFUN\ xmlNodeSetPtr\ XMLCALL}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ xmlXPathNodeLeading\ \ \ \ \ (xmlNodeSetPtr\ nodes,}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ node);}
+\DoxyCodeLine{00402\ XMLPUBFUN\ xmlNodeSetPtr\ XMLCALL}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ xmlXPathLeading\ \ \ \ \ \ \ \ \ (xmlNodeSetPtr\ nodes1,}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodeSetPtr\ nodes2);}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ XMLPUBFUN\ xmlNodeSetPtr\ XMLCALL}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ xmlXPathNodeTrailingSorted\ \ (xmlNodeSetPtr\ nodes,}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ node);}
+\DoxyCodeLine{00409\ XMLPUBFUN\ xmlNodeSetPtr\ XMLCALL}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ xmlXPathTrailingSorted\ \ \ \ \ \ (xmlNodeSetPtr\ nodes1,}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodeSetPtr\ nodes2);}
+\DoxyCodeLine{00412\ XMLPUBFUN\ xmlNodeSetPtr\ XMLCALL}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ xmlXPathNodeTrailing\ \ \ \ \ \ \ \ (xmlNodeSetPtr\ nodes,}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ node);}
+\DoxyCodeLine{00415\ XMLPUBFUN\ xmlNodeSetPtr\ XMLCALL}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ xmlXPathTrailing\ \ \ \ \ \ \ \ (xmlNodeSetPtr\ nodes1,}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodeSetPtr\ nodes2);}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ xmlXPathRegisterNs\ \ \ \ \ \ (xmlXPathContextPtr\ ctxt,}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *prefix,}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ns\_uri);}
+\DoxyCodeLine{00428\ XMLPUBFUN\ \textcolor{keyword}{const}\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ xmlXPathNsLookup\ \ \ \ \ \ \ \ (xmlXPathContextPtr\ ctxt,}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *prefix);}
+\DoxyCodeLine{00431\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ xmlXPathRegisteredNsCleanup\ (xmlXPathContextPtr\ ctxt);}
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00434\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ xmlXPathRegisterFunc\ \ \ \ \ \ \ \ (xmlXPathContextPtr\ ctxt,}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlXPathFunction\ f);}
+\DoxyCodeLine{00438\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ xmlXPathRegisterFuncNS\ \ \ \ \ \ (xmlXPathContextPtr\ ctxt,}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ns\_uri,}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlXPathFunction\ f);}
+\DoxyCodeLine{00443\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ xmlXPathRegisterVariable\ \ \ \ (xmlXPathContextPtr\ ctxt,}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlXPathObjectPtr\ value);}
+\DoxyCodeLine{00447\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ xmlXPathRegisterVariableNS\ \ (xmlXPathContextPtr\ ctxt,}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ns\_uri,}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlXPathObjectPtr\ value);}
+\DoxyCodeLine{00452\ XMLPUBFUN\ xmlXPathFunction\ XMLCALL}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ xmlXPathFunctionLookup\ \ \ \ \ \ (xmlXPathContextPtr\ ctxt,}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00455\ XMLPUBFUN\ xmlXPathFunction\ XMLCALL}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ xmlXPathFunctionLookupNS\ \ \ \ (xmlXPathContextPtr\ ctxt,}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ns\_uri);}
+\DoxyCodeLine{00459\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ xmlXPathRegisteredFuncsCleanup\ \ (xmlXPathContextPtr\ ctxt);}
+\DoxyCodeLine{00461\ XMLPUBFUN\ xmlXPathObjectPtr\ XMLCALL}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ xmlXPathVariableLookup\ \ \ \ \ \ (xmlXPathContextPtr\ ctxt,}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00464\ XMLPUBFUN\ xmlXPathObjectPtr\ XMLCALL}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ xmlXPathVariableLookupNS\ \ \ \ (xmlXPathContextPtr\ ctxt,}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name,}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ns\_uri);}
+\DoxyCodeLine{00468\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ xmlXPathRegisteredVariablesCleanup(xmlXPathContextPtr\ ctxt);}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00474\ XMLPUBFUN\ xmlXPathParserContextPtr\ XMLCALL}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ xmlXPathNewParserContext\ \ (\textcolor{keyword}{const}\ xmlChar\ *str,}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlXPathContextPtr\ ctxt);}
+\DoxyCodeLine{00477\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ xmlXPathFreeParserContext\ \ \ (xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00479\ }
+\DoxyCodeLine{00480\ \textcolor{comment}{/*\ TODO:\ remap\ to\ xmlXPathValuePop\ and\ Push.\ */}}
+\DoxyCodeLine{00481\ XMLPUBFUN\ xmlXPathObjectPtr\ XMLCALL}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ valuePop\ \ \ \ \ \ \ \ \ \ \ \ (xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00483\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ valuePush\ \ \ \ \ \ \ \ \ \ \ (xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlXPathObjectPtr\ value);}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00487\ XMLPUBFUN\ xmlXPathObjectPtr\ XMLCALL}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ xmlXPathNewString\ \ \ \ \ \ \ (\textcolor{keyword}{const}\ xmlChar\ *val);}
+\DoxyCodeLine{00489\ XMLPUBFUN\ xmlXPathObjectPtr\ XMLCALL}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ xmlXPathNewCString\ \ \ \ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *val);}
+\DoxyCodeLine{00491\ XMLPUBFUN\ xmlXPathObjectPtr\ XMLCALL}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ xmlXPathWrapString\ \ \ \ \ \ (xmlChar\ *val);}
+\DoxyCodeLine{00493\ XMLPUBFUN\ xmlXPathObjectPtr\ XMLCALL}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ xmlXPathWrapCString\ \ \ \ \ (\textcolor{keywordtype}{char}\ *\ val);}
+\DoxyCodeLine{00495\ XMLPUBFUN\ xmlXPathObjectPtr\ XMLCALL}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ xmlXPathNewFloat\ \ \ \ \ \ \ \ (\textcolor{keywordtype}{double}\ val);}
+\DoxyCodeLine{00497\ XMLPUBFUN\ xmlXPathObjectPtr\ XMLCALL}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ xmlXPathNewBoolean\ \ \ \ \ \ (\textcolor{keywordtype}{int}\ val);}
+\DoxyCodeLine{00499\ XMLPUBFUN\ xmlXPathObjectPtr\ XMLCALL}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ xmlXPathNewNodeSet\ \ \ \ \ \ (xmlNodePtr\ val);}
+\DoxyCodeLine{00501\ XMLPUBFUN\ xmlXPathObjectPtr\ XMLCALL}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ xmlXPathNewValueTree\ \ \ \ \ \ \ \ (xmlNodePtr\ val);}
+\DoxyCodeLine{00503\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ xmlXPathNodeSetAdd\ \ \ \ \ \ (xmlNodeSetPtr\ cur,}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ val);}
+\DoxyCodeLine{00506\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ xmlXPathNodeSetAddUnique\ \ \ \ (xmlNodeSetPtr\ cur,}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ val);}
+\DoxyCodeLine{00509\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ xmlXPathNodeSetAddNs\ \ \ \ \ \ \ \ (xmlNodeSetPtr\ cur,}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ node,}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNsPtr\ ns);}
+\DoxyCodeLine{00513\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ xmlXPathNodeSetSort\ \ \ \ \ (xmlNodeSetPtr\ set);}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00516\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ xmlXPathRoot\ \ \ \ \ \ \ \ \ \ \ \ (xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00518\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ xmlXPathEvalExpr\ \ \ \ \ \ \ \ (xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00520\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ xmlXPathParseName\ \ \ \ \ \ \ (xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00522\ XMLPUBFUN\ xmlChar\ *\ XMLCALL}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ xmlXPathParseNCName\ \ \ \ \ (xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00526\ \textcolor{comment}{\ *\ Existing\ functions.}}
+\DoxyCodeLine{00527\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00528\ XMLPUBFUN\ \textcolor{keywordtype}{double}\ XMLCALL}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ xmlXPathStringEvalNumber\ \ \ \ (\textcolor{keyword}{const}\ xmlChar\ *str);}
+\DoxyCodeLine{00530\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ xmlXPathEvaluatePredicateResult\ (xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlXPathObjectPtr\ res);}
+\DoxyCodeLine{00533\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ xmlXPathRegisterAllFunctions\ \ \ \ (xmlXPathContextPtr\ ctxt);}
+\DoxyCodeLine{00535\ XMLPUBFUN\ xmlNodeSetPtr\ XMLCALL}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ xmlXPathNodeSetMerge\ \ \ \ \ \ \ \ (xmlNodeSetPtr\ val1,}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodeSetPtr\ val2);}
+\DoxyCodeLine{00538\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ xmlXPathNodeSetDel\ \ \ \ \ \ (xmlNodeSetPtr\ cur,}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ val);}
+\DoxyCodeLine{00541\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ xmlXPathNodeSetRemove\ \ \ \ \ \ \ (xmlNodeSetPtr\ cur,}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ val);}
+\DoxyCodeLine{00544\ XMLPUBFUN\ xmlXPathObjectPtr\ XMLCALL}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ xmlXPathNewNodeSetList\ \ \ \ \ \ (xmlNodeSetPtr\ val);}
+\DoxyCodeLine{00546\ XMLPUBFUN\ xmlXPathObjectPtr\ XMLCALL}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ xmlXPathWrapNodeSet\ \ \ \ \ (xmlNodeSetPtr\ val);}
+\DoxyCodeLine{00548\ XMLPUBFUN\ xmlXPathObjectPtr\ XMLCALL}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ xmlXPathWrapExternal\ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *val);}
+\DoxyCodeLine{00550\ }
+\DoxyCodeLine{00551\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ xmlXPathEqualValues(xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00552\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ xmlXPathNotEqualValues(xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00553\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ xmlXPathCompareValues(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ inf,\ \textcolor{keywordtype}{int}\ strict);}
+\DoxyCodeLine{00554\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathValueFlipSign(xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00555\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathAddValues(xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00556\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathSubValues(xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00557\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathMultValues(xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00558\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathDivValues(xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00559\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathModValues(xmlXPathParserContextPtr\ ctxt);}
+\DoxyCodeLine{00560\ }
+\DoxyCodeLine{00561\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ xmlXPathIsNodeType(\textcolor{keyword}{const}\ xmlChar\ *name);}
+\DoxyCodeLine{00562\ }
+\DoxyCodeLine{00563\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00564\ \textcolor{comment}{\ *\ Some\ of\ the\ axis\ navigation\ routines.}}
+\DoxyCodeLine{00565\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00566\ XMLPUBFUN\ xmlNodePtr\ XMLCALL\ xmlXPathNextSelf(xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ cur);}
+\DoxyCodeLine{00568\ XMLPUBFUN\ xmlNodePtr\ XMLCALL\ xmlXPathNextChild(xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ cur);}
+\DoxyCodeLine{00570\ XMLPUBFUN\ xmlNodePtr\ XMLCALL\ xmlXPathNextDescendant(xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00571\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ cur);}
+\DoxyCodeLine{00572\ XMLPUBFUN\ xmlNodePtr\ XMLCALL\ xmlXPathNextDescendantOrSelf(xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ cur);}
+\DoxyCodeLine{00574\ XMLPUBFUN\ xmlNodePtr\ XMLCALL\ xmlXPathNextParent(xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ cur);}
+\DoxyCodeLine{00576\ XMLPUBFUN\ xmlNodePtr\ XMLCALL\ xmlXPathNextAncestorOrSelf(xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ cur);}
+\DoxyCodeLine{00578\ XMLPUBFUN\ xmlNodePtr\ XMLCALL\ xmlXPathNextFollowingSibling(xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ cur);}
+\DoxyCodeLine{00580\ XMLPUBFUN\ xmlNodePtr\ XMLCALL\ xmlXPathNextFollowing(xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ cur);}
+\DoxyCodeLine{00582\ XMLPUBFUN\ xmlNodePtr\ XMLCALL\ xmlXPathNextNamespace(xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ cur);}
+\DoxyCodeLine{00584\ XMLPUBFUN\ xmlNodePtr\ XMLCALL\ xmlXPathNextAttribute(xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ cur);}
+\DoxyCodeLine{00586\ XMLPUBFUN\ xmlNodePtr\ XMLCALL\ xmlXPathNextPreceding(xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ cur);}
+\DoxyCodeLine{00588\ XMLPUBFUN\ xmlNodePtr\ XMLCALL\ xmlXPathNextAncestor(xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ cur);}
+\DoxyCodeLine{00590\ XMLPUBFUN\ xmlNodePtr\ XMLCALL\ xmlXPathNextPrecedingSibling(xmlXPathParserContextPtr\ ctxt,}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ cur);}
+\DoxyCodeLine{00592\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00593\ \textcolor{comment}{\ *\ The\ official\ core\ of\ XPath\ functions.}}
+\DoxyCodeLine{00594\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00595\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathLastFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00596\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathPositionFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00597\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathCountFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00598\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathIdFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00599\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathLocalNameFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00600\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathNamespaceURIFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00601\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathStringFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00602\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathStringLengthFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00603\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathConcatFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00604\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathContainsFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00605\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathStartsWithFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00606\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathSubstringFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00607\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathSubstringBeforeFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00608\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathSubstringAfterFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00609\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathNormalizeFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00610\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathTranslateFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00611\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathNotFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00612\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathTrueFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00613\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathFalseFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00614\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathLangFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00615\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathNumberFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00616\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathSumFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00617\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathFloorFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00618\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathCeilingFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00619\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathRoundFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00620\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathBooleanFunction(xmlXPathParserContextPtr\ ctxt,\ \textcolor{keywordtype}{int}\ nargs);}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00625\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlXPathNodeSetFreeNs(xmlNsPtr\ ns);}
+\DoxyCodeLine{00626\ }
+\DoxyCodeLine{00627\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00628\ \}}
+\DoxyCodeLine{00629\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00630\ }
+\DoxyCodeLine{00631\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_XPATH\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00632\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !\ \_\_XML\_XPATH\_INTERNALS\_H\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

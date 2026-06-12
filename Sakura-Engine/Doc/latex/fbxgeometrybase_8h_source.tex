@@ -1,0 +1,253 @@
+\doxysection{fbxgeometrybase.\+h}
+\hypertarget{fbxgeometrybase_8h_source}{}\label{fbxgeometrybase_8h_source}\index{include/fbx/fbxsdk/scene/geometry/fbxgeometrybase.h@{include/fbx/fbxsdk/scene/geometry/fbxgeometrybase.h}}
+\mbox{\hyperlink{fbxgeometrybase_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_GEOMETRY\_BASE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_GEOMETRY\_BASE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxarray_8h}{fbxsdk/core/base/fbxarray.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxvector4_8h}{fbxsdk/core/math/fbxvector4.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxlayercontainer_8h}{fbxsdk/scene/geometry/fbxlayercontainer.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_status}{FbxStatus}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_geometry_base}{FbxGeometryBase}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_layer_container}{FbxLayerContainer}}}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_geometry_base}{FbxGeometryBase}},\ \mbox{\hyperlink{class_fbx_layer_container}{FbxLayerContainer}});}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_a471b736f2595c006a338c07a61907127}{InitControlPoints}}(\textcolor{keywordtype}{int}\ pCount);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_a104b6a7408c9c9909862a26e788f2e15}{InitNormals}}(\textcolor{keywordtype}{int}\ pCount\ =\ 0,\ EFbxMemoryClearMode\ pInitializeMode\ =\ eClearToZero);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_ab0eed06f53d189b6c81560b78905c9b0}{InitNormals}}(\mbox{\hyperlink{class_fbx_geometry_base}{FbxGeometryBase}}*\ pSrc);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_ac5b188a0deba5132de9805538f014799}{InitTangents}}(\textcolor{keywordtype}{int}\ pCount\ =\ 0,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pLayerIndex\ =\ 0,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName\ =\ \textcolor{stringliteral}{"{}"{}}\ );}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_ac6b469b25670b8a4c7a17042a96eb314}{InitTangents}}(\mbox{\hyperlink{class_fbx_geometry_base}{FbxGeometryBase}}*\ pSrc,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pLayerIndex\ =\ 0);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_abc912331f01b903dee155a1a3dbff0b8}{InitBinormals}}(\textcolor{keywordtype}{int}\ pCount\ =\ 0,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pLayerIndex\ =\ 0,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName\ =\ \textcolor{stringliteral}{"{}"{}}\ );}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_ac19b7cccc9249484196272c1df43b702}{InitBinormals}}(\mbox{\hyperlink{class_fbx_geometry_base}{FbxGeometryBase}}*\ pSrc,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pLayerIndex\ =\ 0);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_a4f54256d4cbc5e7ae0ae533f7b77ace4}{SetControlPointAt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \&pCtrlPoint\ ,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \&pNormal\ ,\ \textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keywordtype}{bool}\ pI2DSearch\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_ab2d5567b073e6b9f4feb5bb428fa99e4}{SetControlPointAt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \&pCtrlPoint\ ,\ \textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \mbox{\hyperlink{class_fbx_geometry_base_a16c45afeb6008d346593882b979f0ed7}{GetControlPointAt}}(\textcolor{keywordtype}{int}\ pIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_a219c072f0c9a67ddcc928ab3998f9494}{SetControlPointNormalAt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \&pNormal,\ \textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keywordtype}{bool}\ pI2DSearch=\textcolor{keyword}{false});}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_geometry_base_aa9f42ae6a958036722670143fabf3b17}{GetControlPointsCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}*\ \mbox{\hyperlink{class_fbx_geometry_base_aaa38d7db0aa895500d1da98afe2b1b2b}{GetControlPoints}}(\mbox{\hyperlink{class_fbx_status}{FbxStatus}}*\ pStatus=NULL)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_aea3fc519575d88c430221b0e74040b0c}{SetControlPointCount}}(\textcolor{keywordtype}{int}\ pCount);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_geometry_base_a51e2206786ddb6a94a15be4a8fd9517f}{PrimaryVisibility}};}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_geometry_base_a64d3184a3bf9bcd97f7069176b0ad4c1}{CastShadow}};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_geometry_base_a38e79ed34812e8b02828ebb5690f4ce8}{ReceiveShadow}};}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble3>}}\ \mbox{\hyperlink{class_fbx_geometry_base_a66d6d410709e83f4f4d0a17651fbb717}{BBoxMin}};}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble3>}}\ \mbox{\hyperlink{class_fbx_geometry_base_a462c10c0d41fe55413e41435e62128c9}{BBoxMax}};}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_a6c27b53ff81cdcbe4f6da4b1acfd4375}{ComputeBBox}}();}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00212\ \ \ \ \ FbxGeometryElementNormal*\ \mbox{\hyperlink{class_fbx_geometry_base_af507e46f3fdf6549120710d59968f494}{CreateElementNormal}}();}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_geometry_base_a9aadbaa3f50db80b67bd1b3bc9119c7b}{RemoveElementNormal}}(FbxGeometryElementNormal*\ pElementNormal);}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00224\ \ \ \ \ FbxGeometryElementNormal*\ \mbox{\hyperlink{class_fbx_geometry_base_a6d65f2458c553fd1ba6e2ef991f03797}{GetElementNormal}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0);}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keyword}{const}\ FbxGeometryElementNormal*\ \mbox{\hyperlink{class_fbx_geometry_base_a0dd0e92f8ef1d68792bc4a1e88f589cd}{GetElementNormal}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_geometry_base_ae8cffdf94daa997de808328579c636c2}{GetElementNormalCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00241\ \ \ \ \ FbxGeometryElementBinormal*\ \mbox{\hyperlink{class_fbx_geometry_base_ae9c21420dfd0572c098ec430716b65c9}{CreateElementBinormal}}();}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_geometry_base_a07a88ca035b8b21b407a88bef375831f}{RemoveElementBinormal}}(FbxGeometryElementBinormal*\ pElementBinormal);}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00253\ \ \ \ \ FbxGeometryElementBinormal*\ \mbox{\hyperlink{class_fbx_geometry_base_a6fbd8e41cec7e1357884d9f1c806e4d6}{GetElementBinormal}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0);}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keyword}{const}\ FbxGeometryElementBinormal*\ \mbox{\hyperlink{class_fbx_geometry_base_a314931e1e8091fba6920f64862283e9c}{GetElementBinormal}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_geometry_base_a04500774d4c9bfc97418f45aff63404e}{GetElementBinormalCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00270\ \ \ \ \ FbxGeometryElementTangent*\ \mbox{\hyperlink{class_fbx_geometry_base_af45d202069646ae44f21843d57a092b7}{CreateElementTangent}}();}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_geometry_base_a9289899568d50f8b60c3a33761c92446}{RemoveElementTangent}}(FbxGeometryElementTangent*\ pElementTangent);}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00282\ \ \ \ \ FbxGeometryElementTangent*\ \mbox{\hyperlink{class_fbx_geometry_base_ac62d2d4df0cb20c454f9e1e17f7a0447}{GetElementTangent}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0);}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keyword}{const}\ FbxGeometryElementTangent*\ \mbox{\hyperlink{class_fbx_geometry_base_a414cd5ea06fcd50b3d80dd82651bf044}{GetElementTangent}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_geometry_base_ac7a775211507bd51dd804d8e013f625c}{GetElementTangentCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00299\ \ \ \ \ FbxGeometryElementMaterial*\ \mbox{\hyperlink{class_fbx_geometry_base_a77c58f92264b97f61bea35de82e8500f}{CreateElementMaterial}}();}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_geometry_base_a396c0e3be695dbca3724be1e47e9f7cb}{RemoveElementMaterial}}(FbxGeometryElementMaterial*\ pElementMaterial);}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00311\ \ \ \ \ FbxGeometryElementMaterial*\ \mbox{\hyperlink{class_fbx_geometry_base_a8f8194de777ceab50c6d1f2053e01446}{GetElementMaterial}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0);}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{keyword}{const}\ FbxGeometryElementMaterial*\ \mbox{\hyperlink{class_fbx_geometry_base_ab58c74f07b56ced476195daf0e106bb1}{GetElementMaterial}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_geometry_base_a443797935c203b51edb4004907613017}{GetElementMaterialCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00328\ \ \ \ \ FbxGeometryElementPolygonGroup*\ \mbox{\hyperlink{class_fbx_geometry_base_af138ce20def4a42518df2a6446a64c70}{CreateElementPolygonGroup}}();}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_geometry_base_a0746664cececc19040a011ddbc7c7623}{RemoveElementPolygonGroup}}(FbxGeometryElementPolygonGroup*\ pElementPolygonGroup);}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00340\ \ \ \ \ FbxGeometryElementPolygonGroup*\ \mbox{\hyperlink{class_fbx_geometry_base_a071c9200ccc131dea06fe46e003c5b56}{GetElementPolygonGroup}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0);}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keyword}{const}\ FbxGeometryElementPolygonGroup*\ \mbox{\hyperlink{class_fbx_geometry_base_aef07f5b27b856ba7d6d2d114d00485ef}{GetElementPolygonGroup}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_geometry_base_a138cf34dd7162a7984a3317d0d4ff03b}{GetElementPolygonGroupCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00357\ \ \ \ \ FbxGeometryElementVertexColor*\ \mbox{\hyperlink{class_fbx_geometry_base_a279824b9a61f05fdd1dff14bbbffd949}{CreateElementVertexColor}}();}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_geometry_base_a123d97fbece214d31199a63c90eb44e1}{RemoveElementVertexColor}}(FbxGeometryElementVertexColor*\ pElementVertexColor);}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00369\ \ \ \ \ FbxGeometryElementVertexColor*\ \mbox{\hyperlink{class_fbx_geometry_base_ad042469624e0834537343f8ea4d981fc}{GetElementVertexColor}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0);}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00375\ \ \ \ \ \textcolor{keyword}{const}\ FbxGeometryElementVertexColor*\ \mbox{\hyperlink{class_fbx_geometry_base_a23955b3a8ea14101e840dd96ac1c0438}{GetElementVertexColor}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00380\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_geometry_base_ab0c36aa02e726e017f02802a42705f68}{GetElementVertexColorCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00386\ \ \ \ \ FbxGeometryElementSmoothing*\ \mbox{\hyperlink{class_fbx_geometry_base_a1cb1b2bab8154ce4a953ac8e3142a88b}{CreateElementSmoothing}}();}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_geometry_base_a55da601b539c3e1c933fb1b3f053e1ca}{RemoveElementSmoothing}}(FbxGeometryElementSmoothing*\ pElementSmoothing);}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00398\ \ \ \ \ FbxGeometryElementSmoothing*\ \mbox{\hyperlink{class_fbx_geometry_base_a8a383f145bac37b6f2822972b1ce201d}{GetElementSmoothing}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0);}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keyword}{const}\ FbxGeometryElementSmoothing*\ \mbox{\hyperlink{class_fbx_geometry_base_a561f920275b69873f57cd087d2f31aaa}{GetElementSmoothing}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_geometry_base_a65ce50bb6548a0c1cc3a237b1f953242}{GetElementSmoothingCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00415\ \ \ \ \ FbxGeometryElementCrease*\ \mbox{\hyperlink{class_fbx_geometry_base_a00e25389ad26dec6ccdefff8f2de35fc}{CreateElementVertexCrease}}();}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_geometry_base_a01fe726448c9362a399148aceb051f71}{RemoveElementVertexCrease}}(FbxGeometryElementCrease*\ pElementCrease);}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00427\ \ \ \ \ FbxGeometryElementCrease*\ \mbox{\hyperlink{class_fbx_geometry_base_ae0d4fa049dfc966740536198f0f11d6f}{GetElementVertexCrease}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0);}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keyword}{const}\ FbxGeometryElementCrease*\ \mbox{\hyperlink{class_fbx_geometry_base_a00084af6674636cd69a6a61256c6086c}{GetElementVertexCrease}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_geometry_base_afc099f60d6c45cbac000b10d95c83377}{GetElementVertexCreaseCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00444\ \ \ \ \ FbxGeometryElementCrease*\ \mbox{\hyperlink{class_fbx_geometry_base_a94cd190f114cd6852f0a84c19f99dc6e}{CreateElementEdgeCrease}}();}
+\DoxyCodeLine{00445\ }
+\DoxyCodeLine{00450\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_geometry_base_a91216359c824cc80d113e0760d59e9bb}{RemoveElementEdgeCrease}}(FbxGeometryElementCrease*\ pElementCrease);}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00456\ \ \ \ \ FbxGeometryElementCrease*\ \mbox{\hyperlink{class_fbx_geometry_base_a49acc30708a65ab91e0be9cebf4f7e82}{GetElementEdgeCrease}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0);}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00462\ \ \ \ \ \textcolor{keyword}{const}\ FbxGeometryElementCrease*\ \mbox{\hyperlink{class_fbx_geometry_base_a63623dcbbdb2026d11c6507eb42d8b22}{GetElementEdgeCrease}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00467\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_geometry_base_aeafa5b8ecd4a424003624e2e35978033}{GetElementEdgeCreaseCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00473\ \ \ \ \ FbxGeometryElementHole*\ \mbox{\hyperlink{class_fbx_geometry_base_af848453fd2db4c0aa8e0158c85ae2ceb}{CreateElementHole}}();}
+\DoxyCodeLine{00474\ }
+\DoxyCodeLine{00479\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_geometry_base_a26484bbcc3f5a76366fcbe7352c8fefa}{RemoveElementHole}}(FbxGeometryElementHole*\ pElementHole);}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00485\ \ \ \ \ FbxGeometryElementHole*\ \mbox{\hyperlink{class_fbx_geometry_base_a9baaa310010700f1c92387cb91268427}{GetElementHole}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0);}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00491\ \ \ \ \ \textcolor{keyword}{const}\ FbxGeometryElementHole*\ \mbox{\hyperlink{class_fbx_geometry_base_ab79234a871b1fbed54171bbd41fb544e}{GetElementHole}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00496\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_geometry_base_a93f4c298785352d3a8e05596d31d0760}{GetElementHoleCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00497\ }
+\DoxyCodeLine{00502\ \ \ \ \ FbxGeometryElementUserData*\ \mbox{\hyperlink{class_fbx_geometry_base_a188b81325085d70ee415947d8775453a}{CreateElementUserData}}();}
+\DoxyCodeLine{00503\ }
+\DoxyCodeLine{00508\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_geometry_base_abf8c753f38229a2b076ec20a17da6807}{RemoveElementUserData}}(FbxGeometryElementUserData*\ pElementUserData);}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00514\ \ \ \ \ FbxGeometryElementUserData*\ \mbox{\hyperlink{class_fbx_geometry_base_acd8ddcd2bcadda14c8bbe7cabec276e7}{GetElementUserData}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0);}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00520\ \ \ \ \ \textcolor{keyword}{const}\ FbxGeometryElementUserData*\ \mbox{\hyperlink{class_fbx_geometry_base_a8dc88e69c7d9f2d7b048b0ec7af0be20}{GetElementUserData}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00521\ }
+\DoxyCodeLine{00525\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_geometry_base_a8ea1964abcfde21f82d576ca07ac7f67}{GetElementUserDataCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00526\ }
+\DoxyCodeLine{00531\ \ \ \ \ FbxGeometryElementVisibility*\ \mbox{\hyperlink{class_fbx_geometry_base_ac561720e44453094e94731f528ccd4a5}{CreateElementVisibility}}();}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00537\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_geometry_base_a5265ada1a14bc10a5be69719547827b5}{RemoveElementVisibility}}(FbxGeometryElementVisibility*\ pElementVisibility);}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00543\ \ \ \ \ FbxGeometryElementVisibility*\ \mbox{\hyperlink{class_fbx_geometry_base_a892281b7c35624b6ef6e79be5ee96671}{GetElementVisibility}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0);}
+\DoxyCodeLine{00544\ }
+\DoxyCodeLine{00549\ \ \ \ \ \textcolor{keyword}{const}\ FbxGeometryElementVisibility*\ \mbox{\hyperlink{class_fbx_geometry_base_aa3a575619dbd6532bd7ed2ada99ae6d9}{GetElementVisibility}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00550\ }
+\DoxyCodeLine{00554\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_geometry_base_a9f41f006fb1545c11e1a06c80312cda9}{GetElementVisibilityCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00555\ }
+\DoxyCodeLine{00562\ \ \ \ \ FbxGeometryElementUV*\ \mbox{\hyperlink{class_fbx_geometry_base_a7208367781cd5dfdc81e2d4445209737}{CreateElementUV}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pUVSetName,\ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTypeIdentifier=FbxLayerElement::eTextureDiffuse);}
+\DoxyCodeLine{00563\ }
+\DoxyCodeLine{00568\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_geometry_base_a0f571119663cc96a58d42e0e555a9be6}{RemoveElementUV}}(FbxGeometryElementUV*\ pElementUV);}
+\DoxyCodeLine{00569\ }
+\DoxyCodeLine{00577\ \ \ \ \ FbxGeometryElementUV*\ \mbox{\hyperlink{class_fbx_geometry_base_a89f8b5a9cd4e932a12ed9a5b4ced0379}{GetElementUV}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0,\ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTypeIdentifier=FbxLayerElement::eUnknown);}
+\DoxyCodeLine{00578\ }
+\DoxyCodeLine{00586\ \ \ \ \ \textcolor{keyword}{const}\ FbxGeometryElementUV*\ \mbox{\hyperlink{class_fbx_geometry_base_a16dd0de51021f2e3b809da4c15ac0ec2}{GetElementUV}}(\textcolor{keywordtype}{int}\ pIndex\ =\ 0,\ \mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTypeIdentifier=FbxLayerElement::eUnknown)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00587\ }
+\DoxyCodeLine{00594\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_geometry_base_a617a6e3bcbceb4489e2db1a386f9640b}{GetElementUVCount}}(\mbox{\hyperlink{class_fbx_layer_element_a8c95c5cd880b56c776acd379bd86f42c}{FbxLayerElement::EType}}\ pTypeIdentifier=FbxLayerElement::eUnknown)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00595\ }
+\DoxyCodeLine{00600\ \ \ \ \ FbxGeometryElementUV*\ \mbox{\hyperlink{class_fbx_geometry_base_a7d07d4b707f5a8d3bfce67b7f2666e64}{GetElementUV}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pUVSetName);}
+\DoxyCodeLine{00601\ }
+\DoxyCodeLine{00606\ \ \ \ \ \textcolor{keyword}{const}\ FbxGeometryElementUV*\ \mbox{\hyperlink{class_fbx_geometry_base_afa33c96a823828ae95865c4648e7fd7b}{GetElementUV}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pUVSetName)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00607\ }
+\DoxyCodeLine{00611\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_a65147440e2f577ab7f5b60e228881641}{GetUVSetNames}}(\mbox{\hyperlink{class_fbx_string_list}{FbxStringList}}\&\ pUVSetNameList)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00612\ }
+\DoxyCodeLine{00614\ }
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_geometry_base_a19663a6cd749ec50af203a1b3c91a75f}{ContentWriteTo}}(\mbox{\hyperlink{class_fbx_stream}{FbxStream}}\&\ pStream)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00631\ }
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_geometry_base_a0802770a783a3f32776281e4238ed614}{ContentReadFrom}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_stream}{FbxStream}}\&\ pStream)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00639\ }
+\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_geometry_base_a858cccba0c319e1ee9160c0d7209bacf}{MemoryUsage}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00644\ }
+\DoxyCodeLine{00645\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00646\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00647\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00648\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00649\ \ \ \ \ FbxObject\&\ \mbox{\hyperlink{class_fbx_geometry_base_a6f86362411b0a318ec01ccc7b13c7129}{Copy}}(\textcolor{keyword}{const}\ FbxObject\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00650\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_a9225735a50a6b87095042dba1f0539e4}{Compact}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00651\ }
+\DoxyCodeLine{00652\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxVector4>}}\ mControlPoints;}
+\DoxyCodeLine{00653\ }
+\DoxyCodeLine{00654\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetNormals(\mbox{\hyperlink{class_fbx_layer_element_array_template}{FbxLayerElementArrayTemplate<FbxVector4>}}**\ pLockableArray)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00655\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetNormalsIndices(\mbox{\hyperlink{class_fbx_layer_element_array_template}{FbxLayerElementArrayTemplate<int>}}**\ pLockableArray)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00656\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetTangents(\mbox{\hyperlink{class_fbx_layer_element_array_template}{FbxLayerElementArrayTemplate<FbxVector4>}}**\ pLockableArray,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pLayerIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00657\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetTangentsIndices(\mbox{\hyperlink{class_fbx_layer_element_array_template}{FbxLayerElementArrayTemplate<int>}}**\ pLockableArray,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pLayerIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00658\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetBinormals(\mbox{\hyperlink{class_fbx_layer_element_array_template}{FbxLayerElementArrayTemplate<FbxVector4>}}**\ pLockableArray,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pLayerIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00659\ \ \ \ \ \textcolor{keywordtype}{bool}\ GetBinormalsIndices(\mbox{\hyperlink{class_fbx_layer_element_array_template}{FbxLayerElementArrayTemplate<int>}}**\ pLockableArray,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pLayerIndex\ =\ 0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00660\ }
+\DoxyCodeLine{00661\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00662\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_ae6cd36d0cb936ec83126112a245a8cbd}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00663\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_geometry_base_ac7665a9493f7ca62bc2500bf65e0b9f4}{ContentClear}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00664\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00665\ \};}
+\DoxyCodeLine{00666\ }
+\DoxyCodeLine{00667\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00668\ }
+\DoxyCodeLine{00669\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_GEOMETRY\_BASE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

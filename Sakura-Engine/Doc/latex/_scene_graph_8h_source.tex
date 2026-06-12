@@ -1,0 +1,67 @@
+\doxysection{Scene\+Graph.\+h}
+\hypertarget{_scene_graph_8h_source}{}\label{_scene_graph_8h_source}\index{include/SceneGraph/SceneGraph.h@{include/SceneGraph/SceneGraph.h}}
+\mbox{\hyperlink{_scene_graph_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_entity}{Entity}};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_camera}{Camera}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_render_scene}{RenderScene}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }}
+\DoxyCodeLine{00022\ SceneGraph\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ SceneGraph()\ \ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00025\ \ \ \ \ \string~SceneGraph()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ }
+\DoxyCodeLine{00028\ \ \ \ \ init();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_scene_graph_a65822c5f625bec3ea7ac8f35e1220c68}{addEntity}}(\mbox{\hyperlink{class_entity}{Entity}}*\ e);\ \ \textcolor{comment}{//\ registra\ en\ el\ grafo}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_scene_graph_aafa761e09ad1bb4b62d8d09f0ee5e9c4}{removeEntity}}(\mbox{\hyperlink{class_entity}{Entity}}*\ e);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{bool}\ }
+\DoxyCodeLine{00045\ \ \ \ \ isAncestor(\mbox{\hyperlink{class_entity}{Entity}}*\ possibleAncestor,\ \mbox{\hyperlink{class_entity}{Entity}}*\ node)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00048\ \ \ \ \ attach(\mbox{\hyperlink{class_entity}{Entity}}*\ child,\ \mbox{\hyperlink{class_entity}{Entity}}*\ parent);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00051\ \ \ \ \ detach(\mbox{\hyperlink{class_entity}{Entity}}*\ child);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ }
+\DoxyCodeLine{00054\ \ \ \ \ update(\textcolor{keywordtype}{float}\ deltaTime,\ \mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00055\ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ }
+\DoxyCodeLine{00057\ \ \ \ \ render(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00060\ \ \ \ \ gatherRenderScene(\mbox{\hyperlink{class_render_scene}{RenderScene}}\&\ outScene,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_camera}{Camera}}\&\ camera);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00063\ \ \ \ \ destroy();}
+\DoxyCodeLine{00064\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ }
+\DoxyCodeLine{00066\ \ \ \ \ updateWorldRecursive(\mbox{\hyperlink{class_entity}{Entity}}*\ node,\ \textcolor{keyword}{const}\ XMMATRIX\&\ parentWorld);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{bool}\ }
+\DoxyCodeLine{00069\ \ \ \ \ isRoot(\mbox{\hyperlink{class_entity}{Entity}}*\ e)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00072\ \ \ \ \ isRegistered(\mbox{\hyperlink{class_entity}{Entity}}*\ e)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//std::vector<EU::TSharedPointer<Entity>>\ m\_entities;}}
+\DoxyCodeLine{00076\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00077\ \ \ \ \ std::vector<Entity*>\ \mbox{\hyperlink{class_scene_graph_abaccfc73cb21444ef80b0808da0a2044}{m\_entities}};\ }
+\DoxyCodeLine{00078\ \};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ }
+
+\end{DoxyCode}

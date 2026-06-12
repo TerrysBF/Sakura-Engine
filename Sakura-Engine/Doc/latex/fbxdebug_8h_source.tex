@@ -1,0 +1,80 @@
+\doxysection{fbxdebug.\+h}
+\hypertarget{fbxdebug_8h_source}{}\label{fbxdebug_8h_source}\index{include/fbx/fbxsdk/core/arch/fbxdebug.h@{include/fbx/fbxsdk/core/arch/fbxdebug.h}}
+\mbox{\hyperlink{fbxdebug_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_ARCH\_DEBUG\_H\_}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_ARCH\_DEBUG\_H\_}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ FBXSDK\_ASSERT\_ENVSTR\ "{}FBXSDK\_ASSERT"{}}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{fbxdebug_8h_a297e620aabd9731969776e9cff92b116}{FbxAssertProc}})(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFileName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFunctionName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pLineNumber,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pMessage);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00041\ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxdebug_8h_acfdcde5384f91cc53209b3d8d2b098b6}{FbxAssertSetProc}}(\mbox{\hyperlink{fbxdebug_8h_a297e620aabd9731969776e9cff92b116}{FbxAssertProc}}\ pAssertProc);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxdebug_8h_a25fa1e7b7efbc834d1d559c58f2ccd2a}{FbxAssertSetDefaultProc}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00047\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00048\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ \_FbxAssert(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFileName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFunctionName,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pLineNumber,\ \textcolor{keywordtype}{bool}\ pFormat,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pMessage,\ ...);}
+\DoxyCodeLine{00052\ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ \_FbxTrace(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pMessage,\ ...);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#ifdef\ \_DEBUG}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ x>\ \textcolor{keyword}{struct\ }FbxStaticAssertType;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{template}<>\ \textcolor{keyword}{struct\ }FbxStaticAssertType<true>\ \ \ \ \ \ \ \ \ \{\textcolor{keyword}{enum}\{value=1\};\};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{template}<>\ \textcolor{keyword}{struct\ }FbxStaticAssertType<false>\ \ \ \ \ \ \ \ \{\textcolor{keyword}{enum}\{value=-\/1\};\};}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_ASSERT(Condition)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{if(!(Condition))\{\_FbxAssert(\_\_FILE\_\_,\_\_FUNCTION\_\_,\_\_LINE\_\_,false,\#Condition);\}\}}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_ASSERT\_MSG(Condition,\ Message,\ ...)\ \ \ \ \ \{if(!(Condition))\{\_FbxAssert(\_\_FILE\_\_,\_\_FUNCTION\_\_,\_\_LINE\_\_,true,Message,\#\#\_\_VA\_ARGS\_\_);\}\}}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_ASSERT\_NOW(Message,\ ...)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_FbxAssert(\_\_FILE\_\_,\_\_FUNCTION\_\_,\_\_LINE\_\_,true,Message,\#\#\_\_VA\_ARGS\_\_);}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_ASSERT\_RETURN(Condition)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{if(!(Condition))\{FBX\_ASSERT\_NOW(\#Condition);\ return;\}\}}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_ASSERT\_RETURN\_VALUE(Condition,\ Value)\ \ \ \{if(!(Condition))\{FBX\_ASSERT\_NOW(\#Condition);\ return\ Value;\}\}}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_ASSERT\_STATIC(Condition)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ typedef\ char\ FbxBuildBreakIfFalse[FbxStaticAssertType<(bool)(Condition)>::value];}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_TRACE(Message,\ ...)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\_FbxTrace(Message,\#\#\_\_VA\_ARGS\_\_);\}}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_ASSERT(Condition)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((void)0)}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_ASSERT\_MSG(Condition,\ Message,\ ...)\ \ \ \ \ ((void)0)}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_ASSERT\_NOW(Message,\ ...)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((void)0)}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_ASSERT\_RETURN(Condition)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if(!(Condition))\{return;\}}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_ASSERT\_RETURN\_VALUE(Condition,\ Value)\ \ \ if(!(Condition))\{return\ Value;\}}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_ASSERT\_STATIC(Condition)}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_TRACE(Message,\ ...)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((void)0)}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_incompatible_with_array}{FbxIncompatibleWithArray}}\{\ \textcolor{keyword}{enum}\ \{value\ =\ 0\};\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY\_TEMPLATE(T)\(\backslash\)}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\ \ \ \ struct\ FbxIncompatibleWithArray<\ T\ >\{\(\backslash\)}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ union\ \{\(\backslash\)}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ T\ t();\(\backslash\)}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \}\ catcherr;\(\backslash\)}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ enum\ \{value\ =\ 1\};\}}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY(T)\(\backslash\)}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\ \ \ \ template<>\ FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY\_TEMPLATE(T)}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ FBXSDK\_IS\_INCOMPATIBLE\_WITH\_ARRAY(T)\ ((bool)\ FbxIncompatibleWithArray<T>::value)}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_ARCH\_DEBUG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

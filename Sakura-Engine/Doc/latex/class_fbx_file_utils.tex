@@ -1,0 +1,123 @@
+\doxysection{Fbx\+File\+Utils Class Reference}
+\hypertarget{class_fbx_file_utils}{}\label{class_fbx_file_utils}\index{FbxFileUtils@{FbxFileUtils}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_fbx_file_utils_adfd2d189a647cb9c90b8773868e6f36e}{Delete}} (const char \texorpdfstring{$\ast$}{*}p\+File\+Name\+\_\+\+UTF8)
+\item 
+static bool \mbox{\hyperlink{class_fbx_file_utils_a8fd66e9784dc281e1aabcf43e4f9949f}{Rename}} (const char \texorpdfstring{$\ast$}{*}p\+File\+Name\+\_\+\+UTF8, const char \texorpdfstring{$\ast$}{*}p\+New\+Name\+\_\+\+UTF8)
+\item 
+static bool \mbox{\hyperlink{class_fbx_file_utils_aeb9e95e483ce2430c54669c507fa2e21}{Copy}} (const char \texorpdfstring{$\ast$}{*}p\+Destination\+\_\+\+UTF8, const char \texorpdfstring{$\ast$}{*}p\+Source\+\_\+\+UTF8)
+\item 
+\Hypertarget{class_fbx_file_utils_af146d0591ec4ec528b489b8b4cf60db2}\label{class_fbx_file_utils_af146d0591ec4ec528b489b8b4cf60db2} 
+static Fbx\+Int64 {\bfseries Size} (const char \texorpdfstring{$\ast$}{*}p\+File\+Path\+\_\+\+UTF8)
+\begin{DoxyCompactList}\small\item\em Get given file\textquotesingle{}s size. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_fbx_file_utils_afd22767320467beb7ba9488c15376ddc}{Exist}} (const char \texorpdfstring{$\ast$}{*}p\+File\+Path\+\_\+\+UTF8)
+\item 
+static bool \mbox{\hyperlink{class_fbx_file_utils_aff7b1ae8ad2194a38cab29bab5c1b6e8}{Is\+Read\+Only}} (const char \texorpdfstring{$\ast$}{*}p\+File\+Path\+\_\+\+UTF8)
+\item 
+\Hypertarget{class_fbx_file_utils_a6ca177e6e95149aba60cea6492396fc8}\label{class_fbx_file_utils_a6ca177e6e95149aba60cea6492396fc8} 
+static Fbx\+Long {\bfseries Get\+Last\+Date} (const char \texorpdfstring{$\ast$}{*}p\+Path\+\_\+\+UTF8)
+\begin{DoxyCompactList}\small\item\em Get given file\textquotesingle{}s last date. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_file_utils_a5bdf966c2556bd9c4a86121452788053}\label{class_fbx_file_utils_a5bdf966c2556bd9c4a86121452788053} 
+static bool {\bfseries Set\+Last\+Date} (const char \texorpdfstring{$\ast$}{*}p\+Path\+\_\+\+UTF8, Fbx\+Long p\+Time)
+\begin{DoxyCompactList}\small\item\em Set the given file\textquotesingle{}s last date as the given date. \end{DoxyCompactList}\item 
+static char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_file_utils_afbdf1864e40a0ea928c51f97039103ff}{FGets}} (char \texorpdfstring{$\ast$}{*}p\+Str, int p\+Size, FILE \texorpdfstring{$\ast$}{*}p\+Stream)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_file_utils_aeb9e95e483ce2430c54669c507fa2e21}\index{FbxFileUtils@{FbxFileUtils}!Copy@{Copy}}
+\index{Copy@{Copy}!FbxFileUtils@{FbxFileUtils}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily \label{class_fbx_file_utils_aeb9e95e483ce2430c54669c507fa2e21} 
+static bool Fbx\+File\+Utils\+::\+Copy (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Destination\+\_\+\+UTF8}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Source\+\_\+\+UTF8}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Copy one file\textquotesingle{}s content to another file (if the destination file not exist, it will be created). 
+\begin{DoxyParams}{Parameters}
+{\em p\+Destination\+\_\+\+UTF8} & The destination file path \\
+\hline
+{\em p\+Source\+\_\+\+UTF8} & The source file path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return true if copy is successfully. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_utils_adfd2d189a647cb9c90b8773868e6f36e}\index{FbxFileUtils@{FbxFileUtils}!Delete@{Delete}}
+\index{Delete@{Delete}!FbxFileUtils@{FbxFileUtils}}
+\doxysubsubsection{\texorpdfstring{Delete()}{Delete()}}
+{\footnotesize\ttfamily \label{class_fbx_file_utils_adfd2d189a647cb9c90b8773868e6f36e} 
+static bool Fbx\+File\+Utils\+::\+Delete (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+File\+Name\+\_\+\+UTF8}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Delete a file from disk. 
+\begin{DoxyParams}{Parameters}
+{\em p\+File\+Name\+\_\+\+UTF8} & The file to be deleted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if delete is successful. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_utils_afd22767320467beb7ba9488c15376ddc}\index{FbxFileUtils@{FbxFileUtils}!Exist@{Exist}}
+\index{Exist@{Exist}!FbxFileUtils@{FbxFileUtils}}
+\doxysubsubsection{\texorpdfstring{Exist()}{Exist()}}
+{\footnotesize\ttfamily \label{class_fbx_file_utils_afd22767320467beb7ba9488c15376ddc} 
+static bool Fbx\+File\+Utils\+::\+Exist (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+File\+Path\+\_\+\+UTF8}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Find if the specified file exist. 
+\begin{DoxyParams}{Parameters}
+{\em p\+File\+Path\+\_\+\+UTF8} & The file path to test against. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the file exist. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_utils_afbdf1864e40a0ea928c51f97039103ff}\index{FbxFileUtils@{FbxFileUtils}!FGets@{FGets}}
+\index{FGets@{FGets}!FbxFileUtils@{FbxFileUtils}}
+\doxysubsubsection{\texorpdfstring{FGets()}{FGets()}}
+{\footnotesize\ttfamily \label{class_fbx_file_utils_afbdf1864e40a0ea928c51f97039103ff} 
+static char \texorpdfstring{$\ast$}{*} Fbx\+File\+Utils\+::\+FGets (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{p\+Str}{, }\item[{int}]{p\+Size}{, }\item[{FILE \texorpdfstring{$\ast$}{*}}]{p\+Stream}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get some content of a file. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Str} & The content get from file. \\
+\hline
+{\em p\+Size} & The size of content. \\
+\hline
+{\em p\+Stream} & The opened stream of file. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_file_utils_aff7b1ae8ad2194a38cab29bab5c1b6e8}\index{FbxFileUtils@{FbxFileUtils}!IsReadOnly@{IsReadOnly}}
+\index{IsReadOnly@{IsReadOnly}!FbxFileUtils@{FbxFileUtils}}
+\doxysubsubsection{\texorpdfstring{IsReadOnly()}{IsReadOnly()}}
+{\footnotesize\ttfamily \label{class_fbx_file_utils_aff7b1ae8ad2194a38cab29bab5c1b6e8} 
+static bool Fbx\+File\+Utils\+::\+Is\+Read\+Only (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+File\+Path\+\_\+\+UTF8}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Find if the specified file is in read-\/only mode. 
+\begin{DoxyParams}{Parameters}
+{\em p\+File\+Path\+\_\+\+UTF8} & The file path to test against. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the file is in read-\/only mode. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_file_utils_a8fd66e9784dc281e1aabcf43e4f9949f}\index{FbxFileUtils@{FbxFileUtils}!Rename@{Rename}}
+\index{Rename@{Rename}!FbxFileUtils@{FbxFileUtils}}
+\doxysubsubsection{\texorpdfstring{Rename()}{Rename()}}
+{\footnotesize\ttfamily \label{class_fbx_file_utils_a8fd66e9784dc281e1aabcf43e4f9949f} 
+static bool Fbx\+File\+Utils\+::\+Rename (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+File\+Name\+\_\+\+UTF8}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+New\+Name\+\_\+\+UTF8}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Rename a file on disk. 
+\begin{DoxyParams}{Parameters}
+{\em p\+File\+Name\+\_\+\+UTF8} & The file to be renamed. \\
+\hline
+{\em p\+New\+Name\+\_\+\+UTF8} & The new file name upon rename. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if rename is successful. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/base/\mbox{\hyperlink{fbxfile_8h}{fbxfile.\+h}}\end{DoxyCompactItemize}

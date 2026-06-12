@@ -1,0 +1,133 @@
+\doxysection{Resource\+Manager Class Reference}
+\hypertarget{class_resource_manager}{}\label{class_resource_manager}\index{ResourceManager@{ResourceManager}}
+
+
+Administrador global de recursos (modelos, texturas, shaders, etc.). Implementa un caché tipo singleton para reutilizar instancias cargadas.  
+
+
+
+
+{\ttfamily \#include $<$Resource\+Manager.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_resource_manager_a2d9db4c26c604834c60702ded80947d8}\label{class_resource_manager_a2d9db4c26c604834c60702ded80947d8} 
+{\bfseries Resource\+Manager} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\Hypertarget{class_resource_manager_a611e031031ad668b7c462a463577b65c}\label{class_resource_manager_a611e031031ad668b7c462a463577b65c} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Resource\+Manager} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor por defecto. \end{DoxyCompactList}\item 
+\Hypertarget{class_resource_manager_ab69f63d44bed2b736ac816d9a2bf84c1}\label{class_resource_manager_ab69f63d44bed2b736ac816d9a2bf84c1} 
+{\bfseries Resource\+Manager} (const \mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \&)=delete
+\item 
+\Hypertarget{class_resource_manager_ac213fb8bed90e40d1ba8018563f9e4b0}\label{class_resource_manager_ac213fb8bed90e40d1ba8018563f9e4b0} 
+\mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \&)=delete
+\item 
+{\footnotesize template$<$typename T, typename... Args$>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{class_resource_manager_a4be8f6ec7879a685b18b78540308d8fd}{Get\+Or\+Load}} (const std\+::string \&key, const std\+::string \&filename, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em Obtiene un recurso de tipo T o lo carga si aún no existe en caché. T debe heredar de \doxylink{class_i_resource}{IResource}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{class_resource_manager_a899972f5eaf8a8d80b487117ad0cc6d3}{Get}} (const std\+::string \&key) const
+\begin{DoxyCompactList}\small\item\em Obtiene un recurso ya cargado sin intentar cargarlo si no existe. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_resource_manager_a2e3a0c456f55387a84c9424e21642b7e}{Unload}} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Libera un recurso específico del caché y llama a unload(). \end{DoxyCompactList}\item 
+\Hypertarget{class_resource_manager_ac7900a305728cf0824c4008c227b5e03}\label{class_resource_manager_ac7900a305728cf0824c4008c227b5e03} 
+void {\bfseries Unload\+All} ()
+\begin{DoxyCompactList}\small\item\em Libera todos los recursos almacenados en el caché. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \& \mbox{\hyperlink{class_resource_manager_ad4dd8ab7ad458929de4a60128079af98}{get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Acceso al singleton de \doxylink{class_resource_manager}{Resource\+Manager}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Administrador global de recursos (modelos, texturas, shaders, etc.). Implementa un caché tipo singleton para reutilizar instancias cargadas. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_resource_manager_a899972f5eaf8a8d80b487117ad0cc6d3}\index{ResourceManager@{ResourceManager}!Get@{Get}}
+\index{Get@{Get}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily \label{class_resource_manager_a899972f5eaf8a8d80b487117ad0cc6d3} 
+template$<$typename T$>$ \\
+std\+::shared\+\_\+ptr$<$ T $>$ Resource\+Manager\+::\+Get (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene un recurso ya cargado sin intentar cargarlo si no existe. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Tipo de recurso esperado.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Clave del recurso en el caché.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Puntero compartido al recurso o nullptr si no se encuentra.
+\end{DoxyReturn}
+\Hypertarget{class_resource_manager_ad4dd8ab7ad458929de4a60128079af98}\index{ResourceManager@{ResourceManager}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \label{class_resource_manager_ad4dd8ab7ad458929de4a60128079af98} 
+static \mbox{\hyperlink{class_resource_manager}{Resource\+Manager}} \& Resource\+Manager\+::get\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Acceso al singleton de \doxylink{class_resource_manager}{Resource\+Manager}. 
+
+\begin{DoxyReturn}{Returns}
+Referencia única al administrador de recursos.
+\end{DoxyReturn}
+\Hypertarget{class_resource_manager_a4be8f6ec7879a685b18b78540308d8fd}\index{ResourceManager@{ResourceManager}!GetOrLoad@{GetOrLoad}}
+\index{GetOrLoad@{GetOrLoad}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{GetOrLoad()}{GetOrLoad()}}
+{\footnotesize\ttfamily \label{class_resource_manager_a4be8f6ec7879a685b18b78540308d8fd} 
+template$<$typename T, typename... Args$>$ \\
+std\+::shared\+\_\+ptr$<$ T $>$ Resource\+Manager\+::\+Get\+Or\+Load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{filename}{, }\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene un recurso de tipo T o lo carga si aún no existe en caché. T debe heredar de \doxylink{class_i_resource}{IResource}. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Tipo de recurso (derivado de \doxylink{class_i_resource}{IResource}).\\
+\hline
+{\em Args} & Parámetros adicionales para el constructor de T.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Clave con la que se identifica el recurso en el caché.\\
+\hline
+{\em filename} & Archivo desde el cual se carga el recurso.\\
+\hline
+{\em args} & Argumentos adicionales para construir el recurso.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Puntero compartido al recurso cargado o existente; nullptr si falla.
+\end{DoxyReturn}
+\Hypertarget{class_resource_manager_a2e3a0c456f55387a84c9424e21642b7e}\index{ResourceManager@{ResourceManager}!Unload@{Unload}}
+\index{Unload@{Unload}!ResourceManager@{ResourceManager}}
+\doxysubsubsection{\texorpdfstring{Unload()}{Unload()}}
+{\footnotesize\ttfamily \label{class_resource_manager_a2e3a0c456f55387a84c9424e21642b7e} 
+void Resource\+Manager\+::\+Unload (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Libera un recurso específico del caché y llama a unload(). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Clave del recurso a liberar.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Resource\+Manager.\+h\end{DoxyCompactItemize}

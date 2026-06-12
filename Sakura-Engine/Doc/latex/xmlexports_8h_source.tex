@@ -1,0 +1,60 @@
+\doxysection{xmlexports.\+h}
+\hypertarget{xmlexports_8h_source}{}\label{xmlexports_8h_source}\index{include/fbx/libxml2/libxml/xmlexports.h@{include/fbx/libxml2/libxml/xmlexports.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Summary:\ macros\ for\ marking\ symbols\ as\ exportable/importable.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Description:\ macros\ for\ marking\ symbols\ as\ exportable/importable.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Copy:\ See\ Copyright\ for\ the\ status\ of\ this\ software.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_EXPORTS\_H\_\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ \_\_XML\_EXPORTS\_H\_\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#if\ defined(\_WIN32)\ ||\ defined(\_\_CYGWIN\_\_)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_STATIC}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \#define\ XMLPUBLIC}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#elif\ defined(IN\_LIBXML)}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \#define\ XMLPUBLIC\ \_\_declspec(dllexport)}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \ \#define\ XMLPUBLIC\ \_\_declspec(dllimport)}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#if\ defined(LIBXML\_FASTCALL)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\ \ \#define\ XMLCALL\ \_\_fastcall}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\ \ \#define\ XMLCALL\ \_\_cdecl}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ XMLCDECL\ \_\_cdecl}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{/*\ not\ Windows\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ XMLPUBLIC}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ XMLCALL}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ XMLCDECL}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ platform\ switch\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ *\ XMLPUBFUN:}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ Macro\ which\ declares\ an\ exportable\ function}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ XMLPUBFUN\ XMLPUBLIC}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ XMLPUBVAR\ XMLPUBLIC\ extern}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{/*\ Compatibility\ */}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#if\ !defined(LIBXML\_DLL\_IMPORT)}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ LIBXML\_DLL\_IMPORT\ XMLPUBVAR}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_XML\_EXPORTS\_H\_\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ }
+
+\end{DoxyCode}

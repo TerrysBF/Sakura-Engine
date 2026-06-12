@@ -1,0 +1,69 @@
+\doxysection{Fbx\+Event\+Base Class Reference}
+\hypertarget{class_fbx_event_base}{}\label{class_fbx_event_base}\index{FbxEventBase@{FbxEventBase}}
+
+
+{\ttfamily \#include $<$fbxevent.\+h$>$}
+
+Inheritance diagram for Fbx\+Event\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=11.779935cm]{class_fbx_event_base}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Constructor and Destructor}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_event_base_aa95657834201b514cb515cf60d371938}\label{class_fbx_event_base_aa95657834201b514cb515cf60d371938} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Fbx\+Event\+Base} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_fbx_event_base_ac7a558ec38bc899bd705786620582b8b}{Get\+Type\+Id}} () const =0
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_event_base_ae151338ef1903a705e3a7b341712b03d}{Get\+Event\+Name}} () const =0
+\item 
+\Hypertarget{class_fbx_event_base_a57cde15f6d1c6567bc8dbafc1658bcc5}\label{class_fbx_event_base_a57cde15f6d1c6567bc8dbafc1658bcc5} 
+static int {\bfseries Get\+Static\+Type\+Id} (const char \texorpdfstring{$\ast$}{*})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+FBX SDK event base class. An event is something that is emitted by an emitter, with the goal of being filled by the listener that listen to it. You can see that like a form that you send to some people. If those people know how to fill the form, they fill it and return it to you with the right information in it. FBX object could be used as emitter, since \doxylink{class_fbx_object}{Fbx\+Object} is derived from \doxylink{class_fbx_emitter}{Fbx\+Emitter}. Meanwhile, plug-\/in could be used as listener, since \doxylink{class_fbx_plugin}{Fbx\+Plugin} is derived from \doxylink{class_fbx_listener}{Fbx\+Listener}. The derived class of \doxylink{class_fbx_event_base}{Fbx\+Event\+Base} contains a type ID to distinguish different types of events. FBX object can emit different types of FBX events at different conditions. \begin{DoxyParagraph}{The whole process of event is\+:}
+\begin{DoxyItemize}
+\item 1. Create an emitter and a listener, then bind them together via the same event handler. \item 2. Emitter can emit an event at certain conditions. The event could be handled by event handler. \item 3. Once an event is emitted, the listener to this event will receive a signal. \item 4. And then the listener could process the event data according to the types of event, by calling event handler. \end{DoxyItemize}
+
+\end{DoxyParagraph}
+\begin{DoxyNote}{Note}
+The event data is process by the callback function of event handler. For example, if a certain property of a FBX object is changed, the FBX object(emitter) can emit an event which type is \doxylink{class_fbx_object_property_changed}{Fbx\+Object\+Property\+Changed}. The plug-\/in(listener) who are listening to \doxylink{class_fbx_object_property_changed}{Fbx\+Object\+Property\+Changed}, will receive a signal and take action to process the event data.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_fbx_event}{Fbx\+Event} \doxylink{class_fbx_event_handler}{Fbx\+Event\+Handler} \doxylink{class_fbx_listener}{Fbx\+Listener} \doxylink{class_fbx_emitter}{Fbx\+Emitter} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_event_base_ae151338ef1903a705e3a7b341712b03d}\index{FbxEventBase@{FbxEventBase}!GetEventName@{GetEventName}}
+\index{GetEventName@{GetEventName}!FbxEventBase@{FbxEventBase}}
+\doxysubsubsection{\texorpdfstring{GetEventName()}{GetEventName()}}
+{\footnotesize\ttfamily \label{class_fbx_event_base_ae151338ef1903a705e3a7b341712b03d} 
+virtual const char \texorpdfstring{$\ast$}{*} Fbx\+Event\+Base\+::\+Get\+Event\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Force events to give us a name \begin{DoxyReturn}{Returns}
+event name 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_event_base_ac7a558ec38bc899bd705786620582b8b}\index{FbxEventBase@{FbxEventBase}!GetTypeId@{GetTypeId}}
+\index{GetTypeId@{GetTypeId}!FbxEventBase@{FbxEventBase}}
+\doxysubsubsection{\texorpdfstring{GetTypeId()}{GetTypeId()}}
+{\footnotesize\ttfamily \label{class_fbx_event_base_ac7a558ec38bc899bd705786620582b8b} 
+virtual int Fbx\+Event\+Base\+::\+Get\+Type\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Retrieve the event type ID \begin{DoxyReturn}{Returns}
+type id 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_fbx_event_acd5a38cce0fa9ad054b9d9a50fb24200}{Fbx\+Event$<$ T $>$}}, \mbox{\hyperlink{class_fbx_event_acd5a38cce0fa9ad054b9d9a50fb24200}{Fbx\+Event$<$ Fbx\+Event\+Map\+Asset\+File\+To\+Asset\+Object $>$}}, \mbox{\hyperlink{class_fbx_event_acd5a38cce0fa9ad054b9d9a50fb24200}{Fbx\+Event$<$ Fbx\+Event\+Populate\+System\+Library $>$}}, \mbox{\hyperlink{class_fbx_event_acd5a38cce0fa9ad054b9d9a50fb24200}{Fbx\+Event$<$ Fbx\+Event\+Post\+Export $>$}}, \mbox{\hyperlink{class_fbx_event_acd5a38cce0fa9ad054b9d9a50fb24200}{Fbx\+Event$<$ Fbx\+Event\+Post\+Import $>$}}, \mbox{\hyperlink{class_fbx_event_acd5a38cce0fa9ad054b9d9a50fb24200}{Fbx\+Event$<$ Fbx\+Event\+Pre\+Export $>$}}, \mbox{\hyperlink{class_fbx_event_acd5a38cce0fa9ad054b9d9a50fb24200}{Fbx\+Event$<$ Fbx\+Event\+Pre\+Import $>$}}, \mbox{\hyperlink{class_fbx_event_acd5a38cce0fa9ad054b9d9a50fb24200}{Fbx\+Event$<$ Fbx\+Event\+Referenced\+Document $>$}}, \mbox{\hyperlink{class_fbx_event_acd5a38cce0fa9ad054b9d9a50fb24200}{Fbx\+Event$<$ Fbx\+Event\+Update\+System\+Library $>$}}, \mbox{\hyperlink{class_fbx_event_acd5a38cce0fa9ad054b9d9a50fb24200}{Fbx\+Event$<$ Fbx\+Event\+Write\+Localization $>$}}, \mbox{\hyperlink{class_fbx_event_acd5a38cce0fa9ad054b9d9a50fb24200}{Fbx\+Event$<$ Fbx\+Object\+Property\+Changed $>$}}, and \mbox{\hyperlink{class_fbx_event_acd5a38cce0fa9ad054b9d9a50fb24200}{Fbx\+Event$<$ Fbx\+Query\+Event$<$ Query\+T $>$ $>$}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/\mbox{\hyperlink{fbxevent_8h}{fbxevent.\+h}}\end{DoxyCompactItemize}

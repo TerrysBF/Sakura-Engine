@@ -1,0 +1,167 @@
+\doxysection{Fbx\+Character\+Link Class Reference}
+\hypertarget{class_fbx_character_link}{}\label{class_fbx_character_link}\index{FbxCharacterLink@{FbxCharacterLink}}
+
+
+This class represents a link between a given FBX node and the associated node in the character hierarchy. It also contains the transform matrix (offset) for the linked character\textquotesingle{}s node.  
+
+
+
+
+{\ttfamily \#include $<$fbxcharacter.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_character_link_ae90994844e941f231b6be3d59e21cdce}{EType}} \{ {\bfseries e\+Character\+Link}
+, {\bfseries e\+Control\+Set\+Link}
+, {\bfseries e\+Control\+Set\+Effector}
+, {\bfseries e\+Control\+Set\+Effector\+Aux}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_character_link_ab2f755a75b24f1e1ffbe21f61b4f718f}{Fbx\+Character\+Link}} ()
+\item 
+\mbox{\hyperlink{class_fbx_character_link_a8f9d5ca289fe6fc60e6d3648112f8dcc}{Fbx\+Character\+Link}} (const \mbox{\hyperlink{class_fbx_character_link}{Fbx\+Character\+Link}} \&p\+Character\+Link)
+\item 
+\mbox{\hyperlink{class_fbx_character_link}{Fbx\+Character\+Link}} \& \mbox{\hyperlink{class_fbx_character_link_a246045fe7f5e64f57de77684e4b27350}{operator=}} (const \mbox{\hyperlink{class_fbx_character_link}{Fbx\+Character\+Link}} \&p\+Character\+Link)
+\item 
+void \mbox{\hyperlink{class_fbx_character_link_a9d0e6c6b7fc03ccb93283d79f763403f}{Reset}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_character_link_a71ee820f59f68cf5dcca0d8a4ec64f37}\label{class_fbx_character_link_a71ee820f59f68cf5dcca0d8a4ec64f37} 
+static int {\bfseries From\+Fbx\+EOrder} (Fbx\+Euler\+::\+EOrder p\+Order)
+\item 
+\Hypertarget{class_fbx_character_link_a96bc3bb2dba8c758514986cc79f66ed0}\label{class_fbx_character_link_a96bc3bb2dba8c758514986cc79f66ed0} 
+static Fbx\+Euler\+::\+EOrder {\bfseries To\+Fbx\+EOrder} (int p\+Order)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_character_link_a1f8cdbd468b8bdb070ada229984c094e}\label{class_fbx_character_link_a1f8cdbd468b8bdb070ada229984c094e} 
+\mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries m\+Node}
+\item 
+\Hypertarget{class_fbx_character_link_a57e20720f9a533670e5b003f9a3d05f2}\label{class_fbx_character_link_a57e20720f9a533670e5b003f9a3d05f2} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} {\bfseries m\+Template\+Name}
+\begin{DoxyCompactList}\small\item\em The character\textquotesingle{}s node in hierarchy linked to this character link. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_character_link_a3baf29ae4a06587d77e8a8ac9fef225d}\label{class_fbx_character_link_a3baf29ae4a06587d77e8a8ac9fef225d} 
+\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} {\bfseries m\+OffsetT}
+\begin{DoxyCompactList}\small\item\em A template name is a naming convention that is used to automatically map the nodes of other skeletons that use the same naming convention. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_character_link_aab8ab2a895523dce65a76ea68a732960}\label{class_fbx_character_link_aab8ab2a895523dce65a76ea68a732960} 
+\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} {\bfseries m\+OffsetR}
+\begin{DoxyCompactList}\small\item\em Get offset position of this character link. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_character_link_acf71e4b7ea7b661ec5efa22a090e0a18}\label{class_fbx_character_link_acf71e4b7ea7b661ec5efa22a090e0a18} 
+\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} {\bfseries m\+OffsetS}
+\begin{DoxyCompactList}\small\item\em Get offset rotation of this character link. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_character_link_a82c5bd03f0927e100bd8ee6315cd5db0}\label{class_fbx_character_link_a82c5bd03f0927e100bd8ee6315cd5db0} 
+\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} {\bfseries m\+Parent\+ROffset}
+\begin{DoxyCompactList}\small\item\em Get offset scale of this character link. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_character_link_a013df32c72b266e1b0c23ed6e88d6723}\label{class_fbx_character_link_a013df32c72b266e1b0c23ed6e88d6723} 
+bool {\bfseries m\+Has\+Rot\+Space}
+\begin{DoxyCompactList}\small\item\em Get the parent offset rotation of this character link. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_character_link_a54890e0bba0ad7aa9e345a5a907258d9}\label{class_fbx_character_link_a54890e0bba0ad7aa9e345a5a907258d9} 
+\mbox{\hyperlink{class_fbx_limits}{Fbx\+Limits}} {\bfseries m\+RLimits}
+\begin{DoxyCompactList}\small\item\em {\ttfamily true} if this character link has a defined rotation space. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_character_link_ad72d5286a98d4e83b71bb2c53885d6ce}\label{class_fbx_character_link_ad72d5286a98d4e83b71bb2c53885d6ce} 
+\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} {\bfseries m\+Pre\+Rotation}
+\begin{DoxyCompactList}\small\item\em Get the rotation limits of this character link. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_character_link_a35c2a40e3cbf60ed88c23487c3c57526}\label{class_fbx_character_link_a35c2a40e3cbf60ed88c23487c3c57526} 
+\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} {\bfseries m\+Post\+Rotation}
+\begin{DoxyCompactList}\small\item\em Get the Pre\+Rotation of this character link. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_fbx_character_link_ae55332d252f95e91e842117a566f53d7}{m\+Rot\+Order}}
+\begin{DoxyCompactList}\small\item\em Get the Post\+Rotation of this character link. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_character_link_a9d523e0ad398dcbab03548d725ed7d4e}\label{class_fbx_character_link_a9d523e0ad398dcbab03548d725ed7d4e} 
+double {\bfseries m\+Axis\+Len}
+\item 
+\Hypertarget{class_fbx_character_link_aa0e1f2f48f9da2baca38191023b55e10}\label{class_fbx_character_link_aa0e1f2f48f9da2baca38191023b55e10} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} {\bfseries m\+Property\+Link}
+\begin{DoxyCompactList}\small\item\em Get the axis length of this character link. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_character_link_a18377611c261651720685a86ef9667c9}\label{class_fbx_character_link_a18377611c261651720685a86ef9667c9} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} {\bfseries m\+Property\+OffsetT}
+\item 
+\Hypertarget{class_fbx_character_link_a9fb8ef5de919ec31a796862a4ed03887}\label{class_fbx_character_link_a9fb8ef5de919ec31a796862a4ed03887} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} {\bfseries m\+Property\+OffsetR}
+\item 
+\Hypertarget{class_fbx_character_link_a4e7c76fa3879a30381b75d331cc1e7fb}\label{class_fbx_character_link_a4e7c76fa3879a30381b75d331cc1e7fb} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} {\bfseries m\+Property\+OffsetS}
+\item 
+\Hypertarget{class_fbx_character_link_a535d899bd4df8b1c000bf3c54d1b7bb3}\label{class_fbx_character_link_a535d899bd4df8b1c000bf3c54d1b7bb3} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} {\bfseries m\+Property\+Parent\+OffsetR}
+\item 
+\Hypertarget{class_fbx_character_link_a342f087e28119642e18d2339a32eb17d}\label{class_fbx_character_link_a342f087e28119642e18d2339a32eb17d} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} {\bfseries m\+Property\+Template\+Name}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents a link between a given FBX node and the associated node in the character hierarchy. It also contains the transform matrix (offset) for the linked character\textquotesingle{}s node. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_fbx_character_link_ae90994844e941f231b6be3d59e21cdce}\index{FbxCharacterLink@{FbxCharacterLink}!EType@{EType}}
+\index{EType@{EType}!FbxCharacterLink@{FbxCharacterLink}}
+\doxysubsubsection{\texorpdfstring{EType}{EType}}
+{\footnotesize\ttfamily \label{class_fbx_character_link_ae90994844e941f231b6be3d59e21cdce} 
+enum \mbox{\hyperlink{class_fbx_character_link_ae90994844e941f231b6be3d59e21cdce}{Fbx\+Character\+Link\+::\+EType}}}
+
+Character link type 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_character_link_ab2f755a75b24f1e1ffbe21f61b4f718f}\index{FbxCharacterLink@{FbxCharacterLink}!FbxCharacterLink@{FbxCharacterLink}}
+\index{FbxCharacterLink@{FbxCharacterLink}!FbxCharacterLink@{FbxCharacterLink}}
+\doxysubsubsection{\texorpdfstring{FbxCharacterLink()}{FbxCharacterLink()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_character_link_ab2f755a75b24f1e1ffbe21f61b4f718f} 
+Fbx\+Character\+Link\+::\+Fbx\+Character\+Link (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Default Constructor. \Hypertarget{class_fbx_character_link_a8f9d5ca289fe6fc60e6d3648112f8dcc}\index{FbxCharacterLink@{FbxCharacterLink}!FbxCharacterLink@{FbxCharacterLink}}
+\index{FbxCharacterLink@{FbxCharacterLink}!FbxCharacterLink@{FbxCharacterLink}}
+\doxysubsubsection{\texorpdfstring{FbxCharacterLink()}{FbxCharacterLink()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_character_link_a8f9d5ca289fe6fc60e6d3648112f8dcc} 
+Fbx\+Character\+Link\+::\+Fbx\+Character\+Link (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_character_link}{Fbx\+Character\+Link}} \&}]{p\+Character\+Link}{}\end{DoxyParamCaption})}
+
+Copy Constructor. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_character_link_a246045fe7f5e64f57de77684e4b27350}\index{FbxCharacterLink@{FbxCharacterLink}!operator=@{operator=}}
+\index{operator=@{operator=}!FbxCharacterLink@{FbxCharacterLink}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_fbx_character_link_a246045fe7f5e64f57de77684e4b27350} 
+\mbox{\hyperlink{class_fbx_character_link}{Fbx\+Character\+Link}} \& Fbx\+Character\+Link\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_character_link}{Fbx\+Character\+Link}} \&}]{p\+Character\+Link}{}\end{DoxyParamCaption})}
+
+Assignment operation 
+\begin{DoxyParams}{Parameters}
+{\em p\+Character\+Link} & Another \doxylink{class_fbx_character_link}{Fbx\+Character\+Link} object assigned to this one. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_character_link_a9d0e6c6b7fc03ccb93283d79f763403f}\index{FbxCharacterLink@{FbxCharacterLink}!Reset@{Reset}}
+\index{Reset@{Reset}!FbxCharacterLink@{FbxCharacterLink}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily \label{class_fbx_character_link_a9d0e6c6b7fc03ccb93283d79f763403f} 
+void Fbx\+Character\+Link\+::\+Reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Reset to default values. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_fbx_character_link_ae55332d252f95e91e842117a566f53d7}\index{FbxCharacterLink@{FbxCharacterLink}!mRotOrder@{mRotOrder}}
+\index{mRotOrder@{mRotOrder}!FbxCharacterLink@{FbxCharacterLink}}
+\doxysubsubsection{\texorpdfstring{mRotOrder}{mRotOrder}}
+{\footnotesize\ttfamily \label{class_fbx_character_link_ae55332d252f95e91e842117a566f53d7} 
+int Fbx\+Character\+Link\+::m\+Rot\+Order}
+
+
+
+Get the Post\+Rotation of this character link. 
+
+Get the rotation order of this character link. Note that, for legacy reasons, this member stores the old rotation order values which still have some enum items that have been deprecated in the FBX SDK. For this reason, it is strongly suggested to use the {\itshape From\+Fbx\+EOrder()} and {\itshape To\+Fbx\+EOrder()} functions to ensure that the Fbx\+Euler\+::\+EOrder enum values are always used when querying or setting this property regardless of how it is internally stored.
+
+\begin{DoxyVerb}Ex: 
+   mRotOrder = FbxCharacterLink::FromFbxEOrder(FbxEuler::eOrderXYZ)
+   FbxEuler::EOrder order = FbxCharacterLink::ToFbxEOrder(mRotOrder)
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/scene/constraint/\mbox{\hyperlink{fbxcharacter_8h}{fbxcharacter.\+h}}\end{DoxyCompactItemize}

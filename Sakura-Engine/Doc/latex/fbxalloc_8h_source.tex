@@ -1,0 +1,361 @@
+\doxysection{fbxalloc.\+h}
+\hypertarget{fbxalloc_8h_source}{}\label{fbxalloc_8h_source}\index{include/fbx/fbxsdk/core/arch/fbxalloc.h@{include/fbx/fbxsdk/core/arch/fbxalloc.h}}
+\mbox{\hyperlink{fbxalloc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_ARCH\_ALLOC\_H\_}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_ARCH\_ALLOC\_H\_}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#if\ defined(\_DEBUG)\ \&\&\ defined(FBXSDK\_ENV\_WIN)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ \#include\ <crtdbg.h>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_ENV\_MAC)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ \ \ \#include\ <malloc/malloc.h>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\ \ \ \ \#include\ <malloc.h>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_CPU\_32)\ \&\&\ !defined(FBXSDK\_ENV\_IOS)}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_MEMORY\_ALIGNMENT\ ((size\_t)8U)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_MEMORY\_ALIGNMENT\ ((size\_t)16U)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ FBXSDK\_MEMORY\_COPY(dst,\ src,\ size)\ \{memcpy(dst,src,size);\}}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}*\ \ \ (*FbxMallocProc)(size\_t);\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}*\ \ \ (*FbxCallocProc)(size\_t,\ size\_t);\ \ \ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}*\ \ \ (*FbxReallocProc)(\textcolor{keywordtype}{void}*,\ size\_t);\ \ \ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ void\ \ \ \ (*\mbox{\hyperlink{fbxalloc_8h_afca208375f64d5dd7521fb25cdd5f0a1}{FbxFreeProc}})(\textcolor{keywordtype}{void}*);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00052\ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxalloc_8h_a2ad37389ed00ea52453f9bbdfbe21bf1}{FbxSetMallocHandler}}(FbxMallocProc\ pHandler);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00056\ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxalloc_8h_a1b129342da0077e10c027a6d7a1e5eeb}{FbxSetCallocHandler}}(\mbox{\hyperlink{fbxalloc_8h_afbacc468e54abebbe43ea43a03271eda}{FbxCallocProc}}\ pHandler);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00060\ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxalloc_8h_ae387334c73ede7effa5d05c3812a9b5c}{FbxSetReallocHandler}}(\mbox{\hyperlink{fbxalloc_8h_a899717b19fe2400377bd687196149818}{FbxReallocProc}}\ pHandler);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00064\ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxalloc_8h_a70cb4a74c71e880d8e87916aa40c7724}{FbxSetFreeHandler}}(\mbox{\hyperlink{fbxalloc_8h_afca208375f64d5dd7521fb25cdd5f0a1}{FbxFreeProc}}\ pHandler);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00068\ FBXSDK\_DLL\ FbxMallocProc\ \mbox{\hyperlink{fbxalloc_8h_aea72f44b389f9e24f44c65727bfcf90f}{FbxGetMallocHandler}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00072\ FBXSDK\_DLL\ \mbox{\hyperlink{fbxalloc_8h_afbacc468e54abebbe43ea43a03271eda}{FbxCallocProc}}\ \mbox{\hyperlink{fbxalloc_8h_a5d7235d2a78a3764737d223e624f0b8f}{FbxGetCallocHandler}}();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00076\ FBXSDK\_DLL\ \mbox{\hyperlink{fbxalloc_8h_a899717b19fe2400377bd687196149818}{FbxReallocProc}}\ \mbox{\hyperlink{fbxalloc_8h_a2c7ea609563a00aa69948643c72eab12}{FbxGetReallocHandler}}();}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00080\ FBXSDK\_DLL\ \mbox{\hyperlink{fbxalloc_8h_afca208375f64d5dd7521fb25cdd5f0a1}{FbxFreeProc}}\ \mbox{\hyperlink{fbxalloc_8h_a16139607882422ea8eaf30a1eaa4f407}{FbxGetFreeHandler}}();}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00084\ FBXSDK\_DLL\ FbxMallocProc\ \mbox{\hyperlink{fbxalloc_8h_afbfaec6094fda3c609f915efcbf9afa7}{FbxGetDefaultMallocHandler}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00088\ FBXSDK\_DLL\ \mbox{\hyperlink{fbxalloc_8h_afbacc468e54abebbe43ea43a03271eda}{FbxCallocProc}}\ \mbox{\hyperlink{fbxalloc_8h_ad6b4d7b4619efb01be17396aa2abf1b2}{FbxGetDefaultCallocHandler}}();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00092\ FBXSDK\_DLL\ \mbox{\hyperlink{fbxalloc_8h_a899717b19fe2400377bd687196149818}{FbxReallocProc}}\ \mbox{\hyperlink{fbxalloc_8h_a5bd40ba80d9eabb986d4c7e5cc9669b9}{FbxGetDefaultReallocHandler}}();}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00096\ FBXSDK\_DLL\ \mbox{\hyperlink{fbxalloc_8h_afca208375f64d5dd7521fb25cdd5f0a1}{FbxFreeProc}}\ \mbox{\hyperlink{fbxalloc_8h_afdecb334155627b091b29ca3e10519a8}{FbxGetDefaultFreeHandler}}();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00099\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00100\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00102\ \ \ \ \ FBXSDK\_DLL\ \textcolor{keywordtype}{size\_t}\ FbxAllocSize(\textcolor{keywordtype}{size\_t}\ pNbItems,\ \textcolor{keywordtype}{size\_t}\ pItemSize);}
+\DoxyCodeLine{00103\ \ \ \ \ FBXSDK\_DLL\ \textcolor{keywordtype}{void}*\ FbxMalloc(\textcolor{keywordtype}{size\_t}\ pSize);}
+\DoxyCodeLine{00104\ \ \ \ \ FBXSDK\_DLL\ \textcolor{keywordtype}{void}*\ FbxCalloc(\textcolor{keywordtype}{size\_t}\ pCount,\ \textcolor{keywordtype}{size\_t}\ pSize);}
+\DoxyCodeLine{00105\ \ \ \ \ FBXSDK\_DLL\ \textcolor{keywordtype}{void}*\ FbxRealloc(\textcolor{keywordtype}{void}*\ pData,\ \textcolor{keywordtype}{size\_t}\ pSize);}
+\DoxyCodeLine{00106\ \ \ \ \ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ FbxFree(\textcolor{keywordtype}{void}*\ pData);}
+\DoxyCodeLine{00107\ \ \ \ \ FBXSDK\_DLL\ \textcolor{keywordtype}{char}*\ FbxStrDup(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pString);}
+\DoxyCodeLine{00108\ \ \ \ \ FBXSDK\_DLL\ \textcolor{keywordtype}{wchar\_t}*\ FbxStrDupWC(\textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ pString);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//These\ versions\ of\ allocators\ use\ the\ default\ system\ mallocs,\ and\ on\ Windows\ we\ also\ pass\ the\ debugging\ parameters.}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//If\ you\ define\ FBXSDK\_ALLOC\_DEBUG\ in\ your\ project,\ the\ FBX\ SDK\ will\ use\ these\ debug\ versions\ everywhere.}}
+\DoxyCodeLine{00112\ \ \ \ \ FBXSDK\_DLL\ \textcolor{keywordtype}{void}*\ FbxMallocDebug(\textcolor{keywordtype}{size\_t}\ pSize,\ \textcolor{keywordtype}{int}\ pBlock,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFile,\ \textcolor{keywordtype}{int}\ pLine);}
+\DoxyCodeLine{00113\ \ \ \ \ FBXSDK\_DLL\ \textcolor{keywordtype}{void}*\ FbxCallocDebug(\textcolor{keywordtype}{size\_t}\ pCount,\ \textcolor{keywordtype}{size\_t}\ pSize,\ \textcolor{keywordtype}{int}\ pBlock,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFile,\ \textcolor{keywordtype}{int}\ pLine);}
+\DoxyCodeLine{00114\ \ \ \ \ FBXSDK\_DLL\ \textcolor{keywordtype}{void}*\ FbxReallocDebug(\textcolor{keywordtype}{void}*\ pData,\ \textcolor{keywordtype}{size\_t}\ pSize,\ \textcolor{keywordtype}{int}\ pBlock,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFile,\ \textcolor{keywordtype}{int}\ pLine);}
+\DoxyCodeLine{00115\ \ \ \ \ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ FbxFreeDebug(\textcolor{keywordtype}{void}*\ pData,\ \textcolor{keywordtype}{int}\ pBlock);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{//When\ FBXSDK\_ALLOC\_DEBUG\ is\ defined,\ redirect\ allocation\ calls\ to\ the\ debug\ version.}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\ \ \ \ \#if\ defined(FBXSDK\_ALLOC\_DEBUG)}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FbxMalloc(s)\ FbxMallocDebug(s,\ \_NORMAL\_BLOCK,\ \_\_FILE\_\_,\ \_\_LINE\_\_)}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FbxCalloc(c,\ s)\ FbxCallocDebug(c,\ s,\ \_NORMAL\_BLOCK,\ \_\_FILE\_\_,\ \_\_LINE\_\_)}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FbxRealloc(p,\ s)\ FbxReallocDebug(p,\ s,\ \_NORMAL\_BLOCK,\ \_\_FILE\_\_,\ \_\_LINE\_\_)}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ FbxFree(p)\ FbxFreeDebug(p,\ \_NORMAL\_BLOCK)}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00127\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Type>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_deletion_policy_default}{FbxDeletionPolicyDefault}}}
+\DoxyCodeLine{00128\ \{}
+\DoxyCodeLine{00129\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_deletion_policy_default_a6f1fb89b306b4b1bf88d5be8aaf1d83e}{DeleteIt}}(Type**\ pPtr)}
+\DoxyCodeLine{00132\ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ *pPtr\ )}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ *pPtr;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ *pPtr\ =\ NULL;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00142\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Type>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_deletion_policy_array}{FbxDeletionPolicyArray}}}
+\DoxyCodeLine{00143\ \{}
+\DoxyCodeLine{00144\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_deletion_policy_array_ac40497d1e8f63ed31d68c81cf4e9c28b}{DeleteIt}}(Type**\ pPtr)}
+\DoxyCodeLine{00147\ \ \ \ \ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (*pPtr)}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ *pPtr;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ *pPtr\ =\ NULL;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00157\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(T*\ p);}
+\DoxyCodeLine{00158\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(\textcolor{keyword}{const}\ T*\ p);}
+\DoxyCodeLine{00159\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Type>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_deletion_policy_delete}{FbxDeletionPolicyDelete}}}
+\DoxyCodeLine{00160\ \{}
+\DoxyCodeLine{00161\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_deletion_policy_delete_ae09420cded9deb38e063f37a1f7d7d11}{DeleteIt}}(Type**\ mPtr)}
+\DoxyCodeLine{00164\ \ \ \ \ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ *mPtr\ )}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(*mPtr);}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ *mPtr\ =\ NULL;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00170\ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00174\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Type>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_deletion_policy_free}{FbxDeletionPolicyFree}}}
+\DoxyCodeLine{00175\ \{}
+\DoxyCodeLine{00176\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_deletion_policy_free_a6b0c1df911d0480122de9bf31a4fd4a5}{DeleteIt}}(Type**\ pPtr)}
+\DoxyCodeLine{00179\ \ \ \ \ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ *pPtr\ )}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ FbxFree(*pPtr);}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ *pPtr\ =\ NULL;}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \};}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00189\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Type>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_deletion_policy_object}{FbxDeletionPolicyObject}}}
+\DoxyCodeLine{00190\ \{}
+\DoxyCodeLine{00191\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_deletion_policy_object_a5a0e0ae55b3f3fb5f195e777facf6d1c}{DeleteIt}}(Type**\ pPtr)}
+\DoxyCodeLine{00194\ \ \ \ \ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ *pPtr\ )}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ (*pPtr)-\/>Destroy();}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ *pPtr\ =\ NULL;}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ \};}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00206\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ Type,\ \textcolor{keyword}{class}\ Policy=FbxDeletionPolicyDefault<Type>\ >\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_auto_ptr_ae988d5760ee4926a4a10d76c37b378fc}{FbxAutoPtr}}}
+\DoxyCodeLine{00207\ \{}
+\DoxyCodeLine{00208\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_fbx_auto_ptr_ae988d5760ee4926a4a10d76c37b378fc}{FbxAutoPtr}}(Type*\ pPtr=0)\ :\ mPtr(pPtr)\{\}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00213\ \ \ \ \ \mbox{\hyperlink{class_fbx_auto_ptr_aa185a3ac9d0cc7b8c2b04825f3ea73ee}{\string~FbxAutoPtr}}()\ \{\ Policy::DeleteIt(\&mPtr);\ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{inline}\ Type*\ \mbox{\hyperlink{class_fbx_auto_ptr_a4a5525f29595509eaa36d4f5e751cdde}{Get}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPtr;\ \}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keyword}{inline}\ Type*\ \mbox{\hyperlink{class_fbx_auto_ptr_ac481b7effdfbd2c714e29ab7dd78b50f}{operator-\/>}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPtr;\ \}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{operator}\ Type*\ ()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ mPtr;\ \}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keyword}{inline}\ Type\&\ \mbox{\hyperlink{class_fbx_auto_ptr_ab6c49d2abef0c3dbe140af8c89438882}{operator*}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ *mPtr;\ \}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_auto_ptr_afc9bb02ba900f9920772416291690f45}{operator!}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPtr\ ==\ 0;\ \}}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{operator}\ bool\ ()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPtr\ !=\ 0;\ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_auto_ptr_ab0b755d84668c33b007a3311adb2b9e1}{Reset}}(Type*\ pPtr=0)}
+\DoxyCodeLine{00235\ \ \ \ \ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ FBX\_ASSERT(pPtr\ ==\ 0\ ||\ pPtr\ !=\ mPtr);\ \ \textcolor{comment}{//Catch\ self-\/reset\ errors}}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_auto_ptr_ae988d5760ee4926a4a10d76c37b378fc}{FbxAutoPtr<Type,\ Policy>}}(pPtr).Swap(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00238\ \ \ \ \ \}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_auto_ptr_a46656f93e4ec91ece72fb90b9091fd2c}{Swap}}(\mbox{\hyperlink{class_fbx_auto_ptr_ae988d5760ee4926a4a10d76c37b378fc}{FbxAutoPtr}}\&\ pOther)}
+\DoxyCodeLine{00242\ \ \ \ \ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ Type*\ TmpPtr\ =\ pOther.mPtr;}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ pOther.mPtr\ =\ mPtr;}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ mPtr\ =\ TmpPtr;}
+\DoxyCodeLine{00246\ \ \ \ \ \}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{inline}\ Type*\ \mbox{\hyperlink{class_fbx_auto_ptr_ae42f6f9f726262a1af1d195ebd098115}{Release}}()}
+\DoxyCodeLine{00250\ \ \ \ \ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ Type*\ TmpPtr\ =\ mPtr;}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ mPtr\ =\ NULL;}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TmpPtr;}
+\DoxyCodeLine{00254\ \ \ \ \ \}}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00257\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00258\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00260\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00261\ \ \ \ \ \mbox{\hyperlink{class_fbx_auto_ptr_ae988d5760ee4926a4a10d76c37b378fc}{FbxAutoPtr}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_auto_ptr}{FbxAutoPtr}}\&);}
+\DoxyCodeLine{00262\ \ \ \ \ \mbox{\hyperlink{class_fbx_auto_ptr}{FbxAutoPtr}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_auto_ptr}{FbxAutoPtr}}\&);}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ Type*\ mPtr;}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00266\ \};}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00269\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Type>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_auto_free_ptr_a02473c8a84df8d8fb6803a2d4224819d}{FbxAutoFreePtr}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_auto_ptr_ae988d5760ee4926a4a10d76c37b378fc}{FbxAutoPtr}}<Type,\ FbxDeletionPolicyFree<Type>\ >}
+\DoxyCodeLine{00270\ \{}
+\DoxyCodeLine{00271\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_fbx_auto_free_ptr_a02473c8a84df8d8fb6803a2d4224819d}{FbxAutoFreePtr}}(Type*\ pPtr=0)\ :\ \mbox{\hyperlink{class_fbx_auto_ptr_ae988d5760ee4926a4a10d76c37b378fc}{FbxAutoPtr}}<Type,\ \mbox{\hyperlink{class_fbx_deletion_policy_free}{FbxDeletionPolicyFree}}<Type>\ >(pPtr)\{\}}
+\DoxyCodeLine{00274\ \};}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00277\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Type>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_auto_delete_ptr_af2ecfc69aa5dab398213f6e2275e8289}{FbxAutoDeletePtr}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_auto_ptr_ae988d5760ee4926a4a10d76c37b378fc}{FbxAutoPtr}}<Type,\ FbxDeletionPolicyDelete<Type>\ >}
+\DoxyCodeLine{00278\ \{}
+\DoxyCodeLine{00279\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_fbx_auto_delete_ptr_af2ecfc69aa5dab398213f6e2275e8289}{FbxAutoDeletePtr}}(Type*\ pPtr=0)\ :\ \mbox{\hyperlink{class_fbx_auto_ptr_ae988d5760ee4926a4a10d76c37b378fc}{FbxAutoPtr}}<Type,\ \mbox{\hyperlink{class_fbx_deletion_policy_delete}{FbxDeletionPolicyDelete}}<Type>\ >(pPtr)\{\}}
+\DoxyCodeLine{00282\ \};}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00285\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Type>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_auto_destroy_ptr_a7bf34add17eaf53502e326e1e5b0c977}{FbxAutoDestroyPtr}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_auto_ptr_ae988d5760ee4926a4a10d76c37b378fc}{FbxAutoPtr}}<Type,\ FbxDeletionPolicyObject<Type>\ >}
+\DoxyCodeLine{00286\ \{}
+\DoxyCodeLine{00287\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00289\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_fbx_auto_destroy_ptr_a7bf34add17eaf53502e326e1e5b0c977}{FbxAutoDestroyPtr}}(Type*\ pPtr=0)\ :\ \mbox{\hyperlink{class_fbx_auto_ptr_ae988d5760ee4926a4a10d76c37b378fc}{FbxAutoPtr}}<Type,\ \mbox{\hyperlink{class_fbx_deletion_policy_object}{FbxDeletionPolicyObject}}<Type>\ >(pPtr)\{\}}
+\DoxyCodeLine{00290\ \};}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00296\ \textcolor{keyword}{class\ }RefCount}
+\DoxyCodeLine{00297\ \{}
+\DoxyCodeLine{00298\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00299\ \ \ \ \ RefCount()\ \ \{\ Init();\ \};}
+\DoxyCodeLine{00300\ \ \ \ \ \string~RefCount()\ \{\ Init();\ \};}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ Init()\ \ \ \{\ count\ =\ 0;\ \}}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ IncRef()\ \{\ count++;\ \}}
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ DecRef()\ \{\ count-\/-\/;\ \textcolor{keywordflow}{if}\ (count\ <\ 0)\ count\ =\ 0;\ \textcolor{keywordflow}{return}\ count;\ \}}
+\DoxyCodeLine{00305\ \ \ \ \ }
+\DoxyCodeLine{00306\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordtype}{int}\ \ count;}
+\DoxyCodeLine{00308\ \};}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ Type,\ \textcolor{keyword}{class}\ Policy=FbxDeletionPolicyDefault<Type>\ >\ \textcolor{keyword}{class\ }FbxSharedPtr}
+\DoxyCodeLine{00311\ \{}
+\DoxyCodeLine{00312\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{comment}{//\ Default\ constructor.}}
+\DoxyCodeLine{00314\ \ \ \ \ FbxSharedPtr()\ :\ }
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ mPtr(0),}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ mRef(0)}
+\DoxyCodeLine{00317\ \ \ \ \ \{\}}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_fbx_shared_ptr_a694b2cfd410b1e18b87d697f30518af8}{FbxSharedPtr}}(Type*\ pPtr)\ :\ }
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ mPtr(pPtr),}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ mRef(0)}
+\DoxyCodeLine{00323\ \ \ \ \ \{\ }
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pPtr\ !=\ 0)\ }
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ mRef\ =\ (\mbox{\hyperlink{class_ref_count}{RefCount}}*)FbxMalloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_ref_count}{RefCount}}));\ }
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ mRef-\/>Init();}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ mRef-\/>IncRef();\ }
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00330\ \ \ \ \ \}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00333\ \ \ \ \ \mbox{\hyperlink{class_fbx_shared_ptr_a7e6b1c33f8f837c6389ba99f88faafff}{FbxSharedPtr}}(\textcolor{keyword}{const}\ FbxSharedPtr\&\ pSPtr)\ :\ }
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ mPtr(pSPtr.mPtr),\ }
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ mRef(pSPtr.mRef)\ }
+\DoxyCodeLine{00336\ \ \ \ \ \{\ }
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pSPtr.mPtr\ !=\ 0\ \&\&\ mRef\ !=\ 0)\ }
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ mRef-\/>IncRef();\ }
+\DoxyCodeLine{00339\ \ \ \ \ \}}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{comment}{//\ Assignment\ operator}}
+\DoxyCodeLine{00342\ \ \ \ \ \mbox{\hyperlink{class_fbx_shared_ptr}{FbxSharedPtr}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_shared_ptr}{FbxSharedPtr}}\&\ pSPtr)}
+\DoxyCodeLine{00343\ \ \ \ \ \{}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&pSPtr)\ \textcolor{comment}{//\ avoid\ self\ assignment}}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ Reset();}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pSPtr.mPtr)}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mPtr\ =\ pSPtr.mPtr;}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRef\ =\ pSPtr.mRef;}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(mRef\ !=\ NULL);}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRef-\/>IncRef();}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00357\ \ \ \ \ \}}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00360\ \ \ \ \ \mbox{\hyperlink{class_fbx_shared_ptr_a15061ed1e4085e6a053c66b88c509ae6}{\string~FbxSharedPtr}}()\ \{\ Destroy();\ \}}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordtype}{void}\ Destroy()\ \{\ Reset();\ \}}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keyword}{inline}\ Type*\ \mbox{\hyperlink{class_fbx_shared_ptr_a9d9700d2fd11074886da82f8ae62adec}{Get}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPtr;\ \}}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keyword}{inline}\ Type*\ \mbox{\hyperlink{class_fbx_shared_ptr_aa6fbad3139c4badda32e4df54f42f96a}{operator-\/>}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPtr;\ \}}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{operator}\ Type*\ ()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ mPtr;\ \}}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keyword}{inline}\ Type\&\ \mbox{\hyperlink{class_fbx_shared_ptr_aa73f8e4ab6f3d6460f534210f574bc95}{operator*}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ *mPtr;\ \}}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_shared_ptr_ac52a41b234d83cb8fa5deb75e740d950}{operator!}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPtr\ ==\ 0;\ \}}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00380\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{operator}\ bool\ ()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPtr\ !=\ 0;\ \}}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00384\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00385\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00386\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00387\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keywordtype}{void}\ Reset()\ }
+\DoxyCodeLine{00389\ \ \ \ \ \{\ \ \ \ \ \ \ }
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mRef)}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(mPtr\ !=\ 0);}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mRef-\/>DecRef()\ ==\ 0)}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Policy::DeleteIt(\&mPtr);\ }
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxFree(mRef);}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRef\ =\ NULL;}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00400\ \ \ \ \ \}}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \ \ \ \ Type*\ mPtr;}
+\DoxyCodeLine{00403\ \ \ \ \ RefCount*\ mRef;}
+\DoxyCodeLine{00404\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00405\ \};}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00408\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Type>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_shared_free_ptr_aed52ec1d3edb3564059995172aaf1de8}{FbxSharedFreePtr}}\ :\ \textcolor{keyword}{public}\ FbxSharedPtr<Type,\ FbxDeletionPolicyFree<Type>\ >}
+\DoxyCodeLine{00409\ \{}
+\DoxyCodeLine{00410\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_fbx_shared_free_ptr_aed52ec1d3edb3564059995172aaf1de8}{FbxSharedFreePtr}}(Type*\ pPtr=0)\ :\ FbxSharedPtr<Type,\ \mbox{\hyperlink{class_fbx_deletion_policy_free}{FbxDeletionPolicyFree}}<Type>\ >(pPtr)\{\}}
+\DoxyCodeLine{00413\ \};}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00416\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Type>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_shared_delete_ptr_a35665b463cbb2e437b4bf3a228de8678}{FbxSharedDeletePtr}}\ :\ \textcolor{keyword}{public}\ FbxSharedPtr<Type,\ FbxDeletionPolicyDelete<Type>\ >}
+\DoxyCodeLine{00417\ \{}
+\DoxyCodeLine{00418\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_fbx_shared_delete_ptr_a35665b463cbb2e437b4bf3a228de8678}{FbxSharedDeletePtr}}(Type*\ pPtr=0)\ :\ FbxSharedPtr<Type,\ \mbox{\hyperlink{class_fbx_deletion_policy_delete}{FbxDeletionPolicyDelete}}<Type>\ >(pPtr)\{\}}
+\DoxyCodeLine{00421\ \};}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00424\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Type>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_shared_destroy_ptr_a5868fc6cf021e68d1100c9aaaf6bf7e7}{FbxSharedDestroyPtr}}\ :\ \textcolor{keyword}{public}\ FbxSharedPtr<Type,\ FbxDeletionPolicyObject<Type>\ >}
+\DoxyCodeLine{00425\ \{}
+\DoxyCodeLine{00426\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_fbx_shared_destroy_ptr_a5868fc6cf021e68d1100c9aaaf6bf7e7}{FbxSharedDestroyPtr}}(Type*\ pPtr=0)\ :\ FbxSharedPtr<Type,\ \mbox{\hyperlink{class_fbx_deletion_policy_object}{FbxDeletionPolicyObject}}<Type>\ >(pPtr)\{\}}
+\DoxyCodeLine{00429\ \};}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_ARCH\_ALLOC\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,70 @@
+\doxysection{Fbx\+Gate Class Reference}
+\hypertarget{class_fbx_gate}{}\label{class_fbx_gate}\index{FbxGate@{FbxGate}}
+
+
+{\ttfamily \#include $<$fbxsync.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_gate_a0bfa381894e420784ea2cee86d5f8662}\label{class_fbx_gate_a0bfa381894e420784ea2cee86d5f8662} 
+{\bfseries Fbx\+Gate} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_gate_a588ebab279f8bd182bc0a1aeb6001554}\label{class_fbx_gate_a588ebab279f8bd182bc0a1aeb6001554} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Fbx\+Gate} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fbx_gate_acd9a45eb0ef7d06f2a4a7f5954555310}{Open}} ()
+\item 
+void \mbox{\hyperlink{class_fbx_gate_aa91ba9c41757e0065d400f254a5175ee}{Close}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_gate_a96baa45cb4fa4a655201355601b6bc47}{Is\+Open}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_gate_ad3d9e530f43a6f446c2d09364153c918}{Wait}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A gate thread locking mechanism is very similar to a semaphore, except that when it is opened, any further call to wait will not wait until it is closed. It is generally used to block multiple threads until one of them open the gate to release them all. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_gate_aa91ba9c41757e0065d400f254a5175ee}\index{FbxGate@{FbxGate}!Close@{Close}}
+\index{Close@{Close}!FbxGate@{FbxGate}}
+\doxysubsubsection{\texorpdfstring{Close()}{Close()}}
+{\footnotesize\ttfamily \label{class_fbx_gate_aa91ba9c41757e0065d400f254a5175ee} 
+void Fbx\+Gate\+::\+Close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Close the gate so that the next time a thread call \doxylink{class_fbx_gate_ad3d9e530f43a6f446c2d09364153c918}{Wait()} it will be blocked. \Hypertarget{class_fbx_gate_a96baa45cb4fa4a655201355601b6bc47}\index{FbxGate@{FbxGate}!IsOpen@{IsOpen}}
+\index{IsOpen@{IsOpen}!FbxGate@{FbxGate}}
+\doxysubsubsection{\texorpdfstring{IsOpen()}{IsOpen()}}
+{\footnotesize\ttfamily \label{class_fbx_gate_a96baa45cb4fa4a655201355601b6bc47} 
+bool Fbx\+Gate\+::\+Is\+Open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Check if the gate is open. \begin{DoxyReturn}{Returns}
+True if the gate is open, otherwise false. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_gate_acd9a45eb0ef7d06f2a4a7f5954555310}\index{FbxGate@{FbxGate}!Open@{Open}}
+\index{Open@{Open}!FbxGate@{FbxGate}}
+\doxysubsubsection{\texorpdfstring{Open()}{Open()}}
+{\footnotesize\ttfamily \label{class_fbx_gate_acd9a45eb0ef7d06f2a4a7f5954555310} 
+void Fbx\+Gate\+::\+Open (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Open the gate to release all threads waiting. \begin{DoxyRemark}{Remarks}
+All waiting threads will unblock until the gate is closed. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_gate_ad3d9e530f43a6f446c2d09364153c918}\index{FbxGate@{FbxGate}!Wait@{Wait}}
+\index{Wait@{Wait}!FbxGate@{FbxGate}}
+\doxysubsubsection{\texorpdfstring{Wait()}{Wait()}}
+{\footnotesize\ttfamily \label{class_fbx_gate_ad3d9e530f43a6f446c2d09364153c918} 
+bool Fbx\+Gate\+::\+Wait (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Wait indefinitely until the gate open. \begin{DoxyReturn}{Returns}
+True if the wait completed without errors. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+If the gate is already open, this function returns immediately. 
+\end{DoxyRemark}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/sync/\mbox{\hyperlink{fbxsync_8h}{fbxsync.\+h}}\end{DoxyCompactItemize}

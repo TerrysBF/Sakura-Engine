@@ -1,0 +1,649 @@
+\doxysection{fbxcamera.\+h}
+\hypertarget{fbxcamera_8h_source}{}\label{fbxcamera_8h_source}\index{include/fbx/fbxsdk/scene/geometry/fbxcamera.h@{include/fbx/fbxsdk/scene/geometry/fbxcamera.h}}
+\mbox{\hyperlink{fbxcamera_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_GEOMETRY\_CAMERA\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_GEOMETRY\_CAMERA\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxstring_8h}{fbxsdk/core/base/fbxstring.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxvector4_8h}{fbxsdk/core/math/fbxvector4.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxnodeattribute_8h}{fbxsdk/scene/geometry/fbxnodeattribute.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_texture}{FbxTexture}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_camera}{FbxCamera}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_node_attribute}{FbxNodeAttribute}}}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_camera}{FbxCamera}},\mbox{\hyperlink{class_fbx_node_attribute}{FbxNodeAttribute}});}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_fbx_node_attribute_a08e1669d3d1a696910756ab17de56d6a}{FbxNodeAttribute::EType}}\ \mbox{\hyperlink{class_fbx_camera_a83048688417ee1be006d67ed57bd3333}{GetAttributeType}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_aeeb56513eefdfe4b8df54181cfa44321}{Reset}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_a717b9b0d28c8b20c115edf8c80016fb1}{EProjectionType}}}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a717b9b0d28c8b20c115edf8c80016fb1aa0ea1fe68c0ac171dae64779456dec9d}{ePerspective}},\ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a717b9b0d28c8b20c115edf8c80016fb1aa04cb9cfd8a05c0406da47338eb62d3d}{eOrthogonal}}\ \ \ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_a88d68c983d21e4d6c0f281a8a30f0a06}{EFormat}}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a88d68c983d21e4d6c0f281a8a30f0a06aaf48d41576f70b84dad6382dd54a358f}{eCustomFormat}},\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a88d68c983d21e4d6c0f281a8a30f0a06a42268f524473dc3df99c6a1e026877ca}{eD1NTSC}},\ \ \ \ \ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a88d68c983d21e4d6c0f281a8a30f0a06ad8db1b3f18ffa1ce2c72fb828b9e818d}{eNTSC}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a88d68c983d21e4d6c0f281a8a30f0a06a8b38f5968595cd18467df37d1c0ac623}{ePAL}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a88d68c983d21e4d6c0f281a8a30f0a06a281e45dc48a0b888388024d74d325ecf}{eD1PAL}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a88d68c983d21e4d6c0f281a8a30f0a06ae0bbb5db268e19a8835f1265c34da886}{eHD}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a88d68c983d21e4d6c0f281a8a30f0a06a02f796b8fa6732e33968076ba7fe84f3}{e640x480}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a88d68c983d21e4d6c0f281a8a30f0a06a481e8f8b539835f13e44baf3e28cfbcc}{e320x200}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a88d68c983d21e4d6c0f281a8a30f0a06aa5cc75ef13a34a6fce8fa241a1840433}{e320x240}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a88d68c983d21e4d6c0f281a8a30f0a06a64bc0e6478e009ab2fbf7ddce81a8e60}{e128x128}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a88d68c983d21e4d6c0f281a8a30f0a06a0428f6f444084ecf37a06dae082c710b}{eFullscreen}}\ \ \ \ \ \ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a49db13fb34e3cfa618823e61511f5312}{SetFormat}}(\mbox{\hyperlink{class_fbx_camera_a88d68c983d21e4d6c0f281a8a30f0a06}{EFormat}}\ pFormat);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a88d68c983d21e4d6c0f281a8a30f0a06}{EFormat}}\ \mbox{\hyperlink{class_fbx_camera_a068be46bd59bcaa398565fcff992d18f}{GetFormat}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_a2135478bb5fd6985835c14b11e1fccda}{EAspectRatioMode}}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a2135478bb5fd6985835c14b11e1fccdaafe7ec454e09f65b8981cbc772600938e}{eWindowSize}},\ \ \ \ \ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a2135478bb5fd6985835c14b11e1fccdaa147021a305ff8749866e92d79e7fb944}{eFixedRatio}},\ \ \ \ \ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a2135478bb5fd6985835c14b11e1fccdaa3274cc0ff55a01a302d16bcbae6c266c}{eFixedResolution}},\ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a2135478bb5fd6985835c14b11e1fccdaab72bc463e7cb6d16639871506f862dfa}{eFixedWidth}},\ \ \ \ \ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a2135478bb5fd6985835c14b11e1fccdaa7bc3bf5fc78b9ffecd900be5aebb691b}{eFixedHeight}}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_adb9cf67e4b59463add6a052003797392}{SetAspect}}(\mbox{\hyperlink{class_fbx_camera_a2135478bb5fd6985835c14b11e1fccda}{EAspectRatioMode}}\ pRatioMode,\ \textcolor{keywordtype}{double}\ pWidth,\ \textcolor{keywordtype}{double}\ pHeight);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a2135478bb5fd6985835c14b11e1fccda}{EAspectRatioMode}}\ \mbox{\hyperlink{class_fbx_camera_ad60e1323bdb9f349dbb96e5d8bdf716a}{GetAspectRatioMode}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a55058f98c5bdaed70ad02c9062804798}{SetPixelRatio}}(\textcolor{keywordtype}{double}\ pRatio);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_camera_ae12fca0cd15518d611dbe26f2b6babbf}{GetPixelRatio}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a4ceb2775d2392c380cd8529d78f98c7f}{SetNearPlane}}(\textcolor{keywordtype}{double}\ pDistance);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_camera_ae4c1364cd162c51ad539cf3f6fc1fbe6}{GetNearPlane}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a23f2f8bba739049a5e0ea55213085787}{SetFarPlane}}(\textcolor{keywordtype}{double}\ pDistance);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_camera_a07b8a3633669335c8adde9049574d5cc}{GetFarPlane}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13}{EApertureFormat}}}
+\DoxyCodeLine{00185\ \ \ \ \ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13a97b985e82b4b19702766ca0b6e1e18b6}{eCustomAperture}},\ }
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13ab20a3d10dde5db5090af623f4750499b}{e16mmTheatrical}},\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13aba9ade34d13793e51b80234ea2469f60}{eSuper16mm}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13a8543fb30fcdefa66cab58f34c803b1f7}{e35mmAcademy}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13a33ad593343e6a930c6e7d4b11b5d7c00}{e35mmTVProjection}},\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13a2cc6fd88f1f97c1ba2ca9bf4a8860a51}{e35mmFullAperture}},\ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13a33ff0b26d0ab2f32bc86be6132cfa008}{e35mm185Projection}},\ \ \ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13a20e7f50c727d1e99f42dc00152e15f1c}{e35mmAnamorphic}},\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13af0f67d2c5c475f78b205025e9bb119d9}{e70mmProjection}},\ }
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13a507e434236110cd95faa2e4de76841cd}{eVistaVision}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13a8d6bf970107658d8461f6cefc92f0f10}{eDynaVision}},\ \ \ \ \ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13abd885226c5e2eb363058e8e15b2172db}{eIMAX}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00198\ \ \ \ \ \};}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a5b644b41e4d72c214acfdb5a2dee7576}{SetApertureFormat}}(\mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13}{EApertureFormat}}\ pFormat);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13}{EApertureFormat}}\ \mbox{\hyperlink{class_fbx_camera_a33f198a1cb447a1e1e41d69856a7291c}{GetApertureFormat}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_addeea6fc943ce5f087dbc54c142f890e}{EApertureMode}}}
+\DoxyCodeLine{00217\ \ \ \ \ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_addeea6fc943ce5f087dbc54c142f890ea8cac2c2267cda9a78d633db1b468dafa}{eHorizAndVert}},\ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_addeea6fc943ce5f087dbc54c142f890ea3e78ca781c360fd1f8cbe81becdbba29}{eHorizontal}},\ }
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_addeea6fc943ce5f087dbc54c142f890ea28d91a0b3c674581c55773b1df9d3a99}{eVertical}},\ \ \ \ \ }
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_addeea6fc943ce5f087dbc54c142f890ea69fff576ebbceb1fab1b9914b606b2f6}{eFocalLength}}\ \ \ \ }
+\DoxyCodeLine{00222\ \ \ \ \ \};}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a479485801a0795d337d73e25ef8c4477}{SetApertureMode}}(\mbox{\hyperlink{class_fbx_camera_addeea6fc943ce5f087dbc54c142f890e}{EApertureMode}}\ pMode);}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00232\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_addeea6fc943ce5f087dbc54c142f890e}{EApertureMode}}\ \mbox{\hyperlink{class_fbx_camera_a3dea5cf232d8faafbc4c5a720fde419c}{GetApertureMode}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_ae927c1d64d3b28cce554d47ac56fdc92}{SetApertureWidth}}(\textcolor{keywordtype}{double}\ pWidth);}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_camera_a7f9c7299e3a40cf708e97b13107396cc}{GetApertureWidth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a02bdb12abf27b4ccc0c4554818bdbf8f}{SetApertureHeight}}(\textcolor{keywordtype}{double}\ pHeight);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_camera_a652045fde3804f8a66b696030e40f662}{GetApertureHeight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a4ef18832cc863f5dcc086d0d10686122}{SetSqueezeRatio}}(\textcolor{keywordtype}{double}\ pRatio);}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_camera_ac9e1f4cc33e3c927932c577d95c6cd93}{GetSqueezeRatio}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_aeef0bf29c16fe5f08815fb33402330dd}{EGateFit}}}
+\DoxyCodeLine{00279\ \ \ \ \ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aeef0bf29c16fe5f08815fb33402330dda3323d147bda3dd5b2b196bbbf877f893}{eFitNone}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aeef0bf29c16fe5f08815fb33402330ddaf68c2ba0074eeaccec333cc9edf3541c}{eFitVertical}},\ \ \ }
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aeef0bf29c16fe5f08815fb33402330ddac719810a0f5527e1a8e1d0a07b83b52e}{eFitHorizontal}},\ \ \ }
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aeef0bf29c16fe5f08815fb33402330dda0ee709a0e8ce6d10c93eead0c24fea5e}{eFitFill}},\ \ \ \ \ \ \ }
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aeef0bf29c16fe5f08815fb33402330ddadf50234dabf691041535be304a4fffce}{eFitOverscan}},\ \ \ }
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aeef0bf29c16fe5f08815fb33402330dda2c54aaf5f566bae17a288ce14733c66a}{eFitStretch}}\ \ \ \ \ \ }
+\DoxyCodeLine{00286\ \ \ \ \ \};}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_camera_ac4549addd7a3f9dc62843b9208a52d81}{ComputeFieldOfView}}(\textcolor{keywordtype}{double}\ pFocalLength)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_camera_aeb7c4720e64f1c247a0089943f521dc6}{ComputeFocalLength}}(\textcolor{keywordtype}{double}\ pAngleOfView)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_a831d9b7ffcbf3611715eb2ad9108870b}{EFilmRollOrder}}}
+\DoxyCodeLine{00305\ \ \ \ \ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a831d9b7ffcbf3611715eb2ad9108870bad500528c8c031dde3349136db2fae5d1}{eRotateFirst}},\ \ \ }
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a831d9b7ffcbf3611715eb2ad9108870ba7e8e7f860d61236b2a6cc8300953b071}{eTranslateFirst}}\ \ }
+\DoxyCodeLine{00308\ \ \ \ \ \};}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a57a6c950efcc3bf5b5b1fde44f47fc6c}{SetBackgroundFileName}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFileName);}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_camera_aea593178a971af8084ae1d5be5d00670}{GetBackgroundFileName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a77dfe355ba878b5598ebcce811111585}{SetBackgroundMediaName}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFileName);}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_camera_aa8ebec24b2bcd653f0a6c91abe58e8aa}{GetBackgroundMediaName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_abe02de6350eda0abc858e09b994fffb4}{SetForegroundFileName}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFileName);}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_camera_a96feb13fd5cb678a0af54cb83db11af7}{GetForegroundFileName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_ac6713ad08d35b84585b44855c8be04b9}{SetForegroundMediaName}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pFileName);}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00386\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_camera_a6827e1d98058d72e33d27c16d9cf0ce7}{GetForegroundMediaName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \ \ \ \ }
+\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_aa4e853313a58a9cd5a88c6a35b3c46a2}{EPlateDrawingMode}}}
+\DoxyCodeLine{00392\ \ \ \ \ \{}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aa4e853313a58a9cd5a88c6a35b3c46a2ad65298b6b912b7252f4a35aacf7da330}{ePlateBackground}},\ \ \ }
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aa4e853313a58a9cd5a88c6a35b3c46a2a74e46cdd10df8c161e9762d44f7ea3d8}{ePlateForeground}},\ \ \ }
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aa4e853313a58a9cd5a88c6a35b3c46a2ab5d341e79e4255fa68b884dc33d6a1e2}{ePlateBackAndFront}}\ \ \ \ }
+\DoxyCodeLine{00396\ \ \ \ \ \};}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_af6c1bf8cdcb03513a1aac3d547c79c10}{SetBackgroundAlphaTreshold}}(\textcolor{keywordtype}{double}\ pThreshold);}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_camera_ad8dd3ac058eae9dab18e43896fbda3ad}{GetBackgroundAlphaTreshold}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00414\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a05d48b887476bb61460f50d34721642d}{SetBackPlateFitImage}}(\textcolor{keywordtype}{bool}\ pFitImage);}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_camera_a5174e9fbec62fa007eb86d3e5c7ef70f}{GetBackPlateFitImage}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00427\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_ab5f5ab76b27d70b61a256c364f183024}{SetBackPlateCrop}}(\textcolor{keywordtype}{bool}\ pCrop);}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00434\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_camera_a76021d40416efffd5bffcf462741bada}{GetBackPlateCrop}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00440\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a73af7339e5a68e655a930b2e9570e24d}{SetBackPlateCenter}}(\textcolor{keywordtype}{bool}\ pCenter);}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00446\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_camera_a9313551dcd023e3b47e29b8a899f1f23}{GetBackPlateCenter}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00453\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_ad60007e61d4a9ca5e3f4434beebdca95}{SetBackPlateKeepRatio}}(\textcolor{keywordtype}{bool}\ pKeepRatio);}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00460\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_camera_a44d26a393e58fec107643992dd3bb439}{GetBackPlateKeepRatio}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00467\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a68f728e9e8fea2ab93f2b050841b4d75}{SetShowFrontPlate}}(\textcolor{keywordtype}{bool}\ pEnable);}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00474\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_camera_ab21048c80c2139f248b1c75cb79fae0b}{GetShowFrontPlate}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00475\ \ }
+\DoxyCodeLine{00480\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_abecdf19fbd784cc116fe9ae2916cd3c7}{SetFrontPlateFitImage}}(\textcolor{keywordtype}{bool}\ pFrontPlateFitImage);}
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00486\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_camera_a212030735f4c855c485659b5551b3d7f}{GetFrontPlateFitImage}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00487\ }
+\DoxyCodeLine{00493\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_abbd757d8635730909318bb9a7c5ec861}{SetFrontPlateCrop}}(\textcolor{keywordtype}{bool}\ pFrontPlateCrop);}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00500\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_camera_a3b5f0677c20c4e648342949b7bf5798f}{GetFrontPlateCrop}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00506\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a7401f702c8c08483a70c5080ff04f59a}{SetFrontPlateCenter}}(\textcolor{keywordtype}{bool}\ pFrontPlateCenter);}
+\DoxyCodeLine{00507\ }
+\DoxyCodeLine{00512\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_camera_a1ddaac65643a80442f19b5a330075903}{GetFrontPlateCenter}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00513\ }
+\DoxyCodeLine{00519\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a8c39b7ce7738bf7b2ef6993ff45312f0}{SetFrontPlateKeepRatio}}(\textcolor{keywordtype}{bool}\ pFrontPlateKeepRatio);}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00526\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_camera_a35528b16d2cb6bfbc56883d08957003d}{GetFrontPlateKeepRatio}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00531\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a73791e6dcfac8f1495c061cc572b3ef5}{SetForegroundOpacity}}(\textcolor{keywordtype}{double}\ pOpacity);}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00536\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_camera_a21876836377a4b548df5e08c6afe8a17}{GetForegroundOpacity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00537\ }
+\DoxyCodeLine{00541\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a750d8a45be5fcaf020b6287ef9867f42}{SetForegroundTexture}}(\mbox{\hyperlink{class_fbx_texture}{FbxTexture}}*\ pTexture);}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00546\ \ \ \ \ \mbox{\hyperlink{class_fbx_texture}{FbxTexture}}*\ \mbox{\hyperlink{class_fbx_camera_af8638ae0caf7cc40613bd5e6692ca9ec}{GetForegroundTexture}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00547\ }
+\DoxyCodeLine{00551\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_a79e74898d117e741c3fbd10b1ef21c79}{EFrontBackPlaneDistanceMode}}}
+\DoxyCodeLine{00552\ \ \ \ \ \{}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a79e74898d117e741c3fbd10b1ef21c79ad53d9e2ed112ce41f81d62da18788135}{eRelativeToInterest}},\ }
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a79e74898d117e741c3fbd10b1ef21c79a98897f48447c5d2ac67a64fe7dfdd3a3}{eRelativeToCamera}}\ \ \ \ \ \ }
+\DoxyCodeLine{00555\ \ \ \ \ \};}
+\DoxyCodeLine{00556\ }
+\DoxyCodeLine{00560\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a47cacdb816666eebadb56febbc3fa406}{SetBackPlaneDistanceMode}}(\mbox{\hyperlink{class_fbx_camera_a79e74898d117e741c3fbd10b1ef21c79}{EFrontBackPlaneDistanceMode}}\ pMode);}
+\DoxyCodeLine{00561\ }
+\DoxyCodeLine{00565\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a79e74898d117e741c3fbd10b1ef21c79}{EFrontBackPlaneDistanceMode}}\ \mbox{\hyperlink{class_fbx_camera_a862928086a5ae50086651ce6b96aa8c0}{GetBackPlaneDistanceMode}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00566\ }
+\DoxyCodeLine{00573\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_ad86c6e9e2fa9c9fdabc0323d18ab9dee}{SetFrontPlaneDistance}}(\textcolor{keywordtype}{double}\ pDistance);}
+\DoxyCodeLine{00574\ }
+\DoxyCodeLine{00578\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_camera_a3097c7c0e8a3ce8e809c248d9d8be18b}{GetFrontPlaneDistance}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00579\ }
+\DoxyCodeLine{00583\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_ab0ea0c88ba780d06d5b6ac9c6f128c23}{SetFrontPlaneDistanceMode}}(\mbox{\hyperlink{class_fbx_camera_a79e74898d117e741c3fbd10b1ef21c79}{EFrontBackPlaneDistanceMode}}\ pMode);}
+\DoxyCodeLine{00584\ }
+\DoxyCodeLine{00588\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a79e74898d117e741c3fbd10b1ef21c79}{EFrontBackPlaneDistanceMode}}\ \mbox{\hyperlink{class_fbx_camera_a2923892fe43a8d86e9a2902d94672dfe}{GetFrontPlaneDistanceMode}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00589\ }
+\DoxyCodeLine{00592\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_ab7b9d3e546552049a79261a444f9b44a}{EFrontBackPlaneDisplayMode}}}
+\DoxyCodeLine{00593\ \ \ \ \ \{}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ab7b9d3e546552049a79261a444f9b44aaa3db9d4044e7b2028150dc2ef02692c0}{ePlanesDisabled}},\ }
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ab7b9d3e546552049a79261a444f9b44aa9ac477bc61f453af77134a3ed2d05081}{ePlanesAlways}},\ \ \ \ \ }
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ab7b9d3e546552049a79261a444f9b44aab0d1040964abaff8123c109f811bdfb0}{ePlanesWhenMedia}}\ \ \ \ }
+\DoxyCodeLine{00597\ \ \ \ \ \};}
+\DoxyCodeLine{00598\ \ \ \ \ }
+\DoxyCodeLine{00603\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a004e8efe0afd8f7e688d7cd6c488b9e2}{SetViewFrustumFrontPlaneMode}}(\mbox{\hyperlink{class_fbx_camera_ab7b9d3e546552049a79261a444f9b44a}{EFrontBackPlaneDisplayMode}}\ pMode);}
+\DoxyCodeLine{00604\ }
+\DoxyCodeLine{00608\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ab7b9d3e546552049a79261a444f9b44a}{EFrontBackPlaneDisplayMode}}\ \mbox{\hyperlink{class_fbx_camera_a83d93dc9f981ac175f8dfecfa0cf15eb}{GetViewFrustumFrontPlaneMode}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00609\ }
+\DoxyCodeLine{00614\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_ab7a31318dfa38c8dc9baec9dd04b4dab}{SetViewFrustumBackPlaneMode}}(\mbox{\hyperlink{class_fbx_camera_ab7b9d3e546552049a79261a444f9b44a}{EFrontBackPlaneDisplayMode}}\ pMode);}
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00619\ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ab7b9d3e546552049a79261a444f9b44a}{EFrontBackPlaneDisplayMode}}\ \mbox{\hyperlink{class_fbx_camera_a8ff114b2298675c573b31428ede34871}{GetViewFrustumBackPlaneMode}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00620\ \ \ \ \ }
+\DoxyCodeLine{00622\ }
+\DoxyCodeLine{00629\ }
+\DoxyCodeLine{00633\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a1d7051d940ae08dd4ef8e8283dee3e9a}{SetViewCameraInterest}}(\textcolor{keywordtype}{bool}\ pEnable);}
+\DoxyCodeLine{00634\ }
+\DoxyCodeLine{00638\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_camera_a37fccd3efdcbde412e147c42bd08af0a}{GetViewCameraInterest}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00639\ }
+\DoxyCodeLine{00643\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a1e12b34c16548903eef5e2863127510f}{SetViewNearFarPlanes}}(\textcolor{keywordtype}{bool}\ pEnable);}
+\DoxyCodeLine{00644\ }
+\DoxyCodeLine{00648\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_camera_a17d96c024f27e60b04ce3748383db422}{GetViewNearFarPlanes}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00649\ }
+\DoxyCodeLine{00652\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_aa9fb36da95d392ac56ff2d8b44171210}{ESafeAreaStyle}}}
+\DoxyCodeLine{00653\ \ \ \ \ \{}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aa9fb36da95d392ac56ff2d8b44171210a6dd0a7f20c45e47d90d1dce69b1ef373}{eSafeAreaRound}},\ \ \ }
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aa9fb36da95d392ac56ff2d8b44171210ae2e0036884ecd1c9547689829431794b}{eSafeAreaSquare}}\ \ }
+\DoxyCodeLine{00656\ \ \ \ \ \};}
+\DoxyCodeLine{00657\ }
+\DoxyCodeLine{00659\ }
+\DoxyCodeLine{00666\ }
+\DoxyCodeLine{00669\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_ad95b8b85dc3f8ab08c8553a089555e1d}{ERenderOptionsUsageTime}}}
+\DoxyCodeLine{00670\ \ \ \ \ \{}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ad95b8b85dc3f8ab08c8553a089555e1da0f386531c8e1ed0a92a12b809d5fa49c}{eInteractive}},\ \ \ }
+\DoxyCodeLine{00672\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ad95b8b85dc3f8ab08c8553a089555e1da86f4d6a5683101f25ba5efe735cb74c5}{eOnDemand}}\ \ \ \ \ \ }
+\DoxyCodeLine{00673\ \ \ \ \ \};}
+\DoxyCodeLine{00674\ }
+\DoxyCodeLine{00677\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_a44949ea304940f214a2f23a66dcbf45f}{EAntialiasingMethod}}}
+\DoxyCodeLine{00678\ \ \ \ \ \{}
+\DoxyCodeLine{00679\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a44949ea304940f214a2f23a66dcbf45fad16b0e5227e11d234101b7dc1737f793}{eAAOversampling}},\ }
+\DoxyCodeLine{00680\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a44949ea304940f214a2f23a66dcbf45fabc2e17294edd422f93f5732d8786ff43}{eAAHardware}}\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00681\ \ \ \ \ \};}
+\DoxyCodeLine{00682\ }
+\DoxyCodeLine{00685\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_aed549486ed0985230efca6fae0d731ae}{ESamplingType}}}
+\DoxyCodeLine{00686\ \ \ \ \ \{}
+\DoxyCodeLine{00687\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aed549486ed0985230efca6fae0d731aea95d0fb02408eda0ecf4d8da0725134a8}{eSamplingUniform}},\ \ \ }
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aed549486ed0985230efca6fae0d731aea799fd52a0de2b544194395fa6b8f198a}{eSamplingStochastic}}\ \ }
+\DoxyCodeLine{00692\ \ \ \ \ \};}
+\DoxyCodeLine{00693\ }
+\DoxyCodeLine{00697\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_camera_a1b50e7b2953019a40328599679071ad4}{EFocusDistanceSource}}}
+\DoxyCodeLine{00698\ \ \ \ \ \{}
+\DoxyCodeLine{00699\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a1b50e7b2953019a40328599679071ad4a2063934bfeffc9520cda2fc76c07aac1}{eFocusSrcCameraInterest}},\ }
+\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a1b50e7b2953019a40328599679071ad4a81da6b77be08c0270652f6a23db4d77b}{eFocusSpecificDistance}}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00702\ \ \ \ \ \};}
+\DoxyCodeLine{00703\ }
+\DoxyCodeLine{00705\ }
+\DoxyCodeLine{00707\ }
+\DoxyCodeLine{00708\ }
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \mbox{\hyperlink{class_fbx_camera_ae52c55ed3e2bc5ba64d37e103155dcad}{EvaluatePosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_ZERO)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00712\ }
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \mbox{\hyperlink{class_fbx_camera_ab165ef1a4608be94263afed2d2a61d77}{EvaluateLookAtPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_ZERO)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00717\ }
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \mbox{\hyperlink{class_fbx_camera_a8ef4db785dca64209e09450a13dfe368}{EvaluateUpDirection}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pCameraPosition,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pLookAtPosition,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_ZERO)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00724\ }
+\DoxyCodeLine{00730\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\ \mbox{\hyperlink{class_fbx_camera_a1d591f5fa59e93139cc1901b3ab92d21}{ComputeProjectionMatrix}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pWidth,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pHeight,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ pVerticalFOV\ =\ \textcolor{keyword}{true})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00731\ }
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_camera_a19568019c2c2be2188688ad1c059a9b7}{IsBoundingBoxInView}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ pWorldToScreen,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ pWorldToCamera,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ pPoints[8])\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00739\ }
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_camera_a95d54985eb3b83e3a578723a7493fb6c}{IsPointInView}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ pWorldToScreen,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\&\ pWorldToCamera,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pPoint)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00747\ }
+\DoxyCodeLine{00753\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_matrix}{FbxMatrix}}\ \mbox{\hyperlink{class_fbx_camera_a7ca9c615202fdb7224bfbe7be39ee5da}{ComputeWorldToScreen}}(\textcolor{keywordtype}{int}\ pPixelWidth,\ \textcolor{keywordtype}{int}\ pPixelHeight,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_a_matrix}{FbxAMatrix}}\&\ pWorldToCamera)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00754\ }
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ \mbox{\hyperlink{class_fbx_camera_aad32eaba1bbe6dd078cb1a6c7ee6aa45}{ComputeScreenToWorld}}(\textcolor{keywordtype}{float}\ pX,\ \textcolor{keywordtype}{float}\ pY,\ \textcolor{keywordtype}{float}\ pWidth,\ \textcolor{keywordtype}{float}\ pHeight,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime=FBXSDK\_TIME\_INFINITE)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00764\ }
+\DoxyCodeLine{00766\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00767\ \ \ \ \ \textcolor{comment}{//\ Properties}}
+\DoxyCodeLine{00768\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00770\ }
+\DoxyCodeLine{00771\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00772\ \ \ \ \ \textcolor{comment}{//\ Geometrical}}
+\DoxyCodeLine{00773\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00774\ }
+\DoxyCodeLine{00782\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble3>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_afa38d19a4ebd6fac7ea040750fd1dae9}{Position}};}
+\DoxyCodeLine{00783\ }
+\DoxyCodeLine{00791\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble3>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ad2e9b17c1be832d71d4fc0eecc93732a}{UpVector}};}
+\DoxyCodeLine{00792\ }
+\DoxyCodeLine{00804\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble3>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a686036fc4f1794fe7f3b74f978e8d174}{InterestPosition}};}
+\DoxyCodeLine{00805\ }
+\DoxyCodeLine{00813\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ab59a181ec24cb954e0899273caea96dc}{Roll}};}
+\DoxyCodeLine{00814\ }
+\DoxyCodeLine{00824\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_af1e8cb54a4d9a16471c6fd56d30cd128}{OpticalCenterX}};}
+\DoxyCodeLine{00825\ }
+\DoxyCodeLine{00835\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a8154f4f4e907c094df2decb36e179d85}{OpticalCenterY}};}
+\DoxyCodeLine{00836\ }
+\DoxyCodeLine{00844\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble3>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_af50cc9dbfa39096cc1b9535e1b47d1d6}{BackgroundColor}};}
+\DoxyCodeLine{00845\ }
+\DoxyCodeLine{00855\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a927ab13d2fa91468ecb5373fdffd725a}{TurnTable}};}
+\DoxyCodeLine{00856\ }
+\DoxyCodeLine{00865\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a935e9b57e229b7474770b0a0611a1b60}{DisplayTurnTableIcon}};}
+\DoxyCodeLine{00866\ }
+\DoxyCodeLine{00867\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00868\ \ \ \ \ \textcolor{comment}{//\ Motion\ Blur}}
+\DoxyCodeLine{00869\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00870\ }
+\DoxyCodeLine{00879\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a73d5041546de951978b9065f7b0789a4}{UseMotionBlur}};}
+\DoxyCodeLine{00880\ }
+\DoxyCodeLine{00889\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a99d0cb2281144454e44128d66be54b26}{UseRealTimeMotionBlur}};}
+\DoxyCodeLine{00890\ }
+\DoxyCodeLine{00898\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aef324a28772e42e910b983642b635769}{MotionBlurIntensity}};}
+\DoxyCodeLine{00899\ }
+\DoxyCodeLine{00900\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00901\ \ \ \ \ \textcolor{comment}{//\ Optical}}
+\DoxyCodeLine{00902\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00903\ }
+\DoxyCodeLine{00912\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EAspectRatioMode>}}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ad140535acab4a663a6f4cb51ef603e7a}{AspectRatioMode}};}
+\DoxyCodeLine{00913\ }
+\DoxyCodeLine{00921\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ada3746eb834815c224eb5fc223fa35ac}{AspectWidth}};}
+\DoxyCodeLine{00922\ }
+\DoxyCodeLine{00930\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aabeade4a36213c65d7a4f45aeceebff6}{AspectHeight}};}
+\DoxyCodeLine{00931\ }
+\DoxyCodeLine{00940\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a3fbab252bb6925578cc965f0383592b8}{PixelAspectRatio}};}
+\DoxyCodeLine{00941\ }
+\DoxyCodeLine{00949\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EApertureMode>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_afa8019b2027da3798e13bb1126c5941d}{ApertureMode}};}
+\DoxyCodeLine{00950\ }
+\DoxyCodeLine{00960\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EGateFit>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a72892e0ca040266ffc5ede12235db68a}{GateFit}};}
+\DoxyCodeLine{00961\ }
+\DoxyCodeLine{00973\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_acec3ce4b786d019a16a2de9f23ff42d8}{FieldOfView}};}
+\DoxyCodeLine{00974\ }
+\DoxyCodeLine{00986\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a2e0c65d8225c5f73c6cf9a927a0523fb}{FieldOfViewX}};}
+\DoxyCodeLine{00987\ }
+\DoxyCodeLine{00999\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a924b7ae9b8256f04bd36d726f0131c98}{FieldOfViewY}};}
+\DoxyCodeLine{01000\ }
+\DoxyCodeLine{01008\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_afee5193f8423491a47a059d93cee61c3}{FocalLength}};}
+\DoxyCodeLine{01009\ }
+\DoxyCodeLine{01020\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EFormat>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aa597919c9a693becd2647b969604e401}{CameraFormat}};}
+\DoxyCodeLine{01021\ }
+\DoxyCodeLine{01022\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01023\ \ \ \ \ \textcolor{comment}{//\ Frame}}
+\DoxyCodeLine{01024\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01025\ }
+\DoxyCodeLine{01032\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a891e6eb1c91dd3a47dc05547149825e3}{UseFrameColor}};}
+\DoxyCodeLine{01033\ }
+\DoxyCodeLine{01041\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble3>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ae032c4d73824601774f06ce4375943cd}{FrameColor}};}
+\DoxyCodeLine{01042\ }
+\DoxyCodeLine{01043\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01044\ \ \ \ \ \textcolor{comment}{//\ On\ Screen\ Display}}
+\DoxyCodeLine{01045\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01046\ }
+\DoxyCodeLine{01054\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a2cc4a7d5d9972b289c6d1a175e2adf1d}{ShowName}};}
+\DoxyCodeLine{01055\ }
+\DoxyCodeLine{01063\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a15b36db580c994a2676fd18d41923953}{ShowInfoOnMoving}};}
+\DoxyCodeLine{01064\ }
+\DoxyCodeLine{01072\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac44b2aec0ace4b978979e5bd3f9cd384}{ShowGrid}};}
+\DoxyCodeLine{01073\ }
+\DoxyCodeLine{01081\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a76d80815967bce91e0fded44a6fbe74c}{ShowOpticalCenter}};}
+\DoxyCodeLine{01082\ }
+\DoxyCodeLine{01093\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a7f2e404049521f2b8ed8793bb231d9a0}{ShowAzimut}};}
+\DoxyCodeLine{01094\ }
+\DoxyCodeLine{01102\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a26906a88450a20a23eef13ecec0a4871}{ShowTimeCode}};}
+\DoxyCodeLine{01103\ }
+\DoxyCodeLine{01111\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ad2c18755bf884d3ce15566dc90cc3d97}{ShowAudio}};}
+\DoxyCodeLine{01112\ }
+\DoxyCodeLine{01120\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble3>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a39719d29cec7526134a1856a8c8e1995}{AudioColor}};}
+\DoxyCodeLine{01121\ }
+\DoxyCodeLine{01122\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01123\ \ \ \ \ \textcolor{comment}{//\ Clipping\ Planes}}
+\DoxyCodeLine{01124\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01125\ }
+\DoxyCodeLine{01134\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_adbca6c29099ceac39fb350201fb3163d}{NearPlane}};}
+\DoxyCodeLine{01135\ }
+\DoxyCodeLine{01144\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a72de3e07e3d77face8a1412599facf73}{FarPlane}};}
+\DoxyCodeLine{01145\ }
+\DoxyCodeLine{01154\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a416ffa14cbcdc07b2559bbbed7371d75}{AutoComputeClipPlanes}};}
+\DoxyCodeLine{01155\ }
+\DoxyCodeLine{01156\ }
+\DoxyCodeLine{01157\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01158\ \ \ \ \ \textcolor{comment}{//\ Camera\ Film\ Setting}}
+\DoxyCodeLine{01159\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01160\ }
+\DoxyCodeLine{01170\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a54f69a2e295c3c69df559f9b64699be5}{FilmWidth}};}
+\DoxyCodeLine{01171\ }
+\DoxyCodeLine{01181\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ae8e2abec912de996c4eaaff987a3bd17}{FilmHeight}};}
+\DoxyCodeLine{01182\ }
+\DoxyCodeLine{01191\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aeefc9d0c4a6c9c3e17dc265cf2621a47}{FilmAspectRatio}};}
+\DoxyCodeLine{01192\ }
+\DoxyCodeLine{01202\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a21d8a100a10638aafdbf69304c651c48}{FilmSqueezeRatio}};}
+\DoxyCodeLine{01203\ }
+\DoxyCodeLine{01212\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EApertureFormat>}}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a49ebaef59ee49281225e2d0652894a4f}{FilmFormat}};}
+\DoxyCodeLine{01213\ }
+\DoxyCodeLine{01222\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aa0a5e1ab510d4b87db69e8ed6febacc3}{FilmOffsetX}};}
+\DoxyCodeLine{01223\ }
+\DoxyCodeLine{01233\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a244464e212906b44d5f827a8cdba0444}{FilmOffsetY}};}
+\DoxyCodeLine{01234\ }
+\DoxyCodeLine{01244\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ace6cbe41faef53ac2dc02dec31d395a4}{PreScale}};}
+\DoxyCodeLine{01245\ }
+\DoxyCodeLine{01251\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_af0c221000e5299efd1e91408bb4d96b6}{FilmTranslateX}};}
+\DoxyCodeLine{01252\ }
+\DoxyCodeLine{01260\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ab2fed4f94b108161a382cb53ecc9bc14}{FilmTranslateY}};}
+\DoxyCodeLine{01261\ }
+\DoxyCodeLine{01270\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_af8db195197a3f0a6729533842e00fd18}{FilmRollPivotX}};}
+\DoxyCodeLine{01271\ }
+\DoxyCodeLine{01280\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ab3034aa3a13b537c6542d8b45aa77eae}{FilmRollPivotY}};}
+\DoxyCodeLine{01281\ }
+\DoxyCodeLine{01292\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a80affb53985e548f42136ccd3b9d7a2e}{FilmRollValue}};}
+\DoxyCodeLine{01293\ }
+\DoxyCodeLine{01303\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EFilmRollOrder>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac7583ff2d3c73fa3e4f514ba29504be5}{FilmRollOrder}}\ ;}
+\DoxyCodeLine{01304\ }
+\DoxyCodeLine{01305\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01306\ \ \ \ \ \textcolor{comment}{//\ Camera\ View\ Widget\ Option}}
+\DoxyCodeLine{01307\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01308\ }
+\DoxyCodeLine{01317\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a9c44e5ed7154bb5b69664bbe4e7a7f51}{ViewCameraToLookAt}};}
+\DoxyCodeLine{01318\ }
+\DoxyCodeLine{01326\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aaf010c106bab5fca32acadc0b97d8437}{ViewFrustumNearFarPlane}};}
+\DoxyCodeLine{01327\ }
+\DoxyCodeLine{01335\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EFrontBackPlaneDisplayMode>}}\ \ \ \ \mbox{\hyperlink{class_fbx_camera_aee58e80280621397eccfaf92ac30e914}{ViewFrustumBackPlaneMode}};}
+\DoxyCodeLine{01336\ }
+\DoxyCodeLine{01344\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ad54b41219ffef6383e75197300210f75}{BackPlaneDistance}};}
+\DoxyCodeLine{01345\ }
+\DoxyCodeLine{01353\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EFrontBackPlaneDistanceMode>}}\ \ \mbox{\hyperlink{class_fbx_camera_ae12c26a9d3be06c3e118cef04f596224}{BackPlaneDistanceMode}};}
+\DoxyCodeLine{01354\ }
+\DoxyCodeLine{01362\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EFrontBackPlaneDisplayMode>}}\ \ \ \ \mbox{\hyperlink{class_fbx_camera_a7d91e0645351854d02925da94d4cb924}{ViewFrustumFrontPlaneMode}};}
+\DoxyCodeLine{01363\ }
+\DoxyCodeLine{01371\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ab04e1fdc21ced2af3a372cb3c3c45295}{FrontPlaneDistance}};}
+\DoxyCodeLine{01372\ }
+\DoxyCodeLine{01380\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EFrontBackPlaneDistanceMode>}}\ \ \mbox{\hyperlink{class_fbx_camera_ac8275a3d73371ebdd381bec957820b14}{FrontPlaneDistanceMode}};}
+\DoxyCodeLine{01381\ }
+\DoxyCodeLine{01382\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01383\ \ \ \ \ \textcolor{comment}{//\ Camera\ Lock\ Mode}}
+\DoxyCodeLine{01384\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01385\ }
+\DoxyCodeLine{01393\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aba8fcdabc543461794dcfbd683af1e76}{LockMode}};}
+\DoxyCodeLine{01394\ }
+\DoxyCodeLine{01402\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a3060679e7b5d5c6ba05fd78f5bfee955}{LockInterestNavigation}};}
+\DoxyCodeLine{01403\ }
+\DoxyCodeLine{01404\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01405\ \ \ \ \ \textcolor{comment}{//\ Background\ Image\ Display\ Options}}
+\DoxyCodeLine{01406\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01407\ }
+\DoxyCodeLine{01416\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a60226ecc8df67faa201c77434eccd486}{BackPlateFitImage}};}
+\DoxyCodeLine{01417\ }
+\DoxyCodeLine{01426\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a3ec93b32631cf0b3bd2f41878c47a348}{BackPlateCrop}};}
+\DoxyCodeLine{01427\ }
+\DoxyCodeLine{01436\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_afc328eb5b70302973c991310d7ff9be3}{BackPlateCenter}};}
+\DoxyCodeLine{01437\ }
+\DoxyCodeLine{01446\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a4ee8a7a4e0c74fe8b76e83ee572a9b7c}{BackPlateKeepRatio}};}
+\DoxyCodeLine{01447\ }
+\DoxyCodeLine{01455\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_adee33826ef47ba5fc4719c78b6e5d582}{BackgroundAlphaTreshold}};}
+\DoxyCodeLine{01456\ }
+\DoxyCodeLine{01464\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a2a71f39683269b49b67e007c7d19d67b}{BackPlaneOffsetX}};}
+\DoxyCodeLine{01465\ }
+\DoxyCodeLine{01473\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_abfbc1d3377ed9721492971011fd8f5ed}{BackPlaneOffsetY}};}
+\DoxyCodeLine{01474\ }
+\DoxyCodeLine{01482\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a25d0defefe7a7c69ee9fddfc8ea51036}{BackPlaneRotation}};}
+\DoxyCodeLine{01483\ }
+\DoxyCodeLine{01493\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a34ab778778521406789a1798451791db}{BackPlaneScaleX}};}
+\DoxyCodeLine{01494\ }
+\DoxyCodeLine{01504\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a24d51fab8fc1c619d813375b2aa88cfe}{BackPlaneScaleY}};}
+\DoxyCodeLine{01505\ }
+\DoxyCodeLine{01514\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a3e824d5e68ecd7ff571c3d783b3a82b3}{ShowBackplate}};}
+\DoxyCodeLine{01515\ }
+\DoxyCodeLine{01523\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxReference>}}\ \mbox{\hyperlink{class_fbx_camera_a23d1fddeed7661a66461fbe0f27cedde}{BackgroundTexture}};}
+\DoxyCodeLine{01524\ }
+\DoxyCodeLine{01525\ }
+\DoxyCodeLine{01526\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01527\ \ \ \ \ \textcolor{comment}{//\ Foreground\ Image\ Display\ Options}}
+\DoxyCodeLine{01528\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01529\ }
+\DoxyCodeLine{01537\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_camera_a98c919c1ec1398479c859357d3f454d7}{FrontPlateFitImage}};}
+\DoxyCodeLine{01538\ }
+\DoxyCodeLine{01546\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_camera_af409f4d6dd0b68de9a3e0c2f17644362}{FrontPlateCrop}};}
+\DoxyCodeLine{01547\ }
+\DoxyCodeLine{01555\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_camera_ae7a43caba31795438a1ca41926a8e31c}{FrontPlateCenter}};}
+\DoxyCodeLine{01556\ }
+\DoxyCodeLine{01564\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_camera_aa4066eaf0f9d506db8b83353db3e4ef7}{FrontPlateKeepRatio}};}
+\DoxyCodeLine{01565\ }
+\DoxyCodeLine{01566\ }
+\DoxyCodeLine{01575\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \mbox{\hyperlink{class_fbx_camera_adcb25c847c2d7d471c836722ce1289ff}{ShowFrontplate}};}
+\DoxyCodeLine{01576\ }
+\DoxyCodeLine{01584\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ad15249c2dceb1d0cc2b5913c0efd9b18}{FrontPlaneOffsetX}};}
+\DoxyCodeLine{01585\ }
+\DoxyCodeLine{01593\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_acf005c234e34ef2b44fadf4db42be655}{FrontPlaneOffsetY}};}
+\DoxyCodeLine{01594\ }
+\DoxyCodeLine{01602\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ac50922c82f1509c5f4f9e5c328ede671}{FrontPlaneRotation}};}
+\DoxyCodeLine{01603\ }
+\DoxyCodeLine{01611\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a13396eaf60196ca60b78e3c05ee74021}{FrontPlaneScaleX}};}
+\DoxyCodeLine{01612\ }
+\DoxyCodeLine{01620\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a48072957694967921a9b9eccfadc6dce}{FrontPlaneScaleY}};}
+\DoxyCodeLine{01621\ \ \ \ \ }
+\DoxyCodeLine{01629\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxReference>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aeb121a9199a538fa7825bc26d326b7f9}{ForegroundTexture}};}
+\DoxyCodeLine{01630\ }
+\DoxyCodeLine{01638\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a95fe1a3dbd71e2503e7f4de5f14ea171}{ForegroundOpacity}};}
+\DoxyCodeLine{01639\ }
+\DoxyCodeLine{01640\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01641\ \ \ \ \ \textcolor{comment}{//\ Safe\ Area}}
+\DoxyCodeLine{01642\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01643\ }
+\DoxyCodeLine{01651\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a61d982bee729eae989b1c4f49e53ef59}{DisplaySafeArea}};}
+\DoxyCodeLine{01652\ }
+\DoxyCodeLine{01660\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a6fba1dac4e237b8fb5423c6e8fdb7586}{DisplaySafeAreaOnRender}};}
+\DoxyCodeLine{01661\ }
+\DoxyCodeLine{01669\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<ESafeAreaStyle>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a48f27fb4b475f1ee7d2ace77cc860ad3}{SafeAreaDisplayStyle}};}
+\DoxyCodeLine{01670\ }
+\DoxyCodeLine{01678\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_aeb22ecb7b5a1551e735e9cf222d79b6d}{SafeAreaAspectRatio}};}
+\DoxyCodeLine{01679\ }
+\DoxyCodeLine{01680\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01681\ \ \ \ \ \textcolor{comment}{//\ 2D\ Magnifier}}
+\DoxyCodeLine{01682\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01683\ }
+\DoxyCodeLine{01693\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ad1e40e5371ba4003e8b21cfe0b8b42c7}{Use2DMagnifierZoom}};}
+\DoxyCodeLine{01694\ }
+\DoxyCodeLine{01702\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ab60ab197ebbbf565d18dc7f7b2113f59}{\_2DMagnifierZoom}};}
+\DoxyCodeLine{01703\ }
+\DoxyCodeLine{01711\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a0f5b732aa294c182fe6ac07ae70024fc}{\_2DMagnifierX}};}
+\DoxyCodeLine{01712\ }
+\DoxyCodeLine{01720\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a162fa10866f3c4cf3c5a87ed64aef21e}{\_2DMagnifierY}};}
+\DoxyCodeLine{01721\ }
+\DoxyCodeLine{01722\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01723\ \ \ \ \ \textcolor{comment}{//\ Projection\ Type:\ Ortho,\ Perspective}}
+\DoxyCodeLine{01724\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01725\ }
+\DoxyCodeLine{01733\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EProjectionType>}}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a36af73c36f749f694ccc9eefbe88087b}{ProjectionType}};}
+\DoxyCodeLine{01734\ }
+\DoxyCodeLine{01742\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a038fab99051fa0171f60f40469eff7cc}{OrthoZoom}};}
+\DoxyCodeLine{01743\ }
+\DoxyCodeLine{01744\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01745\ \ \ \ \ \textcolor{comment}{//\ Depth\ Of\ Field\ \&\ Anti\ Aliasing}}
+\DoxyCodeLine{01746\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01747\ }
+\DoxyCodeLine{01755\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a57b4706a5d4d2678c5e31430b9a4ba61}{UseRealTimeDOFAndAA}};}
+\DoxyCodeLine{01756\ }
+\DoxyCodeLine{01764\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a5b101aeb02696ef3e140505f01e6f797}{UseDepthOfField}};}
+\DoxyCodeLine{01765\ }
+\DoxyCodeLine{01774\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EFocusDistanceSource>}}\ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a17f0c0c82ed8df4540d918567edcbd4a}{FocusSource}};}
+\DoxyCodeLine{01775\ }
+\DoxyCodeLine{01783\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_af6d282d878bc8ad143c8095e29a4e94a}{FocusAngle}};}
+\DoxyCodeLine{01784\ }
+\DoxyCodeLine{01795\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_af6165df26c7d25156163a3ed2a2f99c2}{FocusDistance}};}
+\DoxyCodeLine{01796\ }
+\DoxyCodeLine{01804\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a2d23acad0d49eadb63be01b826404d34}{UseAntialiasing}};}
+\DoxyCodeLine{01805\ }
+\DoxyCodeLine{01813\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a3e7ddc27aff98a3850f58d8b800b6613}{AntialiasingIntensity}};}
+\DoxyCodeLine{01814\ }
+\DoxyCodeLine{01822\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<EAntialiasingMethod>}}\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a1ad348a909fc9cd51173f5a424660ac1}{AntialiasingMethod}};}
+\DoxyCodeLine{01823\ }
+\DoxyCodeLine{01824\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01825\ \ \ \ \ \textcolor{comment}{//\ Accumulation\ Buffer}}
+\DoxyCodeLine{01826\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01827\ }
+\DoxyCodeLine{01835\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxBool>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ae858c35fdbb3ec3bb853bfa739dd2fad}{UseAccumulationBuffer}};}
+\DoxyCodeLine{01836\ }
+\DoxyCodeLine{01844\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxInt>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_a71ee6802b2a63149cfa33f11548893ea}{FrameSamplingCount}};}
+\DoxyCodeLine{01845\ }
+\DoxyCodeLine{01853\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<ESamplingType>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_camera_ab2048abc7b353f908a7c3caba7d0acf2}{FrameSamplingType}};}
+\DoxyCodeLine{01854\ }
+\DoxyCodeLine{01855\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{01856\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{01857\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{01858\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{01859\ \ \ \ \ FbxObject\&\ \mbox{\hyperlink{class_fbx_camera_ab5273ff0b4404056bf216f14a05da087}{Copy}}(\textcolor{keyword}{const}\ FbxObject\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{01860\ }
+\DoxyCodeLine{01861\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{01862\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_camera_a21bcc6b7e18190d2440d5ab3fcd07da3}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{01863\ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list}{FbxStringList}}\ GetTypeFlags()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{01864\ }
+\DoxyCodeLine{01865\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01866\ \ \ \ \ \textcolor{keywordtype}{double}\ ComputePixelRatio(FbxUInt\ pWidth,\ FbxUInt\ pHeight,\ \textcolor{keywordtype}{double}\ pScreenRatio\ =\ 1.3333333333);}
+\DoxyCodeLine{01867\ }
+\DoxyCodeLine{01868\ \ \ \ \ \textcolor{comment}{//\ Background\ Properties}}
+\DoxyCodeLine{01869\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ mBackgroundMediaName;}
+\DoxyCodeLine{01870\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ mBackgroundFileName;}
+\DoxyCodeLine{01871\ }
+\DoxyCodeLine{01872\ \ \ \ \ \textcolor{comment}{//\ Foreground\ Properties}}
+\DoxyCodeLine{01873\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ mForegroundMediaName;}
+\DoxyCodeLine{01874\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ mForegroundFileName;}
+\DoxyCodeLine{01875\ }
+\DoxyCodeLine{01876\ \ \ \ \ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\ mLastUp;}
+\DoxyCodeLine{01877\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01878\ \};}
+\DoxyCodeLine{01879\ }
+\DoxyCodeLine{01880\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera_a44949ea304940f214a2f23a66dcbf45f}{FbxCamera::EAntialiasingMethod}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{01881\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera_ac26ac89602453c5917882c69d4863d13}{FbxCamera::EApertureFormat}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{01882\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera_addeea6fc943ce5f087dbc54c142f890e}{FbxCamera::EApertureMode}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{01883\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera_a2135478bb5fd6985835c14b11e1fccda}{FbxCamera::EAspectRatioMode}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{01884\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera_ab7b9d3e546552049a79261a444f9b44a}{FbxCamera::EFrontBackPlaneDisplayMode}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{01885\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera_a79e74898d117e741c3fbd10b1ef21c79}{FbxCamera::EFrontBackPlaneDistanceMode}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{01886\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera_aa4e853313a58a9cd5a88c6a35b3c46a2}{FbxCamera::EPlateDrawingMode}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{01887\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera_a1b50e7b2953019a40328599679071ad4}{FbxCamera::EFocusDistanceSource}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{01888\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera_a88d68c983d21e4d6c0f281a8a30f0a06}{FbxCamera::EFormat}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{01889\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera_aeef0bf29c16fe5f08815fb33402330dd}{FbxCamera::EGateFit}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{01890\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera_a717b9b0d28c8b20c115edf8c80016fb1}{FbxCamera::EProjectionType}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{01891\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera_ad95b8b85dc3f8ab08c8553a089555e1d}{FbxCamera::ERenderOptionsUsageTime}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{01892\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera_aa9fb36da95d392ac56ff2d8b44171210}{FbxCamera::ESafeAreaStyle}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{01893\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera_aed549486ed0985230efca6fae0d731ae}{FbxCamera::ESamplingType}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{01894\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_camera_a831d9b7ffcbf3611715eb2ad9108870b}{FbxCamera::EFilmRollOrder}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{01895\ }
+\DoxyCodeLine{01896\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{01897\ }
+\DoxyCodeLine{01898\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_GEOMETRY\_CAMERA\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,397 @@
+\doxysection{include/fbx/fbxsdk/core/math/fbxmath.h File Reference}
+\hypertarget{fbxmath_8h}{}\label{fbxmath_8h}\index{include/fbx/fbxsdk/core/math/fbxmath.h@{include/fbx/fbxsdk/core/math/fbxmath.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/math/fbxvector2.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/math/fbxvector4.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/math/fbxmatrix.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/math/fbxaffinematrix.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_fbx_euler}{Fbx\+Euler}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxmath_8h_a54830188fe7dc4b3c9985d3d1cb6e934}\label{fbxmath_8h_a54830188fe7dc4b3c9985d3d1cb6e934} 
+\#define {\bfseries FBXSDK\+\_\+\+PI}~3.\+1415926535897932384626433832795028841971693993751
+\begin{DoxyCompactList}\small\item\em PI mathematic constant. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_ac5eab863e9e5252ad8427eb5e7df0a81}\label{fbxmath_8h_ac5eab863e9e5252ad8427eb5e7df0a81} 
+\#define {\bfseries FBXSDK\+\_\+\+PI\+\_\+\+DIV\+\_\+2}~1.\+5707963267948966192313216916397514420985846996875
+\begin{DoxyCompactList}\small\item\em PI divided by 2. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_adce4c270d8f28a023ed1778b83c385e9}\label{fbxmath_8h_adce4c270d8f28a023ed1778b83c385e9} 
+\#define {\bfseries FBXSDK\+\_\+\+PI\+\_\+\+DIV\+\_\+180}~0.\+017453292519943295769236907684886127134428718885417
+\begin{DoxyCompactList}\small\item\em PI divived by 180. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_acc8670337937abf164e3e650b573f615}\label{fbxmath_8h_acc8670337937abf164e3e650b573f615} 
+\#define {\bfseries FBXSDK\+\_\+180\+\_\+\+DIV\+\_\+\+PI}~57.\+295779513082320876798154814105170332405472466565
+\begin{DoxyCompactList}\small\item\em 180 divided by PI \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_a503ca7ffa2847804e740cd014d189ed6}\label{fbxmath_8h_a503ca7ffa2847804e740cd014d189ed6} 
+\#define {\bfseries FBXSDK\+\_\+1\+\_\+\+DIV\+\_\+\+LN2}~1.\+4426950408889634073599246810018921374266459541530
+\begin{DoxyCompactList}\small\item\em 1 divided by Log\+N2 \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_aabb36cb0cfdf8ab5c975fe1d5100799a}\label{fbxmath_8h_aabb36cb0cfdf8ab5c975fe1d5100799a} 
+\#define {\bfseries FBXSDK\+\_\+\+DEG\+\_\+\+TO\+\_\+\+RAD}~\mbox{\hyperlink{fbxmath_8h_adce4c270d8f28a023ed1778b83c385e9}{FBXSDK\+\_\+\+PI\+\_\+\+DIV\+\_\+180}}
+\begin{DoxyCompactList}\small\item\em Degree to Radian. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_af3e129a644b050e1877353f3ad1d1066}\label{fbxmath_8h_af3e129a644b050e1877353f3ad1d1066} 
+\#define {\bfseries FBXSDK\+\_\+\+RAD\+\_\+\+TO\+\_\+\+DEG}~\mbox{\hyperlink{fbxmath_8h_acc8670337937abf164e3e650b573f615}{FBXSDK\+\_\+180\+\_\+\+DIV\+\_\+\+PI}}
+\begin{DoxyCompactList}\small\item\em Radian to Degree. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_af0b21a56f8ff5a5d40b93002ad53df7d}\label{fbxmath_8h_af0b21a56f8ff5a5d40b93002ad53df7d} 
+\#define {\bfseries FBXSDK\+\_\+\+IN\+\_\+\+TO\+\_\+\+CM}~2.\+54
+\begin{DoxyCompactList}\small\item\em Inch to Centimeter. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_aa4322e2df5f38d1d40da8301fbaac233}\label{fbxmath_8h_aa4322e2df5f38d1d40da8301fbaac233} 
+\#define {\bfseries FBXSDK\+\_\+\+MM\+\_\+\+TO\+\_\+\+CM}~0.\+1
+\begin{DoxyCompactList}\small\item\em Millimeter to Centimeter. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_af120ff531d75c814e3413eea628c4a27}\label{fbxmath_8h_af120ff531d75c814e3413eea628c4a27} 
+\#define {\bfseries FBXSDK\+\_\+\+CM\+\_\+\+TO\+\_\+\+IN}~0.\+393700787
+\begin{DoxyCompactList}\small\item\em Centimeter to Inch. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_a5c9706b85670d0c01c08a5d37539bedf}\label{fbxmath_8h_a5c9706b85670d0c01c08a5d37539bedf} 
+\#define {\bfseries FBXSDK\+\_\+\+IN\+\_\+\+TO\+\_\+\+MM}~25.\+4
+\begin{DoxyCompactList}\small\item\em Inch to Millimeter. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_a508a110ffe848edecc19d3c3caf2819f}\label{fbxmath_8h_a508a110ffe848edecc19d3c3caf2819f} 
+\#define {\bfseries FBXSDK\+\_\+\+MM\+\_\+\+TO\+\_\+\+IN}~0.\+0393700787
+\begin{DoxyCompactList}\small\item\em Millimeter to Inch. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_a1b23538b95f03cd38c0479d9f260466a}\label{fbxmath_8h_a1b23538b95f03cd38c0479d9f260466a} 
+\#define {\bfseries FBXSDK\+\_\+\+FT\+\_\+\+TO\+\_\+M}~0.\+3048
+\begin{DoxyCompactList}\small\item\em Feet to Meter. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_a76f31e97799fa3f77e84aae148525396}\label{fbxmath_8h_a76f31e97799fa3f77e84aae148525396} 
+\#define {\bfseries FBXSDK\+\_\+\+M\+\_\+\+TO\+\_\+\+FT}~3.\+2808399
+\begin{DoxyCompactList}\small\item\em Meter to Feet. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_a40d9dda0866f9424595170beab242332}\label{fbxmath_8h_a40d9dda0866f9424595170beab242332} 
+\#define {\bfseries FBXSDK\+\_\+\+YD\+\_\+\+TO\+\_\+\+FT}~3
+\begin{DoxyCompactList}\small\item\em Yard to Feet. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_a560a2eec3d90845beed403524cce2571}\label{fbxmath_8h_a560a2eec3d90845beed403524cce2571} 
+\#define {\bfseries FBXSDK\+\_\+\+FT\+\_\+\+TO\+\_\+\+YD}~0.\+333333333
+\begin{DoxyCompactList}\small\item\em Feet to Yard. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_a421ec15d30ad0ca7e6fcd20e5368750f}\label{fbxmath_8h_a421ec15d30ad0ca7e6fcd20e5368750f} 
+\#define {\bfseries FBXSDK\+\_\+\+KM\+\_\+\+TO\+\_\+\+MILE}~0.\+621371192
+\begin{DoxyCompactList}\small\item\em Kilometer to Mile. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_a16331612b45b538b745fc14b7ba2c5fb}\label{fbxmath_8h_a16331612b45b538b745fc14b7ba2c5fb} 
+\#define {\bfseries FBXSDK\+\_\+\+MILE\+\_\+\+TO\+\_\+\+KM}~1.\+609344
+\begin{DoxyCompactList}\small\item\em Mile to Kilometer. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_ab5858925a9e34fd6b1adf1dff5f73664}\label{fbxmath_8h_ab5858925a9e34fd6b1adf1dff5f73664} 
+\#define {\bfseries FBXSDK\+\_\+\+YD\+\_\+\+TO\+\_\+M}~0.\+9144
+\begin{DoxyCompactList}\small\item\em Yard to Meter. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_af9d25318003b39938b4aee4fe6bd5fc1}\label{fbxmath_8h_af9d25318003b39938b4aee4fe6bd5fc1} 
+\#define {\bfseries FBXSDK\+\_\+\+M\+\_\+\+TO\+\_\+\+YD}~1.\+0936133
+\begin{DoxyCompactList}\small\item\em Meter to Yard. \end{DoxyCompactList}\item 
+\Hypertarget{fbxmath_8h_ab22a7b58b6887cb5ab7cc425b0e37a2d}\label{fbxmath_8h_ab22a7b58b6887cb5ab7cc425b0e37a2d} 
+\#define {\bfseries FBXSDK\+\_\+\+EULER\+\_\+\+DEGENERATE}~Fbx\+Euler\+::\+Degenerate\+Threshold()
+\begin{DoxyCompactList}\small\item\em Euler degenerate threshold can be changed with a call to Fbx\+Euler\+::\+Set\+Degenerate\+Threshold. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{fbxmath_8h_ae46778666b56bb0abe5992b855fe9332}{EFbx\+Rotation\+Order}}~Fbx\+Euler\+::\+EOrder
+\item 
+\Hypertarget{fbxmath_8h_a96c798f1b49ac2ffacea26f18aabb946}\label{fbxmath_8h_a96c798f1b49ac2ffacea26f18aabb946} 
+\#define {\bfseries e\+Euler\+XYZ}~Fbx\+Euler\+::e\+Order\+XYZ
+\item 
+\Hypertarget{fbxmath_8h_ac0ad31c43ce7b4bbe38e4b230420fa96}\label{fbxmath_8h_ac0ad31c43ce7b4bbe38e4b230420fa96} 
+\#define {\bfseries e\+Euler\+XZY}~Fbx\+Euler\+::e\+Order\+XZY
+\item 
+\Hypertarget{fbxmath_8h_a6b46dc1f58bd9f02fb9a67a7f3df37c2}\label{fbxmath_8h_a6b46dc1f58bd9f02fb9a67a7f3df37c2} 
+\#define {\bfseries e\+Euler\+YZX}~Fbx\+Euler\+::e\+Order\+YZX
+\item 
+\Hypertarget{fbxmath_8h_a1de486a3788dfda803d08fe0d2be08b8}\label{fbxmath_8h_a1de486a3788dfda803d08fe0d2be08b8} 
+\#define {\bfseries e\+Euler\+YXZ}~Fbx\+Euler\+::e\+Order\+YXZ
+\item 
+\Hypertarget{fbxmath_8h_af9336ab324c794475919437f4e9f2e11}\label{fbxmath_8h_af9336ab324c794475919437f4e9f2e11} 
+\#define {\bfseries e\+Euler\+ZXY}~Fbx\+Euler\+::e\+Order\+ZXY
+\item 
+\Hypertarget{fbxmath_8h_af6571160b978489316f607564fbded78}\label{fbxmath_8h_af6571160b978489316f607564fbded78} 
+\#define {\bfseries e\+Euler\+ZYX}~Fbx\+Euler\+::e\+Order\+ZYX
+\item 
+\Hypertarget{fbxmath_8h_a7b580559f8a22442dc34af3dce0587b8}\label{fbxmath_8h_a7b580559f8a22442dc34af3dce0587b8} 
+\#define {\bfseries e\+Spheric\+XYZ}~Fbx\+Euler\+::e\+Order\+Spheric\+XYZ
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72a}{EFbx\+Quat\+Interp\+Mode}} \{ \newline
+\mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa55bbc54e865199dcbc30634ddf6270e8}{e\+Quat\+Interp\+Off}}
+, \mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa90dbbc34a189dc0211be8db52c915823}{e\+Quat\+Interp\+Classic}}
+, \mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa61674fbd8ccf6b4506e574c6dc7f72c5}{e\+Quat\+Interp\+Slerp}}
+, \mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aaea452ac37d0608cbe84dfc65dca78312}{e\+Quat\+Interp\+Cubic}}
+, \newline
+\mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa03bc2b5a4ec3c532740e5d069c7d5f09}{e\+Quat\+Interp\+Tangent\+Dependent}}
+, \mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aad2d5b53287625e236ff9edb45f306994}{e\+Quat\+Interp\+Count}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxmath_8h_a54a44bb35bacdca9ccff79d6eb05d43b}\label{fbxmath_8h_a54a44bb35bacdca9ccff79d6eb05d43b} 
+float {\bfseries Fbx\+Floor} (const float x)
+\item 
+\Hypertarget{fbxmath_8h_af4bb863ba7ce5d74f339870f638fa4dc}\label{fbxmath_8h_af4bb863ba7ce5d74f339870f638fa4dc} 
+double {\bfseries Fbx\+Floor} (const double x)
+\item 
+\Hypertarget{fbxmath_8h_a61e9fce91c28a660871e42f7712a9d14}\label{fbxmath_8h_a61e9fce91c28a660871e42f7712a9d14} 
+float {\bfseries Fbx\+Ceil} (const float x)
+\item 
+\Hypertarget{fbxmath_8h_afd6eeb97357d078380907a8508b938e0}\label{fbxmath_8h_afd6eeb97357d078380907a8508b938e0} 
+double {\bfseries Fbx\+Ceil} (const double x)
+\item 
+\Hypertarget{fbxmath_8h_a649e6c16fdf5b451bfe510f00ff66b9b}\label{fbxmath_8h_a649e6c16fdf5b451bfe510f00ff66b9b} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Sign} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_a92d6c041393718af8bbde6e2c70f0325}\label{fbxmath_8h_a92d6c041393718af8bbde6e2c70f0325} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Round} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_a990ec02eb4c552aff1b51818c438c25f}\label{fbxmath_8h_a990ec02eb4c552aff1b51818c438c25f} 
+Fbx\+UChar {\bfseries Fbx\+Abs} (const Fbx\+UChar x)
+\item 
+\Hypertarget{fbxmath_8h_a8a25f2633217501b589f90b80c7cfe2b}\label{fbxmath_8h_a8a25f2633217501b589f90b80c7cfe2b} 
+Fbx\+UShort {\bfseries Fbx\+Abs} (const Fbx\+UShort x)
+\item 
+\Hypertarget{fbxmath_8h_a181bd2f3a7f004046e78db1bc8e18fee}\label{fbxmath_8h_a181bd2f3a7f004046e78db1bc8e18fee} 
+Fbx\+UInt {\bfseries Fbx\+Abs} (const Fbx\+UInt x)
+\item 
+\Hypertarget{fbxmath_8h_a4d4152e94b027abbcadff5826c294dc5}\label{fbxmath_8h_a4d4152e94b027abbcadff5826c294dc5} 
+Fbx\+ULong {\bfseries Fbx\+Abs} (const Fbx\+ULong x)
+\item 
+\Hypertarget{fbxmath_8h_a211494c14503ee577a6666ed7754e163}\label{fbxmath_8h_a211494c14503ee577a6666ed7754e163} 
+Fbx\+ULong\+Long {\bfseries Fbx\+Abs} (const Fbx\+ULong\+Long x)
+\item 
+\Hypertarget{fbxmath_8h_a3e14e0f7b7afc227af994813b32464ae}\label{fbxmath_8h_a3e14e0f7b7afc227af994813b32464ae} 
+Fbx\+Float {\bfseries Fbx\+Abs} (const Fbx\+Float x)
+\item 
+\Hypertarget{fbxmath_8h_a2d4e3c41ef37432acadd5f3f99770273}\label{fbxmath_8h_a2d4e3c41ef37432acadd5f3f99770273} 
+Fbx\+Double {\bfseries Fbx\+Abs} (const Fbx\+Double x)
+\item 
+\Hypertarget{fbxmath_8h_aa77f86f3f703ffdfea7de670390adc30}\label{fbxmath_8h_aa77f86f3f703ffdfea7de670390adc30} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Abs} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_ac243000dac332fdf653b80f030025379}\label{fbxmath_8h_ac243000dac332fdf653b80f030025379} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Clamp} (const T value, const T min, const T max)
+\item 
+\Hypertarget{fbxmath_8h_adeb2755fcfb691a8477b01bed3015d85}\label{fbxmath_8h_adeb2755fcfb691a8477b01bed3015d85} 
+{\footnotesize template$<$class T$>$ }\\bool {\bfseries Fbx\+Equal} (const T x, const T y, const T e=(T) FBXSDK\+\_\+\+TOLERANCE)
+\item 
+\Hypertarget{fbxmath_8h_a36b9a086e1a2a22e83c2a003e19129a8}\label{fbxmath_8h_a36b9a086e1a2a22e83c2a003e19129a8} 
+bool {\bfseries Fbx\+Equal} (const \mbox{\hyperlink{class_fbx_vector_template2}{Fbx\+Double2}} \&x, const \mbox{\hyperlink{class_fbx_vector_template2}{Fbx\+Double2}} \&y, const double e=FBXSDK\+\_\+\+TOLERANCE)
+\item 
+\Hypertarget{fbxmath_8h_a83dc22b13e42f4c89348560a316ff818}\label{fbxmath_8h_a83dc22b13e42f4c89348560a316ff818} 
+bool {\bfseries Fbx\+Equal} (const \mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}} \&x, const \mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}} \&y, const double e=FBXSDK\+\_\+\+TOLERANCE)
+\item 
+\Hypertarget{fbxmath_8h_a281b66516a2de7b40fe4932c1845362c}\label{fbxmath_8h_a281b66516a2de7b40fe4932c1845362c} 
+bool {\bfseries Fbx\+Equal} (const \mbox{\hyperlink{class_fbx_vector_template4}{Fbx\+Double4}} \&x, const \mbox{\hyperlink{class_fbx_vector_template4}{Fbx\+Double4}} \&y, const double e=FBXSDK\+\_\+\+TOLERANCE)
+\item 
+\Hypertarget{fbxmath_8h_acc245b9f4a1f5676b5d35388cc0e51d8}\label{fbxmath_8h_acc245b9f4a1f5676b5d35388cc0e51d8} 
+bool {\bfseries Fbx\+Equal} (const \mbox{\hyperlink{class_fbx_vector_template4}{Fbx\+Double4x4}} \&x, const \mbox{\hyperlink{class_fbx_vector_template4}{Fbx\+Double4x4}} \&y, const double e=FBXSDK\+\_\+\+TOLERANCE)
+\item 
+\Hypertarget{fbxmath_8h_a5d27103792dad0bb8a417f5b596b74f8}\label{fbxmath_8h_a5d27103792dad0bb8a417f5b596b74f8} 
+bool {\bfseries Fbx\+Equal} (const \mbox{\hyperlink{class_fbx_vector2}{Fbx\+Vector2}} \&x, const \mbox{\hyperlink{class_fbx_vector2}{Fbx\+Vector2}} \&y, const double e=FBXSDK\+\_\+\+TOLERANCE)
+\item 
+\Hypertarget{fbxmath_8h_aa2090d12d99885405486061fcf3411c0}\label{fbxmath_8h_aa2090d12d99885405486061fcf3411c0} 
+bool {\bfseries Fbx\+Equal} (const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&x, const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&y, const double e=FBXSDK\+\_\+\+TOLERANCE)
+\item 
+\Hypertarget{fbxmath_8h_a18fa5909a07fdf148b33faa5531a40c2}\label{fbxmath_8h_a18fa5909a07fdf148b33faa5531a40c2} 
+bool {\bfseries Fbx\+Equal} (const \mbox{\hyperlink{class_fbx_matrix}{Fbx\+Matrix}} \&x, const \mbox{\hyperlink{class_fbx_matrix}{Fbx\+Matrix}} \&y, const double e=FBXSDK\+\_\+\+TOLERANCE)
+\item 
+\Hypertarget{fbxmath_8h_a8d353d7e0df328436910ed3d03084e9d}\label{fbxmath_8h_a8d353d7e0df328436910ed3d03084e9d} 
+bool {\bfseries Fbx\+Equal} (const \mbox{\hyperlink{class_fbx_a_matrix}{Fbx\+AMatrix}} \&x, const \mbox{\hyperlink{class_fbx_a_matrix}{Fbx\+AMatrix}} \&y, const double e=FBXSDK\+\_\+\+TOLERANCE)
+\item 
+\Hypertarget{fbxmath_8h_a87b0cad6577b5b63cb7fe0919c401684}\label{fbxmath_8h_a87b0cad6577b5b63cb7fe0919c401684} 
+Fbx\+Double {\bfseries Fbx\+Mod} (const Fbx\+Float x, Fbx\+Float \&i)
+\item 
+\Hypertarget{fbxmath_8h_a29bab42a3487e6a3a37eda83a83d8e94}\label{fbxmath_8h_a29bab42a3487e6a3a37eda83a83d8e94} 
+Fbx\+Double {\bfseries Fbx\+Mod} (const Fbx\+Double x, Fbx\+Double \&i)
+\item 
+\Hypertarget{fbxmath_8h_aa108c26b3a290ddf4052c896912631f5}\label{fbxmath_8h_aa108c26b3a290ddf4052c896912631f5} 
+Fbx\+Double {\bfseries Fbx\+Mod} (const Fbx\+Float x)
+\item 
+\Hypertarget{fbxmath_8h_a6e987f3f7aeae7fb6af01930ec696836}\label{fbxmath_8h_a6e987f3f7aeae7fb6af01930ec696836} 
+Fbx\+Double {\bfseries Fbx\+Mod} (const Fbx\+Double x)
+\item 
+\Hypertarget{fbxmath_8h_accbe62a03d0065530f9fa3bc8499447a}\label{fbxmath_8h_accbe62a03d0065530f9fa3bc8499447a} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Reciprocal} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_a5deacfc7a4a2a34b42558f937787d132}\label{fbxmath_8h_a5deacfc7a4a2a34b42558f937787d132} 
+double {\bfseries Fbx\+Sqrt} (const double x)
+\item 
+\Hypertarget{fbxmath_8h_af3ed719860d8b601a59c35c071087340}\label{fbxmath_8h_af3ed719860d8b601a59c35c071087340} 
+float {\bfseries Fbx\+Sqrt} (const float x)
+\item 
+\Hypertarget{fbxmath_8h_a0bce6cf185be0be0550376cc03367a65}\label{fbxmath_8h_a0bce6cf185be0be0550376cc03367a65} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Sqrt} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_afd5885ad9c2e18d32142ae1e40f716e9}\label{fbxmath_8h_afd5885ad9c2e18d32142ae1e40f716e9} 
+float {\bfseries Fbx\+Exp} (const float x)
+\item 
+\Hypertarget{fbxmath_8h_ae1679b11891c8f4190d23e95f3cbd85b}\label{fbxmath_8h_ae1679b11891c8f4190d23e95f3cbd85b} 
+double {\bfseries Fbx\+Exp} (const double x)
+\item 
+\Hypertarget{fbxmath_8h_a1b2150ab4ecfafacdde81b80e46c5292}\label{fbxmath_8h_a1b2150ab4ecfafacdde81b80e46c5292} 
+float {\bfseries Fbx\+Log} (const float x)
+\item 
+\Hypertarget{fbxmath_8h_aae764390f3719eaaf18d428a24e4f173}\label{fbxmath_8h_aae764390f3719eaaf18d428a24e4f173} 
+double {\bfseries Fbx\+Log} (const double x)
+\item 
+\Hypertarget{fbxmath_8h_a552cc06a5b27f5e6b6de977582f9bf15}\label{fbxmath_8h_a552cc06a5b27f5e6b6de977582f9bf15} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Pow} (const T x, const T y)
+\item 
+\Hypertarget{fbxmath_8h_a9dec28f21275914b8a490a725f64e982}\label{fbxmath_8h_a9dec28f21275914b8a490a725f64e982} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Log2} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_a6facb26ea4612d02d0f6ec5569e992df}\label{fbxmath_8h_a6facb26ea4612d02d0f6ec5569e992df} 
+float {\bfseries Fbx\+Sin} (const float x)
+\item 
+\Hypertarget{fbxmath_8h_a0d0f2bbca9d446c836d51b996f691773}\label{fbxmath_8h_a0d0f2bbca9d446c836d51b996f691773} 
+double {\bfseries Fbx\+Sin} (const double x)
+\item 
+\Hypertarget{fbxmath_8h_abc11a883b8bb4e73679e5e704037c11b}\label{fbxmath_8h_abc11a883b8bb4e73679e5e704037c11b} 
+float {\bfseries Fbx\+Cos} (const float x)
+\item 
+\Hypertarget{fbxmath_8h_aa093b63131eaf1b408654604f17920d9}\label{fbxmath_8h_aa093b63131eaf1b408654604f17920d9} 
+double {\bfseries Fbx\+Cos} (const double x)
+\item 
+\Hypertarget{fbxmath_8h_a287dea2665703baad27cf0fa7c3d7d27}\label{fbxmath_8h_a287dea2665703baad27cf0fa7c3d7d27} 
+float {\bfseries Fbx\+Tan} (const float x)
+\item 
+\Hypertarget{fbxmath_8h_aeee380a22f0c5bdb192384de70c23840}\label{fbxmath_8h_aeee380a22f0c5bdb192384de70c23840} 
+double {\bfseries Fbx\+Tan} (const double x)
+\item 
+\Hypertarget{fbxmath_8h_ae21aea8c85d44264e7e00af2831a755e}\label{fbxmath_8h_ae21aea8c85d44264e7e00af2831a755e} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Sin\+Cos} (const T x, T \texorpdfstring{$\ast$}{*}y)
+\item 
+\Hypertarget{fbxmath_8h_aa6cfde774514b0704ef9eaf73d52c777}\label{fbxmath_8h_aa6cfde774514b0704ef9eaf73d52c777} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Sin\+Cosd} (const T x, T \texorpdfstring{$\ast$}{*}y)
+\item 
+\Hypertarget{fbxmath_8h_a45c0df1a0721b43a0f0804adbab872ae}\label{fbxmath_8h_a45c0df1a0721b43a0f0804adbab872ae} 
+float {\bfseries Fbx\+ASin} (const float x)
+\item 
+\Hypertarget{fbxmath_8h_a5336221ee27593ad5e30c0e2e5090e44}\label{fbxmath_8h_a5336221ee27593ad5e30c0e2e5090e44} 
+double {\bfseries Fbx\+ASin} (const double x)
+\item 
+\Hypertarget{fbxmath_8h_abb1e35821d28d22958f3efe9a51c8d95}\label{fbxmath_8h_abb1e35821d28d22958f3efe9a51c8d95} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+ASind} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_ac85a6a56e2856ff101b1e8a5079961ac}\label{fbxmath_8h_ac85a6a56e2856ff101b1e8a5079961ac} 
+float {\bfseries Fbx\+ACos} (const float x)
+\item 
+\Hypertarget{fbxmath_8h_a392b57c9f7c84b6ecfc5a0a825a4840c}\label{fbxmath_8h_a392b57c9f7c84b6ecfc5a0a825a4840c} 
+double {\bfseries Fbx\+ACos} (const double x)
+\item 
+\Hypertarget{fbxmath_8h_a5ba09f65d4bc8cde52f8acea48084440}\label{fbxmath_8h_a5ba09f65d4bc8cde52f8acea48084440} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+ACosd} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_ab7d65b498915c6b9d19419de7fae49a7}\label{fbxmath_8h_ab7d65b498915c6b9d19419de7fae49a7} 
+float {\bfseries Fbx\+ATan} (const float x)
+\item 
+\Hypertarget{fbxmath_8h_a9aaa66b87b86431d82f2f641807c7805}\label{fbxmath_8h_a9aaa66b87b86431d82f2f641807c7805} 
+double {\bfseries Fbx\+ATan} (const double x)
+\item 
+\Hypertarget{fbxmath_8h_af0cba6994d8fef1e360485d36fe0499d}\label{fbxmath_8h_af0cba6994d8fef1e360485d36fe0499d} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+ATand} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_a8d69c84d906f42939fa2a03b3a89dc3c}\label{fbxmath_8h_a8d69c84d906f42939fa2a03b3a89dc3c} 
+float {\bfseries Fbx\+ATan} (const float y, const float x)
+\item 
+\Hypertarget{fbxmath_8h_a2b867bc2a50f1f90bc03214a79c3dce3}\label{fbxmath_8h_a2b867bc2a50f1f90bc03214a79c3dce3} 
+double {\bfseries Fbx\+ATan} (const double y, const double x)
+\item 
+\Hypertarget{fbxmath_8h_a17d1c7107ced534adeacf78b48db3827}\label{fbxmath_8h_a17d1c7107ced534adeacf78b48db3827} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+ATand} (const T y, const T x)
+\item 
+\Hypertarget{fbxmath_8h_abeee9a0fcea5e871ddfc5db18ed42d5c}\label{fbxmath_8h_abeee9a0fcea5e871ddfc5db18ed42d5c} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Norm} (const T x, const T y)
+\item 
+\Hypertarget{fbxmath_8h_aee757f525ebe85c33e11b46a9e9d2ec1}\label{fbxmath_8h_aee757f525ebe85c33e11b46a9e9d2ec1} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Norm} (const T x, const T y, const T z)
+\item 
+\Hypertarget{fbxmath_8h_a6bd025e3dac984ce5784ef2003833670}\label{fbxmath_8h_a6bd025e3dac984ce5784ef2003833670} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Norm} (const T w, const T x, const T y, const T z)
+\item 
+\Hypertarget{fbxmath_8h_a48c56440aa16117cc2ba2b2e8e4c9845}\label{fbxmath_8h_a48c56440aa16117cc2ba2b2e8e4c9845} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Hypot} (const T x, const T y)
+\item 
+\Hypertarget{fbxmath_8h_a861c4aa8d65a89f3aaf8e6cdaaa48ee6}\label{fbxmath_8h_a861c4aa8d65a89f3aaf8e6cdaaa48ee6} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Hypot} (const T x, const T y, const T z)
+\item 
+\Hypertarget{fbxmath_8h_a3a294ba818aafd7f9aa01c0428118951}\label{fbxmath_8h_a3a294ba818aafd7f9aa01c0428118951} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Hypot} (const T w, const T x, const T y, const T z)
+\item 
+\Hypertarget{fbxmath_8h_a1316bd2fa8ba00f8a9b1d075ed4be6f7}\label{fbxmath_8h_a1316bd2fa8ba00f8a9b1d075ed4be6f7} 
+\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} {\bfseries Fbx\+Rejection} (const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&a, const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&b)
+\item 
+\Hypertarget{fbxmath_8h_a15e212e05a737fe53d1fbc9b3ee8fe91}\label{fbxmath_8h_a15e212e05a737fe53d1fbc9b3ee8fe91} 
+{\footnotesize template$<$class T$>$ }\\int {\bfseries Fbx\+Bit\+Count} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_a056b2593fece9ef917af4495890eab75}\label{fbxmath_8h_a056b2593fece9ef917af4495890eab75} 
+{\footnotesize template$<$class T$>$ }\\void {\bfseries Fbx\+Fix\+Infinite} (T \&x)
+\item 
+\Hypertarget{fbxmath_8h_ad49e8b7e61ea14115bf21f6513e3ca65}\label{fbxmath_8h_ad49e8b7e61ea14115bf21f6513e3ca65} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Exp} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_a36a0e950d339089d9964764e7c2e618f}\label{fbxmath_8h_a36a0e950d339089d9964764e7c2e618f} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Log} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_af1064d6559c844cc08bd89941922b861}\label{fbxmath_8h_af1064d6559c844cc08bd89941922b861} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Sin} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_aca4d0f49f46e4f0c2d60e96611b80086}\label{fbxmath_8h_aca4d0f49f46e4f0c2d60e96611b80086} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+Cos} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_a15d2ab5a32b4c11ba7429ea0f5b48f4e}\label{fbxmath_8h_a15d2ab5a32b4c11ba7429ea0f5b48f4e} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+ASin} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_aecde8777dd4baba9d5e0a699c1770597}\label{fbxmath_8h_aecde8777dd4baba9d5e0a699c1770597} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+ACos} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_a3014042eb0859fc2b06ffd6508f3a7b1}\label{fbxmath_8h_a3014042eb0859fc2b06ffd6508f3a7b1} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+ATan} (const T x)
+\item 
+\Hypertarget{fbxmath_8h_a2eac27a26ea19080375c002d5db93a5f}\label{fbxmath_8h_a2eac27a26ea19080375c002d5db93a5f} 
+{\footnotesize template$<$class T$>$ }\\T {\bfseries Fbx\+ATan} (const T y, const T x)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{fbxmath_8h_a142315e69a8211c2d6705de6b1a9b60c}\label{fbxmath_8h_a142315e69a8211c2d6705de6b1a9b60c} 
+FBXSDK\+\_\+\+DLL const Fbx\+Double {\bfseries Fbx\+Identity\+Matrix} \mbox{[}4\mbox{]}\mbox{[}4\mbox{]}
+\item 
+\Hypertarget{fbxmath_8h_ac047bf8b70bbccc8323516ef9323f262}\label{fbxmath_8h_ac047bf8b70bbccc8323516ef9323f262} 
+FBXSDK\+\_\+\+DLL const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} {\bfseries Fbx\+Zero\+Vector4}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fbxmath_8h_ae46778666b56bb0abe5992b855fe9332}\index{fbxmath.h@{fbxmath.h}!EFbxRotationOrder@{EFbxRotationOrder}}
+\index{EFbxRotationOrder@{EFbxRotationOrder}!fbxmath.h@{fbxmath.h}}
+\doxysubsubsection{\texorpdfstring{EFbxRotationOrder}{EFbxRotationOrder}}
+{\footnotesize\ttfamily \label{fbxmath_8h_ae46778666b56bb0abe5992b855fe9332} 
+\#define EFbx\+Rotation\+Order~Fbx\+Euler\+::\+EOrder}
+
+Rotation order flags. Each rotate order produces a different end orientation. For example, if the rotation order for an object is set to XYZ, the object first rotates about its X-\/axis, then its Y-\/axis, and finally its Z-\/axis. 
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72a}\index{fbxmath.h@{fbxmath.h}!EFbxQuatInterpMode@{EFbxQuatInterpMode}}
+\index{EFbxQuatInterpMode@{EFbxQuatInterpMode}!fbxmath.h@{fbxmath.h}}
+\doxysubsubsection{\texorpdfstring{EFbxQuatInterpMode}{EFbxQuatInterpMode}}
+{\footnotesize\ttfamily \label{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72a} 
+enum \mbox{\hyperlink{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72a}{EFbx\+Quat\+Interp\+Mode}}}
+
+Quaternion interpolation modes. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eQuatInterpOff@{eQuatInterpOff}!fbxmath.h@{fbxmath.h}}\index{fbxmath.h@{fbxmath.h}!eQuatInterpOff@{eQuatInterpOff}}}\Hypertarget{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa55bbc54e865199dcbc30634ddf6270e8}\label{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa55bbc54e865199dcbc30634ddf6270e8} 
+e\+Quat\+Interp\+Off&Do not evaluate using quaternion interpolation. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eQuatInterpClassic@{eQuatInterpClassic}!fbxmath.h@{fbxmath.h}}\index{fbxmath.h@{fbxmath.h}!eQuatInterpClassic@{eQuatInterpClassic}}}\Hypertarget{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa90dbbc34a189dc0211be8db52c915823}\label{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa90dbbc34a189dc0211be8db52c915823} 
+e\+Quat\+Interp\+Classic&Legacy quaternion interpolation mode. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eQuatInterpSlerp@{eQuatInterpSlerp}!fbxmath.h@{fbxmath.h}}\index{fbxmath.h@{fbxmath.h}!eQuatInterpSlerp@{eQuatInterpSlerp}}}\Hypertarget{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa61674fbd8ccf6b4506e574c6dc7f72c5}\label{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa61674fbd8ccf6b4506e574c6dc7f72c5} 
+e\+Quat\+Interp\+Slerp&Spherical linear interpolation. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eQuatInterpCubic@{eQuatInterpCubic}!fbxmath.h@{fbxmath.h}}\index{fbxmath.h@{fbxmath.h}!eQuatInterpCubic@{eQuatInterpCubic}}}\Hypertarget{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aaea452ac37d0608cbe84dfc65dca78312}\label{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aaea452ac37d0608cbe84dfc65dca78312} 
+e\+Quat\+Interp\+Cubic&Cubic interpolation. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eQuatInterpTangentDependent@{eQuatInterpTangentDependent}!fbxmath.h@{fbxmath.h}}\index{fbxmath.h@{fbxmath.h}!eQuatInterpTangentDependent@{eQuatInterpTangentDependent}}}\Hypertarget{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa03bc2b5a4ec3c532740e5d069c7d5f09}\label{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aa03bc2b5a4ec3c532740e5d069c7d5f09} 
+e\+Quat\+Interp\+Tangent\+Dependent&Mix between Slerp and cubic interpolation, depending on the specified tangents for each key. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eQuatInterpCount@{eQuatInterpCount}!fbxmath.h@{fbxmath.h}}\index{fbxmath.h@{fbxmath.h}!eQuatInterpCount@{eQuatInterpCount}}}\Hypertarget{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aad2d5b53287625e236ff9edb45f306994}\label{fbxmath_8h_a9c7a0dfb52c83256d4a92c5c6d1be72aad2d5b53287625e236ff9edb45f306994} 
+e\+Quat\+Interp\+Count&Number of quaternion interpolation modes. Mark the end of this enum. \\
+\hline
+
+\end{DoxyEnumFields}

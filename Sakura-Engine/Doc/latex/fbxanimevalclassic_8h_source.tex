@@ -1,0 +1,75 @@
+\doxysection{fbxanimevalclassic.\+h}
+\hypertarget{fbxanimevalclassic_8h_source}{}\label{fbxanimevalclassic_8h_source}\index{include/fbx/fbxsdk/scene/animation/fbxanimevalclassic.h@{include/fbx/fbxsdk/scene/animation/fbxanimevalclassic.h}}
+\mbox{\hyperlink{fbxanimevalclassic_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_ANIMATION\_EVALUATOR\_CLASSIC\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_ANIMATION\_EVALUATOR\_CLASSIC\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxanimevaluator_8h}{fbxsdk/scene/animation/fbxanimevaluator.h}}>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxanimlayer_8h}{fbxsdk/scene/animation/fbxanimlayer.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_anim_eval_classic}{FbxAnimEvalClassic}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_anim_evaluator}{FbxAnimEvaluator}}}
+\DoxyCodeLine{00033\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_anim_eval_classic}{FbxAnimEvalClassic}},\ \mbox{\hyperlink{class_fbx_anim_evaluator}{FbxAnimEvaluator}});}
+\DoxyCodeLine{00035\ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{enum}\ EBlendType\ \{eSimple,\ eRotation,\ eScaling\};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ ComputeTRSLocal(\mbox{\hyperlink{class_fbx_node_eval_state}{FbxNodeEvalState}}*\ pResult,\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \mbox{\hyperlink{class_fbx_anim_stack}{FbxAnimStack}}*\ pStack);}
+\DoxyCodeLine{00049\ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ ComputeGlobalTransform(\mbox{\hyperlink{class_fbx_node_eval_state}{FbxNodeEvalState}}*\ pResult,\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \mbox{\hyperlink{class_fbx_anim_stack}{FbxAnimStack}}*\ pStack,\ \mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343}{FbxNode::EPivotSet}}\ pPivotSet,\ \textcolor{keywordtype}{bool}\ pApplyTarget);}
+\DoxyCodeLine{00064\ \ \ \ \ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ ComputeLocalTransform(\mbox{\hyperlink{class_fbx_node_eval_state}{FbxNodeEvalState}}*\ pResult,\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \mbox{\hyperlink{class_fbx_anim_stack}{FbxAnimStack}}*\ pStack,\ \mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343}{FbxNode::EPivotSet}}\ pPivotSet,\ \textcolor{keywordtype}{bool}\ pApplyTarget);}
+\DoxyCodeLine{00079\ \ \ \ \ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{bool}\ HasAnimationCurveNode(FbxProperty\&\ pProperty,\ \mbox{\hyperlink{class_fbx_anim_layer}{FbxAnimLayer}}*\ pAnimLayer);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ ComputeTRSAnimationLayer(\mbox{\hyperlink{class_fbx_node_eval_state}{FbxNodeEvalState}}*\ pResult,\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pLT,\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pLR,\ \mbox{\hyperlink{class_fbx_vector4}{FbxVector4}}\&\ pLS,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \mbox{\hyperlink{class_fbx_anim_layer}{FbxAnimLayer}}*\ pLayer,\ \textcolor{keywordtype}{bool}\ pBlend);}
+\DoxyCodeLine{00101\ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ BlendPropertyEvalWithLayer(\textcolor{keywordtype}{double}*\ pResult,\ \textcolor{keywordtype}{int}\ pResultSize,\ FbxProperty\&\ pProperty,\ \mbox{\hyperlink{class_fbx_node_eval_state}{FbxNodeEvalState}}*\ pEvalState,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \mbox{\hyperlink{class_fbx_anim_layer}{FbxAnimLayer}}*\ pLayer,\ EBlendType\ pType);}
+\DoxyCodeLine{00113\ \ \ \ \ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}\ BlendSimple(\textcolor{keywordtype}{double}*\ pResult,\ \textcolor{keywordtype}{int}\ pResultSize,\ \textcolor{keywordtype}{double}*\ pApply,\ \textcolor{keywordtype}{int}\ pApplySize,\ \textcolor{keywordtype}{double}\ pWeight,\ \mbox{\hyperlink{class_fbx_anim_layer_abb1e650203e91ff090773239994e802a}{FbxAnimLayer::EBlendMode}}\ pBlendMode);}
+\DoxyCodeLine{00125\ \ \ \ \ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{void}\ BlendRotation(\textcolor{keywordtype}{double}*\ pResult,\ \textcolor{keywordtype}{int}\ pResultSize,\ \textcolor{keywordtype}{double}*\ pApply,\ \textcolor{keywordtype}{int}\ pApplySize,\ \textcolor{keywordtype}{double}\ pWeight,\ \mbox{\hyperlink{class_fbx_anim_layer_abb1e650203e91ff090773239994e802a}{FbxAnimLayer::EBlendMode}}\ pBlendMode,\ \mbox{\hyperlink{class_fbx_anim_layer_a11bad6dbac61cc3965624a0622e90b38}{FbxAnimLayer::ERotationAccumulationMode}}\ pRotAccuMode,\ \textcolor{keywordtype}{int}\ pRotationOrder);}
+\DoxyCodeLine{00139\ \ \ \ \ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{void}\ BlendScaling(\textcolor{keywordtype}{double}*\ pResult,\ \textcolor{keywordtype}{int}\ pResultSize,\ \textcolor{keywordtype}{double}*\ pApply,\ \textcolor{keywordtype}{int}\ pApplySize,\ \textcolor{keywordtype}{double}\ pWeight,\ \mbox{\hyperlink{class_fbx_anim_layer_abb1e650203e91ff090773239994e802a}{FbxAnimLayer::EBlendMode}}\ pBlendMode,\ \mbox{\hyperlink{class_fbx_anim_layer_aec9cfaa528bee6739ba4317964d123b0}{FbxAnimLayer::EScaleAccumulationMode}}\ pScaleAccuMode);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00154\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00155\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00157\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_eval_classic_aa2e537316ba593e73b774bdaef3b3d2b}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_eval_classic_af0c40073f6491da61737e99262e122fe}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{void}\ EvaluateNodeTransform(\mbox{\hyperlink{class_fbx_node_eval_state}{FbxNodeEvalState}}*\ pResult,\ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ pNode,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime,\ \mbox{\hyperlink{class_fbx_node_ae62b7311ac4727654cdf1ebd5cbf7343}{FbxNode::EPivotSet}}\ pPivotSet,\ \textcolor{keywordtype}{bool}\ pApplyTarget)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxproperty_8h_aad47f017660621019bda1aa0efc1b7ae}{EvaluatePropertyValue}}(\mbox{\hyperlink{class_fbx_property_eval_state}{FbxPropertyEvalState}}*\ pResult,\ FbxProperty\&\ pProperty,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{double}*\ mPropertyValues;}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ mPropertySize;}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{double}*\ mCurveNodeEvalValues;}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ mCurveNodeEvalSize;}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00171\ \};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_ANIMATION\_EVALUATOR\_CLASSIC\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

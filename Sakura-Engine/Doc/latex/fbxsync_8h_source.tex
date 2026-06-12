@@ -1,0 +1,121 @@
+\doxysection{fbxsync.\+h}
+\hypertarget{fbxsync_8h_source}{}\label{fbxsync_8h_source}\index{include/fbx/fbxsdk/core/sync/fbxsync.h@{include/fbx/fbxsdk/core/sync/fbxsync.h}}
+\mbox{\hyperlink{fbxsync_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_SYNC\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_SYNC\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#if\ !defined(FBXSDK\_ENV\_WINSTORE)\ \&\&\ !defined(FBXSDK\_ENV\_EMSCRIPTEN)}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxclock_8h}{fbxsdk/core/sync/fbxclock.h}}>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxthread_8h}{fbxsdk/core/sync/fbxthread.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }FbxMutexImpl;}
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }FbxSemaphoreImpl;}
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }FbxGateImpl;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxSpinLock}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ \ \ \ \ FbxSpinLock();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_spin_lock_a6f5aa93e51e6bd4717337bfb2216c371}{Acquire}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_spin_lock_a3cc819cf0168dfc482696650b32c07f6}{Release}}();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00050\ \ \ \ \ FbxAtomic\ mSpinLock;}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_mutex_af2e9cbb51bc45952ccb6a310717e70a1}{FbxMutex}}}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{class_fbx_mutex_af2e9cbb51bc45952ccb6a310717e70a1}{FbxMutex}}(\textcolor{keywordtype}{bool}\ pInitialOwnership=\textcolor{keyword}{false});}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_mutex_a68eda93d02e2adc9f717d28208305aa6}{\string~FbxMutex}}();\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mutex_abca054ea52a16ade66050af56a04b97c}{Acquire}}();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_mutex_ace271bd592e917dffdc850b74482d52f}{TryAcquire}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pRetryCount);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_mutex_af64f050aba0c86a19c75c8fc236325d1}{Release}}();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00088\ \ \ \ \ FbxMutexImpl*\ mImpl;}
+\DoxyCodeLine{00089\ \};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_semaphore_a4c1d63129606a43f25d00cebe24eb239}{FbxSemaphore}}}
+\DoxyCodeLine{00097\ \{}
+\DoxyCodeLine{00098\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{class_fbx_semaphore_a4c1d63129606a43f25d00cebe24eb239}{FbxSemaphore}}();\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_semaphore_aea00e26f6b9452107104eaf2f2e49f1b}{\string~FbxSemaphore}}();\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_semaphore_a05d7cdaa49c89691f22a26851be1f885}{Wait}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pCount=1);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_semaphore_a56bdff92c29ea31a57003f207e52c672}{Signal}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pCount=1);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00116\ \ \ \ \ FbxSemaphoreImpl*\ mImpl;}
+\DoxyCodeLine{00117\ \};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00123\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_gate_a0bfa381894e420784ea2cee86d5f8662}{FbxGate}}}
+\DoxyCodeLine{00124\ \{}
+\DoxyCodeLine{00125\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{class_fbx_gate_a0bfa381894e420784ea2cee86d5f8662}{FbxGate}}();\ }
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_gate_a588ebab279f8bd182bc0a1aeb6001554}{\string~FbxGate}}();\ }
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_gate_acd9a45eb0ef7d06f2a4a7f5954555310}{Open}}();}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_gate_aa91ba9c41757e0065d400f254a5175ee}{Close}}();}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_gate_a96baa45cb4fa4a655201355601b6bc47}{IsOpen}}();}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_gate_ad3d9e530f43a6f446c2d09364153c918}{Wait}}();}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00149\ \ \ \ \ FbxGateImpl*\ mImpl;}
+\DoxyCodeLine{00150\ \};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00154\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_sync_stack_a39058f505817e4a4739323b3daa8fafe}{FbxSyncStack}}}
+\DoxyCodeLine{00155\ \{}
+\DoxyCodeLine{00156\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keyword}{struct\ }Item}
+\DoxyCodeLine{00159\ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ Item*\ mNext;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ Item()\{\ mNext\ =\ NULL;\ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ Item*\ Set(Item*\ pNext)\{\ \textcolor{keywordflow}{return}\ mNext\ =\ pNext;\ \}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ Item*\ Next()\{\ \textcolor{keywordflow}{return}\ mNext;\ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \};}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00167\ \ \ \ \ \mbox{\hyperlink{class_fbx_sync_stack_a39058f505817e4a4739323b3daa8fafe}{FbxSyncStack}}();}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_sync_stack_a1412ced243b15737a27bb4a3b30bd40b}{Push}}(\mbox{\hyperlink{struct_fbx_sync_stack_1_1_item}{Item}}*\ pItem);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00177\ \ \ \ \ \mbox{\hyperlink{struct_fbx_sync_stack_1_1_item}{Item}}*\ \mbox{\hyperlink{class_fbx_sync_stack_a5155ec896e05088276b6a18f9203dc6f}{Pop}}();}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00180\ \ \ \ \ \mbox{\hyperlink{class_fbx_spin_lock}{FbxSpinLock}}\ \ mLock;}
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{struct_fbx_sync_stack_1_1_item}{Item}}*\ \ \ \ \ \ \ mTop;}
+\DoxyCodeLine{00182\ \};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !FBXSDK\_ENV\_WINSTORE\ \&\&\ !FBXSDK\_ENV\_EMSCRIPTEN\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_SYNC\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

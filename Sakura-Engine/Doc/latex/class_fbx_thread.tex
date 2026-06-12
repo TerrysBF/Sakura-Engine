@@ -1,0 +1,169 @@
+\doxysection{Fbx\+Thread Class Reference}
+\hypertarget{class_fbx_thread}{}\label{class_fbx_thread}\index{FbxThread@{FbxThread}}
+
+
+{\ttfamily \#include $<$fbxthread.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_thread_a82f55f0fc5f947d4357c8175d05782ff}\label{class_fbx_thread_a82f55f0fc5f947d4357c8175d05782ff} 
+enum {\bfseries EState} \{ {\bfseries e\+Unknown}
+, {\bfseries e\+Running}
+, {\bfseries e\+Dead}
+ \}
+\item 
+\Hypertarget{class_fbx_thread_a1b7d46235dd8589e03f7a29777f083f2}\label{class_fbx_thread_a1b7d46235dd8589e03f7a29777f083f2} 
+enum {\bfseries EPriority} \{ \newline
+{\bfseries e\+None}
+, {\bfseries e\+Idle}
+, {\bfseries e\+Lowest}
+, {\bfseries e\+Low}
+, \newline
+{\bfseries e\+Normal}
+, {\bfseries e\+High}
+, {\bfseries e\+Highest}
+, {\bfseries e\+Real\+Time}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_thread_ae95d08575b6b014f703d41c2a5b4ac4f}{Fbx\+Thread}} (\mbox{\hyperlink{fbxthread_8h_a3532e8b93c1a30a69124bf8d89280573}{Fbx\+Thread\+Proc}} p\+Proc, void \texorpdfstring{$\ast$}{*}p\+Arg, bool p\+Suspend=false)
+\item 
+\mbox{\hyperlink{class_fbx_thread_a650dcba123703d9da75a2223453d4fd9}{Fbx\+Thread}} (\mbox{\hyperlink{fbxthread_8h_a3532e8b93c1a30a69124bf8d89280573}{Fbx\+Thread\+Proc}} p\+Proc, void \texorpdfstring{$\ast$}{*}p\+Arg, EPriority p\+Priority, bool p\+Suspend=false)
+\item 
+\Hypertarget{class_fbx_thread_a1d367585d9ee649aefc1ad6d3625bbfe}\label{class_fbx_thread_a1d367585d9ee649aefc1ad6d3625bbfe} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Fbx\+Thread} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_fbx_thread_a41702b06399443c91e60c70be333d2a5}{Suspend}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_thread_a829e856a545af8ca53ac10241f5388fc}{Resume}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_thread_a784d4eb2cd3ca88f9f9283c1488467fa}{Join}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_thread_a24115ea67bd15a8181051693aef22ba1}{Kill}} ()
+\item 
+EPriority \mbox{\hyperlink{class_fbx_thread_a6c7859fdc523e2a4628931a0daf139d0}{Get\+Priority}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_thread_a3aad216865d1009cd14bedfcd31bd79e}{Set\+Priority}} (EPriority p\+Priority)
+\item 
+EState \mbox{\hyperlink{class_fbx_thread_a49873956e4054a30dc7e5cc5766b74ca}{Get\+State}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class implement a standard way to use threads across platforms. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_thread_ae95d08575b6b014f703d41c2a5b4ac4f}\index{FbxThread@{FbxThread}!FbxThread@{FbxThread}}
+\index{FbxThread@{FbxThread}!FbxThread@{FbxThread}}
+\doxysubsubsection{\texorpdfstring{FbxThread()}{FbxThread()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_thread_ae95d08575b6b014f703d41c2a5b4ac4f} 
+Fbx\+Thread\+::\+Fbx\+Thread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fbxthread_8h_a3532e8b93c1a30a69124bf8d89280573}{Fbx\+Thread\+Proc}}}]{p\+Proc}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Arg}{, }\item[{bool}]{p\+Suspend}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em p\+Proc} & The procedure called upon thread startup. \\
+\hline
+{\em p\+Arg} & The arguments passed to the procedure. \\
+\hline
+{\em p\+Suspend} & Start the thread suspended. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_thread_a650dcba123703d9da75a2223453d4fd9}\index{FbxThread@{FbxThread}!FbxThread@{FbxThread}}
+\index{FbxThread@{FbxThread}!FbxThread@{FbxThread}}
+\doxysubsubsection{\texorpdfstring{FbxThread()}{FbxThread()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_thread_a650dcba123703d9da75a2223453d4fd9} 
+Fbx\+Thread\+::\+Fbx\+Thread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fbxthread_8h_a3532e8b93c1a30a69124bf8d89280573}{Fbx\+Thread\+Proc}}}]{p\+Proc}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Arg}{, }\item[{EPriority}]{p\+Priority}{, }\item[{bool}]{p\+Suspend}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em p\+Proc} & The procedure called upon thread startup. \\
+\hline
+{\em p\+Arg} & The arguments passed to the procedure. \\
+\hline
+{\em p\+Priority} & The thread priority to set upon creation. \\
+\hline
+{\em p\+Suspend} & Start the thread suspended. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_thread_a6c7859fdc523e2a4628931a0daf139d0}\index{FbxThread@{FbxThread}!GetPriority@{GetPriority}}
+\index{GetPriority@{GetPriority}!FbxThread@{FbxThread}}
+\doxysubsubsection{\texorpdfstring{GetPriority()}{GetPriority()}}
+{\footnotesize\ttfamily \label{class_fbx_thread_a6c7859fdc523e2a4628931a0daf139d0} 
+EPriority Fbx\+Thread\+::\+Get\+Priority (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Retrieve the priority of the thread. \begin{DoxyReturn}{Returns}
+The thread\textquotesingle{}s priority. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_thread_a49873956e4054a30dc7e5cc5766b74ca}\index{FbxThread@{FbxThread}!GetState@{GetState}}
+\index{GetState@{GetState}!FbxThread@{FbxThread}}
+\doxysubsubsection{\texorpdfstring{GetState()}{GetState()}}
+{\footnotesize\ttfamily \label{class_fbx_thread_a49873956e4054a30dc7e5cc5766b74ca} 
+EState Fbx\+Thread\+::\+Get\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Retrieve the thread current state. \begin{DoxyReturn}{Returns}
+The state of the thread. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_thread_a784d4eb2cd3ca88f9f9283c1488467fa}\index{FbxThread@{FbxThread}!Join@{Join}}
+\index{Join@{Join}!FbxThread@{FbxThread}}
+\doxysubsubsection{\texorpdfstring{Join()}{Join()}}
+{\footnotesize\ttfamily \label{class_fbx_thread_a784d4eb2cd3ca88f9f9283c1488467fa} 
+bool Fbx\+Thread\+::\+Join (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Wait for the thread completion. \begin{DoxyReturn}{Returns}
+True if the thread successfully returned from its procedure. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_thread_a24115ea67bd15a8181051693aef22ba1}\index{FbxThread@{FbxThread}!Kill@{Kill}}
+\index{Kill@{Kill}!FbxThread@{FbxThread}}
+\doxysubsubsection{\texorpdfstring{Kill()}{Kill()}}
+{\footnotesize\ttfamily \label{class_fbx_thread_a24115ea67bd15a8181051693aef22ba1} 
+bool Fbx\+Thread\+::\+Kill (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Do not wait for the thread completion and terminate it. \begin{DoxyReturn}{Returns}
+True if the thread successfully died. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_thread_a829e856a545af8ca53ac10241f5388fc}\index{FbxThread@{FbxThread}!Resume@{Resume}}
+\index{Resume@{Resume}!FbxThread@{FbxThread}}
+\doxysubsubsection{\texorpdfstring{Resume()}{Resume()}}
+{\footnotesize\ttfamily \label{class_fbx_thread_a829e856a545af8ca53ac10241f5388fc} 
+bool Fbx\+Thread\+::\+Resume (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Resume the execution of the thread. \begin{DoxyReturn}{Returns}
+Return true if the thread was successfully resumed, otherwise false. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_thread_a3aad216865d1009cd14bedfcd31bd79e}\index{FbxThread@{FbxThread}!SetPriority@{SetPriority}}
+\index{SetPriority@{SetPriority}!FbxThread@{FbxThread}}
+\doxysubsubsection{\texorpdfstring{SetPriority()}{SetPriority()}}
+{\footnotesize\ttfamily \label{class_fbx_thread_a3aad216865d1009cd14bedfcd31bd79e} 
+bool Fbx\+Thread\+::\+Set\+Priority (\begin{DoxyParamCaption}\item[{EPriority}]{p\+Priority}{}\end{DoxyParamCaption})}
+
+Set the thread priority. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Priority} & The priority to set to this thread. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the thread priority was successfully changed. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_thread_a41702b06399443c91e60c70be333d2a5}\index{FbxThread@{FbxThread}!Suspend@{Suspend}}
+\index{Suspend@{Suspend}!FbxThread@{FbxThread}}
+\doxysubsubsection{\texorpdfstring{Suspend()}{Suspend()}}
+{\footnotesize\ttfamily \label{class_fbx_thread_a41702b06399443c91e60c70be333d2a5} 
+bool Fbx\+Thread\+::\+Suspend (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Suspend the execution of the thread. \begin{DoxyReturn}{Returns}
+Return true if the thread was successfully suspended, otherwise false. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+It should be used only if you can control where the thread will be suspended in its procedure, otherwise the state of the thread and its memory is unknown, since the code will stop anywhere. 
+\end{DoxyRemark}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/sync/\mbox{\hyperlink{fbxthread_8h}{fbxthread.\+h}}\end{DoxyCompactItemize}

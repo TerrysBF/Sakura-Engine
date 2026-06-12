@@ -1,0 +1,930 @@
+\doxysection{Fbx\+Layer\+Element\+Array Class Reference}
+\hypertarget{class_fbx_layer_element_array}{}\label{class_fbx_layer_element_array}\index{FbxLayerElementArray@{FbxLayerElementArray}}
+
+
+{\ttfamily \#include $<$fbxlayer.\+h$>$}
+
+Inheritance diagram for Fbx\+Layer\+Element\+Array\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=9.627506cm]{class_fbx_layer_element_array}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Locks handling}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_layer_element_array_a8968b1fb337f924d0e9ca87302b54d70}{ELock\+Mode}} \{ {\bfseries e\+Read\+Lock} = 1
+, {\bfseries e\+Write\+Lock} = 2
+, {\bfseries e\+Read\+Write\+Lock} = 3
+ \}
+\item 
+bool \mbox{\hyperlink{class_fbx_layer_element_array_a16cf9a248965cbe26d932c3fb6869c85}{Is\+Write\+Locked}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_layer_element_array_a2d832cc56fee7d1c1254e88e689f1eda}{Get\+Read\+Lock\+Count}} () const
+\item 
+bool \mbox{\hyperlink{class_fbx_layer_element_array_a83e174dd9818d314a274bd87f7b9aa38}{Is\+In\+Use}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_layer_element_array_afb3f283bed4e92d60488f582bd58bf80}{Read\+Lock}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_layer_element_array_a75a18c8aecb5dc8c68c05c02bd54d7f4}{Read\+Unlock}} () const
+\item 
+bool \mbox{\hyperlink{class_fbx_layer_element_array_a828b1e27e5025c726bdc15b983522e4e}{Write\+Lock}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_layer_element_array_a519b1b44abd526e00c6ee9e4f3a38e2d}{Write\+Unlock}} () const
+\item 
+bool \mbox{\hyperlink{class_fbx_layer_element_array_ab4293e9a5089b1bccdb2843ee6ff30fb}{Read\+Write\+Lock}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_layer_element_array_a172d8f3872d50f7dfcdfd8f446cdcf3c}{Read\+Write\+Unlock}} () const
+\item 
+virtual void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_layer_element_array_a1e79f4398fc1736d52ff5a9ab9f453b2}{Get\+Locked}} (\mbox{\hyperlink{class_fbx_layer_element_array_a8968b1fb337f924d0e9ca87302b54d70}{ELock\+Mode}} p\+Lock\+Mode, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Data\+Type)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_layer_element_array_af7e163d36936cf8a513f58d383a4bae3}{Get\+Locked}} (\mbox{\hyperlink{class_fbx_layer_element_array_a8968b1fb337f924d0e9ca87302b54d70}{ELock\+Mode}} p\+Lock\+Mode=e\+Read\+Write\+Lock)
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_layer_element_array_a4b2f38e1093454303856deb7aed225b3}{Get\+Locked}} (T \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_fbx_layer_element_array_a8968b1fb337f924d0e9ca87302b54d70}{ELock\+Mode}} p\+Lock\+Mode=e\+Read\+Write\+Lock)
+\item 
+virtual void \mbox{\hyperlink{class_fbx_layer_element_array_a574fce5860ae84a77c15d18bf3a2cd87}{Release}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Data\+Ptr, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Data\+Type)
+\item 
+void \mbox{\hyperlink{class_fbx_layer_element_array_a9706ee3edb65ea08c7b95b5c83224371}{Release}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Data\+Ptr)
+\item 
+{\footnotesize template$<$class T$>$ }\\void \mbox{\hyperlink{class_fbx_layer_element_array_a1d83bb3361cec99c394596a6bee95bb2}{Release}} (T \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Data\+Ptr, T \texorpdfstring{$\ast$}{*}dummy)
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{class_fbx_layer_element_array_aca7d58691bf2276171658a6dc382a511}{Get\+Stride}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Data array manipulation}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_layer_element_array_a47930d23e0f3e596bee667ffe900268b}\label{class_fbx_layer_element_array_a47930d23e0f3e596bee667ffe900268b} 
+\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} {\bfseries m\+Data\+Type}
+\item 
+\Hypertarget{class_fbx_layer_element_array_acd195095246f6d886d55fd0aa7129b2d}\label{class_fbx_layer_element_array_acd195095246f6d886d55fd0aa7129b2d} 
+int {\bfseries Get\+Count} () const
+\begin{DoxyCompactList}\small\item\em Returns the count of items in the data buffer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_fbx_layer_element_array_a583594fc8b9c765a13b02f8c91c5d034}{Set\+Count}} (int p\+Count, EFbx\+Memory\+Clear\+Mode p\+Initialize\+Mode=e\+Clear\+To\+Zero)
+\item 
+\Hypertarget{class_fbx_layer_element_array_a573662ad442d13623725fef4e19ca207}\label{class_fbx_layer_element_array_a573662ad442d13623725fef4e19ca207} 
+void {\bfseries Clear} ()
+\begin{DoxyCompactList}\small\item\em Clears the data buffer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_fbx_layer_element_array_aa06c30cbfee039f4d081b493baeaab4b}{Resize}} (int p\+Item\+Count, EFbx\+Memory\+Clear\+Mode p\+Initialize\+Mode=e\+Clear\+To\+Zero)
+\item 
+bool \mbox{\hyperlink{class_fbx_layer_element_array_a4b65addf1035a5bc8928435da238b6e7}{Add\+Multiple}} (int p\+Item\+Count, EFbx\+Memory\+Clear\+Mode p\+Initialize\+Mode=e\+Clear\+To\+Zero)
+\item 
+int \mbox{\hyperlink{class_fbx_layer_element_array_a828c096f6e750eec65f59a86d0204e12}{Add}} (const void \texorpdfstring{$\ast$}{*}p\+Item, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Value\+Type)
+\item 
+int \mbox{\hyperlink{class_fbx_layer_element_array_ac781bfbc43232bde51bbf04ab543cd13}{Insert\+At}} (int p\+Index, const void \texorpdfstring{$\ast$}{*}p\+Item, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Value\+Type)
+\item 
+void \mbox{\hyperlink{class_fbx_layer_element_array_a12fea380179191ef325696045a60d6f9}{Set\+At}} (int p\+Index, const void \texorpdfstring{$\ast$}{*}p\+Item, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Value\+Type)
+\item 
+void \mbox{\hyperlink{class_fbx_layer_element_array_a05706c8479fb3d84325a41464d7fa9dd}{Set\+Last}} (const void \texorpdfstring{$\ast$}{*}p\+Item, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Value\+Type)
+\item 
+void \mbox{\hyperlink{class_fbx_layer_element_array_a70d291c84318eea45de6656b37b1c8c5}{Remove\+At}} (int p\+Index, void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Item, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Value\+Type)
+\item 
+void \mbox{\hyperlink{class_fbx_layer_element_array_a928f848275334427d958c996e10e2535}{Remove\+Last}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Item, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Value\+Type)
+\item 
+bool \mbox{\hyperlink{class_fbx_layer_element_array_a759b4eac1b85286b6eae39b588eb74ad}{Remove\+It}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Item, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Value\+Type)
+\item 
+bool \mbox{\hyperlink{class_fbx_layer_element_array_a4645b72542ad4745b54faa4e0e919878}{Get\+At}} (int p\+Index, void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Item, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Value\+Type) const
+\item 
+bool \mbox{\hyperlink{class_fbx_layer_element_array_ad54e636bdab3dfb407cb0561ae6460e0}{Get\+First}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Item, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Value\+Type) const
+\item 
+bool \mbox{\hyperlink{class_fbx_layer_element_array_a67aeb0dde8b3535d83dcf9eab97e78ae}{Get\+Last}} (void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Item, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Value\+Type) const
+\item 
+int \mbox{\hyperlink{class_fbx_layer_element_array_ad5075288db8274e13b13f14ec8414dec}{Find}} (const void \texorpdfstring{$\ast$}{*}p\+Item, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Value\+Type) const
+\item 
+int \mbox{\hyperlink{class_fbx_layer_element_array_aa4d2a9a111e4bc4d98c84a18efd65cbd}{Find\+After}} (int p\+After\+Index, const void \texorpdfstring{$\ast$}{*}p\+Item, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Value\+Type) const
+\item 
+int \mbox{\hyperlink{class_fbx_layer_element_array_a98daeb1cd39978cda3a4dd83b32e508d}{Find\+Before}} (int p\+Before\+Index, const void \texorpdfstring{$\ast$}{*}p\+Item, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Value\+Type) const
+\item 
+bool \mbox{\hyperlink{class_fbx_layer_element_array_a3e34cd89f4c2becbf6d114ac08de40ce}{Is\+Equal}} (const \mbox{\hyperlink{class_fbx_layer_element_array}{Fbx\+Layer\+Element\+Array}} \&p\+Array) const
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_layer_element_array_aa7749da74c326ba0961f0a29a7ef2258}{Add}} (T const \&p\+Item)
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_layer_element_array_accb9ce84c47d2a2f1a8c5e9967ef1f23}{Insert\+At}} (int p\+Index, T const \&p\+Item)
+\item 
+{\footnotesize template$<$class T$>$ }\\void \mbox{\hyperlink{class_fbx_layer_element_array_a9fae68bbccd7e41b8047c62d18fa8cce}{Set\+At}} (int p\+Index, T const \&p\+Item)
+\item 
+{\footnotesize template$<$class T$>$ }\\void \mbox{\hyperlink{class_fbx_layer_element_array_aebc103a4f95690e6aef3961b6198df3d}{Set\+Last}} (T const \&p\+Item)
+\item 
+{\footnotesize template$<$class T$>$ }\\void \mbox{\hyperlink{class_fbx_layer_element_array_a52b3592f2af5c98cf5eaa7e78b6a9c9b}{Remove\+At}} (int p\+Index, T \texorpdfstring{$\ast$}{*}p\+Item)
+\item 
+{\footnotesize template$<$class T$>$ }\\void \mbox{\hyperlink{class_fbx_layer_element_array_a33eabc8ad1f5a95f5238a81293728717}{Remove\+Last}} (T \texorpdfstring{$\ast$}{*}p\+Item)
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_layer_element_array_aca2bacda1beff3b7da61ed290a53cb19}{Remove\+It}} (T \texorpdfstring{$\ast$}{*}p\+Item)
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_layer_element_array_abd796ea09c20089318a818cb73d2df05}{Get\+At}} (int p\+Index, T \texorpdfstring{$\ast$}{*}p\+Item) const
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_layer_element_array_ae6f77a98d976ed7afbb8c455f0d26437}{Get\+First}} (T \texorpdfstring{$\ast$}{*}p\+Item) const
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_layer_element_array_a151426ccb1c4c28550c637716fdb7b64}{Get\+Last}} (T \texorpdfstring{$\ast$}{*}p\+Item) const
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_layer_element_array_a8dcc42ae3b8a351a1d5204a416fe72de}{Find}} (T const \&p\+Item) const
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_layer_element_array_a6f33a669f8e1d538ff753db1b9378dcc}{Find\+After}} (int p\+After\+Index, T const \&p\+Item) const
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_layer_element_array_a4fa63bc33b1de09a7d1b8be32b84b06c}{Find\+Before}} (int p\+Before\+Index, T const \&p\+Item) const
+\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{class_fbx_layer_element_array_a64ddf869251ef992f995a5bb9c16efcc}{Copy\+To}} (\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T $>$ \&p\+Dst)
+\item 
+\Hypertarget{class_fbx_layer_element_array_ad020c55f6e6cb7829c5e10f755b50b0e}\label{class_fbx_layer_element_array_ad020c55f6e6cb7829c5e10f755b50b0e} 
+void \texorpdfstring{$\ast$}{*} {\bfseries Get\+Data\+Ptr} ()
+\item 
+\Hypertarget{class_fbx_layer_element_array_a78151084643537f2be55c117a81222df}\label{class_fbx_layer_element_array_a78151084643537f2be55c117a81222df} 
+void \texorpdfstring{$\ast$}{*} {\bfseries Get\+Reference} (int p\+Index, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Value\+Type)
+\item 
+\Hypertarget{class_fbx_layer_element_array_a395c044fcc5c47c6c48bb799b0a70a60}\label{class_fbx_layer_element_array_a395c044fcc5c47c6c48bb799b0a70a60} 
+void {\bfseries Get\+Reference\+To} (int p\+Index, void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Ref, \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Value\+Type)
+\item 
+\Hypertarget{class_fbx_layer_element_array_ad61caca510c54feb2181fc57b61869d4}\label{class_fbx_layer_element_array_ad61caca510c54feb2181fc57b61869d4} 
+void {\bfseries Set\+Status} (Lock\+Access\+Status\+::\+ELock\+Access\+Status p\+Val) const
+\item 
+\Hypertarget{class_fbx_layer_element_array_aa031d26b76ef7871ac0d35a8dff6462a}\label{class_fbx_layer_element_array_aa031d26b76ef7871ac0d35a8dff6462a} 
+void {\bfseries Set\+Implementation} (void \texorpdfstring{$\ast$}{*}p\+Implementation)
+\item 
+\Hypertarget{class_fbx_layer_element_array_a40cca41b428a565bf82224cff189404c}\label{class_fbx_layer_element_array_a40cca41b428a565bf82224cff189404c} 
+void \texorpdfstring{$\ast$}{*} {\bfseries Get\+Implementation} ()
+\item 
+\Hypertarget{class_fbx_layer_element_array_a48cc30130ebd4a38d910547d2f7282c0}\label{class_fbx_layer_element_array_a48cc30130ebd4a38d910547d2f7282c0} 
+virtual void {\bfseries Convert\+Data\+Type} (\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Data\+Type, void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}p\+Data\+Ptr, size\+\_\+t \texorpdfstring{$\ast$}{*}p\+Stride)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Constructor and Destructor}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_layer_element_array_a99815649c1cf07a8d1446a0e086e3871}{Fbx\+Layer\+Element\+Array}} (\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}} p\+Data\+Type)
+\item 
+\Hypertarget{class_fbx_layer_element_array_abee3841f66f7d668f113c728a93dd26d}\label{class_fbx_layer_element_array_abee3841f66f7d668f113c728a93dd26d} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Fbx\+Layer\+Element\+Array} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Status handling}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_layer_element_array_a6873dc740572d69cccb83bdbaf7633b6}\label{class_fbx_layer_element_array_a6873dc740572d69cccb83bdbaf7633b6} 
+void {\bfseries Clear\+Status} ()
+\begin{DoxyCompactList}\small\item\em Clears the access state and sets it to e\+Success. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_layer_element_array_a5f23239e1ed76a7eab70b031c514167a}\label{class_fbx_layer_element_array_a5f23239e1ed76a7eab70b031c514167a} 
+Lock\+Access\+Status\+::\+ELock\+Access\+Status {\bfseries Get\+Status} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the access state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_fbx_layer_element_array}{Fbx\+Layer\+Element\+Array} is the base class for \doxylink{class_fbx_layer_element_array_template}{Fbx\+Layer\+Element\+Array\+Template}, it provides lock handling and data array manipulation of the data buffer for \doxylink{class_fbx_layer_element}{Fbx\+Layer\+Element}. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_fbx_layer_element_array_a8968b1fb337f924d0e9ca87302b54d70}\index{FbxLayerElementArray@{FbxLayerElementArray}!ELockMode@{ELockMode}}
+\index{ELockMode@{ELockMode}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{ELockMode}{ELockMode}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a8968b1fb337f924d0e9ca87302b54d70} 
+enum \mbox{\hyperlink{class_fbx_layer_element_array_a8968b1fb337f924d0e9ca87302b54d70}{Fbx\+Layer\+Element\+Array\+::\+ELock\+Mode}}}
+
+Identifies the access mode to the data buffer.
+\begin{DoxyItemize}
+\item {\itshape e\+Read\+Lock} Read mode.
+\item {\itshape e\+Write\+Lock} Write mode.
+\item {\itshape e\+Read\+Write\+Lock} Read-\/write mode. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_layer_element_array_a99815649c1cf07a8d1446a0e086e3871}\index{FbxLayerElementArray@{FbxLayerElementArray}!FbxLayerElementArray@{FbxLayerElementArray}}
+\index{FbxLayerElementArray@{FbxLayerElementArray}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{FbxLayerElementArray()}{FbxLayerElementArray()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a99815649c1cf07a8d1446a0e086e3871} 
+Fbx\+Layer\+Element\+Array\+::\+Fbx\+Layer\+Element\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Data\+Type}{}\end{DoxyParamCaption})}
+
+Constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Data\+Type} & The data type of the items in the data array. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_layer_element_array_a828c096f6e750eec65f59a86d0204e12}\index{FbxLayerElementArray@{FbxLayerElementArray}!Add@{Add}}
+\index{Add@{Add}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a828c096f6e750eec65f59a86d0204e12} 
+int Fbx\+Layer\+Element\+Array\+::\+Add (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{p\+Item}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Value\+Type}{}\end{DoxyParamCaption})}
+
+Appends a new item to the end of the data buffer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & Pointer of the new item to be added \\
+\hline
+{\em p\+Value\+Type} & Data type of the new item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the new item 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_aa7749da74c326ba0961f0a29a7ef2258}\index{FbxLayerElementArray@{FbxLayerElementArray}!Add@{Add}}
+\index{Add@{Add}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_aa7749da74c326ba0961f0a29a7ef2258} 
+template$<$class T$>$ \\
+int Fbx\+Layer\+Element\+Array\+::\+Add (\begin{DoxyParamCaption}\item[{T const \&}]{p\+Item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Appends a new item to the end of the data buffer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & The new item to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the new item 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_a4b65addf1035a5bc8928435da238b6e7}\index{FbxLayerElementArray@{FbxLayerElementArray}!AddMultiple@{AddMultiple}}
+\index{AddMultiple@{AddMultiple}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{AddMultiple()}{AddMultiple()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a4b65addf1035a5bc8928435da238b6e7} 
+bool Fbx\+Layer\+Element\+Array\+::\+Add\+Multiple (\begin{DoxyParamCaption}\item[{int}]{p\+Item\+Count}{, }\item[{EFbx\+Memory\+Clear\+Mode}]{p\+Initialize\+Mode}{ = {\ttfamily eClearToZero}}\end{DoxyParamCaption})}
+
+Appends space to the data buffer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item\+Count} & The appended space size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the operation is successful and {\ttfamily False} if an error occurred. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_a64ddf869251ef992f995a5bb9c16efcc}\index{FbxLayerElementArray@{FbxLayerElementArray}!CopyTo@{CopyTo}}
+\index{CopyTo@{CopyTo}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{CopyTo()}{CopyTo()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a64ddf869251ef992f995a5bb9c16efcc} 
+template$<$typename T$>$ \\
+void Fbx\+Layer\+Element\+Array\+::\+Copy\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ T $>$ \&}]{p\+Dst}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copies the items in the data buffer to an array. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Dst} & The destination array where the items are to be copied. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_layer_element_array_ad5075288db8274e13b13f14ec8414dec}\index{FbxLayerElementArray@{FbxLayerElementArray}!Find@{Find}}
+\index{Find@{Find}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{Find()}{Find()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_ad5075288db8274e13b13f14ec8414dec} 
+int Fbx\+Layer\+Element\+Array\+::\+Find (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{p\+Item}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Value\+Type}{}\end{DoxyParamCaption}) const}
+
+Searches for an item in the data buffer. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & The value of the item for which to search. \\
+\hline
+{\em p\+Value\+Type} & Data type of the item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the item found, -\/1 if not found. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The index of the first item whose value equals p\+Item is returned. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a8dcc42ae3b8a351a1d5204a416fe72de}\index{FbxLayerElementArray@{FbxLayerElementArray}!Find@{Find}}
+\index{Find@{Find}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{Find()}{Find()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a8dcc42ae3b8a351a1d5204a416fe72de} 
+template$<$class T$>$ \\
+int Fbx\+Layer\+Element\+Array\+::\+Find (\begin{DoxyParamCaption}\item[{T const \&}]{p\+Item}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches for an item in the data buffer. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & The value of the item for which to search. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the item found, -\/1 if not found. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The index of the first item whose value equals p\+Item is returned. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_aa4d2a9a111e4bc4d98c84a18efd65cbd}\index{FbxLayerElementArray@{FbxLayerElementArray}!FindAfter@{FindAfter}}
+\index{FindAfter@{FindAfter}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{FindAfter()}{FindAfter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_aa4d2a9a111e4bc4d98c84a18efd65cbd} 
+int Fbx\+Layer\+Element\+Array\+::\+Find\+After (\begin{DoxyParamCaption}\item[{int}]{p\+After\+Index}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{p\+Item}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Value\+Type}{}\end{DoxyParamCaption}) const}
+
+Searches for an item after the specified index in the data buffer. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+After\+Index} & The specified index after which the searching begins \\
+\hline
+{\em p\+Item} & The value of the item for which to search, the searching begins after p\+After\+Index. \\
+\hline
+{\em p\+Value\+Type} & Data type of the item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the item found, -\/1 if not found. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The index of the first item whose value equals p\+Item is returned. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a6f33a669f8e1d538ff753db1b9378dcc}\index{FbxLayerElementArray@{FbxLayerElementArray}!FindAfter@{FindAfter}}
+\index{FindAfter@{FindAfter}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{FindAfter()}{FindAfter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a6f33a669f8e1d538ff753db1b9378dcc} 
+template$<$class T$>$ \\
+int Fbx\+Layer\+Element\+Array\+::\+Find\+After (\begin{DoxyParamCaption}\item[{int}]{p\+After\+Index}{, }\item[{T const \&}]{p\+Item}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches for an item after the specified index in the data buffer. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+After\+Index} & The specified index after which the searching begins \\
+\hline
+{\em p\+Item} & The value of the item for which to search, the searching begins after p\+After\+Index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the item found, -\/1 if not found. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The index of the first item whose value equals p\+Item is returned. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a98daeb1cd39978cda3a4dd83b32e508d}\index{FbxLayerElementArray@{FbxLayerElementArray}!FindBefore@{FindBefore}}
+\index{FindBefore@{FindBefore}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{FindBefore()}{FindBefore()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a98daeb1cd39978cda3a4dd83b32e508d} 
+int Fbx\+Layer\+Element\+Array\+::\+Find\+Before (\begin{DoxyParamCaption}\item[{int}]{p\+Before\+Index}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{p\+Item}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Value\+Type}{}\end{DoxyParamCaption}) const}
+
+Searches for an item before the specified index in the data buffer. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Before\+Index} & The specified index before which the searching begins \\
+\hline
+{\em p\+Item} & The value of the item for which to search, the searching begins before p\+Before\+Index. \\
+\hline
+{\em p\+Value\+Type} & The item\textquotesingle{}s data type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the item found, -\/1 if not found. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The index of the first item whose value equals p\+Item is returned. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a4fa63bc33b1de09a7d1b8be32b84b06c}\index{FbxLayerElementArray@{FbxLayerElementArray}!FindBefore@{FindBefore}}
+\index{FindBefore@{FindBefore}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{FindBefore()}{FindBefore()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a4fa63bc33b1de09a7d1b8be32b84b06c} 
+template$<$class T$>$ \\
+int Fbx\+Layer\+Element\+Array\+::\+Find\+Before (\begin{DoxyParamCaption}\item[{int}]{p\+Before\+Index}{, }\item[{T const \&}]{p\+Item}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Searches for one item before the specified index in the data buffer. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Before\+Index} & The specified index before which the searching begins \\
+\hline
+{\em p\+Item} & The value of the item for which to search, the searching begins before p\+Before\+Index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the item found, -\/1 if not found. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The index of the first item whose value equals p\+Item is returned. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_abd796ea09c20089318a818cb73d2df05}\index{FbxLayerElementArray@{FbxLayerElementArray}!GetAt@{GetAt}}
+\index{GetAt@{GetAt}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{GetAt()}{GetAt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_abd796ea09c20089318a818cb73d2df05} 
+template$<$class T$>$ \\
+bool Fbx\+Layer\+Element\+Array\+::\+Get\+At (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{, }\item[{T \texorpdfstring{$\ast$}{*}}]{p\+Item}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the specified item\textquotesingle{}s value. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & Index of the item \\
+\hline
+{\em p\+Item} & Place to hold the item\textquotesingle{}s value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the item\textquotesingle{}s value is returned successfully, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+If the index is invalid, p\+Item is set to zero. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a4645b72542ad4745b54faa4e0e919878}\index{FbxLayerElementArray@{FbxLayerElementArray}!GetAt@{GetAt}}
+\index{GetAt@{GetAt}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{GetAt()}{GetAt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a4645b72542ad4745b54faa4e0e919878} 
+bool Fbx\+Layer\+Element\+Array\+::\+Get\+At (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{, }\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{p\+Item}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Value\+Type}{}\end{DoxyParamCaption}) const}
+
+Returns the specified item\textquotesingle{}s value. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & Index of the item \\
+\hline
+{\em p\+Item} & Place to hold the item\textquotesingle{}s value \\
+\hline
+{\em p\+Value\+Type} & Data type of the item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the item\textquotesingle{}s value is returned successfully, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+If the index is invalid, p\+Item is set to zero. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_ae6f77a98d976ed7afbb8c455f0d26437}\index{FbxLayerElementArray@{FbxLayerElementArray}!GetFirst@{GetFirst}}
+\index{GetFirst@{GetFirst}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{GetFirst()}{GetFirst()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_ae6f77a98d976ed7afbb8c455f0d26437} 
+template$<$class T$>$ \\
+bool Fbx\+Layer\+Element\+Array\+::\+Get\+First (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{p\+Item}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the first item\textquotesingle{}s value. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & Place to hold the item\textquotesingle{}s value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the item\textquotesingle{}s value is returned successfully, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_ad54e636bdab3dfb407cb0561ae6460e0}\index{FbxLayerElementArray@{FbxLayerElementArray}!GetFirst@{GetFirst}}
+\index{GetFirst@{GetFirst}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{GetFirst()}{GetFirst()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_ad54e636bdab3dfb407cb0561ae6460e0} 
+bool Fbx\+Layer\+Element\+Array\+::\+Get\+First (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{p\+Item}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Value\+Type}{}\end{DoxyParamCaption}) const}
+
+Returns the first item\textquotesingle{}s value. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & Place to hold the item\textquotesingle{}s value \\
+\hline
+{\em p\+Value\+Type} & Data type of the item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the item\textquotesingle{}s value is returned successfully, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_a151426ccb1c4c28550c637716fdb7b64}\index{FbxLayerElementArray@{FbxLayerElementArray}!GetLast@{GetLast}}
+\index{GetLast@{GetLast}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{GetLast()}{GetLast()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a151426ccb1c4c28550c637716fdb7b64} 
+template$<$class T$>$ \\
+bool Fbx\+Layer\+Element\+Array\+::\+Get\+Last (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{p\+Item}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the last item\textquotesingle{}s value. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & Place to hold the item\textquotesingle{}s value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the item\textquotesingle{}s value is returned successfully, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_a67aeb0dde8b3535d83dcf9eab97e78ae}\index{FbxLayerElementArray@{FbxLayerElementArray}!GetLast@{GetLast}}
+\index{GetLast@{GetLast}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{GetLast()}{GetLast()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a67aeb0dde8b3535d83dcf9eab97e78ae} 
+bool Fbx\+Layer\+Element\+Array\+::\+Get\+Last (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{p\+Item}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Value\+Type}{}\end{DoxyParamCaption}) const}
+
+Returns the last item\textquotesingle{}s value. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & Place to hold the item\textquotesingle{}s value \\
+\hline
+{\em p\+Value\+Type} & Data type of the item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the item\textquotesingle{}s value is returned successfully, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_a1e79f4398fc1736d52ff5a9ab9f453b2}\index{FbxLayerElementArray@{FbxLayerElementArray}!GetLocked@{GetLocked}}
+\index{GetLocked@{GetLocked}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{GetLocked()}{GetLocked()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a1e79f4398fc1736d52ff5a9ab9f453b2} 
+virtual void \texorpdfstring{$\ast$}{*} Fbx\+Layer\+Element\+Array\+::\+Get\+Locked (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_layer_element_array_a8968b1fb337f924d0e9ca87302b54d70}{ELock\+Mode}}}]{p\+Lock\+Mode}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Data\+Type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Grants a locked access to the data buffer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Lock\+Mode} & Access mode to the data buffer. \\
+\hline
+{\em p\+Data\+Type} & If defined, tries to return the data as this type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the data buffer or NULL if a failure occurs. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+In the case of a failure, the Status is updated with the reason for the failure. Also, when a type conversion occurs, a second buffer of the new type is allocated. In this case, the Lock\+Mode does not apply to the returned buffer since it is a copy but it does apply to the internal data of this object. The returned buffer still remains a property of this object and is deleted when the pointer is released or the object is destroyed. At the moment of release or destruction, the values in this buffer are copied back into this object. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_af7e163d36936cf8a513f58d383a4bae3}\index{FbxLayerElementArray@{FbxLayerElementArray}!GetLocked@{GetLocked}}
+\index{GetLocked@{GetLocked}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{GetLocked()}{GetLocked()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_af7e163d36936cf8a513f58d383a4bae3} 
+void \texorpdfstring{$\ast$}{*} Fbx\+Layer\+Element\+Array\+::\+Get\+Locked (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_layer_element_array_a8968b1fb337f924d0e9ca87302b54d70}{ELock\+Mode}}}]{p\+Lock\+Mode}{ = {\ttfamily eReadWriteLock}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Grants a locked access to the data buffer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Lock\+Mode} & Access mode to the data buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the data buffer or NULL if a failure occurs. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+In the case of a failure, the Status is updated with the reason for the failure. Also, when a type conversion occurs, a second buffer of the new type is allocated. In this case, the Lock\+Mode does not apply to the returned buffer since it is a copy but it does apply to the internal data of this object. The returned buffer still remains a property of this object and is deleted when the pointer is released or the object is destroyed. At the moment of release or destruction, the values in this buffer are copied back into this object. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a4b2f38e1093454303856deb7aed225b3}\index{FbxLayerElementArray@{FbxLayerElementArray}!GetLocked@{GetLocked}}
+\index{GetLocked@{GetLocked}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{GetLocked()}{GetLocked()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a4b2f38e1093454303856deb7aed225b3} 
+template$<$class T$>$ \\
+T \texorpdfstring{$\ast$}{*} Fbx\+Layer\+Element\+Array\+::\+Get\+Locked (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{}{, }\item[{\mbox{\hyperlink{class_fbx_layer_element_array_a8968b1fb337f924d0e9ca87302b54d70}{ELock\+Mode}}}]{p\+Lock\+Mode}{ = {\ttfamily eReadWriteLock}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Grants a locked access to the data buffer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Lock\+Mode} & Access mode to the data buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the data buffer or NULL if a failure occurs. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+In the case of a failure, the Status is updated with the reason for the failure. Also, when a type conversion occurs, a second buffer of the new type is allocated. In this case, the Lock\+Mode does not apply to the returned buffer since it is a copy but it does apply to the internal data of this object. The returned buffer still remains a property of this object and is deleted when the pointer is released or the object is destroyed. At the moment of release or destruction, the values in this buffer are copied back into this object. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a2d832cc56fee7d1c1254e88e689f1eda}\index{FbxLayerElementArray@{FbxLayerElementArray}!GetReadLockCount@{GetReadLockCount}}
+\index{GetReadLockCount@{GetReadLockCount}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{GetReadLockCount()}{GetReadLockCount()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a2d832cc56fee7d1c1254e88e689f1eda} 
+int Fbx\+Layer\+Element\+Array\+::\+Get\+Read\+Lock\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Retrieves the read lock count. \begin{DoxyReturn}{Returns}
+The read lock count. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_aca7d58691bf2276171658a6dc382a511}\index{FbxLayerElementArray@{FbxLayerElementArray}!GetStride@{GetStride}}
+\index{GetStride@{GetStride}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{GetStride()}{GetStride()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_aca7d58691bf2276171658a6dc382a511} 
+virtual size\+\_\+t Fbx\+Layer\+Element\+Array\+::\+Get\+Stride (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Returns the Stride size which equals the size of the data type of the data buffer. \Hypertarget{class_fbx_layer_element_array_ac781bfbc43232bde51bbf04ab543cd13}\index{FbxLayerElementArray@{FbxLayerElementArray}!InsertAt@{InsertAt}}
+\index{InsertAt@{InsertAt}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{InsertAt()}{InsertAt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_ac781bfbc43232bde51bbf04ab543cd13} 
+int Fbx\+Layer\+Element\+Array\+::\+Insert\+At (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{p\+Item}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Value\+Type}{}\end{DoxyParamCaption})}
+
+Inserts a new item at the specified position of the data buffer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The specified position \\
+\hline
+{\em p\+Item} & Pointer of the new item to be inserted \\
+\hline
+{\em p\+Value\+Type} & Data type of the new item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the inserted item 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The input index must be within valid range and no error will be thrown if it is invalid. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_accb9ce84c47d2a2f1a8c5e9967ef1f23}\index{FbxLayerElementArray@{FbxLayerElementArray}!InsertAt@{InsertAt}}
+\index{InsertAt@{InsertAt}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{InsertAt()}{InsertAt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_accb9ce84c47d2a2f1a8c5e9967ef1f23} 
+template$<$class T$>$ \\
+int Fbx\+Layer\+Element\+Array\+::\+Insert\+At (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{, }\item[{T const \&}]{p\+Item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Inserts a new item at the specified position of the data buffer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The specified position \\
+\hline
+{\em p\+Item} & The new item to be inserted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the inserted item 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The input index must be within valid range and no error will be thrown if it is invalid. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a3e34cd89f4c2becbf6d114ac08de40ce}\index{FbxLayerElementArray@{FbxLayerElementArray}!IsEqual@{IsEqual}}
+\index{IsEqual@{IsEqual}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{IsEqual()}{IsEqual()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a3e34cd89f4c2becbf6d114ac08de40ce} 
+bool Fbx\+Layer\+Element\+Array\+::\+Is\+Equal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_layer_element_array}{Fbx\+Layer\+Element\+Array}} \&}]{p\+Array}{}\end{DoxyParamCaption}) const}
+
+Equivalence operator 
+\begin{DoxyParams}{Parameters}
+{\em p\+Array} & Array compared to this one \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if equal. {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_a83e174dd9818d314a274bd87f7b9aa38}\index{FbxLayerElementArray@{FbxLayerElementArray}!IsInUse@{IsInUse}}
+\index{IsInUse@{IsInUse}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{IsInUse()}{IsInUse()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a83e174dd9818d314a274bd87f7b9aa38} 
+bool Fbx\+Layer\+Element\+Array\+::\+Is\+In\+Use (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns whether this Array is accessed in any way. \begin{DoxyReturn}{Returns}
+{\ttfamily True} if it is in use, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_a16cf9a248965cbe26d932c3fb6869c85}\index{FbxLayerElementArray@{FbxLayerElementArray}!IsWriteLocked@{IsWriteLocked}}
+\index{IsWriteLocked@{IsWriteLocked}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{IsWriteLocked()}{IsWriteLocked()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a16cf9a248965cbe26d932c3fb6869c85} 
+bool Fbx\+Layer\+Element\+Array\+::\+Is\+Write\+Locked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns whether write is locked. \begin{DoxyReturn}{Returns}
+{\ttfamily True} if write is locked, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_afb3f283bed4e92d60488f582bd58bf80}\index{FbxLayerElementArray@{FbxLayerElementArray}!ReadLock@{ReadLock}}
+\index{ReadLock@{ReadLock}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{ReadLock()}{ReadLock()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_afb3f283bed4e92d60488f582bd58bf80} 
+int Fbx\+Layer\+Element\+Array\+::\+Read\+Lock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Increments the number of read locks on this array. \begin{DoxyReturn}{Returns}
+The current number of read locks (including the one just grabbed) or 0 if a write lock is active. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_a75a18c8aecb5dc8c68c05c02bd54d7f4}\index{FbxLayerElementArray@{FbxLayerElementArray}!ReadUnlock@{ReadUnlock}}
+\index{ReadUnlock@{ReadUnlock}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{ReadUnlock()}{ReadUnlock()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a75a18c8aecb5dc8c68c05c02bd54d7f4} 
+int Fbx\+Layer\+Element\+Array\+::\+Read\+Unlock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Releases a read lock on this array. \begin{DoxyReturn}{Returns}
+The remaining read locks or -\/1 if a write lock is active. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_ab4293e9a5089b1bccdb2843ee6ff30fb}\index{FbxLayerElementArray@{FbxLayerElementArray}!ReadWriteLock@{ReadWriteLock}}
+\index{ReadWriteLock@{ReadWriteLock}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{ReadWriteLock()}{ReadWriteLock()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_ab4293e9a5089b1bccdb2843ee6ff30fb} 
+bool Fbx\+Layer\+Element\+Array\+::\+Read\+Write\+Lock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Locks this array for writing. The data that already exists in the array is kept and is valid. \begin{DoxyReturn}{Returns}
+{\ttfamily True} if a write lock has been successfully granted, {\ttfamily false} if one or more read locks are active. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_a172d8f3872d50f7dfcdfd8f446cdcf3c}\index{FbxLayerElementArray@{FbxLayerElementArray}!ReadWriteUnlock@{ReadWriteUnlock}}
+\index{ReadWriteUnlock@{ReadWriteUnlock}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{ReadWriteUnlock()}{ReadWriteUnlock()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a172d8f3872d50f7dfcdfd8f446cdcf3c} 
+void Fbx\+Layer\+Element\+Array\+::\+Read\+Write\+Unlock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Releases the write lock on this array. \Hypertarget{class_fbx_layer_element_array_a1d83bb3361cec99c394596a6bee95bb2}\index{FbxLayerElementArray@{FbxLayerElementArray}!Release@{Release}}
+\index{Release@{Release}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{Release()}{Release()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a1d83bb3361cec99c394596a6bee95bb2} 
+template$<$class T$>$ \\
+void Fbx\+Layer\+Element\+Array\+::\+Release (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{p\+Data\+Ptr}{, }\item[{T \texorpdfstring{$\ast$}{*}}]{dummy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unlock the data buffer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Data\+Ptr} & The buffer to be released. \\
+\hline
+{\em dummy} & The data type of dummy is used to specialize this function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The passed pointer must be the one obtained by the call to \doxylink{class_fbx_layer_element_array_a1e79f4398fc1736d52ff5a9ab9f453b2}{Get\+Locked()}. Any other pointer causes this method to fail and the Status is updated with the reason for the failure. If the passed pointer refers a converted data buffer (see comment of Get\+Locked), this method copies the \doxylink{class_fbx_layer_element_array_acd195095246f6d886d55fd0aa7129b2d}{Get\+Count()} items of the received buffer back into this object. Any other items that may have been added using a realloc call are ignored. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a9706ee3edb65ea08c7b95b5c83224371}\index{FbxLayerElementArray@{FbxLayerElementArray}!Release@{Release}}
+\index{Release@{Release}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{Release()}{Release()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a9706ee3edb65ea08c7b95b5c83224371} 
+void Fbx\+Layer\+Element\+Array\+::\+Release (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{p\+Data\+Ptr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Unlock the data buffer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Data\+Ptr} & The buffer to be released. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The passed pointer must be the one obtained by the call to \doxylink{class_fbx_layer_element_array_a1e79f4398fc1736d52ff5a9ab9f453b2}{Get\+Locked()}. Any other pointer causes this method to fail and the Status is updated with the reason for the failure. If the passed pointer refers a converted data buffer (see comment of Get\+Locked), this method copies the \doxylink{class_fbx_layer_element_array_acd195095246f6d886d55fd0aa7129b2d}{Get\+Count()} items of the received buffer back into this object. Any other items that may have been added using a realloc call are ignored. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a574fce5860ae84a77c15d18bf3a2cd87}\index{FbxLayerElementArray@{FbxLayerElementArray}!Release@{Release}}
+\index{Release@{Release}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{Release()}{Release()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a574fce5860ae84a77c15d18bf3a2cd87} 
+virtual void Fbx\+Layer\+Element\+Array\+::\+Release (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{p\+Data\+Ptr}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Data\+Type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Unlock the data buffer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Data\+Ptr} & The buffer to be released. \\
+\hline
+{\em p\+Data\+Type} & The data type of the data buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The passed pointer must be the one obtained by the call to \doxylink{class_fbx_layer_element_array_a1e79f4398fc1736d52ff5a9ab9f453b2}{Get\+Locked()}. Any other pointer causes this method to fail and the Status is updated with the reason for the failure. If the passed pointer refers a converted data buffer (see comment of Get\+Locked), this method copies the \doxylink{class_fbx_layer_element_array_acd195095246f6d886d55fd0aa7129b2d}{Get\+Count()} items of the received buffer back into this object. Any other items that may have been added using a realloc call are ignored. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a52b3592f2af5c98cf5eaa7e78b6a9c9b}\index{FbxLayerElementArray@{FbxLayerElementArray}!RemoveAt@{RemoveAt}}
+\index{RemoveAt@{RemoveAt}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{RemoveAt()}{RemoveAt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a52b3592f2af5c98cf5eaa7e78b6a9c9b} 
+template$<$class T$>$ \\
+void Fbx\+Layer\+Element\+Array\+::\+Remove\+At (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{, }\item[{T \texorpdfstring{$\ast$}{*}}]{p\+Item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Removes the specified item from the data buffer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The index of the item to be removed ~\newline
+ \\
+\hline
+{\em p\+Item} & Place to hold the value of the removed item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The input index must be within valid range and no error will be thrown if it is invalid. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a70d291c84318eea45de6656b37b1c8c5}\index{FbxLayerElementArray@{FbxLayerElementArray}!RemoveAt@{RemoveAt}}
+\index{RemoveAt@{RemoveAt}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{RemoveAt()}{RemoveAt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a70d291c84318eea45de6656b37b1c8c5} 
+void Fbx\+Layer\+Element\+Array\+::\+Remove\+At (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{, }\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{p\+Item}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Value\+Type}{}\end{DoxyParamCaption})}
+
+Removes the specified item from the data buffer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The index of the item to be removed ~\newline
+ \\
+\hline
+{\em p\+Item} & Place to hold the value of the removed item. \\
+\hline
+{\em p\+Value\+Type} & Data type of the item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The input index must be within valid range and no error will be thrown if it is invalid. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_aca2bacda1beff3b7da61ed290a53cb19}\index{FbxLayerElementArray@{FbxLayerElementArray}!RemoveIt@{RemoveIt}}
+\index{RemoveIt@{RemoveIt}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{RemoveIt()}{RemoveIt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_aca2bacda1beff3b7da61ed290a53cb19} 
+template$<$class T$>$ \\
+bool Fbx\+Layer\+Element\+Array\+::\+Remove\+It (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{p\+Item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Removes one item from the data buffer. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & The first item who equals p\+Item is to be removed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the item is removed successfully, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_a759b4eac1b85286b6eae39b588eb74ad}\index{FbxLayerElementArray@{FbxLayerElementArray}!RemoveIt@{RemoveIt}}
+\index{RemoveIt@{RemoveIt}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{RemoveIt()}{RemoveIt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a759b4eac1b85286b6eae39b588eb74ad} 
+bool Fbx\+Layer\+Element\+Array\+::\+Remove\+It (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{p\+Item}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Value\+Type}{}\end{DoxyParamCaption})}
+
+Removes one item from the data buffer. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & The first item who equals p\+Item is to be removed \\
+\hline
+{\em p\+Value\+Type} & Data type of the item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the item is removed successfully, {\ttfamily false} otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_a33eabc8ad1f5a95f5238a81293728717}\index{FbxLayerElementArray@{FbxLayerElementArray}!RemoveLast@{RemoveLast}}
+\index{RemoveLast@{RemoveLast}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{RemoveLast()}{RemoveLast()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a33eabc8ad1f5a95f5238a81293728717} 
+template$<$class T$>$ \\
+void Fbx\+Layer\+Element\+Array\+::\+Remove\+Last (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{p\+Item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Removes the last item from the data buffer. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & Place to hold the value of the removed item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The array should contain at least one item and no error will be thrown if it is empty. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a928f848275334427d958c996e10e2535}\index{FbxLayerElementArray@{FbxLayerElementArray}!RemoveLast@{RemoveLast}}
+\index{RemoveLast@{RemoveLast}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{RemoveLast()}{RemoveLast()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a928f848275334427d958c996e10e2535} 
+void Fbx\+Layer\+Element\+Array\+::\+Remove\+Last (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{p\+Item}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Value\+Type}{}\end{DoxyParamCaption})}
+
+Removes the last item from the data buffer. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & Place to hold the value of the removed item. \\
+\hline
+{\em p\+Value\+Type} & Data type of the item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The array should contain at least one item and no error will be thrown if it is empty. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_aa06c30cbfee039f4d081b493baeaab4b}\index{FbxLayerElementArray@{FbxLayerElementArray}!Resize@{Resize}}
+\index{Resize@{Resize}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{Resize()}{Resize()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_aa06c30cbfee039f4d081b493baeaab4b} 
+bool Fbx\+Layer\+Element\+Array\+::\+Resize (\begin{DoxyParamCaption}\item[{int}]{p\+Item\+Count}{, }\item[{EFbx\+Memory\+Clear\+Mode}]{p\+Initialize\+Mode}{ = {\ttfamily eClearToZero}}\end{DoxyParamCaption})}
+
+Resizes the data buffer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item\+Count} & The new size of the data buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the operation is successful and {\ttfamily False} if an error occurred. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_a12fea380179191ef325696045a60d6f9}\index{FbxLayerElementArray@{FbxLayerElementArray}!SetAt@{SetAt}}
+\index{SetAt@{SetAt}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{SetAt()}{SetAt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a12fea380179191ef325696045a60d6f9} 
+void Fbx\+Layer\+Element\+Array\+::\+Set\+At (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{p\+Item}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Value\+Type}{}\end{DoxyParamCaption})}
+
+Sets the value for the specified item. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The index of the item to be updated. \\
+\hline
+{\em p\+Item} & Pointer of the item whose value is copied to p\+Index\textquotesingle{}th item \\
+\hline
+{\em p\+Value\+Type} & Data type of the item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The input index must be within valid range and no error will be thrown if it is invalid. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a9fae68bbccd7e41b8047c62d18fa8cce}\index{FbxLayerElementArray@{FbxLayerElementArray}!SetAt@{SetAt}}
+\index{SetAt@{SetAt}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{SetAt()}{SetAt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a9fae68bbccd7e41b8047c62d18fa8cce} 
+template$<$class T$>$ \\
+void Fbx\+Layer\+Element\+Array\+::\+Set\+At (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{, }\item[{T const \&}]{p\+Item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the value of the specified item. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The index of the item to be updated. \\
+\hline
+{\em p\+Item} & The item whose value is copied to p\+Index\textquotesingle{}th item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The input index must be within valid range and no error will be thrown if it is invalid. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a583594fc8b9c765a13b02f8c91c5d034}\index{FbxLayerElementArray@{FbxLayerElementArray}!SetCount@{SetCount}}
+\index{SetCount@{SetCount}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{SetCount()}{SetCount()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a583594fc8b9c765a13b02f8c91c5d034} 
+bool Fbx\+Layer\+Element\+Array\+::\+Set\+Count (\begin{DoxyParamCaption}\item[{int}]{p\+Count}{, }\item[{EFbx\+Memory\+Clear\+Mode}]{p\+Initialize\+Mode}{ = {\ttfamily eClearToZero}}\end{DoxyParamCaption})}
+
+Sets the count of items in the data buffer. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Count} & The count of items to be set. \\
+\hline
+{\em p\+Initialize\+Mode} & Whether to clear the memory of any newly created items. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the operation is successful and {\ttfamily False} if an error occurred. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_a05706c8479fb3d84325a41464d7fa9dd}\index{FbxLayerElementArray@{FbxLayerElementArray}!SetLast@{SetLast}}
+\index{SetLast@{SetLast}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{SetLast()}{SetLast()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a05706c8479fb3d84325a41464d7fa9dd} 
+void Fbx\+Layer\+Element\+Array\+::\+Set\+Last (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{p\+Item}{, }\item[{\mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbx\+Type}}}]{p\+Value\+Type}{}\end{DoxyParamCaption})}
+
+Sets the value of the last item. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & Pointer of the item whose value is copied to the last item \\
+\hline
+{\em p\+Value\+Type} & Data type of the item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The array should contain at least one item and no error will be thrown if it is empty. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_aebc103a4f95690e6aef3961b6198df3d}\index{FbxLayerElementArray@{FbxLayerElementArray}!SetLast@{SetLast}}
+\index{SetLast@{SetLast}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{SetLast()}{SetLast()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_aebc103a4f95690e6aef3961b6198df3d} 
+template$<$class T$>$ \\
+void Fbx\+Layer\+Element\+Array\+::\+Set\+Last (\begin{DoxyParamCaption}\item[{T const \&}]{p\+Item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the value of the last item. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Item} & The item whose value is copied to the last item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The array should contain at least one item and no error will be thrown if it is empty. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_layer_element_array_a828b1e27e5025c726bdc15b983522e4e}\index{FbxLayerElementArray@{FbxLayerElementArray}!WriteLock@{WriteLock}}
+\index{WriteLock@{WriteLock}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{WriteLock()}{WriteLock()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a828b1e27e5025c726bdc15b983522e4e} 
+bool Fbx\+Layer\+Element\+Array\+::\+Write\+Lock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Locks this array for writing. The data in the array is wiped out. \begin{DoxyReturn}{Returns}
+{\ttfamily True} if a write lock has been successfully granted, {\ttfamily false} if one or more read locks are active. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_layer_element_array_a519b1b44abd526e00c6ee9e4f3a38e2d}\index{FbxLayerElementArray@{FbxLayerElementArray}!WriteUnlock@{WriteUnlock}}
+\index{WriteUnlock@{WriteUnlock}!FbxLayerElementArray@{FbxLayerElementArray}}
+\doxysubsubsection{\texorpdfstring{WriteUnlock()}{WriteUnlock()}}
+{\footnotesize\ttfamily \label{class_fbx_layer_element_array_a519b1b44abd526e00c6ee9e4f3a38e2d} 
+void Fbx\+Layer\+Element\+Array\+::\+Write\+Unlock (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Releases the write lock on this array. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/scene/geometry/\mbox{\hyperlink{fbxlayer_8h}{fbxlayer.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,526 @@
+\doxysection{fbxarray.\+h}
+\hypertarget{fbxarray_8h_source}{}\label{fbxarray_8h_source}\index{include/fbx/fbxsdk/core/base/fbxarray.h@{include/fbx/fbxsdk/core/base/fbxarray.h}}
+\mbox{\hyperlink{fbxarray_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2017\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_BASE\_ARRAY\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_BASE\_ARRAY\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_COMPILER\_MSC)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ warning(\ push\ )}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ warning(\ disable\ :\ 4201\ )\ }\textcolor{comment}{//\ nonstandard\ extension\ used:\ nameless\ struct/union}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifdef\ THROW\_EXCEPTIONS}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_THROW(x)\ throw\ std::runtime\_error(x)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_ARRAY\_INLINE\ \_\_forceinline}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_THROW(x)\ FBX\_ASSERT\_NOW(x)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBX\_ARRAY\_INLINE\ inline}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T,\ const\ \textcolor{keywordtype}{int}\ Alignment\ =\ 16>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_array_a006b4a9076135b9e9d1a3bc3cc24bf4d}{FbxArray}}}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_array_1_1t_data}{tData}}\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ mSize;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ mCapacity;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ Padding[Alignment];}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ T\ \ \ \ \mbox{\hyperlink{struct_fbx_array_1_1t_data_a51b2609d3a37c624f9140977cb54bf9a}{mArray}}[15];\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \}\ *mData;}
+\DoxyCodeLine{00050\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{typedef}\ int\ (*\mbox{\hyperlink{class_fbx_array_a377daf7143bb378a9458456c25d903a6}{CompareFunc}})(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_fbx_array_a006b4a9076135b9e9d1a3bc3cc24bf4d}{FbxArray}}()\ :\ mData(NULL)\{\}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{class_fbx_array_a5b7d0848d8d853a58b8d1dc01a1a9119}{FbxArray}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pCapacity)\ :\ mData(NULL)\{\ \textcolor{keywordflow}{if}(\ pCapacity\ >\ 0\ )\ \mbox{\hyperlink{class_fbx_array_ad6c56df8723a46a8551cb83d143599f2}{Reserve}}(pCapacity);\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_fbx_array_a7dec0990f0403e8f62290a8da67660e5}{FbxArray}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_array_a006b4a9076135b9e9d1a3bc3cc24bf4d}{FbxArray}}\&\ pArray)\ :\ mData(NULL)\{\ *\textcolor{keyword}{this}\ =\ pArray;\ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_fbx_array_ac07e76028f49d8208b607a95b74a126a}{\string~FbxArray}}()\{\ \mbox{\hyperlink{class_fbx_array_a5ffc520c7803d552333d2ea27e4f4cf3}{Clear}}();\ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_array_abe27ea8c62ff35f231103b8cde65b443}{InsertAt}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keyword}{const}\ T\&\ pElement,\ \textcolor{keywordtype}{bool}\ pCompact=\textcolor{keyword}{false})}
+\DoxyCodeLine{00074\ \ \ \ \ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN\_VALUE(pIndex\ >=\ 0,\ -\/1);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lIndex\ =\ FbxMin(pIndex,\ GetSize());}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ GetSize()\ >=\ GetCapacity()\ )}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ T\ lElement\ =\ pElement;\ \ \ \ \textcolor{comment}{//Copy\ element\ because\ we\ might\ move\ memory}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lNewCapacity\ =\ FbxMax(pCompact\ ?\ GetCapacity()\ +\ 1\ :\ GetCapacity()\ *\ 2,\ 1);\ \ \ \ \textcolor{comment}{//We\ always\ double\ capacity\ when\ not\ compacting}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ Allocate(lNewCapacity);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN\_VALUE(mData,\ -\/1);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ mData-\/>mCapacity\ =\ lNewCapacity;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_array_abe27ea8c62ff35f231103b8cde65b443}{InsertAt}}(pIndex,\ lElement);\ \ \ \ \textcolor{comment}{//Insert\ copied\ element\ because\ reference\ might\ be\ moved}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lIndex\ <\ GetSize()\ )\ \ \ \ \textcolor{comment}{//Move\ elements\ to\ leave\ a\ space\ open\ to\ insert\ the\ new\ element}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//If\ pElement\ is\ inside\ memmove\ range,\ copy\ element\ and\ insert\ copy\ instead}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ (\&pElement\ >=\ \&\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[lIndex])\ \&\&\ (\&pElement\ <\ \&\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[GetSize()])\ )}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ lElement\ =\ pElement;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_array_abe27ea8c62ff35f231103b8cde65b443}{InsertAt}}(pIndex,\ lElement);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ memmove(\&\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[lIndex\ +\ 1],\ \&\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[lIndex],\ (GetSize()\ -\/\ lIndex)\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ memcpy(\&\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[lIndex],\ \&pElement,\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ mData-\/>mSize++;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lIndex;}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_array_add84f40fedd645b6e464ff6c2554802a}{Add}}(\textcolor{keyword}{const}\ T\&\ pElement)}
+\DoxyCodeLine{00109\ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lIndex\ =\ GetSize();}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lIndex\ >=\ GetCapacity())}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ T\ lElement\ =\ pElement;\ \ \ \ \textcolor{comment}{//Copy\ element\ because\ we\ might\ move\ memory}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lNewCapacity\ =\ FbxMax(GetCapacity()\ *\ 2,\ 1);\ \ \ \ \textcolor{comment}{//We\ always\ double\ capacity}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ Allocate(lNewCapacity);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN\_VALUE(mData,\ -\/1);}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ mData-\/>mCapacity\ =\ lNewCapacity;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_array_add84f40fedd645b6e464ff6c2554802a}{Add}}(lElement);\ \ \ \ \textcolor{comment}{//Insert\ copied\ element\ because\ reference\ might\ be\ moved}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ memcpy(\&\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[lIndex],\ \&pElement,\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ mData-\/>mSize++;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lIndex;}
+\DoxyCodeLine{00126\ \ \ \ \ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_array_a9f1e5b1cc6ece1bdf217ac845c1fb749}{AddUnique}}(\textcolor{keyword}{const}\ T\&\ pElement)}
+\DoxyCodeLine{00132\ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lIndex\ =\ \mbox{\hyperlink{class_fbx_array_a8cff28d57d692635b4c5201ec97f62db}{Find}}(pElement);}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\ lIndex\ ==\ -\/1\ )\ ?\ \mbox{\hyperlink{class_fbx_array_add84f40fedd645b6e464ff6c2554802a}{Add}}(pElement)\ :\ lIndex;}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_array_a619caa4e5f17dab66a19299de1cb45d2}{AddCompact}}(\textcolor{keyword}{const}\ T\&\ pElement)}
+\DoxyCodeLine{00141\ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_array_abe27ea8c62ff35f231103b8cde65b443}{InsertAt}}(GetSize(),\ pElement,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_array_a43006702c6e479cb04fb592d9ec44486}{Size}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ GetSize();\ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_array_ae5e9632b568030e072758b4d06dab244}{Capacity}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ GetCapacity();\ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00159\ \ \ \ \ FBX\_ARRAY\_INLINE\ T\&\ \mbox{\hyperlink{class_fbx_array_a64d378c0e748c34889324f4ef63eadac}{operator[]}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00160\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pIndex\ <\ 0)}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_THROW(\textcolor{stringliteral}{"{}Index\ is\ out\ of\ range!"{}});}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pIndex\ >=\ GetSize())}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pIndex\ <\ GetCapacity())}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_THROW(\textcolor{stringliteral}{"{}Index\ is\ out\ of\ range,\ but\ not\ outside\ of\ capacity!\ Call\ SetAt()\ to\ use\ reserved\ memory."{}});}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_THROW(\textcolor{stringliteral}{"{}Index\ is\ out\ of\ range!"{}});}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[pIndex];}
+\DoxyCodeLine{00177\ \ \ \ \ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{class_fbx_array_a2dd97adf1d76dac4b25bdfef1c104fe6}{GetAt}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00184\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_array_a64d378c0e748c34889324f4ef63eadac}{operator[]}}(pIndex);}
+\DoxyCodeLine{00186\ \ \ \ \ \}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{class_fbx_array_a8b3e98f463aeeb2a4aa48698e6444fe2}{GetFirst}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00192\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_array_a2dd97adf1d76dac4b25bdfef1c104fe6}{GetAt}}(0);}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{class_fbx_array_a45c4602332134b89b6fbdb09a02986cf}{GetLast}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00200\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_array_a2dd97adf1d76dac4b25bdfef1c104fe6}{GetAt}}(GetSize()\ -\/\ 1);}
+\DoxyCodeLine{00202\ \ \ \ \ \}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_array_a8cff28d57d692635b4c5201ec97f62db}{Find}}(\textcolor{keyword}{const}\ T\&\ pElement,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pStartIndex\ =\ 0)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00209\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size\ =\ GetSize();}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN\_VALUE(pStartIndex\ >=\ 0,\ -\/1);}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN\_VALUE(size\ >=\ 0,\ -\/1);}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ pStartIndex;\ i\ <\ size;\ ++i)}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[i]\ ==\ pElement)\ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00220\ \ \ \ \ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_array_a6bc5e95609f41390261936a70edfa9a2}{FindReverse}}(\textcolor{keyword}{const}\ T\&\ pElement,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pStartIndex\ =\ FBXSDK\_INT\_MAX)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00227\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size\ =\ GetSize();}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN\_VALUE(size\ >\ 0,\ -\/1);}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ FbxMin(pStartIndex,\ size\ -\/\ 1);\ i\ >=\ 0;\ -\/-\/i)}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[i]\ ==\ pElement)\ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00237\ \ \ \ \ \}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_array_ad6c56df8723a46a8551cb83d143599f2}{Reserve}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pCapacity)}
+\DoxyCodeLine{00244\ \ \ \ \ \{}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN\_VALUE(pCapacity\ >=\ 0,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pCapacity\ >\ GetCapacity()\ )}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ Allocate(pCapacity);}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN\_VALUE(mData,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ mData-\/>mCapacity\ =\ pCapacity;}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Initialize\ new\ memory\ to\ zero}}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ memset(\&\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[GetSize()],\ 0,\ (GetCapacity()\ -\/\ GetSize())\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00256\ \ \ \ \ \}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_array_a1731c6ddd047c4593ba77b725f6caad3}{SetAt}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keyword}{const}\ T\&\ pElement)}
+\DoxyCodeLine{00264\ \ \ \ \ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN(pIndex\ >=\ 0\ \&\&\ pIndex\ <\ GetCapacity());}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pIndex\ >=\ GetSize()\ )\ mData-\/>mSize\ =\ pIndex\ +\ 1;}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ T*\ \textcolor{keyword}{const}\ array\ =\ \mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}();}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (array)\ memcpy(\&array[pIndex],\ \&pElement,\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00270\ \ \ \ \ \}}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_array_ad1a54d6da4978371a6fbdc7f1028ebed}{SetFirst}}(\textcolor{keyword}{const}\ T\&\ pElement)}
+\DoxyCodeLine{00276\ \ \ \ \ \{}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array_a1731c6ddd047c4593ba77b725f6caad3}{SetAt}}(0,\ pElement);}
+\DoxyCodeLine{00278\ \ \ \ \ \}}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_array_a1580e7f23b8b35d28a0325cedd37e12c}{SetLast}}(\textcolor{keyword}{const}\ T\&\ pElement)}
+\DoxyCodeLine{00284\ \ \ \ \ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array_a1731c6ddd047c4593ba77b725f6caad3}{SetAt}}(GetSize()\ -\/\ 1,\ pElement);}
+\DoxyCodeLine{00286\ \ \ \ \ \}}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00292\ \ \ \ \ FBX\_ARRAY\_INLINE\ T\ \mbox{\hyperlink{class_fbx_array_a542f9299d2200410f27a8b51090131a1}{RemoveAt}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex)}
+\DoxyCodeLine{00293\ \ \ \ \ \{}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size\ =\ GetSize();}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ index\ =\ pIndex\ +\ 1;}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ <\ 0\ ||\ index\ >\ size)}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_THROW(\textcolor{stringliteral}{"{}Index\ is\ out\ of\ range!"{}});}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ T\ lElement\ =\ \mbox{\hyperlink{class_fbx_array_a2dd97adf1d76dac4b25bdfef1c104fe6}{GetAt}}(pIndex);}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ <\ size)}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ memmove(\&\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[pIndex],\ \&\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[index],\ (size\ -\/\ pIndex\ -\/\ 1)\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ mData-\/>mSize-\/-\/;}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lElement;}
+\DoxyCodeLine{00308\ \ \ \ \ \}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{class_fbx_array_abca861f83a6e5164bb0ac3ff4a50bd52}{RemoveFirst}}()}
+\DoxyCodeLine{00314\ \ \ \ \ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_array_a542f9299d2200410f27a8b51090131a1}{RemoveAt}}(0);}
+\DoxyCodeLine{00316\ \ \ \ \ \}}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keyword}{inline}\ T\ \mbox{\hyperlink{class_fbx_array_a39496cf9ac1c5192febf540d94fbaca0}{RemoveLast}}()}
+\DoxyCodeLine{00322\ \ \ \ \ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_array_a542f9299d2200410f27a8b51090131a1}{RemoveAt}}(GetSize()\ -\/\ 1);}
+\DoxyCodeLine{00324\ \ \ \ \ \}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00329\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_array_aaabbd5cf90fdbfb30ada53b1ec6047ae}{RemoveIt}}(\textcolor{keyword}{const}\ T\&\ pElement)}
+\DoxyCodeLine{00330\ \ \ \ \ \{}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ Index\ =\ \mbox{\hyperlink{class_fbx_array_a8cff28d57d692635b4c5201ec97f62db}{Find}}(pElement);}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ Index\ >=\ 0\ )}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array_a542f9299d2200410f27a8b51090131a1}{RemoveAt}}(Index);}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00338\ \ \ \ \ \}}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_array_a380e238ec9b2d685e30bfba6a8a3cfe0}{RemoveRange}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pCount)}
+\DoxyCodeLine{00346\ \ \ \ \ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size\ =\ GetSize();}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ ==\ 0)}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ array\ is\ already\ empty\ (or\ not\ allocated\ yet)}}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ no\ point\ in\ continuing}}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()\ !=\ NULL);}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN(pCount\ >\ \ 0);}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN(pIndex\ >=\ 0);}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ lastItem\ =\ (size\_t)pIndex\ +\ (\textcolor{keywordtype}{size\_t})pCount;}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN(lastItem\ >=\ 0);}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN(lastItem\ <=\ (\textcolor{keywordtype}{size\_t})size);}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN(lastItem\ <\ FBXSDK\_INT\_MAX);}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lastItem\ <\ (\textcolor{keywordtype}{size\_t})size)}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ memmove(\&\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[pIndex],\ \&\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[pIndex\ +\ pCount],\ (size\ -\/\ pIndex\ -\/\ pCount)\ *\ (\textcolor{keywordtype}{unsigned})\textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mData)}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ mData-\/>mSize\ -\/=\ pCount;}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00371\ \ \ \ \ \}}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_array_a7980711027c870ce16dd92cf059e12a7}{ResizeUninitialized}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pSize,\ \textcolor{keywordtype}{bool}\ pPreserveCapacityIfPossible\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00379\ \ \ \ \ \{}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pSize\ ==\ GetSize()\ \&\&\ GetSize()\ ==\ GetCapacity()\ )\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pSize\ ==\ 0\ )}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array_a5ffc520c7803d552333d2ea27e4f4cf3}{Clear}}();}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN\_VALUE(pSize\ >\ 0,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lReallocate;}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pPreserveCapacityIfPossible)}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ lReallocate\ =\ pSize\ >\ GetCapacity();}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ lReallocate\ =\ pSize\ !=\ GetCapacity();}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lReallocate)}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ Allocate(pSize);}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN\_VALUE(mData,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ mData-\/>mCapacity\ =\ pSize;}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ mData-\/>mSize\ =\ pSize;}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00405\ \ \ \ \ \}}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00412\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_array_aeda7638d145ee1b228edecf933ecd033}{Resize}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pSize,\ \textcolor{keywordtype}{bool}\ pPreserveCapacityIfPossible\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00413\ \ \ \ \ \{}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pSize\ ==\ GetSize()\ \&\&\ GetSize()\ ==\ GetCapacity())\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pSize\ ==\ 0)}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array_a5ffc520c7803d552333d2ea27e4f4cf3}{Clear}}();}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN\_VALUE(pSize\ >\ 0,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lReallocate;}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pPreserveCapacityIfPossible)}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ lReallocate\ =\ pSize\ >\ GetCapacity();}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ lReallocate\ =\ pSize\ !=\ GetCapacity();}
+\DoxyCodeLine{00429\ }
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lReallocate)}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ Allocate(pSize);}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN\_VALUE(mData,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pSize\ >\ GetCapacity())\ \ \ \ \textcolor{comment}{//Initialize\ new\ memory\ to\ zero}}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memset(\&\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[GetSize()],\ 0,\ (pSize\ -\/\ GetSize())\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ mData-\/>mCapacity\ =\ pSize;}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ mData-\/>mSize\ =\ pSize;}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00445\ \ \ \ \ \}}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00450\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_array_acbfae6ced2d5619ce4e03e82695aa779}{Grow}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pSize)}
+\DoxyCodeLine{00451\ \ \ \ \ \{}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size\ =\ GetSize();}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ int32\ paramater\ does\ not\ overflow}}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ FbxLongLong\ newSize\ =\ \textcolor{keyword}{static\_cast<}FbxLongLong\textcolor{keyword}{>}(size)\ +\ \textcolor{keyword}{static\_cast<}FbxLongLong\textcolor{keyword}{>}(pSize);}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (newSize\ >\ INT\_MAX)}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_array_aeda7638d145ee1b228edecf933ecd033}{Resize}}(size\ +\ pSize);}
+\DoxyCodeLine{00462\ \ \ \ \ \}}
+\DoxyCodeLine{00463\ }
+\DoxyCodeLine{00467\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_array_a9c9b1d60dd76d91ae90c050d6c2b171f}{Shrink}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pSize)}
+\DoxyCodeLine{00468\ \ \ \ \ \{}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ size\ =\ GetSize();}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ int32\ paramater\ does\ not\ overflow}}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ FbxLongLong\ newSize\ =\ \textcolor{keyword}{static\_cast<}FbxLongLong\textcolor{keyword}{>}(size)\ -\/\ \textcolor{keyword}{static\_cast<}FbxLongLong\textcolor{keyword}{>}(pSize);}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pSize\ <\ 0\ ||\ newSize\ <\ 0\ ||\ newSize\ >\ size)}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_array_aeda7638d145ee1b228edecf933ecd033}{Resize}}(size\ -\/\ pSize);}
+\DoxyCodeLine{00479\ \ \ \ \ \}}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00483\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_array_a0e9c0593ddc08df5334f48696f191fe6}{Compact}}()}
+\DoxyCodeLine{00484\ \ \ \ \ \{}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_array_aeda7638d145ee1b228edecf933ecd033}{Resize}}(GetSize());}
+\DoxyCodeLine{00486\ \ \ \ \ \}}
+\DoxyCodeLine{00487\ }
+\DoxyCodeLine{00490\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_array_a5ffc520c7803d552333d2ea27e4f4cf3}{Clear}}()}
+\DoxyCodeLine{00491\ \ \ \ \ \{}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mData\ !=\ NULL\ )}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ FbxFree(mData);}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \ \ \ \ mData\ =\ NULL;}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00497\ \ \ \ \ \}}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00501\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_array_abbc58a49b400d422ffdecb5dd0fa8c9e}{Sort}}(\mbox{\hyperlink{class_fbx_array_a377daf7143bb378a9458456c25d903a6}{CompareFunc}}\ pCompareFunc)}
+\DoxyCodeLine{00502\ \ \ \ \ \{}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ qsort(\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}(),\ GetSize(),\ \textcolor{keyword}{sizeof}(T),\ pCompareFunc);}
+\DoxyCodeLine{00504\ \ \ \ \ \}}
+\DoxyCodeLine{00505\ }
+\DoxyCodeLine{00507\ \ \ \ \ \textcolor{keyword}{inline}\ T*\ \mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mData\ ?\ \&mData-\/>mArray[0]\ :\ NULL;\ \}}
+\DoxyCodeLine{00508\ }
+\DoxyCodeLine{00510\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{operator}\ T*\ ()\ \textcolor{keyword}{const}\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}();\ \}}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00514\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_array_a225f74641fb74748c5f4c0d5efc0ea70}{AddArray}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_array_a006b4a9076135b9e9d1a3bc3cc24bf4d}{FbxArray<T>}}\&\ pOther)}
+\DoxyCodeLine{00515\ \ \ \ \ \{}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{class_fbx_array_acbfae6ced2d5619ce4e03e82695aa779}{Grow}}(pOther.GetSize())\ )}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \ \ \ \ memcpy(\&\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}()[GetSize()\ -\/\ pOther.GetSize()],\ pOther.\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}(),\ pOther.GetSize()\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00520\ \ \ \ \ \}}
+\DoxyCodeLine{00521\ }
+\DoxyCodeLine{00524\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_array_a15166fd92d7e15548e16fd87b6e24bf9}{AddArrayNoDuplicate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_array_a006b4a9076135b9e9d1a3bc3cc24bf4d}{FbxArray<T>}}\&\ pOther)}
+\DoxyCodeLine{00525\ \ \ \ \ \{}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{int}\ i\ =\ 0,\ c\ =\ pOther.GetSize();\ i\ <\ c;\ ++i\ )}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array_a9f1e5b1cc6ece1bdf217ac845c1fb749}{AddUnique}}(pOther[i]);}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00530\ \ \ \ \ \}}
+\DoxyCodeLine{00531\ }
+\DoxyCodeLine{00534\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_array_a8d5747f1b3acb86382cb753c11098667}{RemoveArray}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_array_a006b4a9076135b9e9d1a3bc3cc24bf4d}{FbxArray<T>}}\&\ pOther)}
+\DoxyCodeLine{00535\ \ \ \ \ \{}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{int}\ i\ =\ 0,\ c\ =\ pOther.GetSize();\ i\ <\ c;\ ++i\ )}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array_aaabbd5cf90fdbfb30ada53b1ec6047ae}{RemoveIt}}(pOther[i]);}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00540\ \ \ \ \ \}}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00544\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_array_a006b4a9076135b9e9d1a3bc3cc24bf4d}{FbxArray<T>}}\&\ \mbox{\hyperlink{class_fbx_array_a0c5176e3114c6aae30c6cccbac561773}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_array_a006b4a9076135b9e9d1a3bc3cc24bf4d}{FbxArray<T>}}\&\ pOther)}
+\DoxyCodeLine{00545\ \ \ \ \ \{}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \textcolor{keyword}{this}\ !=\ \&pOther\ )}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{class_fbx_array_aeda7638d145ee1b228edecf933ecd033}{Resize}}(pOther.GetSize())\ \&\&\ pOther.GetSize()\ >\ 0)}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ memcpy(\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}(),\ pOther.\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}(),\ pOther.GetSize()\ *\ \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00554\ \ \ \ \ \}}
+\DoxyCodeLine{00555\ }
+\DoxyCodeLine{00558\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_array_af0dcb6c881ce339f62a409f6cb2f1539}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_array_a006b4a9076135b9e9d1a3bc3cc24bf4d}{FbxArray<T>}}\&\ pOther)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00559\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \textcolor{keyword}{this}\ ==\ \&pOther\ )\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ GetSize()\ !=\ pOther.GetSize()\ )\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ memcmp(\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}(),\ pOther.\mbox{\hyperlink{class_fbx_array_ada52ae1fe9708d33510037d39ddf31d8}{GetArray}}(),\ \textcolor{keyword}{sizeof}(T)\ *\ GetSize())\ ==\ 0;}
+\DoxyCodeLine{00563\ \ \ \ \ \}}
+\DoxyCodeLine{00564\ }
+\DoxyCodeLine{00565\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00566\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00567\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00568\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00569\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ GetCount()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mData\ ?\ mData-\/>mSize\ :\ 0;\ \}}
+\DoxyCodeLine{00570\ }
+\DoxyCodeLine{00571\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00572\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Allocate(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pCapacity)}
+\DoxyCodeLine{00573\ \ \ \ \ \{}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_fbx_array_1_1t_data}{tData}}*\ lOldData\ =\ mData;}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_fbx_array_1_1t_data}{tData}}*\ lData\ =\ (\mbox{\hyperlink{struct_fbx_array_1_1t_data}{tData}}*)FbxRealloc(mData,\ (\textcolor{keywordtype}{size\_t})Alignment\ +\ FbxAllocSize(pCapacity,\ \textcolor{keyword}{sizeof}(T)));}
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lData)}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00578\ \ \ \ \ \ \ \ \ \ \ \ \ mData\ =\ lData;}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!lOldData)}
+\DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mData-\/>mSize\ =\ 0;}
+\DoxyCodeLine{00582\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mData-\/>mCapacity\ =\ 0;}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ \ \ \ \ mData\ =\ NULL;}
+\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00589\ \ \ \ \ \}}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00591\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ GetSize()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mData\ ?\ mData-\/>mSize\ :\ 0;\ \}}
+\DoxyCodeLine{00592\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ GetCapacity()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mData\ ?\ mData-\/>mCapacity\ :\ 0;\ \}}
+\DoxyCodeLine{00593\ }
+\DoxyCodeLine{00594\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_COMPILER\_MSC)}}
+\DoxyCodeLine{00595\ \ \ \ \ \textcolor{comment}{//Previously\ class\ FbxArray\ is\ for\ pointers.\ Somehow,\ it's\ used\ to\ store\ other\ types.\ Here's\ a\ compile-\/time\ checking\ for\ known\ incompatible\ classes.}}
+\DoxyCodeLine{00596\ \ \ \ \ \textcolor{comment}{//If\ it\ happens\ you\ find\ new\ incompatible\ ones,\ declare\ them\ with\ macro\ FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY.\ Also\ see\ file\ fbxstring.h.}}
+\DoxyCodeLine{00597\ \ \ \ \ FBX\_ASSERT\_STATIC(FBXSDK\_IS\_SIMPLE\_TYPE(T)\ ||\ \_\_is\_enum(T)\ ||\ (\_\_has\_trivial\_constructor(T)\&\&\_\_has\_trivial\_destructor(T))\ ||\ !FBXSDK\_IS\_INCOMPATIBLE\_WITH\_ARRAY(T));}
+\DoxyCodeLine{00598\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00599\ }
+\DoxyCodeLine{00600\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00601\ \};}
+\DoxyCodeLine{00602\ }
+\DoxyCodeLine{00603\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_COMPILER\_MSC)}}
+\DoxyCodeLine{00604\ \textcolor{preprocessor}{\ \ \ \ \#pragma\ warning(\ pop\ )}}
+\DoxyCodeLine{00605\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00606\ }
+\DoxyCodeLine{00608\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxarray_8h_a2f98a538558a67cf665a06bd10d01604}{FbxArrayFree}}(\mbox{\hyperlink{class_fbx_array}{FbxArray<T>}}\&\ pArray)}
+\DoxyCodeLine{00609\ \{}
+\DoxyCodeLine{00610\ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{int}\ i\ =\ 0,\ c\ =\ pArray.\mbox{\hyperlink{class_fbx_array_a43006702c6e479cb04fb592d9ec44486}{Size}}();\ i\ <\ c;\ ++i\ )}
+\DoxyCodeLine{00611\ \ \ \ \ \{}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ FbxFree(pArray[i]);}
+\DoxyCodeLine{00613\ \ \ \ \ \}}
+\DoxyCodeLine{00614\ \ \ \ \ pArray.\mbox{\hyperlink{class_fbx_array_a5ffc520c7803d552333d2ea27e4f4cf3}{Clear}}();}
+\DoxyCodeLine{00615\ \}}
+\DoxyCodeLine{00616\ }
+\DoxyCodeLine{00618\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxarray_8h_a087cb13ed63535de7247e732dc7228b6}{FbxArrayDelete}}(\mbox{\hyperlink{class_fbx_array}{FbxArray<T>}}\&\ pArray)}
+\DoxyCodeLine{00619\ \{}
+\DoxyCodeLine{00620\ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{int}\ i\ =\ 0,\ c\ =\ pArray.\mbox{\hyperlink{class_fbx_array_a43006702c6e479cb04fb592d9ec44486}{Size}}();\ i\ <\ c;\ ++i\ )}
+\DoxyCodeLine{00621\ \ \ \ \ \{}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(pArray[i]);}
+\DoxyCodeLine{00623\ \ \ \ \ \}}
+\DoxyCodeLine{00624\ \ \ \ \ pArray.\mbox{\hyperlink{class_fbx_array_a5ffc520c7803d552333d2ea27e4f4cf3}{Clear}}();}
+\DoxyCodeLine{00625\ \}}
+\DoxyCodeLine{00626\ }
+\DoxyCodeLine{00628\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{fbxarray_8h_ab43bce830ebdbae89b75ead299a2f051}{FbxArrayDestroy}}(\mbox{\hyperlink{class_fbx_array}{FbxArray<T>}}\&\ pArray)}
+\DoxyCodeLine{00629\ \{}
+\DoxyCodeLine{00630\ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{int}\ i\ =\ 0,\ c\ =\ pArray.\mbox{\hyperlink{class_fbx_array_a43006702c6e479cb04fb592d9ec44486}{Size}}();\ i\ <\ c;\ ++i\ )}
+\DoxyCodeLine{00631\ \ \ \ \ \{}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ (pArray[i])-\/>Destroy();}
+\DoxyCodeLine{00633\ \ \ \ \ \}}
+\DoxyCodeLine{00634\ \ \ \ \ pArray.\mbox{\hyperlink{class_fbx_array_a5ffc520c7803d552333d2ea27e4f4cf3}{Clear}}();}
+\DoxyCodeLine{00635\ \}}
+\DoxyCodeLine{00636\ }
+\DoxyCodeLine{00638\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ FBXSDK\_INCOMPATIBLE\_WITH\_ARRAY\_TEMPLATE(\mbox{\hyperlink{class_fbx_array}{FbxArray<T>}});}
+\DoxyCodeLine{00639\ }
+\DoxyCodeLine{00640\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00641\ }
+\DoxyCodeLine{00642\ \textcolor{preprocessor}{\#undef\ FBX\_ARRAY\_INLINE}}
+\DoxyCodeLine{00643\ \textcolor{preprocessor}{\#undef\ FBX\_THROW}}
+\DoxyCodeLine{00644\ }
+\DoxyCodeLine{00645\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_BASE\_ARRAY\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

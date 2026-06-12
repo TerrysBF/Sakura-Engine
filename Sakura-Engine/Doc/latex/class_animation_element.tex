@@ -1,0 +1,143 @@
+\doxysection{Animation\+Element Class Reference}
+\hypertarget{class_animation_element}{}\label{class_animation_element}\index{AnimationElement@{AnimationElement}}
+
+
+{\ttfamily \#include $<$fbxcolladaanimationelement.\+h$>$}
+
+Inheritance diagram for Animation\+Element\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_animation_element}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_animation_element_aaf3cccce84fd90fe8e08b1a45a5fc8a2}\label{class_animation_element_aaf3cccce84fd90fe8e08b1a45a5fc8a2} 
+typedef \mbox{\hyperlink{class_element_base}{Element\+Base}} {\bfseries base\+\_\+type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_element_base}{Element\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_element_base_a30b3169488ab376385cba7654e59367a}\label{class_element_base_a30b3169488ab376385cba7654e59367a} 
+enum \{ {\bfseries MATRIX\+\_\+\+STRIDE} = 16
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_animation_element_a2c02d9a40137240eea5c3bc867c59fa3}{Get\+Channel\+Count}} () const
+\item 
+bool \mbox{\hyperlink{class_animation_element_ad0a36ae16945ef4a3027bb8f57452c45}{From\+COLLADA}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Element, const \mbox{\hyperlink{class_fbx_map}{Source\+Element\+Map\+Type}} \&p\+Source\+Elements)
+\item 
+bool \mbox{\hyperlink{class_animation_element_a44a774ba612fb2707dee931048231686}{From\+FBX}} (const \mbox{\hyperlink{class_fbx_anim_curve}{Fbx\+Anim\+Curve}} \texorpdfstring{$\ast$}{*}p\+Curve, double p\+Unit\+Conversion=1.\+0)
+\item 
+bool \mbox{\hyperlink{class_animation_element_af26601574516e4a3d05a5e8a611b6ea5}{To\+FBX}} (\mbox{\hyperlink{class_fbx_anim_curve}{Fbx\+Anim\+Curve}} \texorpdfstring{$\ast$}{*}p\+FBXCurve, int p\+Channel\+Index, double p\+Unit\+Conversion=1.\+0) const
+\item 
+bool \mbox{\hyperlink{class_animation_element_a97828e118006d28ad27aae3d3a668b66}{To\+FBX}} (\mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*}p\+FBXNode, \mbox{\hyperlink{class_fbx_anim_layer}{Fbx\+Anim\+Layer}} \texorpdfstring{$\ast$}{*}p\+Anim\+Layer, double p\+Unit\+Conversion=1.\+0) const
+\item 
+bool \mbox{\hyperlink{class_animation_element_ac697ab978aa85e18c65eaf651db69c6a}{To\+COLLADA}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Animation\+Library, const char \texorpdfstring{$\ast$}{*}p\+Node\+ID, const char \texorpdfstring{$\ast$}{*}p\+Attribute\+SID)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_element_base}{Element\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_element_base_a4c7415e032db4a4d1890edd5fed2eb01}{Element\+Base}} ()
+\item 
+void \mbox{\hyperlink{class_element_base_a7d2be8b683fab79fab4c45aaf484f18c}{Set\+XMLElement}} (\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}p\+Element)
+\item 
+\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*} {\bfseries Get\+XMLElement} () const
+\item 
+const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \& \mbox{\hyperlink{class_element_base_a962cba747677bb6131932fb2171b93cf}{Get\+ID}} () const
+\item 
+const \mbox{\hyperlink{class_fbx_system_unit}{Fbx\+System\+Unit}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_element_base_a9092dd00bc268f61ebf28e98bb89211c}{Get\+Unit}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{class_element_base}{Element\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+static const char \texorpdfstring{$\ast$}{*} {\bfseries sm\+ID\+\_\+\+PROPERTY\+\_\+\+NAME}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representing a COLLADA animation element. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_animation_element_ad0a36ae16945ef4a3027bb8f57452c45}\index{AnimationElement@{AnimationElement}!FromCOLLADA@{FromCOLLADA}}
+\index{FromCOLLADA@{FromCOLLADA}!AnimationElement@{AnimationElement}}
+\doxysubsubsection{\texorpdfstring{FromCOLLADA()}{FromCOLLADA()}}
+{\footnotesize\ttfamily \label{class_animation_element_ad0a36ae16945ef4a3027bb8f57452c45} 
+bool Animation\+Element\+::\+From\+COLLADA (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Element}{, }\item[{const \mbox{\hyperlink{class_fbx_map}{Source\+Element\+Map\+Type}} \&}]{p\+Source\+Elements}{}\end{DoxyParamCaption})}
+
+Initialize with the content of a COLLADA element. This method should be called before To\+FBX. \Hypertarget{class_animation_element_a44a774ba612fb2707dee931048231686}\index{AnimationElement@{AnimationElement}!FromFBX@{FromFBX}}
+\index{FromFBX@{FromFBX}!AnimationElement@{AnimationElement}}
+\doxysubsubsection{\texorpdfstring{FromFBX()}{FromFBX()}}
+{\footnotesize\ttfamily \label{class_animation_element_a44a774ba612fb2707dee931048231686} 
+bool Animation\+Element\+::\+From\+FBX (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_anim_curve}{Fbx\+Anim\+Curve}} \texorpdfstring{$\ast$}{*}}]{p\+Curve}{, }\item[{double}]{p\+Unit\+Conversion}{ = {\ttfamily 1.0}}\end{DoxyParamCaption})}
+
+Initialize with an animation curve. This method should be called before To\+COLLADA. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Curve} & The specific animation curve. \\
+\hline
+{\em p\+Unit\+Conversion} & The unit conversion for key value. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_animation_element_a2c02d9a40137240eea5c3bc867c59fa3}\index{AnimationElement@{AnimationElement}!GetChannelCount@{GetChannelCount}}
+\index{GetChannelCount@{GetChannelCount}!AnimationElement@{AnimationElement}}
+\doxysubsubsection{\texorpdfstring{GetChannelCount()}{GetChannelCount()}}
+{\footnotesize\ttfamily \label{class_animation_element_a2c02d9a40137240eea5c3bc867c59fa3} 
+int Animation\+Element\+::\+Get\+Channel\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Get the count of animation channels in the element. \begin{DoxyReturn}{Returns}
+Return the channel count. 
+\end{DoxyReturn}
+\Hypertarget{class_animation_element_ac697ab978aa85e18c65eaf651db69c6a}\index{AnimationElement@{AnimationElement}!ToCOLLADA@{ToCOLLADA}}
+\index{ToCOLLADA@{ToCOLLADA}!AnimationElement@{AnimationElement}}
+\doxysubsubsection{\texorpdfstring{ToCOLLADA()}{ToCOLLADA()}}
+{\footnotesize\ttfamily \label{class_animation_element_ac697ab978aa85e18c65eaf651db69c6a} 
+bool Animation\+Element\+::\+To\+COLLADA (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__xml_node}{xml\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+Animation\+Library}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Node\+ID}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Attribute\+SID}{}\end{DoxyParamCaption})}
+
+Add the content to COLLADA animation library. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Animation\+Library} & The COLLADA animation library element. \\
+\hline
+{\em p\+Node\+ID} & The ID of the element to who this curve is belong. \\
+\hline
+{\em p\+Attribute\+SID} & The ID the attribute to who this curve is belong. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_animation_element_af26601574516e4a3d05a5e8a611b6ea5}\index{AnimationElement@{AnimationElement}!ToFBX@{ToFBX}}
+\index{ToFBX@{ToFBX}!AnimationElement@{AnimationElement}}
+\doxysubsubsection{\texorpdfstring{ToFBX()}{ToFBX()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_animation_element_af26601574516e4a3d05a5e8a611b6ea5} 
+bool Animation\+Element\+::\+To\+FBX (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_anim_curve}{Fbx\+Anim\+Curve}} \texorpdfstring{$\ast$}{*}}]{p\+FBXCurve}{, }\item[{int}]{p\+Channel\+Index}{, }\item[{double}]{p\+Unit\+Conversion}{ = {\ttfamily 1.0}}\end{DoxyParamCaption}) const}
+
+Copy the channel with specific index to the FBX animation curve. 
+\begin{DoxyParams}{Parameters}
+{\em p\+FBXCurve} & The destination FBX animation curve. \\
+\hline
+{\em p\+Channel\+Index} & The index of the source channel. \\
+\hline
+{\em p\+Unit\+Conversion} & The unit conversion from local element to global. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_animation_element_a97828e118006d28ad27aae3d3a668b66}\index{AnimationElement@{AnimationElement}!ToFBX@{ToFBX}}
+\index{ToFBX@{ToFBX}!AnimationElement@{AnimationElement}}
+\doxysubsubsection{\texorpdfstring{ToFBX()}{ToFBX()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_animation_element_a97828e118006d28ad27aae3d3a668b66} 
+bool Animation\+Element\+::\+To\+FBX (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_node}{Fbx\+Node}} \texorpdfstring{$\ast$}{*}}]{p\+FBXNode}{, }\item[{\mbox{\hyperlink{class_fbx_anim_layer}{Fbx\+Anim\+Layer}} \texorpdfstring{$\ast$}{*}}]{p\+Anim\+Layer}{, }\item[{double}]{p\+Unit\+Conversion}{ = {\ttfamily 1.0}}\end{DoxyParamCaption}) const}
+
+Copy the matrix animation to the FBX node TRS properties. 
+\begin{DoxyParams}{Parameters}
+{\em p\+FBXNode} & The destination FBX node. \\
+\hline
+{\em p\+Anim\+Layer} & The animation layer whose X, Y and Z curves will be set up. \\
+\hline
+{\em p\+Unit\+Conversion} & The unit conversion from local element to global. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/fileio/collada/\mbox{\hyperlink{fbxcolladaanimationelement_8h}{fbxcolladaanimationelement.\+h}}\end{DoxyCompactItemize}

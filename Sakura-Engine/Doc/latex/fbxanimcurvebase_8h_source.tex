@@ -1,0 +1,131 @@
+\doxysection{fbxanimcurvebase.\+h}
+\hypertarget{fbxanimcurvebase_8h_source}{}\label{fbxanimcurvebase_8h_source}\index{include/fbx/fbxsdk/scene/animation/fbxanimcurvebase.h@{include/fbx/fbxsdk/scene/animation/fbxanimcurvebase.h}}
+\mbox{\hyperlink{fbxanimcurvebase_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_ANIMATION\_CURVE\_BASE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_ANIMATION\_CURVE\_BASE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_i_o}{FbxIO}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_anim_curve_key_base_a76d982fc9fe4888f2db2e8d4bb5d4f2f}{FbxAnimCurveKeyBase}}}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ \mbox{\hyperlink{class_fbx_anim_curve_key_base_a8b62f6694176ae418ed4cb936f52545a}{mTime}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_fbx_anim_curve_key_base_a76d982fc9fe4888f2db2e8d4bb5d4f2f}{FbxAnimCurveKeyBase}}()}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_anim_curve_key_base_a8b62f6694176ae418ed4cb936f52545a}{mTime}}\ =\ FBXSDK\_TIME\_ZERO;}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_anim_curve_key_base_a2f773ce4bba07ee0f92f9cb9b5f3233b}{\string~FbxAnimCurveKeyBase}}()\ \{\};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ \mbox{\hyperlink{class_fbx_anim_curve_key_base_a3eebfd7bd2101f759269373a6c9343a2}{GetTime}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00051\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_anim_curve_key_base_a8b62f6694176ae418ed4cb936f52545a}{mTime}};}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \mbox{\hyperlink{class_fbx_anim_curve_key_base_a1c8d15159d7b00280411c08f86c951ca}{SetTime}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\&\ pTime)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_anim_curve_key_base_a8b62f6694176ae418ed4cb936f52545a}{mTime}}\ =\ pTime;}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_anim_curve_base}{FbxAnimCurveBase}}\ :\ \textcolor{keyword}{public}\ FbxObject}
+\DoxyCodeLine{00071\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a8e970655f5b1f1c91f4887e30fa8379d}{FBXSDK\_ABSTRACT\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_anim_curve_base}{FbxAnimCurveBase}},\ FbxObject);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_curve_base_abe693d293087fad223770430ec79d65d}{KeyClear}}\ ()\ =\ 0;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_anim_curve_base_a36fcc14d1c1944341da57085956a3f59}{KeyGetCount}}\ ()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_anim_curve_base_a3e502968be213bd5cfde287f66f97cf5}{KeyAdd}}\ (\mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pTime,\ \mbox{\hyperlink{class_fbx_anim_curve_key_base}{FbxAnimCurveKeyBase}}\&\ pKey,\ \textcolor{keywordtype}{int}*\ pLast\ =\ NULL)\ =\ 0;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_anim_curve_base_a1a66d683a6013b5eb41d128dcbbccd4a}{KeySet}}(\textcolor{keywordtype}{int}\ pIndex,\ \mbox{\hyperlink{class_fbx_anim_curve_key_base}{FbxAnimCurveKeyBase}}\&\ pKey)\ =\ 0;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_anim_curve_base_a4d7d1bbd3d40020469aafd7c023f80d5}{KeyRemove}}(\textcolor{keywordtype}{int}\ pIndex)\ =\ 0;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_anim_curve_base_a2813321af80c66758eb9fbe025fd52ea}{KeyRemove}}(\textcolor{keywordtype}{int}\ pStartIndex,\ \textcolor{keywordtype}{int}\ pEndIndex)\ =\ 0;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ \mbox{\hyperlink{class_fbx_anim_curve_base_a9db34dd56ce9822d0d6723ce7d50c4a3}{KeyGetTime}}(\textcolor{keywordtype}{int}\ \textcolor{comment}{/*pKeyIndex*/})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ FBXSDK\_TIME\_INFINITE;\ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_curve_base_afce0ede7336b9639c1e7ac08adf3e6df}{KeySetTime}}(\textcolor{keywordtype}{int}\ pKeyIndex,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pTime)\ =\ 0;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ EExtrapolationType}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ eConstant\ =\ 1,}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ eRepetition\ =\ 2,}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ eMirrorRepetition\ =\ 3,}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ eKeepSlope\ =\ 4,}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ eRelativeRepetition\ =\ 5}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \}\ ;}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_curve_base_abf3ba6c80fe9371be31602eb36789989}{SetPreExtrapolation}}(EExtrapolationType\ pExtrapolation);}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ EExtrapolationType\ \mbox{\hyperlink{class_fbx_anim_curve_base_a3d4ba8f60385e14877c370518acea5d3}{GetPreExtrapolation}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPreExtrapolation;\ \}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_curve_base_a9103e7ae34ef31d2952df0684cda6754}{SetPreExtrapolationCount}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ pCount);}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_fbx_anim_curve_base_a2b8d645a376937f0aa645e25373976e0}{GetPreExtrapolationCount}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPreExtrapolationCount;\ \}}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_curve_base_a80e57bd8e710d36348eeb326fd83951b}{SetPostExtrapolation}}(EExtrapolationType\ pExtrapolation);}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ EExtrapolationType\ \mbox{\hyperlink{class_fbx_anim_curve_base_acabeaab2cff8753d0411eb0b4e268dc5}{GetPostExtrapolation}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPostExtrapolation;\ \}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_curve_base_a4201935f2bc54e924658cc0dd4e7bf74}{SetPostExtrapolationCount}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ pCount);}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{class_fbx_anim_curve_base_a2ccd05e435a7f010759c947815c55475}{GetPostExtrapolationCount}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mPostExtrapolationCount;\ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_fbx_anim_curve_base_a6d31c045a3733067fc7b4e6416d2fe06}{Evaluate}}\ (\mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pTime,\ \textcolor{keywordtype}{int}*\ pLast\ =\ NULL)\ =\ 0;}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_fbx_anim_curve_base_aa54f5c0c77e553be03ba888448dc1818}{EvaluateIndex}}(\ \textcolor{keywordtype}{double}\ pIndex)\ =\ 0;}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_anim_curve_base_a71278954e108bac6541deda503049d0a}{GetTimeInterval}}(\mbox{\hyperlink{class_fbx_time_span}{FbxTimeSpan}}\&\ pTimeInterval)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00243\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00244\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00246\ \ \ \ \ FbxObject\&\ \mbox{\hyperlink{class_fbx_anim_curve_base_a485fd08103ddcfd67edbd2accce5ef12}{Copy}}(\textcolor{keyword}{const}\ FbxObject\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ Store(\mbox{\hyperlink{class_fbx_i_o}{FbxIO}}*\ pFileObject,\ \textcolor{keywordtype}{bool}\ pLegacyVersion=\textcolor{keyword}{false})\ =\ 0;}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ Retrieve(\mbox{\hyperlink{class_fbx_i_o}{FbxIO}}*\ pFileObject)\ =\ 0;}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ ExtrapolationSyncCallback()\ =\ 0;}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_anim_curve_base_aa33df9238285d7b41e8c45f45511d5a7}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00255\ \ \ \ \ EExtrapolationType\ mPreExtrapolation;}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \ \ \ \ \ mPreExtrapolationCount;}
+\DoxyCodeLine{00257\ \ \ \ \ EExtrapolationType\ mPostExtrapolation;}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \ \ \ \ \ mPostExtrapolationCount;}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00260\ \};}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FBXFILESDK\_KFBXPLUGINS\_KFBXANIMCURVEBASE\_H}}
+
+\end{DoxyCode}

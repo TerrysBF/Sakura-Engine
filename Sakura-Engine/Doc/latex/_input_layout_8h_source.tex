@@ -1,0 +1,54 @@
+\doxysection{Input\+Layout.\+h}
+\hypertarget{_input_layout_8h_source}{}\label{_input_layout_8h_source}\index{include/InputLayout.h@{include/InputLayout.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device}{Device}};}
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Clase\ InputLayout}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Representa\ el\ ID3D11InputLayout,\ que\ dice\ cómo están acomodados}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ los\ datos\ del\ vértice\ en\ el\ vertex\ buffer\ (posición, uv,\ etc.)}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ y\ cómo se\ mandan\ al\ Vertex\ Shader.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }InputLayout\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \textcolor{comment}{//\ Constructor\ vacío,\ no\ crea\ nada\ todavía}}
+\DoxyCodeLine{00017\ \ \ InputLayout()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \textcolor{comment}{//\ Destructor\ vacío,\ la\ liberación se\ hace\ en\ destroy()}}
+\DoxyCodeLine{00020\ \ \ \string~InputLayout()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{comment}{//\ Inicializa\ el\ input\ layout\ usando:}}
+\DoxyCodeLine{00023\ \ \ \textcolor{comment}{//\ -\/\ el\ device}}
+\DoxyCodeLine{00024\ \ \ \textcolor{comment}{//\ -\/\ un\ vector\ con\ la\ descripción de\ cada\ atributo\ del\ vértice}}
+\DoxyCodeLine{00025\ \ \ \textcolor{comment}{//\ -\/\ el\ bytecode\ del\ Vertex\ Shader\ (para\ la\ firma\ de\ entrada)}}
+\DoxyCodeLine{00026\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00027\ \ \ \textcolor{comment}{//\ Si\ sale\ bien,\ m\_inputLayout\ apunta\ a\ un\ layout\ válido.}}
+\DoxyCodeLine{00028\ \ \ HRESULT\ init(\mbox{\hyperlink{class_device}{Device}}\&\ device,}
+\DoxyCodeLine{00029\ \ \ \ \ std::vector<D3D11\_INPUT\_ELEMENT\_DESC>\&\ Layout,}
+\DoxyCodeLine{00030\ \ \ \ \ ID3DBlob*\ VertexShaderData);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{comment}{//\ Placeholder\ por\ si\ algún día\ se\ quiere\ actualizar\ algo\ del\ layout}}
+\DoxyCodeLine{00033\ \ \ \textcolor{comment}{//\ Ahorita\ no\ hace\ nada.}}
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{void}\ update();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{//\ Activa\ el\ input\ layout\ en\ el\ pipeline}}
+\DoxyCodeLine{00037\ \ \ \textcolor{comment}{//\ (llama\ internamente\ a\ IASetInputLayout\ en\ el\ deviceContext)}}
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ render(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{comment}{//\ Libera\ el\ recurso\ de\ input\ layout}}
+\DoxyCodeLine{00041\ \ \ \textcolor{comment}{//\ Después de\ esto,\ m\_inputLayout\ queda\ en\ nullptr.}}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ destroy();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \textcolor{comment}{//\ Puntero\ al\ input\ layout\ de\ D3D11}}
+\DoxyCodeLine{00046\ \ \ \textcolor{comment}{//\ Se\ crea\ en\ init()\ y\ se\ libera\ en\ destroy()}}
+\DoxyCodeLine{00047\ \ \ ID3D11InputLayout*\ m\_inputLayout\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00048\ \};}
+
+\end{DoxyCode}

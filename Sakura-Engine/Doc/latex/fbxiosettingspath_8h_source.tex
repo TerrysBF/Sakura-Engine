@@ -1,0 +1,981 @@
+\doxysection{fbxiosettingspath.\+h}
+\hypertarget{fbxiosettingspath_8h_source}{}\label{fbxiosettingspath_8h_source}\index{include/fbx/fbxsdk/fileio/fbxiosettingspath.h@{include/fbx/fbxsdk/fileio/fbxiosettingspath.h}}
+\mbox{\hyperlink{fbxiosettingspath_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2016\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_FILEIO\_IO\_SETTINGS\_PATH\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_FILEIO\_IO\_SETTINGS\_PATH\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ KS\_BS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxString("{}\(\backslash\)\(\backslash\)"{})}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ KS\_IMPORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxString("{}\(\backslash\)\(\backslash\)import"{})}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ KS\_EXPORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxString("{}\(\backslash\)\(\backslash\)export"{})}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ KS\_FBX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxString("{}\(\backslash\)\(\backslash\)FBX"{})\ \ \ \ \ \ \ }\textcolor{comment}{//\ must\ be\ upper\ case}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ KS\_PRESETS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxString("{}\(\backslash\)\(\backslash\)Presets"{})}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ KS\_LOG\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxString("{}\(\backslash\)\(\backslash\)Logs"{})}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ KS\_FBXPRESETS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ KS\_FBX\ +\ KS\_PRESETS}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ KS\_FBXLOGS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ KS\_FBX\ +\ KS\_LOG}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ KS\_MAYA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxString("{}\(\backslash\)\(\backslash\)maya"{})}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ KS\_3DSMAX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxString("{}\(\backslash\)\(\backslash\)3dsmax"{})}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ KS\_3DSMAX\_VIZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ KS\_3DSMAX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ use\ same\ name\ in\ "{}My\ Document"{}\ directory}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ KS\_3DSMAX\_DESIGN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxString("{}\(\backslash\)\(\backslash\)3dsMaxDesign"{})}}
+\DoxyCodeLine{00035\ \ \ \ \ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ KS\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxString(FBXSDK\_VERSION\_STRING)}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ FBXSDK\_PLUGINS\_REGISTRY\_PATH\ \ \ \ "{}SOFTWARE\(\backslash\)\(\backslash\)Autodesk\(\backslash\)\(\backslash\)FBX\_Plugins\_"{}\ FBXSDK\_VERSION\_STRING}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_PRESET\_EXT\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}fbximportpreset"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_PRESET\_EXT\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}fbxexportpreset"{}}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ M\_E\_FILENAME\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Autodesk\ Media\ \&\ Entertainment."{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ ARCH\_FILENAME\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Autodesk\ Architectural\ (Revit)."{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ MOBU\_FILENAME\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Autodesk\ MotionBuilder."{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ USERDEFINED\_FILENAME\ \ \ \ \ \ \ \ \ \ \ \ "{}User\ defined."{}}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ IMP\_DIR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ KS\_FBXPRESETS\ +\ KS\_BS\ +\ KS\_VERSION\ +\ KS\_IMPORT}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ EXP\_DIR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ KS\_FBXPRESETS\ +\ KS\_BS\ +\ KS\_VERSION\ +\ KS\_EXPORT}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ LOG\_VERSION\_DIR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ KS\_FBXLOGS\ +\ KS\_BS\ +\ KS\_VERSION}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ MAX\_LOG\_VERSION\_DIR\ \ \ \ \ \ \ \ \ \ \ \ \ KS\_3DSMAX\ +\ LOG\_VERSION\_DIR}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ MAX\_DESIGN\_LOG\_VERSION\_DIR\ \ \ \ \ \ KS\_3DSMAX\_DESIGN\ +\ LOG\_VERSION\_DIR}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ PRESET\_VERSION\_DIR\ \ \ \ \ \ \ \ \ \ \ \ \ \ KS\_FBXPRESETS\ +\ KS\_BS\ +\ KS\_VERSION}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ FN\_LOCALIZATION\_PREFIX\ \ \ \ \ \ \ \ \ \ "{}localization\_"{}}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ FN\_LOCALIZATION\_EXT\ \ \ \ \ \ \ \ \ \ \ \ \ "{}.xlf"{}}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ FN\_LANGUAGE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}lang.dat"{}}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ LANGUAGE\_PATH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ KS\_FBXPRESETS\ +\ KS\_BS\ +\ KS\_VERSION\ +\ KS\_BS\ +\ FN\_LANGUAGE}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{comment}{//\ these\ defines\ are\ used\ for\ hierarchical\ properties\ names}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ IOSROOT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}IOSRoot"{}}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ IOSN\_EXPORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Export"{}}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ IOSN\_IMPORT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Import"{}}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ IOSN\_PLUGIN\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}PlugInGrp"{}}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ IOSN\_PLUGIN\_UI\_WIDTH\ \ \ \ \ \ \ \ \ \ \ \ "{}PlugInUIWidth"{}}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ IOSN\_PLUGIN\_UI\_HEIGHT\ \ \ \ \ \ \ \ \ \ \ "{}PlugInUIHeight"{}}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ IOSN\_PLUGIN\_VERSIONS\_URL\ \ \ \ \ \ \ \ "{}PluginVersionsURL"{}}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ IOSN\_PI\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}PIVersion"{}}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ IOSN\_PRESET\_SELECTED\ \ \ \ \ \ \ \ \ \ \ \ "{}PresetSelected"{}}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ IOSN\_PRESETS\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}PresetsGrp"{}}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ IOSN\_STATISTICS\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ "{}StatisticsGrp"{}}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ IOSN\_UNITS\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}UnitsGrp"{}}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ IOSN\_INCLUDE\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}IncludeGrp"{}}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ IOSN\_ADV\_OPT\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}AdvOptGrp"{}}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ IOSN\_AXISCONV\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}AxisConvGrp"{}}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ IOSN\_CAMERA\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}CameraGrp"{}}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ IOSN\_LIGHT\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}LightGrp"{}}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ IOSN\_EXTRA\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}ExtraGrp"{}}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ IOSN\_CONSTRAINTS\_GRP\ \ \ \ \ \ \ \ \ \ \ \ "{}ConstraintsGrp"{}}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ IOSN\_INPUTCONNECTIONS\_GRP\ \ \ \ \ \ \ "{}InputConnectionsGrp"{}}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ IOSN\_INFORMATION\_GRP\ \ \ \ \ \ \ \ \ \ \ \ "{}InformationGrp"{}}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ IOSN\_UP\_AXIS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}UpAxis"{}}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ IOSN\_UP\_AXIS\_MAX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}UpAxisMax"{}}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ IOSN\_ZUPROTATION\_MAX\ \ \ \ \ \ \ \ \ \ \ \ "{}ZUProtation\_max"{}\ \ \ }}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ IOSN\_AXISCONVERSION\ \ \ \ \ \ \ \ \ \ \ \ \ "{}AxisConversion"{}}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ IOSN\_AUTO\_AXIS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}AutoAxis"{}}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ IOSN\_FILE\_UP\_AXIS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}FileUpAxis"{}}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ IOSN\_PRESETS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Presets"{}}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ IOSN\_STATISTICS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Statistics"{}}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ IOSN\_UNITS\_SCALE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}UnitsScale"{}}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ IOSN\_TOTAL\_UNITS\_SCALE\_TB\ \ \ \ \ \ \ "{}TotalUnitsScale"{}}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ IOSN\_SCALECONVERSION\ \ \ \ \ \ \ \ \ \ \ \ "{}ScaleConversion"{}}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ IOSN\_MASTERSCALE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MasterScale"{}}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ IOSN\_DYN\_SCALE\_CONVERSION\ \ \ \ \ \ \ "{}DynamicScaleConversion"{}}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ IOSN\_UNITSELECTOR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}UnitsSelector"{}}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ IOSN\_AUDIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Audio"{}}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ IOSN\_ANIMATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Animation"{}}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ IOSN\_GEOMETRY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Geometry"{}}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ IOSN\_DEFORMATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Deformation"{}}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ IOSN\_MARKERS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Markers"{}}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ IOSN\_CHARACTER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Character"{}}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ IOSN\_CHARACTER\_AS\_MAYA\_HIK\ \ \ \ \ \ "{}CharacterAsMayaHIK"{}}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ IOSN\_CHARACTER\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}CharacterType"{}}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ IOSN\_CHARACTER\_TYPE\_DESC\ \ \ \ \ \ \ \ "{}CharacterTypeDesc"{}}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ IOSN\_SETLOCKEDATTRIB\ \ \ \ \ \ \ \ \ \ \ \ "{}LockedAttribute"{}\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ IOSN\_TRIANGULATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Triangulate"{}}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#define\ IOSN\_MRCUSTOMATTRIBUTES\ \ \ \ \ \ \ \ \ "{}MRCustomAttributes"{}}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ IOSN\_MESHPRIMITIVE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MeshPrimitive"{}}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ IOSN\_MESHTRIANGLE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MeshTriangle"{}}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#define\ IOSN\_MESHPOLY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MeshPoly"{}}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ IOSN\_NURB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Nurb"{}}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ IOSN\_PATCH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Patch"{}}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ IOSN\_BIP2FBX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Bip2Fbx"{}}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ IOSN\_ASCIIFBX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}AsciiFbx"{}}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ IOSN\_TAKE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Take"{}}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ IOSN\_GEOMETRYMESHPRIMITIVEAS\ \ \ \ "{}GeometryMeshPrimitiveAs"{}}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ IOSN\_GEOMETRYMESHTRIANGLEAS\ \ \ \ \ "{}GeometryMeshTriangleAs"{}}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ IOSN\_GEOMETRYMESHPOLYAS\ \ \ \ \ \ \ \ \ "{}GeometryMeshPolyAs"{}}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#define\ IOSN\_GEOMETRYNURBSAS\ \ \ \ \ \ \ \ \ \ \ \ "{}GeometryNurbsAs"{}}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ IOSN\_GEOMETRYNURBSSURFACEAS\ \ \ \ \ "{}GeometryNurbsSurfaceAs"{}}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#define\ IOSN\_GEOMETRYPATCHAS\ \ \ \ \ \ \ \ \ \ \ \ "{}GeometryPatchAs"{}}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#define\ IOSN\_TANGENTS\_BINORMALS\ \ \ \ \ \ \ \ \ "{}TangentsandBinormals"{}}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#define\ IOSN\_SMOOTH\_MESH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}SmoothMesh"{}}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ IOSN\_SELECTION\_SET\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}SelectionSet"{}}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#define\ IOSN\_ANIMATIONONLY\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}AnimationOnly"{}}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ IOSN\_SELECTIONONLY\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}SelectionOnly"{}}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ IOSN\_BONE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Bone"{}}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ IOSN\_BONEWIDTHHEIGHTLOCK\ \ \ \ \ \ \ \ "{}BoneWidthHeightLock"{}}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#define\ IOSN\_BONEASDUMMY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}BoneAsDummy"{}}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ IOSN\_BONEMAX4BONEWIDTH\ \ \ \ \ \ \ \ \ \ "{}Max4BoneWidth"{}}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#define\ IOSN\_BONEMAX4BONEHEIGHT\ \ \ \ \ \ \ \ \ "{}Max4BoneHeight"{}}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#define\ IOSN\_BONEMAX4BONETAPER\ \ \ \ \ \ \ \ \ \ "{}Max4BoneTaper"{}}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#define\ IOSN\_REMOVE\_SINGLE\_KEY\ \ \ \ \ \ \ \ \ \ "{}RemoveSingleKey"{}}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#define\ IOSN\_CURVE\_FILTER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}CurveFilter"{}}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#define\ IOSN\_CONSTRAINT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Constraint"{}}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ IOSN\_UI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}UI"{}}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#define\ IOSN\_SHOW\_UI\_MODE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}ShowUIMode"{}}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#define\ IOSN\_SHOW\_WARNINGS\_MANAGER\ \ \ \ \ \ "{}ShowWarningsManager"{}}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#define\ IOSN\_GENERATE\_LOG\_DATA\ \ \ \ \ \ \ \ \ \ "{}GenerateLogData"{}}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#define\ IOSN\_PERF\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Performance"{}}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#define\ IOSN\_REMOVEBADPOLYSFROMMESH\ \ \ \ \ "{}RemoveBadPolysFromMesh"{}}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#define\ IOSN\_META\_DATA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MetaData"{}}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#define\ IOSN\_CACHE\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Cache"{}}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#define\ IOSN\_CACHE\_SIZE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}CacheSize"{}}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#define\ IOSN\_MERGE\_MODE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MergeMode"{}}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#define\ IOSN\_MERGE\_MODE\_DESCRIPTION\ \ \ \ \ "{}MergeModeDescription"{}\ }}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#define\ IOSN\_ONE\_CLICK\_MERGE\ \ \ \ \ \ \ \ \ \ \ \ "{}OneClickMerge"{}}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#define\ IOSN\_ONE\_CLICK\_MERGE\_TEXTURE\ \ \ \ "{}OneClickMergeTexture"{}}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#define\ IOSN\_SAMPLINGPANEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}SamplingPanel"{}}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#define\ IOSN\_FILE\_FORMAT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}FileFormat"{}}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#define\ IOSN\_FBX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Fbx"{}}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#define\ IOSN\_DXF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Dxf"{}}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#define\ IOSN\_OBJ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Obj"{}}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#define\ IOSN\_3DS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Max\_3ds"{}\ \ }\textcolor{comment}{//\ can't\ start\ by\ a\ number\ for\ xml\ node\ name}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#define\ IOSN\_COLLADA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Collada"{}}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Motion\_Base"{}\ \ }\textcolor{comment}{//\ for\ commond\ Motion\ Readers/Writers\ stream\ options}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#define\ IOSN\_BIOVISION\_BVH\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Biovision\_BVH"{}}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#define\ IOSN\_MOTIONANALYSIS\_HTR\ \ \ \ \ \ \ \ \ "{}MotionAnalysis\_HTR"{}}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#define\ IOSN\_MOTIONANALYSIS\_TRC\ \ \ \ \ \ \ \ \ "{}MotionAnalysis\_TRC"{}}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#define\ IOSN\_ACCLAIM\_ASF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Acclaim\_ASF"{}}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#define\ IOSN\_ACCLAIM\_AMC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Acclaim\_AMC"{}}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#define\ IOSN\_VICON\_C3D\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Vicon\_C3D"{}}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#define\ IOSN\_SKINS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Skins"{}}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\#define\ IOSN\_POINTCACHE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}PointCache"{}}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#define\ IOSN\_QUATERNION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Quaternion"{}}}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\#define\ IOSN\_NAMETAKE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}UseSceneName"{}}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#define\ IOSN\_SHAPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Shape"{}}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#define\ IOSN\_SHAPEATTRIBUTES\ \ \ \ \ \ \ \ \ \ \ \ \ "{}ShapeAttributes"{}\ }}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#define\ IOSN\_SHAPEATTRIBUTE\_VALUES\ \ \ \ \ \ \ "{}ShapeAttributesValues"{}}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#define\ IOSN\_LIGHT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Light"{}}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#define\ IOSN\_LIGHTATTENUATION\ \ \ \ \ \ \ \ \ \ \ \ "{}LightAttenuation"{}}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#define\ IOSN\_CAMERA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Camera"{}}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#define\ IOSN\_VIEW\_CUBE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}ViewCube"{}}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#define\ IOSN\_BINDPOSE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}BindPose"{}}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#define\ IOSN\_EMBEDTEXTURE\_GRP\ \ \ \ \ \ \ \ \ \ \ "{}EmbedTextureGrp"{}}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#define\ IOSN\_EMBEDTEXTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}EmbedTexture"{}}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#define\ IOSN\_EMBEDDED\_FOLDER\ \ \ \ \ \ \ \ \ \ \ \ "{}ExtractFolder"{}}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#define\ IOSN\_CONVERTTOTIFF\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Convert\_2Tiff"{}}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#define\ IOSN\_UNLOCK\_NORMALS\ \ \ \ \ \ \ \ \ \ \ \ \ "{}UnlockNormals"{}}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#define\ IOSN\_CREASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Crease"{}}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#define\ IOSN\_FINESTSUBDIVLEVEL\ \ \ \ \ \ \ \ \ \ "{}FinestSubdivLevel"{}}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#define\ IOSN\_BAKEANIMATIONLAYERS\ \ \ \ \ \ \ \ "{}BakeAnimationLayers"{}}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#define\ IOSN\_BAKECOMPLEXANIMATION\ \ \ \ \ \ \ "{}BakeComplexAnimation"{}}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#define\ IOSN\_BAKEFRAMESTART\ \ \ \ \ \ \ \ \ \ \ \ \ "{}BakeFrameStart"{}\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#define\ IOSN\_BAKEFRAMEEND\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}BakeFrameEnd"{}\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#define\ IOSN\_BAKEFRAMESTEP\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}BakeFrameStep"{}\ \ \ \ \ \ }}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\#define\ IOSN\_BAKEFRAMESTARTNORESET\ \ \ \ \ \ "{}BakeFrameStartNoReset"{}}}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\#define\ IOSN\_BAKEFRAMEENDNORESET\ \ \ \ \ \ \ \ "{}BakeFrameEndNoReset"{}\ \ \ \ }}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#define\ IOSN\_BAKEFRAMESTEPNORESET\ \ \ \ \ \ \ "{}BakeFrameStepNoReset"{}\ }}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\#define\ IOSN\_USEMATRIXFROMPOSE\ \ \ \ \ \ \ \ \ \ "{}UseMatrixFromPose"{}}}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\#define\ IOSN\_NULLSTOPIVOT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}NullsToPivot"{}}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\#define\ IOSN\_PIVOTTONULLS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}PivotToNulls"{}}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\#define\ IOSN\_GEOMNORMALPERPOLY\ \ \ \ \ \ \ \ \ \ "{}GeomNormalPerPoly"{}}}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#define\ IOSN\_MAXBONEASBONE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MaxBoneAsBone"{}}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\#define\ IOSN\_MAXNURBSSTEP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MaxNurbsStep"{}}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#define\ IOSN\_PROTECTDRIVENKEYS\ \ \ \ \ \ \ \ \ \ "{}ProtectDrivenKeys"{}}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#define\ IOSN\_DEFORMNULLSASJOINTS\ \ \ \ \ \ \ \ "{}DeformNullsAsJoints"{}}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#define\ IOSN\_ENVIRONMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Environment"{}}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \textcolor{comment}{//\ Note\ this\ will\ use\ IOSN\_SAMPLINGRATE\ }}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#define\ IOSN\_SAMPLINGRATESELECTOR\ \ \ \ \ \ \ "{}SamplingRateSelector"{}}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#define\ IOSN\_SAMPLINGRATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}CurveFilterSamplingRate"{}}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#define\ IOSN\_APPLYCSTKEYRED\ \ \ \ \ \ \ \ \ \ \ \ \ "{}CurveFilterApplyCstKeyRed"{}}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#define\ IOSN\_CSTKEYREDTPREC\ \ \ \ \ \ \ \ \ \ \ \ \ "{}CurveFilterCstKeyRedTPrec"{}}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#define\ IOSN\_CSTKEYREDRPREC\ \ \ \ \ \ \ \ \ \ \ \ \ "{}CurveFilterCstKeyRedRPrec"{}}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#define\ IOSN\_CSTKEYREDSPREC\ \ \ \ \ \ \ \ \ \ \ \ \ "{}CurveFilterCstKeyRedSPrec"{}}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#define\ IOSN\_CSTKEYREDOPREC\ \ \ \ \ \ \ \ \ \ \ \ \ "{}CurveFilterCstKeyRedOPrec"{}}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#define\ IOSN\_APPLYKEYREDUCE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}CurveFilterApplyKeyReduce"{}}}
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#define\ IOSN\_KEYREDUCEPREC\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}CurveFilterKeyReducePrec"{}\ }}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\#define\ IOSN\_APPLYKEYSONFRM\ \ \ \ \ \ \ \ \ \ \ \ \ "{}CurveFilterApplyKeysOnFrm"{}}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#define\ IOSN\_APPLYKEYSYNC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}CurveFilterApplyKeySync"{}\ \ }}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#define\ IOSN\_APPLYUNROLL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}CurveFilterApplyUnroll"{}\ \ \ }}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#define\ IOSN\_UNROLLPREC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}CurveFilterUnrollPrec"{}\ \ \ \ }}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#define\ IOSN\_UNROLLPATH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}CurveFilterUnrollPath"{}}}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#define\ IOSN\_UNROLLFORCEAUTO\ \ \ \ \ \ \ \ \ \ \ \ "{}CurveFilterUnrollForceAuto"{}}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#define\ IOSN\_AUTOTANGENTSONLY\ \ \ \ \ \ \ \ \ \ \ "{}AutoTangentsOnly"{}}}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#define\ IOSN\_SMOOTHING\_GROUPS\ \ \ \ \ \ \ \ \ \ \ "{}SmoothingGroups"{}}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#define\ IOSN\_HARDEDGES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}HardEdges"{}}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#define\ IOSN\_EXP\_HARDEDGES\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}expHardEdges"{}}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#define\ IOSN\_BLINDDATA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}BlindData"{}}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#define\ IOSN\_INPUTCONNECTIONS\ \ \ \ \ \ \ \ \ \ \ "{}InputConnections"{}}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#define\ IOSN\_INSTANCES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Instances"{}}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#define\ IOSN\_REFERENCES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}References"{}}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#define\ IOSN\_CONTAINEROBJECTS\ \ \ \ \ \ \ \ \ \ \ "{}ContainerObjects"{}}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\#define\ IOSN\_BYPASSRRSINHERITANCE\ \ \ \ \ \ \ "{}BypassRrsInheritance"{}}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\#define\ IOSN\_FORCEWEIGHTNORMALIZE\ \ \ \ \ \ \ "{}ForceWeightNormalize"{}}}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\#define\ IOSN\_SHAPEANIMATION\ \ \ \ \ \ \ \ \ \ \ \ \ "{}ShapeAnimation"{}}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#define\ IOSN\_SMOOTHKEYASUSER\ \ \ \ \ \ \ \ \ \ \ \ "{}SmoothKeyAsUser"{}}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#define\ IOSN\_SCALEFACTOR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}ScaleFactor"{}}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\#define\ IOSN\_AXISCONVERSIONMETHOD\ \ \ \ \ \ \ "{}AxisConversionMethod"{}}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#define\ IOSN\_UPAXIS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}UpAxis"{}}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\#define\ IOSN\_SELECTIONSETNAMEASPOINTCACHE\ "{}SelectionSetNameAsPointCache"{}}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\#define\ IOSN\_KEEPFRAMERATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}KeepFrameRate"{}}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\#define\ IOSN\_ATTENUATIONASINTENSITYCURVE\ "{}AttenuationAsIntensityCurve"{}}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\#define\ IOSN\_RESAMPLE\_ANIMATION\_CURVES\ \ \ "{}ResampleAnimationCurves"{}}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#define\ IOSN\_TIMELINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}TimeLine"{}}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\#define\ IOSN\_TIMELINE\_SPAN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}TimeLineSpan"{}}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#define\ IOSN\_BUTTON\_WEB\_UPDATE\ \ \ \ \ \ \ \ \ \ \ "{}WebUpdateButton"{}}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#define\ IOSN\_BUTTON\_EDIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}EditButton"{}}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\#define\ IOSN\_BUTTON\_OK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}OKButton"{}}}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\#define\ IOSN\_BUTTON\_CANCEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}CancelButton"{}}}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\#define\ IOSN\_MENU\_EDIT\_PRESET\ \ \ \ \ \ \ \ \ \ \ \ "{}EditPresetMenu"{}}}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#define\ IOSN\_MENU\_SAVE\_PRESET\ \ \ \ \ \ \ \ \ \ \ \ "{}SavePresetMenu"{}}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#define\ IOSN\_UIL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}UILIndex"{}}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\#define\ IOSN\_PLUGIN\_PRODUCT\_FAMILY\ \ \ \ \ \ \ "{}PluginProductFamily"{}}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \textcolor{preprocessor}{\#define\ IOSN\_PLUGIN\_UI\_XPOS\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}PlugInUIXpos"{}}}
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\#define\ IOSN\_PLUGIN\_UI\_YPOS\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}PlugInUIYpos"{}}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \textcolor{preprocessor}{\#define\ IOSN\_FBX\_EXTENTIONS\_SDK\ \ \ \ \ \ \ \ \ \ "{}FBXExtentionsSDK"{}}}
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\#define\ IOSN\_FBX\_EXTENTIONS\_SDK\_WARNING\ \ "{}FBXExtentionsSDKWarning"{}}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#define\ IOSN\_COLLADA\_FRAME\_COUNT\ \ \ \ \ \ \ \ \ "{}FrameCount"{}}}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\#define\ IOSN\_COLLADA\_START\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Start"{}}}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\#define\ IOSN\_COLLADA\_TAKE\_NAME\ \ \ \ \ \ \ \ \ \ \ "{}TakeName"{}}}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\#define\ IOSN\_COLLADA\_TRIANGULATE\ \ \ \ \ \ \ \ \ "{}Triangulate"{}}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\#define\ IOSN\_COLLADA\_SINGLEMATRIX\ \ \ \ \ \ \ \ "{}SingleMatrix"{}}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#define\ IOSN\_COLLADA\_FRAME\_RATE\ \ \ \ \ \ \ \ \ \ "{}FrameRate"{}}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\#define\ IOSN\_DXF\_TRIANGULATE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}Triangulate"{}}}
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\#define\ IOSN\_DXF\_DEFORMATION\ \ \ \ \ \ \ \ \ \ \ \ \ "{}Deformation"{}}}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\#define\ IOSN\_DXF\_WELD\_VERTICES\ \ \ \ \ \ \ \ \ \ \ "{}WeldVertices"{}}}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\#define\ IOSN\_DXF\_OBJECT\_DERIVATION\ \ \ \ \ \ \ "{}ObjectDerivation"{}}}
+\DoxyCodeLine{00315\ \textcolor{preprocessor}{\#define\ IOSN\_DXF\_REFERENCE\_NODE\ \ \ \ \ \ \ \ \ \ "{}ReferenceNode"{}}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\#define\ IOSN\_OBJ\_REFERENCE\_NODE\ \ \ \ \ \ \ \ \ \ "{}ReferenceNode"{}}}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#define\ IOSN\_OBJ\_TRIANGULATE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}Triangulate"{}}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\#define\ IOSN\_OBJ\_DEFORMATION\ \ \ \ \ \ \ \ \ \ \ \ \ "{}Deformation"{}}}
+\DoxyCodeLine{00320\ \textcolor{preprocessor}{\#define\ IOSN\_OBJ\_USE\_DISSOLVE\_FACTOR\ \ \ \ \ "{}UseDissolveFactor"{}}}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\#define\ IOSN\_3DS\_REFERENCENODE\ \ \ \ \ \ \ \ \ \ \ "{}ReferenceNode"{}}}
+\DoxyCodeLine{00323\ \textcolor{preprocessor}{\#define\ IOSN\_3DS\_TEXTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Texture"{}}}
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\#define\ IOSN\_3DS\_MATERIAL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Material"{}}}
+\DoxyCodeLine{00325\ \textcolor{preprocessor}{\#define\ IOSN\_3DS\_ANIMATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Animation"{}}}
+\DoxyCodeLine{00326\ \textcolor{preprocessor}{\#define\ IOSN\_3DS\_MESH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Mesh"{}}}
+\DoxyCodeLine{00327\ \textcolor{preprocessor}{\#define\ IOSN\_3DS\_LIGHT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Light"{}}}
+\DoxyCodeLine{00328\ \textcolor{preprocessor}{\#define\ IOSN\_3DS\_CAMERA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Camera"{}}}
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\#define\ IOSN\_3DS\_AMBIENT\_LIGHT\ \ \ \ \ \ \ \ \ \ \ "{}AmbientLight"{}}}
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\#define\ IOSN\_3DS\_RESCALING\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Rescaling"{}}}
+\DoxyCodeLine{00331\ \textcolor{preprocessor}{\#define\ IOSN\_3DS\_FILTER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Filter"{}}}
+\DoxyCodeLine{00332\ \textcolor{preprocessor}{\#define\ IOSN\_3DS\_SMOOTHGROUP\ \ \ \ \ \ \ \ \ \ \ \ \ "{}Smoothgroup"{}}}
+\DoxyCodeLine{00333\ \textcolor{preprocessor}{\#define\ IOSN\_3DS\_TAKE\_NAME\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}TakeName"{}}}
+\DoxyCodeLine{00334\ \textcolor{preprocessor}{\#define\ IOSN\_3DS\_TEXUVBYPOLY\ \ \ \ \ \ \ \ \ \ \ \ \ "{}TexuvbyPoly"{}}}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \textcolor{comment}{//\ so\ far,\ these\ three\ are\ for\ 3dsMax\ plug-\/in\ only}}
+\DoxyCodeLine{00337\ \textcolor{preprocessor}{\#define\ IOSN\_ZOOMEXTENTS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}ZoomExtents"{}}}
+\DoxyCodeLine{00338\ \textcolor{preprocessor}{\#define\ IOSN\_GLOBAL\_AMBIENT\_COLOR\ \ \ \ \ \ \ \ \ \ \ "{}GlobalAmbientColor"{}}}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\#define\ IOSN\_EDGE\_ORIENTATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}PreserveEdgeOrientation"{}}}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\#define\ IOSN\_VERSIONS\_UI\_ALIAS\ \ \ \ \ \ \ \ \ \ \ "{}VersionsUIAlias"{}}}
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\#define\ IOSN\_VERSIONS\_COMP\_DESCRIPTIONS\ \ "{}VersionsCompDescriptions"{}}}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \textcolor{comment}{//\ FBX\ specific}}
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#define\ IOSN\_MODEL\_COUNT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Model\_Count"{}}}
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\#define\ IOSN\_DEVICE\_COUNT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Device\_Count"{}}}
+\DoxyCodeLine{00347\ \textcolor{preprocessor}{\#define\ IOSN\_CHARACTER\_COUNT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Character\_Count"{}}}
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\#define\ IOSN\_ACTOR\_COUNT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Actor\_Count"{}}}
+\DoxyCodeLine{00349\ \textcolor{preprocessor}{\#define\ IOSN\_CONSTRAINT\_COUNT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Constraint\_Count"{}}}
+\DoxyCodeLine{00350\ \textcolor{preprocessor}{\#define\ IOSN\_MEDIA\_COUNT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Media\_Count"{}}}
+\DoxyCodeLine{00351\ \textcolor{preprocessor}{\#define\ IOSN\_TEMPLATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Template"{}}}
+\DoxyCodeLine{00352\ \textcolor{preprocessor}{\#define\ IOSN\_PIVOT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Pivot"{}}}
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\#define\ IOSN\_GLOBAL\_SETTINGS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Global\_Settings"{}}}
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\#define\ IOSN\_MERGE\_LAYER\_AND\_TIMEWARP\ \ \ \ \ \ \ "{}Merge\_Layer\_and\_Timewarp"{}}}
+\DoxyCodeLine{00355\ \textcolor{preprocessor}{\#define\ IOSN\_GOBO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Gobo"{}}}
+\DoxyCodeLine{00356\ \textcolor{preprocessor}{\#define\ IOSN\_LINK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Link"{}}}
+\DoxyCodeLine{00357\ \textcolor{preprocessor}{\#define\ IOSN\_MATERIAL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Material"{}}}
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\#define\ IOSN\_TEXTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Texture"{}}}
+\DoxyCodeLine{00359\ \textcolor{preprocessor}{\#define\ IOSN\_MODEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Model"{}}}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \textcolor{preprocessor}{\#define\ IOSN\_NORMAL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}LayerElementNormal"{}}}
+\DoxyCodeLine{00362\ \textcolor{preprocessor}{\#define\ IOSN\_BINORMAL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}LayerElementBinormal"{}}}
+\DoxyCodeLine{00363\ \textcolor{preprocessor}{\#define\ IOSN\_TANGENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}LayerElementTangent"{}}}
+\DoxyCodeLine{00364\ \textcolor{preprocessor}{\#define\ IOSN\_VERTEXCOLOR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}LayerElementVertexColor"{}}}
+\DoxyCodeLine{00365\ \textcolor{preprocessor}{\#define\ IOSN\_POLYGROUP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}LayerElementPolygroup"{}}}
+\DoxyCodeLine{00366\ \textcolor{preprocessor}{\#define\ IOSN\_SMOOTHING\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}LayerElementSmoothing"{}}}
+\DoxyCodeLine{00367\ \textcolor{preprocessor}{\#define\ IOSN\_USERDATA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}LayerElementUserData"{}}}
+\DoxyCodeLine{00368\ \textcolor{preprocessor}{\#define\ IOSN\_VISIBILITY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}LayerElementVisibility"{}}}
+\DoxyCodeLine{00369\ \textcolor{preprocessor}{\#define\ IOSN\_EDGECREASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}LayerElementEdgeCrease"{}}}
+\DoxyCodeLine{00370\ \textcolor{preprocessor}{\#define\ IOSN\_VERTEXCREASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}LayerElementVertexCrease"{}}}
+\DoxyCodeLine{00371\ \textcolor{preprocessor}{\#define\ IOSN\_HOLE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}LayerElementHole"{}}}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \textcolor{preprocessor}{\#define\ IOSN\_EMBEDDED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}EMBEDDED"{}}}
+\DoxyCodeLine{00374\ \textcolor{preprocessor}{\#define\ IOSN\_PASSWORD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Password"{}}}
+\DoxyCodeLine{00375\ \textcolor{preprocessor}{\#define\ IOSN\_PASSWORD\_ENABLE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Password\_Enable"{}}}
+\DoxyCodeLine{00376\ \textcolor{preprocessor}{\#define\ IOSN\_CURRENT\_TAKE\_NAME\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Current\_Take\_Name"{}}}
+\DoxyCodeLine{00377\ \textcolor{preprocessor}{\#define\ IOSN\_COLLAPSE\_EXTERNALS\ \ \ \ \ \ \ \ \ \ \ \ \ "{}COLLAPSE\ EXTERNALS"{}}}
+\DoxyCodeLine{00378\ \textcolor{preprocessor}{\#define\ IOSN\_COMPRESS\_ARRAYS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Compress\_Arrays"{}}}
+\DoxyCodeLine{00379\ \textcolor{preprocessor}{\#define\ IOSN\_COMPRESS\_LEVEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Compress\_Level"{}}}
+\DoxyCodeLine{00380\ \textcolor{preprocessor}{\#define\ IOSN\_COMPRESS\_MINSIZE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Compress\_Minsize"{}}}
+\DoxyCodeLine{00381\ \textcolor{preprocessor}{\#define\ IOSN\_EMBEDDED\_PROPERTIES\_SKIP\ \ \ \ \ \ \ "{}Embedded\_Skipped\_Properties"{}}}
+\DoxyCodeLine{00382\ \textcolor{preprocessor}{\#define\ IOSN\_EXPORT\_FILE\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ "{}ExportFileVersion"{}}}
+\DoxyCodeLine{00383\ \textcolor{preprocessor}{\#define\ IOSN\_SHOW\_UI\_WARNING\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}ShowUIWarning"{}}}
+\DoxyCodeLine{00384\ \textcolor{preprocessor}{\#define\ IOSN\_ADD\_MATERIAL\_TO\_EDIT\ \ \ \ \ \ \ \ \ \ \ "{}AddMaterialToEdit"{}}}
+\DoxyCodeLine{00385\ \textcolor{preprocessor}{\#define\ IOSN\_ENABLE\_TEX\_DISPLAY\ \ \ \ \ \ \ \ \ \ \ \ \ "{}EnableTexDisplay"{}}}
+\DoxyCodeLine{00386\ \textcolor{preprocessor}{\#define\ IOSN\_PREFERED\_ENVELOPPE\_SYSTEM\ \ \ \ \ \ "{}kImportPreferedEnveloppeSystem"{}}}
+\DoxyCodeLine{00387\ \textcolor{preprocessor}{\#define\ IOSN\_FIRST\_TIME\_RUN\_NOTICE\ \ \ \ \ \ \ \ \ \ "{}FirstTimeRunNotice"{}}}
+\DoxyCodeLine{00388\ \textcolor{preprocessor}{\#define\ IOSN\_EXTRACT\_EMBEDDED\_DATA\ \ \ \ \ \ \ \ \ \ "{}ExtractEmbeddedData"{}}}
+\DoxyCodeLine{00389\ \textcolor{preprocessor}{\#define\ IOSN\_CALCULATE\_LEGACY\_SHAPE\_NORMAL\ \ "{}CalculateLegacyShapeNormal"{}}}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \textcolor{comment}{//\ internal\ usage}}
+\DoxyCodeLine{00392\ \textcolor{preprocessor}{\#define\ IOSN\_USETMPFILEPERIPHERAL\ \ \ \ \ \ \ \ \ \ "{}UseTmpFilePeripheral"{}}}
+\DoxyCodeLine{00393\ \textcolor{preprocessor}{\#define\ IOSN\_CONSTRUCTIONHISTORY\ \ \ \ \ \ \ \ \ \ \ "{}ConstructionHistory"{}}}
+\DoxyCodeLine{00394\ \textcolor{preprocessor}{\#define\ IOSN\_RELAXED\_FBX\_CHECK\ \ \ \ \ \ \ \ \ \ \ \ \ "{}RelaxedFbxCheck"{}}}
+\DoxyCodeLine{00395\ \textcolor{preprocessor}{\#define\ IOSN\_KEEP\_PRODUCER\_CAM\_SRCOBJ\ \ \ \ \ \ "{}KeepProducerCamSrcObj"{}}}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00398\ \textcolor{comment}{//\ import\ defined\ path}}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \textcolor{preprocessor}{\#define\ IMP\_PRESETS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_IMPORT\ "{}|"{}\ IOSN\_PRESETS\_GRP\ "{}|"{}\ IOSN\_PRESETS}}
+\DoxyCodeLine{00401\ \textcolor{preprocessor}{\#define\ IMP\_STATISTICS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_IMPORT\ "{}|"{}\ IOSN\_STATISTICS\_GRP\ "{}|"{}\ IOSN\_STATISTICS}}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \textcolor{preprocessor}{\#define\ IMP\_STATISTICS\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_IMPORT\ "{}|"{}\ IOSN\_STATISTICS\_GRP}}
+\DoxyCodeLine{00405\ \textcolor{preprocessor}{\#define\ IMP\_PRESETS\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_IMPORT\ "{}|"{}\ IOSN\_PRESETS\_GRP}}
+\DoxyCodeLine{00406\ \textcolor{preprocessor}{\#define\ IMP\_PLUGIN\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_IMPORT\ "{}|"{}\ IOSN\_PLUGIN\_GRP}}
+\DoxyCodeLine{00407\ \textcolor{preprocessor}{\#define\ IMP\_INCLUDE\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_IMPORT\ "{}|"{}\ IOSN\_INCLUDE\_GRP}}
+\DoxyCodeLine{00408\ \textcolor{preprocessor}{\#define\ IMP\_ADV\_OPT\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_IMPORT\ "{}|"{}\ IOSN\_ADV\_OPT\_GRP}}
+\DoxyCodeLine{00409\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_EXT\_SDK\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_IMPORT\ "{}|"{}\ IOSN\_FBX\_EXTENTIONS\_SDK}}
+\DoxyCodeLine{00410\ \textcolor{preprocessor}{\#define\ IMP\_FIRST\_TIME\_RUN\_NOTICE\_GRP\ \ \ IOSN\_IMPORT\ "{}|"{}\ IOSN\_FIRST\_TIME\_RUN\_NOTICE}}
+\DoxyCodeLine{00411\ \textcolor{preprocessor}{\#define\ IMP\_INFORMATION\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_IMPORT\ "{}|"{}\ IOSN\_INFORMATION\_GRP}}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00413\ \textcolor{preprocessor}{\#define\ IMP\_FIRST\_TIME\_RUN\_NOTICE\ \ \ \ \ \ \ IMP\_FIRST\_TIME\_RUN\_NOTICE\_GRP\ "{}|"{}\ IOSN\_FIRST\_TIME\_RUN\_NOTICE}}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00415\ \textcolor{preprocessor}{\#define\ IMP\_GEOMETRY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_GEOMETRY}}
+\DoxyCodeLine{00416\ \textcolor{preprocessor}{\#define\ IMP\_AUDIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_AUDIO}}
+\DoxyCodeLine{00417\ \textcolor{preprocessor}{\#define\ IMP\_ANIMATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_ANIMATION}}
+\DoxyCodeLine{00418\ \textcolor{preprocessor}{\#define\ IMP\_SETLOCKEDATTRIB\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_SETLOCKEDATTRIB}}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \textcolor{preprocessor}{\#define\ IMP\_MERGE\_MODE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_MERGE\_MODE}}
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\#define\ IMP\_MERGE\_MODE\_DESCRIPTION\ \ \ \ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_MERGE\_MODE\_DESCRIPTION}}
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\#define\ IMP\_ONE\_CLICK\_MERGE\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_ONE\_CLICK\_MERGE}}
+\DoxyCodeLine{00423\ \textcolor{preprocessor}{\#define\ IMP\_ONE\_CLICK\_MERGE\_TEXTURE\ \ \ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_ONE\_CLICK\_MERGE\_TEXTURE}}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00425\ \textcolor{preprocessor}{\#define\ IMP\_ADD\_MATERIAL\_TO\_EDIT\ \ \ \ \ \ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_ADD\_MATERIAL\_TO\_EDIT}}
+\DoxyCodeLine{00426\ \textcolor{preprocessor}{\#define\ IMP\_ENABLE\_TEX\_DISPLAY\ \ \ \ \ \ \ \ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_ENABLE\_TEX\_DISPLAY}}
+\DoxyCodeLine{00427\ \textcolor{preprocessor}{\#define\ IMP\_PREFERED\_ENVELOPPE\_SYSTEM\ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_PREFERED\_ENVELOPPE\_SYSTEM\ \ \ \ \ \ }}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00429\ \textcolor{preprocessor}{\#define\ IMP\_CAMERA\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_CAMERA\_GRP}}
+\DoxyCodeLine{00430\ \textcolor{preprocessor}{\#define\ IMP\_LIGHT\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_LIGHT\_GRP}}
+\DoxyCodeLine{00431\ \textcolor{preprocessor}{\#define\ IMP\_EMBEDDED\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_EMBEDTEXTURE}}
+\DoxyCodeLine{00432\ \textcolor{preprocessor}{\#define\ IMP\_EXTRACT\_FOLDER\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_EMBEDDED\_GRP\ "{}|"{}\ IOSN\_EMBEDDED\_FOLDER}}
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00434\ \textcolor{preprocessor}{\#define\ IMP\_LIGHT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_LIGHT\_GRP\ "{}|"{}\ IOSN\_LIGHT}}
+\DoxyCodeLine{00435\ \textcolor{preprocessor}{\#define\ IMP\_ENVIRONMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_LIGHT\_GRP\ "{}|"{}\ IOSN\_ENVIRONMENT}}
+\DoxyCodeLine{00436\ \textcolor{preprocessor}{\#define\ IMP\_CAMERA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_CAMERA\_GRP\ "{}|"{}\ IOSN\_CAMERA}}
+\DoxyCodeLine{00437\ \textcolor{preprocessor}{\#define\ IMP\_VIEW\_CUBE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_VIEW\_CUBE}}
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00439\ \textcolor{comment}{//\ so\ far,\ this\ one\ is\ for\ 3dsMax\ plug-\/in\ only}}
+\DoxyCodeLine{00440\ \textcolor{preprocessor}{\#define\ IMP\_ZOOMEXTENTS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_ZOOMEXTENTS}}
+\DoxyCodeLine{00441\ \textcolor{preprocessor}{\#define\ IMP\_GLOBAL\_AMBIENT\_COLOR\ \ \ \ \ \ \ \ IMP\_LIGHT\_GRP\ "{}|"{}\ IOSN\_GLOBAL\_AMBIENT\_COLOR}}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \textcolor{preprocessor}{\#define\ IMP\_CURVEFILTERS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ANIMATION\ "{}|"{}\ IOSN\_CURVE\_FILTER}}
+\DoxyCodeLine{00444\ \textcolor{preprocessor}{\#define\ IMP\_SAMPLINGPANEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ANIMATION\ "{}|"{}\ IOSN\_SAMPLINGPANEL}}
+\DoxyCodeLine{00445\ }
+\DoxyCodeLine{00446\ \textcolor{preprocessor}{\#define\ IMP\_DEFORMATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ANIMATION\ "{}|"{}\ IOSN\_DEFORMATION}}
+\DoxyCodeLine{00447\ \textcolor{preprocessor}{\#define\ IMP\_BONE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ANIMATION\ "{}|"{}\ IOSN\_BONE}}
+\DoxyCodeLine{00448\ \textcolor{preprocessor}{\#define\ IMP\_ATTENUATIONASINTENSITYCURVE\ IMP\_ANIMATION\ "{}|"{}\ IOSN\_ATTENUATIONASINTENSITYCURVE}}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \textcolor{preprocessor}{\#define\ IMP\_EXTRA\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ANIMATION\ "{}|"{}\ IOSN\_EXTRA\_GRP}}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00452\ \textcolor{preprocessor}{\#define\ IMP\_TAKE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_EXTRA\_GRP\ "{}|"{}\ IOSN\_TAKE}}
+\DoxyCodeLine{00453\ \textcolor{preprocessor}{\#define\ IMP\_KEEPFRAMERATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_EXTRA\_GRP\ "{}|"{}\ IOSN\_KEEPFRAMERATE}}
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\#define\ IMP\_TIMELINE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_EXTRA\_GRP\ "{}|"{}\ IOSN\_TIMELINE}}
+\DoxyCodeLine{00455\ \textcolor{preprocessor}{\#define\ IMP\_TIMELINE\_SPAN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_EXTRA\_GRP\ "{}|"{}\ IOSN\_TIMELINE\_SPAN}}
+\DoxyCodeLine{00456\ \textcolor{preprocessor}{\#define\ IMP\_BAKEANIMATIONLAYERS\ \ \ \ \ \ \ \ \ IMP\_EXTRA\_GRP\ "{}|"{}\ IOSN\_BAKEANIMATIONLAYERS}}
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\#define\ IMP\_MARKERS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_EXTRA\_GRP\ "{}|"{}\ IOSN\_MARKERS}}
+\DoxyCodeLine{00458\ \textcolor{preprocessor}{\#define\ IMP\_QUATERNION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_EXTRA\_GRP\ "{}|"{}\ IOSN\_QUATERNION}}
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\#define\ IMP\_PROTECTDRIVENKEYS\ \ \ \ \ \ \ \ \ \ \ IMP\_EXTRA\_GRP\ "{}|"{}\ IOSN\_PROTECTDRIVENKEYS}}
+\DoxyCodeLine{00460\ \textcolor{preprocessor}{\#define\ IMP\_DEFORMNULLSASJOINTS\ \ \ \ \ \ \ \ \ IMP\_EXTRA\_GRP\ "{}|"{}\ IOSN\_DEFORMNULLSASJOINTS}}
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\#define\ IMP\_NULLSTOPIVOT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_EXTRA\_GRP\ "{}|"{}\ IOSN\_NULLSTOPIVOT}}
+\DoxyCodeLine{00462\ \textcolor{preprocessor}{\#define\ IMP\_POINTCACHE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_EXTRA\_GRP\ "{}|"{}\ IOSN\_POINTCACHE}}
+\DoxyCodeLine{00463\ \textcolor{preprocessor}{\#define\ IMP\_SHAPEANIMATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_EXTRA\_GRP\ "{}|"{}\ IOSN\_SHAPEANIMATION}}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ \textcolor{preprocessor}{\#define\ IMP\_CONSTRAINTS\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ANIMATION\ "{}|"{}\ IOSN\_CONSTRAINTS\_GRP}}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00467\ \textcolor{preprocessor}{\#define\ IMP\_CONSTRAINT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_CONSTRAINTS\_GRP\ "{}|"{}\ IOSN\_CONSTRAINT}}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00469\ \textcolor{preprocessor}{\#define\ IMP\_CHARACTER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_CONSTRAINTS\_GRP\ "{}|"{}\ IOSN\_CHARACTER}}
+\DoxyCodeLine{00470\ \textcolor{preprocessor}{\#define\ IMP\_CHARACTER\_AS\_MAYA\_HIK\ \ \ \ \ \ \ IMP\_CONSTRAINTS\_GRP\ "{}|"{}\ IOSN\_CHARACTER\_AS\_MAYA\_HIK}}
+\DoxyCodeLine{00471\ \textcolor{preprocessor}{\#define\ IMP\_CHARACTER\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_CONSTRAINTS\_GRP\ "{}|"{}\ IOSN\_CHARACTER\_TYPE}}
+\DoxyCodeLine{00472\ }
+\DoxyCodeLine{00473\ }
+\DoxyCodeLine{00474\ \textcolor{preprocessor}{\#define\ IMP\_SAMPLINGRATESELECTOR\ \ \ \ \ \ \ \ IMP\_SAMPLINGPANEL\ "{}|"{}\ IOSN\_SAMPLINGRATESELECTOR}}
+\DoxyCodeLine{00475\ \textcolor{preprocessor}{\#define\ IMP\_SAMPLINGRATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_SAMPLINGPANEL\ "{}|"{}\ IOSN\_SAMPLINGRATE}}
+\DoxyCodeLine{00476\ }
+\DoxyCodeLine{00477\ \textcolor{preprocessor}{\#define\ IMP\_UNITS\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ADV\_OPT\_GRP\ "{}|"{}\ IOSN\_UNITS\_GRP}}
+\DoxyCodeLine{00478\ \textcolor{preprocessor}{\#define\ IMP\_AXISCONV\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ADV\_OPT\_GRP\ "{}|"{}\ IOSN\_AXISCONV\_GRP}}
+\DoxyCodeLine{00479\ \textcolor{preprocessor}{\#define\ IMP\_CACHE\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ADV\_OPT\_GRP\ "{}|"{}\ IOSN\_CACHE\_GRP}}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00481\ \textcolor{preprocessor}{\#define\ IMP\_UI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ADV\_OPT\_GRP\ "{}|"{}\ IOSN\_UI\ }}
+\DoxyCodeLine{00482\ \textcolor{preprocessor}{\#define\ IMP\_FILEFORMAT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ADV\_OPT\_GRP\ "{}|"{}\ IOSN\_FILE\_FORMAT}}
+\DoxyCodeLine{00483\ \textcolor{preprocessor}{\#define\ IMP\_PERF\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ADV\_OPT\_GRP\ "{}|"{}\ IOSN\_PERF\_GRP}}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \textcolor{preprocessor}{\#define\ IMP\_REMOVEBADPOLYSFROMMESH\ \ \ \ \ \ IMP\_PERF\_GRP\ "{}|"{}\ IOSN\_REMOVEBADPOLYSFROMMESH}}
+\DoxyCodeLine{00486\ \textcolor{preprocessor}{\#define\ IMP\_META\_DATA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_PERF\_GRP\ "{}|"{}\ IOSN\_META\_DATA}}
+\DoxyCodeLine{00487\ }
+\DoxyCodeLine{00488\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_EXTENTIONS\_SDK\_WARNING\ \ IMP\_FBX\_EXT\_SDK\_GRP\ "{}|"{}\ IOSN\_FBX\_EXTENTIONS\_SDK\_WARNING}}
+\DoxyCodeLine{00489\ }
+\DoxyCodeLine{00490\ \textcolor{preprocessor}{\#define\ IMP\_SCALECONVERSION\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_UNITS\_GRP\ "{}|"{}\ IOSN\_SCALECONVERSION}}
+\DoxyCodeLine{00491\ \textcolor{preprocessor}{\#define\ IMP\_UNITS\_TB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_UNITS\_GRP\ "{}|"{}\ IOSN\_UNITS\_TB}}
+\DoxyCodeLine{00492\ \textcolor{preprocessor}{\#define\ IMP\_MASTERSCALE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_UNITS\_GRP\ "{}|"{}\ IOSN\_MASTERSCALE}}
+\DoxyCodeLine{00493\ \textcolor{preprocessor}{\#define\ IMP\_UNITS\_SCALE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_UNITS\_GRP\ "{}|"{}\ IOSN\_UNITS\_SCALE}}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \textcolor{preprocessor}{\#define\ IMP\_DYN\_SCALE\_CONVERSION\ \ \ \ \ \ \ \ IMP\_UNITS\_GRP\ "{}|"{}\ IOSN\_DYN\_SCALE\_CONVERSION}}
+\DoxyCodeLine{00496\ \textcolor{preprocessor}{\#define\ IMP\_UNITSELECTOR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_UNITS\_GRP\ "{}|"{}\ IOSN\_UNITSELECTOR}}
+\DoxyCodeLine{00497\ \textcolor{preprocessor}{\#define\ IMP\_TOTAL\_UNITS\_SCALE\_TB\ \ \ \ \ \ \ \ IMP\_UNITS\_GRP\ "{}|"{}\ IOSN\_TOTAL\_UNITS\_SCALE\_TB}}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00499\ \textcolor{preprocessor}{\#define\ IMP\_SHOW\_UI\_MODE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_UI\ "{}|"{}\ IOSN\_SHOW\_UI\_MODE}}
+\DoxyCodeLine{00500\ \textcolor{preprocessor}{\#define\ IMP\_SHOW\_UI\_WARNING\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_UI\ "{}|"{}\ IOSN\_SHOW\_UI\_WARNING}}
+\DoxyCodeLine{00501\ \textcolor{preprocessor}{\#define\ IMP\_SHOW\_WARNINGS\_MANAGER\ \ \ \ \ \ \ IMP\_UI\ "{}|"{}\ IOSN\_SHOW\_WARNINGS\_MANAGER}}
+\DoxyCodeLine{00502\ \textcolor{preprocessor}{\#define\ IMP\_GENERATE\_LOG\_DATA\ \ \ \ \ \ \ \ \ \ \ IMP\_UI\ "{}|"{}\ IOSN\_GENERATE\_LOG\_DATA\ \ \ }}
+\DoxyCodeLine{00503\ \textcolor{preprocessor}{\#define\ IMP\_PLUGIN\_VERSIONS\_URL\ \ \ \ \ \ \ \ \ IMP\_UI\ "{}|"{}\ IOSN\_PLUGIN\_VERSIONS\_URL}}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00505\ \textcolor{preprocessor}{\#define\ IMP\_DXF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ADV\_OPT\_GRP\ "{}|"{}\ IOSN\_DXF}}
+\DoxyCodeLine{00506\ }
+\DoxyCodeLine{00507\ \textcolor{comment}{//\ note:\ IMP\_FILEFORMAT\ group\ is\ not\ visible}}
+\DoxyCodeLine{00508\ \textcolor{preprocessor}{\#define\ IMP\_FBX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FILEFORMAT\ "{}|"{}\ IOSN\_FBX}}
+\DoxyCodeLine{00509\ \textcolor{preprocessor}{\#define\ IMP\_OBJ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FILEFORMAT\ "{}|"{}\ IOSN\_OBJ}}
+\DoxyCodeLine{00510\ \textcolor{preprocessor}{\#define\ IMP\_3DS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FILEFORMAT\ "{}|"{}\ IOSN\_3DS}}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00512\ \textcolor{preprocessor}{\#define\ IMP\_MOTION\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FILEFORMAT\ "{}|"{}\ IOSN\_MOTION\_BASE}}
+\DoxyCodeLine{00513\ \textcolor{preprocessor}{\#define\ IMP\_BIOVISION\_BVH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FILEFORMAT\ "{}|"{}\ IOSN\_BIOVISION\_BVH}}
+\DoxyCodeLine{00514\ \textcolor{preprocessor}{\#define\ IMP\_MOTIONANALYSIS\_HTR\ \ \ \ \ \ \ \ \ \ IMP\_FILEFORMAT\ "{}|"{}\ IOSN\_MOTIONANALYSIS\_HTR}}
+\DoxyCodeLine{00515\ \textcolor{preprocessor}{\#define\ IMP\_ACCLAIM\_ASF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FILEFORMAT\ "{}|"{}\ IOSN\_ACCLAIM\_ASF}}
+\DoxyCodeLine{00516\ \textcolor{preprocessor}{\#define\ IMP\_ACCLAIM\_AMC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FILEFORMAT\ "{}|"{}\ IOSN\_ACCLAIM\_AMC}}
+\DoxyCodeLine{00517\ }
+\DoxyCodeLine{00518\ \textcolor{preprocessor}{\#define\ IMP\_UNLOCK\_NORMALS\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_GEOMETRY\ "{}|"{}\ IOSN\_UNLOCK\_NORMALS}}
+\DoxyCodeLine{00519\ \textcolor{preprocessor}{\#define\ IMP\_CREASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_GEOMETRY\ "{}|"{}\ IOSN\_CREASE}}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \textcolor{preprocessor}{\#define\ IMP\_SMOOTHING\_GROUPS\ \ \ \ \ \ \ \ \ \ \ \ IMP\_GEOMETRY\ "{}|"{}\ IOSN\_SMOOTHING\_GROUPS}}
+\DoxyCodeLine{00522\ \textcolor{preprocessor}{\#define\ IMP\_HARDEDGES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_GEOMETRY\ "{}|"{}\ IOSN\_HARDEDGES}}
+\DoxyCodeLine{00523\ \textcolor{preprocessor}{\#define\ IMP\_BLINDDATA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_GEOMETRY\ "{}|"{}\ IOSN\_BLINDDATA}}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \textcolor{preprocessor}{\#define\ IMP\_BONE\_WIDTHHEIGHTLOCK\ \ \ \ \ \ \ \ IMP\_BONE\ "{}|"{}\ IOSN\_BONEWIDTHHEIGHTLOCK}}
+\DoxyCodeLine{00526\ \textcolor{preprocessor}{\#define\ IMP\_BONEASDUMMY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_BONE\ "{}|"{}\ IOSN\_BONEASDUMMY}}
+\DoxyCodeLine{00527\ \textcolor{preprocessor}{\#define\ IMP\_BONEMAX4BONEWIDTH\ \ \ \ \ \ \ \ \ \ \ IMP\_BONE\ "{}|"{}\ IOSN\_BONEMAX4BONEWIDTH\ \ \ }}
+\DoxyCodeLine{00528\ \textcolor{preprocessor}{\#define\ IMP\_BONEMAX4BONEHEIGHT\ \ \ \ \ \ \ \ \ \ IMP\_BONE\ "{}|"{}\ IOSN\_BONEMAX4BONEHEIGHT\ \ }}
+\DoxyCodeLine{00529\ \textcolor{preprocessor}{\#define\ IMP\_BONEMAX4BONETAPER\ \ \ \ \ \ \ \ \ \ \ IMP\_BONE\ "{}|"{}\ IOSN\_BONEMAX4BONETAPER}}
+\DoxyCodeLine{00530\ }
+\DoxyCodeLine{00531\ \textcolor{preprocessor}{\#define\ IMP\_SHAPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_DEFORMATION\ "{}|"{}\ IOSN\_SHAPE}}
+\DoxyCodeLine{00532\ \textcolor{preprocessor}{\#define\ IMP\_SKINS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_DEFORMATION\ "{}|"{}\ IOSN\_SKINS}}
+\DoxyCodeLine{00533\ \textcolor{preprocessor}{\#define\ IMP\_USEMATRIXFROMPOSE\ \ \ \ \ \ \ \ \ \ \ IMP\_DEFORMATION\ "{}|"{}\ IOSN\_USEMATRIXFROMPOSE}}
+\DoxyCodeLine{00534\ \textcolor{preprocessor}{\#define\ IMP\_FORCEWEIGHTNORMALIZE\ \ \ \ \ \ \ \ IMP\_DEFORMATION\ "{}|"{}\ IOSN\_FORCEWEIGHTNORMALIZE}}
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00536\ }
+\DoxyCodeLine{00537\ }
+\DoxyCodeLine{00538\ \textcolor{preprocessor}{\#define\ IMP\_APPLYCSTKEYRED\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_CURVEFILTERS\ "{}|"{}\ IOSN\_APPLYCSTKEYRED}}
+\DoxyCodeLine{00539\ \textcolor{preprocessor}{\#define\ IMP\_CSTKEYREDTPREC\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_APPLYCSTKEYRED\ "{}|"{}\ IOSN\_CSTKEYREDTPREC\ \ }}
+\DoxyCodeLine{00540\ \textcolor{preprocessor}{\#define\ IMP\_CSTKEYREDRPREC\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_APPLYCSTKEYRED\ "{}|"{}\ IOSN\_CSTKEYREDRPREC\ \ }}
+\DoxyCodeLine{00541\ \textcolor{preprocessor}{\#define\ IMP\_CSTKEYREDSPREC\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_APPLYCSTKEYRED\ "{}|"{}\ IOSN\_CSTKEYREDSPREC\ \ }}
+\DoxyCodeLine{00542\ \textcolor{preprocessor}{\#define\ IMP\_CSTKEYREDOPREC\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_APPLYCSTKEYRED\ "{}|"{}\ IOSN\_CSTKEYREDOPREC}}
+\DoxyCodeLine{00543\ \textcolor{preprocessor}{\#define\ IMP\_AUTOTANGENTSONLY\ \ \ \ \ \ \ \ \ \ \ \ IMP\_APPLYCSTKEYRED\ "{}|"{}\ IOSN\_AUTOTANGENTSONLY}}
+\DoxyCodeLine{00544\ }
+\DoxyCodeLine{00545\ \textcolor{preprocessor}{\#define\ IMP\_APPLYKEYREDUCE\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_CURVEFILTERS\ "{}|"{}\ IOSN\_APPLYKEYREDUCE\ \ }}
+\DoxyCodeLine{00546\ \textcolor{preprocessor}{\#define\ IMP\_KEYREDUCEPREC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_APPLYKEYREDUCE\ "{}|"{}\ IOSN\_KEYREDUCEPREC\ \ \ }}
+\DoxyCodeLine{00547\ \textcolor{preprocessor}{\#define\ IMP\_APPLYKEYSONFRM\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_APPLYKEYREDUCE\ "{}|"{}\ IOSN\_APPLYKEYSONFRM\ \ }}
+\DoxyCodeLine{00548\ \textcolor{preprocessor}{\#define\ IMP\_APPLYKEYSYNC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_APPLYKEYREDUCE\ "{}|"{}\ IOSN\_APPLYKEYSYNC\ \ }}
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00550\ \textcolor{preprocessor}{\#define\ IMP\_APPLYUNROLL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_CURVEFILTERS\ "{}|"{}\ IOSN\_APPLYUNROLL\ \ \ \ \ }}
+\DoxyCodeLine{00551\ \textcolor{preprocessor}{\#define\ IMP\_UNROLLPREC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_APPLYUNROLL\ "{}|"{}\ IOSN\_UNROLLPREC\ \ \ \ \ \ }}
+\DoxyCodeLine{00552\ \textcolor{preprocessor}{\#define\ IMP\_UNROLLPATH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_APPLYUNROLL\ "{}|"{}\ IOSN\_UNROLLPATH}}
+\DoxyCodeLine{00553\ \textcolor{preprocessor}{\#define\ IMP\_UNROLLFORCEAUTO\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_APPLYUNROLL\ "{}|"{}\ IOSN\_UNROLLFORCEAUTO}}
+\DoxyCodeLine{00554\ }
+\DoxyCodeLine{00555\ \textcolor{preprocessor}{\#define\ IMP\_UP\_AXIS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_AXISCONV\_GRP\ "{}|"{}\ IOSN\_UP\_AXIS}}
+\DoxyCodeLine{00556\ \textcolor{preprocessor}{\#define\ IMP\_UP\_AXIS\_MAX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_AXISCONV\_GRP\ "{}|"{}\ IOSN\_UP\_AXIS\_MAX}}
+\DoxyCodeLine{00557\ \textcolor{preprocessor}{\#define\ IMP\_ZUPROTATION\_MAX\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_AXISCONV\_GRP\ "{}|"{}\ IOSN\_ZUPROTATION\_MAX}}
+\DoxyCodeLine{00558\ \textcolor{preprocessor}{\#define\ IMP\_AXISCONVERSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_AXISCONV\_GRP\ "{}|"{}\ IOSN\_AXISCONVERSION}}
+\DoxyCodeLine{00559\ \textcolor{preprocessor}{\#define\ IMP\_AUTO\_AXIS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_AXISCONV\_GRP\ "{}|"{}\ IOSN\_AUTO\_AXIS}}
+\DoxyCodeLine{00560\ \textcolor{preprocessor}{\#define\ IMP\_FILE\_UP\_AXIS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_AXISCONV\_GRP\ "{}|"{}\ IOSN\_FILE\_UP\_AXIS}}
+\DoxyCodeLine{00561\ }
+\DoxyCodeLine{00562\ \textcolor{preprocessor}{\#define\ IMP\_CACHE\_SIZE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_CACHE\_GRP\ "{}|"{}\ IOSN\_CACHE\_SIZE}}
+\DoxyCodeLine{00563\ }
+\DoxyCodeLine{00564\ \textcolor{preprocessor}{\#define\ IMP\_PLUGIN\_UI\_WIDTH\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_PLUGIN\_UI\_WIDTH}}
+\DoxyCodeLine{00565\ \textcolor{preprocessor}{\#define\ IMP\_PLUGIN\_UI\_HEIGHT\ \ \ \ \ \ \ \ \ \ \ \ IMP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_PLUGIN\_UI\_HEIGHT}}
+\DoxyCodeLine{00566\ \textcolor{preprocessor}{\#define\ IMP\_PRESET\_SELECTED\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_PRESET\_SELECTED}}
+\DoxyCodeLine{00567\ }
+\DoxyCodeLine{00568\ \textcolor{preprocessor}{\#define\ IMP\_UIL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_UIL}}
+\DoxyCodeLine{00569\ \textcolor{preprocessor}{\#define\ IMP\_PLUGIN\_PRODUCT\_FAMILY\ \ \ \ \ \ \ IMP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_PLUGIN\_PRODUCT\_FAMILY}}
+\DoxyCodeLine{00570\ }
+\DoxyCodeLine{00571\ \textcolor{preprocessor}{\#define\ IMP\_PLUGIN\_UI\_XPOS\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_PLUGIN\_UI\_XPOS\ \ \ \ \ }}
+\DoxyCodeLine{00572\ \textcolor{preprocessor}{\#define\ IMP\_PLUGIN\_UI\_YPOS\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_PLUGIN\_UI\_YPOS\ \ \ \ \ }}
+\DoxyCodeLine{00573\ }
+\DoxyCodeLine{00574\ \textcolor{preprocessor}{\#define\ IMP\_DXF\_WELD\_VERTICES\ \ \ \ \ \ \ \ \ \ \ IMP\_DXF\ "{}|"{}\ IOSN\_DXF\_WELD\_VERTICES}}
+\DoxyCodeLine{00575\ \textcolor{preprocessor}{\#define\ IMP\_DXF\_OBJECT\_DERIVATION\ \ \ \ \ \ \ IMP\_DXF\ "{}|"{}\ IOSN\_DXF\_OBJECT\_DERIVATION}}
+\DoxyCodeLine{00576\ \textcolor{preprocessor}{\#define\ IMP\_DXF\_REFERENCE\_NODE\ \ \ \ \ \ \ \ \ \ IMP\_DXF\ "{}|"{}\ IOSN\_DXF\_REFERENCE\_NODE}}
+\DoxyCodeLine{00577\ }
+\DoxyCodeLine{00578\ \textcolor{preprocessor}{\#define\ IMP\_OBJ\_REFERENCE\_NODE\ \ \ \ \ \ \ \ \ \ IMP\_OBJ\ "{}|"{}\ IOSN\_OBJ\_REFERENCE\_NODE}}
+\DoxyCodeLine{00579\ }
+\DoxyCodeLine{00580\ \textcolor{preprocessor}{\#define\ IMP\_3DS\_REFERENCENODE\ \ \ \ \ \ \ \ \ \ \ IMP\_3DS\ "{}|"{}\ IOSN\_3DS\_REFERENCENODE\ \ }}
+\DoxyCodeLine{00581\ \textcolor{preprocessor}{\#define\ IMP\_3DS\_TEXTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_3DS\ "{}|"{}\ IOSN\_3DS\_TEXTURE\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00582\ \textcolor{preprocessor}{\#define\ IMP\_3DS\_MATERIAL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_3DS\ "{}|"{}\ IOSN\_3DS\_MATERIAL\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00583\ \textcolor{preprocessor}{\#define\ IMP\_3DS\_ANIMATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_3DS\ "{}|"{}\ IOSN\_3DS\_ANIMATION\ \ \ \ \ \ }}
+\DoxyCodeLine{00584\ \textcolor{preprocessor}{\#define\ IMP\_3DS\_MESH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_3DS\ "{}|"{}\ IOSN\_3DS\_MESH\ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00585\ \textcolor{preprocessor}{\#define\ IMP\_3DS\_LIGHT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_3DS\ "{}|"{}\ IOSN\_3DS\_LIGHT\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00586\ \textcolor{preprocessor}{\#define\ IMP\_3DS\_CAMERA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_3DS\ "{}|"{}\ IOSN\_3DS\_CAMERA\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00587\ \textcolor{preprocessor}{\#define\ IMP\_3DS\_AMBIENT\_LIGHT\ \ \ \ \ \ \ \ \ \ \ IMP\_3DS\ "{}|"{}\ IOSN\_3DS\_AMBIENT\_LIGHT\ \ }}
+\DoxyCodeLine{00588\ \textcolor{preprocessor}{\#define\ IMP\_3DS\_RESCALING\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_3DS\ "{}|"{}\ IOSN\_3DS\_RESCALING\ \ \ \ \ \ }}
+\DoxyCodeLine{00589\ \textcolor{preprocessor}{\#define\ IMP\_3DS\_FILTER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_3DS\ "{}|"{}\ IOSN\_3DS\_FILTER\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00590\ \textcolor{preprocessor}{\#define\ IMP\_3DS\_SMOOTHGROUP\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_3DS\ "{}|"{}\ IOSN\_3DS\_SMOOTHGROUP\ \ }}
+\DoxyCodeLine{00591\ }
+\DoxyCodeLine{00592\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_MODEL\_COUNT\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_MODEL\_COUNT\ \ \ \ \ \ }}
+\DoxyCodeLine{00593\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_DEVICE\_COUNT\ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_DEVICE\_COUNT\ \ \ \ \ }}
+\DoxyCodeLine{00594\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_CHARACTER\_COUNT\ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_CHARACTER\_COUNT\ \ }}
+\DoxyCodeLine{00595\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_ACTOR\_COUNT\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_ACTOR\_COUNT\ \ \ \ \ \ }}
+\DoxyCodeLine{00596\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_CONSTRAINT\_COUNT\ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_CONSTRAINT\_COUNT\ }}
+\DoxyCodeLine{00597\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_MEDIA\_COUNT\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_MEDIA\_COUNT\ \ \ \ \ \ }}
+\DoxyCodeLine{00598\ }
+\DoxyCodeLine{00599\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_TEMPLATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_TEMPLATE}}
+\DoxyCodeLine{00600\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_PIVOT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_PIVOT}}
+\DoxyCodeLine{00601\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_GLOBAL\_SETTINGS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_GLOBAL\_SETTINGS}}
+\DoxyCodeLine{00602\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_CHARACTER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_CHARACTER}}
+\DoxyCodeLine{00603\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_CONSTRAINT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_CONSTRAINT}}
+\DoxyCodeLine{00604\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_MERGE\_LAYER\_AND\_TIMEWARP\ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_MERGE\_LAYER\_AND\_TIMEWARP}}
+\DoxyCodeLine{00605\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_GOBO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_GOBO}}
+\DoxyCodeLine{00606\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_SHAPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_SHAPE}}
+\DoxyCodeLine{00607\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_LINK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_LINK}}
+\DoxyCodeLine{00608\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_MATERIAL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_MATERIAL}}
+\DoxyCodeLine{00609\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_TEXTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_TEXTURE}}
+\DoxyCodeLine{00610\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_MODEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_MODEL}}
+\DoxyCodeLine{00611\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_AUDIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_AUDIO}}
+\DoxyCodeLine{00612\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_ANIMATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_ANIMATION}}
+\DoxyCodeLine{00613\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_PASSWORD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_PASSWORD}}
+\DoxyCodeLine{00614\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_PASSWORD\_ENABLE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_PASSWORD\_ENABLE}}
+\DoxyCodeLine{00615\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_CURRENT\_TAKE\_NAME\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_CURRENT\_TAKE\_NAME}}
+\DoxyCodeLine{00616\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_EXTRACT\_EMBEDDED\_DATA\ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_EXTRACT\_EMBEDDED\_DATA}}
+\DoxyCodeLine{00617\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_CALCULATE\_LEGACY\_SHAPE\_NORMAL\ \ IMP\_FBX\ "{}|"{}\ IOSN\_CALCULATE\_LEGACY\_SHAPE\_NORMAL\ }\textcolor{comment}{//\ only\ used\ on\ FBX\ v7\ (and\ above)\ imports.\ Turning\ this\ flag\ off\ will\ prevent\ the\ legacy\ type\ shapes\ to\ have\ normals}}
+\DoxyCodeLine{00618\ }
+\DoxyCodeLine{00619\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_NORMAL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_NORMAL}}
+\DoxyCodeLine{00620\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_BINORMAL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_BINORMAL}}
+\DoxyCodeLine{00621\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_TANGENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_TANGENT}}
+\DoxyCodeLine{00622\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_VERTEXCOLOR\ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_VERTEXCOLOR}}
+\DoxyCodeLine{00623\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_POLYGROUP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_POLYGROUP}}
+\DoxyCodeLine{00624\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_SMOOTHING\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_SMOOTHING}}
+\DoxyCodeLine{00625\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_USERDATA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_USERDATA}}
+\DoxyCodeLine{00626\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_VISIBILITY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_VISIBILITY}}
+\DoxyCodeLine{00627\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_EDGECREASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_EDGECREASE}}
+\DoxyCodeLine{00628\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_VERTEXCREASE\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_VERTEXCREASE}}
+\DoxyCodeLine{00629\ \textcolor{preprocessor}{\#define\ IMP\_FBX\_HOLE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_HOLE}}
+\DoxyCodeLine{00630\ }
+\DoxyCodeLine{00631\ \textcolor{comment}{//\ internal\ use}}
+\DoxyCodeLine{00632\ \textcolor{preprocessor}{\#define\ IMP\_RELAXED\_FBX\_CHECK\ \ \ \ \ \ \ \ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_RELAXED\_FBX\_CHECK}}
+\DoxyCodeLine{00633\ \textcolor{preprocessor}{\#define\ IMP\_KEEP\_PRODUCER\_CAM\_SRCOBJ\ \ \ \ IMP\_FBX\ "{}|"{}\ IOSN\_KEEP\_PRODUCER\_CAM\_SRCOBJ}}
+\DoxyCodeLine{00634\ }
+\DoxyCodeLine{00635\ \textcolor{preprocessor}{\#define\ IMP\_BUTTON\_WEB\_UPDATE\ \ \ \ \ \ \ \ \ \ \ IMP\_INFORMATION\_GRP\ "{}|"{}\ IOSN\_BUTTON\_WEB\_UPDATE}}
+\DoxyCodeLine{00636\ \textcolor{preprocessor}{\#define\ IMP\_PI\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_INFORMATION\_GRP\ "{}|"{}\ IOSN\_PI\_VERSION}}
+\DoxyCodeLine{00637\ }
+\DoxyCodeLine{00638\ }
+\DoxyCodeLine{00639\ \textcolor{comment}{//\ end\ of\ import\ defined\ path}}
+\DoxyCodeLine{00640\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00641\ }
+\DoxyCodeLine{00642\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00643\ \textcolor{comment}{//\ export\ defined\ path}}
+\DoxyCodeLine{00644\ }
+\DoxyCodeLine{00645\ \textcolor{preprocessor}{\#define\ EXP\_STATISTICS\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_EXPORT\ "{}|"{}\ IOSN\_STATISTICS\_GRP}}
+\DoxyCodeLine{00646\ \textcolor{preprocessor}{\#define\ EXP\_ADV\_OPT\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_EXPORT\ "{}|"{}\ IOSN\_ADV\_OPT\_GRP}}
+\DoxyCodeLine{00647\ \textcolor{preprocessor}{\#define\ EXP\_PRESETS\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_EXPORT\ "{}|"{}\ IOSN\_PRESETS\_GRP}}
+\DoxyCodeLine{00648\ \textcolor{preprocessor}{\#define\ EXP\_STATISTICS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_EXPORT\ "{}|"{}\ IOSN\_STATISTICS\_GRP\ "{}|"{}\ IOSN\_STATISTICS}}
+\DoxyCodeLine{00649\ \textcolor{preprocessor}{\#define\ EXP\_FIRST\_TIME\_RUN\_NOTICE\_GRP\ \ \ IOSN\_EXPORT\ "{}|"{}\ IOSN\_FIRST\_TIME\_RUN\_NOTICE}}
+\DoxyCodeLine{00650\ \textcolor{preprocessor}{\#define\ EXP\_INFORMATION\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_EXPORT\ "{}|"{}\ IOSN\_INFORMATION\_GRP}}
+\DoxyCodeLine{00651\ }
+\DoxyCodeLine{00652\ \textcolor{preprocessor}{\#define\ EXP\_PLUGIN\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_EXPORT\ "{}|"{}\ IOSN\_PLUGIN\_GRP}}
+\DoxyCodeLine{00653\ \textcolor{preprocessor}{\#define\ EXP\_INCLUDE\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_EXPORT\ "{}|"{}\ IOSN\_INCLUDE\_GRP}}
+\DoxyCodeLine{00654\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_EXT\_SDK\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ IOSN\_EXPORT\ "{}|"{}\ IOSN\_FBX\_EXTENTIONS\_SDK}}
+\DoxyCodeLine{00655\ }
+\DoxyCodeLine{00656\ \textcolor{preprocessor}{\#define\ EXP\_UNITS\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ADV\_OPT\_GRP\ "{}|"{}\ IOSN\_UNITS\_GRP}}
+\DoxyCodeLine{00657\ \textcolor{preprocessor}{\#define\ EXP\_FILEFORMAT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ADV\_OPT\_GRP\ "{}|"{}\ IOSN\_FILE\_FORMAT}}
+\DoxyCodeLine{00658\ \textcolor{preprocessor}{\#define\ EXP\_AXISCONV\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ADV\_OPT\_GRP\ "{}|"{}\ IOSN\_AXISCONV\_GRP}}
+\DoxyCodeLine{00659\ \textcolor{preprocessor}{\#define\ EXP\_CACHE\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ADV\_OPT\_GRP\ "{}|"{}\ IOSN\_CACHE\_GRP}}
+\DoxyCodeLine{00660\ }
+\DoxyCodeLine{00661\ \textcolor{preprocessor}{\#define\ EXP\_UI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ADV\_OPT\_GRP\ "{}|"{}\ IOSN\_UI}}
+\DoxyCodeLine{00662\ }
+\DoxyCodeLine{00663\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_EXTENTIONS\_SDK\_WARNING\ \ EXP\_FBX\_EXT\_SDK\_GRP\ "{}|"{}\ IOSN\_FBX\_EXTENTIONS\_SDK\_WARNING}}
+\DoxyCodeLine{00664\ \textcolor{preprocessor}{\#define\ EXP\_FIRST\_TIME\_RUN\_NOTICE\ \ \ \ \ \ \ EXP\_FIRST\_TIME\_RUN\_NOTICE\_GRP\ "{}|"{}\ IOSN\_FIRST\_TIME\_RUN\_NOTICE}}
+\DoxyCodeLine{00665\ }
+\DoxyCodeLine{00666\ \textcolor{preprocessor}{\#define\ EXP\_SCALEFACTOR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_AXISCONV\_GRP\ "{}|"{}\ IOSN\_SCALEFACTOR}}
+\DoxyCodeLine{00667\ \textcolor{preprocessor}{\#define\ EXP\_AXISCONVERSIONMETHOD\ \ \ \ \ \ \ \ EXP\_AXISCONV\_GRP\ "{}|"{}\ IOSN\_AXISCONVERSIONMETHOD}}
+\DoxyCodeLine{00668\ \textcolor{preprocessor}{\#define\ EXP\_UPAXIS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_AXISCONV\_GRP\ "{}|"{}\ IOSN\_UPAXIS}}
+\DoxyCodeLine{00669\ }
+\DoxyCodeLine{00670\ \textcolor{preprocessor}{\#define\ EXP\_UNITS\_SCALE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_UNITS\_GRP\ "{}|"{}\ IOSN\_UNITS\_SCALE}}
+\DoxyCodeLine{00671\ \textcolor{preprocessor}{\#define\ EXP\_MASTERSCALE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_UNITS\_GRP\ \ "{}|"{}\ IOSN\_MASTERSCALE}}
+\DoxyCodeLine{00672\ }
+\DoxyCodeLine{00673\ \textcolor{preprocessor}{\#define\ EXP\_DYN\_SCALE\_CONVERSION\ \ \ \ \ \ \ \ EXP\_UNITS\_GRP\ "{}|"{}\ IOSN\_DYN\_SCALE\_CONVERSION}}
+\DoxyCodeLine{00674\ \textcolor{preprocessor}{\#define\ EXP\_UNITSELECTOR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_UNITS\_GRP\ "{}|"{}\ IOSN\_UNITSELECTOR}}
+\DoxyCodeLine{00675\ }
+\DoxyCodeLine{00676\ \textcolor{preprocessor}{\#define\ EXP\_TOTAL\_UNITS\_SCALE\_TB\ \ \ \ \ \ \ \ EXP\_UNITS\_GRP\ "{}|"{}\ IOSN\_TOTAL\_UNITS\_SCALE\_TB}}
+\DoxyCodeLine{00677\ }
+\DoxyCodeLine{00678\ \textcolor{preprocessor}{\#define\ EXP\_SHOW\_UI\_MODE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_UI\ "{}|"{}\ IOSN\_SHOW\_UI\_MODE}}
+\DoxyCodeLine{00679\ \textcolor{preprocessor}{\#define\ EXP\_SHOW\_UI\_WARNING\ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_UI\ "{}|"{}\ IOSN\_SHOW\_UI\_WARNING}}
+\DoxyCodeLine{00680\ \textcolor{preprocessor}{\#define\ EXP\_SHOW\_WARNINGS\_MANAGER\ \ \ \ \ \ \ EXP\_UI\ "{}|"{}\ IOSN\_SHOW\_WARNINGS\_MANAGER}}
+\DoxyCodeLine{00681\ \textcolor{preprocessor}{\#define\ EXP\_GENERATE\_LOG\_DATA\ \ \ \ \ \ \ \ \ \ \ EXP\_UI\ "{}|"{}\ IOSN\_GENERATE\_LOG\_DATA}}
+\DoxyCodeLine{00682\ \textcolor{preprocessor}{\#define\ EXP\_PLUGIN\_VERSIONS\_URL\ \ \ \ \ \ \ \ \ EXP\_UI\ "{}|"{}\ IOSN\_PLUGIN\_VERSIONS\_URL}}
+\DoxyCodeLine{00683\ }
+\DoxyCodeLine{00684\ \textcolor{preprocessor}{\#define\ EXP\_PRESETS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_PRESETS\_GRP\ "{}|"{}\ IOSN\_PRESETS}}
+\DoxyCodeLine{00685\ }
+\DoxyCodeLine{00686\ \textcolor{preprocessor}{\#define\ EXP\_CAMERA\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_CAMERA\_GRP}}
+\DoxyCodeLine{00687\ \textcolor{preprocessor}{\#define\ EXP\_LIGHT\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_LIGHT\_GRP}}
+\DoxyCodeLine{00688\ }
+\DoxyCodeLine{00689\ \textcolor{preprocessor}{\#define\ EXP\_GEOMETRY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_GEOMETRY}}
+\DoxyCodeLine{00690\ \textcolor{preprocessor}{\#define\ EXP\_AUDIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_AUDIO}}
+\DoxyCodeLine{00691\ \textcolor{preprocessor}{\#define\ EXP\_ANIMATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_ANIMATION}}
+\DoxyCodeLine{00692\ \textcolor{preprocessor}{\#define\ EXP\_PIVOTTONULLS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_PIVOTTONULLS}}
+\DoxyCodeLine{00693\ \textcolor{preprocessor}{\#define\ EXP\_LIGHT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_LIGHT\_GRP\ "{}|"{}\ IOSN\_LIGHT}}
+\DoxyCodeLine{00694\ \textcolor{preprocessor}{\#define\ EXP\_LIGHTATTENUATION\ \ \ \ \ \ \ \ \ \ \ \ EXP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_LIGHTATTENUATION}}
+\DoxyCodeLine{00695\ \textcolor{preprocessor}{\#define\ EXP\_ENVIRONMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_LIGHT\_GRP\ "{}|"{}\ IOSN\_ENVIRONMENT}}
+\DoxyCodeLine{00696\ \textcolor{preprocessor}{\#define\ EXP\_CAMERA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_CAMERA\_GRP\ "{}|"{}\ IOSN\_CAMERA\ \ }}
+\DoxyCodeLine{00697\ \textcolor{preprocessor}{\#define\ EXP\_BINDPOSE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_BINDPOSE}}
+\DoxyCodeLine{00698\ \textcolor{preprocessor}{\#define\ EXP\_SELECTIONONLY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_SELECTIONONLY}}
+\DoxyCodeLine{00699\ }
+\DoxyCodeLine{00700\ }
+\DoxyCodeLine{00701\ \textcolor{preprocessor}{\#define\ EXP\_INPUTCONNECTIONS\_GRP\ \ \ \ \ \ \ \ EXP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_INPUTCONNECTIONS\_GRP}}
+\DoxyCodeLine{00702\ \textcolor{preprocessor}{\#define\ EXP\_INPUTCONNECTIONS\ \ \ \ \ \ \ \ \ \ \ \ EXP\_INPUTCONNECTIONS\_GRP\ "{}|"{}\ IOSN\_INPUTCONNECTIONS}}
+\DoxyCodeLine{00703\ }
+\DoxyCodeLine{00704\ \textcolor{preprocessor}{\#define\ EXP\_BYPASSRRSINHERITANCE\ \ \ \ \ \ \ \ EXP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_BYPASSRRSINHERITANCE}}
+\DoxyCodeLine{00705\ }
+\DoxyCodeLine{00706\ \textcolor{preprocessor}{\#define\ EXP\_EMBEDTEXTURE\_GRP\ \ \ \ \ \ \ \ \ \ \ \ EXP\_INCLUDE\_GRP\ "{}|"{}\ IOSN\_EMBEDTEXTURE\_GRP}}
+\DoxyCodeLine{00707\ \textcolor{preprocessor}{\#define\ EXP\_EMBEDTEXTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_EMBEDTEXTURE\_GRP\ "{}|"{}\ IOSN\_EMBEDTEXTURE}}
+\DoxyCodeLine{00708\ \textcolor{preprocessor}{\#define\ EXP\_CONVERTTOTIFF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_EMBEDTEXTURE\ "{}|"{}\ IOSN\_CONVERTTOTIFF}}
+\DoxyCodeLine{00709\ }
+\DoxyCodeLine{00710\ }
+\DoxyCodeLine{00711\ \textcolor{preprocessor}{\#define\ EXP\_CURVEFILTERS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ANIMATION\ "{}|"{}\ IOSN\_CURVE\_FILTER}}
+\DoxyCodeLine{00712\ }
+\DoxyCodeLine{00713\ \textcolor{preprocessor}{\#define\ EXP\_DEFORMATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ANIMATION\ "{}|"{}\ IOSN\_DEFORMATION}}
+\DoxyCodeLine{00714\ \textcolor{preprocessor}{\#define\ EXP\_BAKECOMPLEXANIMATION\ \ \ \ \ \ \ \ EXP\_ANIMATION\ "{}|"{}\ IOSN\_BAKECOMPLEXANIMATION}}
+\DoxyCodeLine{00715\ \textcolor{preprocessor}{\#define\ EXP\_BONE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ANIMATION\ "{}|"{}\ IOSN\_BONE}}
+\DoxyCodeLine{00716\ }
+\DoxyCodeLine{00717\ \textcolor{preprocessor}{\#define\ EXP\_SAMPLINGFRAMERATE\ \ \ \ \ \ \ \ \ \ \ EXP\_ANIMATION\ "{}|"{}\ IOSN\_SAMPLINGFRAMERATE}}
+\DoxyCodeLine{00718\ \textcolor{preprocessor}{\#define\ EXP\_POINTCACHE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ANIMATION\ "{}|"{}\ IOSN\_POINTCACHE}}
+\DoxyCodeLine{00719\ \textcolor{preprocessor}{\#define\ EXP\_SMOOTHKEYASUSER\ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ANIMATION\ "{}|"{}\ IOSN\_SMOOTHKEYASUSER}}
+\DoxyCodeLine{00720\ }
+\DoxyCodeLine{00721\ \textcolor{preprocessor}{\#define\ EXP\_EXTRA\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ANIMATION\ "{}|"{}\ IOSN\_EXTRA\_GRP}}
+\DoxyCodeLine{00722\ }
+\DoxyCodeLine{00723\ \textcolor{preprocessor}{\#define\ EXP\_REMOVE\_SINGLE\_KEY\ \ \ \ \ \ \ \ \ \ \ EXP\_EXTRA\_GRP\ "{}|"{}\ IOSN\_REMOVE\_SINGLE\_KEY}}
+\DoxyCodeLine{00724\ \textcolor{preprocessor}{\#define\ EXP\_NAMETAKE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_EXTRA\_GRP\ "{}|"{}\ IOSN\_NAMETAKE}}
+\DoxyCodeLine{00725\ \textcolor{preprocessor}{\#define\ EXP\_QUATERNION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_EXTRA\_GRP\ "{}|"{}\ IOSN\_QUATERNION}}
+\DoxyCodeLine{00726\ }
+\DoxyCodeLine{00727\ \textcolor{preprocessor}{\#define\ EXP\_CONSTRAINTS\_GRP\ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ANIMATION\ "{}|"{}\ IOSN\_CONSTRAINTS\_GRP}}
+\DoxyCodeLine{00728\ }
+\DoxyCodeLine{00729\ \textcolor{preprocessor}{\#define\ EXP\_CONSTRAINT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_CONSTRAINTS\_GRP\ "{}|"{}\ IOSN\_CONSTRAINT}}
+\DoxyCodeLine{00730\ \textcolor{preprocessor}{\#define\ EXP\_CHARACTER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_CONSTRAINTS\_GRP\ "{}|"{}\ IOSN\_CHARACTER}}
+\DoxyCodeLine{00731\ }
+\DoxyCodeLine{00732\ }
+\DoxyCodeLine{00733\ \textcolor{preprocessor}{\#define\ EXP\_MRCUSTOMATTRIBUTES\ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_MRCUSTOMATTRIBUTES}}
+\DoxyCodeLine{00734\ \textcolor{preprocessor}{\#define\ EXP\_MESHPRIMITIVE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_MESHPRIMITIVE}}
+\DoxyCodeLine{00735\ \textcolor{preprocessor}{\#define\ EXP\_MESHTRIANGLE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_MESHTRIANGLE\ }}
+\DoxyCodeLine{00736\ \textcolor{preprocessor}{\#define\ EXP\_MESHPOLY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_MESHPOLY}}
+\DoxyCodeLine{00737\ \textcolor{preprocessor}{\#define\ EXP\_NURB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_NURB}}
+\DoxyCodeLine{00738\ \textcolor{preprocessor}{\#define\ EXP\_PATCH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_PATCH}}
+\DoxyCodeLine{00739\ \textcolor{preprocessor}{\#define\ EXP\_BIP2FBX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_BIP2FBX}}
+\DoxyCodeLine{00740\ \textcolor{preprocessor}{\#define\ EXP\_GEOMNORMALPERPOLY\ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_GEOMNORMALPERPOLY}}
+\DoxyCodeLine{00741\ \textcolor{preprocessor}{\#define\ EXP\_TANGENTSPACE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_TANGENTS\_BINORMALS}}
+\DoxyCodeLine{00742\ \textcolor{preprocessor}{\#define\ EXP\_SMOOTHMESH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_SMOOTH\_MESH}}
+\DoxyCodeLine{00743\ \textcolor{preprocessor}{\#define\ EXP\_SELECTIONSET\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_SELECTION\_SET}}
+\DoxyCodeLine{00744\ }
+\DoxyCodeLine{00745\ \textcolor{preprocessor}{\#define\ EXP\_FINESTSUBDIVLEVEL\ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_FINESTSUBDIVLEVEL}}
+\DoxyCodeLine{00746\ \textcolor{preprocessor}{\#define\ EXP\_MAXBONEASBONE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_MAXBONEASBONE}}
+\DoxyCodeLine{00747\ \textcolor{preprocessor}{\#define\ EXP\_MAXNURBSSTEP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_MAXNURBSSTEP}}
+\DoxyCodeLine{00748\ \textcolor{preprocessor}{\#define\ EXP\_CREASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_CREASE}}
+\DoxyCodeLine{00749\ \textcolor{preprocessor}{\#define\ EXP\_BLINDDATA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_BLINDDATA}}
+\DoxyCodeLine{00750\ \textcolor{preprocessor}{\#define\ EXP\_NURBSSURFACEAS\ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_GEOMETRYNURBSSURFACEAS}}
+\DoxyCodeLine{00751\ \textcolor{preprocessor}{\#define\ EXP\_SMOOTHING\_GROUPS\ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_SMOOTHING\_GROUPS}}
+\DoxyCodeLine{00752\ \textcolor{preprocessor}{\#define\ EXP\_HARDEDGES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_EXP\_HARDEDGES}}
+\DoxyCodeLine{00753\ \textcolor{preprocessor}{\#define\ EXP\_ANIMATIONONLY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_ANIMATIONONLY}}
+\DoxyCodeLine{00754\ \textcolor{preprocessor}{\#define\ EXP\_INSTANCES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_INSTANCES}}
+\DoxyCodeLine{00755\ \textcolor{preprocessor}{\#define\ EXP\_CONTAINEROBJECTS\ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_CONTAINEROBJECTS}}
+\DoxyCodeLine{00756\ \textcolor{preprocessor}{\#define\ EXP\_TRIANGULATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_TRIANGULATE}}
+\DoxyCodeLine{00757\ \textcolor{preprocessor}{\#define\ EXP\_EDGE\_ORIENTATION\ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_EDGE\_ORIENTATION}}
+\DoxyCodeLine{00758\ }
+\DoxyCodeLine{00759\ \textcolor{preprocessor}{\#define\ EXP\_SELECTIONSETNAMEASPOINTCACHE\ EXP\_POINTCACHE\ "{}|"{}\ IOSN\_SELECTIONSETNAMEASPOINTCACHE}}
+\DoxyCodeLine{00760\ }
+\DoxyCodeLine{00761\ \textcolor{preprocessor}{\#define\ EXP\_GEOMETRYMESHPRIMITIVEAS\ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_GEOMETRYMESHPRIMITIVEAS}}
+\DoxyCodeLine{00762\ \textcolor{preprocessor}{\#define\ EXP\_GEOMETRYMESHTRIANGLEAS\ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_GEOMETRYMESHTRIANGLEAS\ }}
+\DoxyCodeLine{00763\ \textcolor{preprocessor}{\#define\ EXP\_GEOMETRYMESHPOLYAS\ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_GEOMETRYMESHPOLYAS\ \ \ \ \ }}
+\DoxyCodeLine{00764\ \textcolor{preprocessor}{\#define\ EXP\_GEOMETRYNURBSAS\ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_GEOMETRYNURBSAS\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00765\ \textcolor{preprocessor}{\#define\ EXP\_GEOMETRYPATCHAS\ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_GEOMETRY\ "{}|"{}\ IOSN\_GEOMETRYPATCHAS\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00766\ }
+\DoxyCodeLine{00767\ \textcolor{preprocessor}{\#define\ EXP\_BAKEFRAMESTART\ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_BAKECOMPLEXANIMATION\ "{}|"{}\ IOSN\_BAKEFRAMESTART\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00768\ \textcolor{preprocessor}{\#define\ EXP\_BAKEFRAMEEND\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_BAKECOMPLEXANIMATION\ "{}|"{}\ IOSN\_BAKEFRAMEEND\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00769\ \textcolor{preprocessor}{\#define\ EXP\_BAKEFRAMESTEP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_BAKECOMPLEXANIMATION\ "{}|"{}\ IOSN\_BAKEFRAMESTEP\ }}
+\DoxyCodeLine{00770\ }
+\DoxyCodeLine{00771\ \textcolor{preprocessor}{\#define\ EXP\_BAKE\_RESAMPLE\_ANIMATION\_CURVES\ EXP\_BAKECOMPLEXANIMATION\ "{}|"{}\ IOSN\_RESAMPLE\_ANIMATION\_CURVES}}
+\DoxyCodeLine{00772\ }
+\DoxyCodeLine{00773\ \textcolor{preprocessor}{\#define\ EXP\_BAKEFRAMESTARTNORESET\ \ \ \ \ \ \ EXP\_BAKECOMPLEXANIMATION\ "{}|"{}\ IOSN\_BAKEFRAMESTARTNORESET\ }}
+\DoxyCodeLine{00774\ \textcolor{preprocessor}{\#define\ EXP\_BAKEFRAMEENDNORESET\ \ \ \ \ \ \ \ \ EXP\_BAKECOMPLEXANIMATION\ "{}|"{}\ IOSN\_BAKEFRAMEENDNORESET\ \ \ }}
+\DoxyCodeLine{00775\ \textcolor{preprocessor}{\#define\ EXP\_BAKEFRAMESTEPNORESET\ \ \ \ \ \ \ \ EXP\_BAKECOMPLEXANIMATION\ "{}|"{}\ IOSN\_BAKEFRAMESTEPNORESET\ \ }}
+\DoxyCodeLine{00776\ }
+\DoxyCodeLine{00777\ \textcolor{preprocessor}{\#define\ EXP\_FBX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ADV\_OPT\_GRP\ "{}|"{}\ IOSN\_FBX}}
+\DoxyCodeLine{00778\ \textcolor{preprocessor}{\#define\ EXP\_DXF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ADV\_OPT\_GRP\ "{}|"{}\ IOSN\_DXF}}
+\DoxyCodeLine{00779\ \textcolor{preprocessor}{\#define\ EXP\_COLLADA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ADV\_OPT\_GRP\ "{}|"{}\ IOSN\_COLLADA}}
+\DoxyCodeLine{00780\ }
+\DoxyCodeLine{00781\ \textcolor{comment}{//\ note:\ EXP\_FILEFORMAT\ group\ is\ not\ visible}}
+\DoxyCodeLine{00782\ \textcolor{preprocessor}{\#define\ EXP\_OBJ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FILEFORMAT\ "{}|"{}\ IOSN\_OBJ}}
+\DoxyCodeLine{00783\ \textcolor{preprocessor}{\#define\ EXP\_3DS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FILEFORMAT\ "{}|"{}\ IOSN\_3DS}}
+\DoxyCodeLine{00784\ \textcolor{preprocessor}{\#define\ EXP\_MOTION\_BASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FILEFORMAT\ "{}|"{}\ IOSN\_MOTION\_BASE}}
+\DoxyCodeLine{00785\ \textcolor{preprocessor}{\#define\ EXP\_BIOVISION\_BVH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FILEFORMAT\ "{}|"{}\ IOSN\_BIOVISION\_BVH}}
+\DoxyCodeLine{00786\ \textcolor{preprocessor}{\#define\ EXP\_ACCLAIM\_ASF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FILEFORMAT\ "{}|"{}\ IOSN\_ACCLAIM\_ASF}}
+\DoxyCodeLine{00787\ \textcolor{preprocessor}{\#define\ EXP\_ACCLAIM\_AMC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FILEFORMAT\ "{}|"{}\ IOSN\_ACCLAIM\_AMC}}
+\DoxyCodeLine{00788\ }
+\DoxyCodeLine{00789\ }
+\DoxyCodeLine{00790\ \textcolor{preprocessor}{\#define\ EXP\_ASCIIFBX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_ASCIIFBX}}
+\DoxyCodeLine{00791\ }
+\DoxyCodeLine{00792\ \textcolor{preprocessor}{\#define\ EXP\_CACHE\_SIZE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_CACHE\_GRP\ "{}|"{}\ IOSN\_CACHE\_SIZE}}
+\DoxyCodeLine{00793\ }
+\DoxyCodeLine{00794\ \textcolor{preprocessor}{\#define\ EXP\_SHAPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_DEFORMATION\ "{}|"{}\ IOSN\_SHAPE}}
+\DoxyCodeLine{00795\ \textcolor{preprocessor}{\#define\ EXP\_SHAPEATTRIBUTES\ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_DEFORMATION\ "{}|"{}\ IOSN\_SHAPEATTRIBUTES}}
+\DoxyCodeLine{00796\ \textcolor{preprocessor}{\#define\ EXP\_SHAPEATTRIBUTESVALUES\ \ \ \ \ \ \ EXP\_SHAPEATTRIBUTES\ "{}|"{}\ IOSN\_SHAPEATTRIBUTE\_VALUES}}
+\DoxyCodeLine{00797\ \textcolor{preprocessor}{\#define\ EXP\_SKINS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_DEFORMATION\ "{}|"{}\ IOSN\_SKINS}}
+\DoxyCodeLine{00798\ }
+\DoxyCodeLine{00799\ \textcolor{preprocessor}{\#define\ EXP\_APPLYCSTKEYRED\ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_CURVEFILTERS\ "{}|"{}\ IOSN\_APPLYCSTKEYRED}}
+\DoxyCodeLine{00800\ \textcolor{preprocessor}{\#define\ EXP\_SAMPLINGRATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_APPLYCSTKEYRED\ "{}|"{}\ IOSN\_SAMPLINGRATE}}
+\DoxyCodeLine{00801\ \textcolor{preprocessor}{\#define\ EXP\_CSTKEYREDTPREC\ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_APPLYCSTKEYRED\ "{}|"{}\ IOSN\_CSTKEYREDTPREC\ \ }}
+\DoxyCodeLine{00802\ \textcolor{preprocessor}{\#define\ EXP\_CSTKEYREDRPREC\ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_APPLYCSTKEYRED\ "{}|"{}\ IOSN\_CSTKEYREDRPREC\ \ }}
+\DoxyCodeLine{00803\ \textcolor{preprocessor}{\#define\ EXP\_CSTKEYREDSPREC\ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_APPLYCSTKEYRED\ "{}|"{}\ IOSN\_CSTKEYREDSPREC\ \ }}
+\DoxyCodeLine{00804\ \textcolor{preprocessor}{\#define\ EXP\_CSTKEYREDOPREC\ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_APPLYCSTKEYRED\ "{}|"{}\ IOSN\_CSTKEYREDOPREC\ \ }}
+\DoxyCodeLine{00805\ \textcolor{preprocessor}{\#define\ EXP\_AUTOTANGENTSONLY\ \ \ \ \ \ \ \ \ \ \ \ EXP\_APPLYCSTKEYRED\ "{}|"{}\ IOSN\_AUTOTANGENTSONLY}}
+\DoxyCodeLine{00806\ }
+\DoxyCodeLine{00807\ \textcolor{preprocessor}{\#define\ EXP\_APPLYKEYREDUCE\ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_CURVEFILTERS\ "{}|"{}\ IOSN\_APPLYKEYREDUCE\ \ }}
+\DoxyCodeLine{00808\ \textcolor{preprocessor}{\#define\ EXP\_KEYREDUCEPREC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_APPLYKEYREDUCE\ "{}|"{}\ IOSN\_KEYREDUCEPREC\ \ \ }}
+\DoxyCodeLine{00809\ \textcolor{preprocessor}{\#define\ EXP\_APPLYKEYSONFRM\ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_APPLYKEYREDUCE\ "{}|"{}\ IOSN\_APPLYKEYSONFRM\ \ }}
+\DoxyCodeLine{00810\ \textcolor{preprocessor}{\#define\ EXP\_APPLYKEYSYNC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_APPLYKEYREDUCE\ "{}|"{}\ IOSN\_APPLYKEYSYNC\ \ }}
+\DoxyCodeLine{00811\ }
+\DoxyCodeLine{00812\ \textcolor{preprocessor}{\#define\ EXP\_APPLYUNROLL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_CURVEFILTERS\ "{}|"{}\ IOSN\_APPLYUNROLL\ \ \ \ \ }}
+\DoxyCodeLine{00813\ \textcolor{preprocessor}{\#define\ EXP\_UNROLLPREC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_APPLYUNROLL\ "{}|"{}\ IOSN\_UNROLLPREC\ \ \ \ \ \ }}
+\DoxyCodeLine{00814\ \textcolor{preprocessor}{\#define\ EXP\_UNROLLPATH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_APPLYUNROLL\ "{}|"{}\ IOSN\_UNROLLPATH\ }}
+\DoxyCodeLine{00815\ \textcolor{preprocessor}{\#define\ EXP\_UNROLLFORCEAUTO\ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_APPLYUNROLL\ "{}|"{}\ IOSN\_UNROLLFORCEAUTO}}
+\DoxyCodeLine{00816\ }
+\DoxyCodeLine{00817\ \textcolor{preprocessor}{\#define\ EXP\_PLUGIN\_UI\_WIDTH\ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_PLUGIN\_UI\_WIDTH}}
+\DoxyCodeLine{00818\ \textcolor{preprocessor}{\#define\ EXP\_PLUGIN\_UI\_HEIGHT\ \ \ \ \ \ \ \ \ \ \ \ EXP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_PLUGIN\_UI\_HEIGHT}}
+\DoxyCodeLine{00819\ \textcolor{preprocessor}{\#define\ EXP\_PRESET\_SELECTED\ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_PRESET\_SELECTED}}
+\DoxyCodeLine{00820\ }
+\DoxyCodeLine{00821\ \textcolor{preprocessor}{\#define\ EXP\_UIL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_UIL}}
+\DoxyCodeLine{00822\ \textcolor{preprocessor}{\#define\ EXP\_PLUGIN\_PRODUCT\_FAMILY\ \ \ \ \ \ \ EXP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_PLUGIN\_PRODUCT\_FAMILY}}
+\DoxyCodeLine{00823\ }
+\DoxyCodeLine{00824\ \textcolor{preprocessor}{\#define\ EXP\_PLUGIN\_UI\_XPOS\ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_PLUGIN\_UI\_XPOS\ \ \ \ \ }}
+\DoxyCodeLine{00825\ \textcolor{preprocessor}{\#define\ EXP\_PLUGIN\_UI\_YPOS\ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_PLUGIN\_UI\_YPOS\ \ \ \ \ }}
+\DoxyCodeLine{00826\ }
+\DoxyCodeLine{00827\ \textcolor{preprocessor}{\#define\ EXP\_BUTTON\_WEB\_UPDATE\ \ \ \ \ \ \ \ \ \ \ EXP\_INFORMATION\_GRP\ "{}|"{}\ IOSN\_BUTTON\_WEB\_UPDATE}}
+\DoxyCodeLine{00828\ \textcolor{preprocessor}{\#define\ EXP\_PI\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_INFORMATION\_GRP\ "{}|"{}\ IOSN\_PI\_VERSION}}
+\DoxyCodeLine{00829\ }
+\DoxyCodeLine{00830\ \textcolor{preprocessor}{\#define\ EXP\_BUTTON\_EDIT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_BUTTON\_EDIT\ \ \ \ \ \ }}
+\DoxyCodeLine{00831\ \textcolor{preprocessor}{\#define\ EXP\_BUTTON\_OK\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_BUTTON\_OK\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00832\ \textcolor{preprocessor}{\#define\ EXP\_BUTTON\_CANCEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_BUTTON\_CANCEL\ \ \ \ }}
+\DoxyCodeLine{00833\ \textcolor{preprocessor}{\#define\ EXP\_MENU\_EDIT\_PRESET\ \ \ \ \ \ \ \ \ \ \ \ EXP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_MENU\_EDIT\_PRESET\ }}
+\DoxyCodeLine{00834\ \textcolor{preprocessor}{\#define\ EXP\_MENU\_SAVE\_PRESET\ \ \ \ \ \ \ \ \ \ \ \ EXP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_MENU\_SAVE\_PRESET\ }}
+\DoxyCodeLine{00835\ \textcolor{comment}{//\ internal\ use}}
+\DoxyCodeLine{00836\ \textcolor{preprocessor}{\#define\ EXP\_USETMPFILEPERIPHERAL\ \ \ \ \ \ \ \ EXP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_USETMPFILEPERIPHERAL}}
+\DoxyCodeLine{00837\ \textcolor{preprocessor}{\#define\ EXP\_CONSTRUCTIONHISTORY\ \ \ \ \ \ \ \ \ EXP\_PLUGIN\_GRP\ "{}|"{}\ IOSN\_CONSTRUCTIONHISTORY}}
+\DoxyCodeLine{00838\ \ \ \ \ }
+\DoxyCodeLine{00839\ \textcolor{preprocessor}{\#define\ EXP\_COLLADA\_TRIANGULATE\ \ \ \ \ \ \ \ \ EXP\_COLLADA\ "{}|"{}\ IOSN\_COLLADA\_TRIANGULATE\ }}
+\DoxyCodeLine{00840\ \textcolor{preprocessor}{\#define\ EXP\_COLLADA\_SINGLEMATRIX\ \ \ \ \ \ \ \ EXP\_COLLADA\ "{}|"{}\ IOSN\_COLLADA\_SINGLEMATRIX}}
+\DoxyCodeLine{00841\ \textcolor{preprocessor}{\#define\ EXP\_COLLADA\_FRAME\_RATE\ \ \ \ \ \ \ \ \ \ EXP\_COLLADA\ "{}|"{}\ IOSN\_COLLADA\_FRAME\_RATE\ \ }}
+\DoxyCodeLine{00842\ }
+\DoxyCodeLine{00843\ \textcolor{preprocessor}{\#define\ EXP\_DXF\_TRIANGULATE\ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_DXF\ "{}|"{}\ IOSN\_DXF\_TRIANGULATE}}
+\DoxyCodeLine{00844\ \textcolor{preprocessor}{\#define\ EXP\_DXF\_DEFORMATION\ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_DXF\ "{}|"{}\ IOSN\_DXF\_DEFORMATION}}
+\DoxyCodeLine{00845\ }
+\DoxyCodeLine{00846\ \textcolor{preprocessor}{\#define\ EXP\_OBJ\_TRIANGULATE\ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_OBJ\ "{}|"{}\ IOSN\_OBJ\_TRIANGULATE}}
+\DoxyCodeLine{00847\ \textcolor{preprocessor}{\#define\ EXP\_OBJ\_DEFORMATION\ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_OBJ\ "{}|"{}\ IOSN\_OBJ\_DEFORMATION}}
+\DoxyCodeLine{00848\ \textcolor{preprocessor}{\#define\ EXP\_OBJ\_USE\_DISSOLVE\_FACTOR\ \ \ \ \ EXP\_OBJ\ "{}|"{}\ IOSN\_OBJ\_USE\_DISSOLVE\_FACTOR}}
+\DoxyCodeLine{00849\ }
+\DoxyCodeLine{00850\ \textcolor{preprocessor}{\#define\ EXP\_3DS\_REFERENCENODE\ \ \ \ \ \ \ \ \ \ \ EXP\_3DS\ "{}|"{}\ IOSN\_3DS\_REFERENCENODE\ \ }}
+\DoxyCodeLine{00851\ \textcolor{preprocessor}{\#define\ EXP\_3DS\_TEXTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_3DS\ "{}|"{}\ IOSN\_3DS\_TEXTURE\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00852\ \textcolor{preprocessor}{\#define\ EXP\_3DS\_MATERIAL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_3DS\ "{}|"{}\ IOSN\_3DS\_MATERIAL\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00853\ \textcolor{preprocessor}{\#define\ EXP\_3DS\_ANIMATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_3DS\ "{}|"{}\ IOSN\_3DS\_ANIMATION\ \ \ \ \ \ }}
+\DoxyCodeLine{00854\ \textcolor{preprocessor}{\#define\ EXP\_3DS\_MESH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_3DS\ "{}|"{}\ IOSN\_3DS\_MESH\ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00855\ \textcolor{preprocessor}{\#define\ EXP\_3DS\_LIGHT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_3DS\ "{}|"{}\ IOSN\_3DS\_LIGHT\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00856\ \textcolor{preprocessor}{\#define\ EXP\_3DS\_CAMERA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_3DS\ "{}|"{}\ IOSN\_3DS\_CAMERA\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00857\ \textcolor{preprocessor}{\#define\ EXP\_3DS\_AMBIENT\_LIGHT\ \ \ \ \ \ \ \ \ \ \ EXP\_3DS\ "{}|"{}\ IOSN\_3DS\_AMBIENT\_LIGHT\ \ }}
+\DoxyCodeLine{00858\ \textcolor{preprocessor}{\#define\ EXP\_3DS\_RESCALING\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_3DS\ "{}|"{}\ IOSN\_3DS\_RESCALING\ \ \ \ \ \ }}
+\DoxyCodeLine{00859\ \textcolor{preprocessor}{\#define\ EXP\_3DS\_TEXUVBYPOLY\ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_3DS\ "{}|"{}\ IOSN\_3DS\_TEXUVBYPOLY\ \ \ \ }}
+\DoxyCodeLine{00860\ }
+\DoxyCodeLine{00861\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_TEMPLATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_TEMPLATE}}
+\DoxyCodeLine{00862\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_PIVOT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_PIVOT}}
+\DoxyCodeLine{00863\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_GLOBAL\_SETTINGS\ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_GLOBAL\_SETTINGS}}
+\DoxyCodeLine{00864\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_CHARACTER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_CHARACTER}}
+\DoxyCodeLine{00865\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_CONSTRAINT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_CONSTRAINT}}
+\DoxyCodeLine{00866\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_GOBO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_GOBO}}
+\DoxyCodeLine{00867\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_SHAPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_SHAPE}}
+\DoxyCodeLine{00868\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_MATERIAL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_MATERIAL}}
+\DoxyCodeLine{00869\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_TEXTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_TEXTURE}}
+\DoxyCodeLine{00870\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_MODEL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_MODEL}}
+\DoxyCodeLine{00871\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_AUDIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_AUDIO}}
+\DoxyCodeLine{00872\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_ANIMATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_ANIMATION}}
+\DoxyCodeLine{00873\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_EMBEDDED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_EMBEDDED\ }}
+\DoxyCodeLine{00874\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_PASSWORD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_PASSWORD\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00875\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_PASSWORD\_ENABLE\ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_PASSWORD\_ENABLE\ }}
+\DoxyCodeLine{00876\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_COLLAPSE\_EXTERNALS\ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_COLLAPSE\_EXTERNALS}}
+\DoxyCodeLine{00877\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_COMPRESS\_ARRAYS\ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_COMPRESS\_ARRAYS}}
+\DoxyCodeLine{00878\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_COMPRESS\_LEVEL\ \ \ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_COMPRESS\_LEVEL}}
+\DoxyCodeLine{00879\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_COMPRESS\_MINSIZE\ \ \ \ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_COMPRESS\_MINSIZE}}
+\DoxyCodeLine{00880\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_EMBEDDED\_PROPERTIES\_SKIP\ EXP\_FBX\ "{}|"{}\ IOSN\_EMBEDDED\_PROPERTIES\_SKIP}}
+\DoxyCodeLine{00881\ \textcolor{preprocessor}{\#define\ EXP\_FBX\_EXPORT\_FILE\_VERSION\ \ \ \ \ \ EXP\_FBX\ "{}|"{}\ IOSN\_EXPORT\_FILE\_VERSION}}
+\DoxyCodeLine{00882\ }
+\DoxyCodeLine{00883\ }
+\DoxyCodeLine{00884\ \textcolor{comment}{//\ end\ of\ export\ defined\ path}}
+\DoxyCodeLine{00885\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00886\ }
+\DoxyCodeLine{00887\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00888\ \textcolor{comment}{//\ Motion\ files\ related\ options}}
+\DoxyCodeLine{00889\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_START\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionStart"{}}}
+\DoxyCodeLine{00890\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_FRAME\_COUNT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionFrameCount"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00891\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_FRAME\_RATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionFrameRate"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00892\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_ACTOR\_PREFIX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionActorPrefix"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00893\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_RENAME\_DUPLICATE\_NAMES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionRenameDuplicateNames"{}\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00894\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_EXACT\_ZERO\_AS\_OCCLUDED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionExactZeroAsOccluded"{}\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00895\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_SET\_OCCLUDED\_TO\_LAST\_VALID\_POSITION\ \ \ \ \ "{}MotionSetOccludedToLastValidPos"{}}}
+\DoxyCodeLine{00896\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_AS\_OPTICAL\_SEGMENTS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionAsOpticalSegments"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00897\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_ASF\_SCENE\_OWNED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionASFSceneOwned"{}\ }}
+\DoxyCodeLine{00898\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_MOTION\_FROM\_GLOBAL\_POSITION\ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionFromGlobalPosition"{}}}
+\DoxyCodeLine{00899\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_GAPS\_AS\_VALID\_DATA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionGapsAsValidData"{}\ \ }}
+\DoxyCodeLine{00900\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_C3D\_REAL\_FORMAT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionC3DRealFormat"{}\ \ \ \ \ }}
+\DoxyCodeLine{00901\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_CREATE\_REFERENCE\_NODE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionCreateReferenceNode"{}}}
+\DoxyCodeLine{00902\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_TRANSLATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionTranslation"{}}}
+\DoxyCodeLine{00903\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_BASE\_T\_IN\_OFFSET\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionBaseTInOffset"{}}}
+\DoxyCodeLine{00904\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_BASE\_R\_IN\_PREROTATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionBaseRInPrerotation"{}}}
+\DoxyCodeLine{00905\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_DUMMY\_NODES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionDummyNodes"{}}}
+\DoxyCodeLine{00906\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_LIMITS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionLimits"{}}}
+\DoxyCodeLine{00907\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_FRAME\_RATE\_USED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionFrameRateUsed"{}}}
+\DoxyCodeLine{00908\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_FRAME\_RANGE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionFrameRange"{}}}
+\DoxyCodeLine{00909\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_WRITE\_DEFAULT\_AS\_BASE\_TR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionWriteDefaultAsBaseTR"{}}}
+\DoxyCodeLine{00910\ \textcolor{preprocessor}{\#define\ IOSN\_MOTION\_UP\_AXIS\_USED\_IN\_FILE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MotionUpAxisUsedInFile"{}\ \ \ }}
+\DoxyCodeLine{00911\ }
+\DoxyCodeLine{00912\ \textcolor{comment}{//\ Import}}
+\DoxyCodeLine{00913\ }
+\DoxyCodeLine{00914\ \textcolor{comment}{//Motion\ Base\ options}}
+\DoxyCodeLine{00915\ \textcolor{preprocessor}{\#define\ IMP\_MOB\_START\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_START}}
+\DoxyCodeLine{00916\ \textcolor{preprocessor}{\#define\ IMP\_MOB\_FRAME\_COUNT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_FRAME\_COUNT}}
+\DoxyCodeLine{00917\ \textcolor{preprocessor}{\#define\ IMP\_MOB\_FRAME\_RATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_FRAME\_RATE}}
+\DoxyCodeLine{00918\ \textcolor{preprocessor}{\#define\ IMP\_MOB\_ACTOR\_PREFIX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_ACTOR\_PREFIX}}
+\DoxyCodeLine{00919\ \textcolor{preprocessor}{\#define\ IMP\_MOB\_RENAME\_DUPLICATE\_NAMES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_RENAME\_DUPLICATE\_NAMES}}
+\DoxyCodeLine{00920\ \textcolor{preprocessor}{\#define\ IMP\_MOB\_EXACT\_ZERO\_AS\_OCCLUDED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_EXACT\_ZERO\_AS\_OCCLUDED}}
+\DoxyCodeLine{00921\ \textcolor{preprocessor}{\#define\ IMP\_MOB\_SET\_OCCLUDED\_TO\_LAST\_VALID\_POSITION\ \ \ \ \ \ \ \ \ IMP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_SET\_OCCLUDED\_TO\_LAST\_VALID\_POSITION}}
+\DoxyCodeLine{00922\ \textcolor{preprocessor}{\#define\ IMP\_MOB\_AS\_OPTICAL\_SEGMENTS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_AS\_OPTICAL\_SEGMENTS}}
+\DoxyCodeLine{00923\ \textcolor{preprocessor}{\#define\ IMP\_MOB\_ASF\_SCENE\_OWNED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_ASF\_SCENE\_OWNED}}
+\DoxyCodeLine{00924\ \textcolor{preprocessor}{\#define\ IMP\_MOB\_UP\_AXIS\_USED\_IN\_FILE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_UP\_AXIS\_USED\_IN\_FILE}}
+\DoxyCodeLine{00925\ }
+\DoxyCodeLine{00926\ \textcolor{comment}{//\ Acclaim\ AMC\ options}}
+\DoxyCodeLine{00927\ \textcolor{preprocessor}{\#define\ IMP\_ACCLAIM\_AMC\_CREATE\_REFERENCE\_NODE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ACCLAIM\_AMC\ "{}|"{}\ IOSN\_MOTION\_CREATE\_REFERENCE\_NODE}}
+\DoxyCodeLine{00928\ \textcolor{preprocessor}{\#define\ IMP\_ACCLAIM\_AMC\_MOTION\_BASE\_T\_IN\_OFFSET\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ACCLAIM\_AMC\ "{}|"{}\ IOSN\_MOTION\_BASE\_T\_IN\_OFFSET}}
+\DoxyCodeLine{00929\ \textcolor{preprocessor}{\#define\ IMP\_ACCLAIM\_AMC\_MOTION\_BASE\_R\_IN\_PREROTATION\ \ \ \ \ \ \ \ IMP\_ACCLAIM\_AMC\ "{}|"{}\ IOSN\_MOTION\_BASE\_R\_IN\_PREROTATION}}
+\DoxyCodeLine{00930\ \textcolor{preprocessor}{\#define\ IMP\_ACCLAIM\_AMC\_DUMMY\_NODES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ACCLAIM\_AMC\ "{}|"{}\ IOSN\_MOTION\_DUMMY\_NODES}}
+\DoxyCodeLine{00931\ \textcolor{preprocessor}{\#define\ IMP\_ACCLAIM\_AMC\_MOTION\_LIMITS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ACCLAIM\_AMC\ "{}|"{}\ IOSN\_MOTION\_LIMITS}}
+\DoxyCodeLine{00932\ }
+\DoxyCodeLine{00933\ \textcolor{comment}{//\ Acclaim\ ASF\ options}}
+\DoxyCodeLine{00934\ \textcolor{preprocessor}{\#define\ IMP\_ACCLAIM\_ASF\_CREATE\_REFERENCE\_NODE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ACCLAIM\_ASF\ "{}|"{}\ IOSN\_MOTION\_CREATE\_REFERENCE\_NODE}}
+\DoxyCodeLine{00935\ \textcolor{preprocessor}{\#define\ IMP\_ACCLAIM\_ASF\_MOTION\_BASE\_T\_IN\_OFFSET\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ACCLAIM\_ASF\ "{}|"{}\ IOSN\_MOTION\_BASE\_T\_IN\_OFFSET}}
+\DoxyCodeLine{00936\ \textcolor{preprocessor}{\#define\ IMP\_ACCLAIM\_ASF\_MOTION\_BASE\_R\_IN\_PREROTATION\ \ \ \ \ \ \ \ IMP\_ACCLAIM\_ASF\ "{}|"{}\ IOSN\_MOTION\_BASE\_R\_IN\_PREROTATION}}
+\DoxyCodeLine{00937\ \textcolor{preprocessor}{\#define\ IMP\_ACCLAIM\_ASF\_DUMMY\_NODES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ACCLAIM\_ASF\ "{}|"{}\ IOSN\_MOTION\_DUMMY\_NODES\ }}
+\DoxyCodeLine{00938\ \textcolor{preprocessor}{\#define\ IMP\_ACCLAIM\_ASF\_MOTION\_LIMITS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_ACCLAIM\_ASF\ "{}|"{}\ IOSN\_MOTION\_LIMITS}}
+\DoxyCodeLine{00939\ }
+\DoxyCodeLine{00940\ \textcolor{comment}{//\ Biovision\ BVH\ options}}
+\DoxyCodeLine{00941\ \textcolor{preprocessor}{\#define\ IMP\_BIOVISION\_BVH\_CREATE\_REFERENCE\_NODE\ \ \ \ \ \ \ \ \ \ \ \ \ IMP\_BIOVISION\_BVH\ "{}|"{}\ IOSN\_MOTION\_CREATE\_REFERENCE\_NODE}}
+\DoxyCodeLine{00942\ }
+\DoxyCodeLine{00943\ \textcolor{comment}{//\ Motion\ Analysis\ HTR\ options}}
+\DoxyCodeLine{00944\ \textcolor{preprocessor}{\#define\ IMP\_MOTIONANALYSIS\_HTR\_CREATE\_REFERENCE\_NODE\ \ \ \ \ \ \ \ IMP\_MOTIONANALYSIS\_HTR\ "{}|"{}\ IOSN\_MOTION\_CREATE\_REFERENCE\_NODE}}
+\DoxyCodeLine{00945\ \textcolor{preprocessor}{\#define\ IMP\_MOTIONANALYSIS\_HTR\_MOTION\_BASE\_T\_IN\_OFFSET\ \ \ \ \ \ IMP\_MOTIONANALYSIS\_HTR\ "{}|"{}\ IOSN\_MOTION\_BASE\_T\_IN\_OFFSET}}
+\DoxyCodeLine{00946\ \textcolor{preprocessor}{\#define\ IMP\_MOTIONANALYSIS\_HTR\_MOTION\_BASE\_R\_IN\_PREROTATION\ IMP\_MOTIONANALYSIS\_HTR\ "{}|"{}\ IOSN\_MOTION\_BASE\_R\_IN\_PREROTATION\ \ }}
+\DoxyCodeLine{00947\ }
+\DoxyCodeLine{00948\ \textcolor{comment}{//\ Export}}
+\DoxyCodeLine{00949\ }
+\DoxyCodeLine{00950\ \textcolor{comment}{//Motion\ Base\ options}}
+\DoxyCodeLine{00951\ \textcolor{preprocessor}{\#define\ EXP\_MOB\_START\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_START}}
+\DoxyCodeLine{00952\ \textcolor{preprocessor}{\#define\ EXP\_MOB\_FRAME\_COUNT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_FRAME\_COUNT}}
+\DoxyCodeLine{00953\ \textcolor{preprocessor}{\#define\ EXP\_MOB\_FROM\_GLOBAL\_POSITION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_MOTION\_FROM\_GLOBAL\_POSITION}}
+\DoxyCodeLine{00954\ \textcolor{preprocessor}{\#define\ EXP\_MOB\_FRAME\_RATE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_FRAME\_RATE}}
+\DoxyCodeLine{00955\ \textcolor{preprocessor}{\#define\ EXP\_MOB\_GAPS\_AS\_VALID\_DATA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_GAPS\_AS\_VALID\_DATA}}
+\DoxyCodeLine{00956\ \textcolor{preprocessor}{\#define\ EXP\_MOB\_C3D\_REAL\_FORMAT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_C3D\_REAL\_FORMAT}}
+\DoxyCodeLine{00957\ \textcolor{preprocessor}{\#define\ EXP\_MOB\_ASF\_SCENE\_OWNED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_MOTION\_BASE\ "{}|"{}\ IOSN\_MOTION\_ASF\_SCENE\_OWNED}}
+\DoxyCodeLine{00958\ }
+\DoxyCodeLine{00959\ \textcolor{comment}{//Acclaim\ AMC\ options}}
+\DoxyCodeLine{00960\ \textcolor{preprocessor}{\#define\ EXP\_ACCLAIM\_AMC\_MOTION\_TRANSLATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ACCLAIM\_AMC\ "{}|"{}\ IOSN\_MOTION\_TRANSLATION}}
+\DoxyCodeLine{00961\ \textcolor{preprocessor}{\#define\ EXP\_ACCLAIM\_AMC\_FRAME\_RATE\_USED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ACCLAIM\_AMC\ "{}|"{}\ IOSN\_MOTION\_FRAME\_RATE\_USED}}
+\DoxyCodeLine{00962\ \textcolor{preprocessor}{\#define\ EXP\_ACCLAIM\_AMC\_FRAME\_RANGE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ACCLAIM\_AMC\ "{}|"{}\ IOSN\_MOTION\_FRAME\_RANGE}}
+\DoxyCodeLine{00963\ \textcolor{preprocessor}{\#define\ EXP\_ACCLAIM\_AMC\_WRITE\_DEFAULT\_AS\_BASE\_TR\ \ \ \ \ \ \ \ \ \ \ \ EXP\_ACCLAIM\_AMC\ "{}|"{}\ IOSN\_MOTION\_WRITE\_DEFAULT\_AS\_BASE\_TR}}
+\DoxyCodeLine{00964\ }
+\DoxyCodeLine{00965\ \textcolor{comment}{//Acclaim\ ASF\ options}}
+\DoxyCodeLine{00966\ \textcolor{preprocessor}{\#define\ EXP\_ACCLAIM\_ASF\_MOTION\_TRANSLATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ACCLAIM\_ASF\ "{}|"{}\ IOSN\_MOTION\_TRANSLATION}}
+\DoxyCodeLine{00967\ \textcolor{preprocessor}{\#define\ EXP\_ACCLAIM\_ASF\_FRAME\_RATE\_USED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ACCLAIM\_ASF\ "{}|"{}\ IOSN\_MOTION\_FRAME\_RATE\_USED}}
+\DoxyCodeLine{00968\ \textcolor{preprocessor}{\#define\ EXP\_ACCLAIM\_ASF\_FRAME\_RANGE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_ACCLAIM\_ASF\ "{}|"{}\ IOSN\_MOTION\_FRAME\_RANGE}}
+\DoxyCodeLine{00969\ \textcolor{preprocessor}{\#define\ EXP\_ACCLAIM\_ASF\_WRITE\_DEFAULT\_AS\_BASE\_TR\ \ \ \ \ \ \ \ \ \ \ \ EXP\_ACCLAIM\_ASF\ "{}|"{}\ IOSN\_MOTION\_WRITE\_DEFAULT\_AS\_BASE\_TR}}
+\DoxyCodeLine{00970\ }
+\DoxyCodeLine{00971\ \textcolor{comment}{//Biovision\ BVH\ options}}
+\DoxyCodeLine{00972\ \textcolor{preprocessor}{\#define\ EXP\_BIOVISION\_BVH\_MOTION\_TRANSLATION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXP\_BIOVISION\_BVH\ "{}|"{}\ IOSN\_MOTION\_TRANSLATION}}
+\DoxyCodeLine{00973\ }
+\DoxyCodeLine{00974\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00975\ }
+\DoxyCodeLine{00976\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_FILEIO\_IO\_SETTINGS\_PATH\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

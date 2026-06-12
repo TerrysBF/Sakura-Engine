@@ -1,0 +1,105 @@
+\doxysection{fbxlayeredtexture.\+h}
+\hypertarget{fbxlayeredtexture_8h_source}{}\label{fbxlayeredtexture_8h_source}\index{include/fbx/fbxsdk/scene/shading/fbxlayeredtexture.h@{include/fbx/fbxsdk/scene/shading/fbxlayeredtexture.h}}
+\mbox{\hyperlink{fbxlayeredtexture_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_SHADING\_LAYERED\_TEXTURE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_SHADING\_LAYERED\_TEXTURE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxtexture_8h}{fbxsdk/scene/shading/fbxtexture.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_layered_texture}{FbxLayeredTexture}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_texture}{FbxTexture}}}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_layered_texture}{FbxLayeredTexture}},\ \mbox{\hyperlink{class_fbx_texture}{FbxTexture}});}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_layered_texture_af291d42b0329513909d2ddf48f56f5ba}{EBlendMode}}}
+\DoxyCodeLine{00083\ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ eTranslucent,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ eAdditive,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ eModulate,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ eModulate2,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ eOver,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ eNormal,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ eDissolve,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ eDarken,\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ eColorBurn,}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ eLinearBurn,\ \ \ \ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ eDarkerColor,}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ eLighten,\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ eScreen,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ eColorDodge,}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ eLinearDodge,}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ eLighterColor,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ eSoftLight,\ \ \ \ \ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ eHardLight,\ \ \ \ \ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ eVividLight,}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ eLinearLight,}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ ePinLight,\ \ \ \ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ eHardMix,\ \ \ \ \ \ \ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ eDifference,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ eExclusion,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ eSubtract,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ eDivide,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ eHue,\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ eSaturation,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ eColor,\ \ \ \ \ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ eLuminosity,}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ eOverlay,}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ eBlendModeCount}
+\DoxyCodeLine{00116\ \ \ \ \ \};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_layered_texture_a8a01816e03ca531e7bdd8c65804febf7}{operator==}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_layered_texture}{FbxLayeredTexture}}\&\ pOther\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_layered_texture_ae16a157ad7ff41d377a2cff885a00c80}{SetTextureBlendMode}}(\ \textcolor{keywordtype}{int}\ pIndex,\ \mbox{\hyperlink{class_fbx_layered_texture_af291d42b0329513909d2ddf48f56f5ba}{EBlendMode}}\ pMode\ );\ }
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_layered_texture_ae0b5014964899ff448c859d408d8614a}{GetTextureBlendMode}}(\ \textcolor{keywordtype}{int}\ pIndex,\ \mbox{\hyperlink{class_fbx_layered_texture_af291d42b0329513909d2ddf48f56f5ba}{EBlendMode}}\&\ pMode\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_layered_texture_a87145db35c3a207f5e54c9a9dcd83f1f}{SetTextureAlpha}}(\ \textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keywordtype}{double}\ pAlpha\ );}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_layered_texture_a2d38e409c9671b2850d1260d881e1940}{GetTextureAlpha}}(\ \textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keywordtype}{double}\&\ pAlpha\ )\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00153\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00154\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00156\ \ \ \ \ FbxObject\&\ \mbox{\hyperlink{class_fbx_layered_texture_a30e6b8a3e368a41c282f53559b3bd50b}{Copy}}(\textcolor{keyword}{const}\ FbxObject\&\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_layered_texture_1_1_input_data}{InputData}}}
+\DoxyCodeLine{00160\ \ \ \ \ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_layered_texture_af291d42b0329513909d2ddf48f56f5ba}{EBlendMode}}\ mBlendMode;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ mAlpha;}
+\DoxyCodeLine{00163\ \ \ \ \ \};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00166\ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<InputData>}}\ mInputData;}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{bool}\ ConnectNotify\ (\mbox{\hyperlink{class_fbx_connect_event}{FbxConnectEvent}}\ \textcolor{keyword}{const}\ \&pEvent)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{bool}\ RemoveInputData(\ \textcolor{keywordtype}{int}\ pIndex\ );}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00173\ \};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ FbxTypeOf(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_layered_texture_af291d42b0329513909d2ddf48f56f5ba}{FbxLayeredTexture::EBlendMode}}\&)\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92ad8b74c8620028491238a9ed54caf9743}{eFbxEnum}};\ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_SHADING\_LAYERED\_TEXTURE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,61 @@
+\doxysection{Fbx\+Semaphore Class Reference}
+\hypertarget{class_fbx_semaphore}{}\label{class_fbx_semaphore}\index{FbxSemaphore@{FbxSemaphore}}
+
+
+{\ttfamily \#include $<$fbxsync.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_semaphore_a4c1d63129606a43f25d00cebe24eb239}\label{class_fbx_semaphore_a4c1d63129606a43f25d00cebe24eb239} 
+{\bfseries Fbx\+Semaphore} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_semaphore_aea00e26f6b9452107104eaf2f2e49f1b}\label{class_fbx_semaphore_aea00e26f6b9452107104eaf2f2e49f1b} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Fbx\+Semaphore} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_fbx_semaphore_a05d7cdaa49c89691f22a26851be1f885}{Wait}} (unsigned int p\+Count=1)
+\item 
+bool \mbox{\hyperlink{class_fbx_semaphore_a56bdff92c29ea31a57003f207e52c672}{Signal}} (unsigned int p\+Count=1)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Mutually excluding thread waiting mechanism with a counter. Semaphore are generally used in situations when the current thread needs to wait for other threads before proceeding to the next step. In other words, that thread waits a number of signals from other threads. This is the best mechanism to use to synchronize threads since it doesn\textquotesingle{}t require an heavy critical section. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_semaphore_a56bdff92c29ea31a57003f207e52c672}\index{FbxSemaphore@{FbxSemaphore}!Signal@{Signal}}
+\index{Signal@{Signal}!FbxSemaphore@{FbxSemaphore}}
+\doxysubsubsection{\texorpdfstring{Signal()}{Signal()}}
+{\footnotesize\ttfamily \label{class_fbx_semaphore_a56bdff92c29ea31a57003f207e52c672} 
+bool Fbx\+Semaphore\+::\+Signal (\begin{DoxyParamCaption}\item[{unsigned int}]{p\+Count}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+Signal the semaphore as many times as specified. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Count} & The number of signal to send to the semaphore. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the semaphore was signaled without errors. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_semaphore_a05d7cdaa49c89691f22a26851be1f885}\index{FbxSemaphore@{FbxSemaphore}!Wait@{Wait}}
+\index{Wait@{Wait}!FbxSemaphore@{FbxSemaphore}}
+\doxysubsubsection{\texorpdfstring{Wait()}{Wait()}}
+{\footnotesize\ttfamily \label{class_fbx_semaphore_a05d7cdaa49c89691f22a26851be1f885} 
+bool Fbx\+Semaphore\+::\+Wait (\begin{DoxyParamCaption}\item[{unsigned int}]{p\+Count}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+Wait indefinitely until the semaphore as been signaled as many times as specified. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Count} & Number of signal to wait before this function returns. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the wait exit without errors. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+If p\+Count is set to zero, this function returns immediately without waiting. 
+\end{DoxyRemark}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/sync/\mbox{\hyperlink{fbxsync_8h}{fbxsync.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,308 @@
+\doxysection{Mesh\+Renderer\+Component Class Reference}
+\hypertarget{class_mesh_renderer_component}{}\label{class_mesh_renderer_component}\index{MeshRendererComponent@{MeshRendererComponent}}
+
+
+Componente encargado de asociar una malla y materiales a una entidad.  
+
+
+
+
+{\ttfamily \#include $<$Mesh\+Renderer\+Component.\+h$>$}
+
+Inheritance diagram for Mesh\+Renderer\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mesh_renderer_component}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_mesh_renderer_component_a66a796cccaf4d07697ccb9f63e6be0cb}\label{class_mesh_renderer_component_a66a796cccaf4d07697ccb9f63e6be0cb} 
+{\bfseries Mesh\+Renderer\+Component} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_renderer_component_a2fbe94234438d5d4ef25f462488a6baf}{init}} () override
+\begin{DoxyCompactList}\small\item\em Inicializa el componente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_renderer_component_aaf79f11600a21e5174b7f0b939343734}{update}} (float delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Actualiza el componente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_renderer_component_aac8fc88d486338da31b3fecb96fec38d}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context) override
+\begin{DoxyCompactList}\small\item\em Renderiza el componente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_renderer_component_a8cf48f387eb648d6b1c17e5642d0df46}{destroy}} () override
+\begin{DoxyCompactList}\small\item\em Libera los recursos asociados al componente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_renderer_component_a37f556713e78881417ac88054628c7ed}{set\+Mesh}} (\mbox{\hyperlink{class_mesh}{Mesh}} \texorpdfstring{$\ast$}{*}mesh)
+\begin{DoxyCompactList}\small\item\em Asigna la malla que utilizará el componente. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_mesh}{Mesh}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_mesh_renderer_component_a95d2fffbab03ea2ab00a17711dd942aa}{get\+Mesh}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la malla asociada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_renderer_component_a927b853ba7afa3fcd63dcfc34b71a080}{set\+Material\+Instance}} (\mbox{\hyperlink{class_material_instance}{Material\+Instance}} \texorpdfstring{$\ast$}{*}material\+Instance)
+\begin{DoxyCompactList}\small\item\em Asigna un material principal. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_material_instance}{Material\+Instance}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_mesh_renderer_component_abed22b76a6ef103c6a692d4af89cdcb2}{get\+Material\+Instance}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene el material principal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_renderer_component_a9b771ac52e4dcdb82618a5ac61529678}{set\+Material\+Instances}} (const std\+::vector$<$ \mbox{\hyperlink{class_material_instance}{Material\+Instance}} \texorpdfstring{$\ast$}{*} $>$ \&material\+Instances)
+\begin{DoxyCompactList}\small\item\em Asigna varios materiales al componente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_renderer_component_a4cea7fa7d44517267dd05155d599341a}{add\+Material\+Instance}} (\mbox{\hyperlink{class_material_instance}{Material\+Instance}} \texorpdfstring{$\ast$}{*}material\+Instance)
+\begin{DoxyCompactList}\small\item\em Agrega un material a la lista de materiales. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{class_material_instance}{Material\+Instance}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{class_mesh_renderer_component_ac0723bfd9156e05abef4145ede803c54}{get\+Material\+Instances}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la lista de materiales. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_mesh_renderer_component_a56d4f19db8b5f45acc5e566444ea964f}{is\+Visible}} () const
+\begin{DoxyCompactList}\small\item\em Indica si el objeto es visible. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_renderer_component_a413bfa1ebf0e5207338160c4e8b6c537}{set\+Visible}} (bool visible)
+\begin{DoxyCompactList}\small\item\em Define la visibilidad del objeto. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_mesh_renderer_component_a46cd96021c2ea6021880ef0c47d4544f}{can\+Cast\+Shadow}} () const
+\begin{DoxyCompactList}\small\item\em Indica si el objeto genera sombras. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_renderer_component_a3a8d0619490025153b90127ca8ad80b5}{set\+Cast\+Shadow}} (bool value)
+\begin{DoxyCompactList}\small\item\em Define si el objeto genera sombras. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_component_a4da90dfe700d29f2d16751aa4948a577}{Component}} (const \mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Constructor con tipo de componente. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Component} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} \mbox{\hyperlink{class_component_a39ba6f0bc561e3e24c849e35bdd19c42}{get\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene el tipo del componente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} {\bfseries m\+\_\+type}
+\begin{DoxyCompactList}\small\item\em Tipo del componente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Componente encargado de asociar una malla y materiales a una entidad. 
+
+Este componente almacena la geometría que será renderizada, junto con los materiales necesarios para dibujar el objeto dentro de la escena. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_mesh_renderer_component_a4cea7fa7d44517267dd05155d599341a}\index{MeshRendererComponent@{MeshRendererComponent}!addMaterialInstance@{addMaterialInstance}}
+\index{addMaterialInstance@{addMaterialInstance}!MeshRendererComponent@{MeshRendererComponent}}
+\doxysubsubsection{\texorpdfstring{addMaterialInstance()}{addMaterialInstance()}}
+{\footnotesize\ttfamily \label{class_mesh_renderer_component_a4cea7fa7d44517267dd05155d599341a} 
+void Mesh\+Renderer\+Component\+::add\+Material\+Instance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_material_instance}{Material\+Instance}} \texorpdfstring{$\ast$}{*}}]{material\+Instance}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Agrega un material a la lista de materiales. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em material\+Instance} & \doxylink{class_material}{Material} que se agregará. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_mesh_renderer_component_a46cd96021c2ea6021880ef0c47d4544f}\index{MeshRendererComponent@{MeshRendererComponent}!canCastShadow@{canCastShadow}}
+\index{canCastShadow@{canCastShadow}!MeshRendererComponent@{MeshRendererComponent}}
+\doxysubsubsection{\texorpdfstring{canCastShadow()}{canCastShadow()}}
+{\footnotesize\ttfamily \label{class_mesh_renderer_component_a46cd96021c2ea6021880ef0c47d4544f} 
+bool Mesh\+Renderer\+Component\+::can\+Cast\+Shadow (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indica si el objeto genera sombras. 
+
+\begin{DoxyReturn}{Returns}
+true si genera sombras. 
+
+false si no genera sombras. 
+\end{DoxyReturn}
+\Hypertarget{class_mesh_renderer_component_a8cf48f387eb648d6b1c17e5642d0df46}\index{MeshRendererComponent@{MeshRendererComponent}!destroy@{destroy}}
+\index{destroy@{destroy}!MeshRendererComponent@{MeshRendererComponent}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{class_mesh_renderer_component_a8cf48f387eb648d6b1c17e5642d0df46} 
+void Mesh\+Renderer\+Component\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Libera los recursos asociados al componente. 
+
+
+
+Implements \mbox{\hyperlink{class_component}{Component}}.
+
+\Hypertarget{class_mesh_renderer_component_abed22b76a6ef103c6a692d4af89cdcb2}\index{MeshRendererComponent@{MeshRendererComponent}!getMaterialInstance@{getMaterialInstance}}
+\index{getMaterialInstance@{getMaterialInstance}!MeshRendererComponent@{MeshRendererComponent}}
+\doxysubsubsection{\texorpdfstring{getMaterialInstance()}{getMaterialInstance()}}
+{\footnotesize\ttfamily \label{class_mesh_renderer_component_abed22b76a6ef103c6a692d4af89cdcb2} 
+\mbox{\hyperlink{class_material_instance}{Material\+Instance}} \texorpdfstring{$\ast$}{*} Mesh\+Renderer\+Component\+::get\+Material\+Instance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene el material principal. 
+
+\begin{DoxyReturn}{Returns}
+Puntero al material principal. 
+\end{DoxyReturn}
+\Hypertarget{class_mesh_renderer_component_ac0723bfd9156e05abef4145ede803c54}\index{MeshRendererComponent@{MeshRendererComponent}!getMaterialInstances@{getMaterialInstances}}
+\index{getMaterialInstances@{getMaterialInstances}!MeshRendererComponent@{MeshRendererComponent}}
+\doxysubsubsection{\texorpdfstring{getMaterialInstances()}{getMaterialInstances()}}
+{\footnotesize\ttfamily \label{class_mesh_renderer_component_ac0723bfd9156e05abef4145ede803c54} 
+const std\+::vector$<$ \mbox{\hyperlink{class_material_instance}{Material\+Instance}} \texorpdfstring{$\ast$}{*} $>$ \& Mesh\+Renderer\+Component\+::get\+Material\+Instances (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la lista de materiales. 
+
+\begin{DoxyReturn}{Returns}
+Referencia constante a la lista de materiales. 
+\end{DoxyReturn}
+\Hypertarget{class_mesh_renderer_component_a95d2fffbab03ea2ab00a17711dd942aa}\index{MeshRendererComponent@{MeshRendererComponent}!getMesh@{getMesh}}
+\index{getMesh@{getMesh}!MeshRendererComponent@{MeshRendererComponent}}
+\doxysubsubsection{\texorpdfstring{getMesh()}{getMesh()}}
+{\footnotesize\ttfamily \label{class_mesh_renderer_component_a95d2fffbab03ea2ab00a17711dd942aa} 
+\mbox{\hyperlink{class_mesh}{Mesh}} \texorpdfstring{$\ast$}{*} Mesh\+Renderer\+Component\+::get\+Mesh (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene la malla asociada. 
+
+\begin{DoxyReturn}{Returns}
+Puntero a la malla. 
+\end{DoxyReturn}
+\Hypertarget{class_mesh_renderer_component_a2fbe94234438d5d4ef25f462488a6baf}\index{MeshRendererComponent@{MeshRendererComponent}!init@{init}}
+\index{init@{init}!MeshRendererComponent@{MeshRendererComponent}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_mesh_renderer_component_a2fbe94234438d5d4ef25f462488a6baf} 
+void Mesh\+Renderer\+Component\+::init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Inicializa el componente. 
+
+
+
+Implements \mbox{\hyperlink{class_component}{Component}}.
+
+\Hypertarget{class_mesh_renderer_component_a56d4f19db8b5f45acc5e566444ea964f}\index{MeshRendererComponent@{MeshRendererComponent}!isVisible@{isVisible}}
+\index{isVisible@{isVisible}!MeshRendererComponent@{MeshRendererComponent}}
+\doxysubsubsection{\texorpdfstring{isVisible()}{isVisible()}}
+{\footnotesize\ttfamily \label{class_mesh_renderer_component_a56d4f19db8b5f45acc5e566444ea964f} 
+bool Mesh\+Renderer\+Component\+::is\+Visible (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Indica si el objeto es visible. 
+
+\begin{DoxyReturn}{Returns}
+true si es visible. 
+
+false si está oculto. 
+\end{DoxyReturn}
+\Hypertarget{class_mesh_renderer_component_aac8fc88d486338da31b3fecb96fec38d}\index{MeshRendererComponent@{MeshRendererComponent}!render@{render}}
+\index{render@{render}!MeshRendererComponent@{MeshRendererComponent}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_mesh_renderer_component_aac8fc88d486338da31b3fecb96fec38d} 
+void Mesh\+Renderer\+Component\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Renderiza el componente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto gráfico utilizado para renderizar. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_ac91ad449b882184077544527fa7ccea3}{Component}}.
+
+\Hypertarget{class_mesh_renderer_component_a3a8d0619490025153b90127ca8ad80b5}\index{MeshRendererComponent@{MeshRendererComponent}!setCastShadow@{setCastShadow}}
+\index{setCastShadow@{setCastShadow}!MeshRendererComponent@{MeshRendererComponent}}
+\doxysubsubsection{\texorpdfstring{setCastShadow()}{setCastShadow()}}
+{\footnotesize\ttfamily \label{class_mesh_renderer_component_a3a8d0619490025153b90127ca8ad80b5} 
+void Mesh\+Renderer\+Component\+::set\+Cast\+Shadow (\begin{DoxyParamCaption}\item[{bool}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Define si el objeto genera sombras. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Estado de las sombras. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_mesh_renderer_component_a927b853ba7afa3fcd63dcfc34b71a080}\index{MeshRendererComponent@{MeshRendererComponent}!setMaterialInstance@{setMaterialInstance}}
+\index{setMaterialInstance@{setMaterialInstance}!MeshRendererComponent@{MeshRendererComponent}}
+\doxysubsubsection{\texorpdfstring{setMaterialInstance()}{setMaterialInstance()}}
+{\footnotesize\ttfamily \label{class_mesh_renderer_component_a927b853ba7afa3fcd63dcfc34b71a080} 
+void Mesh\+Renderer\+Component\+::set\+Material\+Instance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_material_instance}{Material\+Instance}} \texorpdfstring{$\ast$}{*}}]{material\+Instance}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Asigna un material principal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em material\+Instance} & \doxylink{class_material}{Material} que será utilizado. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_mesh_renderer_component_a9b771ac52e4dcdb82618a5ac61529678}\index{MeshRendererComponent@{MeshRendererComponent}!setMaterialInstances@{setMaterialInstances}}
+\index{setMaterialInstances@{setMaterialInstances}!MeshRendererComponent@{MeshRendererComponent}}
+\doxysubsubsection{\texorpdfstring{setMaterialInstances()}{setMaterialInstances()}}
+{\footnotesize\ttfamily \label{class_mesh_renderer_component_a9b771ac52e4dcdb82618a5ac61529678} 
+void Mesh\+Renderer\+Component\+::set\+Material\+Instances (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_material_instance}{Material\+Instance}} \texorpdfstring{$\ast$}{*} $>$ \&}]{material\+Instances}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Asigna varios materiales al componente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em material\+Instances} & Lista de materiales. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_mesh_renderer_component_a37f556713e78881417ac88054628c7ed}\index{MeshRendererComponent@{MeshRendererComponent}!setMesh@{setMesh}}
+\index{setMesh@{setMesh}!MeshRendererComponent@{MeshRendererComponent}}
+\doxysubsubsection{\texorpdfstring{setMesh()}{setMesh()}}
+{\footnotesize\ttfamily \label{class_mesh_renderer_component_a37f556713e78881417ac88054628c7ed} 
+void Mesh\+Renderer\+Component\+::set\+Mesh (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_mesh}{Mesh}} \texorpdfstring{$\ast$}{*}}]{mesh}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Asigna la malla que utilizará el componente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mesh} & Malla a renderizar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_mesh_renderer_component_a413bfa1ebf0e5207338160c4e8b6c537}\index{MeshRendererComponent@{MeshRendererComponent}!setVisible@{setVisible}}
+\index{setVisible@{setVisible}!MeshRendererComponent@{MeshRendererComponent}}
+\doxysubsubsection{\texorpdfstring{setVisible()}{setVisible()}}
+{\footnotesize\ttfamily \label{class_mesh_renderer_component_a413bfa1ebf0e5207338160c4e8b6c537} 
+void Mesh\+Renderer\+Component\+::set\+Visible (\begin{DoxyParamCaption}\item[{bool}]{visible}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Define la visibilidad del objeto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em visible} & Estado de visibilidad. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_mesh_renderer_component_aaf79f11600a21e5174b7f0b939343734}\index{MeshRendererComponent@{MeshRendererComponent}!update@{update}}
+\index{update@{update}!MeshRendererComponent@{MeshRendererComponent}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_mesh_renderer_component_aaf79f11600a21e5174b7f0b939343734} 
+void Mesh\+Renderer\+Component\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Actualiza el componente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Tiempo transcurrido desde el último frame. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_a9152b930559c4ece4ea5ddd3e6e4b22b}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+ECS/\mbox{\hyperlink{_mesh_renderer_component_8h}{Mesh\+Renderer\+Component.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,58 @@
+\doxysection{Editor\+Viewport\+Pass.\+h}
+\hypertarget{_editor_viewport_pass_8h_source}{}\label{_editor_viewport_pass_8h_source}\index{include/EngineUtilities/Utilities/EditorViewportPass.h@{include/EngineUtilities/Utilities/EditorViewportPass.h}}
+\mbox{\hyperlink{_editor_viewport_pass_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_texture_8h}{Texture.h}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}RenderTargetView.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_depth_stencil_view_8h}{DepthStencilView.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device}{Device}};}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }}
+\DoxyCodeLine{00016\ EditorViewportPass\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ EditorViewportPass()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00019\ \ \ \ \ \string~EditorViewportPass()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ HRESULT\ init(\mbox{\hyperlink{class_device}{Device}}\&\ device,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ height);}
+\DoxyCodeLine{00022\ \ \ \ \ HRESULT\ resize(\mbox{\hyperlink{class_device}{Device}}\&\ device,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ height);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ begin(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ clearColor[4]);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ swap(EditorViewportPass\&\ other);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ clearDepth(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ setViewport(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ destroy();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ ID3D11ShaderResourceView*\ getSRV()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_colorSRV.m\_textureFromImg;\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ getWidth()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_width;\ \}}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ getHeight()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_height;\ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ isValid()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00036\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_colorTexture.m\_texture\ !=\ \textcolor{keyword}{nullptr}\ \&\&}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ m\_colorSRV.m\_textureFromImg\ !=\ \textcolor{keyword}{nullptr}\ \&\&}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ m\_depthTexture.m\_texture\ !=\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \ \ \ \ HRESULT\ createResources(\mbox{\hyperlink{class_device}{Device}}\&\ device,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ height);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_texture}{Texture}}\ \ \ \ \ \ \ \ \ \ \ m\_colorTexture;}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_texture}{Texture}}\ \ \ \ \ \ \ \ \ \ \ m\_colorSRV;}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_render_target_view}{RenderTargetView}}\ \ m\_rtv;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_texture}{Texture}}\ \ \ \ \ \ \ \ \ \ \ m\_depthTexture;}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_depth_stencil_view}{DepthStencilView}}\ \ m\_dsv;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ m\_width\ =\ 1;}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ m\_height\ =\ 1;}
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+
+\end{DoxyCode}

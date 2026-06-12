@@ -1,0 +1,173 @@
+\doxysection{Fbx\+Renaming\+Strategy\+Utils Class Reference}
+\hypertarget{class_fbx_renaming_strategy_utils}{}\label{class_fbx_renaming_strategy_utils}\index{FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}}
+
+
+This class contains a set of utilities, which are used by the FBX renaming strategy.  
+
+
+
+
+{\ttfamily \#include $<$fbxrenamingstrategyutilities.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_fbx_renaming_strategy_utils_aa17397b689280294198b5d445c67c95b}{Encode\+Non\+Alpha}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String, bool p\+First\+Char\+Must\+Be\+Alpha\+Only=false, \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} p\+Permitted\+Chars="{}"{}, bool p8bit\+Chars\+Only=true)
+\item 
+static bool \mbox{\hyperlink{class_fbx_renaming_strategy_utils_a9ba422882bbd76f388037c75c06ff0e5}{Decode\+Non\+Alpha}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String)
+\item 
+static bool \mbox{\hyperlink{class_fbx_renaming_strategy_utils_a0d730b3587ae258f9ba1396080a3028f}{Encode\+Duplicate}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String, int p\+Instance\+Number=0)
+\item 
+static bool \mbox{\hyperlink{class_fbx_renaming_strategy_utils_a52105ea9c53b3a5bdb064435b6027f7b}{Decode\+Duplicate}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String)
+\item 
+static bool \mbox{\hyperlink{class_fbx_renaming_strategy_utils_a8f0edabcf187fd49359f095008e38df1}{Encode\+Case\+Insensitive}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String, const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} p\+String2)
+\item 
+static bool \mbox{\hyperlink{class_fbx_renaming_strategy_utils_a9f252cd7a3b44f25e7bb421e11acc512}{Decode\+Case\+Insensitive}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+String)
+\item 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_renaming_strategy_utils_a6619332f129ad9e81fa426eb731f30d6}{No\+Prefix\+Name}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\item 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_renaming_strategy_utils_ac2df3a0cd4aa3b9225508b5dbb1b2cb0}{No\+Prefix\+Name}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class contains a set of utilities, which are used by the FBX renaming strategy. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_renaming_strategy_utils_a9f252cd7a3b44f25e7bb421e11acc512}\index{FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}!DecodeCaseInsensitive@{DecodeCaseInsensitive}}
+\index{DecodeCaseInsensitive@{DecodeCaseInsensitive}!FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}}
+\doxysubsubsection{\texorpdfstring{DecodeCaseInsensitive()}{DecodeCaseInsensitive()}}
+{\footnotesize\ttfamily \label{class_fbx_renaming_strategy_utils_a9f252cd7a3b44f25e7bb421e11acc512} 
+static bool Fbx\+Renaming\+Strategy\+Utils\+::\+Decode\+Case\+Insensitive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This method will decode a string that has a ncl2 to it 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the p\+String has been fully modified according to the ncl2 codes or false if only a partial conversion (or no conversion at all) took place. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_renaming_strategy_utils_a52105ea9c53b3a5bdb064435b6027f7b}\index{FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}!DecodeDuplicate@{DecodeDuplicate}}
+\index{DecodeDuplicate@{DecodeDuplicate}!FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}}
+\doxysubsubsection{\texorpdfstring{DecodeDuplicate()}{DecodeDuplicate()}}
+{\footnotesize\ttfamily \label{class_fbx_renaming_strategy_utils_a52105ea9c53b3a5bdb064435b6027f7b} 
+static bool Fbx\+Renaming\+Strategy\+Utils\+::\+Decode\+Duplicate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This method will remove the \+\_\+ncl1\+\_\+xxx from the given string 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the p\+String has been modified 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_renaming_strategy_utils_a9ba422882bbd76f388037c75c06ff0e5}\index{FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}!DecodeNonAlpha@{DecodeNonAlpha}}
+\index{DecodeNonAlpha@{DecodeNonAlpha}!FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}}
+\doxysubsubsection{\texorpdfstring{DecodeNonAlpha()}{DecodeNonAlpha()}}
+{\footnotesize\ttfamily \label{class_fbx_renaming_strategy_utils_a9ba422882bbd76f388037c75c06ff0e5} 
+static bool Fbx\+Renaming\+Strategy\+Utils\+::\+Decode\+Non\+Alpha (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Take a string that has been encoded by Encode\+Non\+Alpha and re-\/extract the non-\/alphanumeric values. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & String to be processed. The result of the conversion is also returned in this string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns {\ttfamily true} if the {\ttfamily p\+String} argument has been decoded. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_renaming_strategy_utils_a8f0edabcf187fd49359f095008e38df1}\index{FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}!EncodeCaseInsensitive@{EncodeCaseInsensitive}}
+\index{EncodeCaseInsensitive@{EncodeCaseInsensitive}!FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}}
+\doxysubsubsection{\texorpdfstring{EncodeCaseInsensitive()}{EncodeCaseInsensitive()}}
+{\footnotesize\ttfamily \label{class_fbx_renaming_strategy_utils_a8f0edabcf187fd49359f095008e38df1} 
+static bool Fbx\+Renaming\+Strategy\+Utils\+::\+Encode\+Case\+Insensitive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{, }\item[{const \mbox{\hyperlink{class_fbx_string}{Fbx\+String}}}]{p\+String2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This method will compare p\+String and p\+String2, set p\+String to p\+String2 and append the ncl2 suffix to it 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & \\
+\hline
+{\em p\+String2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the p\+String has been modified 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+p\+String and p\+String2 must be identical except for casing. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_renaming_strategy_utils_a0d730b3587ae258f9ba1396080a3028f}\index{FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}!EncodeDuplicate@{EncodeDuplicate}}
+\index{EncodeDuplicate@{EncodeDuplicate}!FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}}
+\doxysubsubsection{\texorpdfstring{EncodeDuplicate()}{EncodeDuplicate()}}
+{\footnotesize\ttfamily \label{class_fbx_renaming_strategy_utils_a0d730b3587ae258f9ba1396080a3028f} 
+static bool Fbx\+Renaming\+Strategy\+Utils\+::\+Encode\+Duplicate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{, }\item[{int}]{p\+Instance\+Number}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This method will add the {\itshape ncl1} with the provided p\+Instance\+Number to the string 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & \\
+\hline
+{\em p\+Instance\+Number} & Its default value is 0. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Always returns true. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+please ALWAYS call Encode Duplicate BEFORE Encode Case Insensitive. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_renaming_strategy_utils_aa17397b689280294198b5d445c67c95b}\index{FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}!EncodeNonAlpha@{EncodeNonAlpha}}
+\index{EncodeNonAlpha@{EncodeNonAlpha}!FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}}
+\doxysubsubsection{\texorpdfstring{EncodeNonAlpha()}{EncodeNonAlpha()}}
+{\footnotesize\ttfamily \label{class_fbx_renaming_strategy_utils_aa17397b689280294198b5d445c67c95b} 
+static bool Fbx\+Renaming\+Strategy\+Utils\+::\+Encode\+Non\+Alpha (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+String}{, }\item[{bool}]{p\+First\+Char\+Must\+Be\+Alpha\+Only}{ = {\ttfamily false}, }\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}}}]{p\+Permitted\+Chars}{ = {\ttfamily "{}"{}}, }\item[{bool}]{p8bit\+Chars\+Only}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Check if the string has non alphanumeric characters and replace them with a special string containing a prefix and the character code. 
+\begin{DoxyParams}{Parameters}
+{\em p\+String} & String to be processed. The result of the conversion is also returned in this string. \\
+\hline
+{\em p\+First\+Char\+Must\+Be\+Alpha\+Only} & This flag tells whether the first char of the string must be alpha only. Its default value is {\ttfamily false}. \\
+\hline
+{\em p\+Permitted\+Chars} & List of non alphanumeric characters that do not require to be converted because already supported by the destination application. When encountered, these characters are simply skipped and left as is. \\
+\hline
+{\em p8bit\+Chars\+Only} & When {\ttfamily true}, this flag tells the routine that only 8 bit coded characters can be represented by the encoding format (see note below). If set to {\ttfamily false}, the range of supported character is increased and the memory usage may be less. But the routine will perform slower because of the internal conversions required. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns {\ttfamily true} if at least one character in {\ttfamily p\+String} has been encoded. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The encoding string depends on the value of {\ttfamily p8bit\+Chars\+Only} argument. When this parameter value is {\ttfamily true}, each non-\/alphanumeric character is replaced with FBXASC\#\#\# (where \#\#\# is the decimal code of the character). Inversely, when the value is {\ttfamily false}, each non-\/alphanumeric characters is replaced with FBXCHR\#\#\#\#\# (where 
+\end{DoxyNote}
+\hypertarget{class_fbx_renaming_strategy_utils_autotoc_md317}{}\doxysubsubsubsubsubsection{\texorpdfstring{is the hexadecimal representation of the character code).}{is the hexadecimal representation of the character code).}}\label{class_fbx_renaming_strategy_utils_autotoc_md317}
+\Hypertarget{class_fbx_renaming_strategy_utils_a6619332f129ad9e81fa426eb731f30d6}\index{FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}!NoPrefixName@{NoPrefixName}}
+\index{NoPrefixName@{NoPrefixName}!FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}}
+\doxysubsubsection{\texorpdfstring{NoPrefixName()}{NoPrefixName()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_renaming_strategy_utils_a6619332f129ad9e81fa426eb731f30d6} 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+Renaming\+Strategy\+Utils\+::\+No\+Prefix\+Name (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns a name with its prefix removed. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & A name containing a prefix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The part of p\+Name following the "{}\+::"{} 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_renaming_strategy_utils_ac2df3a0cd4aa3b9225508b5dbb1b2cb0}\index{FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}!NoPrefixName@{NoPrefixName}}
+\index{NoPrefixName@{NoPrefixName}!FbxRenamingStrategyUtils@{FbxRenamingStrategyUtils}}
+\doxysubsubsection{\texorpdfstring{NoPrefixName()}{NoPrefixName()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_renaming_strategy_utils_ac2df3a0cd4aa3b9225508b5dbb1b2cb0} 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+Renaming\+Strategy\+Utils\+::\+No\+Prefix\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns a name with its prefix removed. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & A name containing a prefix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The part of p\+Name following the "{}\+::"{} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/utils/\mbox{\hyperlink{fbxrenamingstrategyutilities_8h}{fbxrenamingstrategyutilities.\+h}}\end{DoxyCompactItemize}

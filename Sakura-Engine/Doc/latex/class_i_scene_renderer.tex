@@ -1,0 +1,303 @@
+\doxysection{IScene\+Renderer Class Reference}
+\hypertarget{class_i_scene_renderer}{}\label{class_i_scene_renderer}\index{ISceneRenderer@{ISceneRenderer}}
+
+
+Interfaz base para los renderizadores de escena.  
+
+
+
+
+{\ttfamily \#include $<$IScene\+Render.\+h$>$}
+
+Inheritance diagram for IScene\+Renderer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_scene_renderer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_i_scene_renderer_a5c2fc0a676fb88ec98ad63e5c5c5a675}\label{class_i_scene_renderer_a5c2fc0a676fb88ec98ad63e5c5c5a675} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+IScene\+Renderer} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual. \end{DoxyCompactList}\item 
+virtual HRESULT \mbox{\hyperlink{class_i_scene_renderer_abcf67572e8f03a808fa6b398a9c68610}{init}} (\mbox{\hyperlink{class_device}{Device}} \&device)=0
+\begin{DoxyCompactList}\small\item\em Inicializa los recursos necesarios del renderer. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_scene_renderer_a1179b9b651c1d275f30ab7698aee0f3a}{resize}} (\mbox{\hyperlink{class_device}{Device}} \&device, unsigned int width, unsigned int height)=0
+\begin{DoxyCompactList}\small\item\em Actualiza el tamaño de los recursos de render. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_scene_renderer_a5cbf505400269ed955914b3da892a24b}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context, const \mbox{\hyperlink{class_camera}{Camera}} \&camera, \mbox{\hyperlink{class_render_scene}{Render\+Scene}} \&scene, \mbox{\hyperlink{class_editor_viewport_pass}{Editor\+Viewport\+Pass}} \&viewport)=0
+\begin{DoxyCompactList}\small\item\em Renderiza una escena completa. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_scene_renderer_a8de27780f6e69fb6e54538130d4b504c}{destroy}} ()=0
+\begin{DoxyCompactList}\small\item\em Libera los recursos utilizados por el renderer. \end{DoxyCompactList}\item 
+virtual ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_scene_renderer_ab2a13e7d87a9cddfa63730044df093d5}{get\+Shadow\+Map\+SRV}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene el recurso de sombras. \end{DoxyCompactList}\item 
+virtual ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_scene_renderer_a8e1278d28241898c84820f06e3c949f6}{get\+Pre\+Shadow\+SRV}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la textura de depuración previa a sombras. \end{DoxyCompactList}\item 
+virtual ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_scene_renderer_a0e2893e2ce82e0cd94c689805d6ef57b}{get\+GBuffer\+Albedo\+Metallic\+SRV}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la textura de color y metalizado del G-\/\+Buffer. \end{DoxyCompactList}\item 
+virtual ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_scene_renderer_a91a39ba50794d9dd4ab8a92f4f8923de}{get\+GBuffer\+Normal\+Roughness\+SRV}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la textura de normales y rugosidad del G-\/\+Buffer. \end{DoxyCompactList}\item 
+virtual ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_scene_renderer_a60d3a2cb70d78b4c838a1a14a7fe3063}{get\+GBuffer\+World\+Ao\+SRV}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la textura de posición y AO del G-\/\+Buffer. \end{DoxyCompactList}\item 
+virtual ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_scene_renderer_a1e4b1980650ecd17bbf2002811a3381d}{get\+GBuffer\+Emissive\+Alpha\+SRV}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene la textura de emisión y transparencia del G-\/\+Buffer. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_scene_renderer_a59dc7d98d43b3a18e96caf1024b51c4d}{set\+Shadow\+Factor\+Debug\+Enabled}} (bool enabled)
+\begin{DoxyCompactList}\small\item\em Activa o desactiva la depuración de sombras. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_scene_renderer_afa0e61a43bd4ae7325ce72bf0a4da8ec}{set\+Deferred\+Debug\+View\+Mode}} (int mode)
+\begin{DoxyCompactList}\small\item\em Cambia el modo de depuración del renderer. \end{DoxyCompactList}\item 
+virtual const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_i_scene_renderer_aa4da9056b1fc258771c1ac40d722b41b}{get\+Debug\+Name}} () const =0
+\begin{DoxyCompactList}\small\item\em Obtiene el nombre del renderer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfaz base para los renderizadores de escena. 
+
+Esta clase define las funciones que debe implementar cualquier renderer del motor, como Forward Renderer o Deferred Renderer. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_i_scene_renderer_a8de27780f6e69fb6e54538130d4b504c}\index{ISceneRenderer@{ISceneRenderer}!destroy@{destroy}}
+\index{destroy@{destroy}!ISceneRenderer@{ISceneRenderer}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{class_i_scene_renderer_a8de27780f6e69fb6e54538130d4b504c} 
+virtual void IScene\+Renderer\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Libera los recursos utilizados por el renderer. 
+
+
+
+Implemented in \mbox{\hyperlink{class_deferred_renderer_acf7f7fb555ec10386535d763861c6365}{Deferred\+Renderer}}.
+
+\Hypertarget{class_i_scene_renderer_aa4da9056b1fc258771c1ac40d722b41b}\index{ISceneRenderer@{ISceneRenderer}!getDebugName@{getDebugName}}
+\index{getDebugName@{getDebugName}!ISceneRenderer@{ISceneRenderer}}
+\doxysubsubsection{\texorpdfstring{getDebugName()}{getDebugName()}}
+{\footnotesize\ttfamily \label{class_i_scene_renderer_aa4da9056b1fc258771c1ac40d722b41b} 
+virtual const char \texorpdfstring{$\ast$}{*} IScene\+Renderer\+::get\+Debug\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Obtiene el nombre del renderer. 
+
+\begin{DoxyReturn}{Returns}
+Nombre del renderer actual. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_deferred_renderer_a20857322b67abfbb09687642db34adf9}{Deferred\+Renderer}}.
+
+\Hypertarget{class_i_scene_renderer_a0e2893e2ce82e0cd94c689805d6ef57b}\index{ISceneRenderer@{ISceneRenderer}!getGBufferAlbedoMetallicSRV@{getGBufferAlbedoMetallicSRV}}
+\index{getGBufferAlbedoMetallicSRV@{getGBufferAlbedoMetallicSRV}!ISceneRenderer@{ISceneRenderer}}
+\doxysubsubsection{\texorpdfstring{getGBufferAlbedoMetallicSRV()}{getGBufferAlbedoMetallicSRV()}}
+{\footnotesize\ttfamily \label{class_i_scene_renderer_a0e2893e2ce82e0cd94c689805d6ef57b} 
+virtual ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} IScene\+Renderer\+::get\+GBuffer\+Albedo\+Metallic\+SRV (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Obtiene la textura de color y metalizado del G-\/\+Buffer. 
+
+\begin{DoxyReturn}{Returns}
+Shader Resource View correspondiente. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_deferred_renderer_a6c3f16e09472824572b911863f4b9a6f}{Deferred\+Renderer}}.
+
+\Hypertarget{class_i_scene_renderer_a1e4b1980650ecd17bbf2002811a3381d}\index{ISceneRenderer@{ISceneRenderer}!getGBufferEmissiveAlphaSRV@{getGBufferEmissiveAlphaSRV}}
+\index{getGBufferEmissiveAlphaSRV@{getGBufferEmissiveAlphaSRV}!ISceneRenderer@{ISceneRenderer}}
+\doxysubsubsection{\texorpdfstring{getGBufferEmissiveAlphaSRV()}{getGBufferEmissiveAlphaSRV()}}
+{\footnotesize\ttfamily \label{class_i_scene_renderer_a1e4b1980650ecd17bbf2002811a3381d} 
+virtual ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} IScene\+Renderer\+::get\+GBuffer\+Emissive\+Alpha\+SRV (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Obtiene la textura de emisión y transparencia del G-\/\+Buffer. 
+
+\begin{DoxyReturn}{Returns}
+Shader Resource View correspondiente. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_deferred_renderer_aee67afcff38810e88b44ec074d9182e6}{Deferred\+Renderer}}.
+
+\Hypertarget{class_i_scene_renderer_a91a39ba50794d9dd4ab8a92f4f8923de}\index{ISceneRenderer@{ISceneRenderer}!getGBufferNormalRoughnessSRV@{getGBufferNormalRoughnessSRV}}
+\index{getGBufferNormalRoughnessSRV@{getGBufferNormalRoughnessSRV}!ISceneRenderer@{ISceneRenderer}}
+\doxysubsubsection{\texorpdfstring{getGBufferNormalRoughnessSRV()}{getGBufferNormalRoughnessSRV()}}
+{\footnotesize\ttfamily \label{class_i_scene_renderer_a91a39ba50794d9dd4ab8a92f4f8923de} 
+virtual ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} IScene\+Renderer\+::get\+GBuffer\+Normal\+Roughness\+SRV (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Obtiene la textura de normales y rugosidad del G-\/\+Buffer. 
+
+\begin{DoxyReturn}{Returns}
+Shader Resource View correspondiente. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_deferred_renderer_a6e61c0d058fa57533d29fc383bd1e6d8}{Deferred\+Renderer}}.
+
+\Hypertarget{class_i_scene_renderer_a60d3a2cb70d78b4c838a1a14a7fe3063}\index{ISceneRenderer@{ISceneRenderer}!getGBufferWorldAoSRV@{getGBufferWorldAoSRV}}
+\index{getGBufferWorldAoSRV@{getGBufferWorldAoSRV}!ISceneRenderer@{ISceneRenderer}}
+\doxysubsubsection{\texorpdfstring{getGBufferWorldAoSRV()}{getGBufferWorldAoSRV()}}
+{\footnotesize\ttfamily \label{class_i_scene_renderer_a60d3a2cb70d78b4c838a1a14a7fe3063} 
+virtual ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} IScene\+Renderer\+::get\+GBuffer\+World\+Ao\+SRV (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Obtiene la textura de posición y AO del G-\/\+Buffer. 
+
+\begin{DoxyReturn}{Returns}
+Shader Resource View correspondiente. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_deferred_renderer_aab978a436c84f21479e274a18e02ca8a}{Deferred\+Renderer}}.
+
+\Hypertarget{class_i_scene_renderer_a8e1278d28241898c84820f06e3c949f6}\index{ISceneRenderer@{ISceneRenderer}!getPreShadowSRV@{getPreShadowSRV}}
+\index{getPreShadowSRV@{getPreShadowSRV}!ISceneRenderer@{ISceneRenderer}}
+\doxysubsubsection{\texorpdfstring{getPreShadowSRV()}{getPreShadowSRV()}}
+{\footnotesize\ttfamily \label{class_i_scene_renderer_a8e1278d28241898c84820f06e3c949f6} 
+virtual ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} IScene\+Renderer\+::get\+Pre\+Shadow\+SRV (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Obtiene la textura de depuración previa a sombras. 
+
+\begin{DoxyReturn}{Returns}
+Shader Resource View generado por el renderer. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_deferred_renderer_a0e6c4cf572739bd07e922b4a9b26fbeb}{Deferred\+Renderer}}.
+
+\Hypertarget{class_i_scene_renderer_ab2a13e7d87a9cddfa63730044df093d5}\index{ISceneRenderer@{ISceneRenderer}!getShadowMapSRV@{getShadowMapSRV}}
+\index{getShadowMapSRV@{getShadowMapSRV}!ISceneRenderer@{ISceneRenderer}}
+\doxysubsubsection{\texorpdfstring{getShadowMapSRV()}{getShadowMapSRV()}}
+{\footnotesize\ttfamily \label{class_i_scene_renderer_ab2a13e7d87a9cddfa63730044df093d5} 
+virtual ID3\+D11\+Shader\+Resource\+View \texorpdfstring{$\ast$}{*} IScene\+Renderer\+::get\+Shadow\+Map\+SRV (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Obtiene el recurso de sombras. 
+
+\begin{DoxyReturn}{Returns}
+Shader Resource View asociado a las sombras. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_deferred_renderer_a3f61436d8bb217a5bbe1e2b525a98612}{Deferred\+Renderer}}.
+
+\Hypertarget{class_i_scene_renderer_abcf67572e8f03a808fa6b398a9c68610}\index{ISceneRenderer@{ISceneRenderer}!init@{init}}
+\index{init@{init}!ISceneRenderer@{ISceneRenderer}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_i_scene_renderer_abcf67572e8f03a808fa6b398a9c68610} 
+virtual HRESULT IScene\+Renderer\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Inicializa los recursos necesarios del renderer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo gráfico utilizado para crear recursos. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+HRESULT indicando si la operación fue exitosa. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_deferred_renderer_adf8861c01b58c989d9f1777279e3b976}{Deferred\+Renderer}}.
+
+\Hypertarget{class_i_scene_renderer_a5cbf505400269ed955914b3da892a24b}\index{ISceneRenderer@{ISceneRenderer}!render@{render}}
+\index{render@{render}!ISceneRenderer@{ISceneRenderer}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_i_scene_renderer_a5cbf505400269ed955914b3da892a24b} 
+virtual void IScene\+Renderer\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{, }\item[{const \mbox{\hyperlink{class_camera}{Camera}} \&}]{camera}{, }\item[{\mbox{\hyperlink{class_render_scene}{Render\+Scene}} \&}]{scene}{, }\item[{\mbox{\hyperlink{class_editor_viewport_pass}{Editor\+Viewport\+Pass}} \&}]{viewport}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Renderiza una escena completa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto del dispositivo. \\
+\hline
+{\em camera} & Cámara activa. \\
+\hline
+{\em scene} & Escena que será renderizada. \\
+\hline
+{\em viewport} & \doxylink{class_viewport}{Viewport} donde se mostrará el resultado. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_deferred_renderer_a1a4959684a5b3992319dbef1db1e6617}{Deferred\+Renderer}}.
+
+\Hypertarget{class_i_scene_renderer_a1179b9b651c1d275f30ab7698aee0f3a}\index{ISceneRenderer@{ISceneRenderer}!resize@{resize}}
+\index{resize@{resize}!ISceneRenderer@{ISceneRenderer}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily \label{class_i_scene_renderer_a1179b9b651c1d275f30ab7698aee0f3a} 
+virtual void IScene\+Renderer\+::resize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{unsigned int}]{width}{, }\item[{unsigned int}]{height}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Actualiza el tamaño de los recursos de render. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo gráfico. \\
+\hline
+{\em width} & Nuevo ancho de render. \\
+\hline
+{\em height} & Nueva altura de render. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_deferred_renderer_a6b534e029ab1cb1a0dce09b3921b2fa1}{Deferred\+Renderer}}.
+
+\Hypertarget{class_i_scene_renderer_afa0e61a43bd4ae7325ce72bf0a4da8ec}\index{ISceneRenderer@{ISceneRenderer}!setDeferredDebugViewMode@{setDeferredDebugViewMode}}
+\index{setDeferredDebugViewMode@{setDeferredDebugViewMode}!ISceneRenderer@{ISceneRenderer}}
+\doxysubsubsection{\texorpdfstring{setDeferredDebugViewMode()}{setDeferredDebugViewMode()}}
+{\footnotesize\ttfamily \label{class_i_scene_renderer_afa0e61a43bd4ae7325ce72bf0a4da8ec} 
+virtual void IScene\+Renderer\+::set\+Deferred\+Debug\+View\+Mode (\begin{DoxyParamCaption}\item[{int}]{mode}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Cambia el modo de depuración del renderer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & Modo seleccionado. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_deferred_renderer_a44b056942c313df3e2629b42d0d1e0c6}{Deferred\+Renderer}}.
+
+\Hypertarget{class_i_scene_renderer_a59dc7d98d43b3a18e96caf1024b51c4d}\index{ISceneRenderer@{ISceneRenderer}!setShadowFactorDebugEnabled@{setShadowFactorDebugEnabled}}
+\index{setShadowFactorDebugEnabled@{setShadowFactorDebugEnabled}!ISceneRenderer@{ISceneRenderer}}
+\doxysubsubsection{\texorpdfstring{setShadowFactorDebugEnabled()}{setShadowFactorDebugEnabled()}}
+{\footnotesize\ttfamily \label{class_i_scene_renderer_a59dc7d98d43b3a18e96caf1024b51c4d} 
+virtual void IScene\+Renderer\+::set\+Shadow\+Factor\+Debug\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{enabled}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Activa o desactiva la depuración de sombras. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enabled} & Estado de la opción. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_deferred_renderer_aefe43a30d1a4b5d272ecc6073c4ce1c0}{Deferred\+Renderer}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Rendering/IScene\+Render.\+h\end{DoxyCompactItemize}

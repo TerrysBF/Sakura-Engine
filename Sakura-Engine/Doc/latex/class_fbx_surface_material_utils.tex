@@ -1,0 +1,277 @@
+\doxysection{Fbx\+Surface\+Material\+Utils Class Reference}
+\hypertarget{class_fbx_surface_material_utils}{}\label{class_fbx_surface_material_utils}\index{FbxSurfaceMaterialUtils@{FbxSurfaceMaterialUtils}}
+
+
+{\ttfamily \#include $<$fbxsurfacematerialutils.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_fbx_surface_material_utils_a428a1886a363ffca83e760a1e51dd304}{Get\+Properties\+Names}} (\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*} $>$ \&p\+Properties\+Names, const \mbox{\hyperlink{class_fbx_surface_material}{Fbx\+Surface\+Material}} \texorpdfstring{$\ast$}{*}p\+Material, int p\+Implementation\+Id=0, int p\+Binding\+Table\+Id=0)
+\item 
+static \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_surface_material_utils_a4f03de108fb30b41aaafc087dbbb8faa}{Get\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Property\+Name, const \mbox{\hyperlink{class_fbx_surface_material}{Fbx\+Surface\+Material}} \texorpdfstring{$\ast$}{*}p\+Material, int p\+Implementation\+Id=0, int p\+Binding\+Table\+Id=0)
+\item 
+static const \mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_surface_material_utils_af9d0593fb5e3d0aaa63d4ff2915372cd}{Get\+Implementation}} (const \mbox{\hyperlink{class_fbx_surface_material}{Fbx\+Surface\+Material}} \texorpdfstring{$\ast$}{*}p\+Material, int p\+Implementation\+Id=0)
+\item 
+static \mbox{\hyperlink{class_fbx_surface_material}{Fbx\+Surface\+Material}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_surface_material_utils_a4b4ff7ff351896a8e6a5d33583c01b0c}{Create\+Shader\+Material}} (\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*}p\+Scene, const char \texorpdfstring{$\ast$}{*}p\+Name, const char \texorpdfstring{$\ast$}{*}p\+Shading\+Language, const char \texorpdfstring{$\ast$}{*}p\+Shading\+Language\+Version, const char \texorpdfstring{$\ast$}{*}p\+Shading\+Render\+API, const char \texorpdfstring{$\ast$}{*}p\+Shading\+Render\+APIVersion, const char \texorpdfstring{$\ast$}{*}p\+Implementation=nullptr)
+\item 
+static \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_surface_material_utils_ab9a0bb9f8d84a68d8a85e906b14174ee}{Add\+Property}} (\mbox{\hyperlink{class_fbx_surface_material}{Fbx\+Surface\+Material}} \texorpdfstring{$\ast$}{*}p\+Material, const char \texorpdfstring{$\ast$}{*}p\+Property\+Name, const char \texorpdfstring{$\ast$}{*}p\+Shader\+Param, const \mbox{\hyperlink{class_fbx_data_type}{Fbx\+Data\+Type}} \&p\+Data\+Type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class defines some utility functions to access \doxylink{class_fbx_surface_material}{Fbx\+Surface\+Material} properties by name regardless of the actual material definition. These functions are provided for convenience to simplify the manipulation of Materials (especially shader definitions that use the \doxylink{class_fbx_implementation}{Fbx\+Implementation} and the \doxylink{class_fbx_binding_table}{Fbx\+Binding\+Table} which defines a variable number of properties).
+
+\begin{DoxyRemark}{Remarks}
+For a complete access to the \doxylink{class_fbx_surface_material}{Fbx\+Surface\+Material} objects, it may still be required to directly access the data using the relevant objects.
+\end{DoxyRemark}
+\begin{DoxySeeAlso}{See also}
+The Export\+Shader and Import\+Scene samples code
+\end{DoxySeeAlso}
+Example\+: Supposing that the scene contains one Lambert and one Stanadard Surface material, the following code \begin{DoxyVerb} FbxArray<FbxString*> lNames;
+ for (int m = 0; m < lScene->GetSrcObjectCount<FbxSurfaceMaterial>(); m++)
+ {
+     FbxSurfaceMaterial* lMat = lScene->GetSrcObject<FbxSurfaceMaterial>(m);
+     FBXSDK_printf("\n\nMATERIAL NAME: %s\n\n", lMat->GetName());
+     const FbxImplementation* lImpl = FbxSurfaceMaterialUtils::GetImplementation(lMat);
+
+     if (lImpl)
+     {
+         FBXSDK_printf("          Language =%s\n", lImpl->Language.Get().Buffer());
+         FBXSDK_printf("   LanguageVersion =%s\n", lImpl->LanguageVersion.Get().Buffer());
+         FBXSDK_printf("        RenderName =%s\n", lImpl->RenderName.Buffer());
+         FBXSDK_printf("         RenderAPI =%s\n", lImpl->RenderAPI.Get().Buffer());
+         FBXSDK_printf("  RenderAPIVersion =%s\n\n", lImpl->RenderAPIVersion.Get().Buffer());
+     }
+
+     bool lRes = FbxSurfaceMaterialUtils::GetPropertiesNames(lNames, lMat);
+     for (int i = 0; lRes && i < lNames.GetCount(); i++)
+     {
+         FbxProperty lP = FbxSurfaceMaterialUtils::GetProperty(lNames[i]->Buffer(), lMat);
+         if (lP.IsValid())
+         {
+             FBXSDK_printf("  %-33s (%-40s) ", lP.GetNameAsCStr(), lP.GetHierarchicalName().Buffer());
+             switch (lP.GetPropertyDataType().GetType())
+             {
+             case EFbxType::eFbxString:      FBXSDK_printf("%s\n", lP.Get<FbxString>().Buffer());                                                                           break;
+             case EFbxType::eFbxBool:        FBXSDK_printf("%s\n", ((lP.Get<bool>()) ? "True" : "False"));                                                                  break;
+             case EFbxType::eFbxFloat:       FBXSDK_printf("%f\n", lP.Get<float>());                                                                                        break;
+             case EFbxType::eFbxDouble:      FBXSDK_printf("%lf\n", lP.Get<double>());                                                                                      break;
+             case EFbxType::eFbxDouble2:   { FbxDouble2 v = lP.Get<FbxDouble2>(); FBXSDK_printf("%4.3f %4.3f\n", v[0], v[1]); }                                             break;
+             case EFbxType::eFbxDouble3:   { FbxDouble3 c = lP.Get<FbxDouble3>(); FBXSDK_printf("%4.3f %4.3f %4.3f\n", c[0], c[1], c[2]); }                                 break;
+             case EFbxType::eFbxDouble4x4: { FbxDouble4x4 c = lP.Get<FbxDouble4x4>(); FBXSDK_printf("%4.3f %4.3f %4.3f %4.3f ...\n", c[0][1], c[0][1], c[0][2], c[0][3]); } break;
+             default:
+                 // more cases can may be added ...
+                 FBXSDK_printf(" -tbd-\n");
+                 break;
+             };
+         }
+     }
+     FbxArrayDelete<FbxString*>(lNames);
+ }
+\end{DoxyVerb}
+
+
+would print this data on the console (values depend on the actual settings on the materials) \begin{DoxyVerb}MATERIAL NAME: lambert2
+
+  ShadingModel                   (ShadingModel                            ) Lambert
+  MultiLayer                     (MultiLayer                              ) False
+  EmissiveColor                  (EmissiveColor                           ) 1.000 1.000 0.000
+  EmissiveFactor                 (EmissiveFactor                          ) 1.000000
+  AmbientColor                   (AmbientColor                            ) 1.000 1.000 1.000
+  AmbientFactor                  (AmbientFactor                           ) 1.000000
+  DiffuseColor                   (DiffuseColor                            ) 1.000 0.000 0.000
+  DiffuseFactor                  (DiffuseFactor                           ) 0.800000
+  Bump                           (Bump                                    ) 0.000 0.000 0.000
+  NormalMap                      (NormalMap                               ) 0.000 0.000 0.000
+  BumpFactor                     (BumpFactor                              ) 1.000000
+  TransparentColor               (TransparentColor                        ) 0.368 0.368 0.368
+  TransparencyFactor             (TransparencyFactor                      ) 1.000000
+  DisplacementColor              (DisplacementColor                       ) 0.000 0.000 0.000
+  DisplacementFactor             (DisplacementFactor                      ) 1.000000
+  VectorDisplacementColor        (VectorDisplacementColor                 ) 0.000 0.000 0.000
+  VectorDisplacementFactor       (VectorDisplacementFactor                ) 1.000000
+  Emissive                       (Emissive                                ) 1.000 1.000 0.000
+  Ambient                        (Ambient                                 ) 1.000 1.000 1.000
+  Diffuse                        (Diffuse                                 ) 0.800 0.000 0.000
+  Opacity                        (Opacity                                 ) 0.632258
+
+MATERIAL NAME: standardSurface2
+
+          Language =StandardSSL
+   LanguageVersion =1.0.1
+        RenderName =
+         RenderAPI =OSL
+  RenderAPIVersion =
+
+  specular_IOR                     (Maya|specularIOR                        ) 1.500000
+  emission                         (Maya|emission                           ) 0.000000
+  thin_film_thickness              (Maya|thinFilmThickness                  ) 0.000000
+  coat_affect_color                (Maya|coatAffectColor                    ) 0.000000
+  sheen_color                      (Maya|sheenColor                         ) 1.000 1.000 1.000
+  sheen                            (Maya|sheen                              ) 0.000000
+  transmission_depth               (Maya|transmissionDepth                  ) 0.000000
+  transmission_color               (Maya|transmissionColor                  ) 1.000 1.000 1.000
+  specular_color                   (Maya|specularColor                      ) 1.000 1.000 1.000
+  sheen_roughness                  (Maya|sheenRoughness                     ) 0.300000
+  metalness                        (Maya|metalness                          ) 0.000000
+  base_color                       (Maya|baseColor                          ) 1.000 1.000 1.000
+  base                             (Maya|base                               ) 0.800000
+  coat_normal                      (Maya|coatNormal                         ) 0.000 0.000 0.000
+  coat_roughness                   (Maya|coatRoughness                      ) 0.100000
+  transmission_extra_roughness     (Maya|transmissionExtraRoughness         ) 0.000000
+  specular                         (Maya|specular                           ) 1.000000
+  subsurface_scale                 (Maya|subsurfaceScale                    ) 1.000000
+  specular_anisotropy              (Maya|specularAnisotropy                 ) 0.500000
+  diffuse_roughness                (Maya|diffuseRoughness                   ) 0.000000
+  transmission_dispersion          (Maya|transmissionDispersion             ) 0.000000
+  transmission                     (Maya|transmission                       ) 0.000000
+  emission_color                   (Maya|emissionColor                      ) 1.000 1.000 1.000
+  subsurface_anisotropy            (Maya|subsurfaceAnisotropy               ) 0.000000
+  subsurface                       (Maya|subsurface                         ) 0.000000
+  specular_roughness               (Maya|specularRoughness                  ) 0.000000
+  coat_clor                        (Maya|coatColor                          ) 1.000 1.000 1.000
+  transmission_scatter_anisotropy  (Maya|transmissionScatterAnisotropy      ) 0.000000
+  coat_IOR                         (Maya|coatIOR                            ) 1.500000
+  specular_rotation                (Maya|specularRotation                   ) 0.000000
+  coat_affect_roughness            (Maya|coatAffectRoughness                ) 0.000000
+  coat_rotation                    (Maya|coatRotation                       ) 0.000000
+  coat                             (Maya|coat                               ) 1.000000
+  thin_walled                      (Maya|thinWalled                         ) False
+  opacity                          (Maya|opacity                            ) 1.000 1.000 1.000
+  thin_film_IOR                    (Maya|thinFilmIOR                        ) 1.500000
+  normalCamera                     (Maya|normalCamera                       ) 1.000 1.000 1.000
+  coat_anisotropy                  (Maya|coatAnisotropy                     ) 0.000000
+  subsurface_radius                (Maya|subsurfaceRadius                   ) 1.000 1.000 1.000
+  subsurface_color                 (Maya|subsurfaceColor                    ) 1.000 1.000 1.000
+  transmission_scatter             (Maya|transmissionScatter                ) 0.000 0.000 0.000
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_surface_material_utils_ab9a0bb9f8d84a68d8a85e906b14174ee}\index{FbxSurfaceMaterialUtils@{FbxSurfaceMaterialUtils}!AddProperty@{AddProperty}}
+\index{AddProperty@{AddProperty}!FbxSurfaceMaterialUtils@{FbxSurfaceMaterialUtils}}
+\doxysubsubsection{\texorpdfstring{AddProperty()}{AddProperty()}}
+{\footnotesize\ttfamily \label{class_fbx_surface_material_utils_ab9a0bb9f8d84a68d8a85e906b14174ee} 
+static \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} Fbx\+Surface\+Material\+Utils\+::\+Add\+Property (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_surface_material}{Fbx\+Surface\+Material}} \texorpdfstring{$\ast$}{*}}]{p\+Material}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Property\+Name}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Shader\+Param}{, }\item[{const \mbox{\hyperlink{class_fbx_data_type}{Fbx\+Data\+Type}} \&}]{p\+Data\+Type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Add properties to the binding table of the material.
+
+\begin{DoxyReturn}{Returns}
+The added property if successfully created or an Invalid property if an error occurred. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+This function expects one single implementation definition on the material and will only add to the "{}root"{} table. 
+
+{\ttfamily p\+Property\+Name} can specify a hierarchical name and the function will automatically create the compound properties,if required or re-\/use the existing ones.
+\end{DoxyRemark}
+for example\+: p\+Roperty\+Name = "{}\+My\+Group\texorpdfstring{$\vert$}{|}one\+Compound\texorpdfstring{$\vert$}{|}the\+Property"{} will create a compound property named "{}\+My\+Group"{}, another compound property "{}one\+Compound"{} child of "{}\+My\+Group"{} and finally the property "{}the\+Property"{} with {\ttfamily p\+Data\+Type} type children of "{}one\+Compound"{}. \Hypertarget{class_fbx_surface_material_utils_a4b4ff7ff351896a8e6a5d33583c01b0c}\index{FbxSurfaceMaterialUtils@{FbxSurfaceMaterialUtils}!CreateShaderMaterial@{CreateShaderMaterial}}
+\index{CreateShaderMaterial@{CreateShaderMaterial}!FbxSurfaceMaterialUtils@{FbxSurfaceMaterialUtils}}
+\doxysubsubsection{\texorpdfstring{CreateShaderMaterial()}{CreateShaderMaterial()}}
+{\footnotesize\ttfamily \label{class_fbx_surface_material_utils_a4b4ff7ff351896a8e6a5d33583c01b0c} 
+static \mbox{\hyperlink{class_fbx_surface_material}{Fbx\+Surface\+Material}} \texorpdfstring{$\ast$}{*} Fbx\+Surface\+Material\+Utils\+::\+Create\+Shader\+Material (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*}}]{p\+Scene}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Shading\+Language}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Shading\+Language\+Version}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Shading\+Render\+API}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Shading\+Render\+APIVersion}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Implementation}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Create an empty Shader defintion. This function can be the starting point to define a Shader material.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Scene} & Scene containing the newly allocated objects. \\
+\hline
+{\em p\+Name} & Name of the material. \\
+\hline
+{\em p\+Shading\+Language} & Either one of the FBXSDK\+\_\+\+SHADING\+\_\+\+LANGUAGE\+\_\+??? macros or a custom name. \\
+\hline
+{\em p\+Shading\+Language\+Version} & The shader language version. \\
+\hline
+{\em p\+Shading\+Render\+API} & Either one of the FBXSDK\+\_\+\+RENDERING\+\_\+\+API\+\_\+??? macros or a custom name. \\
+\hline
+{\em p\+Shading\+Render\+APIVersion} & The shader render API version. \\
+\hline
+{\em p\+Implementation} & Either one of the FBXSDK\+\_\+\+IMPLEMENTATION\+\_\+??? macros or a custom name.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The allocated Fbx\+Susrface\+Material object with empty implementation and binding table already connected. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+Using a custom name for any of the parameters may cause applications to not understand the material definition. 
+
+If an error occurs at any step during the creation, the memory is cleared and the function returns null. 
+
+Once the \doxylink{class_fbx_surface_material}{Fbx\+Surface\+Material} is created the client has to manually add the properties to it using the Add\+Propery() function. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_surface_material_utils_af9d0593fb5e3d0aaa63d4ff2915372cd}\index{FbxSurfaceMaterialUtils@{FbxSurfaceMaterialUtils}!GetImplementation@{GetImplementation}}
+\index{GetImplementation@{GetImplementation}!FbxSurfaceMaterialUtils@{FbxSurfaceMaterialUtils}}
+\doxysubsubsection{\texorpdfstring{GetImplementation()}{GetImplementation()}}
+{\footnotesize\ttfamily \label{class_fbx_surface_material_utils_af9d0593fb5e3d0aaa63d4ff2915372cd} 
+static const \mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*} Fbx\+Surface\+Material\+Utils\+::\+Get\+Implementation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_surface_material}{Fbx\+Surface\+Material}} \texorpdfstring{$\ast$}{*}}]{p\+Material}{, }\item[{int}]{p\+Implementation\+Id}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get an implementation object from the material.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Material} & \doxylink{class_material}{Material} object to query. \\
+\hline
+{\em p\+Implementation\+Id} & If the {\ttfamily p\+Material} have some implementation definitions, this parameter specifies which one to use.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Either the Default\+Implementation, the one specified by the {\ttfamily p\+Implementation\+Id} index or null if none are present. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The Default\+Implementation is returned {\bfseries{only}} if no other implementations are connected to the material. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_surface_material_utils_a428a1886a363ffca83e760a1e51dd304}\index{FbxSurfaceMaterialUtils@{FbxSurfaceMaterialUtils}!GetPropertiesNames@{GetPropertiesNames}}
+\index{GetPropertiesNames@{GetPropertiesNames}!FbxSurfaceMaterialUtils@{FbxSurfaceMaterialUtils}}
+\doxysubsubsection{\texorpdfstring{GetPropertiesNames()}{GetPropertiesNames()}}
+{\footnotesize\ttfamily \label{class_fbx_surface_material_utils_a428a1886a363ffca83e760a1e51dd304} 
+static bool Fbx\+Surface\+Material\+Utils\+::\+Get\+Properties\+Names (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*} $>$ \&}]{p\+Properties\+Names}{, }\item[{const \mbox{\hyperlink{class_fbx_surface_material}{Fbx\+Surface\+Material}} \texorpdfstring{$\ast$}{*}}]{p\+Material}{, }\item[{int}]{p\+Implementation\+Id}{ = {\ttfamily 0}, }\item[{int}]{p\+Binding\+Table\+Id}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Fill an array with the name of all defined properties in the \doxylink{class_fbx_surface_material}{Fbx\+Surface\+Material}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Properties\+Names} & List of names of all the properties defined on the material. \\
+\hline
+{\em p\+Material} & \doxylink{class_material}{Material} object to query.\\
+\hline
+{\em p\+Implementation\+Id} & If the {\ttfamily p\+Material} have some implementation definitions, this parameter specifies which one to use. \\
+\hline
+{\em p\+Binding\+Table\+Id} & If the {\ttfamily p\+Material} have some implementation definitions, this parameter specifies which binding table in the implementation defintion to use.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the operation was successfull and {\ttfamily false} otherwise.
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The strings are allocated with Fbx\+New and must be deleted by the caller. Also, the {\ttfamily p\+Properties\+Names} array is not re-\/initialized before it is filled and, on error conditions, is left untouched. 
+
+If an Implementation is defined, the returned names are retrieved from the Destination entries of the Binding table else, the names are simply the properties names. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_surface_material_utils_a4f03de108fb30b41aaafc087dbbb8faa}\index{FbxSurfaceMaterialUtils@{FbxSurfaceMaterialUtils}!GetProperty@{GetProperty}}
+\index{GetProperty@{GetProperty}!FbxSurfaceMaterialUtils@{FbxSurfaceMaterialUtils}}
+\doxysubsubsection{\texorpdfstring{GetProperty()}{GetProperty()}}
+{\footnotesize\ttfamily \label{class_fbx_surface_material_utils_a4f03de108fb30b41aaafc087dbbb8faa} 
+static \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} Fbx\+Surface\+Material\+Utils\+::\+Get\+Property (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Property\+Name}{, }\item[{const \mbox{\hyperlink{class_fbx_surface_material}{Fbx\+Surface\+Material}} \texorpdfstring{$\ast$}{*}}]{p\+Material}{, }\item[{int}]{p\+Implementation\+Id}{ = {\ttfamily 0}, }\item[{int}]{p\+Binding\+Table\+Id}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the named property.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Property\+Name} & Name of the property to query (as returned by the \doxylink{class_fbx_surface_material_utils_a428a1886a363ffca83e760a1e51dd304}{Get\+Properties\+Names()} function). \\
+\hline
+{\em p\+Material} & \doxylink{class_material}{Material} object to query.\\
+\hline
+{\em p\+Implementation\+Id} & If the {\ttfamily p\+Material} have some implementation definitions, this parameter specifies which one to use. \\
+\hline
+{\em p\+Binding\+Table\+Id} & If the {\ttfamily p\+Material} have some implementation definitions, this parameter specifies which binding table in the implementation defintion to use.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The returned property must always be tested for its validity before using it. 
+\end{DoxyRemark}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/scene/shading/fbxsurfacematerialutils.\+h\end{DoxyCompactItemize}

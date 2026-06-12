@@ -1,0 +1,126 @@
+\doxysection{Fbx\+Peripheral Class Reference}
+\hypertarget{class_fbx_peripheral}{}\label{class_fbx_peripheral}\index{FbxPeripheral@{FbxPeripheral}}
+
+
+{\ttfamily \#include $<$fbxperipheral.\+h$>$}
+
+\doxysubsubsection*{Constructor and Destructor}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_peripheral_a46a788c258ad53fed8a716abc03d36c3}\label{class_fbx_peripheral_a46a788c258ad53fed8a716abc03d36c3} 
+{\bfseries Fbx\+Peripheral} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_peripheral_aad41e072490022edaba6f3b7e11e0b5d}\label{class_fbx_peripheral_aad41e072490022edaba6f3b7e11e0b5d} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Fbx\+Peripheral} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_fbx_peripheral_abda49f57236244f342a37d3fb04b476b}{Reset}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_peripheral_a3ab3dba37ee2b8a4215229f9d11325b7}{Unload\+Content\+Of}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)=0
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_peripheral_a14cbb095a9cfeefb3d217cbfe9f507a9}{Load\+Content\+Of}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)=0
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_peripheral_ac1d217526c6b5de7f621ab7c5151f69e}{Can\+Unload\+Content\+Of}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)=0
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_peripheral_a2cd1f044d656a2a8a40d86df3725b496}{Can\+Load\+Content\+Of}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)=0
+\item 
+virtual void \mbox{\hyperlink{class_fbx_peripheral_a8066995ba74b61a137646fae06341f3a}{Initialize\+Connections\+Of}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)=0
+\item 
+virtual void \mbox{\hyperlink{class_fbx_peripheral_ae7cd11b61456cfa33644ebf37870779c}{Uninitialize\+Connections\+Of}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_fbx_peripheral}{Fbx\+Peripheral} is an interface to load/unload content of \doxylink{class_fbx_object}{Fbx\+Object} from memory to somewhere you defined, for example, to a temporary file on disk .
+
+You need to inherited your own peripheral class from this class and overload the functions to control what information of a \doxylink{class_fbx_object}{Fbx\+Object} you want to load/unload, and where you are going to load/unload these information to. For example, you can ask an object to dump itself on disk to free some memory and vice-\/versa when you want to load/unload this object from your scene flexibly. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_peripheral_a2cd1f044d656a2a8a40d86df3725b496}\index{FbxPeripheral@{FbxPeripheral}!CanLoadContentOf@{CanLoadContentOf}}
+\index{CanLoadContentOf@{CanLoadContentOf}!FbxPeripheral@{FbxPeripheral}}
+\doxysubsubsection{\texorpdfstring{CanLoadContentOf()}{CanLoadContentOf()}}
+{\footnotesize\ttfamily \label{class_fbx_peripheral_a2cd1f044d656a2a8a40d86df3725b496} 
+virtual bool Fbx\+Peripheral\+::\+Can\+Load\+Content\+Of (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Check if this peripheral can load the given object content. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & Object whose content has to be transferred. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the peripheral can handle this object content. {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_peripheral_ac1d217526c6b5de7f621ab7c5151f69e}\index{FbxPeripheral@{FbxPeripheral}!CanUnloadContentOf@{CanUnloadContentOf}}
+\index{CanUnloadContentOf@{CanUnloadContentOf}!FbxPeripheral@{FbxPeripheral}}
+\doxysubsubsection{\texorpdfstring{CanUnloadContentOf()}{CanUnloadContentOf()}}
+{\footnotesize\ttfamily \label{class_fbx_peripheral_ac1d217526c6b5de7f621ab7c5151f69e} 
+virtual bool Fbx\+Peripheral\+::\+Can\+Unload\+Content\+Of (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Check if this peripheral can unload the given object content. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & Object whose content has to be transferred. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the peripheral can handle this object content and has enough space in its storage area.{\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_peripheral_a8066995ba74b61a137646fae06341f3a}\index{FbxPeripheral@{FbxPeripheral}!InitializeConnectionsOf@{InitializeConnectionsOf}}
+\index{InitializeConnectionsOf@{InitializeConnectionsOf}!FbxPeripheral@{FbxPeripheral}}
+\doxysubsubsection{\texorpdfstring{InitializeConnectionsOf()}{InitializeConnectionsOf()}}
+{\footnotesize\ttfamily \label{class_fbx_peripheral_a8066995ba74b61a137646fae06341f3a} 
+virtual void Fbx\+Peripheral\+::\+Initialize\+Connections\+Of (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Initialize the connections of an object 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & Object on which the request for connection is done. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_peripheral_a14cbb095a9cfeefb3d217cbfe9f507a9}\index{FbxPeripheral@{FbxPeripheral}!LoadContentOf@{LoadContentOf}}
+\index{LoadContentOf@{LoadContentOf}!FbxPeripheral@{FbxPeripheral}}
+\doxysubsubsection{\texorpdfstring{LoadContentOf()}{LoadContentOf()}}
+{\footnotesize\ttfamily \label{class_fbx_peripheral_a14cbb095a9cfeefb3d217cbfe9f507a9} 
+virtual bool Fbx\+Peripheral\+::\+Load\+Content\+Of (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Load the content of p\+Object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & Object whose content is to be loaded from the peripheral storage area. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the object content has been successfully transferred. {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_peripheral_abda49f57236244f342a37d3fb04b476b}\index{FbxPeripheral@{FbxPeripheral}!Reset@{Reset}}
+\index{Reset@{Reset}!FbxPeripheral@{FbxPeripheral}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily \label{class_fbx_peripheral_abda49f57236244f342a37d3fb04b476b} 
+virtual void Fbx\+Peripheral\+::\+Reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Reset the peripheral to its initial state. \Hypertarget{class_fbx_peripheral_ae7cd11b61456cfa33644ebf37870779c}\index{FbxPeripheral@{FbxPeripheral}!UninitializeConnectionsOf@{UninitializeConnectionsOf}}
+\index{UninitializeConnectionsOf@{UninitializeConnectionsOf}!FbxPeripheral@{FbxPeripheral}}
+\doxysubsubsection{\texorpdfstring{UninitializeConnectionsOf()}{UninitializeConnectionsOf()}}
+{\footnotesize\ttfamily \label{class_fbx_peripheral_ae7cd11b61456cfa33644ebf37870779c} 
+virtual void Fbx\+Peripheral\+::\+Uninitialize\+Connections\+Of (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Uninitialize the connections of an object 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & Object on which the request for disconnection is done. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_peripheral_a3ab3dba37ee2b8a4215229f9d11325b7}\index{FbxPeripheral@{FbxPeripheral}!UnloadContentOf@{UnloadContentOf}}
+\index{UnloadContentOf@{UnloadContentOf}!FbxPeripheral@{FbxPeripheral}}
+\doxysubsubsection{\texorpdfstring{UnloadContentOf()}{UnloadContentOf()}}
+{\footnotesize\ttfamily \label{class_fbx_peripheral_a3ab3dba37ee2b8a4215229f9d11325b7} 
+virtual bool Fbx\+Peripheral\+::\+Unload\+Content\+Of (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+Object}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Unload the content of p\+Object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & Object whose content is to be offloaded into the peripheral storage area. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if the object content has been successfully transferred. {\ttfamily false} otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/\mbox{\hyperlink{fbxperipheral_8h}{fbxperipheral.\+h}}\end{DoxyCompactItemize}

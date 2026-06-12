@@ -1,0 +1,312 @@
+\doxysection{Im\+Guizmo.\+h}
+\hypertarget{_im_guizmo_8h_source}{}\label{_im_guizmo_8h_source}\index{Imgui/ImGuizmo/ImGuizmo.h@{Imgui/ImGuizmo/ImGuizmo.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ https://github.com/CedricGuillemet/ImGuizmo}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ v1.92.5\ WIP}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ The\ MIT\ License(MIT)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Copyright(c)\ 2016-\/2021\ Cedric\ Guillemet}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ of\ this\ software\ and\ associated\ documentation\ files(the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and\ /\ or\ sell}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions\ :}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ SOFTWARE.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ History\ :}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ 2019/11/03\ View\ gizmo}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ 2016/09/11\ Behind\ camera\ culling.\ Scaling\ Delta\ matrix\ not\ multiplied\ by\ source\ matrix\ scales.\ local/world\ rotation\ and\ translation\ fixed.\ Display\ message\ is\ incorrect\ (X:\ ...\ Y:...)\ in\ local\ mode.}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ 2016/09/09\ Hatched\ negative\ axis.\ Snapping.\ Documentation\ update.}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ 2016/09/04\ Axis\ switch\ and\ translation\ plan\ autohiding.\ Scale\ transform\ stability\ improved}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ 2016/09/01\ Mogwai\ changed\ to\ Manipulate.\ Draw\ debug\ cube.\ Fixed\ inverted\ scale.\ Mixing\ scale\ and\ translation/rotation\ gives\ bad\ results.}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ 2016/08/31\ First\ version}}
+\DoxyCodeLine{00034\ \textcolor{comment}{//}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ Future\ (no\ order):}}
+\DoxyCodeLine{00037\ \textcolor{comment}{//}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ -\/\ Multi\ view}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ -\/\ display\ rotation/translation/scale\ infos\ in\ local/world\ space\ and\ not\ only\ local}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ -\/\ finish\ local/world\ matrix\ application}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ -\/\ OPERATION\ as\ bitmask}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//}}
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ Example}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ EditTransform(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_camera}{Camera}}\&\ camera,\ matrix\_t\&\ matrix)}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \ \ \ \textcolor{keyword}{static}\ ImGuizmo::OPERATION\ mCurrentGizmoOperation(ImGuizmo::ROTATE);}
+\DoxyCodeLine{00049\ \ \ \ \textcolor{keyword}{static}\ ImGuizmo::MODE\ mCurrentGizmoMode(ImGuizmo::WORLD);}
+\DoxyCodeLine{00050\ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsKeyPressed(90))}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ mCurrentGizmoOperation\ =\ ImGuizmo::TRANSLATE;}
+\DoxyCodeLine{00052\ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsKeyPressed(69))}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ mCurrentGizmoOperation\ =\ ImGuizmo::ROTATE;}
+\DoxyCodeLine{00054\ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsKeyPressed(82))\ \textcolor{comment}{//\ r\ Key}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ mCurrentGizmoOperation\ =\ ImGuizmo::SCALE;}
+\DoxyCodeLine{00056\ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::RadioButton(\textcolor{stringliteral}{"{}Translate"{}},\ mCurrentGizmoOperation\ ==\ ImGuizmo::TRANSLATE))}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ mCurrentGizmoOperation\ =\ ImGuizmo::TRANSLATE;}
+\DoxyCodeLine{00058\ \ \ \ ImGui::SameLine();}
+\DoxyCodeLine{00059\ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::RadioButton(\textcolor{stringliteral}{"{}Rotate"{}},\ mCurrentGizmoOperation\ ==\ ImGuizmo::ROTATE))}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ mCurrentGizmoOperation\ =\ ImGuizmo::ROTATE;}
+\DoxyCodeLine{00061\ \ \ \ ImGui::SameLine();}
+\DoxyCodeLine{00062\ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::RadioButton(\textcolor{stringliteral}{"{}Scale"{}},\ mCurrentGizmoOperation\ ==\ ImGuizmo::SCALE))}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ mCurrentGizmoOperation\ =\ ImGuizmo::SCALE;}
+\DoxyCodeLine{00064\ \ \ \ \textcolor{keywordtype}{float}\ matrixTranslation[3],\ matrixRotation[3],\ matrixScale[3];}
+\DoxyCodeLine{00065\ \ \ \ ImGuizmo::DecomposeMatrixToComponents(matrix.m16,\ matrixTranslation,\ matrixRotation,\ matrixScale);}
+\DoxyCodeLine{00066\ \ \ \ ImGui::InputFloat3(\textcolor{stringliteral}{"{}Tr"{}},\ matrixTranslation,\ 3);}
+\DoxyCodeLine{00067\ \ \ \ ImGui::InputFloat3(\textcolor{stringliteral}{"{}Rt"{}},\ matrixRotation,\ 3);}
+\DoxyCodeLine{00068\ \ \ \ ImGui::InputFloat3(\textcolor{stringliteral}{"{}Sc"{}},\ matrixScale,\ 3);}
+\DoxyCodeLine{00069\ \ \ \ ImGuizmo::RecomposeMatrixFromComponents(matrixTranslation,\ matrixRotation,\ matrixScale,\ matrix.m16);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \textcolor{keywordflow}{if}\ (mCurrentGizmoOperation\ !=\ ImGuizmo::SCALE)}
+\DoxyCodeLine{00072\ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::RadioButton(\textcolor{stringliteral}{"{}Local"{}},\ mCurrentGizmoMode\ ==\ ImGuizmo::LOCAL))}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ mCurrentGizmoMode\ =\ ImGuizmo::LOCAL;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ ImGui::SameLine();}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::RadioButton(\textcolor{stringliteral}{"{}World"{}},\ mCurrentGizmoMode\ ==\ ImGuizmo::WORLD))}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ mCurrentGizmoMode\ =\ ImGuizmo::WORLD;}
+\DoxyCodeLine{00078\ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ useSnap(\textcolor{keyword}{false});}
+\DoxyCodeLine{00080\ \ \ \ \textcolor{keywordflow}{if}\ (ImGui::IsKeyPressed(83))}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ useSnap\ =\ !useSnap;}
+\DoxyCodeLine{00082\ \ \ \ ImGui::Checkbox(\textcolor{stringliteral}{"{}"{}},\ \&useSnap);}
+\DoxyCodeLine{00083\ \ \ \ ImGui::SameLine();}
+\DoxyCodeLine{00084\ \ \ \ vec\_t\ snap;}
+\DoxyCodeLine{00085\ \ \ \ \textcolor{keywordflow}{switch}\ (mCurrentGizmoOperation)}
+\DoxyCodeLine{00086\ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \textcolor{keywordflow}{case}\ ImGuizmo::TRANSLATE:}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ snap\ =\ config.mSnapTranslation;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ ImGui::InputFloat3(\textcolor{stringliteral}{"{}Snap"{}},\ \&snap.x);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00091\ \ \ \ \textcolor{keywordflow}{case}\ ImGuizmo::ROTATE:}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ snap\ =\ config.mSnapRotation;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ ImGui::InputFloat(\textcolor{stringliteral}{"{}Angle\ Snap"{}},\ \&snap.x);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00095\ \ \ \ \textcolor{keywordflow}{case}\ ImGuizmo::SCALE:}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ snap\ =\ config.mSnapScale;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ ImGui::InputFloat(\textcolor{stringliteral}{"{}Scale\ Snap"{}},\ \&snap.x);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00099\ \ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \ \mbox{\hyperlink{struct_im_gui_i_o}{ImGuiIO}}\&\ io\ =\ ImGui::GetIO();}
+\DoxyCodeLine{00101\ \ \ \ ImGuizmo::SetRect(0,\ 0,\ io.DisplaySize.x,\ io.DisplaySize.y);}
+\DoxyCodeLine{00102\ \ \ \ ImGuizmo::Manipulate(camera.mView.m16,\ camera.mProjection.m16,\ mCurrentGizmoOperation,\ mCurrentGizmoMode,\ matrix.m16,\ NULL,\ useSnap\ ?\ \&snap.x\ :\ NULL);}
+\DoxyCodeLine{00103\ \}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#ifdef\ USE\_IMGUI\_API}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#include\ "{}imconfig.h"{}}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#ifndef\ IMGUI\_API}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ IMGUI\_API}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#ifndef\ IMGUIZMO\_NAMESPACE}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ IMGUIZMO\_NAMESPACE\ ImGuizmo}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_im_gui_window}{ImGuiWindow}};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{keyword}{namespace\ }IMGUIZMO\_NAMESPACE}
+\DoxyCodeLine{00121\ \{}
+\DoxyCodeLine{00122\ \ \ \ \textcolor{comment}{//\ call\ inside\ your\ own\ window\ and\ before\ Manipulate()\ in\ order\ to\ draw\ gizmo\ to\ that\ window.}}
+\DoxyCodeLine{00123\ \ \ \ \textcolor{comment}{//\ Or\ pass\ a\ specific\ ImDrawList\ to\ draw\ to\ (e.g.\ ImGui::GetForegroundDrawList()).}}
+\DoxyCodeLine{00124\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ SetDrawlist(ImDrawList*\ drawlist\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \textcolor{comment}{//\ call\ BeginFrame\ right\ after\ ImGui\_XXXX\_NewFrame();}}
+\DoxyCodeLine{00127\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ BeginFrame();}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \textcolor{comment}{//\ this\ is\ necessary\ because\ when\ imguizmo\ is\ compiled\ into\ a\ dll,\ and\ imgui\ into\ another}}
+\DoxyCodeLine{00130\ \ \ \ \textcolor{comment}{//\ globals\ are\ not\ shared\ between\ them.}}
+\DoxyCodeLine{00131\ \ \ \ \textcolor{comment}{//\ More\ details\ at\ https://stackoverflow.com/questions/19373061/what-\/happens-\/to-\/global-\/and-\/static-\/variables-\/in-\/a-\/shared-\/library-\/when-\/it-\/is-\/dynam}}
+\DoxyCodeLine{00132\ \ \ \ \textcolor{comment}{//\ expose\ method\ to\ set\ imgui\ context}}
+\DoxyCodeLine{00133\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ SetImGuiContext(ImGuiContext*\ ctx);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \textcolor{comment}{//\ return\ true\ if\ mouse\ cursor\ is\ over\ any\ gizmo\ control\ (axis,\ plan\ or\ screen\ component)}}
+\DoxyCodeLine{00136\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{bool}\ IsOver();}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \textcolor{comment}{//\ return\ true\ if\ mouse\ IsOver\ or\ if\ the\ gizmo\ is\ in\ moving\ state}}
+\DoxyCodeLine{00139\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{bool}\ IsUsing();}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \textcolor{comment}{//\ return\ true\ if\ the\ view\ gizmo\ is\ in\ moving\ state}}
+\DoxyCodeLine{00142\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{bool}\ IsUsingViewManipulate();}
+\DoxyCodeLine{00143\ \ \ \ \textcolor{comment}{//\ only\ check\ if\ your\ mouse\ is\ over\ the\ view\ manipulator\ -\/\ no\ matter\ whether\ it's\ active\ or\ not}}
+\DoxyCodeLine{00144\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{bool}\ IsViewManipulateHovered();}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \textcolor{comment}{//\ return\ true\ if\ any\ gizmo\ is\ in\ moving\ state}}
+\DoxyCodeLine{00147\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{bool}\ IsUsingAny();}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \textcolor{comment}{//\ enable/disable\ the\ gizmo.\ Stay\ in\ the\ state\ until\ next\ call\ to\ Enable.}}
+\DoxyCodeLine{00150\ \ \ \ \textcolor{comment}{//\ gizmo\ is\ rendered\ with\ gray\ half\ transparent\ color\ when\ disabled}}
+\DoxyCodeLine{00151\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ Enable(\textcolor{keywordtype}{bool}\ enable);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \textcolor{comment}{//\ helper\ functions\ for\ manualy\ editing\ translation/rotation/scale\ with\ an\ input\ float}}
+\DoxyCodeLine{00154\ \ \ \ \textcolor{comment}{//\ translation,\ rotation\ and\ scale\ float\ points\ to\ 3\ floats\ each}}
+\DoxyCodeLine{00155\ \ \ \ \textcolor{comment}{//\ Angles\ are\ in\ degrees\ (more\ suitable\ for\ human\ editing)}}
+\DoxyCodeLine{00156\ \ \ \ \textcolor{comment}{//\ example:}}
+\DoxyCodeLine{00157\ \ \ \ \textcolor{comment}{//\ float\ matrixTranslation[3],\ matrixRotation[3],\ matrixScale[3];}}
+\DoxyCodeLine{00158\ \ \ \ \textcolor{comment}{//\ ImGuizmo::DecomposeMatrixToComponents(gizmoMatrix.m16,\ matrixTranslation,\ matrixRotation,\ matrixScale);}}
+\DoxyCodeLine{00159\ \ \ \ \textcolor{comment}{//\ ImGui::InputFloat3("{}Tr"{},\ matrixTranslation,\ 3);}}
+\DoxyCodeLine{00160\ \ \ \ \textcolor{comment}{//\ ImGui::InputFloat3("{}Rt"{},\ matrixRotation,\ 3);}}
+\DoxyCodeLine{00161\ \ \ \ \textcolor{comment}{//\ ImGui::InputFloat3("{}Sc"{},\ matrixScale,\ 3);}}
+\DoxyCodeLine{00162\ \ \ \ \textcolor{comment}{//\ ImGuizmo::RecomposeMatrixFromComponents(matrixTranslation,\ matrixRotation,\ matrixScale,\ gizmoMatrix.m16);}}
+\DoxyCodeLine{00163\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00164\ \ \ \ \textcolor{comment}{//\ These\ functions\ have\ some\ numerical\ stability\ issues\ for\ now.\ Use\ with\ caution.}}
+\DoxyCodeLine{00165\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ DecomposeMatrixToComponents(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ matrix,\ \textcolor{keywordtype}{float}*\ translation,\ \textcolor{keywordtype}{float}*\ rotation,\ \textcolor{keywordtype}{float}*\ scale);}
+\DoxyCodeLine{00166\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ RecomposeMatrixFromComponents(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ translation,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ rotation,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ scale,\ \textcolor{keywordtype}{float}*\ matrix);}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ SetRect(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height);}
+\DoxyCodeLine{00169\ \ \ \ \textcolor{comment}{//\ default\ is\ false}}
+\DoxyCodeLine{00170\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ SetOrthographic(\textcolor{keywordtype}{bool}\ isOrthographic);}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \textcolor{comment}{//\ Render\ a\ cube\ with\ face\ color\ corresponding\ to\ face\ normal.\ Usefull\ for\ debug/tests}}
+\DoxyCodeLine{00173\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ DrawCubes(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ view,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ projection,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ matrices,\ \textcolor{keywordtype}{int}\ matrixCount);}
+\DoxyCodeLine{00174\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ DrawGrid(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ view,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ projection,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ matrix,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ gridSize);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \textcolor{comment}{//\ call\ it\ when\ you\ want\ a\ gizmo}}
+\DoxyCodeLine{00177\ \ \ \ \textcolor{comment}{//\ Needs\ view\ and\ projection\ matrices.}}
+\DoxyCodeLine{00178\ \ \ \ \textcolor{comment}{//\ matrix\ parameter\ is\ the\ source\ matrix\ (where\ will\ be\ gizmo\ be\ drawn)\ and\ might\ be\ transformed\ by\ the\ function.\ Return\ deltaMatrix\ is\ optional}}
+\DoxyCodeLine{00179\ \ \ \ \textcolor{comment}{//\ translation\ is\ applied\ in\ world\ space}}
+\DoxyCodeLine{00180\ \ \ \ \textcolor{keyword}{enum}\ OPERATION}
+\DoxyCodeLine{00181\ \ \ \ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ TRANSLATE\_X\ \ \ \ \ \ =\ (1u\ <<\ 0),}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ TRANSLATE\_Y\ \ \ \ \ \ =\ (1u\ <<\ 1),}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ TRANSLATE\_Z\ \ \ \ \ \ =\ (1u\ <<\ 2),}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ ROTATE\_X\ \ \ \ \ \ \ \ \ =\ (1u\ <<\ 3),}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ ROTATE\_Y\ \ \ \ \ \ \ \ \ =\ (1u\ <<\ 4),}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ ROTATE\_Z\ \ \ \ \ \ \ \ \ =\ (1u\ <<\ 5),}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ ROTATE\_SCREEN\ \ \ \ =\ (1u\ <<\ 6),}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ SCALE\_X\ \ \ \ \ \ \ \ \ \ =\ (1u\ <<\ 7),}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ SCALE\_Y\ \ \ \ \ \ \ \ \ \ =\ (1u\ <<\ 8),}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ SCALE\_Z\ \ \ \ \ \ \ \ \ \ =\ (1u\ <<\ 9),}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ BOUNDS\ \ \ \ \ \ \ \ \ \ \ =\ (1u\ <<\ 10),}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ SCALE\_XU\ \ \ \ \ \ \ \ \ =\ (1u\ <<\ 11),}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ SCALE\_YU\ \ \ \ \ \ \ \ \ =\ (1u\ <<\ 12),}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ SCALE\_ZU\ \ \ \ \ \ \ \ \ =\ (1u\ <<\ 13),}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ TRANSLATE\ =\ TRANSLATE\_X\ |\ TRANSLATE\_Y\ |\ TRANSLATE\_Z,}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ ROTATE\ =\ ROTATE\_X\ |\ ROTATE\_Y\ |\ ROTATE\_Z\ |\ ROTATE\_SCREEN,}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ SCALE\ =\ SCALE\_X\ |\ SCALE\_Y\ |\ SCALE\_Z,}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ SCALEU\ =\ SCALE\_XU\ |\ SCALE\_YU\ |\ SCALE\_ZU,\ \textcolor{comment}{//\ universal}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ UNIVERSAL\ =\ TRANSLATE\ |\ ROTATE\ |\ SCALEU}
+\DoxyCodeLine{00202\ \ \ \ \};}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \textcolor{keyword}{inline}\ OPERATION\ operator|(OPERATION\ lhs,\ OPERATION\ rhs)}
+\DoxyCodeLine{00205\ \ \ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}OPERATION\textcolor{keyword}{>}(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(lhs)\ |\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(rhs));}
+\DoxyCodeLine{00207\ \ \ \ \}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \textcolor{keyword}{enum}\ MODE}
+\DoxyCodeLine{00210\ \ \ \ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ LOCAL,}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ WORLD}
+\DoxyCodeLine{00213\ \ \ \ \};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{bool}\ Manipulate(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ view,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ projection,\ OPERATION\ operation,\ MODE\ mode,\ \textcolor{keywordtype}{float}*\ matrix,\ \textcolor{keywordtype}{float}*\ deltaMatrix\ =\ NULL,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ snap\ =\ NULL,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ localBounds\ =\ NULL,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ boundsSnap\ =\ NULL);}
+\DoxyCodeLine{00216\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00217\ \ \ \ \textcolor{comment}{//\ Please\ note\ that\ this\ cubeview\ is\ patented\ by\ Autodesk\ :\ https://patents.google.com/patent/US7782319B2/en}}
+\DoxyCodeLine{00218\ \ \ \ \textcolor{comment}{//\ It\ seems\ to\ be\ a\ defensive\ patent\ in\ the\ US.\ I\ don't\ think\ it\ will\ bring\ troubles\ using\ it\ as}}
+\DoxyCodeLine{00219\ \ \ \ \textcolor{comment}{//\ other\ software\ are\ using\ the\ same\ mechanics.\ But\ just\ in\ case,\ you\ are\ now\ warned!}}
+\DoxyCodeLine{00220\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00221\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ ViewManipulate(\textcolor{keywordtype}{float}*\ view,\ \textcolor{keywordtype}{float}\ length,\ ImVec2\ position,\ ImVec2\ size,\ ImU32\ backgroundColor);}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \textcolor{comment}{//\ use\ this\ version\ if\ you\ did\ not\ call\ Manipulate\ before\ and\ you\ are\ just\ using\ ViewManipulate}}
+\DoxyCodeLine{00224\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ ViewManipulate(\textcolor{keywordtype}{float}*\ view,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ projection,\ OPERATION\ operation,\ MODE\ mode,\ \textcolor{keywordtype}{float}*\ matrix,\ \textcolor{keywordtype}{float}\ length,\ ImVec2\ position,\ ImVec2\ size,\ ImU32\ backgroundColor);}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ SetAlternativeWindow(ImGuiWindow*\ window);}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ [[deprecated(\textcolor{stringliteral}{"{}Use\ PushID/PopID\ instead."{}})]]}
+\DoxyCodeLine{00229\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ SetID(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{comment}{//\ ID\ stack/scopes}}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{comment}{//\ Read\ the\ FAQ\ (docs/FAQ.md\ or\ http://dearimgui.org/faq)\ for\ more\ details\ about\ how\ ID\ are\ handled\ in\ dear\ imgui.}}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{comment}{//\ -\/\ Those\ questions\ are\ answered\ and\ impacted\ by\ understanding\ of\ the\ ID\ stack\ system:}}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{comment}{//\ \ \ -\/\ "{}Q:\ Why\ is\ my\ widget\ not\ reacting\ when\ I\ click\ on\ it?"{}}}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{comment}{//\ \ \ -\/\ "{}Q:\ How\ can\ I\ have\ widgets\ with\ an\ empty\ label?"{}}}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{comment}{//\ \ \ -\/\ "{}Q:\ How\ can\ I\ have\ multiple\ widgets\ with\ the\ same\ label?"{}}}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{comment}{//\ -\/\ Short\ version:\ ID\ are\ hashes\ of\ the\ entire\ ID\ stack.\ If\ you\ are\ creating\ widgets\ in\ a\ loop\ you\ most\ likely}}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{comment}{//\ \ \ want\ to\ push\ a\ unique\ identifier\ (e.g.\ object\ pointer,\ loop\ index)\ to\ uniquely\ differentiate\ them.}}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{comment}{//\ -\/\ You\ can\ also\ use\ the\ "{}Label\#\#foobar"{}\ syntax\ within\ widget\ label\ to\ distinguish\ them\ from\ each\ others.}}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{comment}{//\ -\/\ In\ this\ header\ file\ we\ use\ the\ "{}label"{}/"{}name"{}\ terminology\ to\ denote\ a\ string\ that\ will\ be\ displayed\ +\ used\ as\ an\ ID,}}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{comment}{//\ \ \ whereas\ "{}str\_id"{}\ denote\ a\ string\ that\ is\ only\ used\ as\ an\ ID\ and\ not\ normally\ displayed.}}
+\DoxyCodeLine{00242\ \ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ PushID(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str\_id);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ push\ string\ into\ the\ ID\ stack\ (will\ hash\ string).}}
+\DoxyCodeLine{00243\ \ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ PushID(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str\_id\_begin,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str\_id\_end);\ \ \ \ \ \ \ \textcolor{comment}{//\ push\ string\ into\ the\ ID\ stack\ (will\ hash\ string).}}
+\DoxyCodeLine{00244\ \ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ PushID(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ ptr\_id);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ push\ pointer\ into\ the\ ID\ stack\ (will\ hash\ pointer).}}
+\DoxyCodeLine{00245\ \ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ PushID(\textcolor{keywordtype}{int}\ int\_id);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ push\ integer\ into\ the\ ID\ stack\ (will\ hash\ integer).}}
+\DoxyCodeLine{00246\ \ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ PopID();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ pop\ from\ the\ ID\ stack.}}
+\DoxyCodeLine{00247\ \ \ \ \ IMGUI\_API\ ImGuiID\ \ \ \ \ \ \ GetID(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str\_id);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ calculate\ unique\ ID\ (hash\ of\ whole\ ID\ stack\ +\ given\ parameter).\ e.g.\ if\ you\ want\ to\ query\ into\ ImGuiStorage\ yourself}}
+\DoxyCodeLine{00248\ \ \ \ \ IMGUI\_API\ ImGuiID\ \ \ \ \ \ \ GetID(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str\_id\_begin,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str\_id\_end);}
+\DoxyCodeLine{00249\ \ \ \ \ IMGUI\_API\ ImGuiID\ \ \ \ \ \ \ GetID(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ ptr\_id);}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \ \textcolor{comment}{//\ return\ true\ if\ the\ cursor\ is\ over\ the\ operation's\ gizmo}}
+\DoxyCodeLine{00252\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{bool}\ IsOver(OPERATION\ op);}
+\DoxyCodeLine{00253\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ SetGizmoSizeClipSpace(\textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \textcolor{comment}{//\ Allow\ axis\ to\ flip}}
+\DoxyCodeLine{00256\ \ \ \ \textcolor{comment}{//\ When\ true\ (default),\ the\ guizmo\ axis\ flip\ for\ better\ visibility}}
+\DoxyCodeLine{00257\ \ \ \ \textcolor{comment}{//\ When\ false,\ they\ always\ stay\ along\ the\ positive\ world/local\ axis}}
+\DoxyCodeLine{00258\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ AllowAxisFlip(\textcolor{keywordtype}{bool}\ value);}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \textcolor{comment}{//\ Configure\ the\ limit\ where\ axis\ are\ hidden}}
+\DoxyCodeLine{00261\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ SetAxisLimit(\textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00262\ \ \ \ \textcolor{comment}{//\ Set\ an\ axis\ mask\ to\ permanently\ hide\ a\ given\ axis\ (true\ -\/>\ hidden,\ false\ -\/>\ shown)}}
+\DoxyCodeLine{00263\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ SetAxisMask(\textcolor{keywordtype}{bool}\ x,\ \textcolor{keywordtype}{bool}\ y,\ \textcolor{keywordtype}{bool}\ z);}
+\DoxyCodeLine{00264\ \ \ \ \textcolor{comment}{//\ Configure\ the\ limit\ where\ planes\ are\ hiden}}
+\DoxyCodeLine{00265\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{void}\ SetPlaneLimit(\textcolor{keywordtype}{float}\ value);}
+\DoxyCodeLine{00266\ \ \ \ \textcolor{comment}{//\ from\ a\ x,y,z\ point\ in\ space\ and\ using\ Manipulation\ view/projection\ matrix,\ check\ if\ mouse\ is\ in\ pixel\ radius\ distance\ of\ that\ projected\ point}}
+\DoxyCodeLine{00267\ \ \ \ IMGUI\_API\ \textcolor{keywordtype}{bool}\ IsOver(\textcolor{keywordtype}{float}*\ position,\ \textcolor{keywordtype}{float}\ pixelRadius);}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \textcolor{keyword}{enum}\ COLOR}
+\DoxyCodeLine{00270\ \ \ \ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ DIRECTION\_X,\ \ \ \ \ \ \textcolor{comment}{//\ directionColor[0]}}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ DIRECTION\_Y,\ \ \ \ \ \ \textcolor{comment}{//\ directionColor[1]}}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ DIRECTION\_Z,\ \ \ \ \ \ \textcolor{comment}{//\ directionColor[2]}}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ PLANE\_X,\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ planeColor[0]}}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ PLANE\_Y,\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ planeColor[1]}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ PLANE\_Z,\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ planeColor[2]}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ SELECTION,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ selectionColor}}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ INACTIVE,\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ inactiveColor}}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ TRANSLATION\_LINE,\ \textcolor{comment}{//\ translationLineColor}}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ SCALE\_LINE,}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ ROTATION\_USING\_BORDER,}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ ROTATION\_USING\_FILL,}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ HATCHED\_AXIS\_LINES,}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ TEXT,}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ TEXT\_SHADOW,}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ COUNT}
+\DoxyCodeLine{00287\ \ \ \ \};}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \textcolor{keyword}{struct\ }Style}
+\DoxyCodeLine{00290\ \ \ \ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ IMGUI\_API\ Style();}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ TranslationLineThickness;\ \ \ \textcolor{comment}{//\ Thickness\ of\ lines\ for\ translation\ gizmo}}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ TranslationLineArrowSize;\ \ \ \textcolor{comment}{//\ Size\ of\ arrow\ at\ the\ end\ of\ lines\ for\ translation\ gizmo}}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ RotationLineThickness;\ \ \ \ \ \ \textcolor{comment}{//\ Thickness\ of\ lines\ for\ rotation\ gizmo}}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ RotationOuterLineThickness;\ \textcolor{comment}{//\ Thickness\ of\ line\ surrounding\ the\ rotation\ gizmo}}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ ScaleLineThickness;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Thickness\ of\ lines\ for\ scale\ gizmo}}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ ScaleLineCircleSize;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Size\ of\ circle\ at\ the\ end\ of\ lines\ for\ scale\ gizmo}}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ HatchedAxisLineThickness;\ \ \ \textcolor{comment}{//\ Thickness\ of\ hatched\ axis\ lines}}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ CenterCircleSize;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Size\ of\ circle\ at\ the\ center\ of\ the\ translate/scale\ gizmo}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \mbox{\hyperlink{struct_im_vec4}{ImVec4}}\ Colors[COLOR::COUNT];}
+\DoxyCodeLine{00303\ \ \ \ \};}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \ \ \ IMGUI\_API\ \mbox{\hyperlink{struct_i_m_g_u_i_z_m_o___n_a_m_e_s_p_a_c_e_1_1_style}{Style}}\&\ GetStyle();}
+\DoxyCodeLine{00306\ \}}
+
+\end{DoxyCode}

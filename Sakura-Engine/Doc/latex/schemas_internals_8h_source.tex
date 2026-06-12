@@ -1,0 +1,499 @@
+\doxysection{schemas\+Internals.\+h}
+\hypertarget{schemas_internals_8h_source}{}\label{schemas_internals_8h_source}\index{include/fbx/libxml2/libxml/schemasInternals.h@{include/fbx/libxml2/libxml/schemasInternals.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Summary:\ internal\ interfaces\ for\ XML\ Schemas}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Description:\ internal\ interfaces\ for\ the\ XML\ Schemas\ handling}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ and\ schema\ validity\ checking}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ The\ Schemas\ development\ is\ a\ Work\ In\ Progress.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ Some\ of\ those\ interfaces\ are\ not\ guaranteed\ to\ be\ API\ or\ ABI\ stable\ !}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Copy:\ See\ Copyright\ for\ the\ status\ of\ this\ software.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Author:\ Daniel\ Veillard}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_SCHEMA\_INTERNALS\_H\_\_}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ \_\_XML\_SCHEMA\_INTERNALS\_H\_\_}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <libxml/xmlversion.h>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_SCHEMAS\_ENABLED}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <libxml/xmlregexp.h>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <libxml/hash.h>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <libxml/dict.h>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00026\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ XML\_SCHEMAS\_UNKNOWN\ =\ 0,}
+\DoxyCodeLine{00031\ \ \ \ \ XML\_SCHEMAS\_STRING\ =\ 1,}
+\DoxyCodeLine{00032\ \ \ \ \ XML\_SCHEMAS\_NORMSTRING\ =\ 2,}
+\DoxyCodeLine{00033\ \ \ \ \ XML\_SCHEMAS\_DECIMAL\ =\ 3,}
+\DoxyCodeLine{00034\ \ \ \ \ XML\_SCHEMAS\_TIME\ =\ 4,}
+\DoxyCodeLine{00035\ \ \ \ \ XML\_SCHEMAS\_GDAY\ =\ 5,}
+\DoxyCodeLine{00036\ \ \ \ \ XML\_SCHEMAS\_GMONTH\ =\ 6,}
+\DoxyCodeLine{00037\ \ \ \ \ XML\_SCHEMAS\_GMONTHDAY\ =\ 7,}
+\DoxyCodeLine{00038\ \ \ \ \ XML\_SCHEMAS\_GYEAR\ =\ 8,}
+\DoxyCodeLine{00039\ \ \ \ \ XML\_SCHEMAS\_GYEARMONTH\ =\ 9,}
+\DoxyCodeLine{00040\ \ \ \ \ XML\_SCHEMAS\_DATE\ =\ 10,}
+\DoxyCodeLine{00041\ \ \ \ \ XML\_SCHEMAS\_DATETIME\ =\ 11,}
+\DoxyCodeLine{00042\ \ \ \ \ XML\_SCHEMAS\_DURATION\ =\ 12,}
+\DoxyCodeLine{00043\ \ \ \ \ XML\_SCHEMAS\_FLOAT\ =\ 13,}
+\DoxyCodeLine{00044\ \ \ \ \ XML\_SCHEMAS\_DOUBLE\ =\ 14,}
+\DoxyCodeLine{00045\ \ \ \ \ XML\_SCHEMAS\_BOOLEAN\ =\ 15,}
+\DoxyCodeLine{00046\ \ \ \ \ XML\_SCHEMAS\_TOKEN\ =\ 16,}
+\DoxyCodeLine{00047\ \ \ \ \ XML\_SCHEMAS\_LANGUAGE\ =\ 17,}
+\DoxyCodeLine{00048\ \ \ \ \ XML\_SCHEMAS\_NMTOKEN\ =\ 18,}
+\DoxyCodeLine{00049\ \ \ \ \ XML\_SCHEMAS\_NMTOKENS\ =\ 19,}
+\DoxyCodeLine{00050\ \ \ \ \ XML\_SCHEMAS\_NAME\ =\ 20,}
+\DoxyCodeLine{00051\ \ \ \ \ XML\_SCHEMAS\_QNAME\ =\ 21,}
+\DoxyCodeLine{00052\ \ \ \ \ XML\_SCHEMAS\_NCNAME\ =\ 22,}
+\DoxyCodeLine{00053\ \ \ \ \ XML\_SCHEMAS\_ID\ =\ 23,}
+\DoxyCodeLine{00054\ \ \ \ \ XML\_SCHEMAS\_IDREF\ =\ 24,}
+\DoxyCodeLine{00055\ \ \ \ \ XML\_SCHEMAS\_IDREFS\ =\ 25,}
+\DoxyCodeLine{00056\ \ \ \ \ XML\_SCHEMAS\_ENTITY\ =\ 26,}
+\DoxyCodeLine{00057\ \ \ \ \ XML\_SCHEMAS\_ENTITIES\ =\ 27,}
+\DoxyCodeLine{00058\ \ \ \ \ XML\_SCHEMAS\_NOTATION\ =\ 28,}
+\DoxyCodeLine{00059\ \ \ \ \ XML\_SCHEMAS\_ANYURI\ =\ 29,}
+\DoxyCodeLine{00060\ \ \ \ \ XML\_SCHEMAS\_INTEGER\ =\ 30,}
+\DoxyCodeLine{00061\ \ \ \ \ XML\_SCHEMAS\_NPINTEGER\ =\ 31,}
+\DoxyCodeLine{00062\ \ \ \ \ XML\_SCHEMAS\_NINTEGER\ =\ 32,}
+\DoxyCodeLine{00063\ \ \ \ \ XML\_SCHEMAS\_NNINTEGER\ =\ 33,}
+\DoxyCodeLine{00064\ \ \ \ \ XML\_SCHEMAS\_PINTEGER\ =\ 34,}
+\DoxyCodeLine{00065\ \ \ \ \ XML\_SCHEMAS\_INT\ =\ 35,}
+\DoxyCodeLine{00066\ \ \ \ \ XML\_SCHEMAS\_UINT\ =\ 36,}
+\DoxyCodeLine{00067\ \ \ \ \ XML\_SCHEMAS\_LONG\ =\ 37,}
+\DoxyCodeLine{00068\ \ \ \ \ XML\_SCHEMAS\_ULONG\ =\ 38,}
+\DoxyCodeLine{00069\ \ \ \ \ XML\_SCHEMAS\_SHORT\ =\ 39,}
+\DoxyCodeLine{00070\ \ \ \ \ XML\_SCHEMAS\_USHORT\ =\ 40,}
+\DoxyCodeLine{00071\ \ \ \ \ XML\_SCHEMAS\_BYTE\ =\ 41,}
+\DoxyCodeLine{00072\ \ \ \ \ XML\_SCHEMAS\_UBYTE\ =\ 42,}
+\DoxyCodeLine{00073\ \ \ \ \ XML\_SCHEMAS\_HEXBINARY\ =\ 43,}
+\DoxyCodeLine{00074\ \ \ \ \ XML\_SCHEMAS\_BASE64BINARY\ =\ 44,}
+\DoxyCodeLine{00075\ \ \ \ \ XML\_SCHEMAS\_ANYTYPE\ =\ 45,}
+\DoxyCodeLine{00076\ \ \ \ \ XML\_SCHEMAS\_ANYSIMPLETYPE\ =\ 46}
+\DoxyCodeLine{00077\ \}\ xmlSchemaValType;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ *\ XML\ Schemas\ defines\ multiple\ type\ of\ types.}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00082\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ XML\_SCHEMA\_TYPE\_BASIC\ =\ 1,\ \textcolor{comment}{/*\ A\ built-\/in\ datatype\ */}}
+\DoxyCodeLine{00084\ \ \ \ \ XML\_SCHEMA\_TYPE\_ANY,}
+\DoxyCodeLine{00085\ \ \ \ \ XML\_SCHEMA\_TYPE\_FACET,}
+\DoxyCodeLine{00086\ \ \ \ \ XML\_SCHEMA\_TYPE\_SIMPLE,}
+\DoxyCodeLine{00087\ \ \ \ \ XML\_SCHEMA\_TYPE\_COMPLEX,}
+\DoxyCodeLine{00088\ \ \ \ \ XML\_SCHEMA\_TYPE\_SEQUENCE\ =\ 6,}
+\DoxyCodeLine{00089\ \ \ \ \ XML\_SCHEMA\_TYPE\_CHOICE,}
+\DoxyCodeLine{00090\ \ \ \ \ XML\_SCHEMA\_TYPE\_ALL,}
+\DoxyCodeLine{00091\ \ \ \ \ XML\_SCHEMA\_TYPE\_SIMPLE\_CONTENT,}
+\DoxyCodeLine{00092\ \ \ \ \ XML\_SCHEMA\_TYPE\_COMPLEX\_CONTENT,}
+\DoxyCodeLine{00093\ \ \ \ \ XML\_SCHEMA\_TYPE\_UR,}
+\DoxyCodeLine{00094\ \ \ \ \ XML\_SCHEMA\_TYPE\_RESTRICTION,}
+\DoxyCodeLine{00095\ \ \ \ \ XML\_SCHEMA\_TYPE\_EXTENSION,}
+\DoxyCodeLine{00096\ \ \ \ \ XML\_SCHEMA\_TYPE\_ELEMENT,}
+\DoxyCodeLine{00097\ \ \ \ \ XML\_SCHEMA\_TYPE\_ATTRIBUTE,}
+\DoxyCodeLine{00098\ \ \ \ \ XML\_SCHEMA\_TYPE\_ATTRIBUTEGROUP,}
+\DoxyCodeLine{00099\ \ \ \ \ XML\_SCHEMA\_TYPE\_GROUP,}
+\DoxyCodeLine{00100\ \ \ \ \ XML\_SCHEMA\_TYPE\_NOTATION,}
+\DoxyCodeLine{00101\ \ \ \ \ XML\_SCHEMA\_TYPE\_LIST,}
+\DoxyCodeLine{00102\ \ \ \ \ XML\_SCHEMA\_TYPE\_UNION,}
+\DoxyCodeLine{00103\ \ \ \ \ XML\_SCHEMA\_TYPE\_ANY\_ATTRIBUTE,}
+\DoxyCodeLine{00104\ \ \ \ \ XML\_SCHEMA\_TYPE\_IDC\_UNIQUE,}
+\DoxyCodeLine{00105\ \ \ \ \ XML\_SCHEMA\_TYPE\_IDC\_KEY,}
+\DoxyCodeLine{00106\ \ \ \ \ XML\_SCHEMA\_TYPE\_IDC\_KEYREF,}
+\DoxyCodeLine{00107\ \ \ \ \ XML\_SCHEMA\_TYPE\_PARTICLE\ =\ 25,}
+\DoxyCodeLine{00108\ \ \ \ \ XML\_SCHEMA\_TYPE\_ATTRIBUTE\_USE,}
+\DoxyCodeLine{00109\ \ \ \ \ XML\_SCHEMA\_FACET\_MININCLUSIVE\ =\ 1000,}
+\DoxyCodeLine{00110\ \ \ \ \ XML\_SCHEMA\_FACET\_MINEXCLUSIVE,}
+\DoxyCodeLine{00111\ \ \ \ \ XML\_SCHEMA\_FACET\_MAXINCLUSIVE,}
+\DoxyCodeLine{00112\ \ \ \ \ XML\_SCHEMA\_FACET\_MAXEXCLUSIVE,}
+\DoxyCodeLine{00113\ \ \ \ \ XML\_SCHEMA\_FACET\_TOTALDIGITS,}
+\DoxyCodeLine{00114\ \ \ \ \ XML\_SCHEMA\_FACET\_FRACTIONDIGITS,}
+\DoxyCodeLine{00115\ \ \ \ \ XML\_SCHEMA\_FACET\_PATTERN,}
+\DoxyCodeLine{00116\ \ \ \ \ XML\_SCHEMA\_FACET\_ENUMERATION,}
+\DoxyCodeLine{00117\ \ \ \ \ XML\_SCHEMA\_FACET\_WHITESPACE,}
+\DoxyCodeLine{00118\ \ \ \ \ XML\_SCHEMA\_FACET\_LENGTH,}
+\DoxyCodeLine{00119\ \ \ \ \ XML\_SCHEMA\_FACET\_MAXLENGTH,}
+\DoxyCodeLine{00120\ \ \ \ \ XML\_SCHEMA\_FACET\_MINLENGTH,}
+\DoxyCodeLine{00121\ \ \ \ \ XML\_SCHEMA\_EXTRA\_QNAMEREF\ =\ 2000,}
+\DoxyCodeLine{00122\ \ \ \ \ XML\_SCHEMA\_EXTRA\_ATTR\_USE\_PROHIB}
+\DoxyCodeLine{00123\ \}\ xmlSchemaTypeType;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ XML\_SCHEMA\_CONTENT\_UNKNOWN\ =\ 0,}
+\DoxyCodeLine{00127\ \ \ \ \ XML\_SCHEMA\_CONTENT\_EMPTY\ =\ 1,}
+\DoxyCodeLine{00128\ \ \ \ \ XML\_SCHEMA\_CONTENT\_ELEMENTS,}
+\DoxyCodeLine{00129\ \ \ \ \ XML\_SCHEMA\_CONTENT\_MIXED,}
+\DoxyCodeLine{00130\ \ \ \ \ XML\_SCHEMA\_CONTENT\_SIMPLE,}
+\DoxyCodeLine{00131\ \ \ \ \ XML\_SCHEMA\_CONTENT\_MIXED\_OR\_ELEMENTS,\ \textcolor{comment}{/*\ Obsolete\ */}}
+\DoxyCodeLine{00132\ \ \ \ \ XML\_SCHEMA\_CONTENT\_BASIC,}
+\DoxyCodeLine{00133\ \ \ \ \ XML\_SCHEMA\_CONTENT\_ANY}
+\DoxyCodeLine{00134\ \}\ xmlSchemaContentType;}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaVal\ xmlSchemaVal;}
+\DoxyCodeLine{00137\ \textcolor{keyword}{typedef}\ xmlSchemaVal\ *xmlSchemaValPtr;}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaType\ xmlSchemaType;}
+\DoxyCodeLine{00140\ \textcolor{keyword}{typedef}\ xmlSchemaType\ *xmlSchemaTypePtr;}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaFacet\ xmlSchemaFacet;}
+\DoxyCodeLine{00143\ \textcolor{keyword}{typedef}\ xmlSchemaFacet\ *xmlSchemaFacetPtr;}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00148\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaAnnot\ xmlSchemaAnnot;}
+\DoxyCodeLine{00149\ \textcolor{keyword}{typedef}\ xmlSchemaAnnot\ *xmlSchemaAnnotPtr;}
+\DoxyCodeLine{00150\ \textcolor{keyword}{struct\ }\_xmlSchemaAnnot\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{struct\ }\_xmlSchemaAnnot\ *next;}
+\DoxyCodeLine{00152\ \ \ \ \ xmlNodePtr\ content;\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ the\ annotation\ */}}
+\DoxyCodeLine{00153\ \};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ANYATTR\_SKIP\ \ \ \ \ \ \ \ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ANYATTR\_LAX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ANYATTR\_STRICT\ \ \ \ \ \ \ \ 3}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ANY\_SKIP\ \ \ \ \ \ \ \ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ANY\_LAX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ANY\_STRICT\ \ \ \ \ \ \ \ 3}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ATTR\_USE\_PROHIBITED\ 0}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ATTR\_USE\_REQUIRED\ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ATTR\_USE\_OPTIONAL\ 2}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ATTR\_GLOBAL\ \ \ \ \ \ \ \ 1\ <<\ 0}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ATTR\_NSDEFAULT\ \ \ \ \ \ \ \ 1\ <<\ 7}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ATTR\_INTERNAL\_RESOLVED\ \ \ \ \ \ \ \ 1\ <<\ 8}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ATTR\_FIXED\ \ \ \ \ \ \ \ 1\ <<\ 9}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaAttribute\ xmlSchemaAttribute;}
+\DoxyCodeLine{00247\ \textcolor{keyword}{typedef}\ xmlSchemaAttribute\ *xmlSchemaAttributePtr;}
+\DoxyCodeLine{00248\ \textcolor{keyword}{struct\ }\_xmlSchemaAttribute\ \{}
+\DoxyCodeLine{00249\ \ \ \ \ xmlSchemaTypeType\ type;}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keyword}{struct\ }\_xmlSchemaAttribute\ *next;\ \textcolor{comment}{/*\ the\ next\ attribute\ (not\ used?)\ */}}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name;\ \textcolor{comment}{/*\ the\ name\ of\ the\ declaration\ */}}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *id;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ref;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *refNs;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *typeName;\ \textcolor{comment}{/*\ the\ local\ name\ of\ the\ type\ definition\ */}}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *typeNs;\ \textcolor{comment}{/*\ the\ ns\ URI\ of\ the\ type\ definition\ */}}
+\DoxyCodeLine{00257\ \ \ \ \ xmlSchemaAnnotPtr\ annot;}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ xmlSchemaTypePtr\ base;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordtype}{int}\ occurs;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *defValue;\ \textcolor{comment}{/*\ The\ initial\ value\ of\ the\ value\ constraint\ */}}
+\DoxyCodeLine{00262\ \ \ \ \ xmlSchemaTypePtr\ subtypes;\ \textcolor{comment}{/*\ the\ type\ definition\ */}}
+\DoxyCodeLine{00263\ \ \ \ \ xmlNodePtr\ node;}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *targetNamespace;}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordtype}{int}\ flags;}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *refPrefix;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00267\ \ \ \ \ xmlSchemaValPtr\ defVal;\ \textcolor{comment}{/*\ The\ compiled\ value\ constraint\ */}}
+\DoxyCodeLine{00268\ \ \ \ \ xmlSchemaAttributePtr\ refDecl;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00269\ \};}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00276\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaAttributeLink\ xmlSchemaAttributeLink;}
+\DoxyCodeLine{00277\ \textcolor{keyword}{typedef}\ xmlSchemaAttributeLink\ *xmlSchemaAttributeLinkPtr;}
+\DoxyCodeLine{00278\ \textcolor{keyword}{struct\ }\_xmlSchemaAttributeLink\ \{}
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keyword}{struct\ }\_xmlSchemaAttributeLink\ *next;\textcolor{comment}{/*\ the\ next\ attribute\ link\ ...\ */}}
+\DoxyCodeLine{00280\ \ \ \ \ \textcolor{keyword}{struct\ }\_xmlSchemaAttribute\ *attr;\textcolor{comment}{/*\ the\ linked\ attribute\ */}}
+\DoxyCodeLine{00281\ \};}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_WILDCARD\_COMPLETE\ 1\ <<\ 0}}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00294\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaWildcardNs\ xmlSchemaWildcardNs;}
+\DoxyCodeLine{00295\ \textcolor{keyword}{typedef}\ xmlSchemaWildcardNs\ *xmlSchemaWildcardNsPtr;}
+\DoxyCodeLine{00296\ \textcolor{keyword}{struct\ }\_xmlSchemaWildcardNs\ \{}
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keyword}{struct\ }\_xmlSchemaWildcardNs\ *next;\textcolor{comment}{/*\ the\ next\ constraint\ link\ ...\ */}}
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *value;\textcolor{comment}{/*\ the\ value\ */}}
+\DoxyCodeLine{00299\ \};}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00305\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaWildcard\ xmlSchemaWildcard;}
+\DoxyCodeLine{00306\ \textcolor{keyword}{typedef}\ xmlSchemaWildcard\ *xmlSchemaWildcardPtr;}
+\DoxyCodeLine{00307\ \textcolor{keyword}{struct\ }\_xmlSchemaWildcard\ \{}
+\DoxyCodeLine{00308\ \ \ \ \ xmlSchemaTypeType\ type;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ kind\ of\ type\ */}}
+\DoxyCodeLine{00309\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *id;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00310\ \ \ \ \ xmlSchemaAnnotPtr\ annot;}
+\DoxyCodeLine{00311\ \ \ \ \ xmlNodePtr\ node;}
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordtype}{int}\ minOccurs;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordtype}{int}\ maxOccurs;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordtype}{int}\ processContents;}
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keywordtype}{int}\ any;\ \textcolor{comment}{/*\ Indicates\ if\ the\ ns\ constraint\ is\ of\ \#\#any\ */}}
+\DoxyCodeLine{00316\ \ \ \ \ xmlSchemaWildcardNsPtr\ nsSet;\ \textcolor{comment}{/*\ The\ list\ of\ allowed\ namespaces\ */}}
+\DoxyCodeLine{00317\ \ \ \ \ xmlSchemaWildcardNsPtr\ negNsSet;\ \textcolor{comment}{/*\ The\ negated\ namespace\ */}}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordtype}{int}\ flags;}
+\DoxyCodeLine{00319\ \};}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00326\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ATTRGROUP\_WILDCARD\_BUILDED\ 1\ <<\ 0}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00332\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ATTRGROUP\_GLOBAL\ 1\ <<\ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00338\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ATTRGROUP\_MARKED\ 1\ <<\ 2}}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ATTRGROUP\_REDEFINED\ 1\ <<\ 3}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00351\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ATTRGROUP\_HAS\_REFS\ 1\ <<\ 4}}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00359\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaAttributeGroup\ xmlSchemaAttributeGroup;}
+\DoxyCodeLine{00360\ \textcolor{keyword}{typedef}\ xmlSchemaAttributeGroup\ *xmlSchemaAttributeGroupPtr;}
+\DoxyCodeLine{00361\ \textcolor{keyword}{struct\ }\_xmlSchemaAttributeGroup\ \{}
+\DoxyCodeLine{00362\ \ \ \ \ xmlSchemaTypeType\ type;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ kind\ of\ type\ */}}
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{keyword}{struct\ }\_xmlSchemaAttribute\ *next;\textcolor{comment}{/*\ the\ next\ attribute\ if\ in\ a\ group\ ...\ */}}
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name;}
+\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *id;}
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ref;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00367\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *refNs;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00368\ \ \ \ \ xmlSchemaAnnotPtr\ annot;}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \ \ \ \ xmlSchemaAttributePtr\ attributes;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00371\ \ \ \ \ xmlNodePtr\ node;}
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordtype}{int}\ flags;}
+\DoxyCodeLine{00373\ \ \ \ \ xmlSchemaWildcardPtr\ attributeWildcard;}
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *refPrefix;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00375\ \ \ \ \ xmlSchemaAttributeGroupPtr\ refItem;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *targetNamespace;}
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keywordtype}{void}\ *attrUses;}
+\DoxyCodeLine{00378\ \};}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00385\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaTypeLink\ xmlSchemaTypeLink;}
+\DoxyCodeLine{00386\ \textcolor{keyword}{typedef}\ xmlSchemaTypeLink\ *xmlSchemaTypeLinkPtr;}
+\DoxyCodeLine{00387\ \textcolor{keyword}{struct\ }\_xmlSchemaTypeLink\ \{}
+\DoxyCodeLine{00388\ \ \ \ \ \textcolor{keyword}{struct\ }\_xmlSchemaTypeLink\ *next;\textcolor{comment}{/*\ the\ next\ type\ link\ ...\ */}}
+\DoxyCodeLine{00389\ \ \ \ \ xmlSchemaTypePtr\ type;\textcolor{comment}{/*\ the\ linked\ type\ */}}
+\DoxyCodeLine{00390\ \};}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00396\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaFacetLink\ xmlSchemaFacetLink;}
+\DoxyCodeLine{00397\ \textcolor{keyword}{typedef}\ xmlSchemaFacetLink\ *xmlSchemaFacetLinkPtr;}
+\DoxyCodeLine{00398\ \textcolor{keyword}{struct\ }\_xmlSchemaFacetLink\ \{}
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keyword}{struct\ }\_xmlSchemaFacetLink\ *next;\textcolor{comment}{/*\ the\ next\ facet\ link\ ...\ */}}
+\DoxyCodeLine{00400\ \ \ \ \ xmlSchemaFacetPtr\ facet;\textcolor{comment}{/*\ the\ linked\ facet\ */}}
+\DoxyCodeLine{00401\ \};}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00408\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_MIXED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 0}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00414\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_DERIVATION\_METHOD\_EXTENSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00420\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_DERIVATION\_METHOD\_RESTRICTION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 2}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00426\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_GLOBAL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 3}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00433\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_OWNED\_ATTR\_WILDCARD\ \ \ \ 1\ <<\ 4\ }\textcolor{comment}{/*\ Obsolete.\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00442\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_VARIETY\_ABSENT\ \ \ \ 1\ <<\ 5}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00448\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_VARIETY\_LIST\ \ \ \ 1\ <<\ 6}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_VARIETY\_UNION\ \ \ \ 1\ <<\ 7}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00460\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_VARIETY\_ATOMIC\ \ \ \ 1\ <<\ 8}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00466\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_FINAL\_EXTENSION\ \ \ \ 1\ <<\ 9}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00472\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_FINAL\_RESTRICTION\ \ \ \ 1\ <<\ 10}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00478\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_FINAL\_LIST\ \ \ \ 1\ <<\ 11}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00484\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_FINAL\_UNION\ \ \ \ 1\ <<\ 12}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00490\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_FINAL\_DEFAULT\ \ \ \ 1\ <<\ 13}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00496\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_BUILTIN\_PRIMITIVE\ \ \ \ 1\ <<\ 14}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00502\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_MARKED\ \ \ \ \ \ \ \ 1\ <<\ 16}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00509\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_BLOCK\_DEFAULT\ \ \ \ 1\ <<\ 17}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00515\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_BLOCK\_EXTENSION\ \ \ \ 1\ <<\ 18}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00521\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_BLOCK\_RESTRICTION\ \ \ \ 1\ <<\ 19}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00527\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_ABSTRACT\ \ \ \ 1\ <<\ 20}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00533\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_FACETSNEEDVALUE\ \ \ \ 1\ <<\ 21}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00539\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_INTERNAL\_RESOLVED\ \ \ \ 1\ <<\ 22}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00545\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_INTERNAL\_INVALID\ \ \ \ 1\ <<\ 23}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00551\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_WHITESPACE\_PRESERVE\ \ \ \ 1\ <<\ 24}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00557\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_WHITESPACE\_REPLACE\ \ \ \ 1\ <<\ 25}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00563\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_WHITESPACE\_COLLAPSE\ \ \ \ 1\ <<\ 26}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00569\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_HAS\_FACETS\ \ \ \ 1\ <<\ 27}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00575\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_NORMVALUENEEDED\ \ \ \ 1\ <<\ 28}}
+\DoxyCodeLine{00576\ }
+\DoxyCodeLine{00582\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_FIXUP\_1\ \ \ \ 1\ <<\ 29}}
+\DoxyCodeLine{00583\ }
+\DoxyCodeLine{00589\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_TYPE\_REDEFINED\ \ \ \ 1\ <<\ 30}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00595\ \textcolor{comment}{/*\ \#define\ XML\_SCHEMAS\_TYPE\_REDEFINING\ \ \ \ 1\ <<\ 31\ */}}
+\DoxyCodeLine{00596\ }
+\DoxyCodeLine{00602\ \textcolor{keyword}{struct\ }\_xmlSchemaType\ \{}
+\DoxyCodeLine{00603\ \ \ \ \ xmlSchemaTypeType\ type;\ \textcolor{comment}{/*\ The\ kind\ of\ type\ */}}
+\DoxyCodeLine{00604\ \ \ \ \ \textcolor{keyword}{struct\ }\_xmlSchemaType\ *next;\ \textcolor{comment}{/*\ the\ next\ type\ if\ in\ a\ sequence\ ...\ */}}
+\DoxyCodeLine{00605\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name;}
+\DoxyCodeLine{00606\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *id\ ;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00607\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ref;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00608\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *refNs;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00609\ \ \ \ \ xmlSchemaAnnotPtr\ annot;}
+\DoxyCodeLine{00610\ \ \ \ \ xmlSchemaTypePtr\ subtypes;}
+\DoxyCodeLine{00611\ \ \ \ \ xmlSchemaAttributePtr\ attributes;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00612\ \ \ \ \ xmlNodePtr\ node;}
+\DoxyCodeLine{00613\ \ \ \ \ \textcolor{keywordtype}{int}\ minOccurs;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00614\ \ \ \ \ \textcolor{keywordtype}{int}\ maxOccurs;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00616\ \ \ \ \ \textcolor{keywordtype}{int}\ flags;}
+\DoxyCodeLine{00617\ \ \ \ \ xmlSchemaContentType\ contentType;}
+\DoxyCodeLine{00618\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *base;\ \textcolor{comment}{/*\ Base\ type's\ local\ name\ */}}
+\DoxyCodeLine{00619\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *baseNs;\ \textcolor{comment}{/*\ Base\ type's\ target\ namespace\ */}}
+\DoxyCodeLine{00620\ \ \ \ \ xmlSchemaTypePtr\ baseType;\ \textcolor{comment}{/*\ The\ base\ type\ component\ */}}
+\DoxyCodeLine{00621\ \ \ \ \ xmlSchemaFacetPtr\ facets;\ \textcolor{comment}{/*\ Local\ facets\ */}}
+\DoxyCodeLine{00622\ \ \ \ \ \textcolor{keyword}{struct\ }\_xmlSchemaType\ *redef;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00623\ \ \ \ \ \textcolor{keywordtype}{int}\ recurse;\ \textcolor{comment}{/*\ Obsolete\ */}}
+\DoxyCodeLine{00624\ \ \ \ \ xmlSchemaAttributeLinkPtr\ *attributeUses;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00625\ \ \ \ \ xmlSchemaWildcardPtr\ attributeWildcard;}
+\DoxyCodeLine{00626\ \ \ \ \ \textcolor{keywordtype}{int}\ builtInType;\ \textcolor{comment}{/*\ Type\ of\ built-\/in\ types.\ */}}
+\DoxyCodeLine{00627\ \ \ \ \ xmlSchemaTypeLinkPtr\ memberTypes;\ \textcolor{comment}{/*\ member-\/types\ if\ a\ union\ type.\ */}}
+\DoxyCodeLine{00628\ \ \ \ \ xmlSchemaFacetLinkPtr\ facetSet;\ \textcolor{comment}{/*\ All\ facets\ (incl.\ inherited)\ */}}
+\DoxyCodeLine{00629\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *refPrefix;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00630\ \ \ \ \ xmlSchemaTypePtr\ contentTypeDef;\ \textcolor{comment}{/*\ Used\ for\ the\ simple\ content\ of\ complex\ types.}}
+\DoxyCodeLine{00631\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Could\ we\ use\ @subtypes\ for\ this?\ */}}
+\DoxyCodeLine{00632\ \ \ \ \ xmlRegexpPtr\ contModel;\ \textcolor{comment}{/*\ Holds\ the\ automaton\ of\ the\ content\ model\ */}}
+\DoxyCodeLine{00633\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *targetNamespace;}
+\DoxyCodeLine{00634\ \ \ \ \ \textcolor{keywordtype}{void}\ *attrUses;}
+\DoxyCodeLine{00635\ \};}
+\DoxyCodeLine{00636\ }
+\DoxyCodeLine{00637\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00638\ \textcolor{comment}{\ *\ xmlSchemaElement:}}
+\DoxyCodeLine{00639\ \textcolor{comment}{\ *\ An\ element\ definition.}}
+\DoxyCodeLine{00640\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00641\ \textcolor{comment}{\ *\ xmlSchemaType,\ xmlSchemaFacet\ and\ xmlSchemaElement\ start\ of}}
+\DoxyCodeLine{00642\ \textcolor{comment}{\ *\ structures\ must\ be\ kept\ similar}}
+\DoxyCodeLine{00643\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00649\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_NILLABLE\ \ \ \ \ \ \ \ 1\ <<\ 0}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00655\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_GLOBAL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00661\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_DEFAULT\ \ \ \ \ \ \ \ 1\ <<\ 2}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00667\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_FIXED\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 3}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00673\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_ABSTRACT\ \ \ \ \ \ \ \ 1\ <<\ 4}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00680\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_TOPLEVEL\ \ \ \ \ \ \ \ 1\ <<\ 5}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00686\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_REF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 6}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00693\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_NSDEFAULT\ \ \ \ \ \ \ \ 1\ <<\ 7}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00700\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_INTERNAL\_RESOLVED\ \ \ \ \ \ \ \ 1\ <<\ 8}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00706\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_CIRCULAR\ \ \ \ \ \ \ \ 1\ <<\ 9}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00712\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_BLOCK\_ABSENT\ \ \ \ \ \ \ \ 1\ <<\ 10}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00718\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_BLOCK\_EXTENSION\ \ \ \ \ \ \ \ 1\ <<\ 11}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00724\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_BLOCK\_RESTRICTION\ \ \ \ \ \ \ \ 1\ <<\ 12}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00730\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_BLOCK\_SUBSTITUTION\ \ \ \ \ \ \ \ 1\ <<\ 13}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00736\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_FINAL\_ABSENT\ \ \ \ \ \ \ \ 1\ <<\ 14}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00742\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_FINAL\_EXTENSION\ \ \ \ \ \ \ \ 1\ <<\ 15}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00748\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_FINAL\_RESTRICTION\ \ \ \ \ \ \ \ 1\ <<\ 16}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00754\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_SUBST\_GROUP\_HEAD\ \ \ \ \ \ \ \ 1\ <<\ 17}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00761\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_ELEM\_INTERNAL\_CHECKED\ \ \ \ \ \ \ \ 1\ <<\ 18}}
+\DoxyCodeLine{00762\ }
+\DoxyCodeLine{00763\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaElement\ xmlSchemaElement;}
+\DoxyCodeLine{00764\ \textcolor{keyword}{typedef}\ xmlSchemaElement\ *xmlSchemaElementPtr;}
+\DoxyCodeLine{00765\ \textcolor{keyword}{struct\ }\_xmlSchemaElement\ \{}
+\DoxyCodeLine{00766\ \ \ \ \ xmlSchemaTypeType\ type;\ \textcolor{comment}{/*\ The\ kind\ of\ type\ */}}
+\DoxyCodeLine{00767\ \ \ \ \ \textcolor{keyword}{struct\ }\_xmlSchemaType\ *next;\ \textcolor{comment}{/*\ Not\ used?\ */}}
+\DoxyCodeLine{00768\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name;}
+\DoxyCodeLine{00769\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *id;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00770\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *ref;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00771\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *refNs;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00772\ \ \ \ \ xmlSchemaAnnotPtr\ annot;}
+\DoxyCodeLine{00773\ \ \ \ \ xmlSchemaTypePtr\ subtypes;\ \textcolor{comment}{/*\ the\ type\ definition\ */}}
+\DoxyCodeLine{00774\ \ \ \ \ xmlSchemaAttributePtr\ attributes;}
+\DoxyCodeLine{00775\ \ \ \ \ xmlNodePtr\ node;}
+\DoxyCodeLine{00776\ \ \ \ \ \textcolor{keywordtype}{int}\ minOccurs;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00777\ \ \ \ \ \textcolor{keywordtype}{int}\ maxOccurs;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00778\ }
+\DoxyCodeLine{00779\ \ \ \ \ \textcolor{keywordtype}{int}\ flags;}
+\DoxyCodeLine{00780\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *targetNamespace;}
+\DoxyCodeLine{00781\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *namedType;}
+\DoxyCodeLine{00782\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *namedTypeNs;}
+\DoxyCodeLine{00783\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *substGroup;}
+\DoxyCodeLine{00784\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *substGroupNs;}
+\DoxyCodeLine{00785\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *scope;}
+\DoxyCodeLine{00786\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *value;\ \textcolor{comment}{/*\ The\ original\ value\ of\ the\ value\ constraint.\ */}}
+\DoxyCodeLine{00787\ \ \ \ \ \textcolor{keyword}{struct\ }\_xmlSchemaElement\ *refDecl;\ \textcolor{comment}{/*\ This\ will\ now\ be\ used\ for\ the}}
+\DoxyCodeLine{00788\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ substitution\ group\ affiliation\ */}}
+\DoxyCodeLine{00789\ \ \ \ \ xmlRegexpPtr\ contModel;\ \textcolor{comment}{/*\ Obsolete\ for\ WXS,\ maybe\ used\ for\ RelaxNG\ */}}
+\DoxyCodeLine{00790\ \ \ \ \ xmlSchemaContentType\ contentType;}
+\DoxyCodeLine{00791\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *refPrefix;\ \textcolor{comment}{/*\ Deprecated;\ not\ used\ */}}
+\DoxyCodeLine{00792\ \ \ \ \ xmlSchemaValPtr\ defVal;\ \textcolor{comment}{/*\ The\ compiled\ value\ constraint.\ */}}
+\DoxyCodeLine{00793\ \ \ \ \ \textcolor{keywordtype}{void}\ *idcs;\ \textcolor{comment}{/*\ The\ identity-\/constraint\ defs\ */}}
+\DoxyCodeLine{00794\ \};}
+\DoxyCodeLine{00795\ }
+\DoxyCodeLine{00796\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00797\ \textcolor{comment}{\ *\ XML\_SCHEMAS\_FACET\_UNKNOWN:}}
+\DoxyCodeLine{00798\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00799\ \textcolor{comment}{\ *\ unknown\ facet\ handling}}
+\DoxyCodeLine{00800\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00801\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_FACET\_UNKNOWN\ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00802\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00803\ \textcolor{comment}{\ *\ XML\_SCHEMAS\_FACET\_PRESERVE:}}
+\DoxyCodeLine{00804\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00805\ \textcolor{comment}{\ *\ preserve\ the\ type\ of\ the\ facet}}
+\DoxyCodeLine{00806\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00807\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_FACET\_PRESERVE\ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00808\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00809\ \textcolor{comment}{\ *\ XML\_SCHEMAS\_FACET\_REPLACE:}}
+\DoxyCodeLine{00810\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00811\ \textcolor{comment}{\ *\ replace\ the\ type\ of\ the\ facet}}
+\DoxyCodeLine{00812\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00813\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_FACET\_REPLACE\ \ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{00814\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00815\ \textcolor{comment}{\ *\ XML\_SCHEMAS\_FACET\_COLLAPSE:}}
+\DoxyCodeLine{00816\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00817\ \textcolor{comment}{\ *\ collapse\ the\ types\ of\ the\ facet}}
+\DoxyCodeLine{00818\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00819\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_FACET\_COLLAPSE\ \ \ \ \ \ \ \ 3}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00823\ \textcolor{keyword}{struct\ }\_xmlSchemaFacet\ \{}
+\DoxyCodeLine{00824\ \ \ \ \ xmlSchemaTypeType\ type;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ The\ kind\ of\ type\ */}}
+\DoxyCodeLine{00825\ \ \ \ \ \textcolor{keyword}{struct\ }\_xmlSchemaFacet\ *next;\textcolor{comment}{/*\ the\ next\ type\ if\ in\ a\ sequence\ ...\ */}}
+\DoxyCodeLine{00826\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *value;\ \textcolor{comment}{/*\ The\ original\ value\ */}}
+\DoxyCodeLine{00827\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *id;\ \textcolor{comment}{/*\ Obsolete\ */}}
+\DoxyCodeLine{00828\ \ \ \ \ xmlSchemaAnnotPtr\ annot;}
+\DoxyCodeLine{00829\ \ \ \ \ xmlNodePtr\ node;}
+\DoxyCodeLine{00830\ \ \ \ \ \textcolor{keywordtype}{int}\ fixed;\ \textcolor{comment}{/*\ XML\_SCHEMAS\_FACET\_PRESERVE,\ etc.\ */}}
+\DoxyCodeLine{00831\ \ \ \ \ \textcolor{keywordtype}{int}\ whitespace;}
+\DoxyCodeLine{00832\ \ \ \ \ xmlSchemaValPtr\ val;\ \textcolor{comment}{/*\ The\ compiled\ value\ */}}
+\DoxyCodeLine{00833\ \ \ \ \ xmlRegexpPtr\ \ \ \ regexp;\ \textcolor{comment}{/*\ The\ regex\ for\ patterns\ */}}
+\DoxyCodeLine{00834\ \};}
+\DoxyCodeLine{00835\ }
+\DoxyCodeLine{00839\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaNotation\ xmlSchemaNotation;}
+\DoxyCodeLine{00840\ \textcolor{keyword}{typedef}\ xmlSchemaNotation\ *xmlSchemaNotationPtr;}
+\DoxyCodeLine{00841\ \textcolor{keyword}{struct\ }\_xmlSchemaNotation\ \{}
+\DoxyCodeLine{00842\ \ \ \ \ xmlSchemaTypeType\ type;\ \textcolor{comment}{/*\ The\ kind\ of\ type\ */}}
+\DoxyCodeLine{00843\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name;}
+\DoxyCodeLine{00844\ \ \ \ \ xmlSchemaAnnotPtr\ annot;}
+\DoxyCodeLine{00845\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *identifier;}
+\DoxyCodeLine{00846\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *targetNamespace;}
+\DoxyCodeLine{00847\ \};}
+\DoxyCodeLine{00848\ }
+\DoxyCodeLine{00849\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00850\ \textcolor{comment}{*\ TODO:\ Actually\ all\ those\ flags\ used\ for\ the\ schema\ should\ sit}}
+\DoxyCodeLine{00851\ \textcolor{comment}{*\ on\ the\ schema\ parser\ context,\ since\ they\ are\ used\ only}}
+\DoxyCodeLine{00852\ \textcolor{comment}{*\ during\ parsing\ an\ XML\ schema\ document,\ and\ not\ available}}
+\DoxyCodeLine{00853\ \textcolor{comment}{*\ on\ the\ component\ level\ as\ per\ spec.}}
+\DoxyCodeLine{00854\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00861\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_QUALIF\_ELEM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 0}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00868\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_QUALIF\_ATTR\ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 1}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00874\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_FINAL\_DEFAULT\_EXTENSION\ \ \ \ \ \ \ \ 1\ <<\ 2}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00880\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_FINAL\_DEFAULT\_RESTRICTION\ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 3}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00886\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_FINAL\_DEFAULT\_LIST\ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 4}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00892\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_FINAL\_DEFAULT\_UNION\ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 5}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00898\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_BLOCK\_DEFAULT\_EXTENSION\ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 6}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00904\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_BLOCK\_DEFAULT\_RESTRICTION\ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 7}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00910\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_BLOCK\_DEFAULT\_SUBSTITUTION\ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 8}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00917\ \textcolor{preprocessor}{\#define\ XML\_SCHEMAS\_INCLUDING\_CONVERT\_NS\ \ \ \ \ \ \ \ \ \ \ \ 1\ <<\ 9}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00923\ \textcolor{keyword}{struct\ }\_xmlSchema\ \{}
+\DoxyCodeLine{00924\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *name;\ \textcolor{comment}{/*\ schema\ name\ */}}
+\DoxyCodeLine{00925\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *targetNamespace;\ \textcolor{comment}{/*\ the\ target\ namespace\ */}}
+\DoxyCodeLine{00926\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *version;}
+\DoxyCodeLine{00927\ \ \ \ \ \textcolor{keyword}{const}\ xmlChar\ *id;\ \textcolor{comment}{/*\ Obsolete\ */}}
+\DoxyCodeLine{00928\ \ \ \ \ xmlDocPtr\ doc;}
+\DoxyCodeLine{00929\ \ \ \ \ xmlSchemaAnnotPtr\ annot;}
+\DoxyCodeLine{00930\ \ \ \ \ \textcolor{keywordtype}{int}\ flags;}
+\DoxyCodeLine{00931\ }
+\DoxyCodeLine{00932\ \ \ \ \ xmlHashTablePtr\ typeDecl;}
+\DoxyCodeLine{00933\ \ \ \ \ xmlHashTablePtr\ attrDecl;}
+\DoxyCodeLine{00934\ \ \ \ \ xmlHashTablePtr\ attrgrpDecl;}
+\DoxyCodeLine{00935\ \ \ \ \ xmlHashTablePtr\ elemDecl;}
+\DoxyCodeLine{00936\ \ \ \ \ xmlHashTablePtr\ notaDecl;}
+\DoxyCodeLine{00937\ }
+\DoxyCodeLine{00938\ \ \ \ \ xmlHashTablePtr\ schemasImports;}
+\DoxyCodeLine{00939\ }
+\DoxyCodeLine{00940\ \ \ \ \ \textcolor{keywordtype}{void}\ *\_private;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ unused\ by\ the\ library\ for\ users\ or\ bindings\ */}}
+\DoxyCodeLine{00941\ \ \ \ \ xmlHashTablePtr\ groupDecl;}
+\DoxyCodeLine{00942\ \ \ \ \ xmlDictPtr\ \ \ \ \ \ dict;}
+\DoxyCodeLine{00943\ \ \ \ \ \textcolor{keywordtype}{void}\ *includes;\ \ \ \ \ \textcolor{comment}{/*\ the\ includes,\ this\ is\ opaque\ for\ now\ */}}
+\DoxyCodeLine{00944\ \ \ \ \ \textcolor{keywordtype}{int}\ preserve;\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ whether\ to\ free\ the\ document\ */}}
+\DoxyCodeLine{00945\ \ \ \ \ \textcolor{keywordtype}{int}\ counter;\ \textcolor{comment}{/*\ used\ to\ give\ anonymous\ components\ unique\ names\ */}}
+\DoxyCodeLine{00946\ \ \ \ \ xmlHashTablePtr\ idcDef;\ \textcolor{comment}{/*\ All\ identity-\/constraint\ defs.\ */}}
+\DoxyCodeLine{00947\ \ \ \ \ \textcolor{keywordtype}{void}\ *volatiles;\ \textcolor{comment}{/*\ Obsolete\ */}}
+\DoxyCodeLine{00948\ \};}
+\DoxyCodeLine{00949\ }
+\DoxyCodeLine{00950\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ \ \ \ \ \ \ \ \ xmlSchemaFreeType\ \ \ \ \ \ \ \ (xmlSchemaTypePtr\ type);}
+\DoxyCodeLine{00951\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ \ \ \ \ \ \ \ \ xmlSchemaFreeWildcard(xmlSchemaWildcardPtr\ wildcard);}
+\DoxyCodeLine{00952\ }
+\DoxyCodeLine{00953\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00954\ \}}
+\DoxyCodeLine{00955\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00956\ }
+\DoxyCodeLine{00957\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_SCHEMAS\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00958\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_XML\_SCHEMA\_INTERNALS\_H\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

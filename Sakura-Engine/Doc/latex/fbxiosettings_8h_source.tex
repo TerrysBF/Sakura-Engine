@@ -1,0 +1,278 @@
+\doxysection{fbxiosettings.\+h}
+\hypertarget{fbxiosettings_8h_source}{}\label{fbxiosettings_8h_source}\index{include/fbx/fbxsdk/fileio/fbxiosettings.h@{include/fbx/fbxsdk/fileio/fbxiosettings.h}}
+\mbox{\hyperlink{fbxiosettings_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2017\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_FILEIO\_IO\_SETTINGS\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_FILEIO\_IO\_SETTINGS\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxiosettingspath_8h}{fbxsdk/fileio/fbxiosettingspath.h}}>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{//Undefine\ the\ macro\ mkdir,\ since\ it\ conflict\ with\ function\ mkdir\ in\ Qt\(\backslash\)4.2.3\(\backslash\)src\(\backslash\)corelib\(\backslash\)io\(\backslash\)qdir.h}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#if\ (defined(\_MSC\_VER)\ ||\ defined(\_\_MINGW32\_\_))\ \&\&\ defined(mkdir)}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\ \ \ \ \#undef\ mkdir}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ IOSVisible\ \ \ \ true}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ IOSHidden\ \ \ \ \ false}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ IOSSavable\ \ \ \ true}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ IOSNotSavable\ false}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ IOSEnabled\ \ \ \ true}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ IOSDisabled\ \ \ false}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ IOSBinary\ \ \ \ \ 0}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ IOSASCII\ \ \ \ \ \ 1}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_manager}{FbxManager}};}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_i_o_settings}{FbxIOSettings}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00044\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00045\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }FbxIOPropInfo}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ FbxIOPropInfo();}
+\DoxyCodeLine{00051\ \ \ \ \ \string~FbxIOPropInfo();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ UIWidget;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ UI\ widget\ for\ showing\ the\ property}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ cbValueChanged;\ \ \ \ \ \ \textcolor{comment}{//\ call\ back\ when\ value\ changed}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ cbDirty;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ call\ back\ when\ value\ changed}}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_fbx_string_list}{FbxStringList}}\ \ labels;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ list\ of\ labels\ in\ many\ languages}}
+\DoxyCodeLine{00057\ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxIOInfo}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{enum}\ EImpExp\ \{eImport,\ eExport\};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ FbxIOInfo();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ Reset(EImpExp\ pImpExp);}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ SetTimeMode(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ pTimeMode,\ \textcolor{keywordtype}{double}\ pCustomFrameRate\ =\ 0.0);}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ GetTimeMode()\{\ \textcolor{keywordflow}{return}\ mTimeMode;\ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ GetFramePeriod();}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ SetASFScene(\mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ pASFScene,\ \textcolor{keywordtype}{bool}\ pASFSceneOwned\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ GetASFScene()\{\ \textcolor{keywordflow}{return}\ mASFScene;\ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ Set\_IOS(\mbox{\hyperlink{class_fbx_i_o_settings}{FbxIOSettings}}*\ pIOS)\{ios\ =\ pIOS;\}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ SetImportExportMode(EImpExp\ pImpExp)\{mImpExp\ =\ pImpExp;\}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{private}:\ }
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ \ \ \ mTimeMode;}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{class_fbx_object}{FbxObject}}*\ \ \ \ \ mASFScene;}
+\DoxyCodeLine{00078\ \ \ \ \ EImpExp\ \ \ \ \ \ \ \ \ mImpExp;}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings}{FbxIOSettings}}*\ ios;}
+\DoxyCodeLine{00080\ \};}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00207\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_i_o_settings}{FbxIOSettings}}\ :\ \textcolor{keyword}{public}\ FbxObject}
+\DoxyCodeLine{00208\ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_i_o_settings}{FbxIOSettings}},\ FbxObject);}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_i_o_settings_a84f2effd8e41c382faa5ca58046f323f}{ELanguage}}}
+\DoxyCodeLine{00214\ \ \ \ \ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a84f2effd8e41c382faa5ca58046f323fa8fda898bdbd505592c7d7b5971ea07ed}{eENU}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a84f2effd8e41c382faa5ca58046f323fa3af1c95587007b95301ac8f2cf84f545}{eDEU}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a84f2effd8e41c382faa5ca58046f323fa9880a81be07b871e6f4e38efc289442a}{eFRA}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a84f2effd8e41c382faa5ca58046f323fa57a2d721392084f075cf5826aee4b806}{eJPN}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a84f2effd8e41c382faa5ca58046f323fa733ed54132d846f72dccaf75e223a64e}{eKOR}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a84f2effd8e41c382faa5ca58046f323fa9b82a38394a273566c671012ee996dbf}{eCHS}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a84f2effd8e41c382faa5ca58046f323fa4b8fa1945ecb57970b59da9db1ef3a39}{ePTB}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a84f2effd8e41c382faa5ca58046f323fa42634e3786b8c234b00490de78dd7760}{eLanguageCount}}\ \ \ \ }
+\DoxyCodeLine{00223\ \ \ \ \ \};}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00231\ \ \ \ \ FbxProperty\ \mbox{\hyperlink{class_fbx_i_o_settings_abf6db228c12b2b36500eba034685b3cb}{AddPropertyGroup}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\&\ pDataType=\mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}(),\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pLabel=\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00243\ \ \ \ \ FbxProperty\ \mbox{\hyperlink{class_fbx_i_o_settings_a108fa53c9bd3d89963f098a18f97e349}{AddPropertyGroup}}(\textcolor{keyword}{const}\ FbxProperty\&\ pParentProperty,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\&\ pDataType\ =\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}(),\ }
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pLabel\ \ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keywordtype}{bool}\ pVisible\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}\ pSavable\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}\ pEnabled\ =\ \textcolor{keyword}{true}\ );}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00257\ \ \ \ \ FbxProperty\ \mbox{\hyperlink{class_fbx_i_o_settings_adcfa47da119520473f466bfff28cdbe2}{AddProperty}}(\textcolor{keyword}{const}\ FbxProperty\&\ pParentProperty,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\&\ pDataType\ =\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}(),\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pLabel\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pValue\ =\ NULL,\ \textcolor{keywordtype}{bool}\ pVisible\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pSavable\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}\ pEnabled\ =\ \textcolor{keyword}{true}\ );}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00275\ \ \ \ \ FbxProperty\ \mbox{\hyperlink{class_fbx_i_o_settings_a74e2aa168f3b0cac2a80ac355c5c4611}{AddPropertyMinMax}}(\textcolor{keyword}{const}\ FbxProperty\&\ pParentProperty,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\&\ pDataType\ =\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}(),\ }
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pLabel\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ pValue\ =\ NULL,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}*\ pMinValue\ =\ NULL,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}*\ pMaxValue\ =\ NULL,}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pVisible\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}\ pSavable\ =\ \textcolor{keyword}{true},\ \textcolor{keywordtype}{bool}\ pEnabled\ =\ \textcolor{keyword}{true}\ );}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00286\ \ \ \ \ FbxProperty\ \mbox{\hyperlink{class_fbx_i_o_settings_aa02805702152a4ef56d337c25b12d42b}{GetProperty}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00294\ \ \ \ \ FbxProperty\ \mbox{\hyperlink{class_fbx_i_o_settings_aedc91a76523e1fb2fe015901afd5d8bc}{GetProperty}}(\textcolor{keyword}{const}\ FbxProperty\&\ pParentProperty,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_i_o_settings_aa30a3e515f60aa1fcbd82b6b34994ad0}{GetBoolProp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keywordtype}{bool}\ pDefValue)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_i_o_settings_ad2c660ef846b66dcf569079299391745}{SetBoolProp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keywordtype}{bool}\ pValue);}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_i_o_settings_a4d068caa98d8183a45b520d6ade6ad41}{GetDoubleProp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keywordtype}{double}\ pDefValue)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_ae97bbc6c4ae0534788dba82e3cfd0c4f}{SetDoubleProp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keywordtype}{double}\ pValue);}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a3ab14ccc4a1ecb92bc94c61597d50d08}{GetIntProp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keywordtype}{int}\ pDefValue)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a5284810e44344eb94b1dcdd97af4a8a3}{SetIntProp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keywordtype}{int}\ pValue);}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00339\ \ \ \ \ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ \ \mbox{\hyperlink{class_fbx_i_o_settings_a369d87d5f1785484917a44abd5f70bd3}{GetTimeProp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pDefValue)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a780a8567ad7916be8914e9a22c09f1a5}{SetTimeProp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pValue);}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00364\ \ \ \ \ }
+\DoxyCodeLine{00366\ \ \ \ \ }
+\DoxyCodeLine{00372\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{class_fbx_i_o_settings_a4c34547b1b4267694f51ab159d95b9da}{GetEnumProp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ pDefValue)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a042c5ff793f455ef7e982fb2a9f01ce7}{GetEnumProp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keywordtype}{int}\ pDefValue)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00386\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a0d328ff98e1cce8d911e78cfe83aa662}{GetEnumIndex}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ pValue)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a26d37be8fcf5c4d74ee0dfb95b39923d}{SetEnumProp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ pValue);}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_af1000ac57d0e7af9e55f9f629d50330f}{SetEnumProp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keywordtype}{int}\ pValue);}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_aebf0649980477e8ec80d1d9364304392}{RemoveEnumPropValue}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ pValue);}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00414\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a6f30f2ea6148cfe5070444c38842ed6f}{EmptyEnumProp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName);}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00421\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a8276b09f853df8e836a9760fd8f8cbfb}{IsEnumExist}}(FbxProperty\&\ pProp,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ enumString)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_aef7ef50f0117516d9326b4b74e70f314}{GetEnumIndex}}(FbxProperty\&\ pProp,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ enumString,\ \textcolor{keywordtype}{bool}\ pNoCase\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a3a729325e682c916226227e4ebcebd58}{SetFlag}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{class_fbx_property_flags_afabfa7e0949aac8a7dcdf8a141867e99}{FbxPropertyFlags::EFlags}}\ propFlag,\ \textcolor{keywordtype}{bool}\ pValue);}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00445\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{class_fbx_i_o_settings_ab3e057be50be4fbeae6e70ceb38cf1fa}{GetStringProp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ pDefValue)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00451\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_aadffc404d2cfc79ee842265c46abbc12}{SetStringProp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ pValue);}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00455\ \ \ \ \ \ }
+\DoxyCodeLine{00460\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_i_o_settings_a83350a45f6370913ca1b2c0527a07d8b}{ReadXMLFile}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ path);}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00467\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_i_o_settings_a5b8c0000832b00d77e469cfb1b8f4c81}{WriteXMLFile}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ path);}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00475\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_i_o_settings_abd6cac9a8962bee693960397190a9771}{WriteXmlPropToFile}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pFullPath,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ propPath);}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00479\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00480\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00481\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00482\ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_prop_info}{FbxIOPropInfo}}*\ GetPropInfo(FbxProperty\ \&pProp);}
+\DoxyCodeLine{00483\ }
+\DoxyCodeLine{00484\ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a84f2effd8e41c382faa5ca58046f323f}{ELanguage}}\ UILanguage;}
+\DoxyCodeLine{00485\ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ GetLanguageLabel(FbxProperty\&\ pProp);}
+\DoxyCodeLine{00486\ \ \ \ \ \textcolor{keywordtype}{void}\ SetLanguageLabel(FbxProperty\&\ pProp,\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pLabel);}
+\DoxyCodeLine{00487\ }
+\DoxyCodeLine{00488\ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_info}{FbxIOInfo}}\ impInfo;}
+\DoxyCodeLine{00489\ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_info}{FbxIOInfo}}\ expInfo;}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ GetUserMyDocumentDir();}
+\DoxyCodeLine{00492\ \ \ \ \ \textcolor{keywordtype}{void}\ SetPropVisible(FbxProperty\&\ pProp,\ \textcolor{keywordtype}{bool}\ pWithChildren,\ \textcolor{keywordtype}{bool}\ pVisible);}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Read\ an\ XML\ file\ from\ MyDocument\ dir}}
+\DoxyCodeLine{00495\ \ \ \ \ \textcolor{keywordtype}{bool}\ ReadXmlPropFromMyDocument(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ subDir,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ filename);}
+\DoxyCodeLine{00496\ }
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Write\ property\ branch\ to\ an\ XML\ file\ in\ MyDocument\ dir}}
+\DoxyCodeLine{00498\ \ \ \ \ \textcolor{keywordtype}{bool}\ WriteXmlPropToMyDocument(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ subDir,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ filename,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ propPath);}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ GetFileMergeDescription(\textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00502\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_i_o_settings_a7c0c9b5df78863a5d9acdcac80a04211}{ELoadMode}}\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00503\ \ \ \ \ \{\ }
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a7c0c9b5df78863a5d9acdcac80a04211a0414070b97a5f0192827ac4f8217cf93}{eCreate}},\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a7c0c9b5df78863a5d9acdcac80a04211ae63d3a1974af470f16b65e334b22b4a7}{eMerge}},\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_i_o_settings_a7c0c9b5df78863a5d9acdcac80a04211ad93bf1b6e8c1d02f5f7803826c808d30}{eExclusiveMerge}}\ \ }
+\DoxyCodeLine{00507\ \ \ \ \ \};}
+\DoxyCodeLine{00508\ }
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \ \ \ \ \textcolor{keyword}{enum}\ EQuaternionMode\ \ \ \{\ eAsQuaternion,\ eAsEuler,\ eResample\ \};}
+\DoxyCodeLine{00511\ \ \ \ \ \textcolor{keyword}{enum}\ EObjectDerivation\ \{\ eByLayer,\ eByEntity,\ eByBlock\ \};\ }
+\DoxyCodeLine{00512\ }
+\DoxyCodeLine{00513\ \ \ \ \ \textcolor{keyword}{enum}\ ESysUnits}
+\DoxyCodeLine{00514\ \ \ \ \ \{}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ eUnitsUser,}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ eUnitsInches,\ }
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ eUnitsFeet,}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ eUnitYards,}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ eUnitsMiles,}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ eUnitsMillimeters,}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ eUnitsCentimeters,}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ eUnitsMeters,}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ eUnitsKilometers}
+\DoxyCodeLine{00524\ \ \ \ \ \};}
+\DoxyCodeLine{00525\ }
+\DoxyCodeLine{00526\ \ \ \ \ \textcolor{keyword}{enum}\ ESysFrameRate\ \ }
+\DoxyCodeLine{00527\ \ \ \ \ \{}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ eFrameRateUser,}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ eFrameRateHours,}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ eFrameRateMinutes,}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ eFrameRateSeconds,}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ eFrameRateMilliseconds,}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ eFrameRateGames15,}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ eFrameRateFilm24,}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ eFrameRatePAL25,}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ eFrameRateNTSC30,}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ eFrameRateShowScan48,}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ eFrameRatePALField50,}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ eFrameRateNTSCField60}
+\DoxyCodeLine{00540\ \ \ \ \ \};}
+\DoxyCodeLine{00541\ \ \ \ \ }
+\DoxyCodeLine{00542\ \textcolor{comment}{//\ Max}}
+\DoxyCodeLine{00543\ \ \ \ \ \textcolor{keyword}{enum}\ EEnveloppeSystem}
+\DoxyCodeLine{00544\ \ \ \ \ \{}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ eSkinModifier,}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ ePhysic,}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ eBonePro,}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ eEnveloppeSystemCount}
+\DoxyCodeLine{00549\ \ \ \ \ \};}
+\DoxyCodeLine{00550\ }
+\DoxyCodeLine{00551\ \textcolor{comment}{//\ Max}}
+\DoxyCodeLine{00552\ \ \ \ \ \textcolor{keyword}{enum}\ EGeometryType}
+\DoxyCodeLine{00553\ \ \ \ \ \{}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ eTriangle,}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ eSimplifiedPoly,}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ ePolygon,}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ eNurbs,}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ ePatch,}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ eGeometryTypeCount}
+\DoxyCodeLine{00560\ \ \ \ \ \};}
+\DoxyCodeLine{00561\ }
+\DoxyCodeLine{00562\ \textcolor{comment}{//\ Maya\ IK\ type}}
+\DoxyCodeLine{00563\ \ \ \ \ \textcolor{keyword}{enum}\ EIKType}
+\DoxyCodeLine{00564\ \ \ \ \ \{}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ eNone,}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ eFBIK,\ \ \ \ \ \ }
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ eHumanIK}
+\DoxyCodeLine{00568\ \ \ \ \ \};}
+\DoxyCodeLine{00569\ }
+\DoxyCodeLine{00570\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00571\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_i_o_settings_acc06445a193fb3b1b8026080f37b93e9}{Construct}}(\textcolor{keyword}{const}\ FbxObject*\ pFrom)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00572\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_i_o_settings_a2499c48daf9811243e84d0ff687178d3}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00573\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_i_o_settings_ac632c2465bee4a73b8516fbbd5cbd8d2}{Destruct}}(\textcolor{keywordtype}{bool}\ pRecursive)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00574\ }
+\DoxyCodeLine{00575\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00576\ \ \ \ \ \textcolor{keywordtype}{void}\ AddNewPropInfo(FbxProperty\&\ pProp);}
+\DoxyCodeLine{00577\ \ \ \ \ \textcolor{keywordtype}{void}\ DeletePropInfo(FbxProperty\&\ pProp);}
+\DoxyCodeLine{00578\ \ \ \ \ \textcolor{keywordtype}{void}\ DeleteAllPropInfo(FbxProperty\&\ pProp);}
+\DoxyCodeLine{00579\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00580\ \};}
+\DoxyCodeLine{00581\ }
+\DoxyCodeLine{00582\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00583\ }
+\DoxyCodeLine{00584\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_FILEIO\_IO\_SETTINGS\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

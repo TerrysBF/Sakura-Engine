@@ -1,0 +1,307 @@
+\doxysection{fbxtime.\+h}
+\hypertarget{fbxtime_8h_source}{}\label{fbxtime_8h_source}\index{include/fbx/fbxsdk/core/base/fbxtime.h@{include/fbx/fbxsdk/core/base/fbxtime.h}}
+\mbox{\hyperlink{fbxtime_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_BASE\_TIME\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_BASE\_TIME\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxtimecode_8h}{fbxsdk/core/base/fbxtimecode.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxstring_8h}{fbxsdk/core/base/fbxstring.h}}>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ FBXSDK\_TIME\_INFINITE\ \ \ \ \ \ \ \ FbxTime(FBXSDK\_TC\_INFINITY)}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ FBXSDK\_TIME\_MINUS\_INFINITE\ \ FbxTime(FBXSDK\_TC\_MINFINITY)}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ FBXSDK\_TIME\_ZERO\ \ \ \ \ \ \ \ \ \ \ \ FbxTime(FBXSDK\_TC\_ZERO)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ FBXSDK\_TIME\_EPSILON\ \ \ \ \ \ \ \ \ FbxTime(FBXSDK\_TC\_EPSILON)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ FBXSDK\_TIME\_ONE\_SECOND\ \ \ \ \ \ FbxTime(FBXSDK\_TC\_SECOND)}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ FBXSDK\_TIME\_ONE\_MINUTE\ \ \ \ \ \ FbxTime(FBXSDK\_TC\_MINUTE)}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ FBXSDK\_TIME\_ONE\_HOUR\ \ \ \ \ \ \ \ FbxTime(FBXSDK\_TC\_HOUR)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ FBXSDK\_TIME\_ASSERT\_EPSILON\ \ 0.5}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ FBXSDK\_TIME\_FORWARD\ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ FBXSDK\_TIME\_BACKWARD\ \ \ \ \ \ \ \ -\/1}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }FbxTimeModeObject;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\ }
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}(\textcolor{keyword}{const}\ FbxLongLong\ pTime=0)\{\ mTime\ =\ pTime;\ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ eDefaultMode,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ eFrames120,}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ eFrames100,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ eFrames60,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ eFrames50,}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ eFrames48,}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ eFrames30,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ eFrames30Drop,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ eNTSCDropFrame,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ eNTSCFullFrame,}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ ePAL,}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ eFrames24,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ eFrames1000,}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ eFilmFullFrame,}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ eCustom,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ eFrames96,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ eFrames72,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ eFrames59dot94,}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ eFrames119dot88,}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ eModesCount}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}}\ \{eSMPTE,\ eFrameCount,\ eDefaultProtocol\};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_time_a0bd3eab238596b63a1bc8e8ac830844b}{SetGlobalTimeMode}}(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode,\ \textcolor{keywordtype}{double}\ pFrameRate=0.0);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ \mbox{\hyperlink{class_fbx_time_ae5ad30ea14f534b93fb04c2966ef5ae7}{GetGlobalTimeMode}}();}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_time_ab455ab67a792cbf5d691db58d988a905}{SetGlobalTimeProtocol}}(\mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}}\ pTimeProtocol);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}}\ \mbox{\hyperlink{class_fbx_time_af50c9f37b415366a30a62378d0fd9e0f}{GetGlobalTimeProtocol}}();}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_time_a583171e7b6351a2ae0468b03d442a1e6}{GetFrameRate}}(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ \mbox{\hyperlink{class_fbx_time_aac990ffad2cf969b6c1003cce20087e5}{ConvertFrameRateToTimeMode}}(\textcolor{keywordtype}{double}\ pFrameRate,\ \textcolor{keywordtype}{double}\ pPrecision=0.00000001);}
+\DoxyCodeLine{00161\ \ \ \ \ }
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_time_ae5d5d3624a3dc7f24fe991f21df4f91b}{Set}}(FbxLongLong\ pTime)\{\ mTime\ =\ pTime;\ \}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ FbxLongLong\ \mbox{\hyperlink{class_fbx_time_a17447886f905390b991a2d48ddb5a375}{Get}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mTime;\ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_time_a7105d8b5b0665d82660f5ef749cd6274}{SetMilliSeconds}}(FbxLongLong\ pMilliSeconds)\{\ mTime\ =\ pMilliSeconds\ *\ FBXSDK\_TC\_MILLISECOND;\ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ FbxLongLong\ \mbox{\hyperlink{class_fbx_time_a221649a9e998cd387df4116068322553}{GetMilliSeconds}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mTime\ /\ FBXSDK\_TC\_MILLISECOND;\ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_time_aa67980a4f73f7914d0c457384754da0c}{SetSecondDouble}}(\textcolor{keywordtype}{double}\ pTime);}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_fbx_time_a11db10305535e388b8b2afb1b2bb89e6}{GetSecondDouble}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_time_ae57387b2c14de574b1b7d4361babf033}{SetTime}}(\textcolor{keywordtype}{int}\ pHour,\ \textcolor{keywordtype}{int}\ pMinute,\ \textcolor{keywordtype}{int}\ pSecond,\ \textcolor{keywordtype}{int}\ pFrame=0,\ \textcolor{keywordtype}{int}\ pField=0,\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode=eDefaultMode);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_time_a3922d4acd406c43e2d27e16feb1593d0}{SetTime}}(\textcolor{keywordtype}{int}\ pHour,\ \textcolor{keywordtype}{int}\ pMinute,\ \textcolor{keywordtype}{int}\ pSecond,\ \textcolor{keywordtype}{int}\ pFrame,\ \textcolor{keywordtype}{int}\ pField,\ \textcolor{keywordtype}{int}\ pResidual,\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode);}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_time_a3d36e985f2da20e855fa23906c97ed35}{GetTime}}(\textcolor{keywordtype}{int}\&\ pHour,\ \textcolor{keywordtype}{int}\&\ pMinute,\ \textcolor{keywordtype}{int}\&\ pSecond,\ \textcolor{keywordtype}{int}\&\ pFrame,\ \textcolor{keywordtype}{int}\&\ pField,\ \textcolor{keywordtype}{int}\&\ pResidual,\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode=eDefaultMode)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\ \ \mbox{\hyperlink{class_fbx_time_a5bd6ad8a4d3b18167e5350db42680f96}{GetFramedTime}}(\textcolor{keywordtype}{bool}\ pRound=\textcolor{keyword}{true})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_time_ac695b38f72d522f8d592404b6f301fe4}{SetFrame}}(FbxLongLong\ pFrames,\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode=eDefaultMode);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_time_aab76f3007f42dbeb80fc552c9e4175be}{SetFramePrecise}}(FbxDouble\ pFrames,\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode=eDefaultMode);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_time_acd535f01e345e54e3f3bb0c12c482d37}{GetHourCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_time_aa8c9ef48cd8d43e83e1c3bb42d62ca95}{GetMinuteCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_time_abccce651a65f2c4232cc238f35c3a5d4}{GetSecondCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ FbxLongLong\ \mbox{\hyperlink{class_fbx_time_a56cfe7c115f3191ba4a1b908806baf1b}{GetFrameCount}}(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode=eDefaultMode)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ FbxDouble\ \mbox{\hyperlink{class_fbx_time_a7f2dcde2ceab2292fd05a8d9575a78ed}{GetFrameCountPrecise}}(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode=eDefaultMode)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ FbxLongLong\ \mbox{\hyperlink{class_fbx_time_a1b8d63fe5fc5c49f0c790bf993707a9e}{GetFieldCount}}(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode=eDefaultMode)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_time_aae0607dc725dc17ed4ff8e37dd75e621}{GetResidual}}(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode=eDefaultMode)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_time_a62b789beb9abedb0f7d100bba3a96d2a}{IsDropFrame}}(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode=eDefaultMode);}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_fbx_time_ae82e82b890990a9ad45a6ba5ffbe7fcf}{GetFrameSeparator}}(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode=eDefaultMode)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_time_a6a0807260d65b280f179c211257d241f}{GetTimeString}}(\textcolor{keywordtype}{char}*\ pTimeString,\ \textcolor{keyword}{const}\ FbxUShort\&\ pTimeStringSize,\ \textcolor{keywordtype}{int}\ pInfo=5,\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode=eDefaultMode,\ \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}}\ pTimeFormat=eDefaultProtocol)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ EElement\ \{eHours,\ eMinutes,\ eSeconds,\ eFrames,\ eField,\ eResidual\};}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \mbox{\hyperlink{class_fbx_time_ad9d512083403040d05690b62b9a592a6}{GetTimeString}}(EElement\ pStart=eHours,\ EElement\ pEnd=eResidual,\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode=eDefaultMode,\ \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}}\ pTimeFormat=eDefaultProtocol)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_time_a89cd0281110c4dee63e5211adb565ead}{SetTimeString}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pTime,\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode=eDefaultMode,\ \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{EProtocol}}\ pTimeFormat=eDefaultProtocol);}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_time_a9dae81e92ed8d293c22d0d09cc0d3ecc}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ pTime)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mTime\ ==\ pTime.mTime;\ \}}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_time_a13ccb17d3a4dfd3bcc9e9272d8a5c853}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ pTime)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mTime\ !=\ pTime.mTime;\ \}}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_time_a58d0eaca01e27c24c35026c9329bf892}{operator>=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ pTime)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mTime\ >=\ pTime.mTime;\ \}}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_time_a8d3937138e25178f4a4308e1d192620b}{operator<=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ pTime)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mTime\ <=\ pTime.mTime;\ \}}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_time_a0cce77e50858f177fa1c11556277010e}{operator>}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ pTime)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mTime\ >\ pTime.mTime;\ \}}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_time_afb7a54c305cd31c35bb0d7f26a86b647}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ pTime)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mTime\ <\ pTime.mTime;\ \}\ }
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ \mbox{\hyperlink{class_fbx_time_a62cb0298b7ca5104b86f884cf3096208}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ pTime)\ \{\ mTime\ =\ pTime.mTime;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ \mbox{\hyperlink{class_fbx_time_a976d34acaa067ae9d2f83abe881b7a73}{operator+=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ pTime)\ \{\ mTime\ +=\ pTime.mTime;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ \mbox{\hyperlink{class_fbx_time_a77cec5b3b0e846c89bd34551f653c8d7}{operator-\/=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ pTime)\ \{\ mTime\ -\/=\ pTime.mTime;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\ \mbox{\hyperlink{class_fbx_time_a42823b945fc1ccbd550df5a2b1768ca9}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ pTime)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00414\ }
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\ \mbox{\hyperlink{class_fbx_time_aea722074dbc93c423fa5b83420f87611}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ pTime)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\ \mbox{\hyperlink{class_fbx_time_a5d1dae17adc48edd0e3149a11777ddbb}{operator*}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ Mult)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\ \mbox{\hyperlink{class_fbx_time_ad135636b4c52caa325aa174650f33bc0}{operator/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ pTime)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\ \mbox{\hyperlink{class_fbx_time_a43c5cf2a3f56dd7d2aab96b45a5473b7}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_ae4511695181a014b707b2f62f264b070}{FbxTime}}\&\ pTime)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00438\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ inline\ FbxTime\&\ operator++()\ \{\ mTime\ +=\ 1;\ return\ (*this);\ \}}
+\DoxyCodeLine{00441\ }
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ inline\ const\ FbxTime\ operator++(int)\ \{\ FbxTime\ lOld\ =\ *this;\ ++(*this);\ return\ lOld;\ \}}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ inline\ FbxTime\&\ operator-\/-\/()\ \{\ mTime\ -\/=\ 1;\ return\ (*this);\ \}}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ inline\ const\ FbxTime\ operator-\/-\/(int)\ \{\ FbxTime\ lOld\ =\ *this;\ -\/-\/(*this);\ return\ lOld;\ \}*/}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00456\ \ \ \ \ \textcolor{keyword}{static}\ FbxLongLong\ \mbox{\hyperlink{class_fbx_time_a145760264d23eecf6719039fb3d6293f}{GetOneFrameValue}}(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{EMode}}\ pTimeMode=eDefaultMode);}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00459\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00460\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00462\ \ \ \ \ \textcolor{comment}{//\ Keep\ compatibility\ with\ old\ fbx\ format}}
+\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keyword}{enum}\ EOldMode}
+\DoxyCodeLine{00464\ \ \ \ \ \{}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ eOLD\_DEFAULT\_MODE,\ \ \ \ \ \ \textcolor{comment}{//Default\ mode\ set\ using\ FbxTime::SetGlobalTimeMode(EMode\ pTimeMode)}}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ eOLD\_CINEMA,\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//24\ frameOLD\_s/s}}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ eOLD\_PAL,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//25\ frameOLD\_s/s\ \ \ \ PAL/SECAM}}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ eOLD\_FRAMES30,\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//30\ frameOLD\_s/s\ \ \ \ BLACK\ \&\ WHITE\ NTSC}}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ eOLD\_NTSC\_DROP\_FRAME,\ \ \ \textcolor{comment}{//29.97002617\ frameOLD\_s/s\ COLOR\ NTSC}}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ eOLD\_FRAMES50,\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//50\ frameOLD\_s/s}}
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ eOLD\_FRAMES60,\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//60\ frameOLD\_s/s}}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ eOLD\_FRAMES100,\ \ \ \ \ \ \ \ \ \textcolor{comment}{//100\ frameOLD\_s/s}}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ eOLD\_FRAMES120,\ \ \ \ \ \ \ \ \ \textcolor{comment}{//120\ frameOLD\_s/s}}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ eOLD\_NTSC\_FULL\_FRAME,\ \ \ \textcolor{comment}{//29.97002617\ frameOLD\_s/s\ COLOR\ NTSC}}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ eOLD\_FRAMES30\_DROP,\ \ \ \ \ \textcolor{comment}{//30\ frameOLD\_s/s}}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ eOLD\_FRAMES1000\ \ \ \ \ \ \ \ \ \textcolor{comment}{//1000\ frameOLD\_s/s}}
+\DoxyCodeLine{00477\ \ \ \ \ \};}
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00480\ \ \ \ \ FbxLongLong\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mTime;\ \textcolor{comment}{//In\ 1\ /\ 46,186,158,000\ Seconds}}
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00482\ \ \ \ \ \textcolor{keyword}{static}\ EMode\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gsGlobalTimeMode;}
+\DoxyCodeLine{00483\ \ \ \ \ \textcolor{keyword}{static}\ EProtocol\ \ \ \ \ \ \ \ \ \ \ \ gsGlobalTimeProtocol;}
+\DoxyCodeLine{00484\ \ \ \ \ \textcolor{keyword}{static}\ FbxTimeModeObject*\ \ \ gsTimeObject;}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00486\ \ \ \ \ \textcolor{keywordtype}{void}\ InternalSetTime(\textcolor{keywordtype}{int}\ pHour,\ \textcolor{keywordtype}{int}\ pMinute,\ \textcolor{keywordtype}{int}\ pSecond,\ FbxLongLong\ pFrame,\ \textcolor{keywordtype}{int}\ pField,\ EMode\ pTimeMode);}
+\DoxyCodeLine{00487\ }
+\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keyword}{friend}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ \ \ \ \ \ FbxGetGlobalTimeMode();}
+\DoxyCodeLine{00489\ \ \ \ \ \textcolor{keyword}{friend}\ FBXSDK\_DLL\ FbxTimeModeObject*\ \ \ \ FbxGetGlobalTimeModeObject();}
+\DoxyCodeLine{00490\ \ \ \ \ \textcolor{keyword}{friend}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{FbxTime::EProtocol}}\ \ FbxGetGlobalTimeFormat();}
+\DoxyCodeLine{00491\ \ \ \ \ \textcolor{keyword}{friend}\ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxSetGlobalTimeMode(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ pTimeMode,\ \textcolor{keywordtype}{double}\ pFrameRate);}
+\DoxyCodeLine{00492\ \ \ \ \ \textcolor{keyword}{friend}\ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxSetGlobalTimeFormat(\mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{FbxTime::EProtocol}}\ pTimeFormat);}
+\DoxyCodeLine{00493\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00494\ \};}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00499\ FBXSDK\_DLL\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ \mbox{\hyperlink{fbxtime_8h_a8e33ec1193eac9efccbeef8898f32236}{FbxTimeSeconds}}(\textcolor{keyword}{const}\ FbxDouble\&\ pTime=0.0)}
+\DoxyCodeLine{00500\ \{}
+\DoxyCodeLine{00501\ \ \ \ \ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ lTime;}
+\DoxyCodeLine{00502\ \ \ \ \ lTime.\mbox{\hyperlink{class_fbx_time_aa67980a4f73f7914d0c457384754da0c}{SetSecondDouble}}(pTime);}
+\DoxyCodeLine{00503\ \ \ \ \ \textcolor{keywordflow}{return}\ lTime;}
+\DoxyCodeLine{00504\ \}}
+\DoxyCodeLine{00505\ }
+\DoxyCodeLine{00510\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_time_span_a4eed31104b9afeb2b1a53bd7b2b1f823}{FbxTimeSpan}}}
+\DoxyCodeLine{00511\ \{}
+\DoxyCodeLine{00512\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00514\ \ \ \ \ \mbox{\hyperlink{class_fbx_time_span_a4eed31104b9afeb2b1a53bd7b2b1f823}{FbxTimeSpan}}()\ \{\}}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00520\ \ \ \ \ \mbox{\hyperlink{class_fbx_time_span_a50d9ebc7163501aafd108d80673c191b}{FbxTimeSpan}}(\mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pStart,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pStop)\{\ mStart\ =\ pStart;\ mStop\ =\ pStop;\ \}}
+\DoxyCodeLine{00521\ }
+\DoxyCodeLine{00526\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_time_span_a29861241ccf52ec9c3f491d336209ff7}{Set}}(\mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pStart,\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pStop)\{\ mStart\ =\ pStart;\ mStop\ =\ pStop;\ \}}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00531\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_time_span_a453592f02b54bc27d664386c1d37abda}{SetStart}}(\mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pStart)\{\ mStart\ =\ pStart;\ \}}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00536\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_time_span_a7b0577b88300d141657ed2092228c867}{SetStop}}(\mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pStop)\{\ mStop\ =\ pStop;\ \}}
+\DoxyCodeLine{00537\ }
+\DoxyCodeLine{00541\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ \mbox{\hyperlink{class_fbx_time_span_a262c2fedcf2bdf205554df6fc8c7f7b9}{GetStart}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mStart;\ \}}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00546\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ \mbox{\hyperlink{class_fbx_time_span_a1d5362bd784ccd554a2c6faad2227c9b}{GetStop}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mStop;\ \}}
+\DoxyCodeLine{00547\ }
+\DoxyCodeLine{00551\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ \mbox{\hyperlink{class_fbx_time_span_a292fce840a8caee4247157e24cbd787c}{GetDuration}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{if}(\ mStop\ >\ mStart\ )\ \textcolor{keywordflow}{return}\ mStop\ -\/\ mStart;\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{return}\ mStart\ -\/\ mStop;\ \}}
+\DoxyCodeLine{00552\ }
+\DoxyCodeLine{00556\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ \mbox{\hyperlink{class_fbx_time_span_a73c72bdec019e41044aa6f4afb59fef3}{GetSignedDuration}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mStop\ -\/\ mStart;\ \}}
+\DoxyCodeLine{00557\ }
+\DoxyCodeLine{00561\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_time_span_ac53a2eda33c4e23da9417d0b76b67a54}{GetDirection}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{if}(\ mStop\ >=\ mStart\ )\ \textcolor{keywordflow}{return}\ FBXSDK\_TIME\_FORWARD;\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{return}\ FBXSDK\_TIME\_BACKWARD;\ \}}
+\DoxyCodeLine{00562\ }
+\DoxyCodeLine{00567\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_time_span_a969295da345c8c9e574acbbcda1d59e0}{IsInside}}(\mbox{\hyperlink{class_fbx_time}{FbxTime}}\ pTime)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00568\ }
+\DoxyCodeLine{00573\ \ \ \ \ \mbox{\hyperlink{class_fbx_time_span_a4eed31104b9afeb2b1a53bd7b2b1f823}{FbxTimeSpan}}\ \mbox{\hyperlink{class_fbx_time_span_a8be395bd3e5dfbdcd2bc1551832e04b1}{Intersect}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_span_a4eed31104b9afeb2b1a53bd7b2b1f823}{FbxTimeSpan}}\&\ pTime)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00574\ }
+\DoxyCodeLine{00579\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_time_span_a2dd0bd644b3c8eb5fb79cc2866ea0420}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_span_a4eed31104b9afeb2b1a53bd7b2b1f823}{FbxTimeSpan}}\&\ pTime)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00580\ }
+\DoxyCodeLine{00585\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_time_span_a1dac810b3c1c123bd3055befb96e42f7}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_span_a4eed31104b9afeb2b1a53bd7b2b1f823}{FbxTimeSpan}}\&\ pTime)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00586\ }
+\DoxyCodeLine{00594\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_time_span_af5159fe30c3baa37728c12ac167a28ba}{UnionAssignment}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_time_span_a4eed31104b9afeb2b1a53bd7b2b1f823}{FbxTimeSpan}}\&\ pSpan,\ \textcolor{keywordtype}{int}\ pDirection=FBXSDK\_TIME\_FORWARD);}
+\DoxyCodeLine{00595\ }
+\DoxyCodeLine{00596\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00597\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00598\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00599\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00600\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00601\ \ \ \ \ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ mStart;}
+\DoxyCodeLine{00602\ \ \ \ \ \mbox{\hyperlink{class_fbx_time}{FbxTime}}\ mStop;}
+\DoxyCodeLine{00603\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00604\ \};}
+\DoxyCodeLine{00605\ }
+\DoxyCodeLine{00606\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxLocalTime}
+\DoxyCodeLine{00607\ \{}
+\DoxyCodeLine{00608\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00609\ \ \ \ \ FbxLocalTime();}
+\DoxyCodeLine{00610\ }
+\DoxyCodeLine{00611\ \ \ \ \ \textcolor{keywordtype}{int}\ mYear;}
+\DoxyCodeLine{00612\ \ \ \ \ \textcolor{keywordtype}{int}\ mMonth;}
+\DoxyCodeLine{00613\ \ \ \ \ \textcolor{keywordtype}{int}\ mDay;}
+\DoxyCodeLine{00614\ \ \ \ \ \textcolor{keywordtype}{int}\ mHour;}
+\DoxyCodeLine{00615\ \ \ \ \ \textcolor{keywordtype}{int}\ mMinute;}
+\DoxyCodeLine{00616\ \ \ \ \ \textcolor{keywordtype}{int}\ mSecond;}
+\DoxyCodeLine{00617\ \ \ \ \ \textcolor{keywordtype}{int}\ mMillisecond;}
+\DoxyCodeLine{00618\ \};}
+\DoxyCodeLine{00619\ }
+\DoxyCodeLine{00620\ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxGetCurrentLocalTime(\mbox{\hyperlink{class_fbx_local_time}{FbxLocalTime}}\&\ pLocalTime);}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00622\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ \ \ \ \ FbxGetGlobalTimeMode();}
+\DoxyCodeLine{00623\ FBXSDK\_DLL\ FbxTimeModeObject*\ \ \ FbxGetGlobalTimeModeObject();}
+\DoxyCodeLine{00624\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{FbxTime::EProtocol}}\ FbxGetGlobalTimeFormat();}
+\DoxyCodeLine{00625\ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxSetGlobalTimeMode(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ pTimeMode,\ \textcolor{keywordtype}{double}\ pFrameRate=0.0);}
+\DoxyCodeLine{00626\ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxSetGlobalTimeFormat(\mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{FbxTime::EProtocol}}\ pTimeFormat);}
+\DoxyCodeLine{00627\ }
+\DoxyCodeLine{00628\ \textcolor{comment}{//\ Use\ those\ functions\ to\ keep\ the\ compatibility\ with\ old\ time\ mode\ since\ we\ added\ new\ time\ mode.}}
+\DoxyCodeLine{00629\ FBXSDK\_DLL\ FbxTime::EOldMode\ \ \ \ \ \ \ \ FbxGetOldTimeModeCorrespondance(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ pMode);}
+\DoxyCodeLine{00630\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ \ \ \ \ FbxGetTimeModeFromOldValue(FbxTime::EOldMode\ pOldMode);}
+\DoxyCodeLine{00631\ }
+\DoxyCodeLine{00632\ \textcolor{comment}{//\ We\ now\ store\ the\ framerate\ instead\ of\ the\ time\ mode.}}
+\DoxyCodeLine{00633\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ \ \ \ \ FbxGetTimeModeFromFrameRate(\textcolor{keywordtype}{char}*\ pFrameRate);}
+\DoxyCodeLine{00634\ FBXSDK\_DLL\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxGetControlStringList(\textcolor{keywordtype}{char}*\ pControlString,\ \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{FbxTime::EProtocol}}\ pTimeFormat);}
+\DoxyCodeLine{00635\ FBXSDK\_DLL\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ FbxGetGlobalFrameRateString(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ pTimeMode);}
+\DoxyCodeLine{00636\ FBXSDK\_DLL\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ FbxGetGlobalTimeModeString(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ pTimeMode);}
+\DoxyCodeLine{00637\ FBXSDK\_DLL\ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxGetFrameRate(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ pTimeMode);}
+\DoxyCodeLine{00638\ }
+\DoxyCodeLine{00639\ \textcolor{comment}{//\ Time\ format}}
+\DoxyCodeLine{00640\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_time_a10ffa1fdce0aa7f63ec24bdd23afff4b}{FbxTime::EProtocol}}\ FbxSelectionToTimeFormat(\textcolor{keywordtype}{int}\ pSelection);}
+\DoxyCodeLine{00641\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ \ \ \ \ FbxSelectionToTimeMode(\textcolor{keywordtype}{int}\ pSelection);}
+\DoxyCodeLine{00642\ FBXSDK\_DLL\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxTimeToSelection(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ pTimeMode=FbxTime::eDefaultMode,\ \textcolor{keywordtype}{int}\ pTimeFormat=FbxTime::eDefaultProtocol);}
+\DoxyCodeLine{00643\ FBXSDK\_DLL\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ FbxGetTimeModeName(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ pTimeMode);}
+\DoxyCodeLine{00644\ FBXSDK\_DLL\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxGetFrameRateStringListIndex(\mbox{\hyperlink{class_fbx_time_acc529b00a0e8d4c3da3702449ca93031}{FbxTime::EMode}}\ pTimeMode);}
+\DoxyCodeLine{00645\ FBXSDK\_DLL\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxIsValidCustomFrameRate(\textcolor{keywordtype}{double}\ pFramerate);}
+\DoxyCodeLine{00646\ FBXSDK\_DLL\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FbxGetNearestCustomFrameRate(\textcolor{keywordtype}{double}\ pFramerate,\ \textcolor{keywordtype}{double}\&\ pNearestRate);}
+\DoxyCodeLine{00647\ }
+\DoxyCodeLine{00648\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00649\ }
+\DoxyCodeLine{00650\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_BASE\_TIME\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

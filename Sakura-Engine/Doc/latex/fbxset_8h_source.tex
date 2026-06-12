@@ -1,0 +1,194 @@
+\doxysection{fbxset.\+h}
+\hypertarget{fbxset_8h_source}{}\label{fbxset_8h_source}\index{include/fbx/fbxsdk/core/base/fbxset.h@{include/fbx/fbxsdk/core/base/fbxset.h}}
+\mbox{\hyperlink{fbxset_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_BASE\_SET\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_BASE\_SET\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxredblacktree_8h}{fbxsdk/core/base/fbxredblacktree.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmap_8h}{fbxsdk/core/base/fbxmap.h}}>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Type,\ \textcolor{keyword}{typename}\ Compare=FbxLessCompare<Type>,\ \textcolor{keyword}{typename}\ Allocator=FbxBaseAllocator>\ \textcolor{keyword}{class\ }FbxSet}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{class\ }Value}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ \ \ \ /*****************************************************************************************************************************}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ \ \ \ **\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ \ \ \ *****************************************************************************************************************************/}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ Type\ KeyType;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ Type\ ConstKeyType;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ Type\ ValueType;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ Type\ ConstValueType;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ Value(\textcolor{keyword}{const}\ Type\&\ pValue)\ :\ mValue(pValue)\{\}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ KeyType\&\ GetKey()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mValue;\ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ ConstKeyType\&\ GetKey()\{\ \textcolor{keywordflow}{return}\ mValue;\ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ ValueType\&\ GetValue()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mValue;\ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ ConstValueType\&\ GetValue()\{\ \textcolor{keywordflow}{return}\ mValue;\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ ValueType\ mValue;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ Value\&\ operator=(\textcolor{keyword}{const}\ Value\&);}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\ \ \ \ \#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00053\ \ \ \ \ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_red_black_tree}{FbxRedBlackTree<Value,\ Compare,\ Allocator>}}\ \mbox{\hyperlink{class_fbx_set_a6d908b9bc11d5418cd2fcceda1342e90}{StorageType}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{typedef}\ Type\ ValueType;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ StorageType::RecordType\ \ \ \ \ \ \ \ RecordType;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ StorageType::IteratorType\ \ \ \ \ \ Iterator;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ StorageType::ConstIteratorType\ ConstIterator;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_set_ac7d73b7db8fe03350e2ced16ffff1c36}{Reserve}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pRecordCount)}
+\DoxyCodeLine{00068\ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ mTree.Reserve(pRecordCount);}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_set_a461c8f7332c997970eeb89cf7920b509}{GetSize}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00074\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mTree.GetSize();}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_pair}{FbxPair<RecordType*,\ bool>}}\ \mbox{\hyperlink{class_fbx_set_a7423bcda6c9d06c601dd8d4d1af5e3f7}{Insert}}(\textcolor{keyword}{const}\ ValueType\&\ pValue)}
+\DoxyCodeLine{00082\ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mTree.Insert(Value(pValue));}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_set_a12e704b8d6f84a349c27cd40ef4dde11}{Remove}}(\textcolor{keyword}{const}\ ValueType\&\ pValue)}
+\DoxyCodeLine{00090\ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mTree.Remove(pValue);}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_set_afc01fe172f741a42492831b57d44ed8f}{Clear}}()}
+\DoxyCodeLine{00096\ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ mTree.Clear();}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_set_a453c342954283c8c7add25804a915b44}{Empty}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00102\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mTree.Empty();}
+\DoxyCodeLine{00104\ \ \ \ \ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00107\ \ \ \ \ Iterator\ \mbox{\hyperlink{class_fbx_set_a77e36a10cf4707bce192e1b6fb8dd404}{Begin}}()}
+\DoxyCodeLine{00108\ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Iterator(\mbox{\hyperlink{class_fbx_set_ae6734f0686ef87cac67d46e9fec3da72}{Minimum}}());}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00113\ \ \ \ \ Iterator\ \mbox{\hyperlink{class_fbx_set_aff72352a00b11a896a960f4b562971de}{End}}()}
+\DoxyCodeLine{00114\ \ \ \ \ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Iterator();}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00119\ \ \ \ \ ConstIterator\ \mbox{\hyperlink{class_fbx_set_a1435632a44bad20741d19be792f0b6c0}{Begin}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00120\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ConstIterator(\mbox{\hyperlink{class_fbx_set_ae6734f0686ef87cac67d46e9fec3da72}{Minimum}}());}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00125\ \ \ \ \ ConstIterator\ \mbox{\hyperlink{class_fbx_set_a2d12954434e697202a703cb574072e9d}{End}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00126\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ConstIterator();}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ RecordType*\ \mbox{\hyperlink{class_fbx_set_aef1262baf35d56eb0f3e34296a7d5895}{Find}}(\textcolor{keyword}{const}\ ValueType\&\ pValue)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00134\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mTree.Find(pValue);}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{inline}\ RecordType*\ \mbox{\hyperlink{class_fbx_set_adc9aff2b5cb8c649acef62f8b7201653}{Find}}(\textcolor{keyword}{const}\ ValueType\&\ pValue)}
+\DoxyCodeLine{00142\ \ \ \ \ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mTree.Find(pValue);}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ RecordType*\ \mbox{\hyperlink{class_fbx_set_ae6734f0686ef87cac67d46e9fec3da72}{Minimum}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00148\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mTree.Minimum();}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{inline}\ RecordType*\ \mbox{\hyperlink{class_fbx_set_ab6c342edf1bc640b7538ae5655e12a4a}{Minimum}}()}
+\DoxyCodeLine{00154\ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mTree.Minimum();}
+\DoxyCodeLine{00156\ \ \ \ \ \}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ RecordType*\ \mbox{\hyperlink{class_fbx_set_abe7df9dba813f059f13e132f69e2fdd1}{Maximum}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00160\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mTree.Maximum();}
+\DoxyCodeLine{00162\ \ \ \ \ \}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{inline}\ RecordType*\ \mbox{\hyperlink{class_fbx_set_a8f57e50fdc25eac0d52307466ed59e3a}{Maximum}}()}
+\DoxyCodeLine{00166\ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mTree.Maximum();}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_set_a69388720587c95840cc36384f33a9484}{operator==}}(\textcolor{keyword}{const}\ FbxSet<Type,\ Compare,\ Allocator>\&\ pOther)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00172\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{this}\ ==\ \&pOther)\ ||\ (mTree\ ==\ pOther.mTree);}
+\DoxyCodeLine{00174\ \ \ \ \ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_set_ab1734439d5a1bb4b4e2c6bd45b18ecd2}{operator\ !=\ }}(\textcolor{keyword}{const}\ FbxSet<Type,\ Compare,\ Allocator>\&\ pOther)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00178\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(*\textcolor{keyword}{this}\ ==\ pOther);}
+\DoxyCodeLine{00180\ \ \ \ \ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keyword}{inline}\ FbxSet\ \mbox{\hyperlink{class_fbx_set_abea1a48c480a2f3ac236f8ff198fc2ce}{Intersect}}(\textcolor{keyword}{const}\ FbxSet\&\ pOther)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00186\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ FbxSet\ lReturn;}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ ConstIterator\ lBegin\ =\ \mbox{\hyperlink{class_fbx_set_a77e36a10cf4707bce192e1b6fb8dd404}{Begin}}();}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ lBegin\ !=\ \mbox{\hyperlink{class_fbx_set_aff72352a00b11a896a960f4b562971de}{End}}();\ ++lBegin)}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pOther.\mbox{\hyperlink{class_fbx_set_aef1262baf35d56eb0f3e34296a7d5895}{Find}}(lBegin-\/>GetValue())\ !=\ NULL)}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lReturn.\mbox{\hyperlink{class_fbx_set_a7423bcda6c9d06c601dd8d4d1af5e3f7}{Insert}}(lBegin-\/>GetValue());}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lReturn;}
+\DoxyCodeLine{00195\ \ \ \ \ \}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{inline}\ FbxSet\ \mbox{\hyperlink{class_fbx_set_a2a1a03dffe4d1b40a04bd48e4b6b3c10}{Union}}(\textcolor{keyword}{const}\ FbxSet\&\ pOther)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00201\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ FbxSet\ lReturn(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ ConstIterator\ lBegin\ =\ pOther.\mbox{\hyperlink{class_fbx_set_a77e36a10cf4707bce192e1b6fb8dd404}{Begin}}();}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ lBegin\ !=\ \mbox{\hyperlink{class_fbx_set_aff72352a00b11a896a960f4b562971de}{End}}();\ ++lBegin)}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_fbx_set_aef1262baf35d56eb0f3e34296a7d5895}{Find}}(lBegin-\/>GetValue())\ ==\ NULL)}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lReturn.\mbox{\hyperlink{class_fbx_set_a7423bcda6c9d06c601dd8d4d1af5e3f7}{Insert}}(lBegin-\/>GetValue());}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lReturn;}
+\DoxyCodeLine{00210\ \ \ \ \ \}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00213\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00214\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_set}{FbxSet}}()\{\}}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keyword}{inline}\ FbxSet(\textcolor{keyword}{const}\ FbxSet\&\ pSet)\ :\ mTree(pSet.mTree)\{\}}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keyword}{inline}\ \string~FbxSet()\{\ \mbox{\hyperlink{class_fbx_set_afc01fe172f741a42492831b57d44ed8f}{Clear}}();\ \}}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00221\ \ \ \ \ \mbox{\hyperlink{class_fbx_set_a6d908b9bc11d5418cd2fcceda1342e90}{StorageType}}\ mTree;}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00223\ \};}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_BASE\_SET\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

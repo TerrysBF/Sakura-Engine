@@ -1,0 +1,125 @@
+\doxysection{Fbx\+Criteria Class Reference}
+\hypertarget{class_fbx_criteria}{}\label{class_fbx_criteria}\index{FbxCriteria@{FbxCriteria}}
+
+
+{\ttfamily \#include $<$fbxquery.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \mbox{\hyperlink{class_fbx_criteria_ae6150a1168b4ffd233bb9eff914273e6}{operator\&\&}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+\mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \mbox{\hyperlink{class_fbx_criteria_a550446bf7c351b7cd09098bbe74d5d64}{operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+\Hypertarget{class_fbx_criteria_ad2da0815273fdbcca514b80d77cb58bd}\label{class_fbx_criteria_ad2da0815273fdbcca514b80d77cb58bd} 
+\mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} {\bfseries operator!} () const
+\begin{DoxyCompactList}\small\item\em Returns a negated version of the criteria. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_fbx_query}{Fbx\+Query}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_criteria_a022119ec34df4ade794ecb2e3aaded0a}{Get\+Query}} () const
+\item 
+\Hypertarget{class_fbx_criteria_afa1c0c24262d51ccda5bb559afa4ac33}\label{class_fbx_criteria_afa1c0c24262d51ccda5bb559afa4ac33} 
+{\bfseries Fbx\+Criteria} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+\Hypertarget{class_fbx_criteria_ad30265af41804a2e45d2705a837e226c}\label{class_fbx_criteria_ad30265af41804a2e45d2705a837e226c} 
+{\bfseries Fbx\+Criteria} (\mbox{\hyperlink{class_fbx_query}{Fbx\+Query}} \texorpdfstring{$\ast$}{*}p\+Query)
+\item 
+\Hypertarget{class_fbx_criteria_a19fdd43c7014b393ff599f3619e596ee}\label{class_fbx_criteria_a19fdd43c7014b393ff599f3619e596ee} 
+\mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{Object\+Type}} (const \mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \&p\+Class\+Id)
+\item 
+static \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \mbox{\hyperlink{class_fbx_criteria_a38bc13d95aaea852252625ca084054dd}{Object\+Type\+Strict}} (const \mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \&p\+Class\+Id)
+\item 
+\Hypertarget{class_fbx_criteria_abe944a4f8d41017f7043b4855f03d20e}\label{class_fbx_criteria_abe944a4f8d41017f7043b4855f03d20e} 
+static \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} {\bfseries Is\+Property} ()
+\begin{DoxyCompactList}\small\item\em Creates a new query criteria that only selects properties. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_criteria_aa6292f0d09535e3fe957088d09276268}\label{class_fbx_criteria_aa6292f0d09535e3fe957088d09276268} 
+class {\bfseries Fbx\+Manager}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines a filtering criteria for a query of objects, connections and properties, so that only those satisfying the criteria are affected by the query. Some examples of kinds of criteria are object type, connection type, or property. Criteria can be combined using logical operators such as "{}and"{} and "{}or"{}. \begin{DoxyNote}{Note}
+Objects are basic elements in FBX. Each of them has a hierarchy type and some properties. Objects and properties can be connected through a connection to represent a relationship between them. (e.\+g. child-\/parent, container membership, reference, etc.,). In a query, you could select object or properties based on these criteria. Here are some examples\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FbxObject*\ lObject\ =\ FbxObject::Create(lManager,\ \textcolor{stringliteral}{"{}Object"{}});}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ lSrcLightCount\ =\ lObject-\/>\mbox{\hyperlink{class_fbx_object_a865ee4dfaa7a8f9050105d4477288da8}{RootProperty}}.\mbox{\hyperlink{class_fbx_property_a4b6d431d87134722800f06e4cb442335}{GetSrcObjectCount}}(\mbox{\hyperlink{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}{FbxCriteria::ObjectType}}(FbxLight::ClassId));}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ lSrcDeformerCount\ =\ lObject-\/>\mbox{\hyperlink{class_fbx_object_a865ee4dfaa7a8f9050105d4477288da8}{RootProperty}}.\mbox{\hyperlink{class_fbx_property_a4b6d431d87134722800f06e4cb442335}{GetSrcObjectCount}}(\mbox{\hyperlink{class_fbx_criteria_a38bc13d95aaea852252625ca084054dd}{FbxCriteria::ObjectTypeStrict}}(FbxDeformer::ClassId));}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ lSrcPropertyCount\ =\ lObject-\/>\mbox{\hyperlink{class_fbx_object_a865ee4dfaa7a8f9050105d4477288da8}{RootProperty}}.GetSrcCount(\mbox{\hyperlink{class_fbx_criteria_abe944a4f8d41017f7043b4855f03d20e}{FbxCriteria::IsProperty}}());}
+
+\end{DoxyCode}
+ 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_fbx_query}{Fbx\+Query} 
+
+\doxylink{class_fbx_property_ad90aa5b8d3fbe78a9bf541dcbcf9c210}{Fbx\+Property\+::\+Get\+Src\+Object\+Count(const Fbx\+Criteria\&) const} 
+
+\doxylink{class_fbx_collection_ab885c6a1cc7eb77b471ae11c65658258}{Fbx\+Collection\+::\+Get\+Member\+Count(const Fbx\+Criteria\&) const} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_criteria_a022119ec34df4ade794ecb2e3aaded0a}\index{FbxCriteria@{FbxCriteria}!GetQuery@{GetQuery}}
+\index{GetQuery@{GetQuery}!FbxCriteria@{FbxCriteria}}
+\doxysubsubsection{\texorpdfstring{GetQuery()}{GetQuery()}}
+{\footnotesize\ttfamily \label{class_fbx_criteria_a022119ec34df4ade794ecb2e3aaded0a} 
+\mbox{\hyperlink{class_fbx_query}{Fbx\+Query}} \texorpdfstring{$\ast$}{*} Fbx\+Criteria\+::\+Get\+Query (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Retrieves the query. \begin{DoxyReturn}{Returns}
+The query of this criteria 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023}\index{FbxCriteria@{FbxCriteria}!ObjectType@{ObjectType}}
+\index{ObjectType@{ObjectType}!FbxCriteria@{FbxCriteria}}
+\doxysubsubsection{\texorpdfstring{ObjectType()}{ObjectType()}}
+{\footnotesize\ttfamily \label{class_fbx_criteria_a760d66022a8febcd3fd0c5fbbb534023} 
+static \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} Fbx\+Criteria\+::\+Object\+Type (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \&}]{p\+Class\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Creates a new query criteria that only selects objects which have a specific class ID or derive from a class with a specific class ID. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Class\+Id} & The base type class ID \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_criteria_a38bc13d95aaea852252625ca084054dd}\index{FbxCriteria@{FbxCriteria}!ObjectTypeStrict@{ObjectTypeStrict}}
+\index{ObjectTypeStrict@{ObjectTypeStrict}!FbxCriteria@{FbxCriteria}}
+\doxysubsubsection{\texorpdfstring{ObjectTypeStrict()}{ObjectTypeStrict()}}
+{\footnotesize\ttfamily \label{class_fbx_criteria_a38bc13d95aaea852252625ca084054dd} 
+static \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} Fbx\+Criteria\+::\+Object\+Type\+Strict (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \&}]{p\+Class\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Creates a new query criteria that only selects objects which have a specific class ID. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Class\+Id} & The type class ID \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_criteria_ae6150a1168b4ffd233bb9eff914273e6}\index{FbxCriteria@{FbxCriteria}!operator\&\&@{operator\&\&}}
+\index{operator\&\&@{operator\&\&}!FbxCriteria@{FbxCriteria}}
+\doxysubsubsection{\texorpdfstring{operator\&\&()}{operator\&\&()}}
+{\footnotesize\ttfamily \label{class_fbx_criteria_ae6150a1168b4ffd233bb9eff914273e6} 
+\mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} Fbx\+Criteria\+::operator\&\& (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{}\end{DoxyParamCaption}) const}
+
+Gets a logical conjunction (and) criteria from this and the specified criteria. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The specified criteria \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_criteria_a550446bf7c351b7cd09098bbe74d5d64}\index{FbxCriteria@{FbxCriteria}!operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}}
+\index{operator\texttt{"|}\texttt{"|}@{operator\texttt{"|}\texttt{"|}}!FbxCriteria@{FbxCriteria}}
+\doxysubsubsection{\texorpdfstring{operator\texttt{"|}\texttt{"|}()}{operator||()}}
+{\footnotesize\ttfamily \label{class_fbx_criteria_a550446bf7c351b7cd09098bbe74d5d64} 
+\mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} Fbx\+Criteria\+::operator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&}]{p\+Criteria}{}\end{DoxyParamCaption}) const}
+
+Gets a logical disjunction (or) criteria from this and the specified criteria. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Criteria} & The specified criteria \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/\mbox{\hyperlink{fbxquery_8h}{fbxquery.\+h}}\end{DoxyCompactItemize}

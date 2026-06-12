@@ -1,0 +1,60 @@
+\doxysection{include/\+Rendering/\+Render\+Types.h File Reference}
+\hypertarget{_render_types_8h}{}\label{_render_types_8h}\index{include/Rendering/RenderTypes.h@{include/Rendering/RenderTypes.h}}
+
+
+Define tipos, estructuras y enums usados en el sistema de render.  
+
+
+{\ttfamily \#include "{}Prerequisites.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_light_data}{Light\+Data}}
+\begin{DoxyCompactList}\small\item\em Contiene la información de una luz en la escena. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_material_params}{Material\+Params}}
+\begin{DoxyCompactList}\small\item\em Parámetros básicos de un material. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_c_b_per_frame}{CBPer\+Frame}}
+\begin{DoxyCompactList}\small\item\em Constant buffer que se actualiza cada frame. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_c_b_per_object}{CBPer\+Object}}
+\begin{DoxyCompactList}\small\item\em Constant buffer por objeto. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_c_b_per_material}{CBPer\+Material}}
+\begin{DoxyCompactList}\small\item\em Constant buffer por material. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_render_object}{Render\+Object}}
+\begin{DoxyCompactList}\small\item\em Representa un objeto listo para renderizar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{_render_types_8h_acaa906eae435bf9d60324427d97cd887}\label{_render_types_8h_acaa906eae435bf9d60324427d97cd887} 
+enum class \mbox{\hyperlink{_render_types_8h_acaa906eae435bf9d60324427d97cd887}{Material\+Domain}} \{ {\bfseries Opaque} = 0
+, {\bfseries Masked}
+, {\bfseries Transparent}
+ \}
+\begin{DoxyCompactList}\small\item\em Define el tipo de material según cómo se renderiza. \end{DoxyCompactList}\item 
+\Hypertarget{_render_types_8h_a30323fa90e24ca484998b9fba6c40e85}\label{_render_types_8h_a30323fa90e24ca484998b9fba6c40e85} 
+enum class \mbox{\hyperlink{_render_types_8h_a30323fa90e24ca484998b9fba6c40e85}{Blend\+Mode}} \{ {\bfseries Opaque} = 0
+, {\bfseries Alpha}
+, {\bfseries Additive}
+, {\bfseries Premultiplied\+Alpha}
+ \}
+\begin{DoxyCompactList}\small\item\em Define el tipo de mezcla de colores en el render. \end{DoxyCompactList}\item 
+\Hypertarget{_render_types_8h_aa342cea98690a76abdcb92feffddf2f2}\label{_render_types_8h_aa342cea98690a76abdcb92feffddf2f2} 
+enum class \mbox{\hyperlink{_render_types_8h_aa342cea98690a76abdcb92feffddf2f2}{Render\+Pass\+Type}} \{ \newline
+{\bfseries Shadow} = 0
+, {\bfseries Opaque}
+, {\bfseries Skybox}
+, {\bfseries Transparent}
+, \newline
+{\bfseries Editor}
+ \}
+\begin{DoxyCompactList}\small\item\em Define los diferentes passes de render. \end{DoxyCompactList}\item 
+\Hypertarget{_render_types_8h_adc3ec8293e6a97ebe43f0196b9a7f638}\label{_render_types_8h_adc3ec8293e6a97ebe43f0196b9a7f638} 
+enum class \mbox{\hyperlink{_render_types_8h_adc3ec8293e6a97ebe43f0196b9a7f638}{Light\+Type}} \{ {\bfseries Directional} = 0
+, {\bfseries Point}
+, {\bfseries Spot}
+ \}
+\begin{DoxyCompactList}\small\item\em Define los tipos de luz disponibles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Define tipos, estructuras y enums usados en el sistema de render. 
+

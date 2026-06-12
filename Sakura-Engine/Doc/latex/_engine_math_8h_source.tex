@@ -1,0 +1,256 @@
+\doxysection{Engine\+Math.\+h}
+\hypertarget{_engine_math_8h_source}{}\label{_engine_math_8h_source}\index{include/EngineUtilities/Utilities/EngineMath.h@{include/EngineUtilities/Utilities/EngineMath.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ MIT\ License}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2024\ Roberto\ Charreton}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ In\ addition,\ any\ project\ or\ software\ that\ uses\ this\ library\ or\ class\ must\ include}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ the\ following\ acknowledgment\ in\ the\ credits:}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ "{}This\ project\ uses\ software\ developed\ by\ Roberto\ Charreton\ and\ Attribute\ Overload."{}}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{00028\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{namespace\ }EU\ \{}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{comment}{//\ Constantes\ matemáticas}}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ PI\ =\ 3.14159265358979323846f;}
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ E\ =\ 2.71828182845904523536f;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ sqrt(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <\ 0)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \textcolor{comment}{//\ Handle\ negative\ input\ gracefully.}}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{float}\ x\ =\ value;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{float}\ y\ =\ 1.0f;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{float}\ epsilon\ =\ 0.00001f;\ \textcolor{comment}{//\ Desired\ precision.}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{while}\ (x\ -\/\ y\ >\ epsilon)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ x\ =\ (x\ +\ y)\ /\ 2.0f;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ y\ =\ value\ /\ x;}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00054\ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ square(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{return}\ value\ *\ value;}
+\DoxyCodeLine{00064\ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00072\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ cube(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{return}\ value\ *\ value\ *\ value;}
+\DoxyCodeLine{00074\ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ power(\textcolor{keywordtype}{float}\ base,\ \textcolor{keywordtype}{int}\ exponent)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{if}\ (exponent\ ==\ 0)\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{if}\ (exponent\ <\ 0)\ \textcolor{keywordflow}{return}\ 1.0f\ /\ power(base,\ -\/exponent);}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{float}\ result\ =\ 1;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{while}\ (exponent)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (exponent\ \%\ 2\ ==\ 1)\ result\ *=\ base;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ base\ *=\ base;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ exponent\ /=\ 2;}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00093\ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ abs(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{return}\ (value\ <\ 0)\ ?\ -\/value\ :\ value;}
+\DoxyCodeLine{00103\ \ \ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ EMax(\textcolor{keywordtype}{float}\ a,\ \textcolor{keywordtype}{float}\ b)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{return}\ (a\ >\ b)\ ?\ a\ :\ b;}
+\DoxyCodeLine{00114\ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00123\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ EMin(\textcolor{keywordtype}{float}\ a,\ \textcolor{keywordtype}{float}\ b)\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{return}\ (a\ <\ b)\ ?\ a\ :\ b;}
+\DoxyCodeLine{00125\ \ \ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00133\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ round(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{return}\ (value\ >\ 0)\ ?\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(value\ +\ 0.5f)\ :\ static\_cast<int>(value\ -\/\ 0.5f);}
+\DoxyCodeLine{00135\ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00143\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ floor(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{int}\ intValue\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(value);}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{return}\ (value\ <\ intValue)\ ?\ intValue\ -\/\ 1\ :\ intValue;}
+\DoxyCodeLine{00146\ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00154\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ ceil(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{int}\ intValue\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(value);}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{return}\ (value\ >\ intValue)\ ?\ intValue\ +\ 1\ :\ intValue;}
+\DoxyCodeLine{00157\ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00164\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ fabs(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordflow}{return}\ value\ <\ 0.0f\ ?\ -\/value\ :\ value;}
+\DoxyCodeLine{00166\ \ \ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \textcolor{comment}{//\ Funciones\ Trigonométricas}}
+\DoxyCodeLine{00174\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ sin(\textcolor{keywordtype}{float}\ angle)\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{float}\ result\ =\ 0.0f;}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{float}\ term\ =\ angle;}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{float}\ angle\_squared\ =\ angle\ *\ angle;}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ 1;}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{while}\ (term\ >\ 1e-\/6f\ ||\ term\ <\ -\/1e-\/6f)\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ result\ +=\ term;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ term\ *=\ -\/angle\_squared\ /\ ((2\ *\ n)\ *\ (2\ *\ n\ +\ 1));}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ ++n;}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00185\ \ \ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00192\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ cos(\textcolor{keywordtype}{float}\ angle)\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordflow}{return}\ sin(angle\ +\ PI\ /\ 2);}
+\DoxyCodeLine{00194\ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00201\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ tan(\textcolor{keywordtype}{float}\ angle)\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{float}\ s\ =\ sin(angle);}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{float}\ c\ =\ cos(angle);}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordflow}{return}\ c\ !=\ 0.0f\ ?\ s\ /\ c\ :\ 0.0f;\ \textcolor{comment}{//\ Evita\ la\ división por\ cero}}
+\DoxyCodeLine{00205\ \ \ \}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00212\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ asin(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{comment}{//\ Aproximación con\ la\ serie\ de\ Taylor}}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordtype}{float}\ x\ =\ value;}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordtype}{float}\ result\ =\ x;}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordtype}{float}\ term\ =\ x;}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 1;\ n\ <\ 10;\ ++n)\ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ term\ *=\ x\ *\ x\ *\ (2\ *\ n\ -\/\ 1)\ /\ ((2\ *\ n\ +\ 1)\ *\ (2\ *\ n));}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ result\ +=\ term;}
+\DoxyCodeLine{00220\ \ \ \ \ \}}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00222\ \ \ \}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00229\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ acos(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{return}\ PI\ /\ 2\ -\/\ asin(value);}
+\DoxyCodeLine{00231\ \ \ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00238\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ atan(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{comment}{//\ Aproximación de\ la\ función arcotangente}}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordtype}{float}\ result\ =\ 0.0f;}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordtype}{float}\ term\ =\ value;}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 0;\ n\ <\ 10;\ ++n)\ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ result\ +=\ term\ /\ (2\ *\ n\ +\ 1);}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ term\ *=\ -\/value\ *\ value;}
+\DoxyCodeLine{00245\ \ \ \ \ \}}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00247\ \ \ \}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00254\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ sinh(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordflow}{return}\ (exp(value)\ -\/\ exp(-\/value))\ /\ 2;}
+\DoxyCodeLine{00256\ \ \ \}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00263\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ cosh(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordflow}{return}\ (exp(value)\ +\ exp(-\/value))\ /\ 2;}
+\DoxyCodeLine{00265\ \ \ \}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00272\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ tanh(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordflow}{return}\ sinh(value)\ /\ cosh(value);}
+\DoxyCodeLine{00274\ \ \ \}}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \textcolor{comment}{//\ Conversión entre\ Radianes\ y\ Grados}}
+\DoxyCodeLine{00282\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ radians(\textcolor{keywordtype}{float}\ degrees)\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordflow}{return}\ degrees\ *\ PI\ /\ 180.0f;}
+\DoxyCodeLine{00284\ \ \ \}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00291\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ degrees(\textcolor{keywordtype}{float}\ radians)\ \{}
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordflow}{return}\ radians\ *\ 180.0f\ /\ PI;}
+\DoxyCodeLine{00293\ \ \ \}}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \textcolor{comment}{//\ Funciones\ Exponenciales\ y\ Logarítmicas}}
+\DoxyCodeLine{00301\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ exp(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordtype}{float}\ result\ =\ 1.0f;}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordtype}{float}\ term\ =\ 1.0f;}
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 1;\ n\ <\ 20;\ ++n)\ \{}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ term\ *=\ value\ /\ n;}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ result\ +=\ term;}
+\DoxyCodeLine{00307\ \ \ \ \ \}}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00309\ \ \ \}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00316\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ log(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{comment}{//\ Aproximación usando\ la\ serie\ de\ Taylor}}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <=\ 0)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keywordtype}{float}\ x\ =\ (value\ -\/\ 1)\ /\ (value\ +\ 1);}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordtype}{float}\ x2\ =\ x\ *\ x;}
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordtype}{float}\ result\ =\ 0.0f;}
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordtype}{float}\ term\ =\ x;}
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ n\ =\ 1;\ n\ <\ 20;\ ++n)\ \{}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ result\ +=\ term\ /\ (2\ *\ n\ -\/\ 1);}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ term\ *=\ x2;}
+\DoxyCodeLine{00326\ \ \ \ \ \}}
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keywordflow}{return}\ 2\ *\ result;}
+\DoxyCodeLine{00328\ \ \ \}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00335\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ log10(\textcolor{keywordtype}{float}\ value)\ \{}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keywordflow}{return}\ log(value)\ /\ log(10);}
+\DoxyCodeLine{00337\ \ \ \}}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \textcolor{comment}{//\ Operaciones\ de\ Redondeo\ Avanzadas}}
+\DoxyCodeLine{00346\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ mod(\textcolor{keywordtype}{float}\ a,\ \textcolor{keywordtype}{float}\ b)\ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \textcolor{keywordflow}{return}\ a\ -\/\ b\ *\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(a\ /\ b);}
+\DoxyCodeLine{00348\ \ \ \}}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00350\ \ \ \textcolor{comment}{//\ Funciones\ de\ Geometría}}
+\DoxyCodeLine{00356\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ circleArea(\textcolor{keywordtype}{float}\ radius)\ \{}
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordflow}{return}\ PI\ *\ radius\ *\ radius;}
+\DoxyCodeLine{00358\ \ \ \}}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00365\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ circleCircumference(\textcolor{keywordtype}{float}\ radius)\ \{}
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keywordflow}{return}\ 2\ *\ PI\ *\ radius;}
+\DoxyCodeLine{00367\ \ \ \}}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00375\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ rectangleArea(\textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height)\ \{}
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordflow}{return}\ width\ *\ height;}
+\DoxyCodeLine{00377\ \ \ \}}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00385\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ rectanglePerimeter(\textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height)\ \{}
+\DoxyCodeLine{00386\ \ \ \ \ \textcolor{keywordflow}{return}\ 2\ *\ (width\ +\ height);}
+\DoxyCodeLine{00387\ \ \ \}}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00395\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ triangleArea(\textcolor{keywordtype}{float}\ base,\ \textcolor{keywordtype}{float}\ height)\ \{}
+\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keywordflow}{return}\ 0.5f\ *\ base\ *\ height;}
+\DoxyCodeLine{00397\ \ \ \}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00407\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ distance(\textcolor{keywordtype}{float}\ x1,\ \textcolor{keywordtype}{float}\ y1,\ \textcolor{keywordtype}{float}\ x2,\ \textcolor{keywordtype}{float}\ y2)\ \{}
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordtype}{float}\ dx\ =\ x2\ -\/\ x1;}
+\DoxyCodeLine{00409\ \ \ \ \ \textcolor{keywordtype}{float}\ dy\ =\ y2\ -\/\ y1;}
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{keywordflow}{return}\ sqrt(dx\ *\ dx\ +\ dy\ *\ dy);}
+\DoxyCodeLine{00411\ \ \ \}}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00413\ \ \ \textcolor{comment}{//\ Funciones\ de\ Cálculo\ Numérico}}
+\DoxyCodeLine{00421\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ lerp(\textcolor{keywordtype}{float}\ a,\ \textcolor{keywordtype}{float}\ b,\ \textcolor{keywordtype}{float}\ t)\ \{}
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keywordflow}{return}\ a\ +\ t\ *\ (b\ -\/\ a);}
+\DoxyCodeLine{00423\ \ \ \}}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00430\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ factorial(\textcolor{keywordtype}{int}\ n)\ \{}
+\DoxyCodeLine{00431\ \ \ \ \ \textcolor{keywordtype}{int}\ result\ =\ 1;}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 2;\ i\ <=\ n;\ ++i)\ \{}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ result\ *=\ i;}
+\DoxyCodeLine{00434\ \ \ \ \ \}}
+\DoxyCodeLine{00435\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00436\ \ \ \}}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00445\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ approxEqual(\textcolor{keywordtype}{float}\ a,\ \textcolor{keywordtype}{float}\ b,\ \textcolor{keywordtype}{float}\ epsilon)\ \{}
+\DoxyCodeLine{00446\ \ \ \ \ \textcolor{keywordflow}{return}\ fabs(a\ -\/\ b)\ <\ epsilon;}
+\DoxyCodeLine{00447\ \ \ \}}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00449\ \}}
+
+\end{DoxyCode}

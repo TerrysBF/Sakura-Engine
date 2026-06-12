@@ -1,0 +1,174 @@
+\doxysection{Mesh\+Component Class Reference}
+\hypertarget{class_mesh_component}{}\label{class_mesh_component}\index{MeshComponent@{MeshComponent}}
+
+
+Componente ECS que almacena la informaci?n de geometr?a (malla) de un actor.  
+
+
+
+
+{\ttfamily \#include $<$Mesh\+Component.\+h$>$}
+
+Inheritance diagram for Mesh\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mesh_component}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mesh_component_a6f23f9f4c0fb23ee33a3798708c9a741}{Mesh\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\Hypertarget{class_mesh_component_ae67721293067058ea82d84386b97dd88}\label{class_mesh_component_ae67721293067058ea82d84386b97dd88} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Mesh\+Component} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual por defecto. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_component_a078fb6f6dc2fd324d4256a935fbf0e9a}{init}} () override
+\begin{DoxyCompactList}\small\item\em Inicializa el componente de malla. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_component_a44977ec0336d6ef668413bf75fbe5a1f}{update}} (float delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Actualiza la malla. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_component_af5d5a041d6ef199ca11b0e33db262a86}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context) override
+\begin{DoxyCompactList}\small\item\em Renderiza la malla. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_component_add21471ffcfcfc3b00b4d1bad9ed79d4}{destroy}} () override
+\begin{DoxyCompactList}\small\item\em Libera los recursos asociados al componente de malla. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Component} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor por defecto. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_component_a4da90dfe700d29f2d16751aa4948a577}{Component}} (const \mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Constructor con tipo de componente. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Component} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} \mbox{\hyperlink{class_component_a39ba6f0bc561e3e24c849e35bdd19c42}{get\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Obtiene el tipo del componente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_mesh_component_aca93105715e4c0db20da9bef44f9419e}\label{class_mesh_component_aca93105715e4c0db20da9bef44f9419e} 
+std\+::string {\bfseries m\+\_\+name}
+\begin{DoxyCompactList}\small\item\em Nombre de la malla. \end{DoxyCompactList}\item 
+\Hypertarget{class_mesh_component_a574672bf5e30970697951be110a74426}\label{class_mesh_component_a574672bf5e30970697951be110a74426} 
+std\+::vector$<$ \mbox{\hyperlink{struct_simple_vertex}{Simple\+Vertex}} $>$ {\bfseries m\+\_\+vertex}
+\begin{DoxyCompactList}\small\item\em Lista de v?rtices de la malla. \end{DoxyCompactList}\item 
+\Hypertarget{class_mesh_component_ab95ad090b84df6bf9e8e3480cb9cef32}\label{class_mesh_component_ab95ad090b84df6bf9e8e3480cb9cef32} 
+std\+::vector$<$ \mbox{\hyperlink{struct_skybox_vertex}{Skybox\+Vertex}} $>$ {\bfseries m\+\_\+sky\+Vertex}
+\item 
+\Hypertarget{class_mesh_component_a3a6c10b4fdcd60870e052d1b62c72683}\label{class_mesh_component_a3a6c10b4fdcd60870e052d1b62c72683} 
+std\+::vector$<$ unsigned int $>$ {\bfseries m\+\_\+index}
+\begin{DoxyCompactList}\small\item\em Lista de ?ndices que definen las primitivas de la malla. \end{DoxyCompactList}\item 
+\Hypertarget{class_mesh_component_a1c9a3212ca4c3ebd52c536d8e874ea14}\label{class_mesh_component_a1c9a3212ca4c3ebd52c536d8e874ea14} 
+int {\bfseries m\+\_\+num\+Vertex}
+\begin{DoxyCompactList}\small\item\em N?mero total de v?rtices en la malla. \end{DoxyCompactList}\item 
+\Hypertarget{class_mesh_component_aa049bdc296f10d4700dceb2659c47051}\label{class_mesh_component_aa049bdc296f10d4700dceb2659c47051} 
+int {\bfseries m\+\_\+num\+Index}
+\begin{DoxyCompactList}\small\item\em N?mero total de ?ndices en la malla. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_component}{Component}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0}{Component\+Type}} {\bfseries m\+\_\+type}
+\begin{DoxyCompactList}\small\item\em Tipo del componente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Componente ECS que almacena la informaci?n de geometr?a (malla) de un actor. 
+
+Un {\ttfamily \doxylink{class_mesh_component}{Mesh\+Component}} contiene los v?rtices e ?ndices que describen la geometr?a de un objeto. Forma parte del sistema ECS y se asocia a entidades como {\ttfamily \doxylink{class_actor}{Actor}}.
+
+La malla incluye\+:
+\begin{DoxyItemize}
+\item Lista de v?rtices (posici?n, normal, UV, etc.).
+\item Lista de ?ndices que definen las primitivas (tri?ngulos, l?neas).
+\item Contadores de v?rtices e ?ndices. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_mesh_component_a6f23f9f4c0fb23ee33a3798708c9a741}\index{MeshComponent@{MeshComponent}!MeshComponent@{MeshComponent}}
+\index{MeshComponent@{MeshComponent}!MeshComponent@{MeshComponent}}
+\doxysubsubsection{\texorpdfstring{MeshComponent()}{MeshComponent()}}
+{\footnotesize\ttfamily \label{class_mesh_component_a6f23f9f4c0fb23ee33a3798708c9a741} 
+Mesh\+Component\+::\+Mesh\+Component (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor por defecto. 
+
+Inicializa el componente de malla con cero v?rtices e ?ndices y lo registra como tipo {\ttfamily MESH} en el sistema ECS. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_mesh_component_add21471ffcfcfc3b00b4d1bad9ed79d4}\index{MeshComponent@{MeshComponent}!destroy@{destroy}}
+\index{destroy@{destroy}!MeshComponent@{MeshComponent}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{class_mesh_component_add21471ffcfcfc3b00b4d1bad9ed79d4} 
+void Mesh\+Component\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Libera los recursos asociados al componente de malla. 
+
+M?todo heredado de {\ttfamily \doxylink{class_component}{Component}}. En implementaciones m?s complejas, puede liberar buffers de GPU. 
+
+Implements \mbox{\hyperlink{class_component}{Component}}.
+
+\Hypertarget{class_mesh_component_a078fb6f6dc2fd324d4256a935fbf0e9a}\index{MeshComponent@{MeshComponent}!init@{init}}
+\index{init@{init}!MeshComponent@{MeshComponent}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_mesh_component_a078fb6f6dc2fd324d4256a935fbf0e9a} 
+void Mesh\+Component\+::init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Inicializa el componente de malla. 
+
+M?todo heredado de {\ttfamily \doxylink{class_component}{Component}}. Puede usarse para reservar memoria o cargar datos en mallas derivadas. 
+
+Implements \mbox{\hyperlink{class_component}{Component}}.
+
+\Hypertarget{class_mesh_component_af5d5a041d6ef199ca11b0e33db262a86}\index{MeshComponent@{MeshComponent}!render@{render}}
+\index{render@{render}!MeshComponent@{MeshComponent}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_mesh_component_af5d5a041d6ef199ca11b0e33db262a86} 
+void Mesh\+Component\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Renderiza la malla. 
+
+M?todo heredado de {\ttfamily \doxylink{class_component}{Component}}. Normalmente se usar?a junto con {\ttfamily \doxylink{class_device_context}{Device\+Context}} para dibujar buffers asociados a la malla.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto del dispositivo para operaciones gr?ficas. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_ac91ad449b882184077544527fa7ccea3}{Component}}.
+
+\Hypertarget{class_mesh_component_a44977ec0336d6ef668413bf75fbe5a1f}\index{MeshComponent@{MeshComponent}!update@{update}}
+\index{update@{update}!MeshComponent@{MeshComponent}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_mesh_component_a44977ec0336d6ef668413bf75fbe5a1f} 
+void Mesh\+Component\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Actualiza la malla. 
+
+M?todo heredado de {\ttfamily \doxylink{class_component}{Component}}. ?til para actualizar animaciones de v?rtices, morphing u otros procesos relacionados.
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & Tiempo transcurrido desde la ?ltima actualizaci?n. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_a9152b930559c4ece4ea5ddd3e6e4b22b}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_mesh_component_8h}{Mesh\+Component.\+h}}\end{DoxyCompactItemize}

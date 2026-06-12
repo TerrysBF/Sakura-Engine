@@ -1,0 +1,191 @@
+\doxysection{TShared\+Pointer.\+h}
+\hypertarget{_t_shared_pointer_8h_source}{}\label{_t_shared_pointer_8h_source}\index{include/EngineUtilities/Memory/TSharedPointer.h@{include/EngineUtilities/Memory/TSharedPointer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ MIT\ License}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2025\ Roberto\ Charreton}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ In\ addition,\ any\ project\ or\ software\ that\ uses\ this\ library\ or\ class\ must\ include}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ the\ following\ acknowledgment\ in\ the\ credits:}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ "{}This\ project\ uses\ software\ developed\ by\ Roberto\ Charreton\ and\ Attribute\ Overload."{}}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{00028\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{namespace\ }EU\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_ac330ea94f40f816e76cfacc8651944fd}{TSharedPointer}}}
+\DoxyCodeLine{00041\ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_ac330ea94f40f816e76cfacc8651944fd}{TSharedPointer}}()\ :\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}}(nullptr),\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}}(nullptr)\ \{\}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_aea37a06696852dbd2e93f6a9df4e05be}{TSharedPointer}}(T*\ rawPtr)\ :\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}}(rawPtr),\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}}(new\ int(1))\ \{\}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_ad0f79dc588ec69cbad073d7edb2c0403}{TSharedPointer}}(T*\ rawPtr,\ \textcolor{keywordtype}{int}*\ existingRefCount)\ :\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}}(rawPtr),\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}}(existingRefCount)}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}})}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++(*refCount);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8de8fcca65bfdfcabe5b1b742d98881a}{TSharedPointer}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_ac330ea94f40f816e76cfacc8651944fd}{TSharedPointer<T>}}\&\ other)\ :\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}}(other.\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}}),\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}}(other.\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}})}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}})}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++(*refCount);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a9c10fecc1b5a4354ec412442ce1c519d}{TSharedPointer}}(\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_ac330ea94f40f816e76cfacc8651944fd}{TSharedPointer<T>}}\&\&\ other)\ noexcept\ :\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}}(other.ptr),\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}}(other.refCount)}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ other.ptr\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ other.refCount\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_ac330ea94f40f816e76cfacc8651944fd}{TSharedPointer<T>}}\&\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_aec9ac10d14598d0465dcf13808df3fac}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_ac330ea94f40f816e76cfacc8651944fd}{TSharedPointer<T>}}\&\ other)}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Disminuir\ el\ recuento\ de\ referencias\ del\ objeto\ actual}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}}\ \&\&\ -\/-\/(*\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}})\ ==\ 0)}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}};}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}};}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Copiar\ datos\ del\ otro\ puntero\ compartido}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}}\ =\ other.\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}};}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}}\ =\ other.\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}};}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}})}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ++(*refCount);}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_ac330ea94f40f816e76cfacc8651944fd}{TSharedPointer<T>}}\&\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a1f351027eaad88fe517074d67ea33b7d}{operator=}}(\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_ac330ea94f40f816e76cfacc8651944fd}{TSharedPointer<T>}}\&\&\ other)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Liberar\ el\ objeto\ actual}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}}\ \&\&\ -\/-\/(*\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}})\ ==\ 0)}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}};}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}};}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Transferir\ los\ datos\ del\ otro\ puntero\ compartido}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}}\ =\ other.ptr;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}}\ =\ other.refCount;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other.ptr\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other.refCount\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a1b978d0ec08f34ff7de95166ed52d780}{\string~TSharedPointer}}()}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}}\ \&\&\ -\/-\/(*\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}})\ ==\ 0)}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}};}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}};}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ T\&\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_acab6d56da4a62aa69961289810127f57}{operator*}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ *\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}};\ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ T*\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_aab3ba8e1c55387f3789cc153410d35fd}{operator-\/>}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}};\ \}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Agregar\ una\ función para\ comprobar\ si\ el\ puntero\ es\ válido}}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keyword}{operator}\ bool()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}}\ !=\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ T*\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a7498d76e0bcd635678d8eff5bd86784e}{get}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}};\ \}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a15b7257adb5342a8dbc469a1aab8f320}{isNull}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}}\ ==\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ T*\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}};\ }
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a72fd83baf2f597f9b51793beb09f0e1e}{swap}}(\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_ac330ea94f40f816e76cfacc8651944fd}{TSharedPointer<T>}}\&\ other)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ T*\ tempPtr\ =\ other.ptr;}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}*\ tempRefCount\ =\ other.refCount;}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ other.ptr\ =\ this-\/>ptr;}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ other.refCount\ =\ this-\/>refCount;}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>ptr\ =\ tempPtr;}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>refCount\ =\ tempRefCount;}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a961c391bbc7c5fd46ae7beaf641e78ff}{reset}}(T*\ newPtr\ =\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Disminuir\ el\ recuento\ de\ referencias\ del\ objeto\ actual}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}}\ \&\&\ -\/-\/(*\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}})\ ==\ 0)}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}};}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}};}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ newPtr\ es\ nullptr,\ asignar\ nullptr\ al\ puntero\ y\ recuento\ de\ referencias}}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (newPtr\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Asignar\ nuevo\ objeto\ y\ manejar\ el\ recuento\ de\ referencias}}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}}\ =\ newPtr;}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}}\ =\ \textcolor{keyword}{new}\ int(1);}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Método\ de\ conversión para\ hacer\ cast\ dinámico}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{TSharedPointer<U>}}\ dynamic\_pointer\_cast()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Intenta\ convertir\ el\ puntero\ de\ tipo\ T\ a\ U}}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ U*\ castedPtr\ =\ \textcolor{keyword}{dynamic\_cast<}U*\textcolor{keyword}{>}(\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a40c38aec1208e31760202a385ca094ef}{ptr}});}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (castedPtr)\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ la\ conversión es\ exitosa,\ devuelve\ un\ nuevo\ TSharedPointer<U>}}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_ac330ea94f40f816e76cfacc8651944fd}{TSharedPointer<U>}}(castedPtr,\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_a8ea35bca8ac4a736244b84dafb48c12f}{refCount}});}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ falla\ la\ conversión, devuelve\ un\ TSharedPointer<U>\ nulo}}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer_ac330ea94f40f816e76cfacc8651944fd}{TSharedPointer<U>}}();}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00273\ \ \ \ \ \};}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00284\ \ \ \ \ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{TSharedPointer<T>}}\ MakeShared(Args...\ args)}
+\DoxyCodeLine{00285\ \ \ \ \ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{TSharedPointer<T>}}(\textcolor{keyword}{new}\ T(args...));}
+\DoxyCodeLine{00287\ \ \ \ \ \}}
+\DoxyCodeLine{00288\ \}}
+
+\end{DoxyCode}

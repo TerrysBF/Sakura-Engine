@@ -1,0 +1,210 @@
+\doxysection{xmlschemas.\+h}
+\hypertarget{xmlschemas_8h_source}{}\label{xmlschemas_8h_source}\index{include/fbx/libxml2/libxml/xmlschemas.h@{include/fbx/libxml2/libxml/xmlschemas.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Summary:\ incomplete\ XML\ Schemas\ structure\ implementation}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Description:\ interface\ to\ the\ XML\ Schemas\ handling\ and\ schema\ validity}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ checking,\ it\ is\ incomplete\ right\ now.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Copy:\ See\ Copyright\ for\ the\ status\ of\ this\ software.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Author:\ Daniel\ Veillard}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_SCHEMA\_H\_\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_\_XML\_SCHEMA\_H\_\_}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <libxml/xmlversion.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_SCHEMAS\_ENABLED}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <libxml/tree.h>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00022\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ XML\_SCHEMAS\_ERR\_OK\ \ \ \ \ \ =\ 0,}
+\DoxyCodeLine{00030\ \ \ \ \ XML\_SCHEMAS\_ERR\_NOROOT\ \ =\ 1,}
+\DoxyCodeLine{00031\ \ \ \ \ XML\_SCHEMAS\_ERR\_UNDECLAREDELEM,}
+\DoxyCodeLine{00032\ \ \ \ \ XML\_SCHEMAS\_ERR\_NOTTOPLEVEL,}
+\DoxyCodeLine{00033\ \ \ \ \ XML\_SCHEMAS\_ERR\_MISSING,}
+\DoxyCodeLine{00034\ \ \ \ \ XML\_SCHEMAS\_ERR\_WRONGELEM,}
+\DoxyCodeLine{00035\ \ \ \ \ XML\_SCHEMAS\_ERR\_NOTYPE,}
+\DoxyCodeLine{00036\ \ \ \ \ XML\_SCHEMAS\_ERR\_NOROLLBACK,}
+\DoxyCodeLine{00037\ \ \ \ \ XML\_SCHEMAS\_ERR\_ISABSTRACT,}
+\DoxyCodeLine{00038\ \ \ \ \ XML\_SCHEMAS\_ERR\_NOTEMPTY,}
+\DoxyCodeLine{00039\ \ \ \ \ XML\_SCHEMAS\_ERR\_ELEMCONT,}
+\DoxyCodeLine{00040\ \ \ \ \ XML\_SCHEMAS\_ERR\_HAVEDEFAULT,}
+\DoxyCodeLine{00041\ \ \ \ \ XML\_SCHEMAS\_ERR\_NOTNILLABLE,}
+\DoxyCodeLine{00042\ \ \ \ \ XML\_SCHEMAS\_ERR\_EXTRACONTENT,}
+\DoxyCodeLine{00043\ \ \ \ \ XML\_SCHEMAS\_ERR\_INVALIDATTR,}
+\DoxyCodeLine{00044\ \ \ \ \ XML\_SCHEMAS\_ERR\_INVALIDELEM,}
+\DoxyCodeLine{00045\ \ \ \ \ XML\_SCHEMAS\_ERR\_NOTDETERMINIST,}
+\DoxyCodeLine{00046\ \ \ \ \ XML\_SCHEMAS\_ERR\_CONSTRUCT,}
+\DoxyCodeLine{00047\ \ \ \ \ XML\_SCHEMAS\_ERR\_INTERNAL,}
+\DoxyCodeLine{00048\ \ \ \ \ XML\_SCHEMAS\_ERR\_NOTSIMPLE,}
+\DoxyCodeLine{00049\ \ \ \ \ XML\_SCHEMAS\_ERR\_ATTRUNKNOWN,}
+\DoxyCodeLine{00050\ \ \ \ \ XML\_SCHEMAS\_ERR\_ATTRINVALID,}
+\DoxyCodeLine{00051\ \ \ \ \ XML\_SCHEMAS\_ERR\_VALUE,}
+\DoxyCodeLine{00052\ \ \ \ \ XML\_SCHEMAS\_ERR\_FACET,}
+\DoxyCodeLine{00053\ \ \ \ \ XML\_SCHEMAS\_ERR\_,}
+\DoxyCodeLine{00054\ \ \ \ \ XML\_SCHEMAS\_ERR\_XXX}
+\DoxyCodeLine{00055\ \}\ xmlSchemaValidError;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00058\ \textcolor{comment}{*\ ATTENTION:\ Change\ xmlSchemaSetValidOptions's\ check}}
+\DoxyCodeLine{00059\ \textcolor{comment}{*\ for\ invalid\ values,\ if\ adding\ to\ the\ validation}}
+\DoxyCodeLine{00060\ \textcolor{comment}{*\ options\ below.}}
+\DoxyCodeLine{00061\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00067\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ XML\_SCHEMA\_VAL\_VC\_I\_CREATE\ \ \ \ \ \ \ \ \ \ =\ 1<<0}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{/*\ Default/fixed:\ create\ an\ attribute\ node}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ \ \ \ *\ or\ an\ element's\ text\ node\ on\ the\ instance.}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00072\ \}\ xmlSchemaValidOption;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ \ \ \ XML\_SCHEMA\_VAL\_XSI\_ASSEMBLE\ \ \ \ \ \ \ \ \ =\ 1<<1,}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ \ \ \ *\ assemble\ schemata\ using}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ \ \ \ *\ xsi:schemaLocation\ and}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ \ \ \ *\ xsi:noNamespaceSchemaLocation}}
+\DoxyCodeLine{00079\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchema\ xmlSchema;}
+\DoxyCodeLine{00085\ \textcolor{keyword}{typedef}\ xmlSchema\ *xmlSchemaPtr;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{typedef}\ void\ (XMLCDECL\ *xmlSchemaValidityErrorFunc)}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg,\ ...)\ LIBXML\_ATTR\_FORMAT(2,3);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00106\ \textcolor{keyword}{typedef}\ void\ (XMLCDECL\ *xmlSchemaValidityWarningFunc)}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{void}\ *ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *msg,\ ...)\ LIBXML\_ATTR\_FORMAT(2,3);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00112\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaParserCtxt\ xmlSchemaParserCtxt;}
+\DoxyCodeLine{00113\ \textcolor{keyword}{typedef}\ xmlSchemaParserCtxt\ *xmlSchemaParserCtxtPtr;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaValidCtxt\ xmlSchemaValidCtxt;}
+\DoxyCodeLine{00116\ \textcolor{keyword}{typedef}\ xmlSchemaValidCtxt\ *xmlSchemaValidCtxtPtr;}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{keyword}{typedef}\ int\ (XMLCDECL\ *xmlSchemaValidityLocatorFunc)\ (\textcolor{keywordtype}{void}\ *ctx,}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ **file,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ *line);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ *\ Interfaces\ for\ parsing.}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00137\ XMLPUBFUN\ xmlSchemaParserCtxtPtr\ XMLCALL}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ xmlSchemaNewParserCtxt\ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{fbxcolladaelement_8h_a82253dcb098d615368fe4c777c2a9289}{URL}});}
+\DoxyCodeLine{00139\ XMLPUBFUN\ xmlSchemaParserCtxtPtr\ XMLCALL}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ xmlSchemaNewMemParserCtxt\ \ \ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *buffer,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00142\ XMLPUBFUN\ xmlSchemaParserCtxtPtr\ XMLCALL}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ xmlSchemaNewDocParserCtxt\ \ \ (xmlDocPtr\ doc);}
+\DoxyCodeLine{00144\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ xmlSchemaFreeParserCtxt\ (xmlSchemaParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00146\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ xmlSchemaSetParserErrors\ \ \ \ (xmlSchemaParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlSchemaValidityErrorFunc\ err,}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlSchemaValidityWarningFunc\ warn,}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00151\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ xmlSchemaSetParserStructuredErrors(xmlSchemaParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlStructuredErrorFunc\ serror,}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00155\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ xmlSchemaGetParserErrors(xmlSchemaParserCtxtPtr\ ctxt,}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlSchemaValidityErrorFunc\ *\ err,}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlSchemaValidityWarningFunc\ *\ warn,}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ **ctx);}
+\DoxyCodeLine{00160\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ xmlSchemaIsValid\ \ \ \ (xmlSchemaValidCtxtPtr\ ctxt);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ XMLPUBFUN\ xmlSchemaPtr\ XMLCALL}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ xmlSchemaParse\ \ \ \ \ \ (xmlSchemaParserCtxtPtr\ ctxt);}
+\DoxyCodeLine{00165\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ xmlSchemaFree\ \ \ \ \ \ \ (xmlSchemaPtr\ schema);}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_OUTPUT\_ENABLED}}
+\DoxyCodeLine{00168\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ xmlSchemaDump\ \ \ \ \ \ \ (FILE\ *output,}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlSchemaPtr\ schema);}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_OUTPUT\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00172\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00173\ \textcolor{comment}{\ *\ Interfaces\ for\ validating}}
+\DoxyCodeLine{00174\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00175\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ xmlSchemaSetValidErrors\ (xmlSchemaValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlSchemaValidityErrorFunc\ err,}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlSchemaValidityWarningFunc\ warn,}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00180\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ xmlSchemaSetValidStructuredErrors(xmlSchemaValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlStructuredErrorFunc\ serror,}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *ctx);}
+\DoxyCodeLine{00184\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ xmlSchemaGetValidErrors\ (xmlSchemaValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlSchemaValidityErrorFunc\ *err,}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlSchemaValidityWarningFunc\ *warn,}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ **ctx);}
+\DoxyCodeLine{00189\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ xmlSchemaSetValidOptions\ \ \ \ (xmlSchemaValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ options);}
+\DoxyCodeLine{00192\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ xmlSchemaValidateSetFilename(xmlSchemaValidCtxtPtr\ vctxt,}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{00195\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ xmlSchemaValidCtxtGetOptions(xmlSchemaValidCtxtPtr\ ctxt);}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ XMLPUBFUN\ xmlSchemaValidCtxtPtr\ XMLCALL}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ xmlSchemaNewValidCtxt\ \ \ (xmlSchemaPtr\ schema);}
+\DoxyCodeLine{00200\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ xmlSchemaFreeValidCtxt\ \ (xmlSchemaValidCtxtPtr\ ctxt);}
+\DoxyCodeLine{00202\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ xmlSchemaValidateDoc\ \ \ \ (xmlSchemaValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlDocPtr\ instance);}
+\DoxyCodeLine{00205\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ xmlSchemaValidateOneElement\ (xmlSchemaValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlNodePtr\ elem);}
+\DoxyCodeLine{00208\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ xmlSchemaValidateStream\ (xmlSchemaValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlParserInputBufferPtr\ input,}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlCharEncoding\ enc,}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlSAXHandlerPtr\ sax,}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *user\_data);}
+\DoxyCodeLine{00214\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ xmlSchemaValidateFile\ \ \ (xmlSchemaValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ filename,}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ options);}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ XMLPUBFUN\ xmlParserCtxtPtr\ XMLCALL}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ xmlSchemaValidCtxtGetParserCtxt(xmlSchemaValidCtxtPtr\ ctxt);}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00223\ \textcolor{comment}{\ *\ Interface\ to\ insert\ Schemas\ SAX\ validation\ in\ a\ SAX\ stream}}
+\DoxyCodeLine{00224\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00225\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_xmlSchemaSAXPlug\ xmlSchemaSAXPlugStruct;}
+\DoxyCodeLine{00226\ \textcolor{keyword}{typedef}\ xmlSchemaSAXPlugStruct\ *xmlSchemaSAXPlugPtr;}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ XMLPUBFUN\ xmlSchemaSAXPlugPtr\ XMLCALL}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ xmlSchemaSAXPlug\ \ \ \ \ \ \ \ (xmlSchemaValidCtxtPtr\ ctxt,}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlSAXHandlerPtr\ *sax,}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ **user\_data);}
+\DoxyCodeLine{00232\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ xmlSchemaSAXUnplug\ \ \ \ \ \ (xmlSchemaSAXPlugPtr\ plug);}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ xmlSchemaValidateSetLocator\ (xmlSchemaValidCtxtPtr\ vctxt,}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlSchemaValidityLocatorFunc\ f,}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *ctxt);}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00242\ \}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_SCHEMAS\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_XML\_SCHEMA\_H\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,89 @@
+\doxysection{fbxembeddedfilesaccumulator.\+h}
+\hypertarget{fbxembeddedfilesaccumulator_8h_source}{}\label{fbxembeddedfilesaccumulator_8h_source}\index{include/fbx/fbxsdk/utils/fbxembeddedfilesaccumulator.h@{include/fbx/fbxsdk/utils/fbxembeddedfilesaccumulator.h}}
+\mbox{\hyperlink{fbxembeddedfilesaccumulator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_UTILS\_EMBEDDED\_FILES\_ACCUMULATOR\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_UTILS\_EMBEDDED\_FILES\_ACCUMULATOR\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxprocessor_8h}{fbxsdk/utils/fbxprocessor.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_embedded_files_accumulator_a22c32a739a59987e432fabe5f46c460e}{FbxEmbeddedFilesAccumulator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_fbx_processor}{FbxProcessor}}}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{struct\ }PropertyUrlIndex}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ mPropName;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ mIndex;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ PropertyUrlIndex()\ :\ mIndex(0)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ PropertyUrlIndex(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_string}{FbxString}}\&\ pUrl,\ \textcolor{keywordtype}{int}\ pIndex)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ :\ mPropName(pUrl)}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ ,\ mIndex(pIndex)}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_embedded_files_accumulator_1_1_fbx_property_url_index_compare}{FbxPropertyUrlIndexCompare}}}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ operator()(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_fbx_embedded_files_accumulator_1_1_property_url_index}{PropertyUrlIndex}}\&\ pKeyA,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_fbx_embedded_files_accumulator_1_1_property_url_index}{PropertyUrlIndex}}\&\ pKeyB)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00058\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pKeyA.mPropName\ <\ pKeyB.mPropName\ )\ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pKeyB.mPropName\ <\ pKeyA.mPropName\ )\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pKeyA.mIndex\ <\ pKeyB.mIndex\ )\ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pKeyB.mIndex\ <\ pKeyA.mIndex\ )\ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_set}{FbxSet<PropertyUrlIndex,\ FbxPropertyUrlIndexCompare>}}\ PropertyUrlIndexSet;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_map}{FbxMap<FbxObject*,\ PropertyUrlIndexSet>}}\ ObjectPropertyMap;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_fbx_embedded_files_accumulator_1_1_embedded_file_info}{EmbeddedFileInfo}}}
+\DoxyCodeLine{00072\ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_string}{FbxString}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mOriginalPropertyUrl;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ ObjectPropertyMap\ \ \ mConsumers;}
+\DoxyCodeLine{00075\ \ \ \ \ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_map}{FbxMap<FbxString,\ EmbeddedFileInfo>}}\ \ \ \ \ \mbox{\hyperlink{class_fbx_embedded_files_accumulator_a7471092a2496b1e45a263f91ea3db731}{EmbeddedFilesMap}};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{class_fbx_embedded_files_accumulator_a7471092a2496b1e45a263f91ea3db731}{EmbeddedFilesMap}}\ \ \ mEmbeddedFiles;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00090\ \ \ \ \ }
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{class_fbx_embedded_files_accumulator_a22c32a739a59987e432fabe5f46c460e}{FbxEmbeddedFilesAccumulator}}(\mbox{\hyperlink{class_fbx_manager}{FbxManager}}\&\ pManager,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \mbox{\hyperlink{class_fbx_set}{FbxSet<FbxString>}}\&\ pPropertyFilter);}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_embedded_files_accumulator_a22c32a739a59987e432fabe5f46c460e}{\string~FbxEmbeddedFilesAccumulator}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00104\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00105\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00107\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{bool}\ internal\_ProcessObject(FbxObject*\ pObject)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{class_fbx_set}{FbxSet<FbxString>}}\ \ \ mPropertyFilter;}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00111\ \};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_UTILS\_EMBEDDED\_FILES\_ACCUMULATOR\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

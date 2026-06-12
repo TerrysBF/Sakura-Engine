@@ -1,0 +1,200 @@
+\doxysection{fbxdatatypes.\+h}
+\hypertarget{fbxdatatypes_8h_source}{}\label{fbxdatatypes_8h_source}\index{include/fbx/fbxsdk/core/fbxdatatypes.h@{include/fbx/fbxsdk/core/fbxdatatypes.h}}
+\mbox{\hyperlink{fbxdatatypes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_DATA\_TYPES\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_DATA\_TYPES\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpropertytypes_8h}{fbxsdk/core/fbxpropertytypes.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpropertyhandle_8h}{fbxsdk/core/fbxpropertyhandle.h}}>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type_a3441ba1df35e11f7598146731bc70d70}{FbxDataType}}}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_data_type_a3441ba1df35e11f7598146731bc70d70}{FbxDataType}}\ Create(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pType);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_fbx_data_type_a3441ba1df35e11f7598146731bc70d70}{FbxDataType}}\ Create(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ pName,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type_a3441ba1df35e11f7598146731bc70d70}{FbxDataType}}\&\ pDataType);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_data_type_a3441ba1df35e11f7598146731bc70d70}{FbxDataType}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_data_type_ae711414e8450866b24a0c879bf5c0166}{FbxDataType}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type_a3441ba1df35e11f7598146731bc70d70}{FbxDataType}}\&\ pDataType);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_data_type_a7c12ecf6b63f53fb6d9178ccd622eddd}{Destroy}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_data_type_a40dc7c9a1670c754e1e31394eabec7b7}{FbxDataType}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle}{FbxPropertyHandle}}\&\ pTypeInfoHandle);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_data_type_aaad8ea35e6b315bd3346c453825183e1}{\string~FbxDataType}}();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_data_type_a3441ba1df35e11f7598146731bc70d70}{FbxDataType}}\&\ \mbox{\hyperlink{class_fbx_data_type_ab4f3c61ac1cd684d11b61c91eeb79f65}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type_a3441ba1df35e11f7598146731bc70d70}{FbxDataType}}\&\ pDataType)\{\ mTypeInfoHandle=pDataType.mTypeInfoHandle;\ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_data_type_adb742e131aeab52ff8ca3bc095026e3d}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type_a3441ba1df35e11f7598146731bc70d70}{FbxDataType}}\&\ pDataType)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mTypeInfoHandle==pDataType.mTypeInfoHandle;\ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_data_type_a219d626fd80822f8d1f45b59b4dd1837}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type_a3441ba1df35e11f7598146731bc70d70}{FbxDataType}}\&\ pDataType)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mTypeInfoHandle!=pDataType.mTypeInfoHandle;\ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_data_type_a3a03c1554f9a0f6f0536bbe696e4fa67}{Valid}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mTypeInfoHandle.Valid();\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_data_type_ad0bd5c5341dd1dd93b302eb7a0475c81}{Is}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type_a3441ba1df35e11f7598146731bc70d70}{FbxDataType}}\&\ pDataType)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mTypeInfoHandle.Is(pDataType.mTypeInfoHandle);\ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ \mbox{\hyperlink{class_fbx_data_type_a0f3e5c89c7ea0f28aab4b6e6b823d069}{GetType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_data_type_a8f4e44203c5efc33f05f9647e1f68c75}{GetName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_property_handle}{FbxPropertyHandle}}\&\ \mbox{\hyperlink{class_fbx_data_type_a1e5a65a6331ead7c3a49f4b972d07655}{GetTypeInfoHandle}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mTypeInfoHandle;\ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_handle}{FbxPropertyHandle}}\ mTypeInfoHandle;}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_manager}{FbxManager}};}
+\DoxyCodeLine{00108\ \};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00114\ FBXSDK\_DLL\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\&\ \mbox{\hyperlink{fbxdatatypes_8h_ad7296a6bee443baf46105d65673ef080}{FbxGetDataTypeFromEnum}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{fbxpropertytypes_8h_a73913a5ddfb20e57c6f25e9e6784bd92}{EFbxType}}\ pType);}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00122\ FBXSDK\_DLL\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{fbxdatatypes_8h_a49f736ff50552744b92bbb2960b2ea38}{FbxGetDataTypeNameForIO}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\&\ pDataType);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxUndefinedDT;}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxBoolDT;}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxCharDT;}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxUCharDT;}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxShortDT;}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxUShortDT;}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxIntDT;}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxUIntDT;}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLongLongDT;}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxULongLongDT;}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxFloatDT;}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxHalfFloatDT;}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxDoubleDT;}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxDouble2DT;}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxDouble3DT;}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxDouble4DT;}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxDouble4x4DT;}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxEnumDT;}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxStringDT;}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxTimeDT;}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxReferenceDT;}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxBlobDT;}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxDistanceDT;}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxDateTimeDT;}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxColor3DT;}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxColor4DT;}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxCompoundDT;}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxReferenceObjectDT;}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxReferencePropertyDT;}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxVisibilityDT;}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxVisibilityInheritanceDT;}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxUrlDT;}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxXRefUrlDT;}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxTranslationDT;}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxRotationDT;}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxScalingDT;}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxQuaternionDT;}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLocalTranslationDT;}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLocalRotationDT;}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLocalScalingDT;}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLocalQuaternionDT;}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxTransformMatrixDT;}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxTranslationMatrixDT;}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxRotationMatrixDT;}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxScalingMatrixDT;}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialEmissiveDT;}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialEmissiveFactorDT;}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialAmbientDT;}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialAmbientFactorDT;}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialDiffuseDT;}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialDiffuseFactorDT;}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialBumpDT;}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialNormalMapDT;}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialTransparentColorDT;}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialTransparencyFactorDT;}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialSpecularDT;}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialSpecularFactorDT;}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialShininessDT;}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialReflectionDT;}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialReflectionFactorDT;}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialDisplacementDT;}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialVectorDisplacementDT;}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialCommonFactorDT;}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxMaterialCommonTextureDT;}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLayerElementUndefinedDT;}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLayerElementNormalDT;}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLayerElementBinormalDT;}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLayerElementTangentDT;}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLayerElementMaterialDT;}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLayerElementTextureDT;}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLayerElementPolygonGroupDT;}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLayerElementUVDT;}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLayerElementVertexColorDT;}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLayerElementSmoothingDT;}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLayerElementCreaseDT;}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLayerElementHoleDT;}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLayerElementUserDataDT;}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLayerElementVisibilityDT;}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxAliasDT;}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxPresetsDT;}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxStatisticsDT;}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxTextLineDT;}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxUnitsDT;}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxWarningDT;}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxWebDT;}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxActionDT;}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxCameraIndexDT;}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxCharPtrDT;}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxConeAngleDT;}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxEventDT;}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxFieldOfViewDT;}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxFieldOfViewXDT;}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxFieldOfViewYDT;}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxFogDT;}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxHSBDT;}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxIKReachTranslationDT;}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxIKReachRotationDT;}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxIntensityDT;}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxLookAtDT;}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxOcclusionDT;}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxOpticalCenterXDT;}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxOpticalCenterYDT;}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxOrientationDT;}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxRealDT;}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxRollDT;}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxScalingUVDT;}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxShapeDT;}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxStringListDT;}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxTextureRotationDT;}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxTimeCodeDT;}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxTimeWarpDT;}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxTranslationUVDT;}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keyword}{extern}\ FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_data_type}{FbxDataType}}\ FbxWeightDT;}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_DATA\_TYPES\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

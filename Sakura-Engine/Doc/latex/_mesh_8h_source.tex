@@ -1,0 +1,46 @@
+\doxysection{Mesh.\+h}
+\hypertarget{_mesh_8h_source}{}\label{_mesh_8h_source}\index{include/Rendering/Mesh.h@{include/Rendering/Mesh.h}}
+\mbox{\hyperlink{_mesh_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_buffer_8h}{Buffer.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{struct_submesh}{Submesh}}\ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{class_buffer}{Buffer}}\ \mbox{\hyperlink{struct_submesh_af1a74931d52c267e43e3fe0237847398}{vertexBuffer}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{class_buffer}{Buffer}}\ \mbox{\hyperlink{struct_submesh_a12d1a083d7c09d3955d1eaf308918e6c}{indexBuffer}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_submesh_a068da68c0ec7a9a6edef81a660036730}{indexCount}}\ =\ 0;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_submesh_a6f7fa3bca58d661406a01bf575f16500}{startIndex}}\ =\ 0;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_submesh_a0eb360454bc49a11ccf8a44bf00bc0a9}{materialSlot}}\ =\ 0;}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{class_mesh}{Mesh}}\ \{}
+\DoxyCodeLine{00054\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00060\ \ \ std::vector<Submesh>\&\ \mbox{\hyperlink{class_mesh_ace18061f82d309f8c7d41c7acb048ba8}{getSubmeshes}}()\ \{\ \textcolor{keywordflow}{return}\ m\_submeshes;\ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keyword}{const}\ std::vector<Submesh>\&\ \mbox{\hyperlink{class_mesh_ad97620008794103c576d93dcc1ee99fa}{getSubmeshes}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_submeshes;\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{class_mesh_a339f2160c7610b1106c0fd5e9c033788}{destroy}}()\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{struct_submesh}{Submesh}}\&\ submesh\ :\ m\_submeshes)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ submesh.vertexBuffer.destroy();}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ submesh.indexBuffer.destroy();}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ m\_submeshes.clear();}
+\DoxyCodeLine{00081\ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00088\ \ \ std::vector<Submesh>\ m\_submeshes;}
+\DoxyCodeLine{00089\ \};}
+
+\end{DoxyCode}

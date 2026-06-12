@@ -1,0 +1,470 @@
+\doxysection{globals.\+h}
+\hypertarget{globals_8h_source}{}\label{globals_8h_source}\index{include/fbx/libxml2/libxml/globals.h@{include/fbx/libxml2/libxml/globals.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Summary:\ interface\ for\ all\ global\ variables\ of\ the\ library}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Description:\ all\ the\ global\ variables\ and\ thread\ handling\ for}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ those\ variables\ is\ handled\ by\ this\ module.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ The\ bottom\ of\ this\ file\ is\ automatically\ generated\ by\ build\_glob.py}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ based\ on\ the\ description\ file\ global.data}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Copy:\ See\ Copyright\ for\ the\ status\ of\ this\ software.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ Author:\ Gary\ Pennington\ <Gary.Pennington@uk.sun.com>,\ Daniel\ Veillard}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifndef\ \_\_XML\_GLOBALS\_H}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ \_\_XML\_GLOBALS\_H}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <libxml/xmlversion.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <libxml/parser.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <libxml/xmlerror.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <libxml/SAX2.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <libxml/xmlmemory.h>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ XML\_DEPRECATED}
+\DoxyCodeLine{00028\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlInitGlobals(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00029\ XML\_DEPRECATED}
+\DoxyCodeLine{00030\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlCleanupGlobals(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ xmlParserInputBufferPtr\ (*xmlParserInputBufferCreateFilenameFunc)\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *URI,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlCharEncoding\ enc);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{typedef}\ xmlOutputBufferPtr\ (*xmlOutputBufferCreateFilenameFunc)\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *URI,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlCharEncodingHandlerPtr\ encoder,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ compression);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ XMLPUBFUN\ xmlParserInputBufferCreateFilenameFunc}
+\DoxyCodeLine{00063\ XMLCALL\ xmlParserInputBufferCreateFilenameDefault\ (xmlParserInputBufferCreateFilenameFunc\ func);}
+\DoxyCodeLine{00064\ XMLPUBFUN\ xmlOutputBufferCreateFilenameFunc}
+\DoxyCodeLine{00065\ XMLCALL\ xmlOutputBufferCreateFilenameDefault\ (xmlOutputBufferCreateFilenameFunc\ func);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ *\ Externally\ global\ symbols\ which\ need\ to\ be\ protected\ for\ backwards}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ *\ compatibility\ support.}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#undef\ \ htmlDefaultSAXHandler}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#undef\ \ oldXMLWDcompatibility}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#undef\ \ xmlBufferAllocScheme}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#undef\ \ xmlDefaultBufferSize}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#undef\ \ xmlDefaultSAXHandler}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#undef\ \ xmlDefaultSAXLocator}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#undef\ \ xmlDoValidityCheckingDefaultValue}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#undef\ \ xmlFree}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#undef\ \ xmlGenericError}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#undef\ \ xmlStructuredError}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#undef\ \ xmlGenericErrorContext}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#undef\ \ xmlStructuredErrorContext}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#undef\ \ xmlGetWarningsDefaultValue}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#undef\ \ xmlIndentTreeOutput}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#undef\ \ xmlTreeIndentString}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#undef\ \ xmlKeepBlanksDefaultValue}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#undef\ \ xmlLineNumbersDefaultValue}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#undef\ \ xmlLoadExtDtdDefaultValue}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#undef\ \ xmlMalloc}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#undef\ \ xmlMallocAtomic}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#undef\ \ xmlMemStrdup}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#undef\ \ xmlParserDebugEntities}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#undef\ \ xmlParserVersion}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#undef\ \ xmlPedanticParserDefaultValue}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#undef\ \ xmlRealloc}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#undef\ \ xmlSaveNoEmptyTags}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#undef\ \ xmlSubstituteEntitiesDefaultValue}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#undef\ \ xmlRegisterNodeDefaultValue}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#undef\ \ xmlDeregisterNodeDefaultValue}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#undef\ \ xmlLastError}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#undef\ \ xmlParserInputBufferCreateFilenameValue}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#undef\ \ xmlOutputBufferCreateFilenameValue}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00111\ \textcolor{keyword}{typedef}\ void\ (*xmlRegisterNodeFunc)\ (xmlNodePtr\ node);}
+\DoxyCodeLine{00118\ \textcolor{keyword}{typedef}\ void\ (*xmlDeregisterNodeFunc)\ (xmlNodePtr\ node);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__xml_global_state}{\_xmlGlobalState}}\ xmlGlobalState;}
+\DoxyCodeLine{00121\ \textcolor{keyword}{typedef}\ xmlGlobalState\ *xmlGlobalStatePtr;}
+\DoxyCodeLine{00122\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__xml_global_state}{\_xmlGlobalState}}}
+\DoxyCodeLine{00123\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *xmlParserVersion;}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ xmlSAXLocator\ xmlDefaultSAXLocator;}
+\DoxyCodeLine{00127\ \ \ \ \ xmlSAXHandlerV1\ xmlDefaultSAXHandler;}
+\DoxyCodeLine{00128\ \ \ \ \ xmlSAXHandlerV1\ docbDefaultSAXHandler;\ \textcolor{comment}{/*\ unused\ */}}
+\DoxyCodeLine{00129\ \ \ \ \ xmlSAXHandlerV1\ htmlDefaultSAXHandler;}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ xmlFreeFunc\ xmlFree;}
+\DoxyCodeLine{00132\ \ \ \ \ xmlMallocFunc\ xmlMalloc;}
+\DoxyCodeLine{00133\ \ \ \ \ xmlStrdupFunc\ xmlMemStrdup;}
+\DoxyCodeLine{00134\ \ \ \ \ xmlReallocFunc\ xmlRealloc;}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ xmlGenericErrorFunc\ xmlGenericError;}
+\DoxyCodeLine{00137\ \ \ \ \ xmlStructuredErrorFunc\ xmlStructuredError;}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{void}\ *xmlGenericErrorContext;}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{int}\ oldXMLWDcompatibility;}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ xmlBufferAllocationScheme\ xmlBufferAllocScheme;}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{int}\ xmlDefaultBufferSize;}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{int}\ xmlSubstituteEntitiesDefaultValue;}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{int}\ xmlDoValidityCheckingDefaultValue;}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{int}\ xmlGetWarningsDefaultValue;}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{int}\ xmlKeepBlanksDefaultValue;}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{int}\ xmlLineNumbersDefaultValue;}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{int}\ xmlLoadExtDtdDefaultValue;}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{int}\ xmlParserDebugEntities;}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{int}\ xmlPedanticParserDefaultValue;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{int}\ xmlSaveNoEmptyTags;}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{int}\ xmlIndentTreeOutput;}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *xmlTreeIndentString;}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ xmlRegisterNodeFunc\ xmlRegisterNodeDefaultValue;}
+\DoxyCodeLine{00159\ \ \ \ \ xmlDeregisterNodeFunc\ xmlDeregisterNodeDefaultValue;}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ xmlMallocFunc\ xmlMallocAtomic;}
+\DoxyCodeLine{00162\ \ \ \ \ xmlError\ xmlLastError;}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ xmlParserInputBufferCreateFilenameFunc\ xmlParserInputBufferCreateFilenameValue;}
+\DoxyCodeLine{00165\ \ \ \ \ xmlOutputBufferCreateFilenameFunc\ xmlOutputBufferCreateFilenameValue;}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{void}\ *xmlStructuredErrorContext;}
+\DoxyCodeLine{00168\ \};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00171\ \}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#include\ <libxml/threads.h>}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00175\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ \ xmlInitializeGlobalState(xmlGlobalStatePtr\ gs);}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlThrDefSetGenericErrorFunc(\textcolor{keywordtype}{void}\ *ctx,\ xmlGenericErrorFunc\ handler);}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ XMLCALL\ xmlThrDefSetStructuredErrorFunc(\textcolor{keywordtype}{void}\ *ctx,\ xmlStructuredErrorFunc\ handler);}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ XMLPUBFUN\ xmlRegisterNodeFunc\ XMLCALL\ xmlRegisterNodeDefault(xmlRegisterNodeFunc\ func);}
+\DoxyCodeLine{00185\ XMLPUBFUN\ xmlRegisterNodeFunc\ XMLCALL\ xmlThrDefRegisterNodeDefault(xmlRegisterNodeFunc\ func);}
+\DoxyCodeLine{00186\ XMLPUBFUN\ xmlDeregisterNodeFunc\ XMLCALL\ xmlDeregisterNodeDefault(xmlDeregisterNodeFunc\ func);}
+\DoxyCodeLine{00187\ XMLPUBFUN\ xmlDeregisterNodeFunc\ XMLCALL\ xmlThrDefDeregisterNodeDefault(xmlDeregisterNodeFunc\ func);}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ XMLPUBFUN\ xmlOutputBufferCreateFilenameFunc\ XMLCALL}
+\DoxyCodeLine{00190\ \ \ \ \ xmlThrDefOutputBufferCreateFilenameDefault(xmlOutputBufferCreateFilenameFunc\ func);}
+\DoxyCodeLine{00191\ XMLPUBFUN\ xmlParserInputBufferCreateFilenameFunc\ XMLCALL}
+\DoxyCodeLine{00192\ \ \ \ \ xmlThrDefParserInputBufferCreateFilenameDefault(}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ xmlParserInputBufferCreateFilenameFunc\ func);}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00196\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00197\ \textcolor{comment}{\ *\ In\ general\ the\ memory\ allocation\ entry\ points\ are\ not\ kept}}
+\DoxyCodeLine{00198\ \textcolor{comment}{\ *\ thread\ specific\ but\ this\ can\ be\ overridden\ by\ LIBXML\_THREAD\_ALLOC\_ENABLED}}
+\DoxyCodeLine{00199\ \textcolor{comment}{\ *\ \ \ \ -\/\ xmlMalloc}}
+\DoxyCodeLine{00200\ \textcolor{comment}{\ *\ \ \ \ -\/\ xmlMallocAtomic}}
+\DoxyCodeLine{00201\ \textcolor{comment}{\ *\ \ \ \ -\/\ xmlRealloc}}
+\DoxyCodeLine{00202\ \textcolor{comment}{\ *\ \ \ \ -\/\ xmlMemStrdup}}
+\DoxyCodeLine{00203\ \textcolor{comment}{\ *\ \ \ \ -\/\ xmlFree}}
+\DoxyCodeLine{00204\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ALLOC\_ENABLED}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00208\ XMLPUBFUN\ \ xmlMallocFunc\ *\ XMLCALL\ \_\_xmlMalloc(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#define\ xmlMalloc\ \(\backslash\)}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{(*(\_\_xmlMalloc()))}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00212\ XMLPUBVAR\ xmlMallocFunc\ xmlMalloc;}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00216\ XMLPUBFUN\ \ xmlMallocFunc\ *\ XMLCALL\ \_\_xmlMallocAtomic(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\#define\ xmlMallocAtomic\ \(\backslash\)}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{(*(\_\_xmlMallocAtomic()))}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00220\ XMLPUBVAR\ xmlMallocFunc\ xmlMallocAtomic;}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00224\ XMLPUBFUN\ \ xmlReallocFunc\ *\ XMLCALL\ \_\_xmlRealloc(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\#define\ xmlRealloc\ \(\backslash\)}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{(*(\_\_xmlRealloc()))}}
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00228\ XMLPUBVAR\ xmlReallocFunc\ xmlRealloc;}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00232\ XMLPUBFUN\ \ xmlFreeFunc\ *\ XMLCALL\ \_\_xmlFree(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#define\ xmlFree\ \(\backslash\)}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{(*(\_\_xmlFree()))}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00236\ XMLPUBVAR\ xmlFreeFunc\ xmlFree;}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00240\ XMLPUBFUN\ \ xmlStrdupFunc\ *\ XMLCALL\ \_\_xmlMemStrdup(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#define\ xmlMemStrdup\ \(\backslash\)}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{(*(\_\_xmlMemStrdup()))}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00244\ XMLPUBVAR\ xmlStrdupFunc\ xmlMemStrdup;}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{/*\ !LIBXML\_THREAD\_ALLOC\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00248\ XMLPUBVAR\ xmlMallocFunc\ xmlMalloc;}
+\DoxyCodeLine{00249\ XMLPUBVAR\ xmlMallocFunc\ xmlMallocAtomic;}
+\DoxyCodeLine{00250\ XMLPUBVAR\ xmlReallocFunc\ xmlRealloc;}
+\DoxyCodeLine{00251\ XMLPUBVAR\ xmlFreeFunc\ xmlFree;}
+\DoxyCodeLine{00252\ XMLPUBVAR\ xmlStrdupFunc\ xmlMemStrdup;}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LIBXML\_THREAD\_ALLOC\_ENABLED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_HTML\_ENABLED}}
+\DoxyCodeLine{00256\ XMLPUBFUN\ xmlSAXHandlerV1\ *\ XMLCALL\ \_\_htmlDefaultSAXHandler(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#define\ htmlDefaultSAXHandler\ \(\backslash\)}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{(*(\_\_htmlDefaultSAXHandler()))}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00261\ XMLPUBVAR\ xmlSAXHandlerV1\ htmlDefaultSAXHandler;}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ XMLPUBFUN\ xmlError\ *\ XMLCALL\ \_\_xmlLastError(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#define\ xmlLastError\ \(\backslash\)}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{(*(\_\_xmlLastError()))}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00270\ XMLPUBVAR\ xmlError\ xmlLastError;}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00274\ \textcolor{comment}{\ *\ Everything\ starting\ from\ the\ line\ below\ is}}
+\DoxyCodeLine{00275\ \textcolor{comment}{\ *\ Automatically\ generated\ by\ build\_glob.py.}}
+\DoxyCodeLine{00276\ \textcolor{comment}{\ *\ Do\ not\ modify\ the\ previous\ line.}}
+\DoxyCodeLine{00277\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ *\ XMLCALL\ \_\_oldXMLWDcompatibility(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\#define\ oldXMLWDcompatibility\ \(\backslash\)}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{(*(\_\_oldXMLWDcompatibility()))}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00285\ XMLPUBVAR\ \textcolor{keywordtype}{int}\ oldXMLWDcompatibility;}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ XMLPUBFUN\ xmlBufferAllocationScheme\ *\ XMLCALL\ \_\_xmlBufferAllocScheme(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\#define\ xmlBufferAllocScheme\ \(\backslash\)}}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{(*(\_\_xmlBufferAllocScheme()))}}
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00293\ XMLPUBVAR\ xmlBufferAllocationScheme\ xmlBufferAllocScheme;}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00295\ XMLPUBFUN\ xmlBufferAllocationScheme\ XMLCALL}
+\DoxyCodeLine{00296\ \ \ \ \ xmlThrDefBufferAllocScheme(xmlBufferAllocationScheme\ v);}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ *\ XMLCALL\ \_\_xmlDefaultBufferSize(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00299\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\#define\ xmlDefaultBufferSize\ \(\backslash\)}}
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{(*(\_\_xmlDefaultBufferSize()))}}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00303\ XMLPUBVAR\ \textcolor{keywordtype}{int}\ xmlDefaultBufferSize;}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00305\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ xmlThrDefDefaultBufferSize(\textcolor{keywordtype}{int}\ v);}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ XMLPUBFUN\ xmlSAXHandlerV1\ *\ XMLCALL\ \_\_xmlDefaultSAXHandler(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\#define\ xmlDefaultSAXHandler\ \(\backslash\)}}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{(*(\_\_xmlDefaultSAXHandler()))}}
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00312\ XMLPUBVAR\ xmlSAXHandlerV1\ xmlDefaultSAXHandler;}
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ XMLPUBFUN\ xmlSAXLocator\ *\ XMLCALL\ \_\_xmlDefaultSAXLocator(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\#define\ xmlDefaultSAXLocator\ \(\backslash\)}}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{(*(\_\_xmlDefaultSAXLocator()))}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00320\ XMLPUBVAR\ xmlSAXLocator\ xmlDefaultSAXLocator;}
+\DoxyCodeLine{00321\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ *\ XMLCALL\ \_\_xmlDoValidityCheckingDefaultValue(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00325\ \textcolor{preprocessor}{\#define\ xmlDoValidityCheckingDefaultValue\ \(\backslash\)}}
+\DoxyCodeLine{00326\ \textcolor{preprocessor}{(*(\_\_xmlDoValidityCheckingDefaultValue()))}}
+\DoxyCodeLine{00327\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00328\ XMLPUBVAR\ \textcolor{keywordtype}{int}\ xmlDoValidityCheckingDefaultValue;}
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00330\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ xmlThrDefDoValidityCheckingDefaultValue(\textcolor{keywordtype}{int}\ v);}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ XMLPUBFUN\ xmlGenericErrorFunc\ *\ XMLCALL\ \_\_xmlGenericError(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00333\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00334\ \textcolor{preprocessor}{\#define\ xmlGenericError\ \(\backslash\)}}
+\DoxyCodeLine{00335\ \textcolor{preprocessor}{(*(\_\_xmlGenericError()))}}
+\DoxyCodeLine{00336\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00337\ XMLPUBVAR\ xmlGenericErrorFunc\ xmlGenericError;}
+\DoxyCodeLine{00338\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ XMLPUBFUN\ xmlStructuredErrorFunc\ *\ XMLCALL\ \_\_xmlStructuredError(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\#define\ xmlStructuredError\ \(\backslash\)}}
+\DoxyCodeLine{00343\ \textcolor{preprocessor}{(*(\_\_xmlStructuredError()))}}
+\DoxyCodeLine{00344\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00345\ XMLPUBVAR\ xmlStructuredErrorFunc\ xmlStructuredError;}
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ *\ *\ XMLCALL\ \_\_xmlGenericErrorContext(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00349\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00350\ \textcolor{preprocessor}{\#define\ xmlGenericErrorContext\ \(\backslash\)}}
+\DoxyCodeLine{00351\ \textcolor{preprocessor}{(*(\_\_xmlGenericErrorContext()))}}
+\DoxyCodeLine{00352\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00353\ XMLPUBVAR\ \textcolor{keywordtype}{void}\ *\ xmlGenericErrorContext;}
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ XMLPUBFUN\ \textcolor{keywordtype}{void}\ *\ *\ XMLCALL\ \_\_xmlStructuredErrorContext(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00357\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\#define\ xmlStructuredErrorContext\ \(\backslash\)}}
+\DoxyCodeLine{00359\ \textcolor{preprocessor}{(*(\_\_xmlStructuredErrorContext()))}}
+\DoxyCodeLine{00360\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00361\ XMLPUBVAR\ \textcolor{keywordtype}{void}\ *\ xmlStructuredErrorContext;}
+\DoxyCodeLine{00362\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ *\ XMLCALL\ \_\_xmlGetWarningsDefaultValue(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00365\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00366\ \textcolor{preprocessor}{\#define\ xmlGetWarningsDefaultValue\ \(\backslash\)}}
+\DoxyCodeLine{00367\ \textcolor{preprocessor}{(*(\_\_xmlGetWarningsDefaultValue()))}}
+\DoxyCodeLine{00368\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00369\ XMLPUBVAR\ \textcolor{keywordtype}{int}\ xmlGetWarningsDefaultValue;}
+\DoxyCodeLine{00370\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00371\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ xmlThrDefGetWarningsDefaultValue(\textcolor{keywordtype}{int}\ v);}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ *\ XMLCALL\ \_\_xmlIndentTreeOutput(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00374\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00375\ \textcolor{preprocessor}{\#define\ xmlIndentTreeOutput\ \(\backslash\)}}
+\DoxyCodeLine{00376\ \textcolor{preprocessor}{(*(\_\_xmlIndentTreeOutput()))}}
+\DoxyCodeLine{00377\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00378\ XMLPUBVAR\ \textcolor{keywordtype}{int}\ xmlIndentTreeOutput;}
+\DoxyCodeLine{00379\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00380\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ xmlThrDefIndentTreeOutput(\textcolor{keywordtype}{int}\ v);}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00382\ XMLPUBFUN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ *\ XMLCALL\ \_\_xmlTreeIndentString(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00383\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00384\ \textcolor{preprocessor}{\#define\ xmlTreeIndentString\ \(\backslash\)}}
+\DoxyCodeLine{00385\ \textcolor{preprocessor}{(*(\_\_xmlTreeIndentString()))}}
+\DoxyCodeLine{00386\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00387\ XMLPUBVAR\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ xmlTreeIndentString;}
+\DoxyCodeLine{00388\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00389\ XMLPUBFUN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ XMLCALL\ xmlThrDefTreeIndentString(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ v);}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ *\ XMLCALL\ \_\_xmlKeepBlanksDefaultValue(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00392\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00393\ \textcolor{preprocessor}{\#define\ xmlKeepBlanksDefaultValue\ \(\backslash\)}}
+\DoxyCodeLine{00394\ \textcolor{preprocessor}{(*(\_\_xmlKeepBlanksDefaultValue()))}}
+\DoxyCodeLine{00395\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00396\ XMLPUBVAR\ \textcolor{keywordtype}{int}\ xmlKeepBlanksDefaultValue;}
+\DoxyCodeLine{00397\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00398\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ xmlThrDefKeepBlanksDefaultValue(\textcolor{keywordtype}{int}\ v);}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ *\ XMLCALL\ \_\_xmlLineNumbersDefaultValue(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00401\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00402\ \textcolor{preprocessor}{\#define\ xmlLineNumbersDefaultValue\ \(\backslash\)}}
+\DoxyCodeLine{00403\ \textcolor{preprocessor}{(*(\_\_xmlLineNumbersDefaultValue()))}}
+\DoxyCodeLine{00404\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00405\ XMLPUBVAR\ \textcolor{keywordtype}{int}\ xmlLineNumbersDefaultValue;}
+\DoxyCodeLine{00406\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00407\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ xmlThrDefLineNumbersDefaultValue(\textcolor{keywordtype}{int}\ v);}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00409\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ *\ XMLCALL\ \_\_xmlLoadExtDtdDefaultValue(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00410\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00411\ \textcolor{preprocessor}{\#define\ xmlLoadExtDtdDefaultValue\ \(\backslash\)}}
+\DoxyCodeLine{00412\ \textcolor{preprocessor}{(*(\_\_xmlLoadExtDtdDefaultValue()))}}
+\DoxyCodeLine{00413\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00414\ XMLPUBVAR\ \textcolor{keywordtype}{int}\ xmlLoadExtDtdDefaultValue;}
+\DoxyCodeLine{00415\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00416\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ xmlThrDefLoadExtDtdDefaultValue(\textcolor{keywordtype}{int}\ v);}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ *\ XMLCALL\ \_\_xmlParserDebugEntities(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00419\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00420\ \textcolor{preprocessor}{\#define\ xmlParserDebugEntities\ \(\backslash\)}}
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{(*(\_\_xmlParserDebugEntities()))}}
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00423\ XMLPUBVAR\ \textcolor{keywordtype}{int}\ xmlParserDebugEntities;}
+\DoxyCodeLine{00424\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00425\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ xmlThrDefParserDebugEntities(\textcolor{keywordtype}{int}\ v);}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ XMLPUBFUN\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ *\ XMLCALL\ \_\_xmlParserVersion(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00428\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00429\ \textcolor{preprocessor}{\#define\ xmlParserVersion\ \(\backslash\)}}
+\DoxyCodeLine{00430\ \textcolor{preprocessor}{(*(\_\_xmlParserVersion()))}}
+\DoxyCodeLine{00431\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00432\ XMLPUBVAR\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ xmlParserVersion;}
+\DoxyCodeLine{00433\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ *\ XMLCALL\ \_\_xmlPedanticParserDefaultValue(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00436\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00437\ \textcolor{preprocessor}{\#define\ xmlPedanticParserDefaultValue\ \(\backslash\)}}
+\DoxyCodeLine{00438\ \textcolor{preprocessor}{(*(\_\_xmlPedanticParserDefaultValue()))}}
+\DoxyCodeLine{00439\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00440\ XMLPUBVAR\ \textcolor{keywordtype}{int}\ xmlPedanticParserDefaultValue;}
+\DoxyCodeLine{00441\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00442\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ xmlThrDefPedanticParserDefaultValue(\textcolor{keywordtype}{int}\ v);}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ *\ XMLCALL\ \_\_xmlSaveNoEmptyTags(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00445\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00446\ \textcolor{preprocessor}{\#define\ xmlSaveNoEmptyTags\ \(\backslash\)}}
+\DoxyCodeLine{00447\ \textcolor{preprocessor}{(*(\_\_xmlSaveNoEmptyTags()))}}
+\DoxyCodeLine{00448\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00449\ XMLPUBVAR\ \textcolor{keywordtype}{int}\ xmlSaveNoEmptyTags;}
+\DoxyCodeLine{00450\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00451\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ xmlThrDefSaveNoEmptyTags(\textcolor{keywordtype}{int}\ v);}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ *\ XMLCALL\ \_\_xmlSubstituteEntitiesDefaultValue(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00455\ \textcolor{preprocessor}{\#define\ xmlSubstituteEntitiesDefaultValue\ \(\backslash\)}}
+\DoxyCodeLine{00456\ \textcolor{preprocessor}{(*(\_\_xmlSubstituteEntitiesDefaultValue()))}}
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00458\ XMLPUBVAR\ \textcolor{keywordtype}{int}\ xmlSubstituteEntitiesDefaultValue;}
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00460\ XMLPUBFUN\ \textcolor{keywordtype}{int}\ XMLCALL\ xmlThrDefSubstituteEntitiesDefaultValue(\textcolor{keywordtype}{int}\ v);}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00462\ XMLPUBFUN\ xmlRegisterNodeFunc\ *\ XMLCALL\ \_\_xmlRegisterNodeDefaultValue(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00463\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00464\ \textcolor{preprocessor}{\#define\ xmlRegisterNodeDefaultValue\ \(\backslash\)}}
+\DoxyCodeLine{00465\ \textcolor{preprocessor}{(*(\_\_xmlRegisterNodeDefaultValue()))}}
+\DoxyCodeLine{00466\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00467\ XMLPUBVAR\ xmlRegisterNodeFunc\ xmlRegisterNodeDefaultValue;}
+\DoxyCodeLine{00468\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00470\ XMLPUBFUN\ xmlDeregisterNodeFunc\ *\ XMLCALL\ \_\_xmlDeregisterNodeDefaultValue(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00471\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00472\ \textcolor{preprocessor}{\#define\ xmlDeregisterNodeDefaultValue\ \(\backslash\)}}
+\DoxyCodeLine{00473\ \textcolor{preprocessor}{(*(\_\_xmlDeregisterNodeDefaultValue()))}}
+\DoxyCodeLine{00474\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00475\ XMLPUBVAR\ xmlDeregisterNodeFunc\ xmlDeregisterNodeDefaultValue;}
+\DoxyCodeLine{00476\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ XMLPUBFUN\ xmlParserInputBufferCreateFilenameFunc\ *\ XMLCALL\ \(\backslash\)}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_xmlParserInputBufferCreateFilenameValue(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00480\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00481\ \textcolor{preprocessor}{\#define\ xmlParserInputBufferCreateFilenameValue\ \(\backslash\)}}
+\DoxyCodeLine{00482\ \textcolor{preprocessor}{(*(\_\_xmlParserInputBufferCreateFilenameValue()))}}
+\DoxyCodeLine{00483\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00484\ XMLPUBVAR\ xmlParserInputBufferCreateFilenameFunc\ xmlParserInputBufferCreateFilenameValue;}
+\DoxyCodeLine{00485\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00487\ XMLPUBFUN\ xmlOutputBufferCreateFilenameFunc\ *\ XMLCALL\ \_\_xmlOutputBufferCreateFilenameValue(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00488\ \textcolor{preprocessor}{\#ifdef\ LIBXML\_THREAD\_ENABLED}}
+\DoxyCodeLine{00489\ \textcolor{preprocessor}{\#define\ xmlOutputBufferCreateFilenameValue\ \(\backslash\)}}
+\DoxyCodeLine{00490\ \textcolor{preprocessor}{(*(\_\_xmlOutputBufferCreateFilenameValue()))}}
+\DoxyCodeLine{00491\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00492\ XMLPUBVAR\ xmlOutputBufferCreateFilenameFunc\ xmlOutputBufferCreateFilenameValue;}
+\DoxyCodeLine{00493\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00496\ \}}
+\DoxyCodeLine{00497\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00499\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_XML\_GLOBALS\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

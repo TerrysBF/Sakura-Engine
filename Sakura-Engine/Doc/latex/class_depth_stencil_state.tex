@@ -1,0 +1,149 @@
+\doxysection{Depth\+Stencil\+State Class Reference}
+\hypertarget{class_depth_stencil_state}{}\label{class_depth_stencil_state}\index{DepthStencilState@{DepthStencilState}}
+
+
+Encapsula un {\ttfamily ID3\+D11\+Depth\+Stencil\+State} y su ciclo de vida para la etapa Output-\/\+Merger.  
+
+
+
+
+{\ttfamily \#include $<$Depth\+Stencil\+State.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_depth_stencil_state_aed5e36643f88ebe2361c1e47924b90ed}\label{class_depth_stencil_state_aed5e36643f88ebe2361c1e47924b90ed} 
+{\bfseries Depth\+Stencil\+State} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor por defecto (no crea recursos). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_depth_stencil_state_a9b12fea7de097f99a635a36a3ca49fc7}{\texorpdfstring{$\sim$}{\string~}\+Depth\+Stencil\+State}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor por defecto. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_depth_stencil_state_a9dcd3f2237718cfb2394071775f2cf79}{init}} (\mbox{\hyperlink{class_device}{Device}} \&device, bool depth\+Enable, D3\+D11\+\_\+\+DEPTH\+\_\+\+WRITE\+\_\+\+MASK write\+Mask, D3\+D11\+\_\+\+COMPARISON\+\_\+\+FUNC depth\+Func)
+\begin{DoxyCompactList}\small\item\em Crea el objeto {\ttfamily ID3\+D11\+Depth\+Stencil\+State} a partir de flags comunes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_depth_stencil_state_aa85ee28ed3dd6bb6179ec7fe5b911ad4}{update}} ()
+\begin{DoxyCompactList}\small\item\em Actualiza par?metros internos si la implementaci?n lo requiere. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_depth_stencil_state_afffa4b1ac140095bc5aacf36b767f24b}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context, unsigned int stencil\+Ref=0, bool reset=false)
+\begin{DoxyCompactList}\small\item\em Aplica el estado de profundidad/est?ncil al contexto (OMSet\+Depth\+Stencil\+State). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_depth_stencil_state_aeac8e70574a0e42df1c54f9a6068006f}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Libera el recurso {\ttfamily ID3\+D11\+Depth\+Stencil\+State} y deja la instancia en estado no inicializado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encapsula un {\ttfamily ID3\+D11\+Depth\+Stencil\+State} y su ciclo de vida para la etapa Output-\/\+Merger. 
+
+Administra la creaci?n, configuraci?n, aplicaci?n y destrucci?n de un estado de profundidad/est?ncil en Direct3D 11. Permite activar/desactivar pruebas de profundidad y funcionalidades de est?ncil seg?n se requiera.
+
+\begin{DoxyNote}{Note}
+La clase no posee ni administra la vida de {\ttfamily \doxylink{class_device}{Device}} ni de {\ttfamily \doxylink{class_device_context}{Device\+Context}}. 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_depth_stencil_state_a9b12fea7de097f99a635a36a3ca49fc7}\index{DepthStencilState@{DepthStencilState}!````~DepthStencilState@{\texorpdfstring{$\sim$}{\string~}DepthStencilState}}
+\index{````~DepthStencilState@{\texorpdfstring{$\sim$}{\string~}DepthStencilState}!DepthStencilState@{DepthStencilState}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DepthStencilState()}{\string~DepthStencilState()}}
+{\footnotesize\ttfamily \label{class_depth_stencil_state_a9b12fea7de097f99a635a36a3ca49fc7} 
+Depth\+Stencil\+State\+::\texorpdfstring{$\sim$}{\string~}\+Depth\+Stencil\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destructor por defecto. 
+
+No libera autom?ticamente el recurso COM; llamar a \doxylink{class_depth_stencil_state_aeac8e70574a0e42df1c54f9a6068006f}{destroy()}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_depth_stencil_state_aeac8e70574a0e42df1c54f9a6068006f}\index{DepthStencilState@{DepthStencilState}!destroy@{destroy}}
+\index{destroy@{destroy}!DepthStencilState@{DepthStencilState}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{class_depth_stencil_state_aeac8e70574a0e42df1c54f9a6068006f} 
+void Depth\+Stencil\+State\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Libera el recurso {\ttfamily ID3\+D11\+Depth\+Stencil\+State} y deja la instancia en estado no inicializado. 
+
+Idempotente\+: puede llamarse m?ltiples veces de forma segura.
+
+\begin{DoxyPostcond}{Postcondition}
+{\ttfamily m\+\_\+depth\+Stencil\+State} == nullptr. 
+\end{DoxyPostcond}
+\Hypertarget{class_depth_stencil_state_a9dcd3f2237718cfb2394071775f2cf79}\index{DepthStencilState@{DepthStencilState}!init@{init}}
+\index{init@{init}!DepthStencilState@{DepthStencilState}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_depth_stencil_state_a9dcd3f2237718cfb2394071775f2cf79} 
+HRESULT Depth\+Stencil\+State\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{bool}]{depth\+Enable}{, }\item[{D3\+D11\+\_\+\+DEPTH\+\_\+\+WRITE\+\_\+\+MASK}]{write\+Mask}{, }\item[{D3\+D11\+\_\+\+COMPARISON\+\_\+\+FUNC}]{depth\+Func}{}\end{DoxyParamCaption})}
+
+
+
+Crea el objeto {\ttfamily ID3\+D11\+Depth\+Stencil\+State} a partir de flags comunes. 
+
+Genera y almacena internamente un estado de profundidad/est?ncil. La configuraci?n concreta (funci?n de comparaci?n, m?scaras, operaciones de est?ncil, etc.) debe definirse en la implementaci?n de este m?todo, condicionada por {\ttfamily enable\+Depth} y {\ttfamily enable\+Stencil}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se crea el recurso. \\
+\hline
+{\em enable\+Depth} & Habilita la prueba de profundidad (por defecto {\ttfamily true}). \\
+\hline
+{\em enable\+Stencil} & Habilita el buffer de est?ncil y sus pruebas (por defecto {\ttfamily false}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si la creaci?n fue exitosa; c?digo {\ttfamily HRESULT} en caso contrario.
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Si retorna {\ttfamily S\+\_\+\+OK}, {\ttfamily m\+\_\+depth\+Stencil\+State} != nullptr. 
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_depth_stencil_state_afffa4b1ac140095bc5aacf36b767f24b}{render()}, \doxylink{class_depth_stencil_state_aeac8e70574a0e42df1c54f9a6068006f}{destroy()} 
+\end{DoxySeeAlso}
+\Hypertarget{class_depth_stencil_state_afffa4b1ac140095bc5aacf36b767f24b}\index{DepthStencilState@{DepthStencilState}!render@{render}}
+\index{render@{render}!DepthStencilState@{DepthStencilState}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_depth_stencil_state_afffa4b1ac140095bc5aacf36b767f24b} 
+void Depth\+Stencil\+State\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{, }\item[{unsigned int}]{stencil\+Ref}{ = {\ttfamily 0}, }\item[{bool}]{reset}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+
+
+Aplica el estado de profundidad/est?ncil al contexto (OMSet\+Depth\+Stencil\+State). 
+
+Vincula el {\ttfamily ID3\+D11\+Depth\+Stencil\+State} al {\ttfamily \doxylink{class_device_context}{Device\+Context}}. Puede adem?s restablecer el estado a {\ttfamily nullptr} si {\ttfamily reset} es {\ttfamily true}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto donde se aplicar? el estado. \\
+\hline
+{\em stencil\+Ref} & Referencia de est?ncil usada por las operaciones de est?ncil (por defecto 0). \\
+\hline
+{\em reset} & Si es {\ttfamily true}, desvincula el estado despu?s de aplicarlo (setea {\ttfamily nullptr}).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily m\+\_\+depth\+Stencil\+State} debe haber sido creado con \doxylink{class_depth_stencil_state_a9dcd3f2237718cfb2394071775f2cf79}{init()}. 
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+Internamente invoca {\ttfamily ID3\+D11\+Device\+Context\+::\+OMSet\+Depth\+Stencil\+State}. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_depth_stencil_state_a9dcd3f2237718cfb2394071775f2cf79}{init()}, \doxylink{class_depth_stencil_state_aeac8e70574a0e42df1c54f9a6068006f}{destroy()} 
+\end{DoxySeeAlso}
+\Hypertarget{class_depth_stencil_state_aa85ee28ed3dd6bb6179ec7fe5b911ad4}\index{DepthStencilState@{DepthStencilState}!update@{update}}
+\index{update@{update}!DepthStencilState@{DepthStencilState}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_depth_stencil_state_aa85ee28ed3dd6bb6179ec7fe5b911ad4} 
+void Depth\+Stencil\+State\+::update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Actualiza par?metros internos si la implementaci?n lo requiere. 
+
+M?todo placeholder para futuros cambios din?micos del descriptor de profundidad/est?ncil (p. ej., recrear el recurso con otros flags).
+
+\begin{DoxyNote}{Note}
+Actualmente no realiza ninguna operaci?n. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_depth_stencil_state_8h}{Depth\+Stencil\+State.\+h}}\item 
+source/\mbox{\hyperlink{_depth_stencil_state_8cpp}{Depth\+Stencil\+State.\+cpp}}\end{DoxyCompactItemize}

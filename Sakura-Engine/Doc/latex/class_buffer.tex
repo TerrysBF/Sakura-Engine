@@ -1,0 +1,246 @@
+\doxysection{Buffer Class Reference}
+\hypertarget{class_buffer}{}\label{class_buffer}\index{Buffer@{Buffer}}
+
+
+Encapsula un {\ttfamily ID3\+D11\+Buffer} para v{\ucr}rtices, {\ucr}ndices o constantes, incluyendo creaci{\ucr}n, actualizaci{\ucr}n y enlace.  
+
+
+
+
+{\ttfamily \#include $<$Buffer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_buffer_a92fd371409790ee64d2ca9bdaec2dd1a}\label{class_buffer_a92fd371409790ee64d2ca9bdaec2dd1a} 
+{\bfseries Buffer} ()=default
+\begin{DoxyCompactList}\small\item\em Constructor por defecto (no crea recursos). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_buffer_ae2f3fc08c4a74c7f3b4437af4dd03ed5}{\texorpdfstring{$\sim$}{\string~}\+Buffer}} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor por defecto. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_buffer_a38292a603c7858826064b70a111ab9ad}{init}} (\mbox{\hyperlink{class_device}{Device}} \&device, const \mbox{\hyperlink{class_mesh_component}{Mesh\+Component}} \&mesh, unsigned int bind\+Flag)
+\begin{DoxyCompactList}\small\item\em Inicializa el buffer como Vertex o Index \doxylink{class_buffer}{Buffer} usando un {\ttfamily \doxylink{class_mesh_component}{Mesh\+Component}}. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_buffer_a2191a1b19c8ceb1f7e3df9f1521ef717}{init}} (\mbox{\hyperlink{class_device}{Device}} \&device, unsigned int Byte\+Width)
+\begin{DoxyCompactList}\small\item\em Inicializa el buffer como Constant \doxylink{class_buffer}{Buffer}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_buffer_a246363f9412b48c01dd7a75d08c793ca}{update}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context, ID3\+D11\+Resource \texorpdfstring{$\ast$}{*}p\+Dst\+Resource, unsigned int Dst\+Subresource, const D3\+D11\+\_\+\+BOX \texorpdfstring{$\ast$}{*}p\+Dst\+Box, const void \texorpdfstring{$\ast$}{*}p\+Src\+Data, unsigned int Src\+Row\+Pitch, unsigned int Src\+Depth\+Pitch)
+\begin{DoxyCompactList}\small\item\em Actualiza el contenido del buffer (t{\ucr}picamente mediante {\ttfamily Update\+Subresource}). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_buffer_a96d28a8996d3295ec8171048d400e3f5}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context, unsigned int Start\+Slot, unsigned int Num\+Buffers, bool set\+Pixel\+Shader=false, DXGI\+\_\+\+FORMAT format=DXGI\+\_\+\+FORMAT\+\_\+\+UNKNOWN)
+\begin{DoxyCompactList}\small\item\em Enlaza el buffer a la etapa correspondiente del pipeline para el frame de render. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_buffer_ac7345574d2ad0202f9e1e745df6519d3}{destroy}} ()
+\begin{DoxyCompactList}\small\item\em Libera el {\ttfamily ID3\+D11\+Buffer} y resetea los metadatos internos. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_buffer_a30e5bfadde7c7c05cccd65ff51596c04}{create\+Buffer}} (\mbox{\hyperlink{class_device}{Device}} \&device, D3\+D11\+\_\+\+BUFFER\+\_\+\+DESC \&desc, D3\+D11\+\_\+\+SUBRESOURCE\+\_\+\+DATA \texorpdfstring{$\ast$}{*}init\+Data)
+\begin{DoxyCompactList}\small\item\em Crea un buffer gen{\ucr}rico con una {\ttfamily D3\+D11\+\_\+\+BUFFER\+\_\+\+DESC} y datos iniciales opcionales. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_buffer_a7cd370bc7f3eba762ae7140804619bbf}\label{class_buffer_a7cd370bc7f3eba762ae7140804619bbf} 
+ID3\+D11\+Buffer \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+buffer} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encapsula un {\ttfamily ID3\+D11\+Buffer} para v{\ucr}rtices, {\ucr}ndices o constantes, incluyendo creaci{\ucr}n, actualizaci{\ucr}n y enlace. 
+
+Esta clase administra la vida de un {\ucr}nico buffer de D3\+D11 y su uso en etapa de render. Soporta\+:
+\begin{DoxyItemize}
+\item Creaci{\ucr}n como Vertex/\+Index buffer a partir de un {\ttfamily \doxylink{class_mesh_component}{Mesh\+Component}}.
+\item Creaci{\ucr}n como Constant buffer a partir de un tama{\ucr}o (Byte\+Width).
+\item Actualizaci{\ucr}n de datos (p. ej. {\ttfamily Update\+Subresource}).
+\item Enlace del buffer a la etapa correspondiente del pipeline.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+La instancia gestiona un solo {\ttfamily ID3\+D11\+Buffer} a la vez; el tipo efectivo se deduce de {\ttfamily m\+\_\+bind\+Flag}. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+No copia el recurso; si se a{\ucr}ade sem{\ucr}ntica de copia, manejar correctamente referencias COM. 
+\end{DoxyWarning}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_buffer_ae2f3fc08c4a74c7f3b4437af4dd03ed5}\index{Buffer@{Buffer}!````~Buffer@{\texorpdfstring{$\sim$}{\string~}Buffer}}
+\index{````~Buffer@{\texorpdfstring{$\sim$}{\string~}Buffer}!Buffer@{Buffer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Buffer()}{\string~Buffer()}}
+{\footnotesize\ttfamily \label{class_buffer_ae2f3fc08c4a74c7f3b4437af4dd03ed5} 
+Buffer\+::\texorpdfstring{$\sim$}{\string~}\+Buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Destructor por defecto. 
+
+No libera autom{\ucr}ticamente; llamar a \doxylink{class_buffer_ac7345574d2ad0202f9e1e745df6519d3}{destroy()} para liberar el recurso COM. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_buffer_a30e5bfadde7c7c05cccd65ff51596c04}\index{Buffer@{Buffer}!createBuffer@{createBuffer}}
+\index{createBuffer@{createBuffer}!Buffer@{Buffer}}
+\doxysubsubsection{\texorpdfstring{createBuffer()}{createBuffer()}}
+{\footnotesize\ttfamily \label{class_buffer_a30e5bfadde7c7c05cccd65ff51596c04} 
+HRESULT Buffer\+::create\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{D3\+D11\+\_\+\+BUFFER\+\_\+\+DESC \&}]{desc}{, }\item[{D3\+D11\+\_\+\+SUBRESOURCE\+\_\+\+DATA \texorpdfstring{$\ast$}{*}}]{init\+Data}{}\end{DoxyParamCaption})}
+
+
+
+Crea un buffer gen{\ucr}rico con una {\ttfamily D3\+D11\+\_\+\+BUFFER\+\_\+\+DESC} y datos iniciales opcionales. 
+
+M{\ucr}todo de ayuda para factorizar la creaci{\ucr}n. Normalmente invocado por {\ttfamily \doxylink{class_buffer_a38292a603c7858826064b70a111ab9ad}{init()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se crear{\ucr} el recurso. \\
+\hline
+{\em desc} & Descriptor del buffer (uso, bind flags, tama{\ucr}o, etc.). \\
+\hline
+{\em init\+Data} & Datos iniciales (puede ser {\ttfamily nullptr} para buffer sin inicializar). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si la creaci{\ucr}n fue exitosa; c{\ucr}digo {\ttfamily HRESULT} en caso contrario. 
+\end{DoxyReturn}
+\Hypertarget{class_buffer_ac7345574d2ad0202f9e1e745df6519d3}\index{Buffer@{Buffer}!destroy@{destroy}}
+\index{destroy@{destroy}!Buffer@{Buffer}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{class_buffer_ac7345574d2ad0202f9e1e745df6519d3} 
+void Buffer\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Libera el {\ttfamily ID3\+D11\+Buffer} y resetea los metadatos internos. 
+
+Idempotente.
+
+\begin{DoxyPostcond}{Postcondition}
+{\ttfamily m\+\_\+buffer} == nullptr, {\ttfamily m\+\_\+stride} == 0, {\ttfamily m\+\_\+offset} == 0 y {\ttfamily m\+\_\+bind\+Flag} == 0. 
+\end{DoxyPostcond}
+\Hypertarget{class_buffer_a38292a603c7858826064b70a111ab9ad}\index{Buffer@{Buffer}!init@{init}}
+\index{init@{init}!Buffer@{Buffer}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_buffer_a38292a603c7858826064b70a111ab9ad} 
+HRESULT Buffer\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{const \mbox{\hyperlink{class_mesh_component}{Mesh\+Component}} \&}]{mesh}{, }\item[{unsigned int}]{bind\+Flag}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa el buffer como Vertex o Index \doxylink{class_buffer}{Buffer} usando un {\ttfamily \doxylink{class_mesh_component}{Mesh\+Component}}. 
+
+Crea internamente un {\ttfamily ID3\+D11\+Buffer} con los datos del mesh (v{\ucr}rtices/{\ucr}ndices) seg{\ucr}n {\ttfamily bind\+Flag}. Debe usarse {\ttfamily D3\+D11\+\_\+\+BIND\+\_\+\+VERTEX\+\_\+\+BUFFER} o {\ttfamily D3\+D11\+\_\+\+BIND\+\_\+\+INDEX\+\_\+\+BUFFER}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se crear{\ucr} el recurso. \\
+\hline
+{\em mesh} & Fuente de datos (v{\ucr}rtices/{\ucr}ndices) para poblar el buffer. \\
+\hline
+{\em bind\+Flag} & Bandera de enlace (p. ej. {\ttfamily D3\+D11\+\_\+\+BIND\+\_\+\+VERTEX\+\_\+\+BUFFER} o {\ttfamily D3\+D11\+\_\+\+BIND\+\_\+\+INDEX\+\_\+\+BUFFER}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si la creaci{\ucr}n fue exitosa; c{\ucr}digo {\ttfamily HRESULT} en caso contrario.
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Si retorna {\ttfamily S\+\_\+\+OK}, {\ttfamily m\+\_\+buffer} != nullptr y {\ttfamily m\+\_\+bind\+Flag} == bind\+Flag. 
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_buffer_a30e5bfadde7c7c05cccd65ff51596c04}{create\+Buffer()}, \doxylink{class_buffer_a96d28a8996d3295ec8171048d400e3f5}{render()} 
+\end{DoxySeeAlso}
+\Hypertarget{class_buffer_a2191a1b19c8ceb1f7e3df9f1521ef717}\index{Buffer@{Buffer}!init@{init}}
+\index{init@{init}!Buffer@{Buffer}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_buffer_a2191a1b19c8ceb1f7e3df9f1521ef717} 
+HRESULT Buffer\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device}{Device}} \&}]{device}{, }\item[{unsigned int}]{Byte\+Width}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa el buffer como Constant \doxylink{class_buffer}{Buffer}. 
+
+Crea un {\ttfamily ID3\+D11\+Buffer} con {\ttfamily D3\+D11\+\_\+\+BIND\+\_\+\+CONSTANT\+\_\+\+BUFFER} y tama{\ucr}o {\ttfamily Byte\+Width} (m{\ucr}ltiplo de 16 bytes recomendado).
+
+
+\begin{DoxyParams}{Parameters}
+{\em device} & Dispositivo con el que se crear{\ucr} el recurso. \\
+\hline
+{\em Byte\+Width} & Tama{\ucr}o del buffer en bytes (alinear a 16 para constantes). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily S\+\_\+\+OK} si la creaci{\ucr}n fue exitosa; c{\ucr}digo {\ttfamily HRESULT} en caso contrario.
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Si retorna {\ttfamily S\+\_\+\+OK}, {\ttfamily m\+\_\+buffer} != nullptr y {\ttfamily m\+\_\+bind\+Flag} == D3\+D11\+\_\+\+BIND\+\_\+\+CONSTANT\+\_\+\+BUFFER. 
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_buffer_a246363f9412b48c01dd7a75d08c793ca}{update()}, \doxylink{class_buffer_a96d28a8996d3295ec8171048d400e3f5}{render()} 
+\end{DoxySeeAlso}
+\Hypertarget{class_buffer_a96d28a8996d3295ec8171048d400e3f5}\index{Buffer@{Buffer}!render@{render}}
+\index{render@{render}!Buffer@{Buffer}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_buffer_a96d28a8996d3295ec8171048d400e3f5} 
+void Buffer\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{, }\item[{unsigned int}]{Start\+Slot}{, }\item[{unsigned int}]{Num\+Buffers}{, }\item[{bool}]{set\+Pixel\+Shader}{ = {\ttfamily false}, }\item[{DXGI\+\_\+\+FORMAT}]{format}{ = {\ttfamily DXGI\+\_\+FORMAT\+\_\+UNKNOWN}}\end{DoxyParamCaption})}
+
+
+
+Enlaza el buffer a la etapa correspondiente del pipeline para el frame de render. 
+
+El comportamiento depende de {\ttfamily m\+\_\+bind\+Flag\+:} 
+\begin{DoxyItemize}
+\item {\ttfamily D3\+D11\+\_\+\+BIND\+\_\+\+VERTEX\+\_\+\+BUFFER\+:} Llama a {\ttfamily IASet\+Vertex\+Buffers} con {\ttfamily Start\+Slot} y {\ttfamily Num\+Buffers} (stride/offset internos).
+\item {\ttfamily D3\+D11\+\_\+\+BIND\+\_\+\+INDEX\+\_\+\+BUFFER\+:} Llama a {\ttfamily IASet\+Index\+Buffer} con {\ttfamily format}.
+\item {\ttfamily D3\+D11\+\_\+\+BIND\+\_\+\+CONSTANT\+\_\+\+BUFFER\+:} Enlaza a VS/\+PS seg{\ucr}n {\ttfamily set\+Pixel\+Shader}, usando {\ttfamily Start\+Slot} y {\ttfamily Num\+Buffers}.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto donde se enlazar{\ucr} el buffer. \\
+\hline
+{\em Start\+Slot} & Primer slot de enlace (IA o VS/\+PS seg{\ucr}n tipo). \\
+\hline
+{\em Num\+Buffers} & N{\ucr}mero de buffers a enlazar (t{\ucr}picamente 1 para esta clase). \\
+\hline
+{\em set\+Pixel\+Shader} & Si es {\ttfamily true} y el buffer es de constantes, tambi{\ucr}n se enlaza a PS (adem{\ucr}s de VS). \\
+\hline
+{\em format} & Formato del {\ucr}ndice ({\ttfamily DXGI\+\_\+\+FORMAT\+\_\+\+R16\+\_\+\+UINT} o {\ttfamily DXGI\+\_\+\+FORMAT\+\_\+\+R32\+\_\+\+UINT}) cuando es Index \doxylink{class_buffer}{Buffer}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily m\+\_\+buffer} debe estar creado y {\ttfamily m\+\_\+bind\+Flag} configurado correctamente. 
+\end{DoxyPrecond}
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_buffer_a38292a603c7858826064b70a111ab9ad}{init()} 
+\end{DoxySeeAlso}
+\Hypertarget{class_buffer_a246363f9412b48c01dd7a75d08c793ca}\index{Buffer@{Buffer}!update@{update}}
+\index{update@{update}!Buffer@{Buffer}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_buffer_a246363f9412b48c01dd7a75d08c793ca} 
+void Buffer\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{, }\item[{ID3\+D11\+Resource \texorpdfstring{$\ast$}{*}}]{p\+Dst\+Resource}{, }\item[{unsigned int}]{Dst\+Subresource}{, }\item[{const D3\+D11\+\_\+\+BOX \texorpdfstring{$\ast$}{*}}]{p\+Dst\+Box}{, }\item[{const void \texorpdfstring{$\ast$}{*}}]{p\+Src\+Data}{, }\item[{unsigned int}]{Src\+Row\+Pitch}{, }\item[{unsigned int}]{Src\+Depth\+Pitch}{}\end{DoxyParamCaption})}
+
+
+
+Actualiza el contenido del buffer (t{\ucr}picamente mediante {\ttfamily Update\+Subresource}). 
+
+{\ucr}til para escribir datos de constantes por cuadro, o para subir datos de v{\ucr}rtices/{\ucr}ndices si corresponde.
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto donde se realizar{\ucr} la actualizaci{\ucr}n. \\
+\hline
+{\em p\+Dst\+Resource} & Recurso destino (t{\ucr}picamente {\ttfamily m\+\_\+buffer}). Se permite pasar otro recurso compatible. \\
+\hline
+{\em Dst\+Subresource} & {\ucr}ndice de subrecurso destino (normalmente 0 para buffers). \\
+\hline
+{\em p\+Dst\+Box} & Regi{\ucr}n destino (puede ser {\ttfamily nullptr} para sobrescribir completo). \\
+\hline
+{\em p\+Src\+Data} & Puntero a los datos de origen. \\
+\hline
+{\em Src\+Row\+Pitch} & Paso por fila (no aplica a buffers; se ignora por D3\+D11 para buffers). \\
+\hline
+{\em Src\+Depth\+Pitch} & Paso por profundidad (no aplica a buffers; se ignora por D3\+D11 para buffers).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+{\ttfamily p\+Dst\+Resource} debe ser un buffer v{\ucr}lido creado en este dispositivo. 
+\end{DoxyPrecond}
+\begin{DoxyNote}{Note}
+Para constantes din{\ucr}micas alternativamente podr{\ucr}a usarse {\ttfamily Map/{\ttfamily Unmap} con} {\ttfamily D3\+D11\+\_\+\+USAGE\+\_\+\+DYNAMIC}. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{_buffer_8h}{Buffer.\+h}}\item 
+source/Buffer.\+cpp\end{DoxyCompactItemize}

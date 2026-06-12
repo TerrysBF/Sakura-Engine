@@ -1,0 +1,124 @@
+\doxysection{GUI.\+h}
+\hypertarget{_g_u_i_8h_source}{}\label{_g_u_i_8h_source}\index{include/EngineUtilities/GUI/GUI.h@{include/EngineUtilities/GUI/GUI.h}}
+\mbox{\hyperlink{_g_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ IMGUI\_DEFINE\_MATH\_OPERATORS}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}imgui.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <imgui\_internal.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}imgui\_impl\_win32.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}imgui\_impl\_dx11.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}ImGuizmo.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_viewport}{Viewport}};}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_window}{Window}};}
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device}{Device}};}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_actor}{Actor}};}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_camera}{Camera}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00030\ \ \ GUI\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ GUI()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00033\ \ \ \string~GUI()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_g_u_i_a617126c26865b08121853125fa0616a3}{awake}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_g_u_i_a672066f16bd53c2443f93c3c10692960}{init}}(\mbox{\hyperlink{class_window}{Window}}\&\ window,\ \mbox{\hyperlink{class_device}{Device}}\&\ device,\ \mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_g_u_i_aa1362b6f1a23256bbc69e075a731da78}{update}}(\mbox{\hyperlink{class_viewport}{Viewport}}\&\ viewport,\ \mbox{\hyperlink{class_window}{Window}}\&\ window);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_g_u_i_ae63efaa6d38814299c42540a5d4ea00b}{render}}();}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00060\ \ \ \ \ destroy();}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00063\ \ \ \ \ ToolBar();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00067\ \ \ \ \ closeApp();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00070\ \ \ \ \ toolTipData();}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00073\ \ \ \ \ appleLiquidStyle(\textcolor{keywordtype}{float}\ opacity\ \textcolor{comment}{/*0..1f*/},\ \mbox{\hyperlink{struct_im_vec4}{ImVec4}}\ accent\ \textcolor{comment}{/*=\#0A84FF*/});}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00076\ \ \ \ \ vec3Control(\textcolor{keyword}{const}\ std::string\&\ label,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \textcolor{keywordtype}{float}*\ values,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ resetValues\ =\ 0.0f,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ columnWidth\ =\ 100.0f,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ displayAsDegrees\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00083\ \ \ \ \ inspectorGeneral(\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU::TSharedPointer<Actor>}}\ actor);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00086\ \ \ \ \ inspectorContainer(\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU::TSharedPointer<Actor>}}\ actor);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00089\ \ \ \ \ outliner(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU::TSharedPointer<Actor>}}>\&\ actors);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00092\ \ \ \ \ editTransform(\mbox{\hyperlink{class_camera}{Camera}}\&\ cam,\ \mbox{\hyperlink{class_window}{Window}}\&\ window,\ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU::TSharedPointer<Actor>}}\ actor);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00095\ \ \ \ \ drawGizmoToolbar();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordtype}{void}\ ToFloatArray(\textcolor{keyword}{const}\ XMMATRIX\&\ mat,\ \textcolor{keywordtype}{float}*\ dest)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ XMFLOAT4X4\ temp;}
+\DoxyCodeLine{00099\ \ \ \ \ XMStoreFloat4x4(\&temp,\ mat);}
+\DoxyCodeLine{00100\ \ \ \ \ memcpy(dest,\ \&temp,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})\ *\ 16);}
+\DoxyCodeLine{00101\ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00104\ \ \ \ \ drawStudioTopRibbon();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \textcolor{keywordtype}{void}\ drawViewportPanel(ID3D11ShaderResourceView*\ viewportSRV);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \textcolor{keywordtype}{void}\ drawRenderDebugPanel(ID3D11ShaderResourceView*\ preShadowSRV,}
+\DoxyCodeLine{00109\ \ \ \ \ ID3D11ShaderResourceView*\ finalViewportSRV,}
+\DoxyCodeLine{00110\ \ \ \ \ ID3D11ShaderResourceView*\ shadowMapSRV);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordtype}{void}\ drawEditorDockspace();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00118\ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{class_g_u_i_a472f74ecb00f9bc3e300cd43dccf19d5}{consumeSaveSceneRequest}}()\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ requested\ =\ m\_requestSaveScene;}
+\DoxyCodeLine{00121\ \ \ \ \ m\_requestSaveScene\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{return}\ requested;}
+\DoxyCodeLine{00123\ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \textcolor{keywordtype}{bool}\ checkboxValue\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00128\ \ \ \textcolor{keywordtype}{bool}\ checkboxValue2\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00129\ \ \ std::vector<const\ char*>\ m\_objectsNames;}
+\DoxyCodeLine{00130\ \ \ std::vector<const\ char*>\ m\_tooltips;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \textcolor{keywordtype}{bool}\ show\_exit\_popup\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Variable\ de\ estado\ para\ el\ popup}}
+\DoxyCodeLine{00133\ \ \ \textcolor{keywordtype}{bool}\ m\_requestSaveScene\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00134\ \ \ \mbox{\hyperlink{struct_im_draw_list}{ImDrawList}}*\ m\_viewportDrawList\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00135\ \ \ \textcolor{keywordtype}{bool}\ m\_viewportActive\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00138\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_g_u_i_abcb45f8762cfd35c39d614026ce306cd}{m\_isUsingGizmo}}\ =\ \textcolor{keyword}{false};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00139\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_g_u_i_a2e97c2c228539b799cca87388b88505f}{selectedActorIndex}}\ =\ -\/1;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00140\ \ \ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}\ \mbox{\hyperlink{class_g_u_i_aaacf47d89602930b49e7b52ef1218451}{m\_viewportPos}}\ =\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}(0.0f,\ 0.0f);\ }
+\DoxyCodeLine{00141\ \ \ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}\ \mbox{\hyperlink{class_g_u_i_acb5fceb0c2d534b3d7a6e6f4db44a237}{m\_viewportSize}}\ =\ \mbox{\hyperlink{struct_im_vec2}{ImVec2}}(0.0f,\ 0.0f);}
+\DoxyCodeLine{00142\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_g_u_i_aad817def107b3adb4b6d0fa39f9c36fa}{m\_viewportHovered}}\ =\ \textcolor{keyword}{false};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00143\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_g_u_i_aa5c6681d274a43d81de44b4f7a62d234}{m\_viewportFocused}}\ =\ \textcolor{keyword}{false};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00144\ \};}
+\DoxyCodeLine{00145\ }
+
+\end{DoxyCode}

@@ -1,0 +1,68 @@
+\doxysection{Render\+Target\+View.\+h}
+\hypertarget{_render_target_view_8h_source}{}\label{_render_target_view_8h_source}\index{include/RenderTargetView.h@{include/RenderTargetView.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Declaraciones\ adelantadas}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device}{Device}};}
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_texture}{Texture}};}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_depth_stencil_view}{DepthStencilView}};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ Clase\ que\ envuelve\ un\ ID3D11RenderTargetView.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ Se\ encarga\ de\ crear,\ usar\ y\ liberar\ una\ render\ target\ view.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ No\ crea\ la\ textura,\ solo\ la\ vista\ que\ se\ usa\ para\ dibujar.}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }RenderTargetView\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \textcolor{comment}{//\ Constructor\ por\ defecto,\ no\ hace\ nada\ especial.}}
+\DoxyCodeLine{00016\ \ \ RenderTargetView()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \textcolor{comment}{//\ Destructor\ por\ defecto.}}
+\DoxyCodeLine{00019\ \ \ \textcolor{comment}{//\ No\ libera\ el\ recurso\ por\ sí solo,\ para\ eso\ está destroy().}}
+\DoxyCodeLine{00020\ \ \ \string~RenderTargetView()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{comment}{//\ Crea\ la\ render\ target\ view\ usando\ el\ back\ buffer\ del\ swap\ chain.}}
+\DoxyCodeLine{00023\ \ \ \textcolor{comment}{//\ device:\ device\ de\ Direct3D.}}
+\DoxyCodeLine{00024\ \ \ \textcolor{comment}{//\ backBuffer:\ textura\ que\ viene\ del\ swap\ chain.}}
+\DoxyCodeLine{00025\ \ \ \textcolor{comment}{//\ Format:\ formato\ de\ la\ vista\ (por\ ejemplo\ R8G8B8A8\_UNORM).}}
+\DoxyCodeLine{00026\ \ \ \textcolor{comment}{//\ Devuelve\ S\_OK\ si\ todo\ va\ bien\ o\ un\ HRESULT\ de\ error.}}
+\DoxyCodeLine{00027\ \ \ HRESULT\ init(\mbox{\hyperlink{class_device}{Device}}\&\ device,\ \mbox{\hyperlink{class_texture}{Texture}}\&\ backBuffer,\ DXGI\_FORMAT\ Format);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{comment}{//\ Crea\ la\ render\ target\ view\ usando\ una\ textura\ cualquiera.}}
+\DoxyCodeLine{00030\ \ \ \textcolor{comment}{//\ inTex:\ textura\ que\ se\ quiere\ usar\ como\ destino\ de\ render.}}
+\DoxyCodeLine{00031\ \ \ \textcolor{comment}{//\ ViewDimension:\ tipo\ de\ vista\ (TEXTURE2D,\ TEXTURE2DMS,\ etc.).}}
+\DoxyCodeLine{00032\ \ \ \textcolor{comment}{//\ Format:\ formato\ de\ la\ vista.}}
+\DoxyCodeLine{00033\ \ \ HRESULT\ init(\mbox{\hyperlink{class_device}{Device}}\&\ device,}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_texture}{Texture}}\&\ inTex,}
+\DoxyCodeLine{00035\ \ \ \ \ D3D11\_RTV\_DIMENSION\ ViewDimension,}
+\DoxyCodeLine{00036\ \ \ \ \ DXGI\_FORMAT\ Format);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ Función de\ actualización (por\ ahora\ no\ hace\ nada).}}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{void}\ update()\ \{\}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{comment}{//\ Limpia\ la\ RTV\ con\ un\ color\ y\ la\ bindea\ junto\ con\ la\ DSV.}}
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ También hace\ OMSetRenderTargets\ con\ esta\ RTV\ y\ el\ depth\ stencil.}}
+\DoxyCodeLine{00043\ \ \ \textcolor{comment}{//\ numViews\ normalmente\ es\ 1.}}
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{void}\ render(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_depth_stencil_view}{DepthStencilView}}\&\ depthStencilView,}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ numViews,}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ ClearColor[4]);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{comment}{//\ Bindea\ la\ RTV\ sin\ limpiar\ y\ sin\ usar\ depth\ stencil.}}
+\DoxyCodeLine{00050\ \ \ \textcolor{comment}{//\ Solo\ llama\ OMSetRenderTargets\ con\ esta\ RTV\ y\ DSV\ nulo.}}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{void}\ render(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ numViews);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{comment}{//\ Libera\ la\ render\ target\ view.}}
+\DoxyCodeLine{00055\ \ \ \textcolor{comment}{//\ Usa\ SAFE\_RELEASE,\ así que\ se\ puede\ llamar\ varias\ veces\ sin\ problema.}}
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{void}\ destroy();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00059\ \ \ \textcolor{comment}{//\ Puntero\ al\ ID3D11RenderTargetView\ real.}}
+\DoxyCodeLine{00060\ \ \ \textcolor{comment}{//\ Se\ crea\ en\ init()\ y\ se\ libera\ en\ destroy().}}
+\DoxyCodeLine{00061\ \ \ ID3D11RenderTargetView*\ m\_renderTargetView\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00062\ \};}
+
+\end{DoxyCode}

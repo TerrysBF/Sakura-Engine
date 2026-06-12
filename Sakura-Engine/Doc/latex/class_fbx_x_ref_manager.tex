@@ -1,0 +1,388 @@
+\doxysection{Fbx\+XRef\+Manager Class Reference}
+\hypertarget{class_fbx_x_ref_manager}{}\label{class_fbx_x_ref_manager}\index{FbxXRefManager@{FbxXRefManager}}
+
+
+{\ttfamily \#include $<$fbxxref.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_x_ref_manager_a2dda0d87e53185abe5d62b305902027b}\label{class_fbx_x_ref_manager_a2dda0d87e53185abe5d62b305902027b} 
+{\bfseries Fbx\+XRef\+Manager} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_x_ref_manager_ad15e856756afd34a1b85bf924e389aea}\label{class_fbx_x_ref_manager_ad15e856756afd34a1b85bf924e389aea} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Fbx\+XRef\+Manager} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Predefined Project Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_x_ref_manager_ac1e95d1bc9cb30f5e9c75f08791e286f}\label{class_fbx_x_ref_manager_ac1e95d1bc9cb30f5e9c75f08791e286f} 
+static const char \texorpdfstring{$\ast$}{*} {\bfseries s\+Temporary\+File\+Project}
+\begin{DoxyCompactList}\small\item\em This project represents an URL for storing temporary files. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_x_ref_manager_a2b587f862e487323d69830ecb3c148a3}\label{class_fbx_x_ref_manager_a2b587f862e487323d69830ecb3c148a3} 
+static const char \texorpdfstring{$\ast$}{*} {\bfseries s\+Configuration\+Project}
+\begin{DoxyCompactList}\small\item\em This project represents an URL for configuration files. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_x_ref_manager_ac37aa54c7d0914ed376e7f4dd6f51229}\label{class_fbx_x_ref_manager_ac37aa54c7d0914ed376e7f4dd6f51229} 
+static const char \texorpdfstring{$\ast$}{*} {\bfseries s\+Localization\+Project}
+\begin{DoxyCompactList}\small\item\em This project represents an URL for storing localization files (that is not part of the asset library). \end{DoxyCompactList}\item 
+static const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_x_ref_manager_a9d815646f6d592942ce288a4de5eb39d}{s\+Embedded\+File\+Project}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{XRef Resolve URL and Projects}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_x_ref_manager_ad87a4b521f02567cc10d71ae9a4a83dc}{Add\+XRef\+Project}} (const char \texorpdfstring{$\ast$}{*}p\+Name, const char \texorpdfstring{$\ast$}{*}p\+Url)
+\item 
+bool \mbox{\hyperlink{class_fbx_x_ref_manager_a34a0774a5a3e18c024339bb2ceca7488}{Add\+XRef\+Project}} (const char \texorpdfstring{$\ast$}{*}p\+Name, const char \texorpdfstring{$\ast$}{*}p\+Extension, const char \texorpdfstring{$\ast$}{*}p\+Url)
+\item 
+bool \mbox{\hyperlink{class_fbx_x_ref_manager_a55202f529ee4745e4841478d22bed719}{Add\+XRef\+Project}} (\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}p\+Doc)
+\item 
+bool \mbox{\hyperlink{class_fbx_x_ref_manager_a910538a083181d0552e00f6a852ac8e4}{Remove\+XRef\+Project}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\item 
+bool \mbox{\hyperlink{class_fbx_x_ref_manager_ae590ccb6ae282bed68c60bf697cd2645}{Remove\+All\+XRef\+Projects}} ()
+\item 
+int \mbox{\hyperlink{class_fbx_x_ref_manager_a3d2b5a3a323b7312b7c4344879791976}{Get\+XRef\+Project\+Count}} () const
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_x_ref_manager_a73b720b93a911b0e2ae75caa95808fc4}{Get\+XRef\+Project\+Name}} (int p\+Index) const
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_x_ref_manager_a2614e678a4986ea48444bfa67013683b}{Get\+XRef\+Project\+Url}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_x_ref_manager_a7181db5d866d13cc6e57267862308d30}{Get\+XRef\+Project\+Url}} (const char \texorpdfstring{$\ast$}{*}p\+Name) const
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_x_ref_manager_a5763d58e6272a43a05a1d47e07eef29a}{Get\+XRef\+Project\+Url}} (int p\+Index) const
+\item 
+bool \mbox{\hyperlink{class_fbx_x_ref_manager_afa24aa1ef0d54bf0288947f9e005ec7c}{Has\+XRef\+Project}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\item 
+bool \mbox{\hyperlink{class_fbx_x_ref_manager_a718b1c8f5f9d1e023e8c28811ac84498}{Get\+Resolved\+Url}} (const char \texorpdfstring{$\ast$}{*}p\+Url, \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Resolve\+Path) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{XRef URL properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_x_ref_manager_ae4653dc13a58d58f84e4b4760568e756}{Get\+Resolved\+Url}} (\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} const \&p\+Property, int p\+Index, \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Resolved\+Path) const
+\item 
+bool \mbox{\hyperlink{class_fbx_x_ref_manager_aaa0d59a531dffa6c36266328b60ca012}{Get\+Resolved\+Url}} (const char \texorpdfstring{$\ast$}{*}p\+Url, \mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}p\+Doc, \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Resolved\+Path) const
+\item 
+bool \mbox{\hyperlink{class_fbx_x_ref_manager_a6b1ea164fac8604da02b6016165d56fe}{Get\+First\+Matching\+Url}} (const char \texorpdfstring{$\ast$}{*}p\+Prefix, const char \texorpdfstring{$\ast$}{*}p\+Opt\+Ext, const \mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}p\+Doc, \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&p\+Resolved\+Path) const
+\item 
+static int \mbox{\hyperlink{class_fbx_x_ref_manager_a9ea29928247d5542e8eaafbea0647201}{Get\+Url\+Count}} (\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} const \&p\+Property)
+\item 
+static int \mbox{\hyperlink{class_fbx_x_ref_manager_a619fbdf87fe5db100ad4eada1373b9d0}{Get\+Url\+Count}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} const \&p\+Url)
+\item 
+static bool \mbox{\hyperlink{class_fbx_x_ref_manager_a27481156423d70e759c131954e3ea9a0}{Is\+Relative\+Url}} (\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} const \&p\+Property, int p\+Index)
+\item 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_x_ref_manager_af8e33d25b078d1852ef2b252175732d1}{Get\+Url}} (\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} const \&p\+Property, int p\+Index)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class manages external references to files. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_x_ref_manager_a34a0774a5a3e18c024339bb2ceca7488}\index{FbxXRefManager@{FbxXRefManager}!AddXRefProject@{AddXRefProject}}
+\index{AddXRefProject@{AddXRefProject}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{AddXRefProject()}{AddXRefProject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_a34a0774a5a3e18c024339bb2ceca7488} 
+bool Fbx\+XRef\+Manager\+::\+Add\+XRef\+Project (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Extension}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Url}{}\end{DoxyParamCaption})}
+
+Adds an XRef Project. Note\+:Only one URL is associated with a project. Calling this on an existing project replaces the project\textquotesingle{}s existing URL. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The name of the project \\
+\hline
+{\em p\+Extension} & The extension of the project. \\
+\hline
+{\em p\+Url} & The URL to be associated with the project. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the project is added successfully, returns {\ttfamily false} if no project is added. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_ad87a4b521f02567cc10d71ae9a4a83dc}\index{FbxXRefManager@{FbxXRefManager}!AddXRefProject@{AddXRefProject}}
+\index{AddXRefProject@{AddXRefProject}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{AddXRefProject()}{AddXRefProject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_ad87a4b521f02567cc10d71ae9a4a83dc} 
+bool Fbx\+XRef\+Manager\+::\+Add\+XRef\+Project (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Url}{}\end{DoxyParamCaption})}
+
+Adds an XRef Project. Note\+:Only one URL is associated with a project. Calling this on an existing project replaces the project\textquotesingle{}s existing URL. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The name of the project \\
+\hline
+{\em p\+Url} & The URL to be associated with the project. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the project is added successfully, {\ttfamily false} if no project is added. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_a55202f529ee4745e4841478d22bed719}\index{FbxXRefManager@{FbxXRefManager}!AddXRefProject@{AddXRefProject}}
+\index{AddXRefProject@{AddXRefProject}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{AddXRefProject()}{AddXRefProject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_a55202f529ee4745e4841478d22bed719} 
+bool Fbx\+XRef\+Manager\+::\+Add\+XRef\+Project (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}}]{p\+Doc}{}\end{DoxyParamCaption})}
+
+Adds an XRef project based on the document\textquotesingle{}s Embedded\+Url property if set, if Embedded\+Url is not set, based on its current URL property. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Doc} & The document used to name the project and to specify the URL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the project is added successfully, returns {\ttfamily false} if no project is added. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The project name is set as the document name and the URL is set as Embedded\+Url or URL of the document. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_x_ref_manager_a6b1ea164fac8604da02b6016165d56fe}\index{FbxXRefManager@{FbxXRefManager}!GetFirstMatchingUrl@{GetFirstMatchingUrl}}
+\index{GetFirstMatchingUrl@{GetFirstMatchingUrl}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{GetFirstMatchingUrl()}{GetFirstMatchingUrl()}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_a6b1ea164fac8604da02b6016165d56fe} 
+bool Fbx\+XRef\+Manager\+::\+Get\+First\+Matching\+Url (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Prefix}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Opt\+Ext}{, }\item[{const \mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}}]{p\+Doc}{, }\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+Resolved\+Path}{}\end{DoxyParamCaption}) const}
+
+Looks for the first file that matches a specified "{}pattern"{}, which is built as\+:
+
+if p\+Opt\+Ext is given\+: prefix\texorpdfstring{$\ast$}{*}.ext If p\+Opt\+Ext is NULL\+: prefix\texorpdfstring{$\ast$}{*} if p\+Opt\+Ext is "{}"{} or "{}."{}\+: prefix\texorpdfstring{$\ast$}{*}.
+
+Returns the URL of the first matching files. This function cannot be used to resolve folders, only files.
+
+If a document is given, we start by looking at the document\textquotesingle{}s "{}.\+fbm"{} folder. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Prefix} & The prefix of the pattern. \\
+\hline
+{\em p\+Opt\+Ext} & The extension of the pattern. \\
+\hline
+{\em p\+Doc} & The given document. \\
+\hline
+{\em p\+Resolved\+Path} & Filled with the first matching URL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if one matching file is found, returns {\ttfamily false} if no matching file is found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_aaa0d59a531dffa6c36266328b60ca012}\index{FbxXRefManager@{FbxXRefManager}!GetResolvedUrl@{GetResolvedUrl}}
+\index{GetResolvedUrl@{GetResolvedUrl}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{GetResolvedUrl()}{GetResolvedUrl()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_aaa0d59a531dffa6c36266328b60ca012} 
+bool Fbx\+XRef\+Manager\+::\+Get\+Resolved\+Url (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Url}{, }\item[{\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}}]{p\+Doc}{, }\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+Resolved\+Path}{}\end{DoxyParamCaption}) const}
+
+Tries to resolve the specified URL. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Url} & The specified URL. \\
+\hline
+{\em p\+Doc} & The document whose "{}.\+fbm"{} folder is used to resolve the URL. \\
+\hline
+{\em p\+Resolved\+Path} & Filled with the resolved path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the URL is resolved, return {\ttfamily false} if the URL is not resolved. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_a718b1c8f5f9d1e023e8c28811ac84498}\index{FbxXRefManager@{FbxXRefManager}!GetResolvedUrl@{GetResolvedUrl}}
+\index{GetResolvedUrl@{GetResolvedUrl}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{GetResolvedUrl()}{GetResolvedUrl()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_a718b1c8f5f9d1e023e8c28811ac84498} 
+bool Fbx\+XRef\+Manager\+::\+Get\+Resolved\+Url (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Url}{, }\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+Resolve\+Path}{}\end{DoxyParamCaption}) const}
+
+Tries to resolve an relative URL 
+\begin{DoxyParams}{Parameters}
+{\em p\+Url} & The relative URL to be resolved. \\
+\hline
+{\em p\+Resolve\+Path} & Filled with the resolved path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the URL is resolved, returns {\ttfamily false} if the URL is not resolved. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_ae4653dc13a58d58f84e4b4760568e756}\index{FbxXRefManager@{FbxXRefManager}!GetResolvedUrl@{GetResolvedUrl}}
+\index{GetResolvedUrl@{GetResolvedUrl}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{GetResolvedUrl()}{GetResolvedUrl()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_ae4653dc13a58d58f84e4b4760568e756} 
+bool Fbx\+XRef\+Manager\+::\+Get\+Resolved\+Url (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} const \&}]{p\+Property}{, }\item[{int}]{p\+Index}{, }\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&}]{p\+Resolved\+Path}{}\end{DoxyParamCaption}) const}
+
+Tries to resolve the URL stored in the property at the given index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Property} & The property. \\
+\hline
+{\em p\+Index} & The URL index. \\
+\hline
+{\em p\+Resolved\+Path} & Filled with the resolved path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the URL is resolved, return {\ttfamily false} if the URL is not resolved. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_af8e33d25b078d1852ef2b252175732d1}\index{FbxXRefManager@{FbxXRefManager}!GetUrl@{GetUrl}}
+\index{GetUrl@{GetUrl}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{GetUrl()}{GetUrl()}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_af8e33d25b078d1852ef2b252175732d1} 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} Fbx\+XRef\+Manager\+::\+Get\+Url (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} const \&}]{p\+Property}{, }\item[{int}]{p\+Index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns the URL stored in the property at the given index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Property} & The property. \\
+\hline
+{\em p\+Index} & The URL index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The URL 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_a9ea29928247d5542e8eaafbea0647201}\index{FbxXRefManager@{FbxXRefManager}!GetUrlCount@{GetUrlCount}}
+\index{GetUrlCount@{GetUrlCount}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{GetUrlCount()}{GetUrlCount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_a9ea29928247d5542e8eaafbea0647201} 
+static int Fbx\+XRef\+Manager\+::\+Get\+Url\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} const \&}]{p\+Property}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns the number of URLs that are stored in a property. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Property} & The property. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The URL count. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_a619fbdf87fe5db100ad4eada1373b9d0}\index{FbxXRefManager@{FbxXRefManager}!GetUrlCount@{GetUrlCount}}
+\index{GetUrlCount@{GetUrlCount}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{GetUrlCount()}{GetUrlCount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_a619fbdf87fe5db100ad4eada1373b9d0} 
+static int Fbx\+XRef\+Manager\+::\+Get\+Url\+Count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} const \&}]{p\+Url}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns the number of URLs that are stored in a string. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Url} & The string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The URL count. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_a3d2b5a3a323b7312b7c4344879791976}\index{FbxXRefManager@{FbxXRefManager}!GetXRefProjectCount@{GetXRefProjectCount}}
+\index{GetXRefProjectCount@{GetXRefProjectCount}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{GetXRefProjectCount()}{GetXRefProjectCount()}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_a3d2b5a3a323b7312b7c4344879791976} 
+int Fbx\+XRef\+Manager\+::\+Get\+XRef\+Project\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the number of XRef Projects. \begin{DoxyReturn}{Returns}
+The number of XRef Projects. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_a73b720b93a911b0e2ae75caa95808fc4}\index{FbxXRefManager@{FbxXRefManager}!GetXRefProjectName@{GetXRefProjectName}}
+\index{GetXRefProjectName@{GetXRefProjectName}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{GetXRefProjectName()}{GetXRefProjectName()}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_a73b720b93a911b0e2ae75caa95808fc4} 
+const char \texorpdfstring{$\ast$}{*} Fbx\+XRef\+Manager\+::\+Get\+XRef\+Project\+Name (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{}\end{DoxyParamCaption}) const}
+
+Returns the name of the XRef project at the specified index. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The XRef project index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The XRef project name. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_a2614e678a4986ea48444bfa67013683b}\index{FbxXRefManager@{FbxXRefManager}!GetXRefProjectUrl@{GetXRefProjectUrl}}
+\index{GetXRefProjectUrl@{GetXRefProjectUrl}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{GetXRefProjectUrl()}{GetXRefProjectUrl()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_a2614e678a4986ea48444bfa67013683b} 
+const char \texorpdfstring{$\ast$}{*} Fbx\+XRef\+Manager\+::\+Get\+XRef\+Project\+Url (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{}\end{DoxyParamCaption})}
+
+Returns the base URL for the given project. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The name of the given project \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The base URL of the project or returns NULL if the project with the name is not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_a7181db5d866d13cc6e57267862308d30}\index{FbxXRefManager@{FbxXRefManager}!GetXRefProjectUrl@{GetXRefProjectUrl}}
+\index{GetXRefProjectUrl@{GetXRefProjectUrl}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{GetXRefProjectUrl()}{GetXRefProjectUrl()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_a7181db5d866d13cc6e57267862308d30} 
+const char \texorpdfstring{$\ast$}{*} Fbx\+XRef\+Manager\+::\+Get\+XRef\+Project\+Url (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{}\end{DoxyParamCaption}) const}
+
+Returns the base URL for the given project. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The name of the given project \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The base URL of the project or returns NULL if the project with the name is not found. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_a5763d58e6272a43a05a1d47e07eef29a}\index{FbxXRefManager@{FbxXRefManager}!GetXRefProjectUrl@{GetXRefProjectUrl}}
+\index{GetXRefProjectUrl@{GetXRefProjectUrl}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{GetXRefProjectUrl()}{GetXRefProjectUrl()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_a5763d58e6272a43a05a1d47e07eef29a} 
+const char \texorpdfstring{$\ast$}{*} Fbx\+XRef\+Manager\+::\+Get\+XRef\+Project\+Url (\begin{DoxyParamCaption}\item[{int}]{p\+Index}{}\end{DoxyParamCaption}) const}
+
+Returns the base URL for the given project. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Index} & The index of the project. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The base URL of the project or NULL if the index is out of bounds. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_afa24aa1ef0d54bf0288947f9e005ec7c}\index{FbxXRefManager@{FbxXRefManager}!HasXRefProject@{HasXRefProject}}
+\index{HasXRefProject@{HasXRefProject}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{HasXRefProject()}{HasXRefProject()}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_afa24aa1ef0d54bf0288947f9e005ec7c} 
+bool Fbx\+XRef\+Manager\+::\+Has\+XRef\+Project (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Checks if a project with the given name is defined in this manager. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The name of the project. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the project is defined in this manager, returns {\ttfamily false} if it isn\textquotesingle{}t defined in this manager. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_a27481156423d70e759c131954e3ea9a0}\index{FbxXRefManager@{FbxXRefManager}!IsRelativeUrl@{IsRelativeUrl}}
+\index{IsRelativeUrl@{IsRelativeUrl}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{IsRelativeUrl()}{IsRelativeUrl()}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_a27481156423d70e759c131954e3ea9a0} 
+static bool Fbx\+XRef\+Manager\+::\+Is\+Relative\+Url (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} const \&}]{p\+Property}{, }\item[{int}]{p\+Index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Checks whether the URL at the given index stored in the property is relative or not. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Property} & The property. \\
+\hline
+{\em p\+Index} & The URL index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the URL is relative, {\ttfamily false} if the URL is not relative. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_ae590ccb6ae282bed68c60bf697cd2645}\index{FbxXRefManager@{FbxXRefManager}!RemoveAllXRefProjects@{RemoveAllXRefProjects}}
+\index{RemoveAllXRefProjects@{RemoveAllXRefProjects}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{RemoveAllXRefProjects()}{RemoveAllXRefProjects()}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_ae590ccb6ae282bed68c60bf697cd2645} 
+bool Fbx\+XRef\+Manager\+::\+Remove\+All\+XRef\+Projects (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Removes all XRef Projects. \begin{DoxyReturn}{Returns}
+{\ttfamily True} always. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_x_ref_manager_a910538a083181d0552e00f6a852ac8e4}\index{FbxXRefManager@{FbxXRefManager}!RemoveXRefProject@{RemoveXRefProject}}
+\index{RemoveXRefProject@{RemoveXRefProject}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{RemoveXRefProject()}{RemoveXRefProject()}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_a910538a083181d0552e00f6a852ac8e4} 
+bool Fbx\+XRef\+Manager\+::\+Remove\+XRef\+Project (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Name}{}\end{DoxyParamCaption})}
+
+Removes an XRef Projects. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Name} & The name of the project to be removed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily True} if the project is removed successfully, returns {\ttfamily false} if the project with the name does not exist. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_fbx_x_ref_manager_a9d815646f6d592942ce288a4de5eb39d}\index{FbxXRefManager@{FbxXRefManager}!sEmbeddedFileProject@{sEmbeddedFileProject}}
+\index{sEmbeddedFileProject@{sEmbeddedFileProject}!FbxXRefManager@{FbxXRefManager}}
+\doxysubsubsection{\texorpdfstring{sEmbeddedFileProject}{sEmbeddedFileProject}}
+{\footnotesize\ttfamily \label{class_fbx_x_ref_manager_a9d815646f6d592942ce288a4de5eb39d} 
+const char\texorpdfstring{$\ast$}{*} Fbx\+XRef\+Manager\+::s\+Embedded\+File\+Project\hspace{0.3cm}{\ttfamily [static]}}
+
+This project is used for creating the "{}.\+fbm"{} folders that are used for storing embedded resources in FBX files.
+
+When not set, or if the folder is not writable, the "{}.\+fbm"{} folder is created alongside the FBX file.
+
+If we cannot write in that folder, we look at the s\+Temporary\+File\+Project location. If no folder is set in the s\+Temporary\+File\+Project location, or it is not writable, the operating system\textquotesingle{}s Temp folder becomes the location. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/\mbox{\hyperlink{fbxxref_8h}{fbxxref.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,78 @@
+\doxysection{Hierarchy\+Component.\+h}
+\hypertarget{_hierarchy_component_8h_source}{}\label{_hierarchy_component_8h_source}\index{include/SceneGraph/HierarchyComponent.h@{include/SceneGraph/HierarchyComponent.h}}
+\mbox{\hyperlink{_hierarchy_component_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}ECS/Component.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_entity}{Entity}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }}
+\DoxyCodeLine{00014\ HierarchyComponent\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_component_a404098a91640552f9d0284d08b53def4}{Component}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ HierarchyComponent()\ :\ \mbox{\hyperlink{class_component_a404098a91640552f9d0284d08b53def4}{Component}}(\mbox{\hyperlink{_prerequisites_8h_a81f78fc173dedefe5a049c0aa3eed2c0a4919f140b33a2432bd92521d08194fef}{ComponentType::HIERARCHY}})\ \{\}}
+\DoxyCodeLine{00017\ \ \ \ \ \string~HierarchyComponent()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ }
+\DoxyCodeLine{00020\ \ \ \ \ init()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00021\ \ \ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_hierarchy_component_ab2143e73ad0c58447e0b029ce70a7efe}{update}}(\textcolor{keywordtype}{float})\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00024\ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_hierarchy_component_a70ce318074314113003538704ba4bca0}{render}}(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext)\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ }
+\DoxyCodeLine{00029\ \ \ \ \ destroy()\textcolor{keyword}{\ override\ }\{\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ m\_children.clear();\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ m\_parent\ =\ \textcolor{keyword}{nullptr};\ }
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ API\ SceneGraph}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ }
+\DoxyCodeLine{00036\ \ \ \ \ setParent(Entity*\ parent)\ \{\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ m\_parent\ =\ parent;\ }
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ }
+\DoxyCodeLine{00041\ \ \ \ \ isRoot()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_parent\ ==\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{bool}\ }
+\DoxyCodeLine{00046\ \ \ \ \ hasChildren()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !m\_children.empty();}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ }
+\DoxyCodeLine{00051\ \ \ \ \ addChild(Entity*\ child)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!child)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::find(m\_children.begin(),\ m\_children.end(),\ child)\ !=\ m\_children.end())\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ m\_children.push\_back(child);}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00063\ \ \ \ \ removeChild(Entity*\ child)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!child)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ m\_children.erase(}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ std::remove(m\_children.begin(),\ m\_children.end(),\ child),}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ m\_children.end()}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00073\ \ \ \ \ Entity*\ m\_parent\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00074\ \ \ \ \ std::vector<Entity*>\ m\_children;}
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+
+\end{DoxyCode}

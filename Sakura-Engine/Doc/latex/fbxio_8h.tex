@@ -1,0 +1,251 @@
+\doxysection{include/fbx/fbxsdk/fileio/fbx/fbxio.h File Reference}
+\hypertarget{fbxio_8h}{}\label{fbxio_8h}\index{include/fbx/fbxsdk/fileio/fbx/fbxio.h@{include/fbx/fbxsdk/fileio/fbx/fbxio.h}}
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+def.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/base/fbxstring.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/base/fbxtime.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/core/base/fbxstatus.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fileio/fbxcallbacks.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsbegin.\+h$>$}\newline
+{\ttfamily \#include $<$fbxsdk/fbxsdk\+\_\+nsend.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_fbx_i_o_default_render_resolution}{Fbx\+IODefault\+Render\+Resolution}}
+\item 
+class \mbox{\hyperlink{class_fbx_i_o_file_header_info}{Fbx\+IOFile\+Header\+Info}}
+\item 
+class \mbox{\hyperlink{class_fbx_i_o}{Fbx\+IO}}
+\item 
+struct \mbox{\hyperlink{struct_fbx_i_o_1_1_fbx_auto_reset_x_ref_manager}{Fbx\+IO\+::\+Fbx\+Auto\+Reset\+XRef\+Manager}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fbxio_8h_a9b75880da7689330438143842c16e2f6}{FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+2000}}~2000
+\item 
+\Hypertarget{fbxio_8h_aa3d3ae719224fb21326e782e6d72a782}\label{fbxio_8h_aa3d3ae719224fb21326e782e6d72a782} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+2001}~2001
+\item 
+\Hypertarget{fbxio_8h_af50815d669391764612a4919874b9873}\label{fbxio_8h_af50815d669391764612a4919874b9873} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+3000}~3000
+\item 
+\Hypertarget{fbxio_8h_a9a37359be15b1fee816dd87fbf5a7266}\label{fbxio_8h_a9a37359be15b1fee816dd87fbf5a7266} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+3001}~3001
+\item 
+\Hypertarget{fbxio_8h_ac51e17b8db27f84f0f0c24d5b81a3bd2}\label{fbxio_8h_ac51e17b8db27f84f0f0c24d5b81a3bd2} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+4000}~4000
+\item 
+\Hypertarget{fbxio_8h_a2a8303438ac48bdf0b59fbee2ed5336b}\label{fbxio_8h_a2a8303438ac48bdf0b59fbee2ed5336b} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+4001}~4001
+\item 
+\Hypertarget{fbxio_8h_a908222472a4b01fe286b3c4d008f33b1}\label{fbxio_8h_a908222472a4b01fe286b3c4d008f33b1} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+4050}~4050
+\item 
+\Hypertarget{fbxio_8h_adf12d3fc478dd598249b740f8bc23154}\label{fbxio_8h_adf12d3fc478dd598249b740f8bc23154} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+5000}~5000
+\item 
+\Hypertarget{fbxio_8h_a60a3eff346de12d76f5738309cd384a5}\label{fbxio_8h_a60a3eff346de12d76f5738309cd384a5} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+5800}~5800
+\item 
+\Hypertarget{fbxio_8h_a68ef7be60375d14a23994f3bc333c975}\label{fbxio_8h_a68ef7be60375d14a23994f3bc333c975} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+6000}~6000
+\item 
+\Hypertarget{fbxio_8h_a2b3cf47e96289a513ad44874eb7f1ae3}\label{fbxio_8h_a2b3cf47e96289a513ad44874eb7f1ae3} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+6100}~6100
+\item 
+\Hypertarget{fbxio_8h_a9ab7e41c17a15f99b3456e942785b375}\label{fbxio_8h_a9ab7e41c17a15f99b3456e942785b375} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+7000}~7000
+\item 
+\Hypertarget{fbxio_8h_aef20eb299692c01be7e71a88617bcd0b}\label{fbxio_8h_aef20eb299692c01be7e71a88617bcd0b} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+7099}~7099
+\item 
+\Hypertarget{fbxio_8h_aac66ecea3299bf54d85f789ddbece749}\label{fbxio_8h_aac66ecea3299bf54d85f789ddbece749} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+7100}~7100
+\item 
+\Hypertarget{fbxio_8h_a2d61e5996181a84dcdfa1e38469b97e5}\label{fbxio_8h_a2d61e5996181a84dcdfa1e38469b97e5} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+7200}~7200
+\item 
+\Hypertarget{fbxio_8h_ab3573e5ec9bc036c51af291b44621cab}\label{fbxio_8h_ab3573e5ec9bc036c51af291b44621cab} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+7300}~7300
+\item 
+\Hypertarget{fbxio_8h_a1f6cdbe650d6f32a3774edcb1be70817}\label{fbxio_8h_a1f6cdbe650d6f32a3774edcb1be70817} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+7400}~7400
+\item 
+\Hypertarget{fbxio_8h_ad480660a82fd3710a5e833152ec13475}\label{fbxio_8h_ad480660a82fd3710a5e833152ec13475} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+7500}~7500
+\item 
+\Hypertarget{fbxio_8h_ad5ceadfa1b68893879403f60ab0a56b0}\label{fbxio_8h_ad5ceadfa1b68893879403f60ab0a56b0} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+7700}~7700
+\item 
+\Hypertarget{fbxio_8h_a7a054f5b9ff5af438a34de437362888e}\label{fbxio_8h_a7a054f5b9ff5af438a34de437362888e} 
+\#define {\bfseries FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+7600}~7600
+\item 
+\Hypertarget{fbxio_8h_a0273d38369586cae769aba8388294c88}\label{fbxio_8h_a0273d38369586cae769aba8388294c88} 
+\#define {\bfseries FBX\+\_\+53\+\_\+\+MB55\+\_\+\+COMPATIBLE}~"{}FBX53\+\_\+\+MB55"{}
+\item 
+\Hypertarget{fbxio_8h_a44611ce2bf7639833b3e8c9d5a4e3bf3}\label{fbxio_8h_a44611ce2bf7639833b3e8c9d5a4e3bf3} 
+\#define {\bfseries FBX\+\_\+60\+\_\+\+COMPATIBLE}~"{}FBX60\+\_\+\+MB60"{}
+\item 
+\Hypertarget{fbxio_8h_a1d93f213dedb99c1b3cbc6f4e5185c64}\label{fbxio_8h_a1d93f213dedb99c1b3cbc6f4e5185c64} 
+\#define {\bfseries FBX\+\_\+2005\+\_\+08\+\_\+\+COMPATIBLE}~"{}FBX200508\+\_\+\+MB70"{}
+\item 
+\Hypertarget{fbxio_8h_a97d4563921b7ec3afa3405316324422f}\label{fbxio_8h_a97d4563921b7ec3afa3405316324422f} 
+\#define {\bfseries FBX\+\_\+2006\+\_\+02\+\_\+\+COMPATIBLE}~"{}FBX200602\+\_\+\+MB75"{}
+\item 
+\Hypertarget{fbxio_8h_a2fb994f77f73c32f74d98e0c1e29b7f0}\label{fbxio_8h_a2fb994f77f73c32f74d98e0c1e29b7f0} 
+\#define {\bfseries FBX\+\_\+2006\+\_\+08\+\_\+\+COMPATIBLE}~"{}FBX200608"{}
+\item 
+\Hypertarget{fbxio_8h_a9d70a316e3f7b0fb2209bb5970521717}\label{fbxio_8h_a9d70a316e3f7b0fb2209bb5970521717} 
+\#define {\bfseries FBX\+\_\+2006\+\_\+11\+\_\+\+COMPATIBLE}~"{}FBX200611"{}
+\item 
+\Hypertarget{fbxio_8h_a9c3098712f77825493474e0585914d2e}\label{fbxio_8h_a9c3098712f77825493474e0585914d2e} 
+\#define {\bfseries FBX\+\_\+2009\+\_\+00\+\_\+\+COMPATIBLE}~"{}FBX200900"{}
+\item 
+\Hypertarget{fbxio_8h_aeb04922be85171c41b5c737cb7da1338}\label{fbxio_8h_aeb04922be85171c41b5c737cb7da1338} 
+\#define {\bfseries FBX\+\_\+2009\+\_\+00\+\_\+\+V7\+\_\+\+COMPATIBLE}~"{}FBX200900v7"{}
+\item 
+\Hypertarget{fbxio_8h_a5d08066407c76a948bb61e8cdee31f9a}\label{fbxio_8h_a5d08066407c76a948bb61e8cdee31f9a} 
+\#define {\bfseries FBX\+\_\+2010\+\_\+00\+\_\+\+COMPATIBLE}~"{}FBX201000"{}
+\item 
+\Hypertarget{fbxio_8h_abf6de5404a3c74268631ce0164924948}\label{fbxio_8h_abf6de5404a3c74268631ce0164924948} 
+\#define {\bfseries FBX\+\_\+2011\+\_\+00\+\_\+\+COMPATIBLE}~"{}FBX201100"{}
+\item 
+\Hypertarget{fbxio_8h_aab2a511b5401dce0443cf00da9bb7741}\label{fbxio_8h_aab2a511b5401dce0443cf00da9bb7741} 
+\#define {\bfseries FBX\+\_\+2012\+\_\+00\+\_\+\+COMPATIBLE}~"{}FBX201200"{}
+\item 
+\Hypertarget{fbxio_8h_a650f61ff7ed0b82f6e52bd0c869294c3}\label{fbxio_8h_a650f61ff7ed0b82f6e52bd0c869294c3} 
+\#define {\bfseries FBX\+\_\+2013\+\_\+00\+\_\+\+COMPATIBLE}~"{}FBX201300"{}
+\item 
+\Hypertarget{fbxio_8h_a0a9be5ddff842fd74034f1b5a87e5e56}\label{fbxio_8h_a0a9be5ddff842fd74034f1b5a87e5e56} 
+\#define {\bfseries FBX\+\_\+2014\+\_\+00\+\_\+\+COMPATIBLE}~"{}FBX201400"{}
+\item 
+\Hypertarget{fbxio_8h_a612b199aff08b5072472a999a1b3a168}\label{fbxio_8h_a612b199aff08b5072472a999a1b3a168} 
+\#define {\bfseries FBX\+\_\+2016\+\_\+00\+\_\+\+COMPATIBLE}~"{}FBX201600"{}
+\item 
+\Hypertarget{fbxio_8h_ae08317a512510e5b54012450c4ae66a3}\label{fbxio_8h_ae08317a512510e5b54012450c4ae66a3} 
+\#define {\bfseries FBX\+\_\+2018\+\_\+00\+\_\+\+COMPATIBLE}~"{}FBX201800"{}
+\item 
+\Hypertarget{fbxio_8h_a12bd79c10001cf09a3908e4298f12e8b}\label{fbxio_8h_a12bd79c10001cf09a3908e4298f12e8b} 
+\#define {\bfseries FBX\+\_\+2019\+\_\+00\+\_\+\+COMPATIBLE}~"{}FBX201900"{}
+\item 
+\Hypertarget{fbxio_8h_a0220b83ad08970bc920281c9c7d85bf5}\label{fbxio_8h_a0220b83ad08970bc920281c9c7d85bf5} 
+\#define {\bfseries FBX\+\_\+2020\+\_\+00\+\_\+\+COMPATIBLE}~"{}FBX202000"{}
+\item 
+\Hypertarget{fbxio_8h_abfcdffe2e3a7133955c3c2a326e9fce5}\label{fbxio_8h_abfcdffe2e3a7133955c3c2a326e9fce5} 
+\#define {\bfseries FBX\+\_\+\+DEFAULT\+\_\+\+FILE\+\_\+\+VERSION}~FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+7700
+\item 
+\Hypertarget{fbxio_8h_a3e57075bc1b82772b992ac355c99d980}\label{fbxio_8h_a3e57075bc1b82772b992ac355c99d980} 
+\#define {\bfseries FBX\+\_\+\+DEFAULT\+\_\+\+FILE\+\_\+\+COMPATIBILITY}~FBX\+\_\+2020\+\_\+00\+\_\+\+COMPATIBLE
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \mbox{\hyperlink{fbxio_8h_ae269b3528c028341c4cd5df0babc2074a1292301bc7c927f359ad1da1cadb4782}{FBX\+\_\+\+NO\+\_\+\+SECTION}} = -\/1
+, \mbox{\hyperlink{fbxio_8h_ae269b3528c028341c4cd5df0babc2074a66b62992b83cb1d2b01bb6a082441b2c}{FBX\+\_\+\+MAIN\+\_\+\+SECTION}}
+, \mbox{\hyperlink{fbxio_8h_ae269b3528c028341c4cd5df0babc2074a39bc3f7ad006052a82227faffe943d93}{FBX\+\_\+\+EXTENSION\+\_\+\+SECTION\+\_\+0}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+FBXSDK\+\_\+\+DLL int \mbox{\hyperlink{fbxio_8h_ab24e9fb633cf49fd49ed475850cc860d}{Fbx\+File\+Version\+Str\+To\+Int}} (const char \texorpdfstring{$\ast$}{*}p\+File\+Version)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fbxio_8h_a9b75880da7689330438143842c16e2f6}\index{fbxio.h@{fbxio.h}!FBX\_FILE\_VERSION\_2000@{FBX\_FILE\_VERSION\_2000}}
+\index{FBX\_FILE\_VERSION\_2000@{FBX\_FILE\_VERSION\_2000}!fbxio.h@{fbxio.h}}
+\doxysubsubsection{\texorpdfstring{FBX\_FILE\_VERSION\_2000}{FBX\_FILE\_VERSION\_2000}}
+{\footnotesize\ttfamily \label{fbxio_8h_a9b75880da7689330438143842c16e2f6} 
+\#define FBX\+\_\+\+FILE\+\_\+\+VERSION\+\_\+2000~2000}
+
+Defines the current FBX file version number in four digits. The first digit is the major version number a the last three digits are the minor version number (e.\+g. 7100 = 7.\+1). The following is the version history of FBX\+:
+
+\begin{DoxyItemize}
+\item Version 2000 -\/ New KFCurve and embedded FBX, no FCurve/\+FCurve node storing. No more .takf file like in earlier version, no history.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 2001 -\/ Version incremented to support \doxylink{class_fbx_time}{Fbx\+Time} save in native (integer, not double) format.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 3000 -\/ Fi\+LMBOX 3.\+0 version, nothing changed in current class since version 2001. FBX SDK 3.\+0 and 3.\+6\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 3001 -\/ Fi\+LMBOX 3.\+0 encrypted version, only a trial. Encrypted files could only be written in debug versions. Cannot switch to a higher version number now because any file with a version number \texorpdfstring{$>$}{>}= 3001 is read as encrypted. Hence, this value now only gives file type. (3000 or less -\/\texorpdfstring{$>$}{>} binary, 3001 or more -\/\texorpdfstring{$>$}{>} encrypted) Fi\+LMBOX 3.\+2, Fi\+LMBOX 3.\+5 and "{}\+Online"{} 3.\+51 have been released with version 3000.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 4000 -\/ Motion\+Builder 4.\+0, new type in KFCurve tangents, supported in Fi\+LMBOX 3.\+5 but not by earlier versions. Version number is now stored in section footer. Before September 3rd 2002, the version number was always 3000 in main section footer. Now the main section footer has version number 4000. The minimum version number in footer of an extension section is 4000.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 4001 -\/ ASCII Header is 4.\+1. Motion\+Builder 4.\+01, to fix FCurve\+Node problem with layer types in version 4000 the main section footer has version number 4001. Now the footer for extension sections has version number 4001.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 4050 -\/ ASCII Header is 4.\+5. Motion\+Builder 4.\+1 or 4.\+5 before January 22nd 2003. This is because Evaluation\+Properties now have color. Now the main section footer has version number 4050. Now the footer for extension sections has version number 4050.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 5000 -\/ ASCII Header is not compatible anymore with Motion\+Builder 4.\+0, 4.\+01 and 4.\+02 and FBX SDK 3.\+6 and 3.\+7 Motion\+Builder 4.\+03 and 4.\+1 or 4.\+5 from January 22nd 2003 FBX SDK 3.\+6.\+1. New extended header to improve FBX file version management. Now the extended header and the main section footer have version number 5000. Now the footer for extension sections has version number 5000.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 5800 -\/ This was a temporary version while waiting for version 6000 renders the previous versions incompatible with Motion\+Builder 6.\+0. For now, however, this format is needed to allow some tools/plugins (For example Maya) to correctly detect that the file has some features that are not completely backward compatible (For example\+: pivots defined with \+\_\+pre/\+\_\+post nodes which require a special processing). By incrementing only the minor version we do not compromise the integrity of the files.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 6000 -\/ Header version is now 6.\+0. Extended header now contain a creation time stamp that can be retrieve without parsing the main section of the file. A creator tag (string) is now stored in the Extended header. This contain the originator (MB/\+FBXSDK) of the file and the build number of the originator. First release of the file format using the KProperties to store/retrieve information.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 6100 -\/ Added support for multiple attributes (mainly multiple geometry) at the node level. The pointer to the node attribute have been replaced by a connection between the node and its attribute(s).\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 7000 -\/ First version of the 7.\+0 series; most likely very short-\/lived, developed for Protein, before ADP. Supports reference cloning, external documents, blobs, unique IDs (per file), property templates. So many changes that it was decided to break from 6.\+0 to keep Motion Builder intact.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 7099 -\/ Temporary version for FBX 2011 alpha releases.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 7100 Official file version for FBX 2011, add support for animation to FBX 7. First version of FBX SDK with FBX 7 files as the default file format.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 7200 Added support for multiple blend shape deformers and In-\/\+Between blend-\/shapes on each geometry. Moved shape(\+Fbx\+Shape) to its own section other than as a part of geometry section. Add support to store blend shape deformer(\+Fbx\+Blend\+Shape), blend shape channel(\+Fbx\+Blend\+Shape\+Channel), Substance(\+Fbx\+Procedural\+Texture) and Lines(\+Fbx\+Line). Add support to store 3 different smooth binding modes of \doxylink{class_fbx_skin}{Fbx\+Skin}, including classic linear, dual quaternion and blended mode of previous two modes. Added the CLAMP\+\_\+\+PROGRESSIVE tangent mode. The KFCurve\+::\+Key\+Attr\+Data\+Float data array now stores as integer values (ASCII mode) to to eliminate float to int precision errors. ~\newline
+ \doxylink{class_fbx_layered_texture}{Fbx\+Layered\+Texture} now stores alphas for its sub textures.\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 7300 Changed the way the Character\+Poses are written. Changed light property name Hot\+Spot and Cone\+Angle to Inner\+Angle and Outer\+Angle\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 7400 Normals, tangents and binormals save the 4th component into a separate array ~\newline
+\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 7500 Added support for large files (\texorpdfstring{$>$}{>}2GB). NOTE\+: This breaks forward compatibility (i.\+e. older products won\textquotesingle{}t be able to open these files!!)\end{DoxyItemize}
+\begin{DoxyItemize}
+\item Version 7700 Changed FBXSDK\+\_\+\+TC\+\_\+\+MILLISECOND from 46186158 to 141120 to support accurately frame rates like \texorpdfstring{$\sim$}{\string~}23.976, \texorpdfstring{$\sim$}{\string~}29.97, 72 and 96 fps. This new value is already used in Maya 2018 and will be in Motion\+Builder 2019. Althought the changes only affect the timing, it is big enough to break the compatibility with version 7500. However, to minimize adoption issues, the change in this version is triggerable with a global setting. By default, we keep using the old value and "{}opt in"{} for the new one. Over time, the "{}opt in"{} will become the default and the file version will be bumped to 8000 (so previous versions of the FBX SDK can detect that the new file is incompatible). In the meantime, it is expected that 7700 files saved with the new precision, will still be read by previous FBX SDKs (2016,2017 and 2018) BUT with totally bad timings. \end{DoxyItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{fbxio_8h_ae269b3528c028341c4cd5df0babc2074}\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily \label{fbxio_8h_ae269b3528c028341c4cd5df0babc2074} 
+anonymous enum}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FBX\_NO\_SECTION@{FBX\_NO\_SECTION}!fbxio.h@{fbxio.h}}\index{fbxio.h@{fbxio.h}!FBX\_NO\_SECTION@{FBX\_NO\_SECTION}}}\Hypertarget{fbxio_8h_ae269b3528c028341c4cd5df0babc2074a1292301bc7c927f359ad1da1cadb4782}\label{fbxio_8h_ae269b3528c028341c4cd5df0babc2074a1292301bc7c927f359ad1da1cadb4782} 
+FBX\+\_\+\+NO\+\_\+\+SECTION&indicate not in a valid section \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FBX\_MAIN\_SECTION@{FBX\_MAIN\_SECTION}!fbxio.h@{fbxio.h}}\index{fbxio.h@{fbxio.h}!FBX\_MAIN\_SECTION@{FBX\_MAIN\_SECTION}}}\Hypertarget{fbxio_8h_ae269b3528c028341c4cd5df0babc2074a66b62992b83cb1d2b01bb6a082441b2c}\label{fbxio_8h_ae269b3528c028341c4cd5df0babc2074a66b62992b83cb1d2b01bb6a082441b2c} 
+FBX\+\_\+\+MAIN\+\_\+\+SECTION&indicate currently in the main section \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FBX\_EXTENSION\_SECTION\_0@{FBX\_EXTENSION\_SECTION\_0}!fbxio.h@{fbxio.h}}\index{fbxio.h@{fbxio.h}!FBX\_EXTENSION\_SECTION\_0@{FBX\_EXTENSION\_SECTION\_0}}}\Hypertarget{fbxio_8h_ae269b3528c028341c4cd5df0babc2074a39bc3f7ad006052a82227faffe943d93}\label{fbxio_8h_ae269b3528c028341c4cd5df0babc2074a39bc3f7ad006052a82227faffe943d93} 
+FBX\+\_\+\+EXTENSION\+\_\+\+SECTION\+\_\+0&indicate currently in the extention section 0 \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fbxio_8h_ab24e9fb633cf49fd49ed475850cc860d}\index{fbxio.h@{fbxio.h}!FbxFileVersionStrToInt@{FbxFileVersionStrToInt}}
+\index{FbxFileVersionStrToInt@{FbxFileVersionStrToInt}!fbxio.h@{fbxio.h}}
+\doxysubsubsection{\texorpdfstring{FbxFileVersionStrToInt()}{FbxFileVersionStrToInt()}}
+{\footnotesize\ttfamily \label{fbxio_8h_ab24e9fb633cf49fd49ed475850cc860d} 
+FBXSDK\+\_\+\+DLL int Fbx\+File\+Version\+Str\+To\+Int (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+File\+Version}{}\end{DoxyParamCaption})}
+
+Convert the FBX file version string to an integral number for \texorpdfstring{$<$}{<}= or \texorpdfstring{$>$}{>}= tests purposes. 
+\begin{DoxyParams}{Parameters}
+{\em p\+File\+Version} & File version string. Some examples\+: 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ version;}
+\DoxyCodeLine{\ \ \ \ version\ =\ FileVersionStrToInt(FBX2012\_00\_COMPATIBLE);\ \ \ \ \textcolor{comment}{//\ version\ =\ 201200}}
+\DoxyCodeLine{\ \ \ \ version\ =\ FileVersionStrToInt(FBX60\_COMPATIBLE);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ version\ =\ 6000}}
+\DoxyCodeLine{\ \ \ \ version\ =\ FileVersionStrToInt(\textcolor{stringliteral}{"{}FBX200900"{}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ version\ =\ 200900}}
+\DoxyCodeLine{\ \ \ \ version\ =\ FileVersionStrToInt(\textcolor{stringliteral}{"{}Toto"{}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ version\ =\ 0}}
+\DoxyCodeLine{\ \ \ \ version\ =\ FileVersionStrToInt(\textcolor{stringliteral}{"{}"{}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ version\ =\ -\/1}}
+
+\end{DoxyCode}
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the file version number or 0 if an unsupported string value is passed. 
+\end{DoxyReturn}

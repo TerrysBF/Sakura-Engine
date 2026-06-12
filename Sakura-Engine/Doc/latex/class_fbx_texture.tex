@@ -1,0 +1,1596 @@
+\doxysection{Fbx\+Texture Class Reference}
+\hypertarget{class_fbx_texture}{}\label{class_fbx_texture}\index{FbxTexture@{FbxTexture}}
+
+
+{\ttfamily \#include $<$fbxtexture.\+h$>$}
+
+Inheritance diagram for Fbx\+Texture\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_fbx_texture}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Texture Properties}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3}{EUnified\+Mapping\+Type}} \{ \newline
+{\bfseries e\+UMT\+\_\+\+UV}
+, \mbox{\hyperlink{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3ac06447a290bba6ed27e91520202472d7}{e\+UMT\+\_\+\+XY}}
+, \mbox{\hyperlink{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a46e0078470f8e7d70a59ce1ba2994c55}{e\+UMT\+\_\+\+YZ}}
+, \mbox{\hyperlink{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a6e93b9e1775cf7ca0f5a6eb098a5c17c}{e\+UMT\+\_\+\+XZ}}
+, \newline
+\mbox{\hyperlink{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a22a052969d622eb37d8a70c7140eeca0}{e\+UMT\+\_\+\+SPHERICAL}}
+, \mbox{\hyperlink{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a5e0940b678348e491af1ffd541c315c0}{e\+UMT\+\_\+\+CYLINDRICAL}}
+, \mbox{\hyperlink{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a2fd17fa0efdda76b4d2985ab236e3332}{e\+UMT\+\_\+\+ENVIRONMENT}}
+, \mbox{\hyperlink{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a7934d19fc339f8582d00366547d77387}{e\+UMT\+\_\+\+PROJECTION}}
+, \newline
+\mbox{\hyperlink{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a4818842a5dc7fb33ef0d136f98daaad8}{e\+UMT\+\_\+\+BOX}}
+, \mbox{\hyperlink{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a53b519581ec08132d153ae6f66ba07fc}{e\+UMT\+\_\+\+FACE}}
+, \mbox{\hyperlink{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a5c096ba31c9adabcaca4135b27069292}{e\+UMT\+\_\+\+NO\+\_\+\+MAPPING}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9}{ETexture\+Use6}} \{ \newline
+{\bfseries e\+TEXTURE\+\_\+\+USE\+\_\+6\+\_\+\+STANDARD}
+, \mbox{\hyperlink{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9a5b08675d9a033235eb1bdffac3216d49}{e\+TEXTURE\+\_\+\+USE\+\_\+6\+\_\+\+SPHERICAL\+\_\+\+REFLEXION\+\_\+\+MAP}}
+, \mbox{\hyperlink{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9a831bdf5c636de7c940183def153ce28d}{e\+TEXTURE\+\_\+\+USE\+\_\+6\+\_\+\+SPHERE\+\_\+\+REFLEXION\+\_\+\+MAP}}
+, \mbox{\hyperlink{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9a4e32911201cd621abe70028642c62d98}{e\+TEXTURE\+\_\+\+USE\+\_\+6\+\_\+\+SHADOW\+\_\+\+MAP}}
+, \newline
+\mbox{\hyperlink{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9a79e4906651b33966cee2e0f3a36dbe18}{e\+TEXTURE\+\_\+\+USE\+\_\+6\+\_\+\+LIGHT\+\_\+\+MAP}}
+, \mbox{\hyperlink{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9af7d23a909183ed9813a15123e40d4621}{e\+TEXTURE\+\_\+\+USE\+\_\+6\+\_\+\+BUMP\+\_\+\+NORMAL\+\_\+\+MAP}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd}{EWrap\+Mode}} \{ {\bfseries e\+Repeat}
+, \mbox{\hyperlink{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fdac554ea44b46f77162f189cf6d6de7183}{e\+Clamp}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63}{EBlend\+Mode}} \{ \newline
+{\bfseries e\+Translucent}
+, \mbox{\hyperlink{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63a3b9651a8c3c77f1a99c140a992234b2d}{e\+Additive}}
+, \mbox{\hyperlink{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63acc20a21fb8509cc760f6a9039d289a42}{e\+Modulate}}
+, \mbox{\hyperlink{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63a4b6434a7defdfd67abfe6872f27a1d78}{e\+Modulate2}}
+, \newline
+\mbox{\hyperlink{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63a3deb095be503c2714a1b9fe007bed411}{e\+Over}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_fbx_texture_ab2c33e435866abe53920d298cbf681bb}{EAlign\+Mode}} \{ {\bfseries e\+Left}
+, \mbox{\hyperlink{class_fbx_texture_ab2c33e435866abe53920d298cbf681bbae26ff357e6975468a8a3692994c45cca}{e\+Right}}
+, \mbox{\hyperlink{class_fbx_texture_ab2c33e435866abe53920d298cbf681bbae56d71dd2e1423ee66b17d3595950723}{e\+Top}}
+, \mbox{\hyperlink{class_fbx_texture_ab2c33e435866abe53920d298cbf681bbac0198c8feb74ba33199b31b588ef0350}{e\+Bottom}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_fbx_texture_a552e895b758d794a37de9e50a4c87934}{ECoordinates}} \{ {\bfseries eU}
+, \mbox{\hyperlink{class_fbx_texture_a552e895b758d794a37de9e50a4c87934af1794e2e433f6ee95e2a6cf865e6e155}{eV}}
+, \mbox{\hyperlink{class_fbx_texture_a552e895b758d794a37de9e50a4c87934a36d4e3fc191579959d915a5a86e34b6c}{eW}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_fbx_texture_a12777ea406718d186e21b9656716171d}{EAlpha\+Source}} \{ {\bfseries e\+None}
+, \mbox{\hyperlink{class_fbx_texture_a12777ea406718d186e21b9656716171da8050beade1fa151e8f0bf0d8b6a840bf}{e\+RGBIntensity}}
+, \mbox{\hyperlink{class_fbx_texture_a12777ea406718d186e21b9656716171da616dd4c058c009235c5b0ccfe3c52c9e}{e\+Black}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34}{EMapping\+Type}} \{ \newline
+{\bfseries e\+Null}
+, \mbox{\hyperlink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34af55046453aba10f01a5bd727f8339224}{e\+Planar}}
+, \mbox{\hyperlink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a7eec71b99247debbc04ea6e3415e30fd}{e\+Spherical}}
+, \mbox{\hyperlink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34af812bc25a682348e4150985a7ff2cff4}{e\+Cylindrical}}
+, \newline
+\mbox{\hyperlink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a5f489c13e11dd02115440c6ef1040ebf}{e\+Box}}
+, \mbox{\hyperlink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a60fc0a1b1fc0c38caff807058a7c8562}{e\+Face}}
+, \mbox{\hyperlink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34ae85f5d7fb0b2aaa8576103e7b39e4710}{e\+UV}}
+, \mbox{\hyperlink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a1cf2846f54e7a977a8e290ae765528ca}{e\+Environment}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_fbx_texture_a6115b6970e4c83198112530d1e6f578c}{EPlanar\+Mapping\+Normal}} \{ {\bfseries e\+Planar\+NormalX}
+, \mbox{\hyperlink{class_fbx_texture_a6115b6970e4c83198112530d1e6f578caa61c6ac10631af0f3a3e0c4bc172bcf3}{e\+Planar\+NormalY}}
+, \mbox{\hyperlink{class_fbx_texture_a6115b6970e4c83198112530d1e6f578ca4abab22c72fc244f0d59fca544d79520}{e\+Planar\+NormalZ}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25}{ETexture\+Use}} \{ \newline
+{\bfseries e\+Standard}
+, \mbox{\hyperlink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25ae2b54050d51c9cce0d57aa54c68739b5}{e\+Shadow\+Map}}
+, \mbox{\hyperlink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25a6132bbc5c6f65049732f9df322274a9a}{e\+Light\+Map}}
+, \mbox{\hyperlink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25ace2a5aa4cf08e8c8da5375e6e18d9226}{e\+Spherical\+Reflection\+Map}}
+, \newline
+\mbox{\hyperlink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25a7d2c4e2d0ea3a3fc04316fea58173f8b}{e\+Sphere\+Reflection\+Map}}
+, \mbox{\hyperlink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25a7131fd3111db906c4242f2009191344e}{e\+Bump\+Normal\+Map}}
+ \}
+\item 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9}{ETexture\+Use6}} $>$ \mbox{\hyperlink{class_fbx_texture_a4813ec19bc568f47011cc1ce6c71f39e}{Texture\+Type\+Use}}
+\item 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ Fbx\+Double $>$ \mbox{\hyperlink{class_fbx_texture_a7248e3e31a2739d23c46a1c1a60fd801}{Alpha}}
+\item 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3}{EUnified\+Mapping\+Type}} $>$ \mbox{\hyperlink{class_fbx_texture_a128209af76f914e38438ba56879c0d5c}{Current\+Mapping\+Type}}
+\item 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd}{EWrap\+Mode}} $>$ \mbox{\hyperlink{class_fbx_texture_a0bc6524ab7ff1287b95ef46147660d7a}{Wrap\+ModeU}}
+\item 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd}{EWrap\+Mode}} $>$ \mbox{\hyperlink{class_fbx_texture_ae829c86b14a0bf8168d4997f5fd729ce}{Wrap\+ModeV}}
+\item 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ Fbx\+Bool $>$ \mbox{\hyperlink{class_fbx_texture_a8c14f57534caca44296248db850db26e}{UVSwap}}
+\item 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ Fbx\+Bool $>$ \mbox{\hyperlink{class_fbx_texture_a1acbc324c1df7d407aaccf0b3f151d29}{Premultiply\+Alpha}}
+\item 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}} $>$ \mbox{\hyperlink{class_fbx_texture_a94d73d8c789b8717b32ad5bba86ac42f}{Translation}}
+\item 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}} $>$ \mbox{\hyperlink{class_fbx_texture_a299b7759e086a905185a2dabe8a5b510}{Rotation}}
+\item 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}} $>$ \mbox{\hyperlink{class_fbx_texture_a0fb4219993fe8b6fcad89b62d22d2489}{Scaling}}
+\item 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}} $>$ \mbox{\hyperlink{class_fbx_texture_ae3f8835e136b889fbcd6b388c452310e}{Rotation\+Pivot}}
+\item 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}} $>$ \mbox{\hyperlink{class_fbx_texture_acf9aad8b79662d0cd8f3d336d0414dee}{Scaling\+Pivot}}
+\item 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63}{EBlend\+Mode}} $>$ \mbox{\hyperlink{class_fbx_texture_a0f0cad13b8b10cfbeb31801b503a60ec}{Current\+Texture\+Blend\+Mode}}
+\item 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} $>$ \mbox{\hyperlink{class_fbx_texture_ae28f2e1c33fa74ab1e9752f9de0be552}{UVSet}}
+\item 
+static const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_texture_a496d2263bd3423ed99633852d396a50f}{s\+Vector\+Space}}
+\item 
+\Hypertarget{class_fbx_texture_a0811135bfb05bae900c5100c5597af52}\label{class_fbx_texture_a0811135bfb05bae900c5100c5597af52} 
+static const char \texorpdfstring{$\ast$}{*} {\bfseries s\+Vector\+Space\+World}
+\item 
+\Hypertarget{class_fbx_texture_a4630b513879dd7403cd51fe0efaeb5ca}\label{class_fbx_texture_a4630b513879dd7403cd51fe0efaeb5ca} 
+static const char \texorpdfstring{$\ast$}{*} {\bfseries s\+Vector\+Space\+Object}
+\item 
+\Hypertarget{class_fbx_texture_a606da961541df60244581084fcba2198}\label{class_fbx_texture_a606da961541df60244581084fcba2198} 
+static const char \texorpdfstring{$\ast$}{*} {\bfseries s\+Vector\+Space\+Tangent}
+\item 
+static const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_texture_ae8aca07710aa872fa8964408101f8a5b}{s\+Vector\+Encoding}}
+\item 
+\Hypertarget{class_fbx_texture_a5cd9b07db0e8ee5792511c50626f442b}\label{class_fbx_texture_a5cd9b07db0e8ee5792511c50626f442b} 
+static const char \texorpdfstring{$\ast$}{*} {\bfseries s\+Vector\+Encoding\+FP}
+\item 
+\Hypertarget{class_fbx_texture_a4f12c4756b837abd121c25662bd61009}\label{class_fbx_texture_a4f12c4756b837abd121c25662bd61009} 
+static const char \texorpdfstring{$\ast$}{*} {\bfseries s\+Vector\+Encoding\+SE}
+\item 
+virtual void \mbox{\hyperlink{class_fbx_texture_a9ba254e02e13f1cae91295c996ed7fcb}{Reset}} ()
+\item 
+void \mbox{\hyperlink{class_fbx_texture_a29d8e8398ff2280af91b4fbd15a4647a}{Set\+Swap\+UV}} (bool p\+Swap\+UV)
+\item 
+bool \mbox{\hyperlink{class_fbx_texture_ac73ac8fda4d8e4e31c829ffb6838fcad}{Get\+Swap\+UV}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_texture_af244c477cedbba956106e03aca85867f}{Set\+Premultiply\+Alpha}} (bool p\+Premultiply\+Alpha)
+\item 
+bool \mbox{\hyperlink{class_fbx_texture_a92ffecbc95b53e3b410a2cee81b434dc}{Get\+Premultiply\+Alpha}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_texture_a45bc6bb0c52b4eea53a4bc1c9c3a699c}{Set\+Alpha\+Source}} (\mbox{\hyperlink{class_fbx_texture_a12777ea406718d186e21b9656716171d}{EAlpha\+Source}} p\+Alpha\+Source)
+\item 
+\mbox{\hyperlink{class_fbx_texture_a12777ea406718d186e21b9656716171d}{EAlpha\+Source}} \mbox{\hyperlink{class_fbx_texture_a6ca527821cb9e95af5376e7bb2979deb}{Get\+Alpha\+Source}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_texture_a8466d23b8049dca1175c24ca4e209f47}{Set\+Cropping}} (int p\+Left, int p\+Top, int p\+Right, int p\+Bottom)
+\item 
+int \mbox{\hyperlink{class_fbx_texture_a8f8e8e8f645cc8cd3f3fabae7e5b6c44}{Get\+Cropping\+Left}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_texture_a1033fe7ba0df6166e17a49d095518c25}{Get\+Cropping\+Top}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_texture_a4acabeab1c1c4fe031bbd8bd9ace3c64}{Get\+Cropping\+Right}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_texture_a12ee7e2132ce572b439b73de858f4f6c}{Get\+Cropping\+Bottom}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_texture_a8b71add5498dc0f8a9aa4af87cccb5da}{Set\+Mapping\+Type}} (\mbox{\hyperlink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34}{EMapping\+Type}} p\+Mapping\+Type)
+\item 
+\mbox{\hyperlink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34}{EMapping\+Type}} \mbox{\hyperlink{class_fbx_texture_a622d8acfcb6b7ff965079294ef8d23c6}{Get\+Mapping\+Type}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_texture_a5f23cc30b768e4967d35064b39b9958f}{Set\+Planar\+Mapping\+Normal}} (\mbox{\hyperlink{class_fbx_texture_a6115b6970e4c83198112530d1e6f578c}{EPlanar\+Mapping\+Normal}} p\+Planar\+Mapping\+Normal)
+\item 
+\mbox{\hyperlink{class_fbx_texture_a6115b6970e4c83198112530d1e6f578c}{EPlanar\+Mapping\+Normal}} \mbox{\hyperlink{class_fbx_texture_ad15e77afddc395d9da4ee442c769c167}{Get\+Planar\+Mapping\+Normal}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_texture_aa1bb097d19a2b92f64abde250388df0d}{Set\+Texture\+Use}} (\mbox{\hyperlink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25}{ETexture\+Use}} p\+Texture\+Use)
+\item 
+\mbox{\hyperlink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25}{ETexture\+Use}} \mbox{\hyperlink{class_fbx_texture_aada6ca015322195cddfa90ccb5274e31}{Get\+Texture\+Use}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_texture_afb9383ff8cc503b4446247ccdd634ef1}{Set\+Wrap\+Mode}} (\mbox{\hyperlink{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd}{EWrap\+Mode}} p\+WrapU, \mbox{\hyperlink{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd}{EWrap\+Mode}} p\+WrapV)
+\item 
+\mbox{\hyperlink{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd}{EWrap\+Mode}} \mbox{\hyperlink{class_fbx_texture_a4df1c01895bf8fb995a5c031de7b77fe}{Get\+Wrap\+ModeU}} () const
+\item 
+\mbox{\hyperlink{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd}{EWrap\+Mode}} \mbox{\hyperlink{class_fbx_texture_abf31cda728e2ff7f94e10dca19de19d2}{Get\+Wrap\+ModeV}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_texture_a8809f20ef579aea161142784dc671ec9}{Set\+Blend\+Mode}} (\mbox{\hyperlink{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63}{EBlend\+Mode}} p\+Blend\+Mode)
+\item 
+\mbox{\hyperlink{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63}{EBlend\+Mode}} \mbox{\hyperlink{class_fbx_texture_ad9f85f7fe1bb43f263f2edddeb9df443}{Get\+Blend\+Mode}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Default Values Management By Numbers}
+This set of functions provides direct access to the default values in number base. U, V and W coordinates are mapped to the X, Y and Z coordinates of the default vectors found in the "{}\+Default Values By Vector"{} section. \begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_texture_abba1ab39aa33baa722b9707363d80b44}\label{class_fbx_texture_abba1ab39aa33baa722b9707363d80b44} 
+int {\bfseries m\+Cropping} \mbox{[}4\mbox{]}
+\item 
+\Hypertarget{class_fbx_texture_a2d708745702a77f5f47e6d65763923fb}\label{class_fbx_texture_a2d708745702a77f5f47e6d65763923fb} 
+\mbox{\hyperlink{class_fbx_texture_a12777ea406718d186e21b9656716171d}{EAlpha\+Source}} {\bfseries m\+Alpha\+Source}
+\item 
+\Hypertarget{class_fbx_texture_aed526c6181680a2b7da6eae7c8723a6d}\label{class_fbx_texture_aed526c6181680a2b7da6eae7c8723a6d} 
+\mbox{\hyperlink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34}{EMapping\+Type}} {\bfseries m\+Mapping\+Type}
+\item 
+\Hypertarget{class_fbx_texture_a5c9ac7b29bd18735d46d681cc2031e2a}\label{class_fbx_texture_a5c9ac7b29bd18735d46d681cc2031e2a} 
+\mbox{\hyperlink{class_fbx_texture_a6115b6970e4c83198112530d1e6f578c}{EPlanar\+Mapping\+Normal}} {\bfseries m\+Planar\+Mapping\+Normal}
+\item 
+\Hypertarget{class_fbx_texture_a44b35867b77a61b184302c508b2249a5}\label{class_fbx_texture_a44b35867b77a61b184302c508b2249a5} 
+\mbox{\hyperlink{class_fbx_vector2}{Fbx\+Vector2}} {\bfseries m\+UVScaling}
+\item 
+\Hypertarget{class_fbx_texture_a7465889be9ff81770ca74471bd86f94d}\label{class_fbx_texture_a7465889be9ff81770ca74471bd86f94d} 
+\mbox{\hyperlink{class_fbx_vector2}{Fbx\+Vector2}} {\bfseries m\+UVTranslation}
+\item 
+void \mbox{\hyperlink{class_fbx_texture_aeeaecd1f6dbbe08fcf2e77b56a0e97f4}{Set\+Translation}} (double pU, double pV)
+\item 
+double \mbox{\hyperlink{class_fbx_texture_a7785949815ca2cdaa44af41f00c4a3bc}{Get\+TranslationU}} () const
+\item 
+double \mbox{\hyperlink{class_fbx_texture_a96e08939c1efcc3edbc7392a86fb6c43}{Get\+TranslationV}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_texture_a2626c877d3bcbc16c74b8bb8a5dbd46d}{Set\+Rotation}} (double pU, double pV, double pW=0.\+0)
+\item 
+\Hypertarget{class_fbx_texture_a188819733b0abd2c91050393c036b982}\label{class_fbx_texture_a188819733b0abd2c91050393c036b982} 
+double {\bfseries Get\+RotationU} () const
+\begin{DoxyCompactList}\small\item\em Returns the texture rotation around the U axis in degrees. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_texture_a49b00097942d1664a04f39803d083406}\label{class_fbx_texture_a49b00097942d1664a04f39803d083406} 
+double {\bfseries Get\+RotationV} () const
+\begin{DoxyCompactList}\small\item\em Returns the texture rotation around the V axis in degrees. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_texture_a5f320c1d648dcf09323c7df39cfbb4c8}\label{class_fbx_texture_a5f320c1d648dcf09323c7df39cfbb4c8} 
+double {\bfseries Get\+RotationW} () const
+\begin{DoxyCompactList}\small\item\em Returns the texture rotation around the W axis in degrees. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fbx_texture_adade3b75698249b7e09e4044136ca49c}{Set\+Scale}} (double pU, double pV)
+\item 
+double \mbox{\hyperlink{class_fbx_texture_a2ca0428f36ddd73442891a73c15e4227}{Get\+ScaleU}} () const
+\item 
+double \mbox{\hyperlink{class_fbx_texture_a37edad25de26090cde868b88b9e89a77}{Get\+ScaleV}} () const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \& \mbox{\hyperlink{class_fbx_texture_aeb9ca0b402217d193d4a93d1e0851feb}{Copy}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object) override
+\item 
+\Hypertarget{class_fbx_texture_a65138a2a6eb3226ea7d3f0e9384c23a4}\label{class_fbx_texture_a65138a2a6eb3226ea7d3f0e9384c23a4} 
+bool {\bfseries operator==} (\mbox{\hyperlink{class_fbx_texture}{Fbx\+Texture}} const \&p\+Texture) const
+\item 
+\Hypertarget{class_fbx_texture_a25a79cb2fe825d4ab9eb85a43c8ae000}\label{class_fbx_texture_a25a79cb2fe825d4ab9eb85a43c8ae000} 
+void {\bfseries Set\+UVTranslation} (\mbox{\hyperlink{class_fbx_vector2}{Fbx\+Vector2}} \&pT)
+\item 
+\Hypertarget{class_fbx_texture_a239169d19afe3b734bffadbc359ef41d}\label{class_fbx_texture_a239169d19afe3b734bffadbc359ef41d} 
+\mbox{\hyperlink{class_fbx_vector2}{Fbx\+Vector2}} \& {\bfseries Get\+UVTranslation} ()
+\item 
+\Hypertarget{class_fbx_texture_ad27fe41d313171065fdeac6a111570cd}\label{class_fbx_texture_ad27fe41d313171065fdeac6a111570cd} 
+void {\bfseries Set\+UVScaling} (\mbox{\hyperlink{class_fbx_vector2}{Fbx\+Vector2}} \&pS)
+\item 
+\Hypertarget{class_fbx_texture_a5fda857fe156390b8ddddccef2452593}\label{class_fbx_texture_a5fda857fe156390b8ddddccef2452593} 
+\mbox{\hyperlink{class_fbx_vector2}{Fbx\+Vector2}} \& {\bfseries Get\+UVScaling} ()
+\item 
+\Hypertarget{class_fbx_texture_ae671b7102a419f20687774bafee8058e}\label{class_fbx_texture_ae671b7102a419f20687774bafee8058e} 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} {\bfseries Get\+Texture\+Type} ()
+\item 
+void \mbox{\hyperlink{class_fbx_texture_a0677260d636a8fc3fd1702965834543f}{Construct}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+From) override
+\item 
+void \mbox{\hyperlink{class_fbx_texture_ae35546f3bd942e035524f8aac636d323}{Construct\+Properties}} (bool p\+Force\+Set) override
+\item 
+bool \mbox{\hyperlink{class_fbx_texture_a9286908efa0f23926ec63cbf31d11274}{Property\+Notify}} (EProperty\+Notify\+Type p\+Type, \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property) override
+\item 
+\Hypertarget{class_fbx_texture_a2e0e1f9bca241abf56d471168a93c5fc}\label{class_fbx_texture_a2e0e1f9bca241abf56d471168a93c5fc} 
+void {\bfseries Init} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Default Values Management By Vectors}
+This set of functions provides direct access to the default values in vector base. \begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_texture_a6ae1a89cc64792069f8623e88463c0c2}{Set\+DefaultT}} (const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&pT)
+\item 
+\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \& \mbox{\hyperlink{class_fbx_texture_af875dd377ece568856f74b479fffb081}{Get\+DefaultT}} (\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&pT) const
+\item 
+void \mbox{\hyperlink{class_fbx_texture_a6c89d73fc05d96e1edea371476735bbb}{Set\+DefaultR}} (const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&pR)
+\item 
+\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \& \mbox{\hyperlink{class_fbx_texture_a41f83223e58062b1e2e9ddbbae0ceafe}{Get\+DefaultR}} (\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&pR) const
+\item 
+void \mbox{\hyperlink{class_fbx_texture_ae7a6ee36439e0117cdd3bc6e198df50c}{Set\+DefaultS}} (const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&pS)
+\item 
+\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \& \mbox{\hyperlink{class_fbx_texture_a8e9e574666bbcc546ab94d39278fb0c6}{Get\+DefaultS}} (\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&pS) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Default Alpha Value}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_texture_a7d415a77fda2ac6abb30f56b6caa932d}{Set\+Default\+Alpha}} (double p\+Alpha)
+\item 
+double \mbox{\hyperlink{class_fbx_texture_a7c240fc7ac0c884e736eda9c1be5dc4b}{Get\+Default\+Alpha}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{EObject\+Flag}} \{ \newline
+\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a1e3be60c132e4128211bcae9151b7394}{e\+None}} = 0
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244aef7e1bffd6a66da3afcef75a5b58099c}{e\+Initialized}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244ab30526fefc7c765c86915837cb78d194}{e\+System}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a9d477bbe1f04724fcc65b40b0ed25634}{e\+Savable}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2
+, \newline
+\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a46eb7a51468eab26cdfaf4ff5ba94f7b}{e\+Selected}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244a003e4ca99b413e36199255548e54e0a6}{e\+Hidden}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 4
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244ad4bf6f05e3c50e585dec611288da91c6}{e\+Content\+Loaded}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 5
+, \mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244ace826129cda639eeb41fa034268d1f93}{e\+Dont\+Localize}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 6
+, \newline
+\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244aaac8a289575d6365b97978c9b7bb104c}{e\+Copy\+Called\+By\+Clone}} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 16
+ \}
+\begin{DoxyCompactList}\small\item\em Flags available to control objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}{EClone\+Type}} \{ \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{e\+Deep\+Clone}}
+, \mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbae681cda4dccb3f5ccf260e5ccc47d88c}{e\+Reference\+Clone}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of clones that can be created for \doxylink{class_fbx_object}{Fbx\+Object}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_a65e47d62ed950247cd097b3b505d7b48}{Is}} () const
+\item 
+\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a87421255c4def515760a5b5df656a20f}{Get\+Fbx\+Manager}} () const
+\item 
+\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aa5cf0570302b29cb491322fd030dede9}{Get\+Document}} () const
+\item 
+\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a0ecffb08701519b99478724080a1903b}{Get\+Root\+Document}} () const
+\item 
+\mbox{\hyperlink{class_fbx_scene}{Fbx\+Scene}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aab252b8b092953c63e32e5dc1bcf74a2}{Get\+Scene}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_object_a7b49e6a0c17132cd7e2e7e8485a08915}{Destroy}} (bool p\+Recursive=false)
+\item 
+void \mbox{\hyperlink{class_fbx_object_af8626c123cf302297bdecb4c8d62db99}{Reset\+Properties}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_object_ade0dddb02e39f6823d0bea6071ef4410}{Get\+Selected}} ()
+\item 
+virtual void \mbox{\hyperlink{class_fbx_object_ab61c3e576aaf899deda673702c0a1b79}{Set\+Selected}} (bool p\+Selected)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_ac37f77806bfd54d6a41ca6158768deb0}{Set\+User\+Data\+Ptr}} (const Fbx\+UInt64 \&p\+User\+ID, void \texorpdfstring{$\ast$}{*}p\+User\+Data)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a82453a87c2eda4d474c53bbfc6339392}{Get\+User\+Data\+Ptr}} (const Fbx\+UInt64 \&p\+User\+ID) const
+\item 
+void \mbox{\hyperlink{class_fbx_object_af52325b1b5f2f1f5884d5d14d80c1922}{Set\+User\+Data\+Ptr}} (void \texorpdfstring{$\ast$}{*}p\+User\+Data)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a9eb021fc31e60002406980948e7638ad}{Get\+User\+Data\+Ptr}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a1c75d466c5166486787bfa06b4fd221f}{Connect\+Src\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object, Fbx\+Connection\+::\+EType p\+Type=Fbx\+Connection\+::e\+None)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a2ff6d4507136a693622a7d8434b440ed}{Is\+Connected\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a1ff942832a9a9d829988c757899b6655}{Disconnect\+Src\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_af1e035b53794520b66c3240a20660b40}{Disconnect\+All\+Src\+Object}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ad6c02944e76b8d6780e734383f872a7d}{Disconnect\+All\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a5fce56e85d5e0568243a5df99dabb42f}{Get\+Src\+Object\+Count}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_object_aa1fe90887d90288ee0c06121ec79c0a8}{Get\+Src\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae9f5b092a4beb82e14489e2deda32152}{Get\+Src\+Object}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_afc85555fe801a0ba69a0d2df15d95199}{Get\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae2395e360ff9e53e18c99052a41e1156}{Find\+Src\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aa719dc9513cfbfc8767d4c2af367bc44}{Find\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_a17f59548a86067094c17501801e7aa46}{Disconnect\+All\+Src\+Object}} ()
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_ae5b578e810b22bcd8d0df323097ed995}{Disconnect\+All\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_a9da9f905564dc108d1363049eb032fa8}{Get\+Src\+Object\+Count}} () const
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_aabefdc2922a216fb7a1ce864fcf2438a}{Get\+Src\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a8d7e062552be10952806a719b20b3685}{Get\+Src\+Object}} (int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a7eb8cc999af713c9ccf39d726a0317b9}{Get\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ab4e093b55f5361fbc025cf8ea3cb401f}{Find\+Src\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_aafb907a917f661eb4a80d1b85d04518d}{Find\+Src\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a3c7e883121fe1ceb271381146bd52ed0}{Connect\+Dst\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object, Fbx\+Connection\+::\+EType p\+Type=Fbx\+Connection\+::e\+None)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a06725964170902b4d79453d76326fc5b}{Is\+Connected\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a949fdf817b27505861f293cea4dc3b86}{Disconnect\+Dst\+Object}} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Object)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a5ebe517e8b3f221285b9754009c0660b}{Disconnect\+All\+Dst\+Object}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a5668d54f53f16f5ffad95727f92a8ee6}{Disconnect\+All\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a5be091701bfa94643dc2333768f56866}{Get\+Dst\+Object\+Count}} () const
+\item 
+int \mbox{\hyperlink{class_fbx_object_a46183e2905f10779c57389dc4ec3a5de}{Get\+Dst\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a16e69934f654a544c986a583a59972be}{Get\+Dst\+Object}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a4cdab7b4be2985fd907159ae16e09d2f}{Get\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a83483c85e1431fdb5cdd45dfeb03a6de}{Find\+Dst\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a1b29d3cb822da43e40dd6fdf586bb6df}{Find\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_aa3aab1135cdd8e63c3255e17f926d950}{Disconnect\+All\+Dst\+Object}} ()
+\item 
+{\footnotesize template$<$class T$>$ }\\bool \mbox{\hyperlink{class_fbx_object_afd459bbb653d2a31e5c03dfdb64e649b}{Disconnect\+All\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria)
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_a1a642124ddabd14884fc0c85793a5c6d}{Get\+Dst\+Object\+Count}} () const
+\item 
+{\footnotesize template$<$class T$>$ }\\int \mbox{\hyperlink{class_fbx_object_a03da9b6768a234550042e0b3a70f081f}{Get\+Dst\+Object\+Count}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae8a6869c4809e67473b333213f9326fb}{Get\+Dst\+Object}} (int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ad2fea70ba6a29879cefdff5d5c6a2fd0}{Get\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, int p\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a34db1b17cb89374a13238d7ba4689c53}{Find\+Dst\+Object}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+{\footnotesize template$<$class T$>$ }\\T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a4fdbc988fc39eb5ab3ad74b5134d9fb3}{Find\+Dst\+Object}} (const \mbox{\hyperlink{class_fbx_criteria}{Fbx\+Criteria}} \&p\+Criteria, const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_abc7d6efa0f0b7f0037818b8700465077}{Get\+First\+Property}} () const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a34e7ffc0f49a4e3be8db6310efccd020}{Get\+Next\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a697319ff157f50b097f49118f5582f98}{Find\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_aab369c8ec541c9e6994a28015619e510}{Find\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, const \mbox{\hyperlink{class_fbx_data_type}{Fbx\+Data\+Type}} \&p\+Data\+Type, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_ac20a46bd7abf3c09fc2af0df47f4f261}{Find\+Property\+Hierarchical}} (const char \texorpdfstring{$\ast$}{*}p\+Name, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a47b6379edc68313f2b23da3d3b36e5ab}{Find\+Property\+Hierarchical}} (const char \texorpdfstring{$\ast$}{*}p\+Name, const \mbox{\hyperlink{class_fbx_data_type}{Fbx\+Data\+Type}} \&p\+Data\+Type, bool p\+Case\+Sensitive=true) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a70e190147f28712dee1ec1e00b73c24e}{Get\+Class\+Root\+Property}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_aef0b1c0672a044b6e44c824b9469c7e7}{Connect\+Src\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a7f2c8c668ac8e009584c12f19809be22}{Is\+Connected\+Src\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a545423b1e5060fcad8784bd0aa0432b6}{Disconnect\+Src\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a0c9680063d0f6771dd881cf3950337d6}{Get\+Src\+Property\+Count}} () const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_aa79380869a619b260fd1f861eb224f5e}{Get\+Src\+Property}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_ad87b66288e8308973dc477cda1346a05}{Find\+Src\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a6bd087870ae3d3dc82c89105387e7baa}{Connect\+Dst\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a678e5ccdbf6ab28c1df239fbdcea76d3}{Is\+Connected\+Dst\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a0931b1e490684c4ff0532d69a466b4b2}{Disconnect\+Dst\+Property}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property)
+\item 
+int \mbox{\hyperlink{class_fbx_object_a878feb5a29caf3262360037fe4a5c1e6}{Get\+Dst\+Property\+Count}} () const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_aaec1374d8a9a02429ae4eb317438856d}{Get\+Dst\+Property}} (int p\+Index=0) const
+\item 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \mbox{\hyperlink{class_fbx_object_a3552b9625640d12db3a9cb70a9fae794}{Find\+Dst\+Property}} (const char \texorpdfstring{$\ast$}{*}p\+Name, int p\+Start\+Index=0) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_object_ac28653a3c65e840498eebfb54276e483}{Content\+Unload}} ()
+\item 
+int \mbox{\hyperlink{class_fbx_object_a296d454c59bd93245dd5e2312dc7f165}{Content\+Load}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ac1e5a81afa5c74aec67c57136b541161}{Content\+Is\+Loaded}} () const
+\item 
+void \mbox{\hyperlink{class_fbx_object_a7720b36c508a8c32c9cf72a7a59f5c3e}{Content\+Decrement\+Lock\+Count}} ()
+\item 
+void \mbox{\hyperlink{class_fbx_object_a83ebb7c4a09328e517a4b5367fcf8c0d}{Content\+Increment\+Lock\+Count}} ()
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ad9e3373b45e2fbce5a7a11a09edd96f7}{Content\+Is\+Locked}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_object_ab8a59df9233cdfeaae05e5b6d15f5101}{Content\+Write\+To}} (\mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \&p\+Stream) const
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_object_aeb4255bda633e1986730748758a7cf6c}{Content\+Read\+From}} (const \mbox{\hyperlink{class_fbx_stream}{Fbx\+Stream}} \&p\+Stream)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_ae2fe13bc65c1ffe2c2338bc2a2740429}{Emit\+Message}} (Fbx\+Message \texorpdfstring{$\ast$}{*}p\+Message) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a61aeb40883053aa206578c2305623a95}{Localize}} (const char \texorpdfstring{$\ast$}{*}p\+ID, const char \texorpdfstring{$\ast$}{*}p\+Default=NULL) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_library}{Fbx\+Library}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a56546e89ab7132ffd52c92257a73c022}{Get\+Parent\+Library}} () const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a83138088781da53eb6fc3e3793ca9171}{Add\+Implementation}} (\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}p\+Implementation)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_af5372f14b186dbd1e69688e899c46081}{Remove\+Implementation}} (\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}p\+Implementation)
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a9703e0631381d9bbc91cac102198cf36}{Has\+Default\+Implementation}} (void) const
+\item 
+\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_afa41110ea96c574ad30036bcc91a730e}{Get\+Default\+Implementation}} (void) const
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ac216eb622d77659c18092b202632aaa9}{Set\+Default\+Implementation}} (\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*}p\+Implementation)
+\item 
+int \mbox{\hyperlink{class_fbx_object_add119a7c5623e087101589ebbc0a65ed}{Get\+Implementation\+Count}} (const \mbox{\hyperlink{class_fbx_implementation_filter}{Fbx\+Implementation\+Filter}} \texorpdfstring{$\ast$}{*}p\+Criteria=NULL) const
+\item 
+\mbox{\hyperlink{class_fbx_implementation}{Fbx\+Implementation}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a8e7a39d2b2c3688e44c7222adca4a275}{Get\+Implementation}} (int p\+Index, const \mbox{\hyperlink{class_fbx_implementation_filter}{Fbx\+Implementation\+Filter}} \texorpdfstring{$\ast$}{*}p\+Criteria=NULL) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_acce60f1ae8d6b0ffba2de85c04766194}{Get\+Url}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_fbx_object_a308a88953aae8669a93f0202b02a46a9}{Set\+Url}} (const char \texorpdfstring{$\ast$}{*}p\+Url)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_a38333e180ca371f76495267a26cccb08}{Set\+Object\+Flags}} (\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{EObject\+Flag}} p\+Flags, bool p\+Value)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a02d91c1f2930a03cfd0e8c2b1fffa0ee}{Get\+Object\+Flags}} (\mbox{\hyperlink{class_fbx_object_a117b8002963e9fe475a93556c217b244}{EObject\+Flag}} p\+Flags) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_aa59f051b6c0be5f93eb88cc2f15b43e5}{Set\+All\+Object\+Flags}} (Fbx\+UInt p\+Flags)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+Fbx\+UInt \mbox{\hyperlink{class_fbx_object_a18b30c43de008570c05f3a6f1e46eb10}{Get\+All\+Object\+Flags}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a0b43f5017582b7167d8447bd9911236e}{Clone}} (\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbb}{Fbx\+Object\+::\+EClone\+Type}} p\+Clone\+Type=\mbox{\hyperlink{class_fbx_object_a9f5626b2d2135684d6ea1e6e4ad2acbbaacdf137ca059c572798287e98c4236d0}{e\+Deep\+Clone}}, \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Container=NULL, void \texorpdfstring{$\ast$}{*}p\+Set=NULL) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a5898e582711f3266ac3d0f779d541ef6}{Is\+AReference\+To}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_abafd0f4ab90b2d1090c0c225bc4c3e3a}{Get\+Reference\+To}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_af64184bd9341c8a3300588c818594328}{Is\+Referenced\+By}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_object_a97318ba302685288321f65144063b7c7}{Get\+Referenced\+By\+Count}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+FBX\+\_\+\+DEPRECATED \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a5797b48dd0247100a71190e30615e697}{Get\+Referenced\+By}} (int p\+Index) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_fbx_object_a553ed0c8a1f00394a11d5123fb040f6c}{Get\+Referenced\+By}} (\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*} $>$ \&p\+Referenced\+By) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_af9273215e168b14d12a4a3e393e061c9}{Set\+Runtime\+Class\+Id}} (const \mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \&p\+Class\+Id)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \mbox{\hyperlink{class_fbx_object_ad81de7de1ede009e3d80361450620475}{Get\+Runtime\+Class\+Id}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_ac1f9e5981fbf87911d669e078495cb09}{Is\+Runtime}} (const \mbox{\hyperlink{class_fbx_class_id}{Fbx\+Class\+Id}} \&p\+Class\+Id) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_fbx_object_a4c804ecb85faa0544d305d9f7e98d777}{Is\+Runtime\+Plug}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_fbx_object_a2720f16a08150d162242b0c59f58c3dc}{Compact}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool {\bfseries Compare} (\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}p\+Other\+Object)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries operator==} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void {\bfseries Set\+Document} (\mbox{\hyperlink{class_fbx_document}{Fbx\+Document}} \texorpdfstring{$\ast$}{*}p\+Document)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_property_handle}{Fbx\+Property\+Handle}} \& {\bfseries Get\+Property\+Handle} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual const char \texorpdfstring{$\ast$}{*} {\bfseries Get\+Type\+Name} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_fbx_string_list}{Fbx\+String\+List}} {\bfseries Get\+Type\+Flags} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Wipe\+All\+Connections} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_aceea1c2fdb26784d668d05dd52df0d68}{Set\+Name}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ad292343f61a5c670fb322bf592839bcf}{Get\+Name}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_ae378979d85476e931375e30b6498f8db}{Get\+Name\+Without\+Name\+Space\+Prefix}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a9caa594f866ea3a424f5f6e3676e2799}{Get\+Name\+With\+Name\+Space\+Prefix}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_a97b6469f5877e37d352b6f6224791fb2}{Set\+Initial\+Name}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_a23fdcb85828748da9611491f64dcde0a}{Get\+Initial\+Name}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a9cc9873c1d66722b964c04da5ec2001f}{Get\+Name\+Space\+Only}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_object_a0546604cdd763f630c9ffdf9cfcf8bdc}{Set\+Name\+Space}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} p\+Name\+Space)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_array}{Fbx\+Array}}$<$ \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_fbx_object_a8e0aeec9b01f961d552315014a36f775}{Get\+Name\+Space\+Array}} (char identifier)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a3a01a4d055e558d322016ce8d7337329}{Get\+Name\+Only}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a8a0b08d810c3451ea912840caab53694}{Get\+Name\+Space\+Prefix}} () const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+const Fbx\+UInt64 \& {\bfseries Get\+Unique\+ID} () const
+\begin{DoxyCompactList}\small\item\em Returns the unique ID of this object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_emitter_ab8022a1fd620467f12f493673cfa16a9}{Add\+Listener}} (\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \&p\+Handler)
+\item 
+void \mbox{\hyperlink{class_fbx_emitter_a9d5e8f773a85bd9f7a88d9f01eb5463d}{Remove\+Listener}} (\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \&p\+Handler)
+\item 
+{\footnotesize template$<$typename Event\+Type$>$ }\\void \mbox{\hyperlink{class_fbx_emitter_ad541e3b06c0beeab71fcf066fc44c78d}{Emit}} (const Event\+Type \&p\+Event) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_adbd35588cd04556b1a7fc5ffdee8b417}\label{class_fbx_object_adbd35588cd04556b1a7fc5ffdee8b417} 
+static void {\bfseries Set\+Wipe\+Mode} (bool p\+State)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a14b73206429c6b2e9c4d6d934721d43a}\label{class_fbx_object_a14b73206429c6b2e9c4d6d934721d43a} 
+static bool {\bfseries Get\+Wipe\+Mode} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_aa10bc0608457b0e0c13c80686472f4c4}{Remove\+Prefix}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_aef0a016a9b53593f537b68ba47b8dd6e}{Strip\+Prefix}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \&l\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \mbox{\hyperlink{class_fbx_object_a23b53eecb8b6b7d198496392dc987548}{Strip\+Prefix}} (const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a865ee4dfaa7a8f9050105d4477288da8}\label{class_fbx_object_a865ee4dfaa7a8f9050105d4477288da8} 
+\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} {\bfseries Root\+Property}
+\begin{DoxyCompactList}\small\item\em The root property that holds all children property for this object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types inherited from \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a528f1b2c2b7abbd64c525ba3a9a496b8}\label{class_fbx_object_a528f1b2c2b7abbd64c525ba3a9a496b8} 
+enum {\bfseries EProperty\+Notify\+Type} \{ {\bfseries e\+Property\+Set\+Request}
+, {\bfseries e\+Property\+Set}
+, {\bfseries e\+Property\+Get}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Types inherited from \mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}}}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{class_fbx_intrusive_list}{Fbx\+Intrusive\+List}}$<$ \mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}}, \mbox{\hyperlink{class_fbx_event_handler_a47139da2cfd5abee91664d75c4fb577cae2c0d7da494cef8d787ee3495e24a6c0}{Fbx\+Event\+Handler\+::e\+Emitter}} $>$ {\bfseries Event\+Handler\+List}
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_fbx_object_a123e084d9b32b29c28af6384b7c3c608}{Destruct}} (bool p\+Recursive)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_fbx_object_a284f2a438579fcacd8bffd85f556dde2}{Content\+Clear}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_fbx_peripheral}{Fbx\+Peripheral}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fbx_object_ae29c652036d35f33cfc8af7449078ed5}{Get\+Peripheral}} ()
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a87981fe7a05df318be39146a1493d1cc}\label{class_fbx_object_a87981fe7a05df318be39146a1493d1cc} 
+{\bfseries Fbx\+Object} (\mbox{\hyperlink{class_fbx_manager}{Fbx\+Manager}} \&p\+Manager, const char \texorpdfstring{$\ast$}{*}p\+Name)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_ab7a400f3829d1f0da57d3d78c8168dd0}\label{class_fbx_object_ab7a400f3829d1f0da57d3d78c8168dd0} 
+virtual bool {\bfseries Connect\+Notify} (const \mbox{\hyperlink{class_fbx_connect_event}{Fbx\+Connect\+Event}} \&p\+Event)
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_object_a1044dfc8f3321b2ba23a95076d8ad7f9}\label{class_fbx_object_a1044dfc8f3321b2ba23a95076d8ad7f9} 
+bool {\bfseries Copyable} (const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&p\+Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_fbx_emitter_1_1_event_data}{Event\+Data}} \texorpdfstring{$\ast$}{*} {\bfseries m\+Data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is the base class for textures, ie classes \doxylink{class_fbx_file_texture}{Fbx\+File\+Texture}, \doxylink{class_fbx_layered_texture}{Fbx\+Layered\+Texture} and \doxylink{class_fbx_procedural_texture}{Fbx\+Procedural\+Texture}. It describes image mapping on top of a geometry. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_fbx_texture_ab2c33e435866abe53920d298cbf681bb}\index{FbxTexture@{FbxTexture}!EAlignMode@{EAlignMode}}
+\index{EAlignMode@{EAlignMode}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{EAlignMode}{EAlignMode}}
+{\footnotesize\ttfamily \label{class_fbx_texture_ab2c33e435866abe53920d298cbf681bb} 
+enum \mbox{\hyperlink{class_fbx_texture_ab2c33e435866abe53920d298cbf681bb}{Fbx\+Texture\+::\+EAlign\+Mode}}}
+
+Align indices for cropping. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eRight@{eRight}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eRight@{eRight}}}\Hypertarget{class_fbx_texture_ab2c33e435866abe53920d298cbf681bbae26ff357e6975468a8a3692994c45cca}\label{class_fbx_texture_ab2c33e435866abe53920d298cbf681bbae26ff357e6975468a8a3692994c45cca} 
+e\+Right&Left cropping. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eTop@{eTop}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eTop@{eTop}}}\Hypertarget{class_fbx_texture_ab2c33e435866abe53920d298cbf681bbae56d71dd2e1423ee66b17d3595950723}\label{class_fbx_texture_ab2c33e435866abe53920d298cbf681bbae56d71dd2e1423ee66b17d3595950723} 
+e\+Top&Right cropping. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eBottom@{eBottom}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eBottom@{eBottom}}}\Hypertarget{class_fbx_texture_ab2c33e435866abe53920d298cbf681bbac0198c8feb74ba33199b31b588ef0350}\label{class_fbx_texture_ab2c33e435866abe53920d298cbf681bbac0198c8feb74ba33199b31b588ef0350} 
+e\+Bottom&Top cropping. Bottom cropping. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fbx_texture_a12777ea406718d186e21b9656716171d}\index{FbxTexture@{FbxTexture}!EAlphaSource@{EAlphaSource}}
+\index{EAlphaSource@{EAlphaSource}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{EAlphaSource}{EAlphaSource}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a12777ea406718d186e21b9656716171d} 
+enum \mbox{\hyperlink{class_fbx_texture_a12777ea406718d186e21b9656716171d}{Fbx\+Texture\+::\+EAlpha\+Source}}}
+
+Controls if the Alpha computation of the current texture comes from the Alpha channel, RGB Intensity channel, or if there is No Alpha. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eRGBIntensity@{eRGBIntensity}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eRGBIntensity@{eRGBIntensity}}}\Hypertarget{class_fbx_texture_a12777ea406718d186e21b9656716171da8050beade1fa151e8f0bf0d8b6a840bf}\label{class_fbx_texture_a12777ea406718d186e21b9656716171da8050beade1fa151e8f0bf0d8b6a840bf} 
+e\+RGBIntensity&No Alpha. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eBlack@{eBlack}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eBlack@{eBlack}}}\Hypertarget{class_fbx_texture_a12777ea406718d186e21b9656716171da616dd4c058c009235c5b0ccfe3c52c9e}\label{class_fbx_texture_a12777ea406718d186e21b9656716171da616dd4c058c009235c5b0ccfe3c52c9e} 
+e\+Black&RGB Intensity (computed). Alpha channel. Black is 100\% transparency, white is opaque. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63}\index{FbxTexture@{FbxTexture}!EBlendMode@{EBlendMode}}
+\index{EBlendMode@{EBlendMode}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{EBlendMode}{EBlendMode}}
+{\footnotesize\ttfamily \label{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63} 
+enum \mbox{\hyperlink{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63}{Fbx\+Texture\+::\+EBlend\+Mode}}}
+
+Blend modes. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eAdditive@{eAdditive}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eAdditive@{eAdditive}}}\Hypertarget{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63a3b9651a8c3c77f1a99c140a992234b2d}\label{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63a3b9651a8c3c77f1a99c140a992234b2d} 
+e\+Additive&The texture is transparent, depending on the Alpha settings. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eModulate@{eModulate}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eModulate@{eModulate}}}\Hypertarget{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63acc20a21fb8509cc760f6a9039d289a42}\label{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63acc20a21fb8509cc760f6a9039d289a42} 
+e\+Modulate&The color of the texture is added to the previous texture. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eModulate2@{eModulate2}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eModulate2@{eModulate2}}}\Hypertarget{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63a4b6434a7defdfd67abfe6872f27a1d78}\label{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63a4b6434a7defdfd67abfe6872f27a1d78} 
+e\+Modulate2&The color value of the texture is multiplied by the color values of all previous layers of texture. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eOver@{eOver}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eOver@{eOver}}}\Hypertarget{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63a3deb095be503c2714a1b9fe007bed411}\label{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63a3deb095be503c2714a1b9fe007bed411} 
+e\+Over&The color value of the texture is multiplied by two and then multiplied by the color values of all previous layers of texture. The texture is opaque. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fbx_texture_a552e895b758d794a37de9e50a4c87934}\index{FbxTexture@{FbxTexture}!ECoordinates@{ECoordinates}}
+\index{ECoordinates@{ECoordinates}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{ECoordinates}{ECoordinates}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a552e895b758d794a37de9e50a4c87934} 
+enum \mbox{\hyperlink{class_fbx_texture_a552e895b758d794a37de9e50a4c87934}{Fbx\+Texture\+::\+ECoordinates}}}
+
+\doxylink{class_texture}{Texture} coordinates. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eV@{eV}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eV@{eV}}}\Hypertarget{class_fbx_texture_a552e895b758d794a37de9e50a4c87934af1794e2e433f6ee95e2a6cf865e6e155}\label{class_fbx_texture_a552e895b758d794a37de9e50a4c87934af1794e2e433f6ee95e2a6cf865e6e155} 
+eV&U axis. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eW@{eW}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eW@{eW}}}\Hypertarget{class_fbx_texture_a552e895b758d794a37de9e50a4c87934a36d4e3fc191579959d915a5a86e34b6c}\label{class_fbx_texture_a552e895b758d794a37de9e50a4c87934a36d4e3fc191579959d915a5a86e34b6c} 
+eW&V axis. W axis. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34}\index{FbxTexture@{FbxTexture}!EMappingType@{EMappingType}}
+\index{EMappingType@{EMappingType}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{EMappingType}{EMappingType}}
+{\footnotesize\ttfamily \label{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34} 
+enum \mbox{\hyperlink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34}{Fbx\+Texture\+::\+EMapping\+Type}}}
+
+\doxylink{class_texture}{Texture} mapping types. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ePlanar@{ePlanar}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!ePlanar@{ePlanar}}}\Hypertarget{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34af55046453aba10f01a5bd727f8339224}\label{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34af55046453aba10f01a5bd727f8339224} 
+e\+Planar&No texture mapping defined. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eSpherical@{eSpherical}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eSpherical@{eSpherical}}}\Hypertarget{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a7eec71b99247debbc04ea6e3415e30fd}\label{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a7eec71b99247debbc04ea6e3415e30fd} 
+e\+Spherical&Apply texture to the model viewed as a plane. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eCylindrical@{eCylindrical}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eCylindrical@{eCylindrical}}}\Hypertarget{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34af812bc25a682348e4150985a7ff2cff4}\label{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34af812bc25a682348e4150985a7ff2cff4} 
+e\+Cylindrical&Wrap texture around the model as if it was a sphere. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eBox@{eBox}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eBox@{eBox}}}\Hypertarget{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a5f489c13e11dd02115440c6ef1040ebf}\label{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a5f489c13e11dd02115440c6ef1040ebf} 
+e\+Box&Wrap texture around the model as if it was a cylinder. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eFace@{eFace}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eFace@{eFace}}}\Hypertarget{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a60fc0a1b1fc0c38caff807058a7c8562}\label{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a60fc0a1b1fc0c38caff807058a7c8562} 
+e\+Face&Wrap texture around the model as if it was a box. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eUV@{eUV}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eUV@{eUV}}}\Hypertarget{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34ae85f5d7fb0b2aaa8576103e7b39e4710}\label{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34ae85f5d7fb0b2aaa8576103e7b39e4710} 
+e\+UV&Apply texture to the model viewed as a face. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eEnvironment@{eEnvironment}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eEnvironment@{eEnvironment}}}\Hypertarget{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a1cf2846f54e7a977a8e290ae765528ca}\label{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a1cf2846f54e7a977a8e290ae765528ca} 
+e\+Environment&Apply texture to the model according to UVs. \doxylink{class_texture}{Texture} is an environment map. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fbx_texture_a6115b6970e4c83198112530d1e6f578c}\index{FbxTexture@{FbxTexture}!EPlanarMappingNormal@{EPlanarMappingNormal}}
+\index{EPlanarMappingNormal@{EPlanarMappingNormal}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{EPlanarMappingNormal}{EPlanarMappingNormal}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a6115b6970e4c83198112530d1e6f578c} 
+enum \mbox{\hyperlink{class_fbx_texture_a6115b6970e4c83198112530d1e6f578c}{Fbx\+Texture\+::\+EPlanar\+Mapping\+Normal}}}
+
+Planar mapping normal orientations. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ePlanarNormalY@{ePlanarNormalY}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!ePlanarNormalY@{ePlanarNormalY}}}\Hypertarget{class_fbx_texture_a6115b6970e4c83198112530d1e6f578caa61c6ac10631af0f3a3e0c4bc172bcf3}\label{class_fbx_texture_a6115b6970e4c83198112530d1e6f578caa61c6ac10631af0f3a3e0c4bc172bcf3} 
+e\+Planar\+NormalY&Normals are in the direction of the X axis, mapping plan is in the YZ axis. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ePlanarNormalZ@{ePlanarNormalZ}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!ePlanarNormalZ@{ePlanarNormalZ}}}\Hypertarget{class_fbx_texture_a6115b6970e4c83198112530d1e6f578ca4abab22c72fc244f0d59fca544d79520}\label{class_fbx_texture_a6115b6970e4c83198112530d1e6f578ca4abab22c72fc244f0d59fca544d79520} 
+e\+Planar\+NormalZ&Normals are in the direction of the Y axis, mapping plan is in the XZ axis. Normals are in the direction of the Z axis, mapping plan is in the XY axis. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fbx_texture_af034d10e711237dd9ae92a5965787f25}\index{FbxTexture@{FbxTexture}!ETextureUse@{ETextureUse}}
+\index{ETextureUse@{ETextureUse}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{ETextureUse}{ETextureUse}}
+{\footnotesize\ttfamily \label{class_fbx_texture_af034d10e711237dd9ae92a5965787f25} 
+enum \mbox{\hyperlink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25}{Fbx\+Texture\+::\+ETexture\+Use}}}
+
+\doxylink{class_texture}{Texture} uses. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eShadowMap@{eShadowMap}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eShadowMap@{eShadowMap}}}\Hypertarget{class_fbx_texture_af034d10e711237dd9ae92a5965787f25ae2b54050d51c9cce0d57aa54c68739b5}\label{class_fbx_texture_af034d10e711237dd9ae92a5965787f25ae2b54050d51c9cce0d57aa54c68739b5} 
+e\+Shadow\+Map&Standard texture use (ex. image) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eLightMap@{eLightMap}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eLightMap@{eLightMap}}}\Hypertarget{class_fbx_texture_af034d10e711237dd9ae92a5965787f25a6132bbc5c6f65049732f9df322274a9a}\label{class_fbx_texture_af034d10e711237dd9ae92a5965787f25a6132bbc5c6f65049732f9df322274a9a} 
+e\+Light\+Map&Shadow map. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eSphericalReflectionMap@{eSphericalReflectionMap}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eSphericalReflectionMap@{eSphericalReflectionMap}}}\Hypertarget{class_fbx_texture_af034d10e711237dd9ae92a5965787f25ace2a5aa4cf08e8c8da5375e6e18d9226}\label{class_fbx_texture_af034d10e711237dd9ae92a5965787f25ace2a5aa4cf08e8c8da5375e6e18d9226} 
+e\+Spherical\+Reflection\+Map&Light map. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eSphereReflectionMap@{eSphereReflectionMap}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eSphereReflectionMap@{eSphereReflectionMap}}}\Hypertarget{class_fbx_texture_af034d10e711237dd9ae92a5965787f25a7d2c4e2d0ea3a3fc04316fea58173f8b}\label{class_fbx_texture_af034d10e711237dd9ae92a5965787f25a7d2c4e2d0ea3a3fc04316fea58173f8b} 
+e\+Sphere\+Reflection\+Map&Spherical reflection map\+: Object reflects the contents of the scene. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eBumpNormalMap@{eBumpNormalMap}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eBumpNormalMap@{eBumpNormalMap}}}\Hypertarget{class_fbx_texture_af034d10e711237dd9ae92a5965787f25a7131fd3111db906c4242f2009191344e}\label{class_fbx_texture_af034d10e711237dd9ae92a5965787f25a7131fd3111db906c4242f2009191344e} 
+e\+Bump\+Normal\+Map&Sphere reflection map\+: Object reflects the contents of the scene from only one point of view. Bump map\+: \doxylink{class_texture}{Texture} contains two direction vectors, that are used to convey relief in a texture. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9}\index{FbxTexture@{FbxTexture}!ETextureUse6@{ETextureUse6}}
+\index{ETextureUse6@{ETextureUse6}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{ETextureUse6}{ETextureUse6}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9} 
+enum \mbox{\hyperlink{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9}{Fbx\+Texture\+::\+ETexture\+Use6}}}
+
+Internal enum for texture usage. For example, the texture might be used as a standard texture, as a shadow map, as a bump map, etc. Use \doxylink{class_fbx_texture_aa1bb097d19a2b92f64abde250388df0d}{Set\+Texture\+Use()} and \doxylink{class_fbx_texture_aada6ca015322195cddfa90ccb5274e31}{Get\+Texture\+Use()} to access these values. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eTEXTURE\_USE\_6\_SPHERICAL\_REFLEXION\_MAP@{eTEXTURE\_USE\_6\_SPHERICAL\_REFLEXION\_MAP}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eTEXTURE\_USE\_6\_SPHERICAL\_REFLEXION\_MAP@{eTEXTURE\_USE\_6\_SPHERICAL\_REFLEXION\_MAP}}}\Hypertarget{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9a5b08675d9a033235eb1bdffac3216d49}\label{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9a5b08675d9a033235eb1bdffac3216d49} 
+e\+TEXTURE\+\_\+\+USE\+\_\+6\+\_\+\+SPHERICAL\+\_\+\+REFLEXION\+\_\+\+MAP&Maps to ETexture\+Use\+::e\+Standard. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eTEXTURE\_USE\_6\_SPHERE\_REFLEXION\_MAP@{eTEXTURE\_USE\_6\_SPHERE\_REFLEXION\_MAP}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eTEXTURE\_USE\_6\_SPHERE\_REFLEXION\_MAP@{eTEXTURE\_USE\_6\_SPHERE\_REFLEXION\_MAP}}}\Hypertarget{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9a831bdf5c636de7c940183def153ce28d}\label{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9a831bdf5c636de7c940183def153ce28d} 
+e\+TEXTURE\+\_\+\+USE\+\_\+6\+\_\+\+SPHERE\+\_\+\+REFLEXION\+\_\+\+MAP&Maps to \doxylink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25ace2a5aa4cf08e8c8da5375e6e18d9226}{ETexture\+Use\+::e\+Spherical\+Reflection\+Map}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eTEXTURE\_USE\_6\_SHADOW\_MAP@{eTEXTURE\_USE\_6\_SHADOW\_MAP}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eTEXTURE\_USE\_6\_SHADOW\_MAP@{eTEXTURE\_USE\_6\_SHADOW\_MAP}}}\Hypertarget{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9a4e32911201cd621abe70028642c62d98}\label{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9a4e32911201cd621abe70028642c62d98} 
+e\+TEXTURE\+\_\+\+USE\+\_\+6\+\_\+\+SHADOW\+\_\+\+MAP&Maps to \doxylink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25a7d2c4e2d0ea3a3fc04316fea58173f8b}{ETexture\+Use\+::e\+Sphere\+Reflection\+Map}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eTEXTURE\_USE\_6\_LIGHT\_MAP@{eTEXTURE\_USE\_6\_LIGHT\_MAP}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eTEXTURE\_USE\_6\_LIGHT\_MAP@{eTEXTURE\_USE\_6\_LIGHT\_MAP}}}\Hypertarget{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9a79e4906651b33966cee2e0f3a36dbe18}\label{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9a79e4906651b33966cee2e0f3a36dbe18} 
+e\+TEXTURE\+\_\+\+USE\+\_\+6\+\_\+\+LIGHT\+\_\+\+MAP&Maps to \doxylink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25ae2b54050d51c9cce0d57aa54c68739b5}{ETexture\+Use\+::e\+Shadow\+Map}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eTEXTURE\_USE\_6\_BUMP\_NORMAL\_MAP@{eTEXTURE\_USE\_6\_BUMP\_NORMAL\_MAP}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eTEXTURE\_USE\_6\_BUMP\_NORMAL\_MAP@{eTEXTURE\_USE\_6\_BUMP\_NORMAL\_MAP}}}\Hypertarget{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9af7d23a909183ed9813a15123e40d4621}\label{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9af7d23a909183ed9813a15123e40d4621} 
+e\+TEXTURE\+\_\+\+USE\+\_\+6\+\_\+\+BUMP\+\_\+\+NORMAL\+\_\+\+MAP&Maps to \doxylink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25a6132bbc5c6f65049732f9df322274a9a}{ETexture\+Use\+::e\+Light\+Map}. Maps to \doxylink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25a7131fd3111db906c4242f2009191344e}{ETexture\+Use\+::e\+Bump\+Normal\+Map}. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3}\index{FbxTexture@{FbxTexture}!EUnifiedMappingType@{EUnifiedMappingType}}
+\index{EUnifiedMappingType@{EUnifiedMappingType}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{EUnifiedMappingType}{EUnifiedMappingType}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3} 
+enum \mbox{\hyperlink{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3}{Fbx\+Texture\+::\+EUnified\+Mapping\+Type}}}
+
+Internal enum for texture mapping types. Includes mapping types and planar mapping normal orientations. Use \doxylink{class_fbx_texture_a8b71add5498dc0f8a9aa4af87cccb5da}{Set\+Mapping\+Type()}, \doxylink{class_fbx_texture_a622d8acfcb6b7ff965079294ef8d23c6}{Get\+Mapping\+Type()}, \doxylink{class_fbx_texture_a5f23cc30b768e4967d35064b39b9958f}{Set\+Planar\+Mapping\+Normal()} and \doxylink{class_fbx_texture_ad15e77afddc395d9da4ee442c769c167}{Get\+Planar\+Mapping\+Normal()} to access these values. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eUMT\_XY@{eUMT\_XY}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eUMT\_XY@{eUMT\_XY}}}\Hypertarget{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3ac06447a290bba6ed27e91520202472d7}\label{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3ac06447a290bba6ed27e91520202472d7} 
+e\+UMT\+\_\+\+XY&Maps to \doxylink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34ae85f5d7fb0b2aaa8576103e7b39e4710}{EMapping\+Type\+::e\+UV}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eUMT\_YZ@{eUMT\_YZ}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eUMT\_YZ@{eUMT\_YZ}}}\Hypertarget{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a46e0078470f8e7d70a59ce1ba2994c55}\label{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a46e0078470f8e7d70a59ce1ba2994c55} 
+e\+UMT\+\_\+\+YZ&Maps to \doxylink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34af55046453aba10f01a5bd727f8339224}{EMapping\+Type\+::e\+Planar} and \doxylink{class_fbx_texture_a6115b6970e4c83198112530d1e6f578ca4abab22c72fc244f0d59fca544d79520}{EPlanar\+Mapping\+Normal\+::e\+Planar\+NormalZ}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eUMT\_XZ@{eUMT\_XZ}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eUMT\_XZ@{eUMT\_XZ}}}\Hypertarget{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a6e93b9e1775cf7ca0f5a6eb098a5c17c}\label{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a6e93b9e1775cf7ca0f5a6eb098a5c17c} 
+e\+UMT\+\_\+\+XZ&Maps to \doxylink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34af55046453aba10f01a5bd727f8339224}{EMapping\+Type\+::e\+Planar} and EPlanar\+Mapping\+Normal\+::e\+Planar\+NormalX. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eUMT\_SPHERICAL@{eUMT\_SPHERICAL}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eUMT\_SPHERICAL@{eUMT\_SPHERICAL}}}\Hypertarget{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a22a052969d622eb37d8a70c7140eeca0}\label{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a22a052969d622eb37d8a70c7140eeca0} 
+e\+UMT\+\_\+\+SPHERICAL&Maps to \doxylink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34af55046453aba10f01a5bd727f8339224}{EMapping\+Type\+::e\+Planar} and \doxylink{class_fbx_texture_a6115b6970e4c83198112530d1e6f578caa61c6ac10631af0f3a3e0c4bc172bcf3}{EPlanar\+Mapping\+Normal\+::e\+Planar\+NormalY}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eUMT\_CYLINDRICAL@{eUMT\_CYLINDRICAL}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eUMT\_CYLINDRICAL@{eUMT\_CYLINDRICAL}}}\Hypertarget{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a5e0940b678348e491af1ffd541c315c0}\label{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a5e0940b678348e491af1ffd541c315c0} 
+e\+UMT\+\_\+\+CYLINDRICAL&Maps to \doxylink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a7eec71b99247debbc04ea6e3415e30fd}{EMapping\+Type\+::e\+Spherical}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eUMT\_ENVIRONMENT@{eUMT\_ENVIRONMENT}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eUMT\_ENVIRONMENT@{eUMT\_ENVIRONMENT}}}\Hypertarget{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a2fd17fa0efdda76b4d2985ab236e3332}\label{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a2fd17fa0efdda76b4d2985ab236e3332} 
+e\+UMT\+\_\+\+ENVIRONMENT&Maps to \doxylink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34af812bc25a682348e4150985a7ff2cff4}{EMapping\+Type\+::e\+Cylindrical}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eUMT\_PROJECTION@{eUMT\_PROJECTION}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eUMT\_PROJECTION@{eUMT\_PROJECTION}}}\Hypertarget{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a7934d19fc339f8582d00366547d77387}\label{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a7934d19fc339f8582d00366547d77387} 
+e\+UMT\+\_\+\+PROJECTION&Maps to \doxylink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a1cf2846f54e7a977a8e290ae765528ca}{EMapping\+Type\+::e\+Environment}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eUMT\_BOX@{eUMT\_BOX}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eUMT\_BOX@{eUMT\_BOX}}}\Hypertarget{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a4818842a5dc7fb33ef0d136f98daaad8}\label{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a4818842a5dc7fb33ef0d136f98daaad8} 
+e\+UMT\+\_\+\+BOX&Unused. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eUMT\_FACE@{eUMT\_FACE}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eUMT\_FACE@{eUMT\_FACE}}}\Hypertarget{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a53b519581ec08132d153ae6f66ba07fc}\label{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a53b519581ec08132d153ae6f66ba07fc} 
+e\+UMT\+\_\+\+FACE&DEPRECATED! Maps to \doxylink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a5f489c13e11dd02115440c6ef1040ebf}{EMapping\+Type\+::e\+Box}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eUMT\_NO\_MAPPING@{eUMT\_NO\_MAPPING}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eUMT\_NO\_MAPPING@{eUMT\_NO\_MAPPING}}}\Hypertarget{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a5c096ba31c9adabcaca4135b27069292}\label{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3a5c096ba31c9adabcaca4135b27069292} 
+e\+UMT\+\_\+\+NO\+\_\+\+MAPPING&DEPRECATED! Maps to \doxylink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34a60fc0a1b1fc0c38caff807058a7c8562}{EMapping\+Type\+::e\+Face}. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd}\index{FbxTexture@{FbxTexture}!EWrapMode@{EWrapMode}}
+\index{EWrapMode@{EWrapMode}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{EWrapMode}{EWrapMode}}
+{\footnotesize\ttfamily \label{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd} 
+enum \mbox{\hyperlink{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd}{Fbx\+Texture\+::\+EWrap\+Mode}}}
+
+Wrap modes. Use \doxylink{class_fbx_texture_afb9383ff8cc503b4446247ccdd634ef1}{Set\+Wrap\+Mode()}, \doxylink{class_fbx_texture_a4df1c01895bf8fb995a5c031de7b77fe}{Get\+Wrap\+Mode\+U()} and \doxylink{class_fbx_texture_abf31cda728e2ff7f94e10dca19de19d2}{Get\+Wrap\+Mode\+V()} to access these values. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eClamp@{eClamp}!FbxTexture@{FbxTexture}}\index{FbxTexture@{FbxTexture}!eClamp@{eClamp}}}\Hypertarget{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fdac554ea44b46f77162f189cf6d6de7183}\label{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fdac554ea44b46f77162f189cf6d6de7183} 
+e\+Clamp&Apply the texture over and over on the model\textquotesingle{}s surface until the model is covered. This is the default setting. Apply the texture to a model only once, using the color at the ends of the texture as the "{}filter"{}. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_texture_a0677260d636a8fc3fd1702965834543f}\index{FbxTexture@{FbxTexture}!Construct@{Construct}}
+\index{Construct@{Construct}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{Construct()}{Construct()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a0677260d636a8fc3fd1702965834543f} 
+void Fbx\+Texture\+::\+Construct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \texorpdfstring{$\ast$}{*}}]{p\+From}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Optional constructor override, automatically called by default constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+From} & If not null, the function must take it into account like a copy constructor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+In case it is decided to override this function, do not forget to call Parent\+Class\+::\+Construct(p\+From) at the beginning. 
+\end{DoxyRemark}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_object_a313503bc645af3fdceb4a99ef5cea7eb}{Fbx\+Object}}.
+
+\Hypertarget{class_fbx_texture_ae35546f3bd942e035524f8aac636d323}\index{FbxTexture@{FbxTexture}!ConstructProperties@{ConstructProperties}}
+\index{ConstructProperties@{ConstructProperties}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{ConstructProperties()}{ConstructProperties()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_ae35546f3bd942e035524f8aac636d323} 
+void Fbx\+Texture\+::\+Construct\+Properties (\begin{DoxyParamCaption}\item[{bool}]{p\+Force\+Set}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Optional property constructor override, automatically called by default constructor. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Force\+Set} & If the property value must be set regardless of default value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+If your object have properties, they must be initialized in this function. 
+\end{DoxyRemark}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_object_ad44f814323dc1b5e78bff1bfc608b4bb}{Fbx\+Object}}.
+
+\Hypertarget{class_fbx_texture_aeb9ca0b402217d193d4a93d1e0851feb}\index{FbxTexture@{FbxTexture}!Copy@{Copy}}
+\index{Copy@{Copy}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{Copy()}{Copy()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_aeb9ca0b402217d193d4a93d1e0851feb} 
+\mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \& Fbx\+Texture\+::\+Copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}} \&}]{p\+Object}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Copy an object content into this object. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The source object to copy data from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the destination object being modified by the source. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+This function replace the assignment operator (operator=). It will copy all property values and the name. Connections are NOT copied. 
+\end{DoxyRemark}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_object_a2753a5e2d57c54efbbf5137cf37c8096}{Fbx\+Object}}.
+
+\Hypertarget{class_fbx_texture_a6ca527821cb9e95af5376e7bb2979deb}\index{FbxTexture@{FbxTexture}!GetAlphaSource@{GetAlphaSource}}
+\index{GetAlphaSource@{GetAlphaSource}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetAlphaSource()}{GetAlphaSource()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a6ca527821cb9e95af5376e7bb2979deb} 
+\mbox{\hyperlink{class_fbx_texture_a12777ea406718d186e21b9656716171d}{EAlpha\+Source}} Fbx\+Texture\+::\+Get\+Alpha\+Source (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the alpha source. \begin{DoxyReturn}{Returns}
+The alpha source identifier for this texture. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_texture_ad9f85f7fe1bb43f263f2edddeb9df443}\index{FbxTexture@{FbxTexture}!GetBlendMode@{GetBlendMode}}
+\index{GetBlendMode@{GetBlendMode}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetBlendMode()}{GetBlendMode()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_ad9f85f7fe1bb43f263f2edddeb9df443} 
+\mbox{\hyperlink{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63}{EBlend\+Mode}} Fbx\+Texture\+::\+Get\+Blend\+Mode (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the blend mode. \begin{DoxyReturn}{Returns}
+Blend mode identifier. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_texture_a12ee7e2132ce572b439b73de858f4f6c}\index{FbxTexture@{FbxTexture}!GetCroppingBottom@{GetCroppingBottom}}
+\index{GetCroppingBottom@{GetCroppingBottom}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetCroppingBottom()}{GetCroppingBottom()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a12ee7e2132ce572b439b73de858f4f6c} 
+int Fbx\+Texture\+::\+Get\+Cropping\+Bottom (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns bottom cropping. \begin{DoxyReturn}{Returns}
+The bottom side of the cropping rectangle. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_texture_a8f8e8e8f645cc8cd3f3fabae7e5b6c44}\index{FbxTexture@{FbxTexture}!GetCroppingLeft@{GetCroppingLeft}}
+\index{GetCroppingLeft@{GetCroppingLeft}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetCroppingLeft()}{GetCroppingLeft()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a8f8e8e8f645cc8cd3f3fabae7e5b6c44} 
+int Fbx\+Texture\+::\+Get\+Cropping\+Left (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns left cropping. \begin{DoxyReturn}{Returns}
+The left side of the cropping rectangle. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_texture_a4acabeab1c1c4fe031bbd8bd9ace3c64}\index{FbxTexture@{FbxTexture}!GetCroppingRight@{GetCroppingRight}}
+\index{GetCroppingRight@{GetCroppingRight}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetCroppingRight()}{GetCroppingRight()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a4acabeab1c1c4fe031bbd8bd9ace3c64} 
+int Fbx\+Texture\+::\+Get\+Cropping\+Right (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns right cropping. \begin{DoxyReturn}{Returns}
+The right side of the cropping rectangle. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_texture_a1033fe7ba0df6166e17a49d095518c25}\index{FbxTexture@{FbxTexture}!GetCroppingTop@{GetCroppingTop}}
+\index{GetCroppingTop@{GetCroppingTop}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetCroppingTop()}{GetCroppingTop()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a1033fe7ba0df6166e17a49d095518c25} 
+int Fbx\+Texture\+::\+Get\+Cropping\+Top (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns top cropping. \begin{DoxyReturn}{Returns}
+The top side of the cropping rectangle. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_texture_a7c240fc7ac0c884e736eda9c1be5dc4b}\index{FbxTexture@{FbxTexture}!GetDefaultAlpha@{GetDefaultAlpha}}
+\index{GetDefaultAlpha@{GetDefaultAlpha}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetDefaultAlpha()}{GetDefaultAlpha()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a7c240fc7ac0c884e736eda9c1be5dc4b} 
+double Fbx\+Texture\+::\+Get\+Default\+Alpha (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the default alpha. \begin{DoxyReturn}{Returns}
+A value on a scale from 0 to 1, with 0 being transparent. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_texture_a41f83223e58062b1e2e9ddbbae0ceafe}\index{FbxTexture@{FbxTexture}!GetDefaultR@{GetDefaultR}}
+\index{GetDefaultR@{GetDefaultR}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetDefaultR()}{GetDefaultR()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a41f83223e58062b1e2e9ddbbae0ceafe} 
+\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \& Fbx\+Texture\+::\+Get\+DefaultR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&}]{pR}{}\end{DoxyParamCaption}) const}
+
+Returns the default rotation vector. 
+\begin{DoxyParams}{Parameters}
+{\em pR} & First element is the texture rotation around the U axis in degrees. Second element is the texture rotation around the V axis in degrees. Third element is the texture rotation around the W axis in degrees. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Input parameter filled with appropriate data. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+The W axis is oriented towards the result of the vector product of the U axis and V axis i.\+e. W = U x V. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_texture_a8e9e574666bbcc546ab94d39278fb0c6}\index{FbxTexture@{FbxTexture}!GetDefaultS@{GetDefaultS}}
+\index{GetDefaultS@{GetDefaultS}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetDefaultS()}{GetDefaultS()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a8e9e574666bbcc546ab94d39278fb0c6} 
+\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \& Fbx\+Texture\+::\+Get\+DefaultS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&}]{pS}{}\end{DoxyParamCaption}) const}
+
+Returns the default scale vector. 
+\begin{DoxyParams}{Parameters}
+{\em pS} & The first element is scale applied to the texture width. The second element is scale applied to the texture height. The third and fourth elements have no effect on the texture. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+A scale value less than 1 stretches the texture. A scale value greater than 1 compresses the texture. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_texture_af875dd377ece568856f74b479fffb081}\index{FbxTexture@{FbxTexture}!GetDefaultT@{GetDefaultT}}
+\index{GetDefaultT@{GetDefaultT}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetDefaultT()}{GetDefaultT()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_af875dd377ece568856f74b479fffb081} 
+\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \& Fbx\+Texture\+::\+Get\+DefaultT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&}]{pT}{}\end{DoxyParamCaption}) const}
+
+Returns the default translation vector. 
+\begin{DoxyParams}{Parameters}
+{\em pT} & The first element is the U translation applied to the texture. A displacement of one unit is equal to the texture width after the U scaling is applied. The second element is the V translation applied to the texture. A displacement of one unit is equal to the texture height after the V scaling is applied. The third and fourth elements have no effect on texture translation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The input parameter completed with appropriate data. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_texture_a622d8acfcb6b7ff965079294ef8d23c6}\index{FbxTexture@{FbxTexture}!GetMappingType@{GetMappingType}}
+\index{GetMappingType@{GetMappingType}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetMappingType()}{GetMappingType()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a622d8acfcb6b7ff965079294ef8d23c6} 
+\mbox{\hyperlink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34}{EMapping\+Type}} Fbx\+Texture\+::\+Get\+Mapping\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the mapping type. \begin{DoxyReturn}{Returns}
+The mapping type identifier. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_texture_ad15e77afddc395d9da4ee442c769c167}\index{FbxTexture@{FbxTexture}!GetPlanarMappingNormal@{GetPlanarMappingNormal}}
+\index{GetPlanarMappingNormal@{GetPlanarMappingNormal}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetPlanarMappingNormal()}{GetPlanarMappingNormal()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_ad15e77afddc395d9da4ee442c769c167} 
+\mbox{\hyperlink{class_fbx_texture_a6115b6970e4c83198112530d1e6f578c}{EPlanar\+Mapping\+Normal}} Fbx\+Texture\+::\+Get\+Planar\+Mapping\+Normal (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the normal orientations for planar mapping. \begin{DoxyReturn}{Returns}
+The identifier for planar mapping normal orientation. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_texture_a92ffecbc95b53e3b410a2cee81b434dc}\index{FbxTexture@{FbxTexture}!GetPremultiplyAlpha@{GetPremultiplyAlpha}}
+\index{GetPremultiplyAlpha@{GetPremultiplyAlpha}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetPremultiplyAlpha()}{GetPremultiplyAlpha()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a92ffecbc95b53e3b410a2cee81b434dc} 
+bool Fbx\+Texture\+::\+Get\+Premultiply\+Alpha (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the Premultiply\+Alpha flag. \begin{DoxyReturn}{Returns}
+{\ttfamily True} if the method of storing alpha is Premultiply\+Alpha. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+If Premultiply\+Alpha flag is true, the R, G, and B components you store have already been multiplied in with the alpha. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_texture_a2ca0428f36ddd73442891a73c15e4227}\index{FbxTexture@{FbxTexture}!GetScaleU@{GetScaleU}}
+\index{GetScaleU@{GetScaleU}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetScaleU()}{GetScaleU()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a2ca0428f36ddd73442891a73c15e4227} 
+double Fbx\+Texture\+::\+Get\+ScaleU (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns scale applied to the texture width. \begin{DoxyRemark}{Remarks}
+A scale value less than 1 stretches the texture. A scale value greater than 1 compresses the texture. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_texture_a37edad25de26090cde868b88b9e89a77}\index{FbxTexture@{FbxTexture}!GetScaleV@{GetScaleV}}
+\index{GetScaleV@{GetScaleV}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetScaleV()}{GetScaleV()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a37edad25de26090cde868b88b9e89a77} 
+double Fbx\+Texture\+::\+Get\+ScaleV (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns scale applied to the texture height. \begin{DoxyRemark}{Remarks}
+A scale value less than 1 stretches the texture. A scale value greater than 1 compresses the texture. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_texture_ac73ac8fda4d8e4e31c829ffb6838fcad}\index{FbxTexture@{FbxTexture}!GetSwapUV@{GetSwapUV}}
+\index{GetSwapUV@{GetSwapUV}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetSwapUV()}{GetSwapUV()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_ac73ac8fda4d8e4e31c829ffb6838fcad} 
+bool Fbx\+Texture\+::\+Get\+Swap\+UV (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the swap UV flag. \begin{DoxyReturn}{Returns}
+{\ttfamily True} if the swap UV flag is enabled. 
+\end{DoxyReturn}
+\begin{DoxyRemark}{Remarks}
+If the swap UV flag is enabled, the texture\textquotesingle{}s width and height are swapped. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_texture_aada6ca015322195cddfa90ccb5274e31}\index{FbxTexture@{FbxTexture}!GetTextureUse@{GetTextureUse}}
+\index{GetTextureUse@{GetTextureUse}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetTextureUse()}{GetTextureUse()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_aada6ca015322195cddfa90ccb5274e31} 
+\mbox{\hyperlink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25}{ETexture\+Use}} Fbx\+Texture\+::\+Get\+Texture\+Use (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the texture use. \begin{DoxyReturn}{Returns}
+The texture use identifier. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_texture_a7785949815ca2cdaa44af41f00c4a3bc}\index{FbxTexture@{FbxTexture}!GetTranslationU@{GetTranslationU}}
+\index{GetTranslationU@{GetTranslationU}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetTranslationU()}{GetTranslationU()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a7785949815ca2cdaa44af41f00c4a3bc} 
+double Fbx\+Texture\+::\+Get\+TranslationU (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns translation applied to the texture width. \begin{DoxyRemark}{Remarks}
+A displacement of one unit is equal to the texture\textquotesingle{}s width after applying U scaling. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_texture_a96e08939c1efcc3edbc7392a86fb6c43}\index{FbxTexture@{FbxTexture}!GetTranslationV@{GetTranslationV}}
+\index{GetTranslationV@{GetTranslationV}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetTranslationV()}{GetTranslationV()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a96e08939c1efcc3edbc7392a86fb6c43} 
+double Fbx\+Texture\+::\+Get\+TranslationV (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns translation applied to the texture height. \begin{DoxyRemark}{Remarks}
+A displacement of one unit is equal to the texture\textquotesingle{}s height after applying V scaling. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_texture_a4df1c01895bf8fb995a5c031de7b77fe}\index{FbxTexture@{FbxTexture}!GetWrapModeU@{GetWrapModeU}}
+\index{GetWrapModeU@{GetWrapModeU}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetWrapModeU()}{GetWrapModeU()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a4df1c01895bf8fb995a5c031de7b77fe} 
+\mbox{\hyperlink{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd}{EWrap\+Mode}} Fbx\+Texture\+::\+Get\+Wrap\+ModeU (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the U wrap mode. \begin{DoxyReturn}{Returns}
+U wrap mode identifier. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_texture_abf31cda728e2ff7f94e10dca19de19d2}\index{FbxTexture@{FbxTexture}!GetWrapModeV@{GetWrapModeV}}
+\index{GetWrapModeV@{GetWrapModeV}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{GetWrapModeV()}{GetWrapModeV()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_abf31cda728e2ff7f94e10dca19de19d2} 
+\mbox{\hyperlink{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd}{EWrap\+Mode}} Fbx\+Texture\+::\+Get\+Wrap\+ModeV (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Returns the V wrap mode. \begin{DoxyReturn}{Returns}
+V wrap mode identifier. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_texture_a9286908efa0f23926ec63cbf31d11274}\index{FbxTexture@{FbxTexture}!PropertyNotify@{PropertyNotify}}
+\index{PropertyNotify@{PropertyNotify}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{PropertyNotify()}{PropertyNotify()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a9286908efa0f23926ec63cbf31d11274} 
+bool Fbx\+Texture\+::\+Property\+Notify (\begin{DoxyParamCaption}\item[{EProperty\+Notify\+Type}]{p\+Type}{, }\item[{\mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&}]{p\+Property}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_object}{Fbx\+Object}}.
+
+\Hypertarget{class_fbx_texture_a9ba254e02e13f1cae91295c996ed7fcb}\index{FbxTexture@{FbxTexture}!Reset@{Reset}}
+\index{Reset@{Reset}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a9ba254e02e13f1cae91295c996ed7fcb} 
+virtual void Fbx\+Texture\+::\+Reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Resets the default texture values. 
+
+Reimplemented in \mbox{\hyperlink{class_fbx_file_texture_aa20bc3b99ac4ea992789022d5da21f24}{Fbx\+File\+Texture}}, and \mbox{\hyperlink{class_fbx_procedural_texture_a978c52d69eb3be32f93cb5adcc61e8d2}{Fbx\+Procedural\+Texture}}.
+
+\Hypertarget{class_fbx_texture_a45bc6bb0c52b4eea53a4bc1c9c3a699c}\index{FbxTexture@{FbxTexture}!SetAlphaSource@{SetAlphaSource}}
+\index{SetAlphaSource@{SetAlphaSource}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetAlphaSource()}{SetAlphaSource()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a45bc6bb0c52b4eea53a4bc1c9c3a699c} 
+void Fbx\+Texture\+::\+Set\+Alpha\+Source (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_texture_a12777ea406718d186e21b9656716171d}{EAlpha\+Source}}}]{p\+Alpha\+Source}{}\end{DoxyParamCaption})}
+
+Sets the alpha source. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Alpha\+Source} & The alpha source identifier. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_texture_a8809f20ef579aea161142784dc671ec9}\index{FbxTexture@{FbxTexture}!SetBlendMode@{SetBlendMode}}
+\index{SetBlendMode@{SetBlendMode}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetBlendMode()}{SetBlendMode()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a8809f20ef579aea161142784dc671ec9} 
+void Fbx\+Texture\+::\+Set\+Blend\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63}{EBlend\+Mode}}}]{p\+Blend\+Mode}{}\end{DoxyParamCaption})}
+
+Sets the blend mode. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Blend\+Mode} & Blend mode identifier. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_texture_a8466d23b8049dca1175c24ca4e209f47}\index{FbxTexture@{FbxTexture}!SetCropping@{SetCropping}}
+\index{SetCropping@{SetCropping}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetCropping()}{SetCropping()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a8466d23b8049dca1175c24ca4e209f47} 
+void Fbx\+Texture\+::\+Set\+Cropping (\begin{DoxyParamCaption}\item[{int}]{p\+Left}{, }\item[{int}]{p\+Top}{, }\item[{int}]{p\+Right}{, }\item[{int}]{p\+Bottom}{}\end{DoxyParamCaption})}
+
+Sets cropping. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Left} & Left cropping value. \\
+\hline
+{\em p\+Top} & Top cropping value. \\
+\hline
+{\em p\+Right} & Right cropping value. \\
+\hline
+{\em p\+Bottom} & Bottom cropping value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The defined rectangle is not checked for invalid values. The caller must verify that the rectangle is meaningful for this texture. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_texture_a7d415a77fda2ac6abb30f56b6caa932d}\index{FbxTexture@{FbxTexture}!SetDefaultAlpha@{SetDefaultAlpha}}
+\index{SetDefaultAlpha@{SetDefaultAlpha}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetDefaultAlpha()}{SetDefaultAlpha()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a7d415a77fda2ac6abb30f56b6caa932d} 
+void Fbx\+Texture\+::\+Set\+Default\+Alpha (\begin{DoxyParamCaption}\item[{double}]{p\+Alpha}{}\end{DoxyParamCaption})}
+
+Sets the default alpha. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Alpha} & A value on a scale from 0 to 1, with 0 being transparent. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_texture_a6c89d73fc05d96e1edea371476735bbb}\index{FbxTexture@{FbxTexture}!SetDefaultR@{SetDefaultR}}
+\index{SetDefaultR@{SetDefaultR}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetDefaultR()}{SetDefaultR()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a6c89d73fc05d96e1edea371476735bbb} 
+void Fbx\+Texture\+::\+Set\+DefaultR (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&}]{pR}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the default rotation vector. 
+\begin{DoxyParams}{Parameters}
+{\em pR} & The first element is the texture rotation around the U axis in degrees. The second element is the texture rotation around the V axis in degrees. The third element is the texture rotation around the W axis in degrees. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The W axis is oriented toward the result of the vector product of the U and V axes that is W = U x V. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_texture_ae7a6ee36439e0117cdd3bc6e198df50c}\index{FbxTexture@{FbxTexture}!SetDefaultS@{SetDefaultS}}
+\index{SetDefaultS@{SetDefaultS}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetDefaultS()}{SetDefaultS()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_ae7a6ee36439e0117cdd3bc6e198df50c} 
+void Fbx\+Texture\+::\+Set\+DefaultS (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&}]{pS}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the default scale vector. 
+\begin{DoxyParams}{Parameters}
+{\em pS} & The first element is scale applied to the texture width. The second element is scale applied to the texture height. The third and fourth elements have no effect on the texture. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+A scale value less than 1 stretches the texture. A scale value greater than 1 compresses the texture. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_texture_a6ae1a89cc64792069f8623e88463c0c2}\index{FbxTexture@{FbxTexture}!SetDefaultT@{SetDefaultT}}
+\index{SetDefaultT@{SetDefaultT}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetDefaultT()}{SetDefaultT()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a6ae1a89cc64792069f8623e88463c0c2} 
+void Fbx\+Texture\+::\+Set\+DefaultT (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_vector4}{Fbx\+Vector4}} \&}]{pT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the default translation vector. 
+\begin{DoxyParams}{Parameters}
+{\em pT} & The first element is the U translation applied to the texture. A displacement of one unit is equal to the texture width after the U scaling is applied. The second element is the V translation applied to the texture. A displacement of one unit is equal to the texture height after the V scaling is applied. The third and fourth elements have no effect on texture translation. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_texture_a8b71add5498dc0f8a9aa4af87cccb5da}\index{FbxTexture@{FbxTexture}!SetMappingType@{SetMappingType}}
+\index{SetMappingType@{SetMappingType}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetMappingType()}{SetMappingType()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a8b71add5498dc0f8a9aa4af87cccb5da} 
+void Fbx\+Texture\+::\+Set\+Mapping\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_texture_afdf9b65a25dfe5bdcef820f0fc1f5b34}{EMapping\+Type}}}]{p\+Mapping\+Type}{}\end{DoxyParamCaption})}
+
+Sets the mapping type. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Mapping\+Type} & The mapping type identifier. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_texture_a5f23cc30b768e4967d35064b39b9958f}\index{FbxTexture@{FbxTexture}!SetPlanarMappingNormal@{SetPlanarMappingNormal}}
+\index{SetPlanarMappingNormal@{SetPlanarMappingNormal}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetPlanarMappingNormal()}{SetPlanarMappingNormal()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a5f23cc30b768e4967d35064b39b9958f} 
+void Fbx\+Texture\+::\+Set\+Planar\+Mapping\+Normal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_texture_a6115b6970e4c83198112530d1e6f578c}{EPlanar\+Mapping\+Normal}}}]{p\+Planar\+Mapping\+Normal}{}\end{DoxyParamCaption})}
+
+Sets the normal orientations for planar mapping. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Planar\+Mapping\+Normal} & The identifier for planar mapping normal orientation. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_texture_af244c477cedbba956106e03aca85867f}\index{FbxTexture@{FbxTexture}!SetPremultiplyAlpha@{SetPremultiplyAlpha}}
+\index{SetPremultiplyAlpha@{SetPremultiplyAlpha}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetPremultiplyAlpha()}{SetPremultiplyAlpha()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_af244c477cedbba956106e03aca85867f} 
+void Fbx\+Texture\+::\+Set\+Premultiply\+Alpha (\begin{DoxyParamCaption}\item[{bool}]{p\+Premultiply\+Alpha}{}\end{DoxyParamCaption})}
+
+Sets the Premultiply\+Alpha flag. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Premultiply\+Alpha} & Set to {\ttfamily true} if the method of storing alpha is Premultiply\+Alpha. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+If Premultiply\+Alpha flag is true, the R, G, and B components you store have already been multiplied in with the alpha. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_texture_a2626c877d3bcbc16c74b8bb8a5dbd46d}\index{FbxTexture@{FbxTexture}!SetRotation@{SetRotation}}
+\index{SetRotation@{SetRotation}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetRotation()}{SetRotation()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a2626c877d3bcbc16c74b8bb8a5dbd46d} 
+void Fbx\+Texture\+::\+Set\+Rotation (\begin{DoxyParamCaption}\item[{double}]{pU}{, }\item[{double}]{pV}{, }\item[{double}]{pW}{ = {\ttfamily 0.0}}\end{DoxyParamCaption})}
+
+Sets rotation. 
+\begin{DoxyParams}{Parameters}
+{\em pU} & \doxylink{class_texture}{Texture} rotation around the U axis in degrees. \\
+\hline
+{\em pV} & \doxylink{class_texture}{Texture} rotation around the V axis in degrees. \\
+\hline
+{\em pW} & \doxylink{class_texture}{Texture} rotation around the W axis in degrees. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The W axis is oriented toward the result of the vector product of the U and V axes that is W = U x V. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_texture_adade3b75698249b7e09e4044136ca49c}\index{FbxTexture@{FbxTexture}!SetScale@{SetScale}}
+\index{SetScale@{SetScale}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetScale()}{SetScale()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_adade3b75698249b7e09e4044136ca49c} 
+void Fbx\+Texture\+::\+Set\+Scale (\begin{DoxyParamCaption}\item[{double}]{pU}{, }\item[{double}]{pV}{}\end{DoxyParamCaption})}
+
+Sets scale. 
+\begin{DoxyParams}{Parameters}
+{\em pU} & Scale applied to the texture width. \\
+\hline
+{\em pV} & Scale applied to the texture height. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+A scale value less than 1 stretches the texture. A scale value greater than 1 compresses the texture. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_texture_a29d8e8398ff2280af91b4fbd15a4647a}\index{FbxTexture@{FbxTexture}!SetSwapUV@{SetSwapUV}}
+\index{SetSwapUV@{SetSwapUV}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetSwapUV()}{SetSwapUV()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a29d8e8398ff2280af91b4fbd15a4647a} 
+void Fbx\+Texture\+::\+Set\+Swap\+UV (\begin{DoxyParamCaption}\item[{bool}]{p\+Swap\+UV}{}\end{DoxyParamCaption})}
+
+Sets the swap UV flag. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Swap\+UV} & Set to {\ttfamily true} if the swap UV flag is enabled. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+If the swap UV flag is enabled, the texture\textquotesingle{}s width and height are swapped. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_texture_aa1bb097d19a2b92f64abde250388df0d}\index{FbxTexture@{FbxTexture}!SetTextureUse@{SetTextureUse}}
+\index{SetTextureUse@{SetTextureUse}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetTextureUse()}{SetTextureUse()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_aa1bb097d19a2b92f64abde250388df0d} 
+void Fbx\+Texture\+::\+Set\+Texture\+Use (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_texture_af034d10e711237dd9ae92a5965787f25}{ETexture\+Use}}}]{p\+Texture\+Use}{}\end{DoxyParamCaption})}
+
+Sets the texture use. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Texture\+Use} & The texture use identifier. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_texture_aeeaecd1f6dbbe08fcf2e77b56a0e97f4}\index{FbxTexture@{FbxTexture}!SetTranslation@{SetTranslation}}
+\index{SetTranslation@{SetTranslation}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetTranslation()}{SetTranslation()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_aeeaecd1f6dbbe08fcf2e77b56a0e97f4} 
+void Fbx\+Texture\+::\+Set\+Translation (\begin{DoxyParamCaption}\item[{double}]{pU}{, }\item[{double}]{pV}{}\end{DoxyParamCaption})}
+
+Sets translation. 
+\begin{DoxyParams}{Parameters}
+{\em pU} & Horizontal translation applied to a texture. A displacement of one unit is equal to the texture\textquotesingle{}s width after applying U scaling. \\
+\hline
+{\em pV} & Vertical translation applied to a texture. A displacement of one unit is equal to the texture\textquotesingle{}s height after applying V scaling. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_texture_afb9383ff8cc503b4446247ccdd634ef1}\index{FbxTexture@{FbxTexture}!SetWrapMode@{SetWrapMode}}
+\index{SetWrapMode@{SetWrapMode}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{SetWrapMode()}{SetWrapMode()}}
+{\footnotesize\ttfamily \label{class_fbx_texture_afb9383ff8cc503b4446247ccdd634ef1} 
+void Fbx\+Texture\+::\+Set\+Wrap\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd}{EWrap\+Mode}}}]{p\+WrapU}{, }\item[{\mbox{\hyperlink{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd}{EWrap\+Mode}}}]{p\+WrapV}{}\end{DoxyParamCaption})}
+
+Sets the U and V wrap mode. 
+\begin{DoxyParams}{Parameters}
+{\em p\+WrapU} & Wrap mode identifier. \\
+\hline
+{\em p\+WrapV} & Wrap mode identifier. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_fbx_texture_a7248e3e31a2739d23c46a1c1a60fd801}\index{FbxTexture@{FbxTexture}!Alpha@{Alpha}}
+\index{Alpha@{Alpha}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{Alpha}{Alpha}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a7248e3e31a2739d23c46a1c1a60fd801} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$Fbx\+Double$>$ Fbx\+Texture\+::\+Alpha}
+
+This property handles the default alpha value for textures. Default value is 1.\+0 \Hypertarget{class_fbx_texture_a128209af76f914e38438ba56879c0d5c}\index{FbxTexture@{FbxTexture}!CurrentMappingType@{CurrentMappingType}}
+\index{CurrentMappingType@{CurrentMappingType}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{CurrentMappingType}{CurrentMappingType}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a128209af76f914e38438ba56879c0d5c} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$\mbox{\hyperlink{class_fbx_texture_a66649699e6cdfe32a40284ed8e1faad3}{EUnified\+Mapping\+Type}}$>$ Fbx\+Texture\+::\+Current\+Mapping\+Type}
+
+This property handles the texture mapping types. Default value is e\+UMT\+\_\+\+UV. \Hypertarget{class_fbx_texture_a0f0cad13b8b10cfbeb31801b503a60ec}\index{FbxTexture@{FbxTexture}!CurrentTextureBlendMode@{CurrentTextureBlendMode}}
+\index{CurrentTextureBlendMode@{CurrentTextureBlendMode}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{CurrentTextureBlendMode}{CurrentTextureBlendMode}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a0f0cad13b8b10cfbeb31801b503a60ec} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$\mbox{\hyperlink{class_fbx_texture_af1e8597086589ba6b8ba0066d47b6b63}{EBlend\+Mode}}$>$ Fbx\+Texture\+::\+Current\+Texture\+Blend\+Mode}
+
+This property handles the texture blend mode. Default value is e\+Additive. \Hypertarget{class_fbx_texture_a1acbc324c1df7d407aaccf0b3f151d29}\index{FbxTexture@{FbxTexture}!PremultiplyAlpha@{PremultiplyAlpha}}
+\index{PremultiplyAlpha@{PremultiplyAlpha}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{PremultiplyAlpha}{PremultiplyAlpha}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a1acbc324c1df7d407aaccf0b3f151d29} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$Fbx\+Bool$>$ Fbx\+Texture\+::\+Premultiply\+Alpha}
+
+This property handles the Premultiply\+Alpha flag. If Premultiply\+Alpha flag is true, the R, G, and B components you store have already been multiplied in with the alpha. Default value is true. \Hypertarget{class_fbx_texture_a299b7759e086a905185a2dabe8a5b510}\index{FbxTexture@{FbxTexture}!Rotation@{Rotation}}
+\index{Rotation@{Rotation}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{Rotation}{Rotation}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a299b7759e086a905185a2dabe8a5b510} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$\mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}}$>$ Fbx\+Texture\+::\+Rotation}
+
+This property handles the default rotation vector. Default value is Fbx\+Double3(0.\+0,0.\+0,0.\+0). \Hypertarget{class_fbx_texture_ae3f8835e136b889fbcd6b388c452310e}\index{FbxTexture@{FbxTexture}!RotationPivot@{RotationPivot}}
+\index{RotationPivot@{RotationPivot}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{RotationPivot}{RotationPivot}}
+{\footnotesize\ttfamily \label{class_fbx_texture_ae3f8835e136b889fbcd6b388c452310e} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$\mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}}$>$ Fbx\+Texture\+::\+Rotation\+Pivot}
+
+This property handles the rotation pivot vector. Default value is Fbx\+Double3(0.\+0,0.\+0,0.\+0). \Hypertarget{class_fbx_texture_a0fb4219993fe8b6fcad89b62d22d2489}\index{FbxTexture@{FbxTexture}!Scaling@{Scaling}}
+\index{Scaling@{Scaling}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{Scaling}{Scaling}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a0fb4219993fe8b6fcad89b62d22d2489} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$\mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}}$>$ Fbx\+Texture\+::\+Scaling}
+
+This property handles the default scale vector. Default value is Fbx\+Double3(1.\+0,1.\+0,1.\+0). \Hypertarget{class_fbx_texture_acf9aad8b79662d0cd8f3d336d0414dee}\index{FbxTexture@{FbxTexture}!ScalingPivot@{ScalingPivot}}
+\index{ScalingPivot@{ScalingPivot}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{ScalingPivot}{ScalingPivot}}
+{\footnotesize\ttfamily \label{class_fbx_texture_acf9aad8b79662d0cd8f3d336d0414dee} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$\mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}}$>$ Fbx\+Texture\+::\+Scaling\+Pivot}
+
+This property handles the scaling pivot vector. Default value is Fbx\+Double3(0.\+0,0.\+0,0.\+0). \Hypertarget{class_fbx_texture_ae8aca07710aa872fa8964408101f8a5b}\index{FbxTexture@{FbxTexture}!sVectorEncoding@{sVectorEncoding}}
+\index{sVectorEncoding@{sVectorEncoding}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{sVectorEncoding}{sVectorEncoding}}
+{\footnotesize\ttfamily \label{class_fbx_texture_ae8aca07710aa872fa8964408101f8a5b} 
+const char\texorpdfstring{$\ast$}{*} Fbx\+Texture\+::s\+Vector\+Encoding\hspace{0.3cm}{\ttfamily [static]}}
+
+This property only used by Vector Displacement \doxylink{class_texture}{Texture} so it is not added to \doxylink{class_fbx_texture}{Fbx\+Texture}. It is a dynamic enum property which has values \+: "{}\+Floating-\/point Absolute"{} and "{}\+Signed Encoding"{} Default value is "{}\+Floating-\/point Absolute"{}. \Hypertarget{class_fbx_texture_a496d2263bd3423ed99633852d396a50f}\index{FbxTexture@{FbxTexture}!sVectorSpace@{sVectorSpace}}
+\index{sVectorSpace@{sVectorSpace}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{sVectorSpace}{sVectorSpace}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a496d2263bd3423ed99633852d396a50f} 
+const char\texorpdfstring{$\ast$}{*} Fbx\+Texture\+::s\+Vector\+Space\hspace{0.3cm}{\ttfamily [static]}}
+
+This property only used by Vector Displacement \doxylink{class_texture}{Texture} so it is not added to \doxylink{class_fbx_texture}{Fbx\+Texture}. It is a dynamic enum property which has values \+: "{}\+World"{}, "{}\+Object"{} and "{}\+Tangent"{} Default value is "{}\+Object"{}. \Hypertarget{class_fbx_texture_a4813ec19bc568f47011cc1ce6c71f39e}\index{FbxTexture@{FbxTexture}!TextureTypeUse@{TextureTypeUse}}
+\index{TextureTypeUse@{TextureTypeUse}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{TextureTypeUse}{TextureTypeUse}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a4813ec19bc568f47011cc1ce6c71f39e} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$\mbox{\hyperlink{class_fbx_texture_a321c489f8a8a5294298ffbf0ed361db9}{ETexture\+Use6}}$>$ Fbx\+Texture\+::\+Texture\+Type\+Use}
+
+This property handles the use of textures. Default value is e\+TEXTURE\+\_\+\+USE\+\_\+6\+\_\+\+STANDARD. \Hypertarget{class_fbx_texture_a94d73d8c789b8717b32ad5bba86ac42f}\index{FbxTexture@{FbxTexture}!Translation@{Translation}}
+\index{Translation@{Translation}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{Translation}{Translation}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a94d73d8c789b8717b32ad5bba86ac42f} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$\mbox{\hyperlink{class_fbx_vector_template3}{Fbx\+Double3}}$>$ Fbx\+Texture\+::\+Translation}
+
+This property handles the default translation vector. Default value is Fbx\+Double3(0.\+0,0.\+0,0.\+0). \Hypertarget{class_fbx_texture_ae28f2e1c33fa74ab1e9752f9de0be552}\index{FbxTexture@{FbxTexture}!UVSet@{UVSet}}
+\index{UVSet@{UVSet}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{UVSet}{UVSet}}
+{\footnotesize\ttfamily \label{class_fbx_texture_ae28f2e1c33fa74ab1e9752f9de0be552} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$\mbox{\hyperlink{class_fbx_string}{Fbx\+String}}$>$ Fbx\+Texture\+::\+UVSet}
+
+This property handles the use of UV sets. Default value is "{}default"{}. \Hypertarget{class_fbx_texture_a8c14f57534caca44296248db850db26e}\index{FbxTexture@{FbxTexture}!UVSwap@{UVSwap}}
+\index{UVSwap@{UVSwap}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{UVSwap}{UVSwap}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a8c14f57534caca44296248db850db26e} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$Fbx\+Bool$>$ Fbx\+Texture\+::\+UVSwap}
+
+This property handles the swap UV flag. If swap UV flag is enabled, the texture\textquotesingle{}s width and height are swapped. Default value is false. \Hypertarget{class_fbx_texture_a0bc6524ab7ff1287b95ef46147660d7a}\index{FbxTexture@{FbxTexture}!WrapModeU@{WrapModeU}}
+\index{WrapModeU@{WrapModeU}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{WrapModeU}{WrapModeU}}
+{\footnotesize\ttfamily \label{class_fbx_texture_a0bc6524ab7ff1287b95ef46147660d7a} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$\mbox{\hyperlink{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd}{EWrap\+Mode}}$>$ Fbx\+Texture\+::\+Wrap\+ModeU}
+
+This property handles the texture wrap modes in U. Default value is e\+Repeat. \Hypertarget{class_fbx_texture_ae829c86b14a0bf8168d4997f5fd729ce}\index{FbxTexture@{FbxTexture}!WrapModeV@{WrapModeV}}
+\index{WrapModeV@{WrapModeV}!FbxTexture@{FbxTexture}}
+\doxysubsubsection{\texorpdfstring{WrapModeV}{WrapModeV}}
+{\footnotesize\ttfamily \label{class_fbx_texture_ae829c86b14a0bf8168d4997f5fd729ce} 
+\mbox{\hyperlink{class_fbx_property_t}{Fbx\+PropertyT}}$<$\mbox{\hyperlink{class_fbx_texture_ae273dffe3ff532dfd57e7bdb15b121fd}{EWrap\+Mode}}$>$ Fbx\+Texture\+::\+Wrap\+ModeV}
+
+This property handles the texture wrap modes in V. Default value is e\+Repeat. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/scene/shading/\mbox{\hyperlink{fbxtexture_8h}{fbxtexture.\+h}}\end{DoxyCompactItemize}

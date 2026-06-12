@@ -1,0 +1,183 @@
+\doxysection{Fbx\+Hash\+Map\texorpdfstring{$<$}{<} KEY, VALUE, HASH, Destruct, Comparator \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_fbx_hash_map}{}\label{class_fbx_hash_map}\index{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}}
+
+
+This object represents a standard hash map. You must provide the typename of KEY and VALUE as well as the typename of the class that contains the hash function to use to hash values. The hash class must overload operator() and be built like this.  
+
+
+
+
+{\ttfamily \#include $<$fbxhashmap.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator}{Iterator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_hash_map_ab56799173b6c58b676a94370b64ddbb0}\label{class_fbx_hash_map_ab56799173b6c58b676a94370b64ddbb0} 
+typedef KEY {\bfseries Key\+Type}
+\item 
+\Hypertarget{class_fbx_hash_map_a9c4cfd0138aa9233c119403f3cc85501}\label{class_fbx_hash_map_a9c4cfd0138aa9233c119403f3cc85501} 
+typedef VALUE {\bfseries Value\+Type}
+\item 
+\Hypertarget{class_fbx_hash_map_a254381e9c4bde567aaf9d7286d753bd7}\label{class_fbx_hash_map_a254381e9c4bde567aaf9d7286d753bd7} 
+typedef HASH {\bfseries Hash\+Functor\+Type}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_hash_map_aa7eae049539759ac5dc0e058346da332}{Fbx\+Hash\+Map}} (int p\+Bucket\+Size)
+\item 
+\mbox{\hyperlink{class_fbx_hash_map_a398c0d23f439d50d12ff45f04d9c57f2}{Fbx\+Hash\+Map}} ()
+\item 
+\mbox{\hyperlink{class_fbx_hash_map_a9b75e6940b7ebb7c82628117ce8479e2}{\texorpdfstring{$\sim$}{\string~}\+Fbx\+Hash\+Map}} ()
+\item 
+void \mbox{\hyperlink{class_fbx_hash_map_a93c7f218e1b8b337296b1758fbe962b9}{Clear}} ()
+\item 
+const \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_fbx_hash_map_afdedadf0f0aaa2f3a14404515597c399}{Find}} (const Key\+Type \&p\+Key) const
+\item 
+VALUE \mbox{\hyperlink{class_fbx_hash_map_abe6d776a5b88b75b82d92e9c9dd5b513}{Remove}} (const KEY \&p\+Key)
+\item 
+Value\+Type \& \mbox{\hyperlink{class_fbx_hash_map_a64bc1c1ef4d4199fb505b1328d268ac5}{operator\mbox{[}$\,$\mbox{]}}} (const Key\+Type \&p\+Key)
+\item 
+\mbox{\hyperlink{class_fbx_hash_map_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_fbx_hash_map_a57577e8a4b29826e68f61e0d086f90d8}{Start}} () const
+\item 
+\mbox{\hyperlink{class_fbx_hash_map_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_fbx_hash_map_a1e7a9c35fff5bc4fb12f5bc49557ebef}{End}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_hash_map_a9830fc407400559db7e7783cc10a9394}\label{class_fbx_hash_map_a9830fc407400559db7e7783cc10a9394} 
+class {\bfseries Iterator}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename KEY, typename VALUE, typename HASH, class Destruct = Fbx\+No\+Op\+Destruct$<$\+VALUE$>$, class Comparator = Fbx\+Default\+Comparator$<$\+KEY$>$$>$\newline
+class Fbx\+Hash\+Map$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}
+This object represents a standard hash map. You must provide the typename of KEY and VALUE as well as the typename of the class that contains the hash function to use to hash values. The hash class must overload operator() and be built like this. 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }SimpleHash}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ operator()\ (\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ pKey\ )\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pKey;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_fbx_hash_map_aa7eae049539759ac5dc0e058346da332}\index{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}!FbxHashMap@{FbxHashMap}}
+\index{FbxHashMap@{FbxHashMap}!FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}}
+\doxysubsubsection{\texorpdfstring{FbxHashMap()}{FbxHashMap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_fbx_hash_map_aa7eae049539759ac5dc0e058346da332} 
+template$<$typename KEY, typename VALUE, typename HASH, class Destruct = Fbx\+No\+Op\+Destruct$<$\+VALUE$>$, class Comparator = Fbx\+Default\+Comparator$<$\+KEY$>$$>$ \\
+\mbox{\hyperlink{class_fbx_hash_map}{Fbx\+Hash\+Map}}$<$ KEY, VALUE, HASH, Destruct, Comparator $>$\mbox{\hyperlink{class_fbx_hash_map}{\+::\+Fbx\+Hash\+Map}} (\begin{DoxyParamCaption}\item[{int}]{p\+Bucket\+Size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Construct a \doxylink{class_fbx_hash_map}{Fbx\+Hash\+Map} with an user-\/defined maximum number of elements. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Bucket\+Size} & Initial maximum number of elements. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_hash_map_a398c0d23f439d50d12ff45f04d9c57f2}\index{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}!FbxHashMap@{FbxHashMap}}
+\index{FbxHashMap@{FbxHashMap}!FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}}
+\doxysubsubsection{\texorpdfstring{FbxHashMap()}{FbxHashMap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_fbx_hash_map_a398c0d23f439d50d12ff45f04d9c57f2} 
+template$<$typename KEY, typename VALUE, typename HASH, class Destruct = Fbx\+No\+Op\+Destruct$<$\+VALUE$>$, class Comparator = Fbx\+Default\+Comparator$<$\+KEY$>$$>$ \\
+\mbox{\hyperlink{class_fbx_hash_map}{Fbx\+Hash\+Map}}$<$ KEY, VALUE, HASH, Destruct, Comparator $>$\mbox{\hyperlink{class_fbx_hash_map}{\+::\+Fbx\+Hash\+Map}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Construct a \doxylink{class_fbx_hash_map}{Fbx\+Hash\+Map} with the default maximum number of elements (30) \Hypertarget{class_fbx_hash_map_a9b75e6940b7ebb7c82628117ce8479e2}\index{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}!````~FbxHashMap@{\texorpdfstring{$\sim$}{\string~}FbxHashMap}}
+\index{````~FbxHashMap@{\texorpdfstring{$\sim$}{\string~}FbxHashMap}!FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}FbxHashMap()}{\string~FbxHashMap()}}
+{\footnotesize\ttfamily \label{class_fbx_hash_map_a9b75e6940b7ebb7c82628117ce8479e2} 
+template$<$typename KEY, typename VALUE, typename HASH, class Destruct = Fbx\+No\+Op\+Destruct$<$\+VALUE$>$, class Comparator = Fbx\+Default\+Comparator$<$\+KEY$>$$>$ \\
+\mbox{\hyperlink{class_fbx_hash_map}{Fbx\+Hash\+Map}}$<$ KEY, VALUE, HASH, Destruct, Comparator $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{class_fbx_hash_map}{Fbx\+Hash\+Map}} (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Clear all elements in the hash map before destroying itself 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_hash_map_a93c7f218e1b8b337296b1758fbe962b9}\index{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}!Clear@{Clear}}
+\index{Clear@{Clear}!FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily \label{class_fbx_hash_map_a93c7f218e1b8b337296b1758fbe962b9} 
+template$<$typename KEY, typename VALUE, typename HASH, class Destruct = Fbx\+No\+Op\+Destruct$<$\+VALUE$>$, class Comparator = Fbx\+Default\+Comparator$<$\+KEY$>$$>$ \\
+void \mbox{\hyperlink{class_fbx_hash_map}{Fbx\+Hash\+Map}}$<$ KEY, VALUE, HASH, Destruct, Comparator $>$\+::\+Clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Calls operator delete on all elements of the hashmap, de-\/allocating all memory and destroying them \Hypertarget{class_fbx_hash_map_a1e7a9c35fff5bc4fb12f5bc49557ebef}\index{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}!End@{End}}
+\index{End@{End}!FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}}
+\doxysubsubsection{\texorpdfstring{End()}{End()}}
+{\footnotesize\ttfamily \label{class_fbx_hash_map_a1e7a9c35fff5bc4fb12f5bc49557ebef} 
+template$<$typename KEY, typename VALUE, typename HASH, class Destruct = Fbx\+No\+Op\+Destruct$<$\+VALUE$>$, class Comparator = Fbx\+Default\+Comparator$<$\+KEY$>$$>$ \\
+\mbox{\hyperlink{class_fbx_hash_map_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_fbx_hash_map}{Fbx\+Hash\+Map}}$<$ KEY, VALUE, HASH, Destruct, Comparator $>$\+::\+End (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns an iterator pointing on the last element in the map. This is not an actual Key\+Value\+Pair but but an iterator pointing on a null element. \begin{DoxyReturn}{Returns}
+\doxylink{class_fbx_hash_map_1_1_iterator}{Iterator} pointing on a null value at the end of the map 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_hash_map_afdedadf0f0aaa2f3a14404515597c399}\index{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}!Find@{Find}}
+\index{Find@{Find}!FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}}
+\doxysubsubsection{\texorpdfstring{Find()}{Find()}}
+{\footnotesize\ttfamily \label{class_fbx_hash_map_afdedadf0f0aaa2f3a14404515597c399} 
+template$<$typename KEY, typename VALUE, typename HASH, class Destruct = Fbx\+No\+Op\+Destruct$<$\+VALUE$>$, class Comparator = Fbx\+Default\+Comparator$<$\+KEY$>$$>$ \\
+const \mbox{\hyperlink{class_fbx_hash_map_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_fbx_hash_map}{Fbx\+Hash\+Map}}$<$ KEY, VALUE, HASH, Destruct, Comparator $>$\+::\+Find (\begin{DoxyParamCaption}\item[{const Key\+Type \&}]{p\+Key}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Find an element in the hashmap. If no element exist with the specified key, returns an iterator pointing on the end of the map (not an actual Key\+Value\+Pair). 
+\begin{DoxyParams}{Parameters}
+{\em p\+Key} & The value of the key corresponding to the element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \doxylink{class_fbx_hash_map_1_1_iterator}{Iterator} referencing that element 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_hash_map_a64bc1c1ef4d4199fb505b1328d268ac5}\index{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \label{class_fbx_hash_map_a64bc1c1ef4d4199fb505b1328d268ac5} 
+template$<$typename KEY, typename VALUE, typename HASH, class Destruct = Fbx\+No\+Op\+Destruct$<$\+VALUE$>$, class Comparator = Fbx\+Default\+Comparator$<$\+KEY$>$$>$ \\
+Value\+Type \& \mbox{\hyperlink{class_fbx_hash_map}{Fbx\+Hash\+Map}}$<$ KEY, VALUE, HASH, Destruct, Comparator $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const Key\+Type \&}]{p\+Key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add or retrieve a Key\+Value\+Pair from the Hashmap. If there is already an entry in the map for an element with key value specified in parameter, the value will be returned. Otherwise, a new entry will be created with this key value and the default value for Value\+Type will be returned. It can be modified using the assignment operator 
+\begin{DoxyParams}{Parameters}
+{\em p\+Key} & The key for which to retrieve/add a value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Value of the element referenced by the key specified in parameter. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_hash_map_abe6d776a5b88b75b82d92e9c9dd5b513}\index{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}!Remove@{Remove}}
+\index{Remove@{Remove}!FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily \label{class_fbx_hash_map_abe6d776a5b88b75b82d92e9c9dd5b513} 
+template$<$typename KEY, typename VALUE, typename HASH, class Destruct = Fbx\+No\+Op\+Destruct$<$\+VALUE$>$, class Comparator = Fbx\+Default\+Comparator$<$\+KEY$>$$>$ \\
+VALUE \mbox{\hyperlink{class_fbx_hash_map}{Fbx\+Hash\+Map}}$<$ KEY, VALUE, HASH, Destruct, Comparator $>$\+::\+Remove (\begin{DoxyParamCaption}\item[{const KEY \&}]{p\+Key}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Remove an element in the hashmap. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Key} & The key value of the element to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value of the element that was just deleted. If the element does not exist, a value created with its default constructor will be returned 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_hash_map_a57577e8a4b29826e68f61e0d086f90d8}\index{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}!Start@{Start}}
+\index{Start@{Start}!FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$@{FbxHashMap$<$ KEY, VALUE, HASH, Destruct, Comparator $>$}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_fbx_hash_map_a57577e8a4b29826e68f61e0d086f90d8} 
+template$<$typename KEY, typename VALUE, typename HASH, class Destruct = Fbx\+No\+Op\+Destruct$<$\+VALUE$>$, class Comparator = Fbx\+Default\+Comparator$<$\+KEY$>$$>$ \\
+\mbox{\hyperlink{class_fbx_hash_map_1_1_iterator}{Iterator}} \mbox{\hyperlink{class_fbx_hash_map}{Fbx\+Hash\+Map}}$<$ KEY, VALUE, HASH, Destruct, Comparator $>$\+::\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns an iterator pointing on the first non-\/null element in the map \begin{DoxyReturn}{Returns}
+An iterator pointing on the first non-\/null element in the map. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/base/\mbox{\hyperlink{fbxhashmap_8h}{fbxhashmap.\+h}}\end{DoxyCompactItemize}

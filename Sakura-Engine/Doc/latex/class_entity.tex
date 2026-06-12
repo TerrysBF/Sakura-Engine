@@ -1,0 +1,163 @@
+\doxysection{Entity Class Reference}
+\hypertarget{class_entity}{}\label{class_entity}\index{Entity@{Entity}}
+Inheritance diagram for Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_entity}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_entity_ac479d009ddde62dfb378ca0a70d81307}\label{class_entity_ac479d009ddde62dfb378ca0a70d81307} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Entity} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor virtual. \end{DoxyCompactList}\item 
+\Hypertarget{class_entity_ae149945dae95fe927f776d1b8d0bfc37}\label{class_entity_ae149945dae95fe927f776d1b8d0bfc37} 
+virtual void {\bfseries awake} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_entity_a31e6183ea44922d54a43be48b8fd4bc0}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Initialize the entity with a device context. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_aadea4a2a3446afb745059373d9b24ca7}{update}} (float delta\+Time, \mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context)=0
+\begin{DoxyCompactList}\small\item\em M?todo virtual puro para actualizar el componente. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a87b5ba15d18505f65312336d38554200}{render}} (\mbox{\hyperlink{class_device_context}{Device\+Context}} \&device\+Context)=0
+\begin{DoxyCompactList}\small\item\em M?todo virtual puro para renderizar el componente. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a00e9f22462766408bffd4673e30bf04c}{destroy}} ()=0
+\begin{DoxyCompactList}\small\item\em M?todo virtual puro para destruir el componente. Libera los recursos asociados al componente. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{class_entity_a5806de15f47f1d84b7ebe0e2519c8fd1}{add\+Component}} (\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU\+::\+TShared\+Pointer}}$<$ T $>$ component)
+\begin{DoxyCompactList}\small\item\em Agrega un componente a la entidad. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU\+::\+TShared\+Pointer}}$<$ T $>$ \mbox{\hyperlink{class_entity_ab4a3dc4747f9b832460231a9a01a9021}{get\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene un componente de la entidad por su tipo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_entity_a1e67bc72cc50f2be6903cfa23b25f3df}\label{class_entity_a1e67bc72cc50f2be6903cfa23b25f3df} 
+bool {\bfseries m\+\_\+is\+Active}
+\item 
+\Hypertarget{class_entity_a3b02b4a3634f4e56257d4adecb735862}\label{class_entity_a3b02b4a3634f4e56257d4adecb735862} 
+int {\bfseries m\+\_\+id}
+\item 
+\Hypertarget{class_entity_a47d17c3a3a9a1bb1f50061c828ea6a95}\label{class_entity_a47d17c3a3a9a1bb1f50061c828ea6a95} 
+std\+::vector$<$ \mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU\+::\+TShared\+Pointer}}$<$ \mbox{\hyperlink{class_component}{Component}} $>$ $>$ {\bfseries m\+\_\+components}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_entity_a5806de15f47f1d84b7ebe0e2519c8fd1}\index{Entity@{Entity}!addComponent@{addComponent}}
+\index{addComponent@{addComponent}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{addComponent()}{addComponent()}}
+{\footnotesize\ttfamily \label{class_entity_a5806de15f47f1d84b7ebe0e2519c8fd1} 
+template$<$typename T$>$ \\
+void Entity\+::add\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU\+::\+TShared\+Pointer}}$<$ T $>$}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Agrega un componente a la entidad. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Tipo del componente, debe derivar de \doxylink{class_component}{Component}. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em component} & Puntero compartido al componente que se va a agregar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_entity_a00e9f22462766408bffd4673e30bf04c}\index{Entity@{Entity}!destroy@{destroy}}
+\index{destroy@{destroy}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{destroy()}{destroy()}}
+{\footnotesize\ttfamily \label{class_entity_a00e9f22462766408bffd4673e30bf04c} 
+virtual void Entity\+::destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+M?todo virtual puro para destruir el componente. Libera los recursos asociados al componente. 
+
+
+
+Implemented in \mbox{\hyperlink{class_actor_ab8f46e862574f0c660f895ab6893d0d6}{Actor}}.
+
+\Hypertarget{class_entity_ab4a3dc4747f9b832460231a9a01a9021}\index{Entity@{Entity}!getComponent@{getComponent}}
+\index{getComponent@{getComponent}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{getComponent()}{getComponent()}}
+{\footnotesize\ttfamily \label{class_entity_ab4a3dc4747f9b832460231a9a01a9021} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{class_e_u_1_1_t_shared_pointer}{EU\+::\+TShared\+Pointer}}$<$ T $>$ Entity\+::get\+Component (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Obtiene un componente de la entidad por su tipo. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Tipo del componente a obtener. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+Puntero compartido al componente si se encuentra, nullptr en caso contrario. 
+\end{DoxyReturn}
+\Hypertarget{class_entity_a31e6183ea44922d54a43be48b8fd4bc0}\index{Entity@{Entity}!init@{init}}
+\index{init@{init}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_entity_a31e6183ea44922d54a43be48b8fd4bc0} 
+virtual void Entity\+::init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Initialize the entity with a device context. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & The device context to initialize with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if initialization is successful, false otherwise. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_actor_ae789334128df3f9899d00d0e0c2dad12}{Actor}}.
+
+\Hypertarget{class_entity_a87b5ba15d18505f65312336d38554200}\index{Entity@{Entity}!render@{render}}
+\index{render@{render}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily \label{class_entity_a87b5ba15d18505f65312336d38554200} 
+virtual void Entity\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+M?todo virtual puro para renderizar el componente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+Context} & Contexto del dispositivo para operaciones gr?ficas. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_actor_ad385c0dc92989174b01c07dd26d423b5}{Actor}}.
+
+\Hypertarget{class_entity_aadea4a2a3446afb745059373d9b24ca7}\index{Entity@{Entity}!update@{update}}
+\index{update@{update}!Entity@{Entity}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily \label{class_entity_aadea4a2a3446afb745059373d9b24ca7} 
+virtual void Entity\+::update (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{, }\item[{\mbox{\hyperlink{class_device_context}{Device\+Context}} \&}]{device\+Context}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+M?todo virtual puro para actualizar el componente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & El tiempo transcurrido desde la ?ltima actualizaci?n. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_actor_aef2c4b98c0fb423d70c6229ac19f8965}{Actor}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\+ECS/\mbox{\hyperlink{_entity_8h}{Entity.\+h}}\end{DoxyCompactItemize}

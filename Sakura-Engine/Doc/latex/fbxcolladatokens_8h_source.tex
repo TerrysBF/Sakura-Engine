@@ -1,0 +1,477 @@
+\doxysection{fbxcolladatokens.\+h}
+\hypertarget{fbxcolladatokens_8h_source}{}\label{fbxcolladatokens_8h_source}\index{include/fbx/fbxsdk/fileio/collada/fbxcolladatokens.h@{include/fbx/fbxsdk/fileio/collada/fbxcolladatokens.h}}
+\mbox{\hyperlink{fbxcolladatokens_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_FILEIO\_COLLADA\_TOKENS\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_FILEIO\_COLLADA\_TOKENS\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ XML\_STR\ (const\ xmlChar*)\ }}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ In\ COLLADA,\ 1\ means\ total\ control,\ while\ 100\ means\ total\ control\ in\ FBX.}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ COLLADA\_MORPH\_WEIGHT\_TO\_FBX\_RATIO\ =\ 100;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ COLLADA\_VERSION\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ "{}version"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ COLLADA\_VERSION\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}1.4.1"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ COLLADA\_SCHEMA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}http://www.collada.org/2005/11/COLLADASchema"{}}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ COLLADA\ 1.4\ elements}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_ANIMATION\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ "{}library\_animations"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_ANIMATION\_CLIP\_ELEMENT\ \ \ \ \ \ "{}library\_animation\_clips"{}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_CAMERA\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}library\_cameras"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_CONTROLLER\_ELEMENT\ \ \ \ \ \ \ \ \ \ "{}library\_controllers"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_EFFECT\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}library\_effects"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_FFIELDS\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ "{}library\_force\_fields"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_GEOMETRY\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ "{}library\_geometries"{}}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_IMAGE\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}library\_images"{}}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_LIGHT\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}library\_lights"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_MATERIAL\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ "{}library\_materials"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_NODE\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}library\_nodes"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_PMATERIAL\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ "{}library\_physics\_materials"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_PMODEL\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}library\_physics\_models"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_PSCENE\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}library\_physics\_scenes"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_VSCENE\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}library\_visual\_scenes"{}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ COLLADA\_INSTANCE\_ANIMATION\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}instance\_animation"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ COLLADA\_INSTANCE\_CAMERA\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}instance\_camera"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ COLLADA\_INSTANCE\_CONTROLLER\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ "{}instance\_controller"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ COLLADA\_INSTANCE\_EFFECT\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}instance\_effect"{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ COLLADA\_INSTANCE\_GEOMETRY\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}instance\_geometry"{}}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ COLLADA\_INSTANCE\_LIGHT\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}instance\_light"{}}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ COLLADA\_INSTANCE\_NODE\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}instance\_node"{}}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ COLLADA\_INSTANCE\_VSCENE\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}instance\_visual\_scene"{}}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ COLLADA\_INSTANCE\_PSCENE\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}instance\_physics\_scene"{}}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ COLLADA\_INSTANCE\_MATERIAL\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}instance\_material"{}}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ COLLADA\_ANIMCLIP\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}animation\_clip"{}}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ COLLADA\_BINDMATERIAL\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}bind\_material"{}}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ COLLADA\_EFFECT\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}effect"{}}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ COLLADA\_INITFROM\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}init\_from"{}}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ COLLADA\_SAMPLER\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}sampler"{}}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ COLLADA\_SKELETON\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}skeleton"{}}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ COLLADA\_TARGETS\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}targets"{}}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ COLLADA\_TECHNIQUE\_COMMON\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}technique\_common"{}}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ COLLADA\_VSCENE\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}visual\_scene"{}}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ COLLADA\_WEIGHTS\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}vertex\_weights"{}}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ COLLADA\_VERTEXCOUNT\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}vcount"{}}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ COLLADA\_FX\_PROFILE\_COMMON\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}profile\_COMMON"{}}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ COLLADA\_FX\_PROFILE\_CG\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}profile\_CG"{}}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ COLLADA\_FX\_PROFILE\_HLSL\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}profile\_HLSL"{}}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ COLLADA\_FX\_PROFILE\_GLSL\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}profile\_GLSL"{}}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ COLLADA\_FX\_PROFILE\_GLES\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}profile\_GLES"{}}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ COLLADA\_FXCMN\_FLOAT\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}float"{}}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ COLLADA\_FXCMN\_FLOAT4\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}float4"{}}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ COLLADA\_FXCMN\_FLOAT4X4\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}float4x4"{}}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ COLLADA\_FXCMN\_INCLUDE\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}include"{}}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ COLLADA\_FXCMN\_SURFACE\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}surface"{}}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ COLLADA\_FXCMN\_SAMPLER1D\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}sampler1D"{}}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ COLLADA\_FXCMN\_SAMPLER2D\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}sampler2D"{}}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ COLLADA\_FXCMN\_SAMPLER3D\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}sampler3D"{}}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ COLLADA\_FXCMN\_SAMPLERCUBE\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}samplerCUBE"{}}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ COLLADA\_FXCMN\_NEWPARAM\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}newparam"{}}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ COLLADA\_FXCMN\_SETPARAM\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}setparam"{}}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ COLLADA\_FXCMN\_STRING\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}string"{}}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ COLLADA\_TECHNIQUE\_STANDARD\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ "{}standard"{}}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ COLLADA\_FXSTD\_CONSTANT\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}constant"{}}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ COLLADA\_FXSTD\_LAMBERT\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}lambert"{}}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ COLLADA\_FXSTD\_PHONG\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}phong"{}}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ COLLADA\_FXSTD\_BLINN\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}blinn"{}}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ COLLADA\_FXSTD\_COLOR\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}color"{}}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ COLLADA\_FXSTD\_FLOAT\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}float"{}}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ COLLADA\_FXSTD\_SAMPLER\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}texture"{}}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ COLLADA\_FXSTD\_TEXTURE\_ATTRIBUTE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}texture"{}}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ COLLADA\_FXSTD\_TEXTURESET\_ATTRIBUTE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}texcoord"{}}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ COLLADA\_CONTROLLER\_SKIN\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}skin"{}}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ COLLADA\_CONTROLLER\_MORPH\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}morph"{}}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ COLLADA\_CAMERA\_PERSP\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}perspective"{}}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ COLLADA\_CAMERA\_ORTHO\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}orthographic"{}}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ COLLADA\_ASPECT\_CAMERA\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}aspect\_ratio"{}}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ COLLADA\_XFOV\_CAMERA\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}xfov"{}\ \ }}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ COLLADA\_YFOV\_CAMERA\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}yfov"{}\ \ }}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ COLLADA\_ZNEAR\_CAMERA\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}znear"{}\ }}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ COLLADA\_ZFAR\_CAMERA\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}zfar"{}\ \ }}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ COLLADA\_XMAG\_CAMERA\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}xmag"{}\ \ }}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ COLLADA\_YMAG\_CAMERA\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}ymag"{}}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ COLLADA\_CAMERA\_VERTICAL\_APERTURE\_PARAMETER\ \ \ \ \ \ "{}vertical\_aperture"{}}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ COLLADA\_CAMERA\_HORIZONTAL\_APERTURE\_PARAMETER\ \ \ \ "{}horizontal\_aperture"{}}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ COLLADA\_CAMERA\_LENS\_SQUEEZE\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ "{}lens\_squeeze"{}}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ COLLADA\_AMBIENT\_MATERIAL\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}ambient"{}}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ COLLADA\_BUMP\_MATERIAL\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}bump"{}}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ COLLADA\_DIFFUSE\_MATERIAL\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}diffuse"{}}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ COLLADA\_EMISSION\_MATERIAL\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ "{}emission"{}}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ COLLADA\_TRANSPARENCY\_MATERIAL\_PARAMETER\ \ \ \ \ \ \ \ \ "{}transparency"{}}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ COLLADA\_TRANSPARENT\_MATERIAL\_PARAMETER\ \ \ \ \ \ \ \ \ \ "{}transparent"{}}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ COLLADA\_REFLECTIVE\_MATERIAL\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ "{}reflective"{}}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ COLLADA\_REFLECTIVITY\_MATERIAL\_PARAMETER\ \ \ \ \ \ \ \ \ "{}reflectivity"{}}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ COLLADA\_SHININESS\_MATERIAL\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ "{}shininess"{}}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ COLLADA\_SPECULAR\_MATERIAL\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ "{}specular"{}}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ COLLADA\_INDEXOFREFRACTION\_MATERIAL\_PARAMETER\ \ \ \ "{}index\_of\_refraction"{}}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ COLLADA\_OPAQUE\_MODE\_ATTRIBUTE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}opaque"{}}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#define\ COLLADA\_OPAQUE\_MODE\_A\_ONE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}A\_ONE"{}}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ COLLADA\_OPAQUE\_MODE\_RGB\_ONE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}RGB\_ONE"{}}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ COLLADA\_OPAQUE\_MODE\_A\_ZERO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}A\_ZERO"{}}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#define\ COLLADA\_OPAQUE\_MODE\_RGB\_ZERO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}RGB\_ZERO"{}}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ COLLADA\_LIGHT\_AMBIENT\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}ambient"{}\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ COLLADA\_LIGHT\_POINT\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}point"{}}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ COLLADA\_LIGHT\_DIRECTIONAL\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}directional"{}}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ COLLADA\_LIGHT\_SPOT\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}spot"{}}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#define\ COLLADA\_COLOR\_LIGHT\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}color"{}}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ COLLADA\_CONST\_ATTENUATION\_LIGHT\_PARAMETER\ \ \ \ \ \ \ "{}constant\_attenuation"{}}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ COLLADA\_LIN\_ATTENUATION\_LIGHT\_PARAMETER\ \ \ \ \ \ \ \ \ "{}linear\_attenuation"{}}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ COLLADA\_QUAD\_ATTENUATION\_LIGHT\_PARAMETER\ \ \ \ \ \ \ \ "{}quadratic\_attenuation"{}}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#define\ COLLADA\_FALLOFFEXPONENT\_LIGHT\_PARAMETER\ \ \ \ \ \ \ \ \ "{}falloff\_exponent"{}}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#define\ COLLADA\_FALLOFFANGLE\_LIGHT\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ "{}falloff\_angle"{}}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#define\ COLLADA\_BINDSHAPEMX\_SKIN\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}bind\_shape\_matrix"{}}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#define\ COLLADA\_CONTRIBUTOR\_ASSET\_ELEMENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}contributor"{}}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#define\ COLLADA\_AUTHOR\_ASSET\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}author"{}}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ COLLADA\_AUTHORINGTOOL\_ASSET\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ "{}authoring\_tool"{}}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#define\ COLLADA\_CREATED\_ASSET\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}created"{}}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ COLLADA\_MODIFIED\_ASSET\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}modified"{}}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ COLLADA\_REVISION\_ASSET\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}revision"{}}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ COLLADA\_SOURCEDATA\_ASSET\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}source\_data"{}}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ COLLADA\_UNITS\_ASSET\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}unit"{}}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#define\ COLLADA\_UPAXIS\_ASSET\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}up\_axis"{}}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#define\ COLLADA\_SYMBOL\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ "{}symbol"{}}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \textcolor{comment}{//\ From\ Collada\ 1.3}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#define\ COLLADA\_DOCUMENT\_STRUCTURE\ \ \ \ \ \ \ \ \ \ "{}COLLADA"{}}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#define\ COLLADA\_ASSET\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}asset"{}}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#define\ COLLADA\_REVISION\_STRUCTURE\ \ \ \ \ \ \ \ \ \ "{}revision"{}}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ COLLADA\_AUTHORING\_TOOL\_STRUCTURE\ \ \ \ "{}authoring\_tool"{}}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#define\ COLLADA\_CREATED\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}created"{}}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#define\ COLLADA\_MODIFIED\_STRUCTURE\ \ \ \ \ \ \ \ \ \ "{}modified"{}}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#define\ COLLADA\_AUTHOR\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ "{}author"{}}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#define\ COLLADA\_TITLE\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}title"{}}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#define\ COLLADA\_SUBJECT\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}subject"{}}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#define\ COLLADA\_KEYWORDS\_STRUCTURE\ \ \ \ \ \ \ \ \ \ "{}keywords"{}}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#define\ COLLADA\_COMMENTS\_STRUCTURE\ \ \ \ \ \ \ \ \ \ "{}comments"{}}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#define\ COLLADA\_UNIT\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}unit"{}}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#define\ COLLADA\_SOURCE\_DATA\_STRUCTURE\ \ \ \ \ \ \ "{}source\_data"{}}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#define\ COLLADA\_UP\_AXIS\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}up\_axis"{}}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#define\ COLLADA\_LIBRARY\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}library"{}\ \ \ \ \ \ \ }\textcolor{comment}{//\ Deprecated\ 1.4}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#define\ COLLADA\_SCENE\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}scene"{}}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#define\ COLLADA\_NODE\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}node"{}}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#define\ COLLADA\_MATRIX\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ "{}matrix"{}}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#define\ COLLADA\_TRANSFORM\_STRUCTURE\ \ \ \ \ \ \ \ \ "{}transform"{}}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#define\ COLLADA\_TRANSLATE\_STRUCTURE\ \ \ \ \ \ \ \ \ "{}translate"{}}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#define\ COLLADA\_TRANSLATION\_STRUCTURE\ \ \ \ \ \ \ "{}translation"{}\ \ \ }\textcolor{comment}{//\ For\ ColladaMax}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#define\ COLLADA\_TRANSLATE\_ORIGIN\ \ \ \ \ \ \ \ \ \ \ \ "{}origin"{}\ \ \ \ \ \ \ \ }\textcolor{comment}{//A\ fix\ for\ Poser(Bug\ 309548).\ Handle\ translate\ origin\ info\ exported\ from\ Poser.}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#define\ COLLADA\_TRANSLATE\_LOCATION\ \ \ \ \ \ \ \ \ \ "{}location"{}\ \ \ \ \ \ }\textcolor{comment}{//A\ fix\ for\ ?\ (Bug\ BARB-\/154).\ "{}location"{}\ is\ synonyn\ of\ "{}translate"{}\ ?}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATE\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ "{}rotate"{}}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#define\ COLLADA\_SCALE\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}scale"{}}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#define\ COLLADA\_SKEW\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}skew"{}}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATE\_X\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}rotateX"{}}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATE\_Y\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}rotateY"{}}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATE\_Z\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}rotateZ"{}}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#define\ COLLADA\_ROT\_X\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}RotX"{}\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ For\ ColladaMax}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#define\ COLLADA\_ROT\_Y\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}RotY"{}}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#define\ COLLADA\_ROT\_Z\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}RotZ"{}}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATION\_X\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}rotation\_x"{}\ \ \ \ }\textcolor{comment}{//\ For\ XSI}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATION\_Y\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}rotation\_y"{}}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATION\_Z\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}rotation\_z"{}}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATIONX\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}rotationX"{}\ \ \ \ \ }\textcolor{comment}{//\ BARB-\/154}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATIONY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}rotationY"{}}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATIONZ\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}rotationZ"{}}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATE\_PIVOT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}rotatePivot"{}\ \ \ }\textcolor{comment}{//\ the\ next\ 6\ subids\ are\ recognized\ by\ ColladaMaya}}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\#define\ COLLADA\_SCALE\_PIVOT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}scalePivot"{}}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATE\_PIVOT\_INVERSE\ \ \ \ \ \ \ \ "{}rotatePivotInverse"{}}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#define\ COLLADA\_SCALE\_PIVOT\_INVERSE\ \ \ \ \ \ \ \ \ "{}scalePivotInverse"{}}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATE\_PIVOT\_OFFSET\ \ \ \ \ \ \ \ \ "{}rotatePivotTranslation"{}}}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#define\ COLLADA\_SCALE\_PIVOT\_OFFSET\ \ \ \ \ \ \ \ \ \ "{}scalePivotTranslation"{}}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#define\ COLLADA\_PRE\_ROTATION\_X\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}jointOrientX"{}\ \ }\textcolor{comment}{//\ these\ 3\ subids\ recognized\ by\ ColladaMaya}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#define\ COLLADA\_PRE\_ROTATION\_Y\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}jointOrientY"{}}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#define\ COLLADA\_PRE\_ROTATION\_Z\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}jointOrientZ"{}}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#define\ COLLADA\_POST\_ROTATION\_X\ \ \ \ \ \ \ \ \ \ \ \ \ "{}post-\/rotationX"{}\ \ \ \ }\textcolor{comment}{//\ these\ 3\ subids\ NOT\ recognized\ by\ ColladaMaya}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#define\ COLLADA\_POST\_ROTATION\_Y\ \ \ \ \ \ \ \ \ \ \ \ \ "{}post-\/rotationY"{}}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#define\ COLLADA\_POST\_ROTATION\_Z\ \ \ \ \ \ \ \ \ \ \ \ \ "{}post-\/rotationZ"{}}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATE\_AXIS\_X\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}rotateAxisX"{}\ \ \ \ \ \ \ }\textcolor{comment}{//\ these\ 3\ subids\ recognized\ by\ ColladaMaya}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATE\_AXIS\_Y\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}rotateAxisY"{}}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#define\ COLLADA\_ROTATE\_AXIS\_Z\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}rotateAxisZ"{}}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#define\ COLLADA\_LOOKAT\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ "{}lookat"{}}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#define\ COLLADA\_PERSPECTIVE\_STRUCTURE\ \ \ \ \ \ \ "{}perspective"{}}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#define\ COLLADA\_GEOMETRY\_STRUCTURE\ \ \ \ \ \ \ \ \ \ "{}geometry"{}}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#define\ COLLADA\_MESH\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}mesh"{}}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#define\ COLLADA\_VERTICES\_STRUCTURE\ \ \ \ \ \ \ \ \ \ "{}vertices"{}}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#define\ COLLADA\_POLYGONS\_STRUCTURE\ \ \ \ \ \ \ \ \ \ "{}polygons"{}}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\#define\ COLLADA\_POLYLIST\_STRUCTURE\ \ \ \ \ \ \ \ \ \ "{}polylist"{}\ }}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#define\ COLLADA\_TRIANGLES\_STRUCTURE\ \ \ \ \ \ \ \ \ "{}triangles"{}}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#define\ COLLADA\_P\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}p"{}}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#define\ COLLADA\_ANIMATION\_STRUCTURE\ \ \ \ \ \ \ \ \ "{}animation"{}}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#define\ COLLADA\_CONTROLLER\_STRUCTURE\ \ \ \ \ \ \ \ "{}controller"{}}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#define\ COLLADA\_SKIN\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}skin"{}}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#define\ COLLADA\_COMBINER\_STRUCTURE\ \ \ \ \ \ \ \ \ \ "{}combiner"{}}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\#define\ COLLADA\_JOINTS\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ "{}joints"{}}}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\#define\ COLLADA\_VALUE\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}v"{}}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#define\ COLLADA\_MATERIAL\_STRUCTURE\ \ \ \ \ \ \ \ \ \ "{}material"{}}}
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\#define\ COLLADA\_SHADER\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ "{}shader"{}}}
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\#define\ COLLADA\_PASS\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}pass"{}}}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\#define\ COLLADA\_PROGRAM\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}program"{}}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\#define\ COLLADA\_TEXTURE\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}texture"{}}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\#define\ COLLADA\_IMAGE\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}image"{}}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\#define\ COLLADA\_INPUT\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}input"{}}}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#define\ COLLADA\_TECHNIQUE\_STRUCTURE\ \ \ \ \ \ \ \ \ "{}technique"{}}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\#define\ COLLADA\_SOURCE\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ "{}source"{}}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#define\ COLLADA\_ACCESSOR\_STRUCTURE\ \ \ \ \ \ \ \ \ \ "{}accessor"{}}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#define\ COLLADA\_EXTRA\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}extra"{}}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#define\ COLLADA\_BOUNDINGBOX\_STRUCTURE\ \ \ \ \ \ \ "{}boundingbox"{}}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#define\ COLLADA\_MIN\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}min"{}}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#define\ COLLADA\_MAX\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}max"{}}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#define\ COLLADA\_ARRAY\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}array"{}}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#define\ COLLADA\_FLOAT\_ARRAY\_STRUCTURE\ \ \ \ \ \ \ "{}float\_array"{}}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#define\ COLLADA\_INT\_ARRAY\_STRUCTURE\ \ \ \ \ \ \ \ \ "{}int\_array"{}}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#define\ COLLADA\_NAME\_ARRAY\_STRUCTURE\ \ \ \ \ \ \ \ "{}Name\_array"{}}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#define\ COLLADA\_IDREF\_ARRAY\_STRUCTURE\ \ \ \ \ \ \ "{}IDREF\_array"{}}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#define\ COLLADA\_BOOL\_ARRAY\_STRUCTURE\ \ \ \ \ \ \ \ "{}bool\_array"{}}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#define\ COLLADA\_SAMPLER\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}sampler"{}}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#define\ COLLADA\_CHANNEL\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}channel"{}}}
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#define\ COLLADA\_CAMERA\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ "{}camera"{}}}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\#define\ COLLADA\_LIGHT\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}light"{}}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#define\ COLLADA\_OPTICS\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ "{}optics"{}}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#define\ COLLADA\_PROGRAM\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}program"{}}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#define\ COLLADA\_PARAMETER\_STRUCTURE\ \ \ \ \ \ \ \ \ "{}param"{}}}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#define\ COLLADA\_TYPE\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}type"{}}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#define\ COLLADA\_ID\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}id"{}}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#define\ COLLADA\_SUBID\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}sid"{}}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#define\ COLLADA\_NAME\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}name"{}}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#define\ COLLADA\_LAYER\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}layer"{}}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#define\ COLLADA\_COUNT\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}count"{}}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#define\ COLLADA\_STRIDE\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ "{}stride"{}}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#define\ COLLADA\_URL\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}url"{}}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#define\ COLLADA\_SEMANTIC\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ "{}semantic"{}}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#define\ COLLADA\_SOURCE\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ "{}source"{}}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#define\ COLLADA\_TARGET\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ "{}target"{}}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#define\ COLLADA\_PROFILE\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ "{}profile"{}}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\#define\ COLLADA\_MATERIAL\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ "{}material"{}}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\#define\ COLLADA\_METER\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}meter"{}}}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\#define\ COLLADA\_IDX\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}idx"{}}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#define\ COLLADA\_SET\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}set"{}}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\#define\ COLLADA\_OFFSET\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ "{}offset"{}}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#define\ COLLADA\_FLOW\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}flow"{}}}
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\#define\ COLLADA\_FORMAT\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ "{}format"{}}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#define\ COLLADA\_HEIGHT\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ "{}height"{}}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\#define\ COLLADA\_WIDTH\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}width"{}}}
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\#define\ COLLADA\_DEPTH\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}depth"{}}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\#define\ COLLADA\_REF\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}ref"{}}}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\#define\ COLLADA\_GEOMETRY\_LIBRARY\_TYPE\ \ \ \ \ \ \ "{}GEOMETRY"{}}}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\#define\ COLLADA\_CONTROLLER\_LIBRARY\_TYPE\ \ \ \ \ "{}CONTROLLER"{}}}
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\#define\ COLLADA\_ANIMATION\_LIBRARY\_TYPE\ \ \ \ \ \ "{}ANIMATION"{}}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#define\ COLLADA\_MATERIAL\_LIBRARY\_TYPE\ \ \ \ \ \ \ "{}MATERIAL"{}}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\#define\ COLLADA\_TEXTURE\_LIBRARY\_TYPE\ \ \ \ \ \ \ \ "{}TEXTURE"{}}}
+\DoxyCodeLine{00285\ \textcolor{preprocessor}{\#define\ COLLADA\_IMAGE\_LIBRARY\_TYPE\ \ \ \ \ \ \ \ \ \ "{}IMAGE"{}}}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#define\ COLLADA\_LIGHT\_LIBRARY\_TYPE\ \ \ \ \ \ \ \ \ \ "{}LIGHT"{}}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#define\ COLLADA\_CAMERA\_LIBRARY\_TYPE\ \ \ \ \ \ \ \ \ "{}CAMERA"{}}}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\#define\ COLLADA\_LAMBERT\_SHADER\_TYPE\ \ \ \ \ \ \ \ \ "{}LAMBERT"{}}}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\#define\ COLLADA\_PHONG\_SHADER\_TYPE\ \ \ \ \ \ \ \ \ \ \ "{}PHONG"{}}}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#define\ COLLADA\_CONSTANT\_SHADER\_TYPE\ \ \ \ \ \ \ \ "{}CONSTANT"{}}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#define\ COLLADA\_NAME\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}name"{}}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\#define\ COLLADA\_IDREF\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}IDREF"{}}}
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\#define\ COLLADA\_FLOAT\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}float"{}}}
+\DoxyCodeLine{00296\ \textcolor{preprocessor}{\#define\ COLLADA\_BOOL\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}bool"{}}}
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\#define\ COLLADA\_INT\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}int"{}}}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\#define\ COLLADA\_FLOAT3\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}float3"{}}}
+\DoxyCodeLine{00299\ \textcolor{preprocessor}{\#define\ COLLADA\_FLOAT4\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}float4"{}}}
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\#define\ COLLADA\_FUNCTION\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}function"{}}}
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\#define\ COLLADA\_MATRIX\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}float4x4"{}}}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#define\ COLLADA\_STRING\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}string"{}}}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\#define\ COLLADA\_JOINT\_NODE\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}JOINT"{}}}
+\DoxyCodeLine{00305\ \textcolor{preprocessor}{\#define\ COLLADA\_NODE\_NODE\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}NODE"{}}}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\#define\ COLLADA\_TEXTURE\_SEMANTIC\ \ \ \ \ \ \ \ \ \ \ \ "{}TEXTURE"{}}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#define\ COLLADA\_IMAGE\_SEMANTIC\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}IMAGE"{}}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\#define\ COLLADA\_INPUT\_SEMANTIC\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}INPUT"{}}}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\#define\ COLLADA\_OUTPUT\_SEMANTIC\ \ \ \ \ \ \ \ \ \ \ \ \ "{}OUTPUT"{}}}
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\#define\ COLLADA\_IN\_TANGENT\_SEMANTIC\ \ \ \ \ \ \ \ \ "{}IN\_TANGENT"{}}}
+\DoxyCodeLine{00312\ \textcolor{preprocessor}{\#define\ COLLADA\_OUT\_TANGENT\_SEMANTIC\ \ \ \ \ \ \ \ "{}OUT\_TANGENT"{}}}
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\#define\ COLLADA\_INTERPOLATION\_SEMANTIC\ \ \ \ \ \ "{}INTERPOLATION"{}}}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\#define\ COLLADA\_JOINT\_SEMANTIC\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}JOINT"{}}}
+\DoxyCodeLine{00315\ \textcolor{preprocessor}{\#define\ COLLADA\_BIND\_POSITION\_SEMANTIC\ \ \ \ \ \ "{}BIND\_SHAPE\_POSITION"{}}}
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\#define\ COLLADA\_BIND\_NORMAL\_SEMANTIC\ \ \ \ \ \ \ \ "{}BIND\_SHAPE\_NORMAL"{}}}
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\#define\ COLLADA\_JOINT\_AND\_WEIGHT\_SEMANTIC\ \ \ "{}JOINTS\_AND\_WEIGHTS"{}}}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#define\ COLLADA\_BIND\_MATRIX\_SEMANTIC\ \ \ \ \ \ \ \ "{}INV\_BIND\_MATRIX"{}}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\#define\ COLLADA\_JOINT\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ "{}JOINT"{}}}
+\DoxyCodeLine{00320\ \textcolor{preprocessor}{\#define\ COLLADA\_WEIGHT\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ "{}WEIGHT"{}}}
+\DoxyCodeLine{00321\ \textcolor{preprocessor}{\#define\ COLLADA\_MORPH\_TARGET\_SEMANTIC\ \ \ \ \ \ \ "{}MORPH\_TARGET"{}}}
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\#define\ COLLADA\_MORPH\_WEIGHT\_SEMANTIC\ \ \ \ \ \ \ "{}MORPH\_WEIGHT"{}}}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\#define\ COLLADA\_GENERIC\_TECHNIQUE\ \ \ \ \ \ \ \ \ \ \ "{}COMMON"{}}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \textcolor{preprocessor}{\#define\ COLLADA\_TIME\_TARGET\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}TIME"{}}}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \textcolor{preprocessor}{\#define\ COLLADA\_VERTEX\_INPUT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}VERTEX"{}}}
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\#define\ COLLADA\_POSITION\_INPUT\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}POSITION"{}}}
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\#define\ COLLADA\_NORMAL\_INPUT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}NORMAL"{}}}
+\DoxyCodeLine{00331\ \textcolor{preprocessor}{\#define\ COLLADA\_COLOR\_INPUT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}COLOR"{}}}
+\DoxyCodeLine{00332\ \textcolor{preprocessor}{\#define\ COLLADA\_MAPPING\_INPUT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}UV"{}}}
+\DoxyCodeLine{00333\ \textcolor{preprocessor}{\#define\ COLLADA\_TEXCOORD\_INPUT\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}TEXCOORD"{}}}
+\DoxyCodeLine{00334\ \textcolor{preprocessor}{\#define\ COLLADA\_TEXTANGENT\_INPUT\ \ \ \ \ \ \ \ \ \ \ \ "{}TEXTANGENT"{}}}
+\DoxyCodeLine{00335\ \textcolor{preprocessor}{\#define\ COLLADA\_TEXBINORMAL\_INPUT\ \ \ \ \ \ \ \ \ \ \ "{}TEXBINORMAL"{}}}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \textcolor{preprocessor}{\#define\ COLLADA\_LIGHT\_INTENSITY\_PARAMETER\_14\ \ \ \ \ \ \ \ \ \ \ \ "{}intensity"{}}}
+\DoxyCodeLine{00338\ \textcolor{preprocessor}{\#define\ COLLADA\_LIGHT\_PENUMBRA\_ANGLE\_PARAMETER\_14\ \ \ \ \ \ \ "{}penumbra\_angle"{}}}
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\#define\ COLLADA\_LIGHT\_DROPOFF\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}dropoff"{}}}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \textcolor{preprocessor}{\#define\ COLLADA\_CAMERA\_YFOV\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ "{}YFOV"{}}}
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\#define\ COLLADA\_CAMERA\_ZNEAR\_PARAMETER\ \ \ \ \ \ \ \ \ \ "{}ZNEAR"{}}}
+\DoxyCodeLine{00343\ \textcolor{preprocessor}{\#define\ COLLADA\_CAMERA\_ZFAR\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ "{}ZFAR"{}}}
+\DoxyCodeLine{00344\ \textcolor{preprocessor}{\#define\ COLLADA\_CAMERA\_ORTHO\_BOTTOM\_PARAMETER\ \ \ "{}BOTTOM"{}}}
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#define\ COLLADA\_CAMERA\_ORTHO\_TOP\_PARAMETER\ \ \ \ \ \ "{}TOP"{}}}
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\#define\ COLLADA\_CAMERA\_ORTHO\_LEFT\_PARAMETER\ \ \ \ \ "{}LEFT"{}}}
+\DoxyCodeLine{00347\ \textcolor{preprocessor}{\#define\ COLLADA\_CAMERA\_ORTHO\_RIGHT\_PARAMETER\ \ \ \ "{}RIGHT"{}}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \textcolor{preprocessor}{\#define\ COLLADA\_TEXTURE\_WRAPU\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}wrapU"{}}}
+\DoxyCodeLine{00350\ \textcolor{preprocessor}{\#define\ COLLADA\_TEXTURE\_WRAPV\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}wrapV"{}}}
+\DoxyCodeLine{00351\ \textcolor{preprocessor}{\#define\ COLLADA\_TEXTURE\_MIRRORU\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}mirrorU"{}}}
+\DoxyCodeLine{00352\ \textcolor{preprocessor}{\#define\ COLLADA\_TEXTURE\_MIRRORV\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}mirrorV"{}}}
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\#define\ COLLADA\_TEXTURE\_BLEND\_MODE\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ "{}BLEND\_MODE"{}}}
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\#define\ COLLADA\_TEXTURE\_BLEND\_MODE\_PARAMETER\_14\ \ \ \ \ \ \ \ \ "{}blend\_mode"{}}}
+\DoxyCodeLine{00355\ \textcolor{preprocessor}{\#define\ COLLADA\_TEXTURE\_REPEATU\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}repeatU"{}}}
+\DoxyCodeLine{00356\ \textcolor{preprocessor}{\#define\ COLLADA\_TEXTURE\_REPEATV\_PARAMETER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}repeatV"{}}}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\#define\ COLLADA\_CONSTANT\_FUNCTION\ \ \ \ \ \ \ \ \ \ \ "{}CONSTANT"{}}}
+\DoxyCodeLine{00359\ \textcolor{preprocessor}{\#define\ COLLADA\_LINEAR\_FUNCTION\ \ \ \ \ \ \ \ \ \ \ \ \ "{}LINEAR"{}}}
+\DoxyCodeLine{00360\ \textcolor{preprocessor}{\#define\ COLLADA\_QUADRATIC\_FUNCTION\ \ \ \ \ \ \ \ \ \ "{}QUADRATIC"{}}}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \textcolor{preprocessor}{\#define\ COLLADA\_INTERPOLATION\_TYPE\_LINEAR\ \ \ "{}LINEAR"{}}}
+\DoxyCodeLine{00363\ \textcolor{preprocessor}{\#define\ COLLADA\_INTERPOLATION\_TYPE\_BEZIER\ \ \ "{}BEZIER"{}}}
+\DoxyCodeLine{00364\ \textcolor{preprocessor}{\#define\ COLLADA\_INTERPOLATION\_TYPE\_CARDINAL\ "{}CARDINAL"{}}}
+\DoxyCodeLine{00365\ \textcolor{preprocessor}{\#define\ COLLADA\_INTERPOLATION\_TYPE\_HERMITE\ \ "{}HERMITE"{}}}
+\DoxyCodeLine{00366\ \textcolor{preprocessor}{\#define\ COLLADA\_INTERPOLATION\_TYPE\_BSPLINE\ \ "{}BSPLINE"{}}}
+\DoxyCodeLine{00367\ \textcolor{preprocessor}{\#define\ COLLADA\_INTERPOLATION\_TYPE\_STEP\ \ \ \ \ "{}STEP"{}}}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \textcolor{preprocessor}{\#define\ COLLADA\_X\_UP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}X\_UP"{}}}
+\DoxyCodeLine{00370\ \textcolor{preprocessor}{\#define\ COLLADA\_Y\_UP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Y\_UP"{}}}
+\DoxyCodeLine{00371\ \textcolor{preprocessor}{\#define\ COLLADA\_Z\_UP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Z\_UP"{}}}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \textcolor{preprocessor}{\#define\ COLLADA\_IN\_FLOW\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}IN"{}}}
+\DoxyCodeLine{00374\ \textcolor{preprocessor}{\#define\ COLLADA\_OUT\_FLOW\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}OUT"{}}}
+\DoxyCodeLine{00375\ \textcolor{preprocessor}{\#define\ COLLADA\_INOUT\_FLOW\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}INOUT"{}}}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \textcolor{comment}{//\ Obsolete,\ but\ kept\ here\ for\ backward\ compatibility.}}
+\DoxyCodeLine{00378\ \textcolor{preprocessor}{\#define\ COLLADA\_RGB\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}ColorRGB"{}\ \ }\textcolor{comment}{//\ use\ float3\ instead}}
+\DoxyCodeLine{00379\ \textcolor{preprocessor}{\#define\ COLLADA\_RGBA\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}ColorRGBA"{}\ }\textcolor{comment}{//\ use\ float4\ instead}}
+\DoxyCodeLine{00380\ \textcolor{preprocessor}{\#define\ COLLADA\_RGB\_INPUT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}COLORRGB"{}\ \ }\textcolor{comment}{//\ beta\ MAX\ exporter\ has\ been\ known\ to\ generate\ them}}
+\DoxyCodeLine{00381\ \textcolor{preprocessor}{\#define\ COLLADA\_RGBA\_INPUT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}COLORRGBA"{}\ }\textcolor{comment}{//\ beta\ MAX\ exporter\ has\ been\ known\ to\ generate\ them}}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \textcolor{comment}{//\ Physics\ extension.\ Currently\ in\ prototype\ phase.}}
+\DoxyCodeLine{00384\ \textcolor{preprocessor}{\#define\ COLLADA\_PHYSICS\_LIBRARY\_TYPE\ \ \ \ \ \ \ \ "{}PHYSICS"{}}}
+\DoxyCodeLine{00385\ \textcolor{preprocessor}{\#define\ COLLADA\_SHAPE\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}shape"{}}}
+\DoxyCodeLine{00386\ \textcolor{preprocessor}{\#define\ COLLADA\_RIGID\_BODY\_STRUCTURE\ \ \ \ \ \ \ \ "{}rigidbody"{}}}
+\DoxyCodeLine{00387\ \textcolor{preprocessor}{\#define\ COLLADA\_DYNAMIC\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}dynamic"{}}}
+\DoxyCodeLine{00388\ \textcolor{preprocessor}{\#define\ COLLADA\_MASS\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}mass"{}}}
+\DoxyCodeLine{00389\ \textcolor{preprocessor}{\#define\ COLLADA\_PHYSICS\_MATERIAL\_STRUCTURE\ \ "{}physics\_material"{}}}
+\DoxyCodeLine{00390\ \textcolor{preprocessor}{\#define\ COLLADA\_STATIC\_FRICTION\_ATTRIBUTE\ \ \ "{}STATIC\_FRICTION"{}}}
+\DoxyCodeLine{00391\ \textcolor{preprocessor}{\#define\ COLLADA\_DYNAMIC\_FRICTION\_ATTRIBUTE\ \ "{}DYNAMIC\_FRICTION"{}}}
+\DoxyCodeLine{00392\ \textcolor{preprocessor}{\#define\ COLLADA\_ELASTICITY\_ATTRIBUTE\ \ \ \ \ \ \ \ "{}ELASTICITY"{}}}
+\DoxyCodeLine{00393\ \textcolor{preprocessor}{\#define\ COLLADA\_BOX\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}box"{}}}
+\DoxyCodeLine{00394\ \textcolor{preprocessor}{\#define\ COLLADA\_SPHERE\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ "{}sphere"{}}}
+\DoxyCodeLine{00395\ \textcolor{preprocessor}{\#define\ COLLADA\_CAPSULE\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}capsule"{}}}
+\DoxyCodeLine{00396\ \textcolor{preprocessor}{\#define\ COLLADA\_CYLINDER\_STRUCTURE\ \ \ \ \ \ \ \ \ \ "{}cylinder"{}}}
+\DoxyCodeLine{00397\ \textcolor{preprocessor}{\#define\ COLLADA\_ELLIPSOID\_STRUCTURE\ \ \ \ \ \ \ \ \ "{}ellipsoid"{}}}
+\DoxyCodeLine{00398\ \textcolor{preprocessor}{\#define\ COLLADA\_SIZE\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}size"{}}}
+\DoxyCodeLine{00399\ \textcolor{preprocessor}{\#define\ COLLADA\_RADIUS\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ "{}radius"{}}}
+\DoxyCodeLine{00400\ \textcolor{preprocessor}{\#define\ COLLADA\_PHYSICS\_ENVIRONMENT\_STRUCTURE\ \ \ "{}physics\_environment"{}}}
+\DoxyCodeLine{00401\ \textcolor{preprocessor}{\#define\ COLLADA\_ENVIRONMENT\_ID\ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Environment"{}}}
+\DoxyCodeLine{00402\ \textcolor{preprocessor}{\#define\ COLLADA\_TIMESTEP\_ATTRIBUTE\ \ \ \ \ \ \ \ \ \ "{}TIMESTEP"{}}}
+\DoxyCodeLine{00403\ \textcolor{preprocessor}{\#define\ COLLADA\_GRAVITY\_ATTRIBUTE\ \ \ \ \ \ \ \ \ \ \ "{}gravity"{}}}
+\DoxyCodeLine{00404\ \textcolor{preprocessor}{\#define\ COLLADA\_INITIAL\_VELOCITY\_STRUCTURE\ \ "{}initial\_velocity"{}}}
+\DoxyCodeLine{00405\ \textcolor{preprocessor}{\#define\ COLLADA\_INITIAL\_ANGULAR\_VELOCITY\_STRUCTURE\ \ "{}initial\_angular\_velocity"{}}}
+\DoxyCodeLine{00406\ \textcolor{preprocessor}{\#define\ COLLADA\_CONVEX\_MESH\_STRUCTURE\ \ \ \ \ \ \ "{}convex\_mesh"{}}}
+\DoxyCodeLine{00407\ \textcolor{preprocessor}{\#define\ COLLADA\_INERTIA\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}inertia"{}}}
+\DoxyCodeLine{00408\ \textcolor{preprocessor}{\#define\ COLLADA\_DENSITY\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}density"{}}}
+\DoxyCodeLine{00409\ \textcolor{preprocessor}{\#define\ COLLADA\_CENTER\_OF\_MASS\_STRUCTURE\ \ \ \ "{}center\_of\_mass"{}}}
+\DoxyCodeLine{00410\ \textcolor{preprocessor}{\#define\ COLLADA\_DYNAMICS\_STRUCTURE\ \ \ \ \ \ \ \ \ \ "{}dynamics"{}}}
+\DoxyCodeLine{00411\ \textcolor{preprocessor}{\#define\ COLLADA\_RIGID\_CONSTRAINT\_STRUCTURE\ \ "{}rigid\_constraint"{}}}
+\DoxyCodeLine{00412\ \textcolor{preprocessor}{\#define\ COLLADA\_BODY\_PROPERTY\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}body"{}}}
+\DoxyCodeLine{00413\ \textcolor{preprocessor}{\#define\ COLLADA\_ATTACHMENT\_STRUCTURE\ \ \ \ \ \ \ \ "{}attachment"{}}}
+\DoxyCodeLine{00414\ \textcolor{preprocessor}{\#define\ COLLADA\_ROT\_LIMIT\_MIN\_STRUCTURE\ \ \ \ \ "{}rot\_limit\_min"{}}}
+\DoxyCodeLine{00415\ \textcolor{preprocessor}{\#define\ COLLADA\_ROT\_LIMIT\_MAX\_STRUCTURE\ \ \ \ \ "{}rot\_limit\_max"{}}}
+\DoxyCodeLine{00416\ \textcolor{preprocessor}{\#define\ COLLADA\_TRANS\_LIMIT\_MIN\_STRUCTURE\ \ \ "{}trans\_limit\_min"{}}}
+\DoxyCodeLine{00417\ \textcolor{preprocessor}{\#define\ COLLADA\_TRANS\_LIMIT\_MAX\_STRUCTURE\ \ \ "{}trans\_limit\_max"{}}}
+\DoxyCodeLine{00418\ \textcolor{preprocessor}{\#define\ COLLADA\_ENABLED\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}enabled"{}}}
+\DoxyCodeLine{00419\ \textcolor{preprocessor}{\#define\ COLLADA\_INTERPENETRATE\_STRUCTURE\ \ \ \ "{}interpenetrate"{}}}
+\DoxyCodeLine{00420\ \textcolor{preprocessor}{\#define\ COLLADA\_SPRING\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ "{}spring"{}}}
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\#define\ COLLADA\_STIFFNESS\_STRUCTURE\ \ \ \ \ \ \ \ \ "{}stiffness"{}}}
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\#define\ COLLADA\_DAMPING\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}damping"{}}}
+\DoxyCodeLine{00423\ \textcolor{preprocessor}{\#define\ COLLADA\_REST\_LENGTH\_STRUCTURE\ \ \ \ \ \ \ "{}rest\_length"{}}}
+\DoxyCodeLine{00424\ \textcolor{preprocessor}{\#define\ COLLADA\_P0\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}p0"{}}}
+\DoxyCodeLine{00425\ \textcolor{preprocessor}{\#define\ COLLADA\_P1\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}p1"{}}}
+\DoxyCodeLine{00426\ \textcolor{preprocessor}{\#define\ COLLADA\_TRUE\_KEYWORD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}TRUE"{}}}
+\DoxyCodeLine{00427\ \textcolor{preprocessor}{\#define\ COLLADA\_FALSE\_KEYWORD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}FALSE"{}}}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00429\ \textcolor{preprocessor}{\#define\ COLLADA\_LINES\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ \ \ "{}lines"{}}}
+\DoxyCodeLine{00430\ \textcolor{preprocessor}{\#define\ COLLADA\_LINESTRIP\_STRUCTURE\ \ \ \ \ \ \ \ \ "{}linestrips"{}}}
+\DoxyCodeLine{00431\ \textcolor{preprocessor}{\#define\ COLLADA\_TRIFANS\_STRUCTURE\ \ \ \ \ \ \ \ \ \ \ "{}trifans"{}}}
+\DoxyCodeLine{00432\ \textcolor{preprocessor}{\#define\ COLLADA\_TRISTRIPS\_STRUCTURE\ \ \ \ \ \ \ \ \ "{}tristrips"{}}}
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00434\ \textcolor{comment}{//\ Extensions}}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \textcolor{comment}{//\ Feeling\ Software\ ColladaMaya\ extensions}}
+\DoxyCodeLine{00437\ \textcolor{preprocessor}{\#define\ COLLADA\_MAYA\_PROFILE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MAYA"{}}}
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00439\ \textcolor{preprocessor}{\#define\ COLLADA\_MAYA\_LAYER\_ELEMENT\ \ \ \ \ \ \ \ \ \ "{}layer"{}}}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00441\ \textcolor{comment}{//\ Feeling\ Software\ ColladaMax\ extensions}}
+\DoxyCodeLine{00442\ \textcolor{preprocessor}{\#define\ COLLADA\_MAX3D\_PROFILE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}MAX3D"{}}}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00444\ \textcolor{preprocessor}{\#define\ COLLADA\_MAX3D\_FRAMERATE\_ELEMENT\ \ \ \ \ "{}frame\_rate"{}}}
+\DoxyCodeLine{00445\ }
+\DoxyCodeLine{00446\ \textcolor{comment}{//\ Feeling\ Software\ FCollada\ extensions}}
+\DoxyCodeLine{00447\ \textcolor{preprocessor}{\#define\ COLLADA\_FCOLLADA\_PROFILE\ \ \ \ \ \ \ \ \ \ \ \ "{}FCOLLADA"{}}}
+\DoxyCodeLine{00448\ }
+\DoxyCodeLine{00449\ \textcolor{preprocessor}{\#define\ COLLADA\_FCOLLADA\_STARTTIME\_ELEMENT\ \ "{}start\_time"{}}}
+\DoxyCodeLine{00450\ \textcolor{preprocessor}{\#define\ COLLADA\_FCOLLADA\_ENDTIME\_ELEMENT\ \ \ \ "{}end\_time"{}}}
+\DoxyCodeLine{00451\ \textcolor{preprocessor}{\#define\ COLLADA\_FCOLLADA\_VISIBILITY\_ELEMENT\ "{}visibility"{}}}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \textcolor{comment}{//\ XSI\ COLLADA\ extensions}}
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\#define\ COLLADA\_XSI\_PROFILE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}XSI"{}}}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00456\ \textcolor{preprocessor}{\#define\ COLLADA\_XSI\_VISIBILITY\_ELEMENT\ \ \ \ \ \ "{}SI\_Visibility"{}}}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ \textcolor{comment}{//\ FBX\ COLLADA\ extensions}}
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\#define\ COLLADA\_FBX\_PROFILE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}FBX"{}}}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\#define\ COLLADA\_FBX\_TARGET\_ELEMENT\ \ \ \ \ \ \ \ \ \ "{}target"{}}}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00463\ \textcolor{comment}{//\ NVidia\ FXComposer\ extension\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\///}}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ \textcolor{preprocessor}{\#define\ COLLADA\_NVIDIA\_FXCOMPOSER\_PROFILE\ \ \ \ \ \ \ \ \ \ \ "{}NVIDIA\_FXCOMPOSER"{}}}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00467\ \textcolor{preprocessor}{\#define\ COLLADA\_NVIDIA\_FXCOMPOSER\_IMPORT\_ELEMENT\ \ \ \ "{}import"{}}}
+\DoxyCodeLine{00468\ \textcolor{preprocessor}{\#define\ COLLADA\_NVIDIA\_FXCOMPOSER\_URL\_ATTRIBUTE\ \ \ \ \ "{}url"{}}}
+\DoxyCodeLine{00469\ \textcolor{preprocessor}{\#define\ COLLADA\_NVIDIA\_FXCOMPOSER\_COMPILER\_OPTIONS\_ATTRIBUTE\ \ "{}compiler\_options"{}}}
+\DoxyCodeLine{00470\ \textcolor{preprocessor}{\#define\ COLLADA\_NVIDIA\_FXCOMPOSER\_PROFILE\_ATTRIBUTE\ "{}profile"{}}}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00472\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_FILEIO\_COLLADA\_TOKENS\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

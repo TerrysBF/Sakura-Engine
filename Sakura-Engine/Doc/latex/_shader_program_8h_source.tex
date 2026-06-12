@@ -1,0 +1,66 @@
+\doxysection{Shader\+Program.\+h}
+\hypertarget{_shader_program_8h_source}{}\label{_shader_program_8h_source}\mbox{\hyperlink{_shader_program_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}InputLayout.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device}{Device}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_device_context}{DeviceContext}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_layout_builder}{LayoutBuilder}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{class_shader_program}{ShaderProgram}}\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{class_shader_program_aa31ee72d0029cf0f05232a1e925fa99d}{ShaderProgram}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{class_shader_program_a82d49021467be422297cb5f306a02428}{\string~ShaderProgram}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00049\ \ \ HRESULT}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_shader_program_a66a23c1a5cc87b1b34f349f161d9b53a}{init}}(\mbox{\hyperlink{class_device}{Device}}\&\ device,\ \textcolor{keyword}{const}\ std::string\&\ fileName,\ \mbox{\hyperlink{class_layout_builder}{LayoutBuilder}}\ layoutBuilder);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{class_shader_program_a4eeb60684a692cb96ef155d5e11f4401}{update}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{class_shader_program_a3d839da206404e2676ec39603d412b87}{render}}(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{class_shader_program_a3524e39bfa351287079a3eb2ae8dd885}{render}}(\mbox{\hyperlink{class_device_context}{DeviceContext}}\&\ deviceContext,\ ShaderType\ type);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00094\ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{class_shader_program_a7ccfd4eb43ffdafcc4ad911249c9d770}{destroy}}();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00104\ \ \ HRESULT}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{class_shader_program_adda3004301af525933bb875fcf67eb7e}{CreateInputLayout}}(\mbox{\hyperlink{class_device}{Device}}\&\ device,\ \mbox{\hyperlink{class_layout_builder}{LayoutBuilder}});}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00114\ \ \ HRESULT}
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{class_shader_program_a1b6bfd6ba477fbd032e5816230b27c82}{CreateShader}}(\mbox{\hyperlink{class_device}{Device}}\&\ device,\ ShaderType\ type);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00125\ \ \ HRESULT}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{class_shader_program_af3a24bd5885188e81dc27d4c7b36d60f}{CreateShader}}(\mbox{\hyperlink{class_device}{Device}}\&\ device,\ ShaderType\ type,\ \textcolor{keyword}{const}\ std::string\&\ fileName);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00140\ \ \ HRESULT}
+\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{class_shader_program_a488166c9f6b0c021f0267bf1e0442713}{CompileShaderFromFile}}(\textcolor{keywordtype}{char}*\ szFileName,}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ LPCSTR\ szEntryPoint,}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ LPCSTR\ szShaderModel,}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ ID3DBlob**\ ppBlobOut);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00150\ \ \ ID3D11VertexShader*\ \mbox{\hyperlink{class_shader_program_a0d02103af6b893b89da3785009bcc14c}{m\_VertexShader}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00155\ \ \ ID3D11PixelShader*\ \mbox{\hyperlink{class_shader_program_a98caf33dc49db4d01a47ddd66db919e6}{m\_PixelShader}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00160\ \ \ \mbox{\hyperlink{class_input_layout}{InputLayout}}\ \mbox{\hyperlink{class_shader_program_a32427b4ae6939dbb8560b97ad9d5a2b1}{m\_inputLayout}};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00166\ \ \ std::string\ m\_shaderFileName;}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00171\ \ \ ID3DBlob*\ m\_vertexShaderData\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00176\ \ \ ID3DBlob*\ m\_pixelShaderData\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00177\ \};}
+\DoxyCodeLine{00178\ }
+
+\end{DoxyCode}

@@ -1,0 +1,256 @@
+\doxysection{fbxsdk.\+h}
+\hypertarget{fbxsdk_8h_source}{}\label{fbxsdk_8h_source}\index{include/fbx/fbxsdk.h@{include/fbx/fbxsdk.h}}
+\mbox{\hyperlink{fbxsdk_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2016\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#ifndef\ FBXSDK\_NAMESPACE\_USING}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\ \ \ \ \#define\ FBXSDK\_NAMESPACE\_USING\ 1}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//Core\ Base\ Includes}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxarray_8h}{fbxsdk/core/base/fbxarray.h}}>}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxbitset_8h}{fbxsdk/core/base/fbxbitset.h}}>}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcharptrset_8h}{fbxsdk/core/base/fbxcharptrset.h}}>}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcontainerallocators_8h}{fbxsdk/core/base/fbxcontainerallocators.h}}>}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxdynamicarray_8h}{fbxsdk/core/base/fbxdynamicarray.h}}>}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxstatus_8h}{fbxsdk/core/base/fbxstatus.h}}>}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxfile_8h}{fbxsdk/core/base/fbxfile.h}}>}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#ifndef\ FBXSDK\_ENV\_WINSTORE}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{fbxfolder_8h}{fbxsdk/core/base/fbxfolder.h}}>}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxhashmap_8h}{fbxsdk/core/base/fbxhashmap.h}}>}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxintrusivelist_8h}{fbxsdk/core/base/fbxintrusivelist.h}}>}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmap_8h}{fbxsdk/core/base/fbxmap.h}}>}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmemorypool_8h}{fbxsdk/core/base/fbxmemorypool.h}}>}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpair_8h}{fbxsdk/core/base/fbxpair.h}}>}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxset_8h}{fbxsdk/core/base/fbxset.h}}>}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxstring_8h}{fbxsdk/core/base/fbxstring.h}}>}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxstringlist_8h}{fbxsdk/core/base/fbxstringlist.h}}>}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxtime_8h}{fbxsdk/core/base/fbxtime.h}}>}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxtimecode_8h}{fbxsdk/core/base/fbxtimecode.h}}>}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxutils_8h}{fbxsdk/core/base/fbxutils.h}}>}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00072\ \textcolor{comment}{//Core\ Math\ Includes}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmath_8h}{fbxsdk/core/math/fbxmath.h}}>}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxdualquaternion_8h}{fbxsdk/core/math/fbxdualquaternion.h}}>}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmatrix_8h}{fbxsdk/core/math/fbxmatrix.h}}>}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxquaternion_8h}{fbxsdk/core/math/fbxquaternion.h}}>}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxvector2_8h}{fbxsdk/core/math/fbxvector2.h}}>}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxvector4_8h}{fbxsdk/core/math/fbxvector4.h}}>}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00081\ \textcolor{comment}{//Core\ Sync\ Includes}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#ifndef\ FBXSDK\_ENV\_WINSTORE}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{fbxatomic_8h}{fbxsdk/core/sync/fbxatomic.h}}>}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{fbxclock_8h}{fbxsdk/core/sync/fbxclock.h}}>}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{fbxsync_8h}{fbxsdk/core/sync/fbxsync.h}}>}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{fbxthread_8h}{fbxsdk/core/sync/fbxthread.h}}>}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !FBXSDK\_ENV\_WINSTORE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00090\ \textcolor{comment}{//Core\ Includes}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxclassid_8h}{fbxsdk/core/fbxclassid.h}}>}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxconnectionpoint_8h}{fbxsdk/core/fbxconnectionpoint.h}}>}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxdatatypes_8h}{fbxsdk/core/fbxdatatypes.h}}>}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#ifndef\ FBXSDK\_ENV\_WINSTORE}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{fbxmodule_8h}{fbxsdk/core/fbxmodule.h}}>}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{fbxloadingstrategy_8h}{fbxsdk/core/fbxloadingstrategy.h}}>}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !FBXSDK\_ENV\_WINSTORE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmanager_8h}{fbxsdk/core/fbxmanager.h}}>}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxperipheral_8h}{fbxsdk/core/fbxperipheral.h}}>}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#ifndef\ FBXSDK\_ENV\_WINSTORE}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{fbxplugin_8h}{fbxsdk/core/fbxplugin.h}}>}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{fbxplugincontainer_8h}{fbxsdk/core/fbxplugincontainer.h}}>}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !FBXSDK\_ENV\_WINSTORE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxproperty_8h}{fbxsdk/core/fbxproperty.h}}>}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpropertydef_8h}{fbxsdk/core/fbxpropertydef.h}}>}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpropertyhandle_8h}{fbxsdk/core/fbxpropertyhandle.h}}>}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpropertypage_8h}{fbxsdk/core/fbxpropertypage.h}}>}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpropertytypes_8h}{fbxsdk/core/fbxpropertytypes.h}}>}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxquery_8h}{fbxsdk/core/fbxquery.h}}>}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxqueryevent_8h}{fbxsdk/core/fbxqueryevent.h}}>}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#ifndef\ FBXSDK\_ENV\_WINSTORE}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{fbxscopedloadingdirectory_8h}{fbxsdk/core/fbxscopedloadingdirectory.h}}>}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\ \ \ \ \#include\ <\mbox{\hyperlink{fbxscopedloadingfilename_8h}{fbxsdk/core/fbxscopedloadingfilename.h}}>}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !FBXSDK\_ENV\_WINSTORE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxxref_8h}{fbxsdk/core/fbxxref.h}}>}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00119\ \textcolor{comment}{//File\ I/O\ Includes}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxexporter_8h}{fbxsdk/fileio/fbxexporter.h}}>}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxexternaldocreflistener_8h}{fbxsdk/fileio/fbxexternaldocreflistener.h}}>}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxfiletokens_8h}{fbxsdk/fileio/fbxfiletokens.h}}>}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxglobalcamerasettings_8h}{fbxsdk/fileio/fbxglobalcamerasettings.h}}>}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxgloballightsettings_8h}{fbxsdk/fileio/fbxgloballightsettings.h}}>}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxgobo_8h}{fbxsdk/fileio/fbxgobo.h}}>}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbximporter_8h}{fbxsdk/fileio/fbximporter.h}}>}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxiobase_8h}{fbxsdk/fileio/fbxiobase.h}}>}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxiopluginregistry_8h}{fbxsdk/fileio/fbxiopluginregistry.h}}>}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxiosettings_8h}{fbxsdk/fileio/fbxiosettings.h}}>}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxstatisticsfbx_8h}{fbxsdk/fileio/fbxstatisticsfbx.h}}>}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxstatistics_8h}{fbxsdk/fileio/fbxstatistics.h}}>}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#include\ <fbxsdk/fileio/fbxcallbacks.h>}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00135\ \textcolor{comment}{//Scene\ Includes}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#include\ <fbxsdk/scene/fbxaudio.h>}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#include\ <fbxsdk/scene/fbxaudiolayer.h>}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcollection_8h}{fbxsdk/scene/fbxcollection.h}}>}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcollectionexclusive_8h}{fbxsdk/scene/fbxcollectionexclusive.h}}>}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcontainer_8h}{fbxsdk/scene/fbxcontainer.h}}>}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcontainertemplate_8h}{fbxsdk/scene/fbxcontainertemplate.h}}>}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxdisplaylayer_8h}{fbxsdk/scene/fbxdisplaylayer.h}}>}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxdocument_8h}{fbxsdk/scene/fbxdocument.h}}>}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxdocumentinfo_8h}{fbxsdk/scene/fbxdocumentinfo.h}}>}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxenvironment_8h}{fbxsdk/scene/fbxenvironment.h}}>}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxgroupname_8h}{fbxsdk/scene/fbxgroupname.h}}>}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxlibrary_8h}{fbxsdk/scene/fbxlibrary.h}}>}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmediaclip_8h}{fbxsdk/scene/fbxmediaclip.h}}>}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobjectmetadata_8h}{fbxsdk/scene/fbxobjectmetadata.h}}>}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpose_8h}{fbxsdk/scene/fbxpose.h}}>}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxreference_8h}{fbxsdk/scene/fbxreference.h}}>}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxscene_8h}{fbxsdk/scene/fbxscene.h}}>}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxselectionset_8h}{fbxsdk/scene/fbxselectionset.h}}>}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxselectionnode_8h}{fbxsdk/scene/fbxselectionnode.h}}>}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxtakeinfo_8h}{fbxsdk/scene/fbxtakeinfo.h}}>}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxthumbnail_8h}{fbxsdk/scene/fbxthumbnail.h}}>}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxvideo_8h}{fbxsdk/scene/fbxvideo.h}}>}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00160\ \textcolor{comment}{//Scene\ Animation\ Includes}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxanimcurve_8h}{fbxsdk/scene/animation/fbxanimcurve.h}}>}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxanimcurvebase_8h}{fbxsdk/scene/animation/fbxanimcurvebase.h}}>}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxanimcurvefilters_8h}{fbxsdk/scene/animation/fbxanimcurvefilters.h}}>}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxanimcurvenode_8h}{fbxsdk/scene/animation/fbxanimcurvenode.h}}>}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxanimevalclassic_8h}{fbxsdk/scene/animation/fbxanimevalclassic.h}}>}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxanimevalstate_8h}{fbxsdk/scene/animation/fbxanimevalstate.h}}>}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxanimevaluator_8h}{fbxsdk/scene/animation/fbxanimevaluator.h}}>}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxanimlayer_8h}{fbxsdk/scene/animation/fbxanimlayer.h}}>}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxanimstack_8h}{fbxsdk/scene/animation/fbxanimstack.h}}>}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxanimutilities_8h}{fbxsdk/scene/animation/fbxanimutilities.h}}>}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00173\ \textcolor{comment}{//Scene\ Constraint\ Includes}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcharacternodename_8h}{fbxsdk/scene/constraint/fbxcharacternodename.h}}>}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcharacter_8h}{fbxsdk/scene/constraint/fbxcharacter.h}}>}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcharacterpose_8h}{fbxsdk/scene/constraint/fbxcharacterpose.h}}>}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxconstraint_8h}{fbxsdk/scene/constraint/fbxconstraint.h}}>}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxconstraintaim_8h}{fbxsdk/scene/constraint/fbxconstraintaim.h}}>}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxconstraintcustom_8h}{fbxsdk/scene/constraint/fbxconstraintcustom.h}}>}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxconstraintparent_8h}{fbxsdk/scene/constraint/fbxconstraintparent.h}}>}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxconstraintposition_8h}{fbxsdk/scene/constraint/fbxconstraintposition.h}}>}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxconstraintrotation_8h}{fbxsdk/scene/constraint/fbxconstraintrotation.h}}>}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxconstraintscale_8h}{fbxsdk/scene/constraint/fbxconstraintscale.h}}>}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxconstraintsinglechainik_8h}{fbxsdk/scene/constraint/fbxconstraintsinglechainik.h}}>}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxconstraintutils_8h}{fbxsdk/scene/constraint/fbxconstraintutils.h}}>}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcontrolset_8h}{fbxsdk/scene/constraint/fbxcontrolset.h}}>}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxhik2fbxcharacter_8h}{fbxsdk/scene/constraint/fbxhik2fbxcharacter.h}}>}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00190\ \textcolor{comment}{//Scene\ Geometry\ Includes}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxblendshape_8h}{fbxsdk/scene/geometry/fbxblendshape.h}}>}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxblendshapechannel_8h}{fbxsdk/scene/geometry/fbxblendshapechannel.h}}>}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcache_8h}{fbxsdk/scene/geometry/fbxcache.h}}>}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcachedeffect_8h}{fbxsdk/scene/geometry/fbxcachedeffect.h}}>}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcamera_8h}{fbxsdk/scene/geometry/fbxcamera.h}}>}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcamerastereo_8h}{fbxsdk/scene/geometry/fbxcamerastereo.h}}>}}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcameraswitcher_8h}{fbxsdk/scene/geometry/fbxcameraswitcher.h}}>}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcluster_8h}{fbxsdk/scene/geometry/fbxcluster.h}}>}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxdeformer_8h}{fbxsdk/scene/geometry/fbxdeformer.h}}>}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxgenericnode_8h}{fbxsdk/scene/geometry/fbxgenericnode.h}}>}}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxgeometry_8h}{fbxsdk/scene/geometry/fbxgeometry.h}}>}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxgeometrybase_8h}{fbxsdk/scene/geometry/fbxgeometrybase.h}}>}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxgeometryweightedmap_8h}{fbxsdk/scene/geometry/fbxgeometryweightedmap.h}}>}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxlight_8h}{fbxsdk/scene/geometry/fbxlight.h}}>}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxlimitsutilities_8h}{fbxsdk/scene/geometry/fbxlimitsutilities.h}}>}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxline_8h}{fbxsdk/scene/geometry/fbxline.h}}>}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxlodgroup_8h}{fbxsdk/scene/geometry/fbxlodgroup.h}}>}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmarker_8h}{fbxsdk/scene/geometry/fbxmarker.h}}>}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmesh_8h}{fbxsdk/scene/geometry/fbxmesh.h}}>}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxnode_8h}{fbxsdk/scene/geometry/fbxnode.h}}>}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxnodeattribute_8h}{fbxsdk/scene/geometry/fbxnodeattribute.h}}>}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxnull_8h}{fbxsdk/scene/geometry/fbxnull.h}}>}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxnurbs_8h}{fbxsdk/scene/geometry/fbxnurbs.h}}>}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxnurbscurve_8h}{fbxsdk/scene/geometry/fbxnurbscurve.h}}>}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxnurbssurface_8h}{fbxsdk/scene/geometry/fbxnurbssurface.h}}>}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxopticalreference_8h}{fbxsdk/scene/geometry/fbxopticalreference.h}}>}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpatch_8h}{fbxsdk/scene/geometry/fbxpatch.h}}>}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxproceduralgeometry_8h}{fbxsdk/scene/geometry/fbxproceduralgeometry.h}}>}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxshape_8h}{fbxsdk/scene/geometry/fbxshape.h}}>}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxskeleton_8h}{fbxsdk/scene/geometry/fbxskeleton.h}}>}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxskin_8h}{fbxsdk/scene/geometry/fbxskin.h}}>}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsubdeformer_8h}{fbxsdk/scene/geometry/fbxsubdeformer.h}}>}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsubdiv_8h}{fbxsdk/scene/geometry/fbxsubdiv.h}}>}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxtrimnurbssurface_8h}{fbxsdk/scene/geometry/fbxtrimnurbssurface.h}}>}}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxvertexcachedeformer_8h}{fbxsdk/scene/geometry/fbxvertexcachedeformer.h}}>}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxweightedmapping_8h}{fbxsdk/scene/geometry/fbxweightedmapping.h}}>}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00229\ \textcolor{comment}{//Scene\ Shading\ Includes}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxshadingconventions_8h}{fbxsdk/scene/shading/fbxshadingconventions.h}}>}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxbindingsentryview_8h}{fbxsdk/scene/shading/fbxbindingsentryview.h}}>}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxbindingtable_8h}{fbxsdk/scene/shading/fbxbindingtable.h}}>}}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxbindingtableentry_8h}{fbxsdk/scene/shading/fbxbindingtableentry.h}}>}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxbindingoperator_8h}{fbxsdk/scene/shading/fbxbindingoperator.h}}>}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxconstantentryview_8h}{fbxsdk/scene/shading/fbxconstantentryview.h}}>}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxentryview_8h}{fbxsdk/scene/shading/fbxentryview.h}}>}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxfiletexture_8h}{fbxsdk/scene/shading/fbxfiletexture.h}}>}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbximplementation_8h}{fbxsdk/scene/shading/fbximplementation.h}}>}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbximplementationfilter_8h}{fbxsdk/scene/shading/fbximplementationfilter.h}}>}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbximplementationutils_8h}{fbxsdk/scene/shading/fbximplementationutils.h}}>}}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxlayeredtexture_8h}{fbxsdk/scene/shading/fbxlayeredtexture.h}}>}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxoperatorentryview_8h}{fbxsdk/scene/shading/fbxoperatorentryview.h}}>}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxproceduraltexture_8h}{fbxsdk/scene/shading/fbxproceduraltexture.h}}>}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpropertyentryview_8h}{fbxsdk/scene/shading/fbxpropertyentryview.h}}>}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsemanticentryview_8h}{fbxsdk/scene/shading/fbxsemanticentryview.h}}>}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsurfacelambert_8h}{fbxsdk/scene/shading/fbxsurfacelambert.h}}>}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsurfacematerial_8h}{fbxsdk/scene/shading/fbxsurfacematerial.h}}>}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#include\ <fbxsdk/scene/shading/fbxsurfacematerialutils.h>}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsurfacephong_8h}{fbxsdk/scene/shading/fbxsurfacephong.h}}>}}
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxtexture_8h}{fbxsdk/scene/shading/fbxtexture.h}}>}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00253\ \textcolor{comment}{//Utilities\ Includes}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxdeformationsevaluator_8h}{fbxsdk/utils/fbxdeformationsevaluator.h}}>}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxprocessor_8h}{fbxsdk/utils/fbxprocessor.h}}>}}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxprocessorxref_8h}{fbxsdk/utils/fbxprocessorxref.h}}>}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxprocessorxrefuserlib_8h}{fbxsdk/utils/fbxprocessorxrefuserlib.h}}>}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxprocessorshaderdependency_8h}{fbxsdk/utils/fbxprocessorshaderdependency.h}}>}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxclonemanager_8h}{fbxsdk/utils/fbxclonemanager.h}}>}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxgeometryconverter_8h}{fbxsdk/utils/fbxgeometryconverter.h}}>}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmanipulators_8h}{fbxsdk/utils/fbxmanipulators.h}}>}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxmaterialconverter_8h}{fbxsdk/utils/fbxmaterialconverter.h}}>}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxrenamingstrategyfbx5_8h}{fbxsdk/utils/fbxrenamingstrategyfbx5.h}}>}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxrenamingstrategyfbx6_8h}{fbxsdk/utils/fbxrenamingstrategyfbx6.h}}>}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxrenamingstrategyutilities_8h}{fbxsdk/utils/fbxrenamingstrategyutilities.h}}>}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxrootnodeutility_8h}{fbxsdk/utils/fbxrootnodeutility.h}}>}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxusernotification_8h}{fbxsdk/utils/fbxusernotification.h}}>}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxscenecheckutility_8h}{fbxsdk/utils/fbxscenecheckutility.h}}>}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_NAMESPACE)\ \&\&\ (FBXSDK\_NAMESPACE\_USING\ ==\ 1)}}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keyword}{using\ namespace\ }FBXSDK\_NAMESPACE;}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

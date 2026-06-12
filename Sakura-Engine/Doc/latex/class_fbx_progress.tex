@@ -1,0 +1,129 @@
+\doxysection{Fbx\+Progress Class Reference}
+\hypertarget{class_fbx_progress}{}\label{class_fbx_progress}\index{FbxProgress@{FbxProgress}}
+
+
+{\ttfamily \#include $<$fbxprogress.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_progress_a8d165798c9c75bdf2498d7a6840220aa}{Set\+Progress\+Callback}} (Fbx\+Progress\+Callback p\+Callback, void \texorpdfstring{$\ast$}{*}p\+Args=NULL)
+\item 
+void \mbox{\hyperlink{class_fbx_progress_a5a704be350a16f935729750888644040}{Set\+Total}} (float p\+Total)
+\item 
+void \mbox{\hyperlink{class_fbx_progress_a0f2eeea6d21c0917acde3e9c08a5a649}{Set\+Threshold}} (float p\+Threshold)
+\item 
+void \mbox{\hyperlink{class_fbx_progress_ac67f9c160f7ffc09e9c7454b3bfa6b06}{Update}} (float p\+Delta, const char \texorpdfstring{$\ast$}{*}p\+Status=NULL)
+\item 
+\Hypertarget{class_fbx_progress_a5f7149e7ac9e7dd29eae9f3ebada5418}\label{class_fbx_progress_a5f7149e7ac9e7dd29eae9f3ebada5418} 
+void {\bfseries Reset} ()
+\begin{DoxyCompactList}\small\item\em Reset the progress status percentage and status string. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_fbx_progress_a63376b77e48aaaaf6ff86924132572b1}{Get\+Progress}} (\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*}p\+Status=NULL)
+\item 
+void \mbox{\hyperlink{class_fbx_progress_a90e010980f9db7fd525ef8a2e0a9a471}{Complete}} (const char \texorpdfstring{$\ast$}{*}p\+Status=NULL)
+\item 
+\Hypertarget{class_fbx_progress_a6d335a5a18efc63d4a73d5eeedf78516}\label{class_fbx_progress_a6d335a5a18efc63d4a73d5eeedf78516} 
+void {\bfseries Cancel} ()
+\begin{DoxyCompactList}\small\item\em Cancel this progress. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_progress_a01a1707ca7bdb12250642661ac1a3a31}\label{class_fbx_progress_a01a1707ca7bdb12250642661ac1a3a31} 
+bool {\bfseries Is\+Canceled} () const
+\begin{DoxyCompactList}\small\item\em Query whether user canceled this progress. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_progress_a7053c5eabf3c7dc580f9c317971bf565}\label{class_fbx_progress_a7053c5eabf3c7dc580f9c317971bf565} 
+float {\bfseries Get\+Total} () const
+\begin{DoxyCompactList}\small\item\em Retrieve the current total of this progress. \end{DoxyCompactList}\item 
+\Hypertarget{class_fbx_progress_a26eac7f5f5643ba3976e3c25325259c0}\label{class_fbx_progress_a26eac7f5f5643ba3976e3c25325259c0} 
+float {\bfseries Get\+Threshold} () const
+\begin{DoxyCompactList}\small\item\em Retrieve the current threshold of this progress. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for progress reporting 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_progress_a90e010980f9db7fd525ef8a2e0a9a471}\index{FbxProgress@{FbxProgress}!Complete@{Complete}}
+\index{Complete@{Complete}!FbxProgress@{FbxProgress}}
+\doxysubsubsection{\texorpdfstring{Complete()}{Complete()}}
+{\footnotesize\ttfamily \label{class_fbx_progress_a90e010980f9db7fd525ef8a2e0a9a471} 
+void Fbx\+Progress\+::\+Complete (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Status}{ = {\ttfamily NULL}}\end{DoxyParamCaption})}
+
+Set the progress status to completed. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Status} & Optional current progress status string. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_progress_a63376b77e48aaaaf6ff86924132572b1}\index{FbxProgress@{FbxProgress}!GetProgress@{GetProgress}}
+\index{GetProgress@{GetProgress}!FbxProgress@{FbxProgress}}
+\doxysubsubsection{\texorpdfstring{GetProgress()}{GetProgress()}}
+{\footnotesize\ttfamily \label{class_fbx_progress_a63376b77e48aaaaf6ff86924132572b1} 
+float Fbx\+Progress\+::\+Get\+Progress (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_string}{Fbx\+String}} \texorpdfstring{$\ast$}{*}}]{p\+Status}{ = {\ttfamily NULL}}\end{DoxyParamCaption})}
+
+Retrieve the progress status. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Status} & Optional current progress status string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current progress percentage. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_progress_a8d165798c9c75bdf2498d7a6840220aa}\index{FbxProgress@{FbxProgress}!SetProgressCallback@{SetProgressCallback}}
+\index{SetProgressCallback@{SetProgressCallback}!FbxProgress@{FbxProgress}}
+\doxysubsubsection{\texorpdfstring{SetProgressCallback()}{SetProgressCallback()}}
+{\footnotesize\ttfamily \label{class_fbx_progress_a8d165798c9c75bdf2498d7a6840220aa} 
+void Fbx\+Progress\+::\+Set\+Progress\+Callback (\begin{DoxyParamCaption}\item[{Fbx\+Progress\+Callback}]{p\+Callback}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Args}{ = {\ttfamily NULL}}\end{DoxyParamCaption})}
+
+Register a callback function for progress reporting in single thread mode. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Callback} & Pointer of the callback function. \\
+\hline
+{\em p\+Args} & Pointer to the optional arguments passed to the callback function. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_fbx_progress_a0f2eeea6d21c0917acde3e9c08a5a649}\index{FbxProgress@{FbxProgress}!SetThreshold@{SetThreshold}}
+\index{SetThreshold@{SetThreshold}!FbxProgress@{FbxProgress}}
+\doxysubsubsection{\texorpdfstring{SetThreshold()}{SetThreshold()}}
+{\footnotesize\ttfamily \label{class_fbx_progress_a0f2eeea6d21c0917acde3e9c08a5a649} 
+void Fbx\+Progress\+::\+Set\+Threshold (\begin{DoxyParamCaption}\item[{float}]{p\+Threshold}{}\end{DoxyParamCaption})}
+
+Set the threshold at which the progress callback should be called. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Threshold} & The threshold value, between 0.\+0 and 100.\+0, that triggers the callback. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The default threshold is 1.\+0, meaning that every 1\% the callback is triggered. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_progress_a5a704be350a16f935729750888644040}\index{FbxProgress@{FbxProgress}!SetTotal@{SetTotal}}
+\index{SetTotal@{SetTotal}!FbxProgress@{FbxProgress}}
+\doxysubsubsection{\texorpdfstring{SetTotal()}{SetTotal()}}
+{\footnotesize\ttfamily \label{class_fbx_progress_a5a704be350a16f935729750888644040} 
+void Fbx\+Progress\+::\+Set\+Total (\begin{DoxyParamCaption}\item[{float}]{p\+Total}{}\end{DoxyParamCaption})}
+
+Set the total amount of workload needed to complete the progress. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Total} & Total amount of workload. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+The default total is 100.\+0. 
+\end{DoxyRemark}
+\Hypertarget{class_fbx_progress_ac67f9c160f7ffc09e9c7454b3bfa6b06}\index{FbxProgress@{FbxProgress}!Update@{Update}}
+\index{Update@{Update}!FbxProgress@{FbxProgress}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_fbx_progress_ac67f9c160f7ffc09e9c7454b3bfa6b06} 
+void Fbx\+Progress\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{p\+Delta}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{p\+Status}{ = {\ttfamily NULL}}\end{DoxyParamCaption})}
+
+Update current progress with recent workload. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Delta} & Delta amount of workload progressed so far. \\
+\hline
+{\em p\+Status} & Optional current progress status string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRemark}{Remarks}
+If a callback is set, it will be called upon caling this function. 
+\end{DoxyRemark}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/fileio/\mbox{\hyperlink{fbxprogress_8h}{fbxprogress.\+h}}\end{DoxyCompactItemize}

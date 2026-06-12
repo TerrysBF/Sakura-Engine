@@ -1,0 +1,159 @@
+\doxysection{Fbx\+Loading\+Strategy Class Reference}
+\hypertarget{class_fbx_loading_strategy}{}\label{class_fbx_loading_strategy}\index{FbxLoadingStrategy@{FbxLoadingStrategy}}
+
+
+{\ttfamily \#include $<$fbxloadingstrategy.\+h$>$}
+
+Inheritance diagram for Fbx\+Loading\+Strategy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_fbx_loading_strategy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdb}{EState}} \{ \mbox{\hyperlink{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdbab1c0124ff0a40e7a567a96edae73b834}{e\+All\+Loaded}}
+, \mbox{\hyperlink{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdba75e79797fc07199bda3c5f49c1825fbc}{e\+None\+Loaded}}
+, \mbox{\hyperlink{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdba9c9b2cf75eb23ea11cc6bf91cfd04ecd}{e\+All\+Failed}}
+, \mbox{\hyperlink{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdba18d6e8bbfd8bc1c0e9e8d8a175d4bc15}{e\+Some\+Failed}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_fbx_plugin_container}{Fbx\+Plugin\+Container}}}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{class_fbx_intrusive_list}{Fbx\+Intrusive\+List}}$<$ \mbox{\hyperlink{class_fbx_plugin}{Fbx\+Plugin}} $>$ {\bfseries Plugin\+List}
+\begin{DoxyCompactList}\small\item\em Definition of a plug-\/in list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{Indent}\textbf{ Public interface}\par
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdb}{EState}} \mbox{\hyperlink{class_fbx_loading_strategy_a3923744db719aaebabe262e2e3891d8a}{Load}} (\mbox{\hyperlink{struct_fbx_plugin_data}{Fbx\+Plugin\+Data}} \&p\+Data)
+\item 
+void \mbox{\hyperlink{class_fbx_loading_strategy_a53e5398383c4b2df2c8047c7d0d20581}{Unload}} ()
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_fbx_plugin_container}{Fbx\+Plugin\+Container}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_plugin_container_a3fc28ffe0296973afb3014112b4b0df0}{Register}} (\mbox{\hyperlink{class_fbx_plugin}{Fbx\+Plugin}} \&p\+Plugin)
+\item 
+void \mbox{\hyperlink{class_fbx_plugin_container_af4b2068d41d0e87e97135e9effea55f7}{Unregister}} (\mbox{\hyperlink{class_fbx_plugin}{Fbx\+Plugin}} \&p\+Plugin)
+\item 
+const \mbox{\hyperlink{class_fbx_plugin_container_a42abd8471efa91f56de2c4c64c220972}{Plugin\+List}} \& \mbox{\hyperlink{class_fbx_plugin_container_afc30cddb82c621febf18c92cf03ddd64}{Get\+Plugins}} () const
+\item 
+\mbox{\hyperlink{class_fbx_plugin_container_a42abd8471efa91f56de2c4c64c220972}{Plugin\+List}} \& \mbox{\hyperlink{class_fbx_plugin_container_abb78a589cb476d68bcc5d243346c3c88}{Get\+Plugins}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_fbx_emitter_ab8022a1fd620467f12f493673cfa16a9}{Add\+Listener}} (\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \&p\+Handler)
+\item 
+void \mbox{\hyperlink{class_fbx_emitter_a9d5e8f773a85bd9f7a88d9f01eb5463d}{Remove\+Listener}} (\mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}} \&p\+Handler)
+\item 
+{\footnotesize template$<$typename Event\+Type$>$ }\\void \mbox{\hyperlink{class_fbx_emitter_ad541e3b06c0beeab71fcf066fc44c78d}{Emit}} (const Event\+Type \&p\+Event) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{User implementation}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_loading_strategy_a7ae53371abecd1686cd765d19697e1c8}\label{class_fbx_loading_strategy_a7ae53371abecd1686cd765d19697e1c8} 
+\mbox{\hyperlink{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdb}{EState}} {\bfseries m\+Plugins\+Loaded\+State}
+\begin{DoxyCompactList}\small\item\em Whether the plugin is loaded or not. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_fbx_loading_strategy_a5e1fb1dd165eeb5d4670aab41bed1659}{Specific\+Load}} (\mbox{\hyperlink{struct_fbx_plugin_data}{Fbx\+Plugin\+Data}} \&p\+Data)=0
+\item 
+virtual void \mbox{\hyperlink{class_fbx_loading_strategy_a22f41510c2741f68ffb96f7c3da79a85}{Specific\+Unload}} (\mbox{\hyperlink{struct_fbx_plugin_data}{Fbx\+Plugin\+Data}} \&p\+Data)=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Types inherited from \mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}}}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{class_fbx_intrusive_list}{Fbx\+Intrusive\+List}}$<$ \mbox{\hyperlink{class_fbx_event_handler}{Fbx\+Event\+Handler}}, \mbox{\hyperlink{class_fbx_event_handler_a47139da2cfd5abee91664d75c4fb577cae2c0d7da494cef8d787ee3495e24a6c0}{Fbx\+Event\+Handler\+::e\+Emitter}} $>$ {\bfseries Event\+Handler\+List}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_fbx_plugin_container}{Fbx\+Plugin\+Container}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fbx_plugin_container_a42abd8471efa91f56de2c4c64c220972}{Plugin\+List}} {\bfseries m\+Plugins}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_fbx_emitter}{Fbx\+Emitter}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_fbx_emitter_1_1_event_data}{Event\+Data}} \texorpdfstring{$\ast$}{*} {\bfseries m\+Data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract class used to implemented some plug-\/in loading strategy. A loading strategy dictate how some plug-\/ins will be loaded for instance. We could have a simple strategy that loads only a single dll on PC. We could also implement a strategy that load multiple dlls from a directory. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdb}\index{FbxLoadingStrategy@{FbxLoadingStrategy}!EState@{EState}}
+\index{EState@{EState}!FbxLoadingStrategy@{FbxLoadingStrategy}}
+\doxysubsubsection{\texorpdfstring{EState}{EState}}
+{\footnotesize\ttfamily \label{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdb} 
+enum \mbox{\hyperlink{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdb}{Fbx\+Loading\+Strategy\+::\+EState}}}
+
+Result state of loading plug-\/in. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eAllLoaded@{eAllLoaded}!FbxLoadingStrategy@{FbxLoadingStrategy}}\index{FbxLoadingStrategy@{FbxLoadingStrategy}!eAllLoaded@{eAllLoaded}}}\Hypertarget{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdbab1c0124ff0a40e7a567a96edae73b834}\label{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdbab1c0124ff0a40e7a567a96edae73b834} 
+e\+All\+Loaded&Plug-\/ins are loaded. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eNoneLoaded@{eNoneLoaded}!FbxLoadingStrategy@{FbxLoadingStrategy}}\index{FbxLoadingStrategy@{FbxLoadingStrategy}!eNoneLoaded@{eNoneLoaded}}}\Hypertarget{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdba75e79797fc07199bda3c5f49c1825fbc}\label{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdba75e79797fc07199bda3c5f49c1825fbc} 
+e\+None\+Loaded&No plug-\/ins are loaded. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eAllFailed@{eAllFailed}!FbxLoadingStrategy@{FbxLoadingStrategy}}\index{FbxLoadingStrategy@{FbxLoadingStrategy}!eAllFailed@{eAllFailed}}}\Hypertarget{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdba9c9b2cf75eb23ea11cc6bf91cfd04ecd}\label{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdba9c9b2cf75eb23ea11cc6bf91cfd04ecd} 
+e\+All\+Failed&Plug-\/ins failed to load. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eSomeFailed@{eSomeFailed}!FbxLoadingStrategy@{FbxLoadingStrategy}}\index{FbxLoadingStrategy@{FbxLoadingStrategy}!eSomeFailed@{eSomeFailed}}}\Hypertarget{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdba18d6e8bbfd8bc1c0e9e8d8a175d4bc15}\label{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdba18d6e8bbfd8bc1c0e9e8d8a175d4bc15} 
+e\+Some\+Failed&Not all found plug-\/ins are loaded. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_loading_strategy_a3923744db719aaebabe262e2e3891d8a}\index{FbxLoadingStrategy@{FbxLoadingStrategy}!Load@{Load}}
+\index{Load@{Load}!FbxLoadingStrategy@{FbxLoadingStrategy}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily \label{class_fbx_loading_strategy_a3923744db719aaebabe262e2e3891d8a} 
+\mbox{\hyperlink{class_fbx_loading_strategy_a2f61523e78f4bb06d46ccf3351d2bcdb}{EState}} Fbx\+Loading\+Strategy\+::\+Load (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_fbx_plugin_data}{Fbx\+Plugin\+Data}} \&}]{p\+Data}{}\end{DoxyParamCaption})}
+
+Execute the operation of loading the plug-\/in(s). The way it is executed is determined by the specific implementations. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Data} & Plug in data that can be access inside the plug-\/ins. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The state of the loading action. 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_loading_strategy_a5e1fb1dd165eeb5d4670aab41bed1659}\index{FbxLoadingStrategy@{FbxLoadingStrategy}!SpecificLoad@{SpecificLoad}}
+\index{SpecificLoad@{SpecificLoad}!FbxLoadingStrategy@{FbxLoadingStrategy}}
+\doxysubsubsection{\texorpdfstring{SpecificLoad()}{SpecificLoad()}}
+{\footnotesize\ttfamily \label{class_fbx_loading_strategy_a5e1fb1dd165eeb5d4670aab41bed1659} 
+virtual bool Fbx\+Loading\+Strategy\+::\+Specific\+Load (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_fbx_plugin_data}{Fbx\+Plugin\+Data}} \&}]{p\+Data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+Called by the Load method, it contains the specific user implementation strategy to load the desired plug-\/in(s). 
+\begin{DoxyParams}{Parameters}
+{\em p\+Data} & Plug in data that can be access inside the plug-\/ins. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the plugin loading is successful return {\ttfamily true}, otherwise return {\ttfamily false} 
+\end{DoxyReturn}
+\Hypertarget{class_fbx_loading_strategy_a22f41510c2741f68ffb96f7c3da79a85}\index{FbxLoadingStrategy@{FbxLoadingStrategy}!SpecificUnload@{SpecificUnload}}
+\index{SpecificUnload@{SpecificUnload}!FbxLoadingStrategy@{FbxLoadingStrategy}}
+\doxysubsubsection{\texorpdfstring{SpecificUnload()}{SpecificUnload()}}
+{\footnotesize\ttfamily \label{class_fbx_loading_strategy_a22f41510c2741f68ffb96f7c3da79a85} 
+virtual void Fbx\+Loading\+Strategy\+::\+Specific\+Unload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_fbx_plugin_data}{Fbx\+Plugin\+Data}} \&}]{p\+Data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+Called by the Unload method, it contains the specific user implementation strategy to unload the desired plug-\/in(s). \Hypertarget{class_fbx_loading_strategy_a53e5398383c4b2df2c8047c7d0d20581}\index{FbxLoadingStrategy@{FbxLoadingStrategy}!Unload@{Unload}}
+\index{Unload@{Unload}!FbxLoadingStrategy@{FbxLoadingStrategy}}
+\doxysubsubsection{\texorpdfstring{Unload()}{Unload()}}
+{\footnotesize\ttfamily \label{class_fbx_loading_strategy_a53e5398383c4b2df2c8047c7d0d20581} 
+void Fbx\+Loading\+Strategy\+::\+Unload (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Execute the operation of unloading the plug-\/in(s). The way it is executed is determined by the specific implementations. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/\mbox{\hyperlink{fbxloadingstrategy_8h}{fbxloadingstrategy.\+h}}\end{DoxyCompactItemize}

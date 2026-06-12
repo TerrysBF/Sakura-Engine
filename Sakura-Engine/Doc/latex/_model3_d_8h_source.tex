@@ -1,0 +1,91 @@
+\doxysection{Model3\+D.\+h}
+\hypertarget{_model3_d_8h_source}{}\label{_model3_d_8h_source}\index{include/Model3D.h@{include/Model3D.h}}
+\mbox{\hyperlink{_model3_d_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_prerequisites_8h}{Prerequisites.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}IResource.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_mesh_component_8h}{MeshComponent.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fbxsdk_8h}{fbxsdk.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00013\ \ \ \ \ ModelType\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ OBJ,}
+\DoxyCodeLine{00015\ \ \ \ \ FBX}
+\DoxyCodeLine{00016\ \};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class}}
+\DoxyCodeLine{00019\ \ \ \ \ Model3D\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_i_resource_a01378dfe489a635001e3c1afded70563}{IResource}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ Model3D(\textcolor{keyword}{const}\ std::string\&\ name,\ ModelType\ modelType)}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_i_resource_a01378dfe489a635001e3c1afded70563}{IResource}}(name),\ m\_modelType(modelType),\ lSdkManager(\textcolor{keyword}{nullptr}),\ lScene(\textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ SetType(ResourceType::Model3D);}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ Model3D(\textcolor{keyword}{const}\ std::string\&\ name,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_skybox_vertex}{SkyboxVertex}}\ vertices[],}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ indices[])\ :\ \mbox{\hyperlink{class_i_resource_a01378dfe489a635001e3c1afded70563}{IResource}}(name)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_mesh_component}{MeshComponent}}\ mesh;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ mesh.m\_skyVertex.assign(vertices,\ vertices\ +\ 8);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ mesh.\mbox{\hyperlink{class_mesh_component_a3a6c10b4fdcd60870e052d1b62c72683}{m\_index}}.assign(indices,\ indices\ +\ 36);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ mesh.\mbox{\hyperlink{class_mesh_component_aa049bdc296f10d4700dceb2659c47051}{m\_numIndex}}\ =\ mesh.\mbox{\hyperlink{class_mesh_component_a3a6c10b4fdcd60870e052d1b62c72683}{m\_index}}.size();}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ SetType(ResourceType::Model3D);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ m\_meshes.push\_back(mesh);}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \string~Model3D()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_model3_d_ad264d3cfd83ad78aba54114601af582a}{load}}(\textcolor{keyword}{const}\ std::string\&\ path)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_model3_d_ac718e514403a19985847deca1d062db7}{init}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_model3_d_a61b4891ed430a715e389af5a6fff08c7}{unload}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{size\_t}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_model3_d_a42dbe41a7435885766515c4ebb2bc87b}{getSizeInBytes}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<MeshComponent>\&}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ GetMeshes()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_meshes;\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{/*\ FBX\ MODEL\ LOADER*/}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ InitializeFBXManager();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ std::vector<MeshComponent>}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ LoadFBXModel(\textcolor{keyword}{const}\ std::string\&\ filePath);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ std::vector<MeshComponent>}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ LoadOBJModel(\textcolor{keyword}{const}\ std::string\&\ filePath);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ ProcessFBXNode(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ node);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ ProcessFBXMesh(\mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ node);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ ProcessFBXMaterials(\mbox{\hyperlink{class_fbx_surface_material}{FbxSurfaceMaterial}}*\ material);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ std::vector<std::string>}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ GetTextureFileNames()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ textureFileNames;\ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00077\ \ \ \ \ std::string\ GetBinaryCachePath()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ IsBinaryCacheUpToDate(\textcolor{keyword}{const}\ std::string\&\ sourcePath,\ \textcolor{keyword}{const}\ std::string\&\ cachePath)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ LoadBinaryCache(\textcolor{keyword}{const}\ std::string\&\ cachePath);}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{bool}\ SaveBinaryCache(\textcolor{keyword}{const}\ std::string\&\ cachePath)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{class_fbx_manager}{FbxManager}}*\ lSdkManager;}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{class_fbx_scene}{FbxScene}}*\ lScene;}
+\DoxyCodeLine{00085\ \ \ \ \ std::vector<std::string>\ textureFileNames;}
+\DoxyCodeLine{00086\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00087\ \ \ \ \ ModelType\ m\_modelType;}
+\DoxyCodeLine{00088\ \ \ \ \ std::vector<MeshComponent>\ m\_meshes;}
+\DoxyCodeLine{00089\ \};}
+
+\end{DoxyCode}

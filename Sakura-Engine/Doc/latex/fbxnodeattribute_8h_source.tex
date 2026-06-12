@@ -1,0 +1,83 @@
+\doxysection{fbxnodeattribute.\+h}
+\hypertarget{fbxnodeattribute_8h_source}{}\label{fbxnodeattribute_8h_source}\index{include/fbx/fbxsdk/scene/geometry/fbxnodeattribute.h@{include/fbx/fbxsdk/scene/geometry/fbxnodeattribute.h}}
+\mbox{\hyperlink{fbxnodeattribute_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_SCENE\_GEOMETRY\_NODE\_ATTRIBUTE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_SCENE\_GEOMETRY\_NODE\_ATTRIBUTE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxobject_8h}{fbxsdk/core/fbxobject.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_node}{FbxNode}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_node_attribute}{FbxNodeAttribute}}\ :\ \textcolor{keyword}{public}\ FbxObject}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{fbxobject_8h_a1628eb1d9b23ef9ce13f4406689fe50e}{FBXSDK\_OBJECT\_DECLARE}}(\mbox{\hyperlink{class_fbx_node_attribute}{FbxNodeAttribute}},\ FbxObject);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_fbx_node_attribute_a0155b227cd9d72c796155bdda2c4c9e5}{sColor}};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ FbxDouble3\ \mbox{\hyperlink{class_fbx_node_attribute_a06cca505ad9c2964060cbcb3bbf6795b}{sDefaultColor}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_fbx_property_t}{FbxPropertyT<FbxDouble3>}}\ \mbox{\hyperlink{class_fbx_node_attribute_a31f3a2361406eb670fa6ee3b5dffc864}{Color}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{class_fbx_node_attribute_a08e1669d3d1a696910756ab17de56d6a}{EType}}}
+\DoxyCodeLine{00071\ \ \ \ \ \{\ \ \ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ eUnknown,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ eNull,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ eMarker,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ eSkeleton,\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ eMesh,\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ eNurbs,\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ ePatch,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ eCamera,\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ eCameraStereo,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ eCameraSwitcher,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ eLight,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ eOpticalReference,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ eOpticalMarker,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ eNurbsCurve,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ eTrimNurbsSurface,}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ eBoundary,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ eNurbsSurface,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ eShape,}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ eLODGroup,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ eSubDiv,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ eCachedEffect,}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ eLine}
+\DoxyCodeLine{00094\ \ \ \ \ \};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_node_attribute_a08e1669d3d1a696910756ab17de56d6a}{FbxNodeAttribute::EType}}\ \mbox{\hyperlink{class_fbx_node_attribute_a1c2116756906127145a2b8721fc26752}{GetAttributeType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_node_attribute_a72f38adeb0963e61bf5d156e76052370}{GetNodeCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00110\ \ \ \ \ \mbox{\hyperlink{class_fbx_node}{FbxNode}}*\ \mbox{\hyperlink{class_fbx_node_attribute_ae69bf0dc2b7d55edd8a51e54b6f9ab42}{GetNode}}(\textcolor{keywordtype}{int}\ pIndex=0)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00113\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00114\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00116\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_node_attribute_af39eb37f6177337f1587fca15d7e6bb9}{ConstructProperties}}(\textcolor{keywordtype}{bool}\ pForceSet)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00119\ \};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_SCENE\_GEOMETRY\_NODE\_ATTRIBUTE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

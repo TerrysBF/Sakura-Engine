@@ -1,0 +1,95 @@
+\doxysection{Window Class Reference}
+\hypertarget{class_window}{}\label{class_window}\index{Window@{Window}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_window_ac877b031e11ba0b517a8b1db3c315175}\label{class_window_ac877b031e11ba0b517a8b1db3c315175} 
+{\bfseries Window} (const \mbox{\hyperlink{class_window}{Window}} \&)=delete
+\item 
+\Hypertarget{class_window_a8d5dc7c6e47b4f319b54a411e79fb30c}\label{class_window_a8d5dc7c6e47b4f319b54a411e79fb30c} 
+\mbox{\hyperlink{class_window}{Window}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_window}{Window}} \&)=delete
+\item 
+\Hypertarget{class_window_a245d821e6016fa1f6970ccbbedd635f6}\label{class_window_a245d821e6016fa1f6970ccbbedd635f6} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Window} ()
+\begin{DoxyCompactList}\small\item\em Destructor de \doxylink{class_window}{Window}. Destruye la ventana si existe y desregistra la clase de ventana. \end{DoxyCompactList}\item 
+HRESULT \mbox{\hyperlink{class_window_aff10a1b05ac05af6aef3e84a7b0d9b3b}{init}} (HINSTANCE h\+Instance, int n\+Cmd\+Show, WNDPROC wnd\+Proc, unsigned int width=1280, unsigned int height=720, const std\+::wstring \&title=L"{}\+Sakura-\/Engine"{})
+\begin{DoxyCompactList}\small\item\em Inicializa y crea la ventana principal de Win32. Registra la clase de ventana, ajusta el tamaño del rectángulo de cliente y muestra la ventana en pantalla. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_window_a6282ff116128c88fe5baf23803962e03}{process\+Messages}} ()
+\begin{DoxyCompactList}\small\item\em Procesa los mensajes de la cola de Windows. Debe llamarse periódicamente dentro del bucle principal. \end{DoxyCompactList}\item 
+\Hypertarget{class_window_a330fa7decb1d18afdf825d290f674636}\label{class_window_a330fa7decb1d18afdf825d290f674636} 
+HWND {\bfseries get\+HWND} () const
+\item 
+\Hypertarget{class_window_a0ebd4b3a8dfb295f6b28ee7b3bf33b98}\label{class_window_a0ebd4b3a8dfb295f6b28ee7b3bf33b98} 
+unsigned {\bfseries get\+Width} () const
+\item 
+\Hypertarget{class_window_a717632ae97a27f19687dcc65d2d50d34}\label{class_window_a717632ae97a27f19687dcc65d2d50d34} 
+unsigned {\bfseries get\+Height} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_window_ab39b5ba6b3adea40aa19ffa50e306dbb}\label{class_window_ab39b5ba6b3adea40aa19ffa50e306dbb} 
+HWND {\bfseries m\+\_\+h\+Wnd} = nullptr
+\item 
+\Hypertarget{class_window_a64f39cdc631de9d07b661fab2fc0e5cd}\label{class_window_a64f39cdc631de9d07b661fab2fc0e5cd} 
+HINSTANCE {\bfseries m\+\_\+h\+Instance} = nullptr
+\item 
+\Hypertarget{class_window_ae9dbbb9352e3d70db08dbc93a1f7730e}\label{class_window_ae9dbbb9352e3d70db08dbc93a1f7730e} 
+unsigned {\bfseries m\+\_\+width} = 0
+\item 
+\Hypertarget{class_window_a35ec542cc617ec2574e8f040541287d2}\label{class_window_a35ec542cc617ec2574e8f040541287d2} 
+unsigned {\bfseries m\+\_\+height} = 0
+\item 
+\Hypertarget{class_window_aafe8f90f7842b6ac0c3dc811257df147}\label{class_window_aafe8f90f7842b6ac0c3dc811257df147} 
+std\+::wstring {\bfseries m\+\_\+title}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_window_aff10a1b05ac05af6aef3e84a7b0d9b3b}\index{Window@{Window}!init@{init}}
+\index{init@{init}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_window_aff10a1b05ac05af6aef3e84a7b0d9b3b} 
+HRESULT Window\+::init (\begin{DoxyParamCaption}\item[{HINSTANCE}]{h\+Instance}{, }\item[{int}]{n\+Cmd\+Show}{, }\item[{WNDPROC}]{wnd\+Proc}{, }\item[{unsigned int}]{width}{ = {\ttfamily 1280}, }\item[{unsigned int}]{height}{ = {\ttfamily 720}, }\item[{const std\+::wstring \&}]{title}{ = {\ttfamily L"{}Sakura-\/Engine"{}}}\end{DoxyParamCaption})}
+
+
+
+Inicializa y crea la ventana principal de Win32. Registra la clase de ventana, ajusta el tamaño del rectángulo de cliente y muestra la ventana en pantalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h\+Instance} & Instancia de la aplicación.\\
+\hline
+{\em n\+Cmd\+Show} & Modo de visualización para Show\+Window.\\
+\hline
+{\em wnd\+Proc} & Procedimiento de ventana que manejará los mensajes.\\
+\hline
+{\em width} & Ancho deseado del área cliente.\\
+\hline
+{\em height} & Alto deseado del área cliente.\\
+\hline
+{\em title} & Título de la ventana.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+S\+\_\+\+OK si la ventana se crea correctamente; E\+\_\+\+FAIL en caso de error.
+\end{DoxyReturn}
+\Hypertarget{class_window_a6282ff116128c88fe5baf23803962e03}\index{Window@{Window}!processMessages@{processMessages}}
+\index{processMessages@{processMessages}!Window@{Window}}
+\doxysubsubsection{\texorpdfstring{processMessages()}{processMessages()}}
+{\footnotesize\ttfamily \label{class_window_a6282ff116128c88fe5baf23803962e03} 
+bool Window\+::process\+Messages (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Procesa los mensajes de la cola de Windows. Debe llamarse periódicamente dentro del bucle principal. 
+
+\begin{DoxyReturn}{Returns}
+false si se recibe WM\+\_\+\+QUIT (indica que debe terminar el loop principal); true en caso contrario. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Window.\+h\item 
+source/Window.\+cpp\end{DoxyCompactItemize}

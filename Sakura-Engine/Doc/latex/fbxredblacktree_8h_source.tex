@@ -1,0 +1,1356 @@
+\doxysection{fbxredblacktree.\+h}
+\hypertarget{fbxredblacktree_8h_source}{}\label{fbxredblacktree_8h_source}\index{include/fbx/fbxsdk/core/base/fbxredblacktree.h@{include/fbx/fbxsdk/core/base/fbxredblacktree.h}}
+\mbox{\hyperlink{fbxredblacktree_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_BASE\_REDBLACKTREE\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_BASE\_REDBLACKTREE\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxcontainerallocators_8h}{fbxsdk/core/base/fbxcontainerallocators.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxpair_8h}{fbxsdk/core/base/fbxpair.h}}>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00024\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00025\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ RecordType>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_red_black_const_iterator}{FbxRedBlackConstIterator}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ RecordType>\ \textcolor{keyword}{class\ }FbxRedBlackIterator}
+\DoxyCodeLine{00031\ \{}
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ FbxRedBlackIterator()\ :\ mRecord(0)\ \{\}}
+\DoxyCodeLine{00034\ \ \ \ \ FbxRedBlackIterator(RecordType*\ pRecord)\ :\ mRecord(pRecord)\ \{\}}
+\DoxyCodeLine{00035\ \ \ \ \ FbxRedBlackIterator(\textcolor{keyword}{const}\ FbxRedBlackIterator<RecordType>\&\ pV)\ :\ mRecord(pV.mRecord)\ \{\}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ FbxRedBlackIterator\&\ operator++()}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ !=\ NULL\ );}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ mRecord\ =\ mRecord-\/>Successor();}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{const}\ FbxRedBlackIterator\ operator++(\textcolor{keywordtype}{int})}
+\DoxyCodeLine{00045\ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ FbxRedBlackIterator\ t(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ operator++();}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t;}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ FbxRedBlackIterator\&\ operator+=(\textcolor{keywordtype}{int}\ pCount)}
+\DoxyCodeLine{00052\ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ !=\ NULL\ );}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ pCount;\ ++i\ )}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !mRecord\ )\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ mRecord\ =\ mRecord-\/>Successor();}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ FbxRedBlackIterator\&\ operator-\/-\/()}
+\DoxyCodeLine{00063\ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ );}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ mRecord\ =\ mRecord-\/>Predecessor();}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{const}\ FbxRedBlackIterator\ operator-\/-\/(\textcolor{keywordtype}{int})}
+\DoxyCodeLine{00070\ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ FbxRedBlackIterator\ t(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ operator-\/-\/();}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t;}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ FbxRedBlackIterator\&\ operator-\/=(\textcolor{keywordtype}{int}\ pCount)}
+\DoxyCodeLine{00077\ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ !=\ NULL\ );}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ pCount;\ ++i\ )}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !mRecord\ )\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ mRecord\ =\ mRecord-\/>Predecessor();}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{const}\ RecordType\&\ operator*()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00088\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ );}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *mRecord;}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ RecordType\&\ operator*()}
+\DoxyCodeLine{00095\ \ \ \ \ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ );}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *mRecord;}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{const}\ RecordType*\ operator-\/>()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00102\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ );}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRecord;}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ RecordType*\ operator-\/>()}
+\DoxyCodeLine{00109\ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ );}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRecord;}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ FbxRedBlackIterator\&\ pOther)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00116\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRecord\ ==\ pOther.mRecord;}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator\ !=(\textcolor{keyword}{const}\ FbxRedBlackIterator\&\ pOther)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00121\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRecord\ !=\ pOther.mRecord;}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00126\ \ \ \ \ RecordType*\ mRecord;}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_red_black_const_iterator}{FbxRedBlackConstIterator}}<RecordType>;}
+\DoxyCodeLine{00129\ \};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ RecordType>\ \textcolor{keyword}{class\ }FbxRedBlackConstIterator}
+\DoxyCodeLine{00132\ \{}
+\DoxyCodeLine{00133\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00134\ \ \ \ \ FbxRedBlackConstIterator()\ :\ mRecord(0)\ \{\}}
+\DoxyCodeLine{00135\ \ \ \ \ FbxRedBlackConstIterator(\textcolor{keyword}{const}\ RecordType*\ pRecord)\ :\ mRecord(pRecord)\ \{\}}
+\DoxyCodeLine{00136\ \ \ \ \ FbxRedBlackConstIterator(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_red_black_iterator}{FbxRedBlackIterator<RecordType>}}\&\ pV)\ :\ mRecord(pV.mRecord)\ \{\}}
+\DoxyCodeLine{00137\ \ \ \ \ FbxRedBlackConstIterator(\textcolor{keyword}{const}\ FbxRedBlackConstIterator<RecordType>\&\ pV)\ :\ mRecord(pV.mRecord)\ \{\}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ FbxRedBlackConstIterator\ \&\ operator++()}
+\DoxyCodeLine{00140\ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ !=\ NULL\ );}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ mRecord\ =\ mRecord-\/>Successor();}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{const}\ FbxRedBlackConstIterator\ operator++(\textcolor{keywordtype}{int})}
+\DoxyCodeLine{00147\ \ \ \ \ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ FbxRedBlackConstIterator\ t(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ operator++();}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t;}
+\DoxyCodeLine{00151\ \ \ \ \ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ FbxRedBlackConstIterator\&\ operator+=(\textcolor{keywordtype}{int}\ pCount)}
+\DoxyCodeLine{00154\ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ !=\ NULL\ );}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ pCount;\ ++i\ )}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !mRecord\ )\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ mRecord\ =\ mRecord-\/>Successor();}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00162\ \ \ \ \ \}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ FbxRedBlackConstIterator\ \&\ operator-\/-\/()}
+\DoxyCodeLine{00165\ \ \ \ \ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ );}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ mRecord\ =\ mRecord-\/>Predecessor();}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00169\ \ \ \ \ \}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{const}\ FbxRedBlackConstIterator\ operator-\/-\/(\textcolor{keywordtype}{int})}
+\DoxyCodeLine{00172\ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ FbxRedBlackConstIterator\ t(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ operator-\/-\/();}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ t;}
+\DoxyCodeLine{00176\ \ \ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ FbxRedBlackConstIterator\&\ operator-\/=(\textcolor{keywordtype}{int}\ pCount)}
+\DoxyCodeLine{00179\ \ \ \ \ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ !=\ NULL\ );}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ pCount;\ ++i\ )}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ !mRecord\ )\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ mRecord\ =\ mRecord-\/>Predecessor();}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00187\ \ \ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keyword}{const}\ RecordType\&\ operator*()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00190\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ );}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *mRecord;}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{const}\ RecordType\&\ operator*()}
+\DoxyCodeLine{00197\ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ );}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *mRecord;}
+\DoxyCodeLine{00201\ \ \ \ \ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keyword}{const}\ RecordType*\ operator-\/>()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00204\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ );}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRecord;}
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{const}\ RecordType*\ operator-\/>()}
+\DoxyCodeLine{00211\ \ \ \ \ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRecord\ );}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRecord;}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ FbxRedBlackConstIterator\&\ pOther)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00218\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRecord\ ==\ pOther.mRecord;}
+\DoxyCodeLine{00220\ \ \ \ \ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator\ !=(\textcolor{keyword}{const}\ FbxRedBlackConstIterator\&\ pOther)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00223\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRecord\ !=\ pOther.mRecord;}
+\DoxyCodeLine{00225\ \ \ \ \ \}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{const}\ RecordType*\ mRecord;}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_red_black_iterator}{FbxRedBlackIterator}}<RecordType>;}
+\DoxyCodeLine{00231\ \};}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00234\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Type,\ \textcolor{keyword}{typename}\ Compare,\ \textcolor{keyword}{typename}\ Allocator>\ \textcolor{keyword}{class\ }FbxRedBlackTree}
+\DoxyCodeLine{00235\ \{}
+\DoxyCodeLine{00236\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keyword}{typedef}\ Type\ DataType;}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Type::KeyType\ \ \ \ \ \ \ \ \ KeyType;}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Type::ConstKeyType\ \ \ \ ConstKeyType;}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Type::ValueType\ \ \ \ \ \ \ ValueType;}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Type::ConstValueType\ \ ConstValueType;}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keyword}{typedef}\ Allocator\ AllocatorType;}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keyword}{class\ }RecordType}
+\DoxyCodeLine{00249\ \ \ \ \ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ ConstKeyType\&\ GetKey()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mData.GetKey();\ \}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ ConstValueType\&\ GetValue()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mData.GetValue();\ \}}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ ValueType\&\ GetValue()\ \{\ \textcolor{keywordflow}{return}\ mData.GetValue();\ \}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ RecordType*\ Minimum()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00256\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RecordType*\ lParent\ =\ 0;}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RecordType*\ lNode\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lNode\ !=\ 0)}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent\ =\ lNode;}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mLeftChild;}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lParent;}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ RecordType*\ Minimum()}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ RecordType*\ lParent\ =\ 0;}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ RecordType*\ lNode\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lNode\ !=\ 0)}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent\ =\ lNode;}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mLeftChild;}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lParent;}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ RecordType*\ Maximum()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00282\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RecordType*\ lParent\ =\ 0;}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RecordType*\ lNode\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lNode\ !=\ 0)}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent\ =\ lNode;}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mRightChild;}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lParent;}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ RecordType*\ Maximum()}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ RecordType*\ lParent\ =\ 0;}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ RecordType*\ lNode\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lNode\ !=\ 0)}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent\ =\ lNode;}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mRightChild;}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lParent;}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ RecordType*\ Predecessor()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00308\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mLeftChild)}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mLeftChild-\/>Maximum();}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RecordType*\ lParent\ =\ mParent;}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RecordType*\ lNode\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lParent\ \&\&\ lParent-\/>mLefttChild\ ==\ lNode)}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lParent;}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent\ =\ lParent-\/>mParent;}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lParent;}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ RecordType*\ Predecessor()}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mLeftChild)}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mLeftChild-\/>Maximum();}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RecordType*\ lParent\ =\ mParent;}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RecordType*\ lNode\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lParent\ \&\&\ lParent-\/>mLeftChild\ ==\ lNode)}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lParent;}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent\ =\ lParent-\/>mParent;}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lParent;}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ RecordType*\ Successor()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00350\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mRightChild)}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRightChild-\/>Minimum();}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RecordType*\ lParent\ =\ mParent;}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RecordType*\ lNode\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lParent\ \&\&\ lParent-\/>mRightChild\ ==\ lNode)}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lParent;}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent\ =\ lParent-\/>mParent;}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lParent;}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ RecordType*\ Successor()}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mRightChild)}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRightChild-\/>Minimum();}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RecordType*\ lParent\ =\ mParent;}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RecordType*\ lNode\ =\ \textcolor{keyword}{this};}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lParent\ \&\&\ lParent-\/>mRightChild\ ==\ lNode)}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lParent;}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent\ =\ lParent-\/>mParent;}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lParent;}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ GetBlackDepth()\ \{\ \textcolor{keywordflow}{return}\ mBlackDepth;\ \}}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ ETreeType\ \{eRed,\ eBlack\};}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ RecordType(\textcolor{keyword}{const}\ DataType\&\ pData)}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ :\ mData(pData)}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ ,\ mParent(0)}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ ,\ mLeftChild(0)}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ ,\ mRightChild(0)}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ ,\ mColor(eRed)}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ \ \ \ ,\ mBlackDepth(0)}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ RecordType(\textcolor{keyword}{const}\ RecordType\&\ pRecordType)}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ :\ mData(pRecordType.mData)}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ ,\ mParent(0)}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ ,\ mLeftChild(0)}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ ,\ mRightChild(0)}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ ,\ mColor(pRecordType.mColor)}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ ,\ mBlackDepth(pRecordType.mBlackDepth)}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ DataType\ mData;}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }FbxRedBlackTree;}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ RecordType*\ mParent;}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ RecordType*\ mLeftChild;}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ RecordType*\ mRightChild;}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ mColor:2;}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ mBlackDepth:30;}
+\DoxyCodeLine{00425\ \ \ \ \ \};}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00428\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_red_black_const_iterator}{FbxRedBlackConstIterator<RecordType>}}\ \ ConstIteratorType;}
+\DoxyCodeLine{00429\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{class_fbx_red_black_iterator}{FbxRedBlackIterator<RecordType>}}\ \ \ \ \ \ \ IteratorType;}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \ \ \ \ \textcolor{keyword}{inline}\ FbxRedBlackTree()\ :\ mRoot(0),\ mAllocator(sizeof(\mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}})),\ mSize(0)\ \{\}}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_red_black_tree}{FbxRedBlackTree}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_red_black_tree}{FbxRedBlackTree}}\&\ pTree)\ :\ mRoot(0),\ mAllocator(sizeof(RecordType)),\ mSize(0)\ \{\ \mbox{\hyperlink{class_fbx_red_black_tree_a5449ab554219bebe9c4cd447486749cd}{operator=}}(pTree);\ \}}
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{keyword}{inline}\ \string~FbxRedBlackTree()\ \{\ \mbox{\hyperlink{class_fbx_red_black_tree_aa762c1d9c1b533045066f713def691e2}{Clear}}();\ \}}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00437\ \ \ \ \ \textcolor{keyword}{inline}\ FbxRedBlackTree\&\ \mbox{\hyperlink{class_fbx_red_black_tree_a5449ab554219bebe9c4cd447486749cd}{operator=}}(\textcolor{keyword}{const}\ FbxRedBlackTree\&\ pTree)}
+\DoxyCodeLine{00438\ \ \ \ \ \{}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \textcolor{keyword}{this}\ !=\ \&pTree\ )}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_aa762c1d9c1b533045066f713def691e2}{Clear}}();}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pTree.mRoot\ )}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ lBuffer\ =\ mAllocator.AllocateRecords();}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRoot\ =\ \textcolor{keyword}{new}(lBuffer)\ RecordType(*(pTree.mRoot));\ \ \ \ \textcolor{comment}{//in-\/place\ new\ won't\ allocate\ memory,\ so\ it\ is\ safe}}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRoot-\/>mLeftChild\ =\ DuplicateSubTree(pTree.mRoot-\/>mLeftChild);}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRoot-\/>mRightChild\ =\ DuplicateSubTree(pTree.mRoot-\/>mRightChild);}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mRoot-\/>mLeftChild)}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRoot-\/>mLeftChild-\/>mParent\ =\ mRoot;}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mRoot-\/>mRightChild)}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRoot-\/>mRightChild-\/>mParent\ =\ mRoot;}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ pTree.mSize\ ==\ 0\ );}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(\ mRoot\ ==\ 0\ );}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ mSize\ =\ pTree.mSize;}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00470\ \ \ \ \ \}}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_red_black_tree}{FbxRedBlackTree}}\&\ pTree)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00473\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ a\ few\ quick\ shortcuts}}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \textcolor{keyword}{this}\ ==\ \&pTree\ )}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{class_fbx_red_black_tree_a99b4a611074bfd7b5a5165ca9cd9b14b}{GetSize}}()\ !=\ pTree.\mbox{\hyperlink{class_fbx_red_black_tree_a99b4a611074bfd7b5a5165ca9cd9b14b}{GetSize}}()\ )}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Iterator\ through\ all\ nodes;\ if\ we\ reach\ the\ end\ of\ both\ iterators\ at\ the\ same}}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ time\ then\ we\ have\ two\ iterators\ that\ match.}}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ ConstIteratorType\ End;}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ ConstIteratorType\ Iter1(\mbox{\hyperlink{class_fbx_red_black_tree_a94736b0bd8001125902c0bd53b38a945}{Minimum}}());}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ ConstIteratorType\ Iter2(pTree.\mbox{\hyperlink{class_fbx_red_black_tree_a94736b0bd8001125902c0bd53b38a945}{Minimum}}());}
+\DoxyCodeLine{00486\ }
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\ (Iter1\ !=\ End)\ \&\&\ (Iter2\ !=\ End)\ \&\&}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Iter1-\/>GetKey()\ ==\ Iter2-\/>GetKey())\ \&\&}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Iter1-\/>GetValue()\ ==\ Iter2-\/>GetValue())\ )}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ ++Iter1;}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ ++Iter2;}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00494\ }
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Iter1\ ==\ End\ \&\&\ Iter2\ ==\ End;}
+\DoxyCodeLine{00496\ \ \ \ \ \}}
+\DoxyCodeLine{00497\ }
+\DoxyCodeLine{00501\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_red_black_tree_a707730fca6c73fea996c8354a0a6ead2}{Reserve}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pRecordCount)}
+\DoxyCodeLine{00502\ \ \ \ \ \{}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ mAllocator.Reserve(pRecordCount);}
+\DoxyCodeLine{00504\ \ \ \ \ \}}
+\DoxyCodeLine{00505\ }
+\DoxyCodeLine{00509\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fbx_red_black_tree_a99b4a611074bfd7b5a5165ca9cd9b14b}{GetSize}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mSize;\ \}}
+\DoxyCodeLine{00510\ }
+\DoxyCodeLine{00511\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ Empty()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mSize\ ==\ 0;\ \}}
+\DoxyCodeLine{00512\ }
+\DoxyCodeLine{00518\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_pair}{FbxPair<RecordType*,\ bool>}}\ \mbox{\hyperlink{class_fbx_red_black_tree_a5e27cd3e4b658d11f0b7d235ea8f2534}{Insert}}(\textcolor{keyword}{const}\ DataType\&\ pData)}
+\DoxyCodeLine{00519\ \ \ \ \ \{}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ Compare\ lCompareKeys;}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lResult\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ RecordType*\ lParent\ =\ 0;}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ RecordType*\ lNode\ =\ mRoot;}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lNode\ !=\ 0)}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ KeyType\&\ lNodeKey\ =\ lNode-\/>GetKey();}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ KeyType\&\ lDataKey\ =\ pData.GetKey();}
+\DoxyCodeLine{00528\ }
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lCompareKeys(lNodeKey,\ lDataKey)\ <\ 0)}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent\ =\ lNode;}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mRightChild;}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (lCompareKeys(lNodeKey,\ lDataKey)\ >\ 0)}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent\ =\ lNode;}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mLeftChild;}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00544\ }
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lNode\ ==\ 0)}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ lBuffer\ =\ mAllocator.AllocateRecords();}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ \textcolor{keyword}{new}(lBuffer)\ RecordType(pData);\ \textcolor{comment}{//in-\/place\ new\ won't\ allocate\ memory,\ so\ it\ is\ safe}}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \ \ \ \ mSize++;}
+\DoxyCodeLine{00550\ }
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(lNode\ ==\ lBuffer);}
+\DoxyCodeLine{00552\ }
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lParent)}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lCompareKeys(lParent-\/>GetKey(),\ pData.GetKey())\ <\ 0)}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(lParent-\/>mRightChild\ ==\ 0);}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent-\/>mRightChild\ =\ lNode;}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode-\/>mParent\ =\ lParent;}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(lParent-\/>mLeftChild\ ==\ 0);}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent-\/>mLeftChild\ =\ lNode;}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode-\/>mParent\ =\ lParent;}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRoot\ =\ lNode;}
+\DoxyCodeLine{00571\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00572\ }
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fix\ red\ black\ tree\ property}}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \ \ \ \ FixNodesAfterInsertion(lNode);}
+\DoxyCodeLine{00575\ }
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ \ \ \ \ lResult\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00578\ }
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_fbx_pair}{FbxPair<RecordType*,\ bool>}}(lNode,\ lResult);}
+\DoxyCodeLine{00580\ \ \ \ \ \}}
+\DoxyCodeLine{00581\ }
+\DoxyCodeLine{00585\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_red_black_tree_a432f0ed569c5ccb0273c583e59414b0b}{Remove}}(\textcolor{keyword}{const}\ KeyType\&\ pKey)}
+\DoxyCodeLine{00586\ \ \ \ \ \{}
+\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ Compare\ lCompareKeys;}
+\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lResult\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ RecordType*\ lNode\ =\ mRoot;}
+\DoxyCodeLine{00590\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lNode\ !=\ 0)}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lCompareKeys(lNode-\/>GetKey(),\ pKey)\ <\ 0)}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mRightChild;}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (lCompareKeys(lNode-\/>GetKey(),\ pKey)\ >\ 0)}
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mLeftChild;}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00605\ }
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lNode)}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \ \ \ \ RemoveNode(lNode);}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \ \ \ \ mSize-\/-\/;}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \ \ \ \ lNode-\/>\string~RecordType();}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \ \ \ \ mAllocator.FreeMemory(lNode);}
+\DoxyCodeLine{00612\ }
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \ \ \ \ lResult\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lResult;}
+\DoxyCodeLine{00617\ \ \ \ \ \}}
+\DoxyCodeLine{00618\ }
+\DoxyCodeLine{00621\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_red_black_tree_aa762c1d9c1b533045066f713def691e2}{Clear}}()}
+\DoxyCodeLine{00622\ \ \ \ \ \{}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mRoot)}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \ \ \ \ ClearSubTree(mRoot-\/>mLeftChild);}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \ \ \ \ ClearSubTree(mRoot-\/>mRightChild);}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \ \ \ \ mRoot-\/>\string~RecordType();}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \ \ \ \ mAllocator.FreeMemory(mRoot);}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \ \ \ \ mRoot\ =\ 0;}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \ \ \ \ mSize\ =\ 0;}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00632\ \ \ \ \ \}}
+\DoxyCodeLine{00633\ }
+\DoxyCodeLine{00637\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ RecordType*\ \mbox{\hyperlink{class_fbx_red_black_tree_a94736b0bd8001125902c0bd53b38a945}{Minimum}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00638\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ !=\ mRoot)}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRoot-\/>Minimum();}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00647\ \ \ \ \ \}}
+\DoxyCodeLine{00648\ }
+\DoxyCodeLine{00652\ \ \ \ \ \textcolor{keyword}{inline}\ RecordType*\ \mbox{\hyperlink{class_fbx_red_black_tree_acc4fda59b0147fef11910c4774cd4ead}{Minimum}}()}
+\DoxyCodeLine{00653\ \ \ \ \ \{}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ !=\ mRoot)}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRoot-\/>Minimum();}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00662\ \ \ \ \ \}}
+\DoxyCodeLine{00663\ }
+\DoxyCodeLine{00667\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ RecordType*\ \mbox{\hyperlink{class_fbx_red_black_tree_afc1d5adb69ba2cb7ef8213591dec5477}{Maximum}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00668\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ !=\ mRoot)}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRoot-\/>Maximum();}
+\DoxyCodeLine{00672\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00677\ \ \ \ \ \}}
+\DoxyCodeLine{00678\ }
+\DoxyCodeLine{00682\ \ \ \ \ \textcolor{keyword}{inline}\ RecordType*\ \mbox{\hyperlink{class_fbx_red_black_tree_a15291c31cdc2f7c4326b6322d9da93bd}{Maximum}}()}
+\DoxyCodeLine{00683\ \ \ \ \ \{}
+\DoxyCodeLine{00684\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ !=\ mRoot)}
+\DoxyCodeLine{00685\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00686\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRoot-\/>Maximum();}
+\DoxyCodeLine{00687\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00688\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00689\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00692\ \ \ \ \ \}}
+\DoxyCodeLine{00693\ }
+\DoxyCodeLine{00698\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ RecordType*\ \mbox{\hyperlink{class_fbx_red_black_tree_affb08a62105c8174063404b819a91bdf}{Find}}(\textcolor{keyword}{const}\ KeyType\&\ pKey)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00699\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00700\ \ \ \ \ \ \ \ \ Compare\ lCompareKeys;}
+\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RecordType*\ lNode\ =\ mRoot;}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lNode\ !=\ 0)}
+\DoxyCodeLine{00703\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00704\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lCompareKeys(lNode-\/>GetKey(),\ pKey)\ <\ 0)}
+\DoxyCodeLine{00705\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mRightChild;}
+\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (lCompareKeys(lNode-\/>GetKey(),\ pKey)\ >\ 0)}
+\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00710\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mLeftChild;}
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00717\ }
+\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lNode;}
+\DoxyCodeLine{00719\ \ \ \ \ \}}
+\DoxyCodeLine{00720\ }
+\DoxyCodeLine{00725\ \ \ \ \ \textcolor{keyword}{inline}\ RecordType*\ \mbox{\hyperlink{class_fbx_red_black_tree_a8a354ecf135c358bf50aea1ec266e448}{Find}}(\textcolor{keyword}{const}\ KeyType\&\ pKey)}
+\DoxyCodeLine{00726\ \ \ \ \ \{}
+\DoxyCodeLine{00727\ \ \ \ \ \ \ \ \ Compare\ lCompareKeys;}
+\DoxyCodeLine{00728\ \ \ \ \ \ \ \ \ RecordType*\ lNode\ =\ mRoot;}
+\DoxyCodeLine{00729\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lNode\ !=\ 0)}
+\DoxyCodeLine{00730\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00731\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lCompareKeys(lNode-\/>GetKey(),\ pKey)\ <\ 0)}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mRightChild;}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (lCompareKeys(lNode-\/>GetKey(),\ pKey)\ >\ 0)}
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mLeftChild;}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00744\ }
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lNode;}
+\DoxyCodeLine{00746\ \ \ \ \ \}}
+\DoxyCodeLine{00747\ }
+\DoxyCodeLine{00752\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ RecordType*\ \mbox{\hyperlink{class_fbx_red_black_tree_acb9ff4b3844c4f9bc8afdf7454316530}{UpperBound}}(\textcolor{keyword}{const}\ KeyType\&\ pKey)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00753\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00754\ \ \ \ \ \ \ \ \ Compare\ lCompareKeys;}
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RecordType*\ lNode\ =\ mRoot;}
+\DoxyCodeLine{00756\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ RecordType*\ lCandidate\ =\ 0;}
+\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lNode\ !=\ 0)}
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lCompareKeys(lNode-\/>GetKey(),\ pKey)\ <=\ 0)}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00761\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mRightChild;}
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (lCompareKeys(lNode-\/>GetKey(),\ pKey)\ >\ 0)}
+\DoxyCodeLine{00764\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00765\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lCandidate\ =\ lNode;}
+\DoxyCodeLine{00766\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mLeftChild;}
+\DoxyCodeLine{00767\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00768\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00769\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00770\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lCandidate;}
+\DoxyCodeLine{00771\ \ \ \ \ \}}
+\DoxyCodeLine{00772\ }
+\DoxyCodeLine{00777\ \ \ \ \ \textcolor{keyword}{inline}\ RecordType*\ \mbox{\hyperlink{class_fbx_red_black_tree_a3a237134dafce848f5f629e70118d130}{UpperBound}}(\textcolor{keyword}{const}\ KeyType\&\ pKey)}
+\DoxyCodeLine{00778\ \ \ \ \ \{}
+\DoxyCodeLine{00779\ \ \ \ \ \ \ \ \ Compare\ lCompareKeys;}
+\DoxyCodeLine{00780\ \ \ \ \ \ \ \ \ RecordType*\ lNode\ =\ mRoot;}
+\DoxyCodeLine{00781\ \ \ \ \ \ \ \ \ RecordType*\ lCandidate\ =\ 0;}
+\DoxyCodeLine{00782\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lNode\ !=\ 0)}
+\DoxyCodeLine{00783\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00784\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lCompareKeys(lNode-\/>GetKey(),\ pKey)\ <=\ 0)}
+\DoxyCodeLine{00785\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00786\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mRightChild;}
+\DoxyCodeLine{00787\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00788\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (lCompareKeys(lNode-\/>GetKey(),\ pKey)\ >\ 0)}
+\DoxyCodeLine{00789\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00790\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lCandidate\ =\ lNode;}
+\DoxyCodeLine{00791\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mLeftChild;}
+\DoxyCodeLine{00792\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00793\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00794\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00795\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lCandidate;}
+\DoxyCodeLine{00796\ \ \ \ \ \}}
+\DoxyCodeLine{00797\ }
+\DoxyCodeLine{00798\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00799\ \ \ \ \ RecordType*\ mRoot;}
+\DoxyCodeLine{00800\ \ \ \ \ AllocatorType\ mAllocator;}
+\DoxyCodeLine{00801\ \ \ \ \ \textcolor{keywordtype}{int}\ mSize;}
+\DoxyCodeLine{00802\ }
+\DoxyCodeLine{00803\ \ \ \ \ \textcolor{keyword}{inline}\ RecordType*\ DuplicateSubTree(\textcolor{keyword}{const}\ RecordType*\ pNode)}
+\DoxyCodeLine{00804\ \ \ \ \ \{}
+\DoxyCodeLine{00805\ \ \ \ \ \ \ \ \ RecordType*\ lNewSubTree\ =\ 0;}
+\DoxyCodeLine{00806\ }
+\DoxyCodeLine{00807\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode)}
+\DoxyCodeLine{00808\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00809\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ lBuffer\ =\ mAllocator.AllocateRecords();}
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ \ \ \ \ lNewSubTree\ =\ \textcolor{keyword}{new}(lBuffer)\ RecordType(*pNode);\ \ \textcolor{comment}{//in-\/place\ new\ won't\ allocate\ memory,\ so\ it\ is\ safe}}
+\DoxyCodeLine{00811\ \ \ \ \ \ \ \ \ \ \ \ \ lNewSubTree-\/>mLeftChild\ =\ DuplicateSubTree(pNode-\/>mLeftChild);}
+\DoxyCodeLine{00812\ \ \ \ \ \ \ \ \ \ \ \ \ lNewSubTree-\/>mRightChild\ =\ DuplicateSubTree(pNode-\/>mRightChild);}
+\DoxyCodeLine{00813\ }
+\DoxyCodeLine{00814\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lNewSubTree-\/>mLeftChild)}
+\DoxyCodeLine{00815\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00816\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNewSubTree-\/>mLeftChild-\/>mParent\ =\ lNewSubTree;}
+\DoxyCodeLine{00817\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00818\ }
+\DoxyCodeLine{00819\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lNewSubTree-\/>mRightChild)}
+\DoxyCodeLine{00820\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00821\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNewSubTree-\/>mRightChild-\/>mParent\ =\ lNewSubTree;}
+\DoxyCodeLine{00822\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00823\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00824\ }
+\DoxyCodeLine{00825\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lNewSubTree;}
+\DoxyCodeLine{00826\ \ \ \ \ \}}
+\DoxyCodeLine{00827\ }
+\DoxyCodeLine{00828\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ FixNodesAfterInsertion(\mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pNode)}
+\DoxyCodeLine{00829\ \ \ \ \ \{}
+\DoxyCodeLine{00830\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ lNode\ =\ pNode;}
+\DoxyCodeLine{00831\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lDone\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00832\ }
+\DoxyCodeLine{00833\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!lDone)}
+\DoxyCodeLine{00834\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00835\ \ \ \ \ \ \ \ \ \ \ \ \ lDone\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00836\ }
+\DoxyCodeLine{00837\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lNode-\/>mParent\ ==\ 0)}
+\DoxyCodeLine{00838\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00839\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode-\/>mColor\ =\ RecordType::eBlack;}
+\DoxyCodeLine{00840\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00841\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (lNode-\/>mParent-\/>mColor\ ==\ RecordType::eRed)}
+\DoxyCodeLine{00842\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00843\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ lUncle\ =\ 0;}
+\DoxyCodeLine{00844\ }
+\DoxyCodeLine{00845\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((lNode-\/>mParent\ !=\ NULL)\ \&\&\ (lNode-\/>mParent-\/>mParent\ !=\ NULL))}
+\DoxyCodeLine{00846\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00847\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lNode-\/>mParent\ ==\ lNode-\/>mParent-\/>mParent-\/>mLeftChild)}
+\DoxyCodeLine{00848\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00849\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lUncle\ =\ lNode-\/>mParent-\/>mParent-\/>mRightChild;}
+\DoxyCodeLine{00850\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00851\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (lNode-\/>mParent\ ==\ lNode-\/>mParent-\/>mParent-\/>mRightChild)}
+\DoxyCodeLine{00852\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00853\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lUncle\ =\ lNode-\/>mParent-\/>mParent-\/>mLeftChild;}
+\DoxyCodeLine{00854\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00855\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00856\ }
+\DoxyCodeLine{00857\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ since\ lNode-\/>mParent\ is\ red,\ lNode-\/>mParent-\/>mParent\ exists}}
+\DoxyCodeLine{00858\ }
+\DoxyCodeLine{00859\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((lNode-\/>mParent\ !=\ NULL)\ \&\&\ (lNode-\/>mParent-\/>mParent\ !=\ NULL))}
+\DoxyCodeLine{00860\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00861\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lUncle\ \&\&\ lUncle-\/>mColor\ ==\ RecordType::eRed)}
+\DoxyCodeLine{00862\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00863\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode-\/>mParent-\/>mColor\ =\ RecordType::eBlack;}
+\DoxyCodeLine{00864\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lUncle-\/>mColor\ =\ RecordType::eBlack;}
+\DoxyCodeLine{00865\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode-\/>mParent-\/>mParent-\/>mColor\ =\ RecordType::eRed;}
+\DoxyCodeLine{00866\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mParent-\/>mParent;}
+\DoxyCodeLine{00867\ }
+\DoxyCodeLine{00868\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lDone\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00869\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00870\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00871\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00872\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((lNode\ ==\ lNode-\/>mParent-\/>mRightChild)\ \&\&}
+\DoxyCodeLine{00873\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (lNode-\/>mParent\ ==\ lNode-\/>mParent-\/>mParent-\/>mLeftChild))}
+\DoxyCodeLine{00874\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00875\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftRotate(lNode-\/>mParent);}
+\DoxyCodeLine{00876\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mLeftChild;}
+\DoxyCodeLine{00877\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00878\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((lNode\ ==\ lNode-\/>mParent-\/>mLeftChild)\ \&\&}
+\DoxyCodeLine{00879\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (lNode-\/>mParent\ ==\ lNode-\/>mParent-\/>mParent-\/>mRightChild))}
+\DoxyCodeLine{00880\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00881\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RightRotate(lNode-\/>mParent);}
+\DoxyCodeLine{00882\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mRightChild;}
+\DoxyCodeLine{00883\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00884\ }
+\DoxyCodeLine{00885\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode-\/>mParent-\/>mColor\ =\ RecordType::eBlack;}
+\DoxyCodeLine{00886\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode-\/>mParent-\/>mParent-\/>mColor\ =\ RecordType::eRed;}
+\DoxyCodeLine{00887\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((lNode\ ==\ lNode-\/>mParent-\/>mLeftChild)\ \&\&}
+\DoxyCodeLine{00888\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (lNode-\/>mParent\ ==\ lNode-\/>mParent-\/>mParent-\/>mLeftChild))}
+\DoxyCodeLine{00889\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00890\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RightRotate(lNode-\/>mParent-\/>mParent);}
+\DoxyCodeLine{00891\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00892\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00893\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00894\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftRotate(lNode-\/>mParent-\/>mParent);}
+\DoxyCodeLine{00895\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00896\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00897\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00898\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00899\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00900\ }
+\DoxyCodeLine{00901\ \ \ \ \ \ \ \ \ mRoot-\/>mColor\ =\ RecordType::eBlack;}
+\DoxyCodeLine{00902\ \ \ \ \ \}}
+\DoxyCodeLine{00903\ }
+\DoxyCodeLine{00904\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ LeftRotate(\mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pNode)}
+\DoxyCodeLine{00905\ \ \ \ \ \{}
+\DoxyCodeLine{00906\ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN(pNode);}
+\DoxyCodeLine{00907\ }
+\DoxyCodeLine{00908\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ lNode\ =\ pNode-\/>mRightChild;}
+\DoxyCodeLine{00909\ \ \ \ \ \ \ \ \ FBX\_ASSERT\_RETURN(lNode);}
+\DoxyCodeLine{00910\ }
+\DoxyCodeLine{00911\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ \_DEBUG}}
+\DoxyCodeLine{00912\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ A\ =\ pNode-\/>mLeftChild;}
+\DoxyCodeLine{00913\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ B\ =\ lNode-\/>mLeftChild;}
+\DoxyCodeLine{00914\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ C\ =\ lNode-\/>mRightChild;}
+\DoxyCodeLine{00915\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ Z\ =\ pNode-\/>mParent;}
+\DoxyCodeLine{00916\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00917\ }
+\DoxyCodeLine{00918\ \ \ \ \ \ \ \ \ pNode-\/>mRightChild\ =\ lNode-\/>mLeftChild;}
+\DoxyCodeLine{00919\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mRightChild)}
+\DoxyCodeLine{00920\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00921\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mRightChild-\/>mParent\ =\ pNode;}
+\DoxyCodeLine{00922\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00923\ }
+\DoxyCodeLine{00924\ \ \ \ \ \ \ \ \ lNode-\/>mParent\ =\ pNode-\/>mParent;}
+\DoxyCodeLine{00925\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mParent\ ==\ 0)}
+\DoxyCodeLine{00926\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00927\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(mRoot\ ==\ pNode);}
+\DoxyCodeLine{00928\ \ \ \ \ \ \ \ \ \ \ \ \ mRoot\ =\ lNode;}
+\DoxyCodeLine{00929\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00930\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pNode\ ==\ pNode-\/>mParent-\/>mLeftChild)}
+\DoxyCodeLine{00931\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00932\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mParent-\/>mLeftChild\ =\ lNode;}
+\DoxyCodeLine{00933\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00934\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00935\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00936\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mParent-\/>mRightChild\ =\ lNode;}
+\DoxyCodeLine{00937\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00938\ \ \ \ \ \ \ \ \ pNode-\/>mParent\ =\ lNode;}
+\DoxyCodeLine{00939\ \ \ \ \ \ \ \ \ lNode-\/>mLeftChild\ =\ pNode;}
+\DoxyCodeLine{00940\ }
+\DoxyCodeLine{00941\ \ \ \ \ \ \ \ \ FBX\_ASSERT(pNode-\/>mLeftChild\ ==\ A);}
+\DoxyCodeLine{00942\ \ \ \ \ \ \ \ \ FBX\_ASSERT(pNode-\/>mRightChild\ ==\ B);}
+\DoxyCodeLine{00943\ \ \ \ \ \ \ \ \ FBX\_ASSERT(pNode-\/>mParent\ ==\ lNode);}
+\DoxyCodeLine{00944\ }
+\DoxyCodeLine{00945\ \ \ \ \ \ \ \ \ FBX\_ASSERT(lNode-\/>mLeftChild\ ==\ pNode);}
+\DoxyCodeLine{00946\ \ \ \ \ \ \ \ \ FBX\_ASSERT(lNode-\/>mRightChild\ ==\ C);}
+\DoxyCodeLine{00947\ \ \ \ \ \ \ \ \ FBX\_ASSERT(lNode-\/>mParent\ ==\ Z);}
+\DoxyCodeLine{00948\ }
+\DoxyCodeLine{00949\ \ \ \ \ \ \ \ \ FBX\_ASSERT(A\ ==\ 0\ ||\ A-\/>mParent\ ==\ pNode);}
+\DoxyCodeLine{00950\ \ \ \ \ \ \ \ \ FBX\_ASSERT(B\ ==\ 0\ ||\ B-\/>mParent\ ==\ pNode);}
+\DoxyCodeLine{00951\ \ \ \ \ \ \ \ \ FBX\_ASSERT(C\ ==\ 0\ ||\ C-\/>mParent\ ==\ lNode);}
+\DoxyCodeLine{00952\ \ \ \ \ \ \ \ \ FBX\_ASSERT(Z\ ==\ 0\ ||\ Z-\/>mLeftChild\ ==\ lNode\ ||\ Z-\/>mRightChild\ ==\ lNode);}
+\DoxyCodeLine{00953\ \ \ \ \ \}}
+\DoxyCodeLine{00954\ }
+\DoxyCodeLine{00955\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ RightRotate(\mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pNode)}
+\DoxyCodeLine{00956\ \ \ \ \ \{}
+\DoxyCodeLine{00957\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ lNode\ =\ pNode-\/>mLeftChild;}
+\DoxyCodeLine{00958\ }
+\DoxyCodeLine{00959\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ \_DEBUG}}
+\DoxyCodeLine{00960\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ A\ =\ lNode-\/>mLeftChild;}
+\DoxyCodeLine{00961\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ B\ =\ lNode-\/>mRightChild;}
+\DoxyCodeLine{00962\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ C\ =\ pNode-\/>mRightChild;}
+\DoxyCodeLine{00963\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ Z\ =\ pNode-\/>mParent;}
+\DoxyCodeLine{00964\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00965\ }
+\DoxyCodeLine{00966\ \ \ \ \ \ \ \ \ pNode-\/>mLeftChild\ =\ lNode-\/>mRightChild;}
+\DoxyCodeLine{00967\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mLeftChild)}
+\DoxyCodeLine{00968\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00969\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mLeftChild-\/>mParent\ =\ pNode;}
+\DoxyCodeLine{00970\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00971\ }
+\DoxyCodeLine{00972\ \ \ \ \ \ \ \ \ lNode-\/>mParent\ =\ pNode-\/>mParent;}
+\DoxyCodeLine{00973\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mParent\ ==\ 0)}
+\DoxyCodeLine{00974\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00975\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(mRoot\ ==\ pNode);}
+\DoxyCodeLine{00976\ \ \ \ \ \ \ \ \ \ \ \ \ mRoot\ =\ lNode;}
+\DoxyCodeLine{00977\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00978\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pNode\ ==\ pNode-\/>mParent-\/>mRightChild)}
+\DoxyCodeLine{00979\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00980\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mParent-\/>mRightChild\ =\ lNode;}
+\DoxyCodeLine{00981\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00982\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00983\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00984\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mParent-\/>mLeftChild\ =\ lNode;}
+\DoxyCodeLine{00985\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00986\ \ \ \ \ \ \ \ \ pNode-\/>mParent\ =\ lNode;}
+\DoxyCodeLine{00987\ \ \ \ \ \ \ \ \ lNode-\/>mRightChild\ =\ pNode;}
+\DoxyCodeLine{00988\ }
+\DoxyCodeLine{00989\ \ \ \ \ \ \ \ \ FBX\_ASSERT(lNode-\/>mLeftChild\ ==\ A);}
+\DoxyCodeLine{00990\ \ \ \ \ \ \ \ \ FBX\_ASSERT(lNode-\/>mRightChild\ ==\ pNode);}
+\DoxyCodeLine{00991\ \ \ \ \ \ \ \ \ FBX\_ASSERT(lNode-\/>mParent\ ==\ Z);}
+\DoxyCodeLine{00992\ }
+\DoxyCodeLine{00993\ \ \ \ \ \ \ \ \ FBX\_ASSERT(pNode-\/>mLeftChild\ ==\ B);}
+\DoxyCodeLine{00994\ \ \ \ \ \ \ \ \ FBX\_ASSERT(pNode-\/>mRightChild\ ==\ C);}
+\DoxyCodeLine{00995\ \ \ \ \ \ \ \ \ FBX\_ASSERT(pNode-\/>mParent\ ==\ lNode);}
+\DoxyCodeLine{00996\ }
+\DoxyCodeLine{00997\ \ \ \ \ \ \ \ \ FBX\_ASSERT(A\ ==\ 0\ ||\ A-\/>mParent\ ==\ lNode);}
+\DoxyCodeLine{00998\ \ \ \ \ \ \ \ \ FBX\_ASSERT(B\ ==\ 0\ ||\ B-\/>mParent\ ==\ pNode);}
+\DoxyCodeLine{00999\ \ \ \ \ \ \ \ \ FBX\_ASSERT(C\ ==\ 0\ ||\ C-\/>mParent\ ==\ pNode);}
+\DoxyCodeLine{01000\ \ \ \ \ \ \ \ \ FBX\_ASSERT(Z\ ==\ 0\ ||\ Z-\/>mLeftChild\ ==\ lNode\ ||\ Z-\/>mRightChild\ ==\ lNode);}
+\DoxyCodeLine{01001\ \ \ \ \ \}}
+\DoxyCodeLine{01002\ }
+\DoxyCodeLine{01003\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ RemoveNode(\mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pNode)}
+\DoxyCodeLine{01004\ \ \ \ \ \{}
+\DoxyCodeLine{01005\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mLeftChild\ ==\ 0)}
+\DoxyCodeLine{01006\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01007\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mRightChild\ ==\ 0)}
+\DoxyCodeLine{01008\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mParent)}
+\DoxyCodeLine{01010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mParent-\/>mLeftChild\ ==\ pNode)}
+\DoxyCodeLine{01012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mParent-\/>mLeftChild\ =\ 0;}
+\DoxyCodeLine{01014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pNode-\/>mParent-\/>mRightChild\ ==\ pNode)}
+\DoxyCodeLine{01016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mParent-\/>mRightChild\ =\ 0;}
+\DoxyCodeLine{01018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT\_NOW(\textcolor{stringliteral}{"{}Node\ not\ found\ in\ FbxRedBlackTree"{}});}
+\DoxyCodeLine{01022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(mRoot\ ==\ pNode);}
+\DoxyCodeLine{01027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRoot\ =\ 0;}
+\DoxyCodeLine{01028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01029\ }
+\DoxyCodeLine{01030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mColor\ ==\ RecordType::eBlack)}
+\DoxyCodeLine{01031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FixNodesAfterRemoval(pNode-\/>mParent,\ 0);}
+\DoxyCodeLine{01033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01034\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01036\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mParent)}
+\DoxyCodeLine{01038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mParent-\/>mLeftChild\ ==\ pNode)}
+\DoxyCodeLine{01040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mParent-\/>mLeftChild\ =\ pNode-\/>mRightChild;}
+\DoxyCodeLine{01042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mRightChild-\/>mParent\ =\ pNode-\/>mParent;}
+\DoxyCodeLine{01043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pNode-\/>mParent-\/>mRightChild\ ==\ pNode)}
+\DoxyCodeLine{01045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mParent-\/>mRightChild\ =\ pNode-\/>mRightChild;}
+\DoxyCodeLine{01047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mRightChild-\/>mParent\ =\ pNode-\/>mParent;}
+\DoxyCodeLine{01048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT\_NOW(\textcolor{stringliteral}{"{}Node\ not\ found\ in\ FbxRedBlackTree"{}});}
+\DoxyCodeLine{01052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(mRoot\ ==\ pNode);}
+\DoxyCodeLine{01057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRoot\ =\ pNode-\/>mRightChild;}
+\DoxyCodeLine{01058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mRightChild-\/>mParent\ =\ 0;}
+\DoxyCodeLine{01059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01060\ }
+\DoxyCodeLine{01061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mColor\ ==\ RecordType::eBlack)}
+\DoxyCodeLine{01062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FixNodesAfterRemoval(pNode-\/>mRightChild-\/>mParent,\ pNode-\/>mRightChild);}
+\DoxyCodeLine{01064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01065\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01068\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mRightChild\ ==\ 0)}
+\DoxyCodeLine{01070\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mParent)}
+\DoxyCodeLine{01072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mParent-\/>mLeftChild\ ==\ pNode)}
+\DoxyCodeLine{01074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mParent-\/>mLeftChild\ =\ pNode-\/>mLeftChild;}
+\DoxyCodeLine{01076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mLeftChild-\/>mParent\ =\ pNode-\/>mParent;}
+\DoxyCodeLine{01077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pNode-\/>mParent-\/>mRightChild\ ==\ pNode)}
+\DoxyCodeLine{01079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mParent-\/>mRightChild\ =\ pNode-\/>mLeftChild;}
+\DoxyCodeLine{01081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mLeftChild-\/>mParent\ =\ pNode-\/>mParent;}
+\DoxyCodeLine{01082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT\_NOW(\textcolor{stringliteral}{"{}Node\ not\ found\ in\ FbxRedBlackTree"{}});}
+\DoxyCodeLine{01086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(mRoot\ ==\ pNode);}
+\DoxyCodeLine{01091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRoot\ =\ pNode-\/>mLeftChild;}
+\DoxyCodeLine{01092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mLeftChild-\/>mParent\ =\ 0;}
+\DoxyCodeLine{01093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01094\ }
+\DoxyCodeLine{01095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode-\/>mColor\ ==\ RecordType::eBlack)}
+\DoxyCodeLine{01096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FixNodesAfterRemoval(pNode-\/>mLeftChild-\/>mParent,\ pNode-\/>mLeftChild);}
+\DoxyCodeLine{01098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01099\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01101\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ lMinRightNode\ =\ pNode-\/>mRightChild-\/>Minimum();}
+\DoxyCodeLine{01103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RemoveNode(lMinRightNode);}
+\DoxyCodeLine{01104\ }
+\DoxyCodeLine{01105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lMinRightNode-\/>mColor\ =\ pNode-\/>mColor;}
+\DoxyCodeLine{01106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReplaceNode(pNode,\ lMinRightNode);}
+\DoxyCodeLine{01107\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01109\ }
+\DoxyCodeLine{01110\ \ \ \ \ \ \ \ \ pNode-\/>mParent\ =\ 0;}
+\DoxyCodeLine{01111\ \ \ \ \ \ \ \ \ pNode-\/>mLeftChild\ =\ 0;}
+\DoxyCodeLine{01112\ \ \ \ \ \ \ \ \ pNode-\/>mRightChild\ =\ 0;}
+\DoxyCodeLine{01113\ \ \ \ \ \}}
+\DoxyCodeLine{01114\ }
+\DoxyCodeLine{01115\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ReplaceNode(\mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pNodeToReplace,\ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pReplacement)}
+\DoxyCodeLine{01116\ \ \ \ \ \{}
+\DoxyCodeLine{01117\ \ \ \ \ \ \ \ \ pReplacement-\/>mParent\ =\ pNodeToReplace-\/>mParent;}
+\DoxyCodeLine{01118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNodeToReplace-\/>mParent)}
+\DoxyCodeLine{01119\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNodeToReplace-\/>mParent-\/>mLeftChild\ ==\ pNodeToReplace)}
+\DoxyCodeLine{01121\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pNodeToReplace-\/>mParent-\/>mLeftChild\ =\ pReplacement;}
+\DoxyCodeLine{01123\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pNodeToReplace-\/>mParent-\/>mRightChild\ ==\ pNodeToReplace)}
+\DoxyCodeLine{01125\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pNodeToReplace-\/>mParent-\/>mRightChild\ =\ pReplacement;}
+\DoxyCodeLine{01127\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01130\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01131\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(mRoot\ ==\ pNodeToReplace);}
+\DoxyCodeLine{01132\ \ \ \ \ \ \ \ \ \ \ \ \ mRoot\ =\ pReplacement;}
+\DoxyCodeLine{01133\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01134\ }
+\DoxyCodeLine{01135\ \ \ \ \ \ \ \ \ pReplacement-\/>mLeftChild\ =\ pNodeToReplace-\/>mLeftChild;}
+\DoxyCodeLine{01136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pReplacement-\/>mLeftChild)}
+\DoxyCodeLine{01137\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01138\ \ \ \ \ \ \ \ \ \ \ \ \ pReplacement-\/>mLeftChild-\/>mParent\ =\ pReplacement;}
+\DoxyCodeLine{01139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01140\ }
+\DoxyCodeLine{01141\ \ \ \ \ \ \ \ \ pReplacement-\/>mRightChild\ =\ pNodeToReplace-\/>mRightChild;}
+\DoxyCodeLine{01142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pReplacement-\/>mRightChild)}
+\DoxyCodeLine{01143\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01144\ \ \ \ \ \ \ \ \ \ \ \ \ pReplacement-\/>mRightChild-\/>mParent\ =\ pReplacement;}
+\DoxyCodeLine{01145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01146\ \ \ \ \ \}}
+\DoxyCodeLine{01147\ }
+\DoxyCodeLine{01148\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ Sibling(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pParent,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pNode)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01149\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pParent)}
+\DoxyCodeLine{01151\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pParent-\/>mLeftChild\ ==\ pNode)}
+\DoxyCodeLine{01153\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pParent-\/>mRightChild;}
+\DoxyCodeLine{01155\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (pParent-\/>mRightChild\ ==\ pNode)}
+\DoxyCodeLine{01157\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pParent-\/>mLeftChild;}
+\DoxyCodeLine{01159\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01161\ }
+\DoxyCodeLine{01162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{01163\ \ \ \ \ \}}
+\DoxyCodeLine{01164\ }
+\DoxyCodeLine{01165\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ IsBlack(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pNode)}
+\DoxyCodeLine{01166\ \ \ \ \ \{}
+\DoxyCodeLine{01167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((pNode\ ==\ 0)\ ||\ (pNode-\/>mColor\ ==\ RecordType::eBlack));}
+\DoxyCodeLine{01168\ \ \ \ \ \}}
+\DoxyCodeLine{01169\ }
+\DoxyCodeLine{01170\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ FixNodesAfterRemoval(\mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pParent,\ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pNode)}
+\DoxyCodeLine{01171\ \ \ \ \ \{}
+\DoxyCodeLine{01172\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ lParent\ =\ pParent;}
+\DoxyCodeLine{01173\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ lNode\ =\ pNode;}
+\DoxyCodeLine{01174\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ lDone\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01175\ }
+\DoxyCodeLine{01176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!lDone)}
+\DoxyCodeLine{01177\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01178\ \ \ \ \ \ \ \ \ \ \ \ \ lDone\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01179\ }
+\DoxyCodeLine{01180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!IsBlack(lNode))}
+\DoxyCodeLine{01181\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode-\/>mColor\ =\ RecordType::eBlack;}
+\DoxyCodeLine{01183\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (lParent\ !=\ NULL)}
+\DoxyCodeLine{01185\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ lSibling\ =\ Sibling(lParent,\ lNode);}
+\DoxyCodeLine{01187\ }
+\DoxyCodeLine{01188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!IsBlack(lSibling))}
+\DoxyCodeLine{01189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent-\/>mColor\ =\ RecordType::eRed;}
+\DoxyCodeLine{01191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lSibling-\/>mColor\ =\ RecordType::eBlack;}
+\DoxyCodeLine{01192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lNode\ ==\ lParent-\/>mLeftChild)}
+\DoxyCodeLine{01193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftRotate(lParent);}
+\DoxyCodeLine{01195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RightRotate(lParent);}
+\DoxyCodeLine{01199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01200\ }
+\DoxyCodeLine{01201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ update\ sibling:\ it\ may\ have\ change\ after\ rotation}}
+\DoxyCodeLine{01202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ parent\ was\ not\ affected\ by\ this\ rotation}}
+\DoxyCodeLine{01203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lSibling\ =\ Sibling(lParent,\ lNode);}
+\DoxyCodeLine{01204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01205\ }
+\DoxyCodeLine{01206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ check\ this\ for\ null\ sibling\ */}}
+\DoxyCodeLine{01207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lSibling\ \&\&}
+\DoxyCodeLine{01208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsBlack(lParent)\ \&\&}
+\DoxyCodeLine{01209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsBlack(lSibling)\ \&\&}
+\DoxyCodeLine{01210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsBlack(lSibling-\/>mLeftChild)\ \&\&}
+\DoxyCodeLine{01211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsBlack(lSibling-\/>mRightChild))}
+\DoxyCodeLine{01212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lSibling-\/>mColor\ =\ RecordType::eRed;}
+\DoxyCodeLine{01214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lParent;}
+\DoxyCodeLine{01215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent\ =\ lParent-\/>mParent;}
+\DoxyCodeLine{01216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lDone\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{01217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!IsBlack(lParent)\ \&\&}
+\DoxyCodeLine{01221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsBlack(lSibling)\ \&\&}
+\DoxyCodeLine{01222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((lSibling\ ==\ 0)\ ||\ IsBlack(lSibling-\/>mLeftChild))\ \&\&}
+\DoxyCodeLine{01223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((lSibling\ ==\ 0)\ ||\ IsBlack(lSibling-\/>mRightChild)))}
+\DoxyCodeLine{01224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lSibling)}
+\DoxyCodeLine{01226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lSibling-\/>mColor\ =\ RecordType::eRed;}
+\DoxyCodeLine{01228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent-\/>mColor\ =\ RecordType::eBlack;}
+\DoxyCodeLine{01230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\ lSibling\ !=\ 0\ )}
+\DoxyCodeLine{01232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((lNode\ ==\ lParent-\/>mLeftChild)\ \&\&}
+\DoxyCodeLine{01234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsBlack(lSibling)\ \&\&}
+\DoxyCodeLine{01235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !IsBlack(lSibling-\/>mLeftChild)\ \&\&}
+\DoxyCodeLine{01236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsBlack(lSibling-\/>mRightChild))}
+\DoxyCodeLine{01237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lSibling-\/>mColor\ =\ RecordType::eRed;}
+\DoxyCodeLine{01239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lSibling-\/>mLeftChild-\/>mColor\ =\ RecordType::eBlack;}
+\DoxyCodeLine{01240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RightRotate(lSibling);}
+\DoxyCodeLine{01241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ ((lNode\ ==\ lParent-\/>mRightChild)\ \&\&}
+\DoxyCodeLine{01243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsBlack(lSibling)\ \&\&}
+\DoxyCodeLine{01244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsBlack(lSibling-\/>mLeftChild)\ \&\&}
+\DoxyCodeLine{01245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !IsBlack(lSibling-\/>mRightChild))}
+\DoxyCodeLine{01246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lSibling-\/>mColor\ =\ RecordType::eRed;}
+\DoxyCodeLine{01248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lSibling-\/>mRightChild-\/>mColor\ =\ RecordType::eBlack;}
+\DoxyCodeLine{01249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftRotate(lSibling);}
+\DoxyCodeLine{01250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01251\ }
+\DoxyCodeLine{01252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ update\ sibling:\ it\ may\ have\ change\ after\ rotation}}
+\DoxyCodeLine{01253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lSibling\ =\ Sibling(lParent,\ lNode);}
+\DoxyCodeLine{01254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(lSibling\ !=\ 0\ \&\&\ lParent\ !=\ 0);\ \textcolor{comment}{//\ lSibling\ is\ now}}
+\DoxyCodeLine{01255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ the\ former\ red}}
+\DoxyCodeLine{01256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ child\ of\ the}}
+\DoxyCodeLine{01257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ former\ sibling}}
+\DoxyCodeLine{01258\ }
+\DoxyCodeLine{01259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lSibling\ !=\ 0\ \&\&\ lParent\ !=\ 0\ )}
+\DoxyCodeLine{01260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lSibling-\/>mColor\ =\ lParent-\/>mColor;}
+\DoxyCodeLine{01262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lParent-\/>mColor\ =\ RecordType::eBlack;}
+\DoxyCodeLine{01263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lNode\ ==\ lParent-\/>mLeftChild)}
+\DoxyCodeLine{01264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lSibling-\/>mRightChild)}
+\DoxyCodeLine{01266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lSibling-\/>mRightChild-\/>mColor\ =\ RecordType::eBlack;}
+\DoxyCodeLine{01268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LeftRotate(lParent);}
+\DoxyCodeLine{01270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lSibling-\/>mLeftChild)}
+\DoxyCodeLine{01274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lSibling-\/>mLeftChild-\/>mColor\ =\ RecordType::eBlack;}
+\DoxyCodeLine{01276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RightRotate(lParent);}
+\DoxyCodeLine{01278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01282\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01283\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01284\ }
+\DoxyCodeLine{01285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mRoot)}
+\DoxyCodeLine{01286\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01287\ \ \ \ \ \ \ \ \ \ \ \ \ mRoot-\/>mColor\ =\ RecordType::eBlack;}
+\DoxyCodeLine{01288\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01289\ \ \ \ \ \}}
+\DoxyCodeLine{01290\ }
+\DoxyCodeLine{01291\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ClearSubTree(\mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pNode)}
+\DoxyCodeLine{01292\ \ \ \ \ \{}
+\DoxyCodeLine{01293\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode)}
+\DoxyCodeLine{01294\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01295\ \ \ \ \ \ \ \ \ \ \ \ \ ClearSubTree(pNode-\/>mLeftChild);}
+\DoxyCodeLine{01296\ \ \ \ \ \ \ \ \ \ \ \ \ ClearSubTree(pNode-\/>mRightChild);}
+\DoxyCodeLine{01297\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>\string~RecordType();}
+\DoxyCodeLine{01298\ \ \ \ \ \ \ \ \ \ \ \ \ mAllocator.FreeMemory(pNode);}
+\DoxyCodeLine{01299\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01300\ \ \ \ \ \}}
+\DoxyCodeLine{01301\ }
+\DoxyCodeLine{01302\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ GetSubTreeSize(\mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pNode)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01303\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode)}
+\DoxyCodeLine{01305\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01306\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GetSubTreeSize(pNode-\/>mLeftChild)\ +\ GetSubTreeSize(pNode-\/>mRightChild)\ +\ 1;}
+\DoxyCodeLine{01307\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01308\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01309\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01310\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{01311\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01312\ \ \ \ \ \}}
+\DoxyCodeLine{01313\ }
+\DoxyCodeLine{01314\ \textcolor{preprocessor}{\#if\ 0}}
+\DoxyCodeLine{01315\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ IsSane()}
+\DoxyCodeLine{01316\ \ \ \ \ \{}
+\DoxyCodeLine{01317\ \ \ \ \ \ \ \ \ FBX\_ASSERT((mRoot\ ==\ 0)\ ||\ (mRoot-\/>mColor\ ==\ RecordType::eBlack));}
+\DoxyCodeLine{01318\ \ \ \ \ \ \ \ \ FBX\_ASSERT(((mRoot\ ==\ 0)\ \&\&\ (mSize\ ==\ 0))\ ||\ (mRoot\ !=\ 0)\ \&\&\ (mSize\ !=\ 0));}
+\DoxyCodeLine{01319\ \ \ \ \ \ \ \ \ IsSubTreeSane(mRoot);}
+\DoxyCodeLine{01320\ }
+\DoxyCodeLine{01321\ \ \ \ \ \ \ \ \ ComputeBlackDepth(mRoot,\ 0);}
+\DoxyCodeLine{01322\ }
+\DoxyCodeLine{01323\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ lNode\ =\ mRoot;}
+\DoxyCodeLine{01324\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ lLeafBlackDepth\ =\ 0;}
+\DoxyCodeLine{01325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lNode)}
+\DoxyCodeLine{01326\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01327\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (lNode-\/>mLeftChild\ ==\ 0)}
+\DoxyCodeLine{01328\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lLeafBlackDepth\ =\ lNode-\/>mBlackDepth\ +\ ((lNode-\/>mColor\ ==\ RecordType::eBlack)\ ?\ 1\ :\ 0);}
+\DoxyCodeLine{01330\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01331\ }
+\DoxyCodeLine{01332\ \ \ \ \ \ \ \ \ \ \ \ \ lNode\ =\ lNode-\/>mLeftChild;}
+\DoxyCodeLine{01333\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01334\ }
+\DoxyCodeLine{01335\ \ \ \ \ \ \ \ \ CheckLeavesBlackDepth(mRoot,\ lLeafBlackDepth);}
+\DoxyCodeLine{01336\ \ \ \ \ \}}
+\DoxyCodeLine{01337\ }
+\DoxyCodeLine{01338\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ IsSubTreeSane(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pNode)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01339\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{01340\ \ \ \ \ \ \ \ \ Compare\ lCompareKeys;}
+\DoxyCodeLine{01341\ }
+\DoxyCodeLine{01342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pNode)}
+\DoxyCodeLine{01343\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01344\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(pNode\ !=\ pNode-\/>mParent);}
+\DoxyCodeLine{01345\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(pNode\ !=\ pNode-\/>mLeftChild);}
+\DoxyCodeLine{01346\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT(pNode\ !=\ pNode-\/>mRightChild);}
+\DoxyCodeLine{01347\ }
+\DoxyCodeLine{01348\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ for\ two\ consecutive\ red\ nodes}}
+\DoxyCodeLine{01349\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT((pNode-\/>mColor\ ==\ RecordType::eBlack)\ ||}
+\DoxyCodeLine{01350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (pNode-\/>mLeftChild\ ==\ NULL)\ ||}
+\DoxyCodeLine{01351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (pNode-\/>mLeftChild-\/>mColor\ ==\ RecordType::eBlack));}
+\DoxyCodeLine{01352\ }
+\DoxyCodeLine{01353\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT((pNode-\/>mColor\ ==\ RecordType::eBlack)\ ||}
+\DoxyCodeLine{01354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (pNode-\/>mRightChild\ ==\ NULL)\ ||}
+\DoxyCodeLine{01355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (pNode-\/>mRightChild-\/>mColor\ ==\ RecordType::eBlack));}
+\DoxyCodeLine{01356\ }
+\DoxyCodeLine{01357\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ key\ ordering}}
+\DoxyCodeLine{01358\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT((pNode-\/>mLeftChild\ ==\ 0\ ||}
+\DoxyCodeLine{01359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lCompareKeys(pNode-\/>GetKey(),\ pNode-\/>mLeftChild-\/>GetKey())\ >\ 0));}
+\DoxyCodeLine{01360\ }
+\DoxyCodeLine{01361\ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT((pNode-\/>mRightChild\ ==\ 0\ ||}
+\DoxyCodeLine{01362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lCompareKeys(pNode-\/>GetKey(),\ pNode-\/>mRightChild-\/>GetKey())\ <\ 0));}
+\DoxyCodeLine{01363\ }
+\DoxyCodeLine{01364\ \ \ \ \ \ \ \ \ \ \ \ \ IsSubTreeSane(pNode-\/>mLeftChild);}
+\DoxyCodeLine{01365\ \ \ \ \ \ \ \ \ \ \ \ \ IsSubTreeSane(pNode-\/>mRightChild);}
+\DoxyCodeLine{01366\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01367\ \ \ \ \ \}}
+\DoxyCodeLine{01368\ }
+\DoxyCodeLine{01369\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ComputeBlackDepth(\mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pNode,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pDepth)}
+\DoxyCodeLine{01370\ \ \ \ \ \{}
+\DoxyCodeLine{01371\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pNode\ )}
+\DoxyCodeLine{01372\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01373\ \ \ \ \ \ \ \ \ \ \ \ \ pNode-\/>mBlackDepth\ =\ pDepth;}
+\DoxyCodeLine{01374\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pNode-\/>mColor\ ==\ RecordType::eBlack\ )}
+\DoxyCodeLine{01375\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pDepth++;}
+\DoxyCodeLine{01377\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01378\ \ \ \ \ \ \ \ \ \ \ \ \ ComputeBlackDepth(pNode-\/>mLeftChild,\ pDepth);}
+\DoxyCodeLine{01379\ \ \ \ \ \ \ \ \ \ \ \ \ ComputeBlackDepth(pNode-\/>mRightChild,\ pDepth);}
+\DoxyCodeLine{01380\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01381\ \ \ \ \ \}}
+\DoxyCodeLine{01382\ }
+\DoxyCodeLine{01383\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ CheckLeavesBlackDepth(\mbox{\hyperlink{class_fbx_red_black_tree_1_1_record_type}{RecordType}}*\ pNode,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ pBlackDepth)}
+\DoxyCodeLine{01384\ \ \ \ \ \{}
+\DoxyCodeLine{01385\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pNode\ )}
+\DoxyCodeLine{01386\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01387\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ pNode-\/>mLeftChild\ ==\ 0\ ||\ pNode-\/>mRightChild\ ==\ 0\ )}
+\DoxyCodeLine{01388\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FBX\_ASSERT((pNode-\/>mBlackDepth\ +\ ((pNode-\/>mColor\ ==\ RecordType::eBlack)\ ?\ 1\ :\ 0))\ ==\ pBlackDepth);}
+\DoxyCodeLine{01390\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01391\ \ \ \ \ \ \ \ \ \ \ \ \ CheckLeavesBlackDepth(pNode-\/>mLeftChild,\ pBlackDepth);}
+\DoxyCodeLine{01392\ \ \ \ \ \ \ \ \ \ \ \ \ CheckLeavesBlackDepth(pNode-\/>mRightChild,\ pBlackDepth);}
+\DoxyCodeLine{01393\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01394\ \ \ \ \ \}}
+\DoxyCodeLine{01395\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01396\ \};}
+\DoxyCodeLine{01397\ }
+\DoxyCodeLine{01398\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01399\ }
+\DoxyCodeLine{01400\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{01401\ }
+\DoxyCodeLine{01402\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\_FBXSDK\_CORE\_BASE\_REDBLACKTREE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

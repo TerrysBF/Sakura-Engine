@@ -1,0 +1,102 @@
+\doxysection{Fbx\+Query\+Operator Class Reference}
+\hypertarget{class_fbx_query_operator}{}\label{class_fbx_query_operator}\index{FbxQueryOperator@{FbxQueryOperator}}
+Inheritance diagram for Fbx\+Query\+Operator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_fbx_query_operator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_query_operator_aadf25d36a6eab339504a02ce57fd6ad4}\label{class_fbx_query_operator_aadf25d36a6eab339504a02ce57fd6ad4} 
+enum {\bfseries EType} \{ {\bfseries e\+AND}
+, {\bfseries e\+OR}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_query_operator_a3cd85ca0a8ff67d6670b36d06dcaf950}\label{class_fbx_query_operator_a3cd85ca0a8ff67d6670b36d06dcaf950} 
+{\bfseries FBXSDK\+\_\+\+FRIEND\+\_\+\+NEW} ()
+\item 
+Fbx\+Int \mbox{\hyperlink{class_fbx_query_operator_ac9097b3a4cc1c59237bceb387df47bba}{Get\+Unique\+Id}} () const override
+\begin{DoxyCompactList}\small\item\em Get unique filter Id. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_fbx_query_operator_a3c627f38de5f36ae69f0ef175ba72f7f}{Is\+Valid}} (const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&p\+Property) const override
+\item 
+bool \mbox{\hyperlink{class_fbx_query_operator_aa38fda2ec46bada63aeb256b6343740b}{Is\+Equal}} (\mbox{\hyperlink{class_fbx_query}{Fbx\+Query}} \texorpdfstring{$\ast$}{*}p\+Other\+Query) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_fbx_query}{Fbx\+Query}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Ref} ()
+\begin{DoxyCompactList}\small\item\em Add one to ref count. \end{DoxyCompactList}\item 
+void {\bfseries Unref} ()
+\begin{DoxyCompactList}\small\item\em Minus one to ref count, if ref count is zero, delete this query object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_query_operator_a4b847510170ff0200dfc445b3a0c34ae}\label{class_fbx_query_operator_a4b847510170ff0200dfc445b3a0c34ae} 
+static \mbox{\hyperlink{class_fbx_query_operator}{Fbx\+Query\+Operator}} \texorpdfstring{$\ast$}{*} {\bfseries Create} (\mbox{\hyperlink{class_fbx_query}{Fbx\+Query}} \texorpdfstring{$\ast$}{*}pA, EType p\+Operator, \mbox{\hyperlink{class_fbx_query}{Fbx\+Query}} \texorpdfstring{$\ast$}{*}pB)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fbx_query_operator_a8589182ef13c8a61ed084a632269eb48}\label{class_fbx_query_operator_a8589182ef13c8a61ed084a632269eb48} 
+{\bfseries Fbx\+Query\+Operator} (\mbox{\hyperlink{class_fbx_query}{Fbx\+Query}} \texorpdfstring{$\ast$}{*}pA, EType p\+Operator, \mbox{\hyperlink{class_fbx_query}{Fbx\+Query}} \texorpdfstring{$\ast$}{*}pB)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fbx_query_operator_ac9097b3a4cc1c59237bceb387df47bba}\index{FbxQueryOperator@{FbxQueryOperator}!GetUniqueId@{GetUniqueId}}
+\index{GetUniqueId@{GetUniqueId}!FbxQueryOperator@{FbxQueryOperator}}
+\doxysubsubsection{\texorpdfstring{GetUniqueId()}{GetUniqueId()}}
+{\footnotesize\ttfamily \label{class_fbx_query_operator_ac9097b3a4cc1c59237bceb387df47bba} 
+Fbx\+Int Fbx\+Query\+Operator\+::\+Get\+Unique\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get unique filter Id. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_query_ac7daae8f6fa83cd97ae24e93d7b4dc29}{Fbx\+Query}}.
+
+\Hypertarget{class_fbx_query_operator_aa38fda2ec46bada63aeb256b6343740b}\index{FbxQueryOperator@{FbxQueryOperator}!IsEqual@{IsEqual}}
+\index{IsEqual@{IsEqual}!FbxQueryOperator@{FbxQueryOperator}}
+\doxysubsubsection{\texorpdfstring{IsEqual()}{IsEqual()}}
+{\footnotesize\ttfamily \label{class_fbx_query_operator_aa38fda2ec46bada63aeb256b6343740b} 
+bool Fbx\+Query\+Operator\+::\+Is\+Equal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_fbx_query}{Fbx\+Query}} \texorpdfstring{$\ast$}{*}}]{p\+Other\+Query}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+This compares whether two \doxylink{class_fbx_query}{Fbx\+Query} are the same, NOT whether the query matches or not. It\textquotesingle{}s strictly the equivalent of an operator==, but virtual. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Other\+Query} & The given \doxylink{class_fbx_query}{Fbx\+Query} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_query_adfc24c7306ceed2fcfd8c67198e0c1dd}{Fbx\+Query}}.
+
+\Hypertarget{class_fbx_query_operator_a3c627f38de5f36ae69f0ef175ba72f7f}\index{FbxQueryOperator@{FbxQueryOperator}!IsValid@{IsValid}}
+\index{IsValid@{IsValid}!FbxQueryOperator@{FbxQueryOperator}}
+\doxysubsubsection{\texorpdfstring{IsValid()}{IsValid()}}
+{\footnotesize\ttfamily \label{class_fbx_query_operator_a3c627f38de5f36ae69f0ef175ba72f7f} 
+bool Fbx\+Query\+Operator\+::\+Is\+Valid (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fbx_property}{Fbx\+Property}} \&}]{p\+Property}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Judge if the given property is valid. 
+\begin{DoxyParams}{Parameters}
+{\em p\+Property} & The given property. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} always, not implemented. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_fbx_query_a822776baf45a56d8e126e948ec25d920}{Fbx\+Query}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/fbx/fbxsdk/core/\mbox{\hyperlink{fbxquery_8h}{fbxquery.\+h}}\end{DoxyCompactItemize}

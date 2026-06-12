@@ -1,0 +1,197 @@
+\doxysection{fbxcontainerallocators.\+h}
+\hypertarget{fbxcontainerallocators_8h_source}{}\label{fbxcontainerallocators_8h_source}\index{include/fbx/fbxsdk/core/base/fbxcontainerallocators.h@{include/fbx/fbxsdk/core/base/fbxcontainerallocators.h}}
+\mbox{\hyperlink{fbxcontainerallocators_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_BASE\_CONTAINER\_ALLOCATORS\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_BASE\_CONTAINER\_ALLOCATORS\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_COMPILER\_MSC)\ \&\&\ \_MSC\_VER\ <\ 1900}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#pragma\ warning(push)}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#pragma\ warning(disable\ :\ 4512)\ }\textcolor{comment}{//\ to\ avoid:\ assignment\ operator\ could\ not\ be\ generated}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_base_allocator_a9597eb137f26dc696170b9eddf0298a5}{FbxBaseAllocator}}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_fbx_base_allocator_a9597eb137f26dc696170b9eddf0298a5}{FbxBaseAllocator}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ pRecordSize)\ :}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ mRecordSize(pRecordSize)}
+\DoxyCodeLine{00039\ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_base_allocator_ad84870f23a2b067b3bade2604dab2621}{Reserve}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \textcolor{comment}{/*pRecordCount*/})}
+\DoxyCodeLine{00050\ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ By\ default,\ ignore\ all\ preallocating\ requests.}}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_fbx_base_allocator_aeee87bff2845ba6189e2bdbcd2d246ce}{AllocateRecords}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ pRecordCount=1)}
+\DoxyCodeLine{00060\ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FbxMalloc(FbxAllocSize(pRecordCount,\ mRecordSize));}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_base_allocator_a345b6d46e57e8313966a5f3654d1195c}{FreeMemory}}(\textcolor{keywordtype}{void}*\ pRecord)}
+\DoxyCodeLine{00068\ \ \ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ FbxFree(pRecord);}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_fbx_base_allocator_ab7aa3164aa6fc973baca1515b494198f}{GetRecordSize}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00075\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRecordSize;}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ mRecordSize;}
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{class\ }FbxHungryAllocator}
+\DoxyCodeLine{00088\ \{}
+\DoxyCodeLine{00089\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00090\ \ \ \ \ FbxHungryAllocator(\textcolor{keywordtype}{size\_t}\ pRecordSize)\ :}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ mRecordSize(pRecordSize),}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ mRecordPoolSize(0),}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ mData(NULL)}
+\DoxyCodeLine{00094\ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ FbxHungryAllocator(\textcolor{keyword}{const}\ FbxHungryAllocator\&\ pOther)\ :}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ mRecordSize(pOther.mRecordSize),}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ mRecordPoolSize(pOther.mRecordPoolSize),}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ mData(NULL)}
+\DoxyCodeLine{00101\ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \string~FbxHungryAllocator()}
+\DoxyCodeLine{00105\ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ MemoryBlock*\ lCurrent\ =\ mData;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ MemoryBlock*\ lNext\ =\ lCurrent\ ?\ lCurrent-\/>mNextBlock\ :\ 0;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (lCurrent)}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{fbxalloc_8h_a55138f34ac93c519a78f624178c128d6}{FbxDelete}}(lCurrent);}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ lCurrent\ =\ lNext;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ lNext\ =\ lCurrent\ ?\ lCurrent-\/>mNextBlock\ :\ 0;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ Reserve(\textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ pRecordCount)}
+\DoxyCodeLine{00117\ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ MemoryBlock*\ lMem\ =\ FbxNew<\ MemoryBlock\ >(pRecordCount*\ mRecordSize);}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ lMem-\/>mNextBlock\ =\ mData;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ mData\ =\ lMem;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ mRecordPoolSize\ +=\ pRecordCount;}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}*\ AllocateRecords(\textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ pRecordCount\ =\ 1)}
+\DoxyCodeLine{00125\ \ \ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ MemoryBlock*\ lBlock\ =\ mData;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ lRecord\ =\ NULL;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\ (lBlock\ !=\ NULL)\ \&\&\ ((lRecord\ =\ lBlock-\/>GetChunk(pRecordCount\ *\ mRecordSize))\ ==\ NULL)\ )}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ lBlock\ =\ lBlock-\/>mNextBlock;}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lRecord\ ==\ NULL\ )}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ lNumRecordToAllocate\ =\ mRecordPoolSize\ /\ 8\ ==\ 0\ ?\ 2\ :\ mRecordPoolSize\ /\ 8;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ lNumRecordToAllocate\ <\ pRecordCount\ )}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lNumRecordToAllocate\ =\ pRecordCount;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ Reserve(lNumRecordToAllocate);}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ lRecord\ =\ AllocateRecords(pRecordCount);}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lRecord;}
+\DoxyCodeLine{00145\ \ \ \ \ \}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{void}\ FreeMemory(\textcolor{keywordtype}{void}*\ \textcolor{comment}{/*pRecord*/})}
+\DoxyCodeLine{00148\ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ "{}Hungry"{}:\ release\ memory\ only\ when\ the\ allocator\ is\ destroyed.}}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ GetRecordSize()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00153\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mRecordSize;}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ FbxHungryAllocator\&\ operator=(\textcolor{keyword}{const}\ FbxHungryAllocator\&\ pOther)}
+\DoxyCodeLine{00158\ \ \ \ \ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \textcolor{keyword}{this}\ !=\ \&pOther\ )}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ next\ call\ to\ AllocateRecords()\ may\ skip\ over\ currently\ reserved}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ records\ if\ the\ size\ changes\ drastically,\ but\ otherwise\ GetChunk()}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ is\ size-\/oblivious.}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ mRecordSize\ <\ pOther.mRecordSize\ )}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mRecordPoolSize\ =\ 0;}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ mRecordSize\ =\ pOther.mRecordSize;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keyword}{class\ }MemoryBlock}
+\DoxyCodeLine{00176\ \ \ \ \ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ MemoryBlock(\textcolor{keywordtype}{size\_t}\ pSize)\ :}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ mNextBlock(NULL),}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ mData(NULL),}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ mFreeData(NULL),}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ mEnd(NULL)}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ mData\ =\ FbxMalloc(pSize);}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ mFreeData\ =\ mData;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ mEnd\ =\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(mData)\ +\ pSize;}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \string~MemoryBlock()}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ FbxFree(mData);}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ GetChunk(\textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ pSize)}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(mFreeData)\ +\ pSize\ <\ mEnd\ )}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ lChunk\ =\ mFreeData;}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mFreeData\ =\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(mFreeData)\ +\ pSize;}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lChunk;}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ MemoryBlock*\ \ \ \ mNextBlock;}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ mData;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ mFreeData;}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ mEnd;}
+\DoxyCodeLine{00209\ \ \ \ \ \};}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ mRecordSize;}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ mRecordPoolSize;}
+\DoxyCodeLine{00213\ \ \ \ \ MemoryBlock*\ \ \ \ mData;}
+\DoxyCodeLine{00214\ \};}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#if\ defined(FBXSDK\_COMPILER\_MSC)\ \&\&\ \_MSC\_VER\ <\ 1900}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\#pragma\ warning(pop)}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_BASE\_CONTAINER\_ALLOCATORS\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

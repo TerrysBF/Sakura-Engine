@@ -1,0 +1,300 @@
+\doxysection{fbxconnectionpoint.\+h}
+\hypertarget{fbxconnectionpoint_8h_source}{}\label{fbxconnectionpoint_8h_source}\index{include/fbx/fbxsdk/core/fbxconnectionpoint.h@{include/fbx/fbxsdk/core/fbxconnectionpoint.h}}
+\mbox{\hyperlink{fbxconnectionpoint_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ Copyright\ (C)\ 2015\ Autodesk,\ Inc.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ All\ rights\ reserved.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ Use\ of\ this\ software\ is\ subject\ to\ the\ terms\ of\ the\ Autodesk\ license\ agreement}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ provided\ at\ the\ time\ of\ installation\ or\ download,\ or\ which\ otherwise\ accompanies}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ this\ software\ in\ either\ electronic\ or\ hard\ copy\ form.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ }}
+\DoxyCodeLine{00010\ \textcolor{comment}{****************************************************************************************/}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_FBXSDK\_CORE\_CONNECTION\_POINT\_H\_}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_FBXSDK\_CORE\_CONNECTION\_POINT\_H\_}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__def_8h}{fbxsdk/fbxsdk\_def.h}}>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxarray_8h}{fbxsdk/core/base/fbxarray.h}}>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxset_8h}{fbxsdk/core/base/fbxset.h}}>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsbegin_8h}{fbxsdk/fbxsdk\_nsbegin.h}}>}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_connection}{FbxConnection}}}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{enum}\ EType}
+\DoxyCodeLine{00027\ \ \ \ \ \{\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ eNone\ =\ 0,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ System\ or\ user}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ eSystem\ =\ 1\ <<\ 0,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ eUser\ =\ 1\ <<\ 1,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ eSystemOrUser\ =\ eUser\ |\ eSystem,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Type\ of\ Link}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ eReference\ =\ 1\ <<\ 2,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ eContains\ =\ 1\ <<\ 3,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ eData\ =\ 1\ <<\ 4,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ eLinkType\ =\ eReference\ |\ eContains\ |\ eData,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ eDefault\ =\ eUser\ |\ eReference,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ eUnidirectional\ =\ 1\ <<\ 7}
+\DoxyCodeLine{00040\ \ \ \ \ \};}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fbx_connection_point_filter}{FbxConnectionPointFilter}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ FbxConnectionPoint}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{enum}\ EDirection}
+\DoxyCodeLine{00049\ \ \ \ \ \{\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ eDirSrc\ =\ 1\ <<\ 0,\ \ \ \textcolor{comment}{//\ Contains\ sources}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ eDirDst\ =\ 1\ <<\ 1,\ \ \ \textcolor{comment}{//\ Contains\ destinations}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ eDirUni\ =\ 1\ <<\ 2,\ \ \ \textcolor{comment}{//\ Connection\ is\ not\ 2\ ways}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ eDirBoth\ =\ eDirSrc\ |\ eDirDst,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ eDirMask\ =\ eDirSrc\ |\ eDirDst\ |\ eDirUni}
+\DoxyCodeLine{00055\ \ \ \ \ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{enum}\ EType}
+\DoxyCodeLine{00058\ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ eStandard\ =\ 0,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ eSubConnection\ =\ 1\ <<\ 3,\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Connect\ is\ a\ sub\ Connect\ of\ another}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ eTypeMask\ =\ eSubConnection}
+\DoxyCodeLine{00062\ \ \ \ \ \};\ }
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{enum}\ EAttribute}
+\DoxyCodeLine{00065\ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ eDefault\ =\ 0,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ eCache\ =\ 1\ <<\ 4,\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ eAttributeMask\ =\ eCache}
+\DoxyCodeLine{00069\ \ \ \ \ \};\ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{enum}\ EAllocFlag}
+\DoxyCodeLine{00072\ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ eNotAllocated\ =\ 0,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ eAllocated\ =\ 1\ <<\ 5,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ eAllocFlagMask\ =\ eAllocated}
+\DoxyCodeLine{00076\ \ \ \ \ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{enum}\ ECleanedFlag}
+\DoxyCodeLine{00079\ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ eNotCleaned\ =\ 0,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ eCleaned\ =\ 1\ <<\ 6,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ eCleanedFlagMask\ =\ eCleaned}
+\DoxyCodeLine{00083\ \ \ \ \ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{enum}\ EEvent}
+\DoxyCodeLine{00086\ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ eSrcConnectRequest,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ eDstConnectRequest,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ eSrcConnect,}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ eDstConnect,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ eSrcConnected,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ eDstConnected,}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ eSrcDisconnect,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ eDstDisconnect,}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ eSrcDisconnected,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ eDstDisconnected,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ eSrcReplaceBegin,}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ eSrcReplaceEnd,}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ eDstReplaceBegin,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ eDstReplaceEnd,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ eSrcReorder,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ eSrcReordered}
+\DoxyCodeLine{00103\ \ \ \ \ \};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//\ Constructor/Destructor\ \ \ }}
+\DoxyCodeLine{00106\ \ \ \ \ FbxConnectionPoint(\textcolor{keywordtype}{void}*\ pData=0);}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~FbxConnectionPoint();}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ SetFilter(\mbox{\hyperlink{class_fbx_connection_point_filter}{FbxConnectionPointFilter}}*\ pConnectFilter,\ EType\ pType=eStandard);}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{void}\ InternalClear();}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_connection_point_a9b1d6c109c6d2894aecbe9649660c4fd}{WipeConnectionList}}();}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ Destroy();}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{void}\ SubConnectRemoveAll();}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{inline}\ FbxConnectionPoint*\ \ \ \ \ \ \ \ \ \ GetSubOwnerConnect()\{\ \textcolor{keywordflow}{return}\ GetConnectType()\ ==\ eSubConnection\ ?\ mOwner\ :\ NULL;\ \}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{class_fbx_connection_point_filter}{FbxConnectionPointFilter}}*\ \ \ \ GetFilter()\{\ \textcolor{keywordflow}{return}\ mFilter;\ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ IsInReplace(FbxConnectionPoint*\ p1,\ FbxConnectionPoint*\ p2);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ SetConnectType(EType\ pType)\{\ mFlags\ =\ (mFlags\ \&\ \string~eTypeMask)\ |\ pType;\ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{inline}\ EType\ \ \ \ \ \ \ \ GetConnectType()\{\ \textcolor{keywordflow}{return}\ EType(mFlags\ \&\ eTypeMask);\ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ SetDirection(\textcolor{keywordtype}{int}\ pDirections)\{\ mFlags\ =\ (mFlags\ \&\ \string~eDirMask)\ |\ pDirections;\ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{inline}\ EDirection\ \ \ GetDirection()\{\ \textcolor{keywordflow}{return}\ EDirection(mFlags\ \&\ eDirMask);\ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ SetAttribute(\textcolor{keywordtype}{int}\ pAttributes)\{\ mFlags\ =\ (mFlags\ \&\ \string~eAttributeMask)\ |\ pAttributes;\ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{inline}\ EAttribute\ \ \ GetAttribute()\{\ \textcolor{keywordflow}{return}\ EAttribute(mFlags\ \&\ eAttributeMask);\ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ SetAllocatedFlag(\textcolor{keywordtype}{bool}\ pBool)\{\ mFlags\ =\ (\ pBool\ )\ ?\ mFlags\ |\ eAllocated\ :\ mFlags\ \&\ \string~eAllocFlagMask;\ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ GetAllocatedFlag()\{\ \textcolor{keywordflow}{return}\ (\ mFlags\ \&\ eAllocFlagMask\ )\ ?\ true\ :\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ SetCleanedFlag(\textcolor{keywordtype}{bool}\ pBool)\{\ mFlags\ =\ (\ pBool\ )\ ?\ mFlags\ |\ eCleaned\ :\ mFlags\ \&\ \string~eCleanedFlagMask;\ \}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ GetCleanedFlag()\{\ \textcolor{keywordflow}{return}\ (\ mFlags\ \&\ eCleanedFlagMask\ )\ ?\ true\ :\ \textcolor{keyword}{false};\ \}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsValidSrc(FbxConnectionPoint*\ pConnect);}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsValidDst(FbxConnectionPoint*\ pConnect);}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsValidSrcConnection(FbxConnectionPoint*\ pConnect,\ FbxConnection::EType\ pConnectionType);}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsValidDstConnection(FbxConnectionPoint*\ pConnect,\ FbxConnection::EType\ pConnectionType);}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RequestValidSrcConnection(FbxConnectionPoint*\ pConnect,\ FbxConnection::EType\ pConnectionType\ );}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RequestValidDstConnection(FbxConnectionPoint*\ pConnect,\ FbxConnection::EType\ pConnectionType\ );}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ConnectSrc(FbxConnectionPoint*\ pSrc,FbxConnection::EType\ pConnectionType=FbxConnection::eNone);}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ConnectDst(FbxConnectionPoint*\ pDst,FbxConnection::EType\ pConnectionType=FbxConnection::eNone);}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ConnectSrcAt(\textcolor{keywordtype}{int}\ pDst\_SrcIndex,\ FbxConnectionPoint*\ pSrc,\ FbxConnection::EType\ pConnectionType=FbxConnection::eNone);}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ConnectDstAt(\textcolor{keywordtype}{int}\ pSrc\_DstIndex,\ FbxConnectionPoint*\ pDst,\ FbxConnection::EType\ pConnectionType=FbxConnection::eNone);}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ ConnectConnect(FbxConnectionPoint*\ pSrc,FbxConnectionPoint*\ pDst,FbxConnection::EType\ pConnectionType);}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ ConnectAt(FbxConnectionPoint*\ pSrc,\ \textcolor{keywordtype}{int}\ pSrc\_DstIndex,\ FbxConnectionPoint*\ pDst,\ \textcolor{keywordtype}{int}\ pDst\_SrcIndex,\ FbxConnection::EType\ pConnectionType);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DisconnectDst(FbxConnectionPoint*\ pSrc);}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DisconnectSrc(FbxConnectionPoint*\ pSrc);}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DisconnectAllSrc();}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DisconnectAllDst();}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ DisconnectConnect(FbxConnectionPoint*\ pSrc,FbxConnectionPoint*\ pDst);}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DisconnectDstAt(\textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DisconnectSrcAt(\textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReplaceInDst(FbxConnectionPoint*\ pDstOld,\ FbxConnectionPoint*\ pDstNew,\ \textcolor{keywordtype}{int}\ pIndexInNew);}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReplaceInSrc(FbxConnectionPoint*\ pSrcOld,\ FbxConnectionPoint*\ pSrcNew,\ \textcolor{keywordtype}{int}\ pIndexInNew);}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReplaceDstAt(\textcolor{keywordtype}{int}\ pIndex,\ FbxConnectionPoint*\ pDst);}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ReplaceSrcAt(\textcolor{keywordtype}{int}\ pIndex,\ FbxConnectionPoint*\ pSrc);}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SwapSrc(\textcolor{keywordtype}{int}\ pIndexA,\ \textcolor{keywordtype}{int}\ pIndexB);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_connection_point_abc82c5b4c5c5c9b1d4ab59662cb13e7e}{MoveSrcAt}}(\textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keywordtype}{int}\ pAtIndex);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_connection_point_a23302c72f75632bec8b48f3f3fe8e783}{MoveSrcAt}}(FbxConnectionPoint*\ pSrc,\ FbxConnectionPoint*\ pAtSrc);}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{comment}{//\ Access\ services}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordtype}{bool}\ IsConnectedSrc(FbxConnectionPoint*);}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{bool}\ IsConnectedDst(FbxConnectionPoint*);}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ IsConnected(FbxConnectionPoint*\ pConnect)\ \{\ \textcolor{keywordflow}{return}\ IsConnectedSrc(pConnect)\ ||\ IsConnectedDst(pConnect);\ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GetSrcCount()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mConnectionList.GetSrcCount();\ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{inline}\ FbxConnectionPoint*\ \ GetSrc(\textcolor{keywordtype}{int}\ pIndex)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mConnectionList.GetSrc(pIndex);\}}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{inline}\ FbxConnection::EType\ GetSrcType(\textcolor{keywordtype}{int}\ pIndex)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mConnectionList.GetSrcType(pIndex);\}}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GetDstCount()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mConnectionList.GetDstCount();\ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{inline}\ FbxConnectionPoint*\ \ GetDst(\textcolor{keywordtype}{int}\ pIndex)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mConnectionList.GetDst(pIndex);\}}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{inline}\ FbxConnection::EType\ GetDstType(\textcolor{keywordtype}{int}\ pIndex)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mConnectionList.GetDstType(pIndex);\}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FindSrc(FbxConnectionPoint*\ pConnect)\{\ \textcolor{keywordflow}{return}\ mConnectionList.FindSrc(pConnect);\ \}}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FindDst(FbxConnectionPoint*\ pConnect)\{\ \textcolor{keywordflow}{return}\ mConnectionList.FindDst(pConnect);\ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{comment}{//\ Filtered\ versions\ \ \ \ }}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GetSrcCount(FbxConnectionPointFilter*\ pFilter)\{\ \textcolor{keywordflow}{return}\ (pFilter)\ ?\ SubConnectGetOrCreate(pFilter)-\/>GetSrcCount()\ :\ GetSrcCount();\ \}}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{inline}\ FbxConnectionPoint*\ \ GetSrc(\textcolor{keywordtype}{int}\ pIndex,FbxConnectionPointFilter*\ pFilter)\{\ \textcolor{keywordflow}{return}\ (pFilter)\ ?\ SubConnectGetOrCreate(pFilter)-\/>GetSrc(pIndex)\ :\ GetSrc(pIndex);\ \}}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{inline}\ FbxConnection::EType\ GetSrcType(\textcolor{keywordtype}{int}\ pIndex,FbxConnectionPointFilter*\ pFilter)\{\ \textcolor{keywordflow}{return}\ (pFilter)\ ?\ SubConnectGetOrCreate(pFilter)-\/>GetSrcType(pIndex)\ :\ GetSrcType(pIndex);\ \}}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GetDstCount(FbxConnectionPointFilter*\ pFilter)\{\ \textcolor{keywordflow}{return}\ (pFilter)\ ?\ SubConnectGetOrCreate(pFilter)-\/>GetDstCount()\ :\ GetDstCount();\ \}}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keyword}{inline}\ FbxConnectionPoint*\ \ GetDst(\textcolor{keywordtype}{int}\ pIndex,FbxConnectionPointFilter*\ pFilter)\{\ \textcolor{keywordflow}{return}\ (pFilter)\ ?\ SubConnectGetOrCreate(pFilter)-\/>GetDst(pIndex):\ GetDst(pIndex);\ \}}
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{inline}\ FbxConnection::EType\ GetDstType(\textcolor{keywordtype}{int}\ pIndex,FbxConnectionPointFilter*\ pFilter)\{\ \textcolor{keywordflow}{return}\ (pFilter)\ ?\ SubConnectGetOrCreate(pFilter)-\/>GetDstType(pIndex)\ :\ GetDstType(pIndex);\ \}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{void}*\ GetData()\{\ \textcolor{keywordflow}{return}\ mData;\ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \textcolor{comment}{/*****************************************************************************************************************************}}
+\DoxyCodeLine{00203\ \textcolor{comment}{**\ WARNING!\ Anything\ beyond\ these\ lines\ is\ for\ internal\ use,\ may\ not\ be\ documented\ and\ is\ subject\ to\ change\ without\ notice!\ **}}
+\DoxyCodeLine{00204\ \textcolor{comment}{*****************************************************************************************************************************/}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#ifndef\ DOXYGEN\_SHOULD\_SKIP\_THIS}}
+\DoxyCodeLine{00206\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{class\ }ConnectionList}
+\DoxyCodeLine{00208\ \ \ \ \ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ ConnectionList();}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \string~ConnectionList();}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Clear();}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ InsertSrcAt(\textcolor{keywordtype}{int}\ pIndex,\ FbxConnectionPoint*\ pConnect,\ FbxConnection::EType\ pType);}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AddSrc(FbxConnectionPoint*\ pConnect,\ FbxConnection::EType\ pType);}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RemoveSrcAt(\textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FindSrc(FbxConnectionPoint*\ pConnect)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IsConnectedSrc(FbxConnectionPoint*\ pConnect)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GetSrcCount()\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ FbxConnectionPoint*\ \ \ \ \ GetSrc(\textcolor{keywordtype}{int}\ pIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ FbxConnection::EType\ \ \ \ GetSrcType(\textcolor{keywordtype}{int}\ pIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ InsertDstAt(\textcolor{keywordtype}{int}\ pIndex,\ FbxConnectionPoint*\ pConnect,\ FbxConnection::EType\ pType);}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AddDst(FbxConnectionPoint*\ pConnect,\ FbxConnection::EType\ pType);}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RemoveDstAt(\textcolor{keywordtype}{int}\ pIndex);}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FindDst(FbxConnectionPoint*\ pConnect)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GetDstCount()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ FbxConnectionPoint*\ \ \ \ \ GetDst(\textcolor{keywordtype}{int}\ pIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ FbxConnection::EType\ \ \ \ GetDstType(\textcolor{keywordtype}{int}\ pIndex)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }Connection\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ Connection(FbxConnectionPoint*\ pPoint,\ FbxConnection::EType\ pType)\ :\ mPoint(pPoint),\ mType(pType)\ \{\}}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ FbxConnectionPoint*\ mPoint;\ FbxConnection::EType\ mType;}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Separate\ the\ arrays\ for\ better\ cache\ usage\ when\ only\ touching\ 1\ piece\ of\ data\ (eg\ in\ FindSrc)}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ These\ arrays\ must\ be\ kept\ in\ sync\ (eg\ during\ AddSrc,\ RemoveSrcAt,\ etc)}}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_set}{FbxSet<FbxConnectionPoint*>}}\ \ \ \ \ mSrcListLookup;}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxConnectionPoint*>}}\ \ \ mSrcPointList;}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<FbxConnection::EType>}}\ \ mSrcTypeList;}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fbx_array}{FbxArray<Connection>}}\ \ \ \ \ \ \ \ \ \ \ \ mDstList;}
+\DoxyCodeLine{00245\ \ \ \ \ \};}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SubConnectAdd(FbxConnectionPoint*\ pConnect);}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SubConnectRemove(FbxConnectionPoint*\ pConnect);}
+\DoxyCodeLine{00249\ \ \ \ \ FbxConnectionPoint*\ SubConnectFind(\mbox{\hyperlink{class_fbx_connection_point_filter}{FbxConnectionPointFilter}}*\ pFilter);}
+\DoxyCodeLine{00250\ \ \ \ \ FbxConnectionPoint*\ SubConnectGetOrCreate(\mbox{\hyperlink{class_fbx_connection_point_filter}{FbxConnectionPointFilter}}*\ pFilter);}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SubConnectFill(FbxConnectionPoint*\ \ pConnect);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ ConnectNotify(EEvent\ pAction,\ FbxConnectionPoint*\ pThis,\ \textcolor{keywordtype}{int}\ pIndex,\ FbxConnectionPoint*\ pConnect=NULL,\ FbxConnection::EType\ pConnectionType=FbxConnection::eNone,\ FbxConnectionPoint*\ pNewConnect=NULL);}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ ConnectCleanUp(FbxConnectionPoint*\ pThis);}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FindSrcIndexFromOwnerConnectIndex(FbxConnectionPoint*\ pOwner,\ \textcolor{keywordtype}{int}\ pOwnerIndex);}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FindDstIndexFromOwnerConnectIndex(FbxConnectionPoint*\ pOwner,\ \textcolor{keywordtype}{int}\ pOwnerIndex);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ InternalMoveSrcBefore(\textcolor{keywordtype}{int}\ pIndex,\ \textcolor{keywordtype}{int}\ pBeforeIndex);}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ InsertSrcAt(\textcolor{keywordtype}{int}\ pIndex,\ FbxConnectionPoint*\ pConnect,\ FbxConnection::EType\ pConnectionType)\ \{\ mConnectionList.InsertSrcAt(pIndex,\ pConnect,\ pConnectionType);\ \}}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ InsertDstAt(\textcolor{keywordtype}{int}\ pIndex,\ \mbox{\hyperlink{class_fbx_connection_point}{FbxConnectionPoint}}*\ pConnect,\ FbxConnection::EType\ pConnectionType)\ \{\ mConnectionList.InsertDstAt(pIndex,\ pConnect,\ pConnectionType);\ \}}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ AddSrc(FbxConnectionPoint*\ pConnect,\ FbxConnection::EType\ pConnectionType)\ \{\ mConnectionList.AddSrc(pConnect,\ pConnectionType);\ \}}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ AddDst(FbxConnectionPoint*\ pConnect,\ FbxConnection::EType\ pConnectionType)\ \{\ mConnectionList.AddDst(pConnect,\ pConnectionType);\ \}}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ RemoveSrcAt(\textcolor{keywordtype}{int}\ pIndex)\{\ mConnectionList.RemoveSrcAt(pIndex);\ \}}
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ RemoveDstAt(\textcolor{keywordtype}{int}\ pIndex)\{\ mConnectionList.RemoveDstAt(pIndex);\ \}\ \ \ \ \ }
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ InternalConnectBefore(FbxConnectionPoint*\ pSrc,\ FbxConnectionPoint*\ pSrc\_BeforeDst,\ FbxConnectionPoint*\ pDst,\ FbxConnectionPoint*\ pDst\_BeforeSrc,\ FbxConnection::EType\ pConnectionType);}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ UserConnectBefore(FbxConnectionPoint*\ pSrc,\ FbxConnectionPoint*\ pSrc\_BeforeDst,\ FbxConnectionPoint*\ pDst,\ FbxConnectionPoint*\ pDst\_BeforeSrc,\ FbxConnection::EType\ pConnectionType);}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ EmitReplaceNotify(FbxConnectionPoint*\ pDstOwner,\ FbxConnectionPoint*\ pSrcOwner,\ FbxConnectionPoint*\ pDst,\ FbxConnectionPoint*\ pSrc,\ EEvent\ pConnectAction,\ FbxConnectionPoint*\ pNew);}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SetOwnerConnect(FbxConnectionPoint*\ pConnect);}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keyword}{inline}\ FbxConnectionPoint*\ \ GetOwnerConnect()\{\ \textcolor{keywordflow}{return}\ mOwner;\ \ \}}
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ConnectOwnedConnect(FbxConnectionPoint*\ pConnect);}
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DisconnectOwnedConnect(FbxConnectionPoint*\ pConnect);}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mData;}
+\DoxyCodeLine{00279\ \ \ \ \ FbxConnectionPoint*\ \ \ \ \ \ \ \ \ \ \ \ \ mOwner;}
+\DoxyCodeLine{00280\ \ \ \ \ FbxConnectionPointFilter*\ \ \ \ \ \ \ mFilter;}
+\DoxyCodeLine{00281\ \ \ \ \ ConnectionList\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mConnectionList;}
+\DoxyCodeLine{00282\ \ \ \ \ FbxArray<FbxConnectionPoint*>\ \ \ mSubConnectList;}
+\DoxyCodeLine{00283\ \ \ \ \ FbxArray<FbxConnectionPoint*>\ \ \ mSubConnectCreatedList;\ \ \ \ \ }
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mFlags;}
+\DoxyCodeLine{00285\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ !DOXYGEN\_SHOULD\_SKIP\_THIS\ *****************************************************************************************/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00286\ \};}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00289\ \textcolor{keyword}{class\ }FBXSDK\_DLL\ \mbox{\hyperlink{class_fbx_connection_point_filter}{FbxConnectionPointFilter}}}
+\DoxyCodeLine{00290\ \{}
+\DoxyCodeLine{00291\ \textcolor{keyword}{public}:\ }
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_connection_point_filter}{\string~FbxConnectionPointFilter}}()\ \{\};}
+\DoxyCodeLine{00293\ \ \ \ \ }
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_fbx_connection_point_filter}{FbxConnectionPointFilter}}*\ \mbox{\hyperlink{class_fbx_connection_point_filter_a6701fc5c1bd69c5a879b99af2feda0f6}{Ref}}();}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fbx_connection_point_filter_ab56025ba81b8ffa45d6a312fad9dcf20}{Unref}}();}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{keyword}{virtual}\ FbxInt\ \mbox{\hyperlink{class_fbx_connection_point_filter_a07a0b5af84fa20ddbd2fd019b850832f}{GetUniqueId}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ 0;\ \}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_connection_point_filter_abed99893efb038558371fd8a70c815b4}{IsValid}}(\mbox{\hyperlink{class_fbx_connection_point}{FbxConnectionPoint}}*\ pConnect)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_connection_point_filter_a5107fd1fd412e96043f294a78bd3cf84}{IsValidConnection}}(\mbox{\hyperlink{class_fbx_connection_point}{FbxConnectionPoint}}*\ pConnect,\ FbxConnection::EType\ pType)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fbx_connection_point_filter_a20ccb6e7d73551ecec421860e6e775e0}{IsEqual}}(\mbox{\hyperlink{class_fbx_connection_point_filter}{FbxConnectionPointFilter}}*\ pConnectFilter)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00318\ \};}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{fbxsdk__nsend_8h}{fbxsdk/fbxsdk\_nsend.h}}>}}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_FBXSDK\_CORE\_CONNECTION\_POINT\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
