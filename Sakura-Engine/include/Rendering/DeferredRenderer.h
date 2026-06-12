@@ -78,7 +78,7 @@ private:
   void renderShadowPass(DeviceContext& deviceContext);
   void renderShadowObject(DeviceContext& deviceContext, const RenderObject& object);
 
-  HRESULT createShadoeResources(Device& device);
+  HRESULT createShadowResources(Device& device);
   HRESULT createGBufferResources(Device& device, unsigned int width, unsigned int height);
   HRESULT createGBufferTargtes(Device& device,
     unsigned int width,
@@ -89,7 +89,7 @@ private:
     RenderTargetView& rtv);
   HRESULT createLightingResources(Device& device);
   HRESULT createFullScreenQuad(Device& device);
-  HRESULT createBlendState(Device& device);
+  HRESULT createBlendStates(Device& device);
   ID3D11BlendState* resolveBlendState(const Material& material) const;
 
 private:
